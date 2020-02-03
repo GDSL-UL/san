@@ -4,24 +4,24 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Multilevel Models (Pt. I) | A Minimal Book Example</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <title>Chapter 6 Multilevel Models (Pt. I) | Spatial Analysis Notes</title>
+  <meta name="description" content="Materials for a Spatial Analysis course in R." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Multilevel Models (Pt. I) | A Minimal Book Example" />
+  <meta property="og:title" content="Chapter 6 Multilevel Models (Pt. I) | Spatial Analysis Notes" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta property="og:description" content="Materials for a Spatial Analysis course in R." />
+  <meta name="github-repo" content="gdsl-ul/san" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Multilevel Models (Pt. I) | A Minimal Book Example" />
+  <meta name="twitter:title" content="Chapter 6 Multilevel Models (Pt. I) | Spatial Analysis Notes" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="Materials for a Spatial Analysis course in R." />
   
 
-<meta name="author" content="Yihui Xie" />
+<meta name="author" content="Francisco Rowe-Gonzalez &amp; Dani Arribas-Bel" />
 
 
 <meta name="date" content="2020-02-03" />
@@ -133,9 +133,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Spatial Analysis Notes</a></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>3</b> Points</a></li>
+<li class="chapter" data-level="3" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>3</b> Points</a><ul>
+<li class="chapter" data-level="3.1" data-path="points.html"><a href="points.html#dependencies"><i class="fa fa-check"></i><b>3.1</b> Dependencies</a></li>
+<li class="chapter" data-level="3.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>3.2</b> Data</a></li>
+<li class="chapter" data-level="3.3" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>3.3</b> KDE</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>3.3.1</b> One-dimensional KDE</a></li>
+<li class="chapter" data-level="3.3.2" data-path="points.html"><a href="points.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>3.3.2</b> Two-dimensional (spatial) KDE</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>3.4</b> Spatial Interpolation</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="points.html"><a href="points.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>3.4.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
+<li class="chapter" data-level="3.4.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>3.4.2</b> A surface of housing prices</a></li>
+<li class="chapter" data-level="3.4.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>3.4.3</b> <em>“What should the next house’s price be?”</em></a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>4</b> Flows</a></li>
 <li class="chapter" data-level="5" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>5</b> Spatial Econometrics</a></li>
 <li class="chapter" data-level="6" data-path="multilevel-models-pt-i.html"><a href="multilevel-models-pt-i.html"><i class="fa fa-check"></i><b>6</b> Multilevel Models (Pt. I)</a></li>
@@ -155,7 +167,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Spatial Analysis Notes</a>
           </h1>
         </div>
 
@@ -216,7 +228,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["spatial_analysis_notes.pdf", "spatial_analysis_notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

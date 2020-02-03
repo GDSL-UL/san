@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Spatial Interpolation | A Minimal Book Example</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Spatial Interpolation | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Spatial Interpolation | A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Yihui Xie" />
+
+
+<meta name="date" content="2020-02-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="kde.html"/>
+<link rel="next" href="flows.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>3</b> Points</a></li>
+<li class="chapter" data-level="4" data-path="dependencies.html"><a href="dependencies.html"><i class="fa fa-check"></i><b>4</b> Dependencies</a></li>
+<li class="chapter" data-level="5" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>5</b> Data</a></li>
+<li class="chapter" data-level="6" data-path="kde.html"><a href="kde.html"><i class="fa fa-check"></i><b>6</b> KDE</a><ul>
+<li class="chapter" data-level="6.1" data-path="kde.html"><a href="kde.html#one-dimensional-kde"><i class="fa fa-check"></i><b>6.1</b> One-dimensional KDE</a></li>
+<li class="chapter" data-level="6.2" data-path="kde.html"><a href="kde.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>6.2</b> Two-dimensional (spatial) KDE</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="spatial-interpolation.html"><a href="spatial-interpolation.html"><i class="fa fa-check"></i><b>7</b> Spatial Interpolation</a><ul>
+<li class="chapter" data-level="7.1" data-path="spatial-interpolation.html"><a href="spatial-interpolation.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>7.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
+<li class="chapter" data-level="7.2" data-path="spatial-interpolation.html"><a href="spatial-interpolation.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>7.2</b> A surface of housing prices</a></li>
+<li class="chapter" data-level="7.3" data-path="spatial-interpolation.html"><a href="spatial-interpolation.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>7.3</b> <em>“What should the next house’s price be?”</em></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>8</b> Flows</a></li>
+<li class="chapter" data-level="9" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>9</b> Spatial Econometrics</a></li>
+<li class="chapter" data-level="10" data-path="multilevel-models-pt-i.html"><a href="multilevel-models-pt-i.html"><i class="fa fa-check"></i><b>10</b> Multilevel Models (Pt. I)</a></li>
+<li class="chapter" data-level="11" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>11</b> Multilevel Models (Pt. II)</a></li>
+<li class="chapter" data-level="12" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>12</b> GWR</a></li>
+<li class="chapter" data-level="13" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>13</b> Space-Time Analysis</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="spatial-interpolation" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Spatial Interpolation</h1>
+<p>The previous section demonstrates how to visualize the distribution of a set of spatial objects represented as points. In particular, given a bunch of house transactions, it shows how one can effectively visualize their distribution over space and get a sense of the density of occurrences. Such visualization, because it is based on KDE, is based on a smooth continuum, rather than on a discrete approach (as a choropleth would do, for example).</p>
+<p>Many times however, we are not particularly interested in learning about the density of occurrences, but about the distribution of a given value attached to each location. Think for example of weather stations and temperature: the location of the stations is no secret and rarely changes, so it is not of particular interest to visualize the density of stations; what we are usually interested instead is to know how temperature is distributed over space, given we only measure it in a few places. One could argue the example we have been working with so far, house price transactions, fits into this category as well: although where house are sold may be of relevance, more often we are interested in finding out what the “surface of price” looks like. Rather than <em>where are most houses being sold?</em> we usually want to know <em>where the most expensive or most affordable</em> houses are located.</p>
+<p>In cases where we are interested in creating a surface of a given value, rather than a simple density surface of occurrences, KDE cannot help us. In these cases, what we are interested in is <em>spatial interpolation</em>, a family of techniques that aim at exactly that: creating continuous surfaces for a particular phenomenon (e.g. temperature, house prices) given only a finite sample of observations. Spatial interpolation is a large field of research that is still being actively developed and that can involve a substantial amount of mathematical complexity in order to obtain the most accurate estimates possible<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. In this session, we will introduce the simplest possible way of interpolating values, hoping this will give you a general understanding of the methodology and, if you are interested, you can check out further literature. For example, <span class="citation">(<span class="citeproc-not-found" data-reference-id="banerjee2014hierarchical"><strong>???</strong></span>)</span> or <span class="citation">(<span class="citeproc-not-found" data-reference-id="cressie2015statistics"><strong>???</strong></span>)</span> are hard but good overviews.</p>
+<div id="inverse-distance-weight-idw-interpolation" class="section level2">
+<h2><span class="header-section-number">7.1</span> Inverse Distance Weight (IDW) interpolation</h2>
+<p>The technique we will cover here is called <em>Inverse Distance Weighting</em>, or IDW for convenience. <span class="citation">(<span class="citeproc-not-found" data-reference-id="comber2015"><strong>???</strong></span>)</span> offer a good description:</p>
+<blockquote>
+<p>In the <em>inverse distance weighting</em> (IDW) approach to interpolation, to estimate the value of <span class="math inline">\(z\)</span> at location <span class="math inline">\(x\)</span> a weighted mean of nearby observations is taken […]. To accommodate the idea that observations of <span class="math inline">\(z\)</span> at points closer to <span class="math inline">\(x\)</span> should be given more importance in the interpolation, greater weight is given to these points […]</p>
+<p>— Page 204</p>
+</blockquote>
+<p>The math<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> is not particularly complicated and may be found in detail elsewhere (the reference above is a good starting point), so we will not spend too much time on it. More relevant in this context is the intuition behind. Essentially, the idea is that we will create a surface of house price by smoothing many values arranged along a regular grid and obtained by interpolating from the known locations to the regular grid locations. This will give us full and equal coverage to soundly perform the smoothing.</p>
+<p>Enough chat, let’s code.</p>
+<p>From what we have just mentioned, there are a few steps to perform an IDW spatial interpolation:</p>
+<ol style="list-style-type: decimal">
+<li>Create a regular grid over the area where we have house transactions.</li>
+<li>Obtain IDW estimates for each point in the grid, based on the values of <span class="math inline">\(k\)</span> nearest neighbors.</li>
+<li>Plot a smoothed version of the grid, effectively representing the surface of house prices.</li>
+</ol>
+<p>Let us go in detail into each of them<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>. First, let us set up a grid:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="spatial-interpolation.html#cb47-1"></a>liv.grid &lt;-<span class="st"> </span><span class="kw">spsample</span>(db, <span class="dt">type=</span><span class="st">&#39;regular&#39;</span>, <span class="dt">n=</span><span class="dv">25000</span>)</span></code></pre></div>
+<p>That’s it, we’re done! The function <code>spsample</code> hugely simplifies the task by taking a spatial object and returning the grid we need. Not a couple of additional arguments we pass: <code>type</code> allows us to get a set of points that are <em>uniformly</em> distributed over space, which is handy for the later smoothing; <code>n</code> controls how many points we want to create in that grid.</p>
+<p>On to the IDW. Again, this is hugely simplified by <code>gstat</code>:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="spatial-interpolation.html#cb48-1"></a>idw.hp &lt;-<span class="st"> </span><span class="kw">idw</span>(price <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">locations=</span>db, <span class="dt">newdata=</span>liv.grid)</span></code></pre></div>
+<pre><code>## [inverse distance weighted interpolation]</code></pre>
+<p>Boom! We’ve got it. Let us pause for a second to see how we just did it. First, we pass <code>price ~ 1</code>. This specifies the formula we are using to model house prices. The name on the left of <code>~</code> represents the variable we want to explain, while everything to its right captures the <em>explanatory</em> variables. Since we are considering the simplest possible case, we do not have further variables to add, so we simply write <code>1</code>. Then we specify the original locations for which we do have house prices (our original <code>db</code> object), and the points where we want to interpolate the house prices (the <code>liv.grid</code> object we just created above). One more note: by default, <code>idw.hp</code> uses all the available observations, weighted by distance, to provide an estimate for a given point. If you want to modify that and restrict the maximum number of neighbors to consider, you need to tweak the argument <code>nmax</code>, as we do above by using the 150 neares observations to each point<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>.</p>
+<p>The object we get from <code>idw</code> is another spatial table, just as <code>db</code>, containing the interpolated values. As such, we can inspect it just as with any other of its kind. For example, to check out the top of the estimated table:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="spatial-interpolation.html#cb50-1"></a><span class="kw">head</span>(idw.hp<span class="op">@</span>data)</span></code></pre></div>
+<pre><code>##   var1.pred var1.var
+## 1  158057.8       NA
+## 2  158167.7       NA
+## 3  158280.4       NA
+## 4  158395.9       NA
+## 5  158514.4       NA
+## 6  158636.0       NA</code></pre>
+<p>The column we will pay attention to is <code>var1.pred</code>. And to see the locations for which those correspond:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="spatial-interpolation.html#cb52-1"></a><span class="kw">head</span>(idw.hp<span class="op">@</span>coords)</span></code></pre></div>
+<pre><code>##            x1       x2
+## [1,] 333563.7 382722.5
+## [2,] 333648.7 382722.5
+## [3,] 333733.7 382722.5
+## [4,] 333818.6 382722.5
+## [5,] 333903.6 382722.5
+## [6,] 333988.5 382722.5</code></pre>
+<p>So, for a hypothetical house sold at the location in the first row of <code>idw.hp@coords</code> (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column <code>var1.pred</code> in <code>idw.hp@data</code>.</p>
+</div>
+<div id="a-surface-of-housing-prices" class="section level2">
+<h2><span class="header-section-number">7.2</span> A surface of housing prices</h2>
+<p>Once we have the IDW object computed, we can plot it to explore the distribution, not of house transactions in this case, but of house price over the geography of Liverpool. The easiest way to do this is by quickly calling the command <code>spplot</code>:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="spatial-interpolation.html#cb54-1"></a><span class="kw">spplot</span>(idw.hp[<span class="st">&#39;var1.pred&#39;</span>])</span></code></pre></div>
+<p><img src="02-points_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>However, this is not entirely satisfactory for a number of reasons. Let us get an equivalen plot with the package <code>tmap</code>, which streamlines some of this and makes more aesthetically pleasant maps easier to build as it follows a “ggplot-y” approach.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="spatial-interpolation.html#cb55-1"></a><span class="co"># Load up the layer</span></span>
+<span id="cb55-2"><a href="spatial-interpolation.html#cb55-2"></a>liv.otl &lt;-<span class="st"> </span><span class="kw">readOGR</span>(<span class="st">&#39;data/house_transactions&#39;</span>, <span class="st">&#39;liv_outline&#39;</span>)</span></code></pre></div>
+<pre><code>## OGR data source with driver: ESRI Shapefile 
+## Source: &quot;/home/jovyan/work/data/house_transactions&quot;, layer: &quot;liv_outline&quot;
+## with 1 features
+## It has 1 fields</code></pre>
+<p>The shape we will overlay looks like this:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="spatial-interpolation.html#cb57-1"></a><span class="kw">qtm</span>(liv.otl)</span></code></pre></div>
+<p><img src="02-points_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>Now let’s give it a first go!</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="spatial-interpolation.html#cb58-1"></a><span class="co"># </span></span>
+<span id="cb58-2"><a href="spatial-interpolation.html#cb58-2"></a>p =<span class="st"> </span><span class="kw">tm_shape</span>(liv.otl) <span class="op">+</span><span class="st"> </span><span class="kw">tm_fill</span>(<span class="dt">col=</span><span class="st">&#39;black&#39;</span>, <span class="dt">alpha=</span><span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb58-3"><a href="spatial-interpolation.html#cb58-3"></a><span class="st">  </span><span class="kw">tm_shape</span>(idw.hp) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb58-4"><a href="spatial-interpolation.html#cb58-4"></a><span class="st">  </span><span class="kw">tm_symbols</span>(<span class="dt">col=</span><span class="st">&#39;var1.pred&#39;</span>, <span class="dt">size=</span><span class="fl">0.1</span>, <span class="dt">alpha=</span><span class="fl">0.25</span>, </span>
+<span id="cb58-5"><a href="spatial-interpolation.html#cb58-5"></a>             <span class="dt">border.lwd=</span><span class="fl">0.</span>, <span class="dt">palette=</span><span class="st">&#39;YlGn&#39;</span>)</span>
+<span id="cb58-6"><a href="spatial-interpolation.html#cb58-6"></a>p</span></code></pre></div>
+<p><img src="02-points_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>The last two plots, however, are not really a surface, but a representation of the points we have just estimated. To create a surface, we need to do an interim transformation to convert the spatial object <code>idw.hp</code> into a table that a “surface plotter” can understand.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="spatial-interpolation.html#cb59-1"></a>xyz &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">coordinates</span>(idw.hp)[, <span class="dv">1</span>], </span>
+<span id="cb59-2"><a href="spatial-interpolation.html#cb59-2"></a>                  <span class="dt">y=</span><span class="kw">coordinates</span>(idw.hp)[, <span class="dv">2</span>], </span>
+<span id="cb59-3"><a href="spatial-interpolation.html#cb59-3"></a>                  <span class="dt">z=</span>idw.hp<span class="op">$</span>var1.pred)</span></code></pre></div>
+<p>Now we are ready to plot the surface as a contour:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="spatial-interpolation.html#cb60-1"></a>base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>xyz, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y))</span>
+<span id="cb60-2"><a href="spatial-interpolation.html#cb60-2"></a>surface &lt;-<span class="st"> </span>base <span class="op">+</span><span class="st"> </span><span class="kw">geom_contour</span>(<span class="kw">aes</span>(<span class="dt">z=</span>z))</span>
+<span id="cb60-3"><a href="spatial-interpolation.html#cb60-3"></a>surface</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-24"></span>
+<img src="02-points_files/figure-html/unnamed-chunk-24-1.png" alt="Contour of prices in Liverpool" width="672" />
+<p class="caption">
+Figure 7.1: Contour of prices in Liverpool
+</p>
+</div>
+<p>Which can also be shown as a filled contour:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="spatial-interpolation.html#cb61-1"></a>base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>xyz, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y))</span>
+<span id="cb61-2"><a href="spatial-interpolation.html#cb61-2"></a>surface &lt;-<span class="st"> </span>base <span class="op">+</span><span class="st"> </span><span class="kw">geom_raster</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>z))</span>
+<span id="cb61-3"><a href="spatial-interpolation.html#cb61-3"></a>surface</span></code></pre></div>
+<p><img src="02-points_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p>The problem here, when compared to the KDE above for example, is that a few values are extremely large:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="spatial-interpolation.html#cb62-1"></a><span class="kw">qplot</span>(<span class="dt">data=</span>xyz, <span class="dt">x=</span>z, <span class="dt">geom=</span><span class="st">&#39;density&#39;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-26"></span>
+<img src="02-points_files/figure-html/unnamed-chunk-26-1.png" alt="Skewness of prices in Liverpool" width="672" />
+<p class="caption">
+Figure 7.2: Skewness of prices in Liverpool
+</p>
+</div>
+<p>Let us then take the logarithm before we plot the surface:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="spatial-interpolation.html#cb63-1"></a>xyz[<span class="st">&#39;lz&#39;</span>] &lt;-<span class="st"> </span><span class="kw">log</span>(xyz<span class="op">$</span>z)</span>
+<span id="cb63-2"><a href="spatial-interpolation.html#cb63-2"></a>base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>xyz, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y))</span>
+<span id="cb63-3"><a href="spatial-interpolation.html#cb63-3"></a>surface &lt;-<span class="st"> </span>base <span class="op">+</span></span>
+<span id="cb63-4"><a href="spatial-interpolation.html#cb63-4"></a><span class="st">           </span><span class="kw">geom_raster</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>lz),</span>
+<span id="cb63-5"><a href="spatial-interpolation.html#cb63-5"></a>                       <span class="dt">show.legend =</span> F)</span>
+<span id="cb63-6"><a href="spatial-interpolation.html#cb63-6"></a>surface</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-27"></span>
+<img src="02-points_files/figure-html/unnamed-chunk-27-1.png" alt="Surface of log-prices in Liverpool" width="672" />
+<p class="caption">
+Figure 7.3: Surface of log-prices in Liverpool
+</p>
+</div>
+<p>Now this looks better. We can start to tell some patterns. To bring in context, it would be great to be able to add a basemap layer, as we did for the KDE. This is conceptually very similar to what we did above, starting by reprojecting the points and continuing by overlaying them on top of the basemap. However, technically speaking it is not possible because <code>ggmap</code> –the library we have been using to display tiles from cloud providers– does not play well with our own rasters (i.e. the price surface). At the moment, it is surprisingly tricky to get this to work, so we will park it for now. However, developments such as the <a href="https://github.com/edzer/sfr"><code>sf</code></a> project promise to make this easier in the future<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.</p>
+</div>
+<div id="what-should-the-next-houses-price-be" class="section level2">
+<h2><span class="header-section-number">7.3</span> <em>“What should the next house’s price be?”</em></h2>
+<p>The last bit we will explore in this session relates to prediction for new values. Imagine you are a real state data scientist and your boss asks you to give an estimate of how much a new house going into the market should cost. The only information you have to make such a guess is the location of the house. In this case, the IDW model we have just fitted can help you. The trick is realizing that, instead of creating an entire grid, all we need is to obtain an estimate of a single location.</p>
+<p>Let us say, the house is located on the coordinates <code>x=340000, y=390000</code> as expressed in the GB National Grid coordinate system. In that case, we can do as follows:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="spatial-interpolation.html#cb64-1"></a>pt &lt;-<span class="st"> </span><span class="kw">SpatialPoints</span>(<span class="kw">cbind</span>(<span class="dt">x=</span><span class="dv">340000</span>, <span class="dt">y=</span><span class="dv">390000</span>),</span>
+<span id="cb64-2"><a href="spatial-interpolation.html#cb64-2"></a>                    <span class="dt">proj4string =</span> db<span class="op">@</span>proj4string)</span>
+<span id="cb64-3"><a href="spatial-interpolation.html#cb64-3"></a>idw.one &lt;-<span class="st"> </span><span class="kw">idw</span>(price <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">locations=</span>db, <span class="dt">newdata=</span>pt)</span></code></pre></div>
+<pre><code>## [inverse distance weighted interpolation]</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="spatial-interpolation.html#cb66-1"></a>idw.one</span></code></pre></div>
+<pre><code>## class       : SpatialPointsDataFrame 
+## features    : 1 
+## extent      : 340000, 340000, 390000, 390000  (xmin, xmax, ymin, ymax)
+## crs         : +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs +ellps=airy +towgs84=446.448,-125.157,542.060,0.1502,0.2470,0.8421,-20.4894 
+## variables   : 2
+## names       :        var1.pred, var1.var 
+## value       : 157099.029513871,       NA</code></pre>
+<p>And, as show above, the estimated value is GBP157,099<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>.</p>
+<p>Using this predictive logic, and taking advantage of Google Maps and its geocoding capabilities, it is possible to devise a function that takes an arbitrary address in Liverpool and, based on the transactions occurred throughout 2014, provides an estimate of what the price for a property in that location could be.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="spatial-interpolation.html#cb68-1"></a>how.much.is &lt;-<span class="st"> </span><span class="cf">function</span>(address, <span class="dt">print.message=</span><span class="ot">TRUE</span>){</span>
+<span id="cb68-2"><a href="spatial-interpolation.html#cb68-2"></a>  <span class="co"># Convert the address into Lon/Lat coordinates</span></span>
+<span id="cb68-3"><a href="spatial-interpolation.html#cb68-3"></a>  <span class="co"># </span><span class="al">NOTE</span><span class="co">: this now requires an API key</span></span>
+<span id="cb68-4"><a href="spatial-interpolation.html#cb68-4"></a>  <span class="co"># https://github.com/dkahle/ggmap#google-maps-and-credentials</span></span>
+<span id="cb68-5"><a href="spatial-interpolation.html#cb68-5"></a>  ll.pt &lt;-<span class="st"> </span><span class="kw">geocode</span>(address)</span>
+<span id="cb68-6"><a href="spatial-interpolation.html#cb68-6"></a>  <span class="co"># Process as spatial table</span></span>
+<span id="cb68-7"><a href="spatial-interpolation.html#cb68-7"></a>  wgs84 &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0&quot;</span>)</span>
+<span id="cb68-8"><a href="spatial-interpolation.html#cb68-8"></a>  ll.pt &lt;-<span class="st"> </span><span class="kw">SpatialPoints</span>(<span class="kw">cbind</span>(<span class="dt">x=</span>ll.pt<span class="op">$</span>lon, <span class="dt">y=</span>ll.pt<span class="op">$</span>lat),</span>
+<span id="cb68-9"><a href="spatial-interpolation.html#cb68-9"></a>                      <span class="dt">proj4string =</span> wgs84)</span>
+<span id="cb68-10"><a href="spatial-interpolation.html#cb68-10"></a>  <span class="co"># Transform Lon/Lat into OSGB</span></span>
+<span id="cb68-11"><a href="spatial-interpolation.html#cb68-11"></a>  pt &lt;-<span class="st"> </span><span class="kw">spTransform</span>(ll.pt, db<span class="op">@</span>proj4string)</span>
+<span id="cb68-12"><a href="spatial-interpolation.html#cb68-12"></a>  <span class="co"># Obtain prediction</span></span>
+<span id="cb68-13"><a href="spatial-interpolation.html#cb68-13"></a>  idw.one &lt;-<span class="st"> </span><span class="kw">idw</span>(price <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">locations=</span>db, <span class="dt">newdata=</span>pt)</span>
+<span id="cb68-14"><a href="spatial-interpolation.html#cb68-14"></a>  price &lt;-<span class="st"> </span>idw.one<span class="op">@</span>data<span class="op">$</span>var1.pred</span>
+<span id="cb68-15"><a href="spatial-interpolation.html#cb68-15"></a>  <span class="co"># Return predicted price</span></span>
+<span id="cb68-16"><a href="spatial-interpolation.html#cb68-16"></a>  <span class="cf">if</span>(print.message<span class="op">==</span>T){</span>
+<span id="cb68-17"><a href="spatial-interpolation.html#cb68-17"></a>    <span class="kw">writeLines</span>(<span class="kw">paste</span>(<span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">Based on what surrounding properties were sold&quot;</span>,</span>
+<span id="cb68-18"><a href="spatial-interpolation.html#cb68-18"></a>                    <span class="st">&quot;for in 2014 a house located at&quot;</span>, address, <span class="st">&quot;would&quot;</span>, </span>
+<span id="cb68-19"><a href="spatial-interpolation.html#cb68-19"></a>                    <span class="st">&quot;cost&quot;</span>,  <span class="kw">paste</span>(<span class="st">&quot;GBP&quot;</span>, <span class="kw">round</span>(price), <span class="st">&quot;.&quot;</span>, <span class="dt">sep=</span><span class="st">&#39;&#39;</span>), <span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">&quot;</span>))</span>
+<span id="cb68-20"><a href="spatial-interpolation.html#cb68-20"></a>  }</span>
+<span id="cb68-21"><a href="spatial-interpolation.html#cb68-21"></a>  <span class="kw">return</span>(price)</span>
+<span id="cb68-22"><a href="spatial-interpolation.html#cb68-22"></a>}</span></code></pre></div>
+<p>Ready to test!</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="spatial-interpolation.html#cb69-1"></a>address &lt;-<span class="st"> &quot;74 Bedford St S, Liverpool, L69 7ZT, UK&quot;</span></span>
+<span id="cb69-2"><a href="spatial-interpolation.html#cb69-2"></a><span class="co">#p &lt;- how.much.is(address)</span></span></code></pre></div>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>There is also an important economic incentive to do this: some of the most popular applications are in the oil and gas or mining industries. In fact, the very creator of this technique, <a href="https://en.wikipedia.org/wiki/Danie_G._Krige">Danie G. Krige</a>, was a mining engineer. His name is usually used to nickname spatial interpolation as <em>kriging</em>.<a href="spatial-interpolation.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Essentially, for any point <span class="math inline">\(x\)</span> in space, the IDW estimate for value <span class="math inline">\(z\)</span> is equivalent to <span class="math inline">\(\hat{z} (x) = \dfrac{\sum_i w_i z_i}{\sum_i w_i}\)</span> where <span class="math inline">\(i\)</span> are the observations for which we do have a value, and <span class="math inline">\(w_i\)</span> is a weight given to location <span class="math inline">\(i\)</span> based on its distance to <span class="math inline">\(x\)</span>.<a href="spatial-interpolation.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>For the relevant calculations, we will be using the <code>gstat</code> library.<a href="spatial-interpolation.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Have a play with this because the results do change significantly. Can you reason why?<a href="spatial-interpolation.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p><strong>BONUS</strong> if you can figure out a way to do it yourself!<a href="spatial-interpolation.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p><strong>PRO QUESTION</strong> Is that house expensive or cheap, as compared to the other houses sold in this dataset? Can you figure out where the house is?<a href="spatial-interpolation.html#fnref9" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="kde.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="flows.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-points.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Data | A Minimal Book Example</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Data | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Data | A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Yihui Xie" />
+
+
+<meta name="date" content="2020-02-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="dependencies.html"/>
+<link rel="next" href="kde.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>3</b> Points</a></li>
+<li class="chapter" data-level="4" data-path="dependencies.html"><a href="dependencies.html"><i class="fa fa-check"></i><b>4</b> Dependencies</a></li>
+<li class="chapter" data-level="5" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>5</b> Data</a></li>
+<li class="chapter" data-level="6" data-path="kde.html"><a href="kde.html"><i class="fa fa-check"></i><b>6</b> KDE</a><ul>
+<li class="chapter" data-level="6.1" data-path="kde.html"><a href="kde.html#one-dimensional-kde"><i class="fa fa-check"></i><b>6.1</b> One-dimensional KDE</a></li>
+<li class="chapter" data-level="6.2" data-path="kde.html"><a href="kde.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>6.2</b> Two-dimensional (spatial) KDE</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="spatial-interpolation.html"><a href="spatial-interpolation.html"><i class="fa fa-check"></i><b>7</b> Spatial Interpolation</a><ul>
+<li class="chapter" data-level="7.1" data-path="spatial-interpolation.html"><a href="spatial-interpolation.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>7.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
+<li class="chapter" data-level="7.2" data-path="spatial-interpolation.html"><a href="spatial-interpolation.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>7.2</b> A surface of housing prices</a></li>
+<li class="chapter" data-level="7.3" data-path="spatial-interpolation.html"><a href="spatial-interpolation.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>7.3</b> <em>“What should the next house’s price be?”</em></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>8</b> Flows</a></li>
+<li class="chapter" data-level="9" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>9</b> Spatial Econometrics</a></li>
+<li class="chapter" data-level="10" data-path="multilevel-models-pt-i.html"><a href="multilevel-models-pt-i.html"><i class="fa fa-check"></i><b>10</b> Multilevel Models (Pt. I)</a></li>
+<li class="chapter" data-level="11" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>11</b> Multilevel Models (Pt. II)</a></li>
+<li class="chapter" data-level="12" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>12</b> GWR</a></li>
+<li class="chapter" data-level="13" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>13</b> Space-Time Analysis</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Data</h1>
+<p>For this session, we will use a subset of residential property transaction data for the city of Liverpool. These are provided by the Land Registry (as part of their <a href="https://www.gov.uk/government/collections/price-paid-data">Price Paid Data</a>) but have been cleaned and re-packaged by Dani Arribas-Bel.</p>
+<p>Let us start by reading the data, which comes in a shapefile:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data.html#cb19-1"></a>db &lt;-<span class="st"> </span><span class="kw">readOGR</span>(<span class="dt">dsn =</span> <span class="st">&#39;data/house_transactions&#39;</span>, <span class="dt">layer =</span> <span class="st">&#39;liv_house_trans&#39;</span>)</span></code></pre></div>
+<pre><code>## OGR data source with driver: ESRI Shapefile 
+## Source: &quot;/home/jovyan/work/data/house_transactions&quot;, layer: &quot;liv_house_trans&quot;
+## with 6324 features
+## It has 18 fields
+## Integer64 fields read as strings:  price</code></pre>
+<p>Before we forget, let us make sure <code>price</code> is considered a number, not a factor:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data.html#cb21-1"></a>db<span class="op">@</span>data<span class="op">$</span>price &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>((db<span class="op">@</span>data<span class="op">$</span>price)))</span></code></pre></div>
+<p>The dataset spans the year 2014:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="data.html#cb22-1"></a><span class="co"># Format dates</span></span>
+<span id="cb22-2"><a href="data.html#cb22-2"></a>dts &lt;-<span class="st"> </span><span class="kw">as.Date</span>(db<span class="op">@</span>data<span class="op">$</span>trans_date)</span>
+<span id="cb22-3"><a href="data.html#cb22-3"></a><span class="co"># Set up summary table</span></span>
+<span id="cb22-4"><a href="data.html#cb22-4"></a>tab &lt;-<span class="st"> </span><span class="kw">summary</span>(dts)</span>
+<span id="cb22-5"><a href="data.html#cb22-5"></a>tab</span></code></pre></div>
+<pre><code>##         Min.      1st Qu.       Median         Mean      3rd Qu. 
+## &quot;2014-01-02&quot; &quot;2014-04-11&quot; &quot;2014-07-09&quot; &quot;2014-07-08&quot; &quot;2014-10-03&quot; 
+##         Max. 
+## &quot;2014-12-30&quot;</code></pre>
+<p>We can then examine the elements of the object with the <code>summary</code> method:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="data.html#cb24-1"></a><span class="kw">summary</span>(db)</span></code></pre></div>
+<pre><code>## Object of class SpatialPointsDataFrame
+## Coordinates:
+##              min    max
+## coords.x1 333536 345449
+## coords.x2 382684 397833
+## Is projected: TRUE 
+## proj4string :
+## [+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000
+## +y_0=-100000 +datum=OSGB36 +units=m +no_defs +ellps=airy
+## +towgs84=446.448,-125.157,542.060,0.1502,0.2470,0.8421,-20.4894]
+## Number of points: 6324
+## Data attributes:
+##       pcds                                           id      
+##  L1 6LS : 126   {00029226-80EF-4280-9809-109B8509656A}:   1  
+##  L8 5TE :  63   {00041BD2-4A07-4D41-A5AE-6459CD5FD37C}:   1  
+##  L1 5AQ :  34   {0005AE67-9150-41D4-8D56-6BFC868EECA3}:   1  
+##  L24 1WA:  31   {00183CD7-EE48-434B-8A1A-C94B30A93691}:   1  
+##  L17 6BT:  26   {003EA3A5-F804-458D-A66F-447E27569456}:   1  
+##  L3 1EE :  24   {00411304-DD5B-4F11-9748-93789D6A000E}:   1  
+##  (Other):6020   (Other)                               :6318  
+##      price                     trans_date   type     new      duration
+##  Min.   :    1000   2014-06-27 00:00: 109   D: 505   N:5495   F:3927  
+##  1st Qu.:   70000   2014-12-19 00:00: 109   F:1371   Y: 829   L:2397  
+##  Median :  110000   2014-02-28 00:00: 105   O: 119                    
+##  Mean   :  144310   2014-10-31 00:00:  95   S:1478                    
+##  3rd Qu.:  160000   2014-03-28 00:00:  94   T:2851                    
+##  Max.   :26615720   2014-11-28 00:00:  94                             
+##                     (Other)         :5718                             
+##       paon               saon                   street    
+##  3      : 203   FLAT 2     :  25   CROSSHALL STREET: 133  
+##  11     : 151   FLAT 3     :  25   STANHOPE STREET :  63  
+##  14     : 148   FLAT 1     :  24   PALL MALL       :  47  
+##  5      : 146   APARTMENT 4:  23   DUKE STREET     :  41  
+##  4      : 140   APARTMENT 2:  21   MANN ISLAND     :  41  
+##  8      : 128   (Other)    : 893   OLD HALL STREET :  39  
+##  (Other):5408   NA&#39;s       :5313   (Other)         :5960  
+##          locality           town           district           county    
+##  WAVERTREE   : 126   LIVERPOOL:6324   KNOWSLEY :  12   MERSEYSIDE:6324  
+##  MOSSLEY HILL: 102                    LIVERPOOL:6311                    
+##  WALTON      :  88                    WIRRAL   :   1                    
+##  WEST DERBY  :  71                                                      
+##  WOOLTON     :  66                                                      
+##  (Other)     : 548                                                      
+##  NA&#39;s        :5323                                                      
+##  ppd_cat  status         lsoa11          LSOA11CD   
+##  A:5393   A:6324   E01033762: 144   E01033762: 144  
+##  B: 931            E01033756:  98   E01033756:  98  
+##                    E01033752:  93   E01033752:  93  
+##                    E01033750:  71   E01033750:  71  
+##                    E01006518:  68   E01006518:  68  
+##                    E01033755:  65   E01033755:  65  
+##                    (Other)  :5785   (Other)  :5785</code></pre>
+<p>See how it contains several pieces, some relating to the spatial information, some relating to the tabular data attached to it. We can access each of the separately if we need it. For example, to pull out the names of the columns in the <code>data.frame</code>, we can use the <code>@data</code> appendix:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="data.html#cb26-1"></a><span class="kw">colnames</span>(db<span class="op">@</span>data)</span></code></pre></div>
+<pre><code>##  [1] &quot;pcds&quot;       &quot;id&quot;         &quot;price&quot;      &quot;trans_date&quot; &quot;type&quot;      
+##  [6] &quot;new&quot;        &quot;duration&quot;   &quot;paon&quot;       &quot;saon&quot;       &quot;street&quot;    
+## [11] &quot;locality&quot;   &quot;town&quot;       &quot;district&quot;   &quot;county&quot;     &quot;ppd_cat&quot;   
+## [16] &quot;status&quot;     &quot;lsoa11&quot;     &quot;LSOA11CD&quot;</code></pre>
+<p>The rest of this session will focus on two main elements of the shapefile: the spatial dimension (as stored in the point coordinates), and the house price values contained in the <code>price</code> column. To get a sense of what they look like first, let us plot both. We can get a quick look at the non-spatial distribution of house values with the following commands:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="data.html#cb28-1"></a><span class="co"># Create the histogram</span></span>
+<span id="cb28-2"><a href="data.html#cb28-2"></a>hist &lt;-<span class="st"> </span><span class="kw">qplot</span>(<span class="dt">data=</span>db<span class="op">@</span>data,<span class="dt">x=</span>price)</span>
+<span id="cb28-3"><a href="data.html#cb28-3"></a>hist</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="02-points_files/figure-html/unnamed-chunk-8-1.png" alt="Raw house prices in Liverpool" width="672" />
+<p class="caption">
+Figure 5.1: Raw house prices in Liverpool
+</p>
+</div>
+<p>This basically shows there is a lot of values concentrated around the lower end of the distribution but a few very large ones. A usual transformation to <em>shrink</em> these differences is to take logarithms:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="data.html#cb30-1"></a><span class="co"># Create log and add it to the table</span></span>
+<span id="cb30-2"><a href="data.html#cb30-2"></a>logpr &lt;-<span class="st"> </span><span class="kw">log</span>(<span class="kw">as.numeric</span>(db<span class="op">@</span>data<span class="op">$</span>price))</span>
+<span id="cb30-3"><a href="data.html#cb30-3"></a>db<span class="op">@</span>data[<span class="st">&#39;logpr&#39;</span>] &lt;-<span class="st"> </span>logpr</span>
+<span id="cb30-4"><a href="data.html#cb30-4"></a><span class="co"># Create the histogram</span></span>
+<span id="cb30-5"><a href="data.html#cb30-5"></a>hist &lt;-<span class="st"> </span><span class="kw">qplot</span>(<span class="dt">x=</span>logpr)</span>
+<span id="cb30-6"><a href="data.html#cb30-6"></a>hist</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-9"></span>
+<img src="02-points_files/figure-html/unnamed-chunk-9-1.png" alt="Log of house price in Liverpool" width="672" />
+<p class="caption">
+Figure 5.2: Log of house price in Liverpool
+</p>
+</div>
+<p>To obtain the spatial distribution of these houses, we need to turn away from the <code>@data</code> component of <code>db</code>. The easiest, quickest (and also dirtiest) way to get a sense of what the data look like over space is using <code>plot</code>:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="data.html#cb32-1"></a><span class="kw">plot</span>(db)</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-10"></span>
+<img src="02-points_files/figure-html/unnamed-chunk-10-1.png" alt="Spatial distribution of house transactions in Liverpool" width="672" />
+<p class="caption">
+Figure 5.3: Spatial distribution of house transactions in Liverpool
+</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="dependencies.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kde.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-points.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
