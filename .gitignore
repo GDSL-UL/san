@@ -1,1 +1,5 @@
 .DS_Store
+.ipynb_checkpoints/
+_bookdown_files/
+bookdown-demo.rds
+spatial_analysis_notes.rds
