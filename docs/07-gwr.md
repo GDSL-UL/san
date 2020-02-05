@@ -1,3 +1,3 @@
 # GWR
 
-FR-G
+FR

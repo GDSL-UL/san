@@ -34,13 +34,13 @@ library(rgdal)
 ```
 
 ```
-## rgdal: version: 1.4-4, (SVN revision 833)
+## rgdal: version: 1.4-6, (SVN revision 841)
 ##  Geospatial Data Abstraction Library extensions to R successfully loaded
-##  Loaded GDAL runtime: GDAL 2.2.3, released 2017/11/20
-##  Path to GDAL shared files: /usr/share/gdal/2.2
-##  GDAL binary built with GEOS: TRUE 
-##  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
-##  Path to PROJ.4 shared files: (autodetected)
+##  Loaded GDAL runtime: GDAL 2.4.2, released 2019/06/28
+##  Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rgdal/gdal
+##  GDAL binary built with GEOS: FALSE 
+##  Loaded PROJ.4 runtime: Rel. 5.2.0, September 15th, 2018, [PJ_VERSION: 520]
+##  Path to PROJ.4 shared files: /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rgdal/proj
 ##  Linking to sp version: 1.3-1
 ```
 
@@ -88,7 +88,7 @@ library(GISTools)
 
 ```
 ## rgeos version: 0.5-1, (SVN revision 614)
-##  GEOS runtime version: 3.6.2-CAPI-1.10.2 
+##  GEOS runtime version: 3.7.2-CAPI-1.11.2 
 ##  Linking to sp version: 1.3-1 
 ##  Polygon checking: TRUE
 ```
@@ -130,7 +130,7 @@ db <- readOGR(dsn = 'data/house_transactions', layer = 'liv_house_trans')
 
 ```
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "/home/jovyan/work/data/house_transactions", layer: "liv_house_trans"
+## Source: "/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/house_transactions", layer: "liv_house_trans"
 ## with 6324 features
 ## It has 18 fields
 ## Integer64 fields read as strings:  price
@@ -177,8 +177,9 @@ summary(db)
 ## Is projected: TRUE 
 ## proj4string :
 ## [+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000
-## +y_0=-100000 +datum=OSGB36 +units=m +no_defs +ellps=airy
-## +towgs84=446.448,-125.157,542.060,0.1502,0.2470,0.8421,-20.4894]
+## +y_0=-100000 +ellps=airy
+## +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m
+## +no_defs]
 ## Number of points: 6324
 ## Data attributes:
 ##       pcds                                           id      
@@ -491,12 +492,12 @@ head(idw.hp@data)
 
 ```
 ##   var1.pred var1.var
-## 1  158122.0       NA
-## 2  158233.4       NA
-## 3  158347.7       NA
-## 4  158465.0       NA
-## 5  158585.5       NA
-## 6  158709.2       NA
+## 1  158113.9       NA
+## 2  158225.1       NA
+## 3  158339.2       NA
+## 4  158456.3       NA
+## 5  158576.6       NA
+## 6  158700.1       NA
 ```
 
 The column we will pay attention to is `var1.pred`. And to see the locations for which those correspond:
@@ -508,12 +509,12 @@ head(idw.hp@coords)
 
 ```
 ##            x1       x2
-## [1,] 333608.5 382751.2
-## [2,] 333693.5 382751.2
-## [3,] 333778.4 382751.2
-## [4,] 333863.4 382751.2
-## [5,] 333948.3 382751.2
-## [6,] 334033.3 382751.2
+## [1,] 333599.4 382767.7
+## [2,] 333684.4 382767.7
+## [3,] 333769.4 382767.7
+## [4,] 333854.3 382767.7
+## [5,] 333939.3 382767.7
+## [6,] 334024.2 382767.7
 ```
 
 So, for a hypothetical house sold at the location in the first row of `idw.hp@coords` (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column `var1.pred` in `idw.hp@data`.
@@ -539,7 +540,7 @@ liv.otl <- readOGR('data/house_transactions', 'liv_outline')
 
 ```
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "/home/jovyan/work/data/house_transactions", layer: "liv_outline"
+## Source: "/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/house_transactions", layer: "liv_outline"
 ## with 1 features
 ## It has 1 fields
 ```
@@ -658,7 +659,7 @@ idw.one
 ## class       : SpatialPointsDataFrame 
 ## features    : 1 
 ## extent      : 340000, 340000, 390000, 390000  (xmin, xmax, ymin, ymax)
-## crs         : +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs +ellps=airy +towgs84=446.448,-125.157,542.060,0.1502,0.2470,0.8421,-20.4894 
+## crs         : +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs 
 ## variables   : 2
 ## names       :        var1.pred, var1.var 
 ## value       : 157099.029513871,       NA

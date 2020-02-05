@@ -1,3 +1,3 @@
 # Space-Time Analysis
 
-FR-G
+FR

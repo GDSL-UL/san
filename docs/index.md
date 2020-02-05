@@ -1,7 +1,7 @@
 --- 
 title: "Spatial Analysis Notes"
-author: "Francisco Rowe-Gonzalez & Dani Arribas-Bel"
-date: "2020-02-03"
+author: "Francisco Rowe & Dani Arribas-Bel"
+date: "2020-02-05"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -14,5 +14,5 @@ description: "Materials for a Spatial Analysis course in R."
 
 # Spatial Analysis Notes
 
-[Introduction here]
+Welcome to Spatial Analysis.
 
