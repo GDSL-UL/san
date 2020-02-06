@@ -1,8 +1,8 @@
 # Introduction {#intro}
 
-This session^[This note is part of [Spatial Analysis Notes](index.html) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Introduction -- R Notebooks + Basic Functions + Data Types</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.] introduces R Notebooks, basic functions and data types. These are all important concepts that we will use during the module.
+This session^[This note is part of [Spatial Analysis Notes](index.html) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Introduction -- R Notebooks + Basic Functions + Data Types</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.] introduces R Notebooks, basic functions and data types that will be useful for later chapters.
 
-If you are already familiar with *R*, R notebooks and data types, you may want to jump to Section *Read Data* and start from there. This section describes how to read and manipulate data using `sf` and `tidyverse` functions, including `mutate()`, `%>%` (known as pipe operator), `select()`, `filter()` and specific packages and functions how to manipulate spatial data.
+If you are already familiar with *R*, R notebooks and data types, you may want to jump to Section *Read Data* and start from there. This section describes how to read abd manipulate data using `sf` and `tidyverse` functions, including `mutate()`, `%>%` (known as pipe operator), `select()`, `filter()` and specific packages and functions how to manipulate spatial data.
 
 The content of this session is based on the following references:
 
@@ -16,16 +16,54 @@ The content of this session is based on the following references:
 
 ## Dependencies
 
-This tutorial uses the libraries below. Ensure they are installed on your machine^[You can install package `mypackage` by running the command `install.packages("mypackage")` on the R prompt or through the `Tools --> Install Packages...` menu in RStudio.] before loading them executing the following code chunk:
-
-
 ```r
 # Data manipulation, transformation and visualisation
 library(tidyverse)
+```
+
+```
+## ── Attaching packages ────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+```
+
+```
+## ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
+## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
+## ✔ tidyr   0.8.3     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.4.0
+```
+
+```
+## ── Conflicts ───────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+```
+
+```r
 # Nice tables
 library(kableExtra)
+```
+
+```
+## 
+## Attaching package: 'kableExtra'
+```
+
+```
+## The following object is masked from 'package:dplyr':
+## 
+##     group_rows
+```
+
+```r
 # Simple features (a standardised way to encode vector data ie. points, lines, polygons)
 library(sf) 
+```
+
+```
+## Linking to GEOS 3.6.1, GDAL 2.1.3, PROJ 4.9.3
+```
+
+```r
 # Spatial objects conversion
 library(sp) 
 # Thematic maps
@@ -34,6 +72,10 @@ library(tmap)
 library(RColorBrewer) 
 # More colour palettes
 library(viridis) # nice colour schemes
+```
+
+```
+## Loading required package: viridisLite
 ```
 
 
@@ -45,13 +87,13 @@ Commands are sent to R using either the terminal / command line or the R Console
 
 Normally RStudio is used to implement R coding. RStudio is an integrated development environment (IDE) for R and provides a more user-friendly front-end to R than the front-end provided with R.
 
-To run R or RStudio, just double click on the R or RStudio icon. Throughout this module, we will be using RStudio:
+To run R or RStudio, just double click on the R or RStudio icon. Throughout this course, we will be using RStudio:
 
-![Fig. 1. RStudio features.](/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/figs/ch2/rstudio_features.png)
+![Fig. 1. RStudio features.](../san/figs/rstudio_features.png)
 
 If you would like to know more about the various features of RStudio, watch this [video](https://rstudio.com/products/rstudio/) 
 
-## Setting the working directory
+# Setting the working directory
 
 Before we start any analysis, ensure to set the path to the directory where we are working. We can easily do that with `setwd()`. Please replace in the following line the path to the folder where you have placed this file -and where the `data` folder lives.
 
@@ -73,7 +115,7 @@ getwd()
 ## [1] "/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san"
 ```
 
-## R Scripts and Notebooks
+# R Scripts and Notebooks
 
 An *R script* is a series of commands that you can execute at one time and help you save time. So you don't repeat the same steps every time you want to execute the same process with different datasets. An R script is just a plain text file with R commands in it. 
 
@@ -133,7 +175,7 @@ To create an R Notebook, you need to:
 
 * Open a new script file: *File* > *New File* > *R Notebook*
 
-![Fig. 2. YAML metadata for notebooks.](/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/figs/ch2/rnotebook_yaml.png)
+![Fig. 2. YAML metadata for notebooks.](../san/figs/rnotebook_yaml.png)
 
 * Insert code chunks, either:
 
@@ -146,7 +188,7 @@ In a chunk code you can produce text output, tables, graphics and write code! Yo
 
 
 
-![Fig. 3. Code chunk example. Details on the various options: https://rmarkdown.rstudio.com/lesson-3.html](/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/figs/ch2/codechunk.png)
+![Fig. 3. Code chunk example. Details on the various options: https://rmarkdown.rstudio.com/lesson-3.html](../san/figs/codechunk.png)
 
 * Execute code: hit *"Run Current Chunk”*, *Ctrl + Shift + Enter* or *Cmd + Shift + Enter* (Mac)
 
@@ -154,7 +196,7 @@ In a chunk code you can produce text output, tables, graphics and write code! Yo
 
 Rstudio also offers a *Preview* option on the toolbar which can be used to create pdf, html and word versions of the notebook. To do this, choose from the drop-down list menu `knit to ...`
 
-## Getting Help
+# Getting Help
 
 You can use `help` or `?` to ask for details for a specific function:
 
@@ -189,7 +231,7 @@ example(sqrt)
 ## sqrt> lines(spline(xx, sqrt(abs(xx)), n=101), col = "pink")
 ```
 
-## Variables and objects
+# Variables and objects
 
 An *object* is a data structure having attributes and methods. In fact, everything in R is an object! 
 
@@ -268,7 +310,7 @@ str(age) #..but now a vector (set) of 5 separate values
 
 Note that on each line in the code above any text following the `#` character is ignored by R when executing the code. Instead, text following a `#` can be used to add comments to the code to make clear what the code is doing. Two marks of good code are a clear layout and clear commentary on the code.
 
-### Basic Data Types
+# Basic Data Types
 
 There are a number of data types. Four are the most common. In R, **numeric** is the default type for numbers. It stores all numbers as floating-point numbers (numbers with decimals). This is because most statistical calculations deal with numbers with up to two decimals.
 
@@ -324,7 +366,7 @@ class(log)
 ## [1] "logical"
 ```
 
-### Random Variables
+# Random Variables
 
 In statistics, we differentiate between data to capture:
 
@@ -370,15 +412,15 @@ In R these three types of random variables are represented by the following type
 
 We have already encountered the R data type *numeric*. The next section introduces the *factor* data type.
 
-#### Factor
+# Factor
 
-**What is a factor?**
+## What is a factor?
 
 A factor variable assigns a numeric code to each possible category (*level*) in a variable. Behind the scenes, R stores the variable using these numeric codes to save space and speed up computing. For example, compare the size of a list of `10,000` *males* and *females* to a list of `10,000` `1s` and `0s`. At the same time R also saves the category names associated with each numeric code (level). These are used for display purposes.
 
 For example, the variable *gender*, converted to a factor, would be stored as a series of `1s` and `2s`, where `1 = female` and `2 = male`; but would be displayed in all outputs using their category labels of *female* and *male*.
 
-**Creating a factor**
+## Create a factor
 
 To convert a numeric or character vector into a factor use the `factor( )` function. For instance:
 
@@ -420,7 +462,7 @@ levels(gender)
 ```
 The categories are reported in the order that they have been numbered (starting from `1`). Hence from the output we can infer that `females` are coded as `1`, and `males` as `2`.
 
-## Data Frames
+# Data Frames
 
 R stores different types of data using different types of data structure. Data are normally stored as a *data.frame*. A data frames contain one row per observation (e.g. wards) and one column per attribute (eg. population and health).
 
@@ -442,7 +484,7 @@ ghealth <- c(7274,6124,6129,11925,7219,7461,6403,5930,7094,6992,
 
 Note that `pop` and `ghealth` and `wards` contains characters.
 
-### Creating a data frame
+## Create a data frame
 
 We can create a data frame and examine its structure:
 
@@ -496,7 +538,7 @@ str(df) # or use glimpse(data)
 ##  $ ghealth: num  7274 6124 6129 11925 7219 ...
 ```
 
-### Referencing data frame
+## Referencing data frame
 
 Throughout this module, you will need to refer to particular parts of a dataframe - perhaps a particular column (an area attribute); or a particular subset of respondents. Hence it is worth spending some time now mastering this particular skill.
 
@@ -545,7 +587,7 @@ names(df)
 ## [1] "wards"   "pop"     "ghealth"
 ```
 
-## Read Data
+# Read Data
 
 Ensure your memory is clear
 
@@ -589,7 +631,7 @@ head(census)
 # It may differ from your existing working directory
 ```
 
-### Quickly inspect the data
+## Quickly inspect the data
 
 1. What class?
 
@@ -619,9 +661,7 @@ or want to view the data:
 
 `View(census)`
 
-## Manipulation Data
-
-### Adding New Variables
+## Adding new variables
 
 Usually you want to add / create new variables to your data frame using existing variables eg. computing percentages by dividing two variables. There are many ways in which you can do this i.e. referecing a data frame as we have done above, or using `$` (e.g. `census$pop`). For this module, we'll use `tidyverse`:
 
@@ -633,7 +673,7 @@ Note we used a *pipe operator* `%>%`, which helps make the code more efficient a
 
 Note also the use a variable name before the `=` sign in brackets to indicate the name of the new variable after `mutate`.
 
-### Selecting Variables
+## Selecting variables
 
 Usually you want to select a subset of variables for your analysis as storing to large data sets in your R memory can reduce the processing speed of your machine. A selection of data can be achieved by using the `select` function:
 
@@ -644,7 +684,7 @@ ndf <- census %>% select(ward, pop16_74, per_ghealth)
 
 Again first indicate the data frame and then the variable you want to select to build a new data frame. Note the code chunk above has created a new data frame called `ndf`. Explore it.
 
-### Filtering Data
+## Filtering data
 
 You may also want to filter values based on defined conditions. You may want to filter observations greater than a certain threshold or only areas within a certain region. For example, you may want to select areas with a percentage of good health population over 50%:
 
@@ -655,7 +695,7 @@ ndf2 <- census %>% filter(per_ghealth < 0.5)
 
 You can use more than one variables to set conditions. Use "`,`" to add a condition.
 
-### Joining Data Drames
+## Joining data frames
 
 When working with spatial data, we often need to join data. To this end, you need a common unique `id variable`. Let's say, we want to add a data frame containing census data on households for Liverpool, and join the new attributes to one of the existing data frames in the workspace. First we will read the data frame we want to join (ie. `census_data2.csv`).
 
@@ -701,7 +741,7 @@ head(join_dfs)
 ## 6    7461   0.5339201       5884                     178
 ```
 
-### Saving Data
+# Saving
 
 It may also be convinient to save your R projects. They contains all the objects that you have created in your workspace by using the `save.image( )` function:
 
@@ -724,7 +764,7 @@ Alternatively you can save / export your data into a `csv` file. The first argum
 write.csv(join_dfs, "join_censusdfs.csv")
 ```
 
-## Using Spatial Data Frames
+# Spatial Data Frames
 
 A core area of this module is learning to work with spatial data in R. R has various purposedly designed **packages** for manipulation of spatial data and spatial analysis techniques. Various R packages exist in CRAN eg. `spatial`, `sgeostat`, `splancs`, `maptools`, `tmap`, `rgdal`, `spand` and more recent development of `sf` - see @Lovelace_et_al_2020_book for a great description and historical context for some of these packages.
 
@@ -732,7 +772,7 @@ During this session, we will use `sf`.
 
 We first need to import our spatial data. We will use a shapefile containing data at Output Area (OA) level for Liverpool. These data illustrates the hierarchical structure of spatial data.
 
-### Read Spatial Data
+## Read Spatial Data
 
 ```r
 oa_shp <- st_read("../san/data/census/Liverpool_OA.shp")
@@ -843,7 +883,7 @@ head(oa_shp)
 * What is the smallest geography? 
 * What is the largest geography?
 
-### Basic Mapping
+# Basic Mapping
 
 Again, many functions exist in CRAN for creating maps:
 
@@ -856,7 +896,7 @@ Again, many functions exist in CRAN for creating maps:
 
 Here this notebook demonstrates the use of `plot` and `tmap`. First `plot` is used to map the spatial distribution of non-British-born population in Liverpool. First we only map the geometries on the right,
 
-#### Using `plot`
+## Using `plot`
 
 
 ```r
@@ -887,7 +927,7 @@ plot(oa_shp["Ethnic"], key.pos = 4, axes = TRUE, key.width = lcm(1.3), key.lengt
 
 * What is the key pattern emerging from this map?
 
-#### Using `tmap`
+## Using `tmap`
 
 Similar to `ggplot2`, `tmap` is based on the idea of a ‘grammar of graphics’ which involves a separation between the input data and aesthetics (i.e. the way data are visualised). Each data set can be mapped in various different ways, including location as defined by its geometry, colour and other features. The basic building block is `tm_shape()` (which defines input data), followed by one or more layer elements such as `tm_fill()` and `tm_dots()`.
 
@@ -946,10 +986,10 @@ msoa_shp = lwgeom::st_make_valid(msoa_shp)
 
 # create a map
 map_msoa = tm_shape(msoa_shp) +
-  tm_fill(col = "Ethnic", title = legend_title, palette = magma(256), style = "cont") + 
-  tm_borders(col = "white", lwd = .01)  + 
-  tm_compass(type = "arrow", position = c("right", "top") , size = 4) + 
-  tm_scale_bar(breaks = c(0,1,2), text.size = 0.5, position =  c("center", "bottom")) 
+  tm_fill(col = "Ethnic", title = legend_title, palette = magma(256), style = "cont") + # add fill
+  tm_borders(col = "white", lwd = .01)  + # add borders
+  tm_compass(type = "arrow", position = c("right", "top") , size = 4) + # add compass
+  tm_scale_bar(breaks = c(0,1,2), text.size = 0.5, position =  c("center", "bottom")) # add scale bar
 
 # arrange maps 
 tmap_arrange(map_msoa, map_oa) 
@@ -962,7 +1002,7 @@ tmap_arrange(map_msoa, map_oa)
 * What differences do you see between OAs and MSOAs?
 * Can you identify areas of spatial clustering? Where are they?
 
-## Useful Functions
+# Useful Functions
 
 Function | Description
 ----------|---------------------------------------------

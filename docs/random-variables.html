@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Random Variables | Spatial Analysis Notes</title>
+  <meta name="description" content="Materials for a Spatial Analysis course in R." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Random Variables | Spatial Analysis Notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Materials for a Spatial Analysis course in R." />
+  <meta name="github-repo" content="gdsl-ul/san" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Random Variables | Spatial Analysis Notes" />
+  
+  <meta name="twitter:description" content="Materials for a Spatial Analysis course in R." />
+  
+
+<meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
+
+
+<meta name="date" content="2020-02-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="basic-data-types.html"/>
+<link rel="next" href="factor.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Spatial Analysis Notes</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#dependencies"><i class="fa fa-check"></i><b>2.1</b> Dependencies</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#introducing-r"><i class="fa fa-check"></i><b>2.2</b> Introducing R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html"><i class="fa fa-check"></i><b>3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="4" data-path="r-scripts-and-notebooks.html"><a href="r-scripts-and-notebooks.html"><i class="fa fa-check"></i><b>4</b> R Scripts and Notebooks</a></li>
+<li class="chapter" data-level="5" data-path="getting-help.html"><a href="getting-help.html"><i class="fa fa-check"></i><b>5</b> Getting Help</a></li>
+<li class="chapter" data-level="6" data-path="variables-and-objects.html"><a href="variables-and-objects.html"><i class="fa fa-check"></i><b>6</b> Variables and objects</a></li>
+<li class="chapter" data-level="7" data-path="basic-data-types.html"><a href="basic-data-types.html"><i class="fa fa-check"></i><b>7</b> Basic Data Types</a></li>
+<li class="chapter" data-level="8" data-path="random-variables.html"><a href="random-variables.html"><i class="fa fa-check"></i><b>8</b> Random Variables</a></li>
+<li class="chapter" data-level="9" data-path="factor.html"><a href="factor.html"><i class="fa fa-check"></i><b>9</b> Factor</a><ul>
+<li class="chapter" data-level="9.1" data-path="factor.html"><a href="factor.html#what-is-a-factor"><i class="fa fa-check"></i><b>9.1</b> What is a factor?</a></li>
+<li class="chapter" data-level="9.2" data-path="factor.html"><a href="factor.html#create-a-factor"><i class="fa fa-check"></i><b>9.2</b> Create a factor</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="data-frames.html"><a href="data-frames.html"><i class="fa fa-check"></i><b>10</b> Data Frames</a><ul>
+<li class="chapter" data-level="10.1" data-path="data-frames.html"><a href="data-frames.html#create-a-data-frame"><i class="fa fa-check"></i><b>10.1</b> Create a data frame</a></li>
+<li class="chapter" data-level="10.2" data-path="data-frames.html"><a href="data-frames.html#referencing-data-frame"><i class="fa fa-check"></i><b>10.2</b> Referencing data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="read-data.html"><a href="read-data.html"><i class="fa fa-check"></i><b>11</b> Read Data</a><ul>
+<li class="chapter" data-level="11.1" data-path="read-data.html"><a href="read-data.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>11.1</b> Quickly inspect the data</a></li>
+<li class="chapter" data-level="11.2" data-path="read-data.html"><a href="read-data.html#adding-new-variables"><i class="fa fa-check"></i><b>11.2</b> Adding new variables</a></li>
+<li class="chapter" data-level="11.3" data-path="read-data.html"><a href="read-data.html#selecting-variables"><i class="fa fa-check"></i><b>11.3</b> Selecting variables</a></li>
+<li class="chapter" data-level="11.4" data-path="read-data.html"><a href="read-data.html#filtering-data"><i class="fa fa-check"></i><b>11.4</b> Filtering data</a></li>
+<li class="chapter" data-level="11.5" data-path="read-data.html"><a href="read-data.html#joining-data-frames"><i class="fa fa-check"></i><b>11.5</b> Joining data frames</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="saving.html"><a href="saving.html"><i class="fa fa-check"></i><b>12</b> Saving</a></li>
+<li class="chapter" data-level="13" data-path="spatial-data-frames.html"><a href="spatial-data-frames.html"><i class="fa fa-check"></i><b>13</b> Spatial Data Frames</a><ul>
+<li class="chapter" data-level="13.1" data-path="spatial-data-frames.html"><a href="spatial-data-frames.html#read-spatial-data"><i class="fa fa-check"></i><b>13.1</b> Read Spatial Data</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="basic-mapping.html"><a href="basic-mapping.html"><i class="fa fa-check"></i><b>14</b> Basic Mapping</a><ul>
+<li class="chapter" data-level="14.1" data-path="basic-mapping.html"><a href="basic-mapping.html#using-plot"><i class="fa fa-check"></i><b>14.1</b> Using <code>plot</code></a></li>
+<li class="chapter" data-level="14.2" data-path="basic-mapping.html"><a href="basic-mapping.html#using-tmap"><i class="fa fa-check"></i><b>14.2</b> Using <code>tmap</code></a><ul>
+<li class="chapter" data-level="14.2.1" data-path="basic-mapping.html"><a href="basic-mapping.html#comparing-geographies"><i class="fa fa-check"></i><b>14.2.1</b> Comparing geographies</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="useful-functions.html"><a href="useful-functions.html"><i class="fa fa-check"></i><b>15</b> Useful Functions</a></li>
+<li class="chapter" data-level="16" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>16</b> Points</a><ul>
+<li class="chapter" data-level="16.1" data-path="points.html"><a href="points.html#dependencies-1"><i class="fa fa-check"></i><b>16.1</b> Dependencies</a></li>
+<li class="chapter" data-level="16.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>16.2</b> Data</a></li>
+<li class="chapter" data-level="16.3" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>16.3</b> KDE</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>16.3.1</b> One-dimensional KDE</a></li>
+<li class="chapter" data-level="16.3.2" data-path="points.html"><a href="points.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>16.3.2</b> Two-dimensional (spatial) KDE</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>16.4</b> Spatial Interpolation</a><ul>
+<li class="chapter" data-level="16.4.1" data-path="points.html"><a href="points.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>16.4.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
+<li class="chapter" data-level="16.4.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>16.4.2</b> A surface of housing prices</a></li>
+<li class="chapter" data-level="16.4.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>16.4.3</b> <em>“What should the next house’s price be?”</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>17</b> Flows</a></li>
+<li class="chapter" data-level="18" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>18</b> Spatial Econometrics</a></li>
+<li class="chapter" data-level="19" data-path="multilevel-models-pt-i.html"><a href="multilevel-models-pt-i.html"><i class="fa fa-check"></i><b>19</b> Multilevel Models (Pt. I)</a></li>
+<li class="chapter" data-level="20" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>20</b> Multilevel Models (Pt. II)</a></li>
+<li class="chapter" data-level="21" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>21</b> GWR</a></li>
+<li class="chapter" data-level="22" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>22</b> Space-Time Analysis</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Spatial Analysis Notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="random-variables" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Random Variables</h1>
+<p>In statistics, we differentiate between data to capture:</p>
+<ul>
+<li><p><em>Qualitative attributes</em> categorise objects eg.gender, marital status. To measure these attributes, we use <em>Categorical</em> data which can be divided into:</p></li>
+<li><em>Nominal</em> data in categories that have no inherent order eg. gender</li>
+<li><p><em>Ordinal</em> data in categories that have an inherent order eg. income bands</p></li>
+<li><p><em>Quantitative attributes</em>:</p></li>
+<li><em>Discrete</em> data: count objects of a certain category eg. number of kids, cars</li>
+<li><p><em>Continuous</em> data: precise numeric measures eg. weight, income, length.</p></li>
+</ul>
+<p>In R these three types of random variables are represented by the following types of R data object:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+variables
+</th>
+<th style="text-align:left;">
+objects
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+nominal
+</td>
+<td style="text-align:left;">
+factor
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ordinal
+</td>
+<td style="text-align:left;">
+ordered factor
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+discrete
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+continuous
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+</tr>
+</tbody>
+</table>
+<p>We have already encountered the R data type <em>numeric</em>. The next section introduces the <em>factor</em> data type.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="basic-data-types.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="factor.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["spatial_analysis_notes.pdf", "spatial_analysis_notes.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

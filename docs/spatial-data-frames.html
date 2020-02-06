@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 13 Spatial Data Frames | Spatial Analysis Notes</title>
+  <meta name="description" content="Materials for a Spatial Analysis course in R." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 13 Spatial Data Frames | Spatial Analysis Notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Materials for a Spatial Analysis course in R." />
+  <meta name="github-repo" content="gdsl-ul/san" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 13 Spatial Data Frames | Spatial Analysis Notes" />
+  
+  <meta name="twitter:description" content="Materials for a Spatial Analysis course in R." />
+  
+
+<meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
+
+
+<meta name="date" content="2020-02-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="saving.html"/>
+<link rel="next" href="basic-mapping.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Spatial Analysis Notes</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#dependencies"><i class="fa fa-check"></i><b>2.1</b> Dependencies</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#introducing-r"><i class="fa fa-check"></i><b>2.2</b> Introducing R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html"><i class="fa fa-check"></i><b>3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="4" data-path="r-scripts-and-notebooks.html"><a href="r-scripts-and-notebooks.html"><i class="fa fa-check"></i><b>4</b> R Scripts and Notebooks</a></li>
+<li class="chapter" data-level="5" data-path="getting-help.html"><a href="getting-help.html"><i class="fa fa-check"></i><b>5</b> Getting Help</a></li>
+<li class="chapter" data-level="6" data-path="variables-and-objects.html"><a href="variables-and-objects.html"><i class="fa fa-check"></i><b>6</b> Variables and objects</a></li>
+<li class="chapter" data-level="7" data-path="basic-data-types.html"><a href="basic-data-types.html"><i class="fa fa-check"></i><b>7</b> Basic Data Types</a></li>
+<li class="chapter" data-level="8" data-path="random-variables.html"><a href="random-variables.html"><i class="fa fa-check"></i><b>8</b> Random Variables</a></li>
+<li class="chapter" data-level="9" data-path="factor.html"><a href="factor.html"><i class="fa fa-check"></i><b>9</b> Factor</a><ul>
+<li class="chapter" data-level="9.1" data-path="factor.html"><a href="factor.html#what-is-a-factor"><i class="fa fa-check"></i><b>9.1</b> What is a factor?</a></li>
+<li class="chapter" data-level="9.2" data-path="factor.html"><a href="factor.html#create-a-factor"><i class="fa fa-check"></i><b>9.2</b> Create a factor</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="data-frames.html"><a href="data-frames.html"><i class="fa fa-check"></i><b>10</b> Data Frames</a><ul>
+<li class="chapter" data-level="10.1" data-path="data-frames.html"><a href="data-frames.html#create-a-data-frame"><i class="fa fa-check"></i><b>10.1</b> Create a data frame</a></li>
+<li class="chapter" data-level="10.2" data-path="data-frames.html"><a href="data-frames.html#referencing-data-frame"><i class="fa fa-check"></i><b>10.2</b> Referencing data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="read-data.html"><a href="read-data.html"><i class="fa fa-check"></i><b>11</b> Read Data</a><ul>
+<li class="chapter" data-level="11.1" data-path="read-data.html"><a href="read-data.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>11.1</b> Quickly inspect the data</a></li>
+<li class="chapter" data-level="11.2" data-path="read-data.html"><a href="read-data.html#adding-new-variables"><i class="fa fa-check"></i><b>11.2</b> Adding new variables</a></li>
+<li class="chapter" data-level="11.3" data-path="read-data.html"><a href="read-data.html#selecting-variables"><i class="fa fa-check"></i><b>11.3</b> Selecting variables</a></li>
+<li class="chapter" data-level="11.4" data-path="read-data.html"><a href="read-data.html#filtering-data"><i class="fa fa-check"></i><b>11.4</b> Filtering data</a></li>
+<li class="chapter" data-level="11.5" data-path="read-data.html"><a href="read-data.html#joining-data-frames"><i class="fa fa-check"></i><b>11.5</b> Joining data frames</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="saving.html"><a href="saving.html"><i class="fa fa-check"></i><b>12</b> Saving</a></li>
+<li class="chapter" data-level="13" data-path="spatial-data-frames.html"><a href="spatial-data-frames.html"><i class="fa fa-check"></i><b>13</b> Spatial Data Frames</a><ul>
+<li class="chapter" data-level="13.1" data-path="spatial-data-frames.html"><a href="spatial-data-frames.html#read-spatial-data"><i class="fa fa-check"></i><b>13.1</b> Read Spatial Data</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="basic-mapping.html"><a href="basic-mapping.html"><i class="fa fa-check"></i><b>14</b> Basic Mapping</a><ul>
+<li class="chapter" data-level="14.1" data-path="basic-mapping.html"><a href="basic-mapping.html#using-plot"><i class="fa fa-check"></i><b>14.1</b> Using <code>plot</code></a></li>
+<li class="chapter" data-level="14.2" data-path="basic-mapping.html"><a href="basic-mapping.html#using-tmap"><i class="fa fa-check"></i><b>14.2</b> Using <code>tmap</code></a><ul>
+<li class="chapter" data-level="14.2.1" data-path="basic-mapping.html"><a href="basic-mapping.html#comparing-geographies"><i class="fa fa-check"></i><b>14.2.1</b> Comparing geographies</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="useful-functions.html"><a href="useful-functions.html"><i class="fa fa-check"></i><b>15</b> Useful Functions</a></li>
+<li class="chapter" data-level="16" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>16</b> Points</a><ul>
+<li class="chapter" data-level="16.1" data-path="points.html"><a href="points.html#dependencies-1"><i class="fa fa-check"></i><b>16.1</b> Dependencies</a></li>
+<li class="chapter" data-level="16.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>16.2</b> Data</a></li>
+<li class="chapter" data-level="16.3" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>16.3</b> KDE</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>16.3.1</b> One-dimensional KDE</a></li>
+<li class="chapter" data-level="16.3.2" data-path="points.html"><a href="points.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>16.3.2</b> Two-dimensional (spatial) KDE</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>16.4</b> Spatial Interpolation</a><ul>
+<li class="chapter" data-level="16.4.1" data-path="points.html"><a href="points.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>16.4.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
+<li class="chapter" data-level="16.4.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>16.4.2</b> A surface of housing prices</a></li>
+<li class="chapter" data-level="16.4.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>16.4.3</b> <em>“What should the next house’s price be?”</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>17</b> Flows</a></li>
+<li class="chapter" data-level="18" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>18</b> Spatial Econometrics</a></li>
+<li class="chapter" data-level="19" data-path="multilevel-models-pt-i.html"><a href="multilevel-models-pt-i.html"><i class="fa fa-check"></i><b>19</b> Multilevel Models (Pt. I)</a></li>
+<li class="chapter" data-level="20" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>20</b> Multilevel Models (Pt. II)</a></li>
+<li class="chapter" data-level="21" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>21</b> GWR</a></li>
+<li class="chapter" data-level="22" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>22</b> Space-Time Analysis</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Spatial Analysis Notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="spatial-data-frames" class="section level1">
+<h1><span class="header-section-number">Chapter 13</span> Spatial Data Frames</h1>
+<p>A core area of this module is learning to work with spatial data in R. R has various purposedly designed <strong>packages</strong> for manipulation of spatial data and spatial analysis techniques. Various R packages exist in CRAN eg. <code>spatial</code>, <code>sgeostat</code>, <code>splancs</code>, <code>maptools</code>, <code>tmap</code>, <code>rgdal</code>, <code>spand</code> and more recent development of <code>sf</code> - see <span class="citation">Lovelace, Nowosad, and Muenchow (<a href="#ref-Lovelace_et_al_2020_book">2020</a>)</span> for a great description and historical context for some of these packages.</p>
+<p>During this session, we will use <code>sf</code>.</p>
+<p>We first need to import our spatial data. We will use a shapefile containing data at Output Area (OA) level for Liverpool. These data illustrates the hierarchical structure of spatial data.</p>
+<div id="read-spatial-data" class="section level2">
+<h2><span class="header-section-number">13.1</span> Read Spatial Data</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">oa_shp &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;../san/data/census/Liverpool_OA.shp&quot;</span>)</code></pre></div>
+<pre><code>## Reading layer `Liverpool_OA&#39; from data source `/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/census/Liverpool_OA.shp&#39; using driver `ESRI Shapefile&#39;
+## Simple feature collection with 1584 features and 18 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 332390.2 ymin: 379748.5 xmax: 345636 ymax: 397980.1
+## epsg (SRID):    NA
+## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs</code></pre>
+<p>Examine the input data. A spatial data frame stores a range of attributes derived from a shapefile including the <strong>geometry</strong> of features (e.g. polygon shape and location), <strong>attributes</strong> for each feature (stored in the .dbf), <a href="https://en.wikipedia.org/wiki/Map_projection">projection</a> and coordinates of the shapefile’s bounding box - for details, execute:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?st_read</code></pre></div>
+<p>You can employ the usual functions to visualise the content of the created data frame:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># visualise variable names</span>
+<span class="kw">names</span>(oa_shp)</code></pre></div>
+<pre><code>##  [1] &quot;OA_CD&quot;    &quot;LSOA_CD&quot;  &quot;MSOA_CD&quot;  &quot;LAD_CD&quot;   &quot;pop&quot;      &quot;H_Vbad&quot;  
+##  [7] &quot;H_bad&quot;    &quot;H_fair&quot;   &quot;H_good&quot;   &quot;H_Vgood&quot;  &quot;age_men&quot;  &quot;age_med&quot; 
+## [13] &quot;age_60&quot;   &quot;S_Rent&quot;   &quot;Ethnic&quot;   &quot;illness&quot;  &quot;unemp&quot;    &quot;males&quot;   
+## [19] &quot;geometry&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># data structure</span>
+<span class="kw">str</span>(oa_shp)</code></pre></div>
+<pre><code>## Classes &#39;sf&#39; and &#39;data.frame&#39;:   1584 obs. of  19 variables:
+##  $ OA_CD   : Factor w/ 1584 levels &quot;E00032987&quot;,&quot;E00032988&quot;,..: 1547 485 143 1567 980 1186 1122 889 863 433 ...
+##  $ LSOA_CD : Factor w/ 298 levels &quot;E01006512&quot;,&quot;E01006513&quot;,..: 291 96 33 124 187 231 220 175 173 83 ...
+##  $ MSOA_CD : Factor w/ 61 levels &quot;E02001347&quot;,&quot;E02001348&quot;,..: 59 12 19 23 29 20 31 14 30 10 ...
+##  $ LAD_CD  : Factor w/ 1 level &quot;E08000012&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ pop     : int  185 281 208 200 321 187 395 320 316 214 ...
+##  $ H_Vbad  : int  1 2 3 7 4 4 5 9 5 4 ...
+##  $ H_bad   : int  2 20 10 8 10 25 19 22 25 17 ...
+##  $ H_fair  : int  9 47 22 17 32 70 42 53 55 39 ...
+##  $ H_good  : int  53 111 71 52 112 57 131 104 104 53 ...
+##  $ H_Vgood : int  120 101 102 116 163 31 198 132 127 101 ...
+##  $ age_men : num  27.9 37.7 37.1 33.7 34.2 ...
+##  $ age_med : num  25 36 32 29 34 53 23 30 34 29 ...
+##  $ age_60  : num  0.0108 0.1637 0.1971 0.1 0.1402 ...
+##  $ S_Rent  : num  0.0526 0.176 0.0235 0.2222 0.0222 ...
+##  $ Ethnic  : num  0.3514 0.0463 0.0192 0.215 0.0779 ...
+##  $ illness : int  185 281 208 200 321 187 395 320 316 214 ...
+##  $ unemp   : num  0.0438 0.121 0.1121 0.036 0.0743 ...
+##  $ males   : int  122 128 95 120 158 123 207 164 157 94 ...
+##  $ geometry:sfc_MULTIPOLYGON of length 1584; first list element: List of 1
+##   ..$ :List of 1
+##   .. ..$ : num [1:14, 1:2] 335106 335130 335164 335173 335185 ...
+##   ..- attr(*, &quot;class&quot;)= chr  &quot;XY&quot; &quot;MULTIPOLYGON&quot; &quot;sfg&quot;
+##  - attr(*, &quot;sf_column&quot;)= chr &quot;geometry&quot;
+##  - attr(*, &quot;agr&quot;)= Factor w/ 3 levels &quot;constant&quot;,&quot;aggregate&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
+##   ..- attr(*, &quot;names&quot;)= chr  &quot;OA_CD&quot; &quot;LSOA_CD&quot; &quot;MSOA_CD&quot; &quot;LAD_CD&quot; ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># see first few observations</span>
+<span class="kw">head</span>(oa_shp)</code></pre></div>
+<pre><code>## Simple feature collection with 6 features and 18 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 335071.6 ymin: 389876.7 xmax: 339426.9 ymax: 394479
+## epsg (SRID):    NA
+## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs
+##       OA_CD   LSOA_CD   MSOA_CD    LAD_CD pop H_Vbad H_bad H_fair H_good
+## 1 E00176737 E01033761 E02006932 E08000012 185      1     2      9     53
+## 2 E00033515 E01006614 E02001358 E08000012 281      2    20     47    111
+## 3 E00033141 E01006546 E02001365 E08000012 208      3    10     22     71
+## 4 E00176757 E01006646 E02001369 E08000012 200      7     8     17     52
+## 5 E00034050 E01006712 E02001375 E08000012 321      4    10     32    112
+## 6 E00034280 E01006761 E02001366 E08000012 187      4    25     70     57
+##   H_Vgood  age_men age_med     age_60     S_Rent     Ethnic illness
+## 1     120 27.94054      25 0.01081081 0.05263158 0.35135135     185
+## 2     101 37.71174      36 0.16370107 0.17600000 0.04626335     281
+## 3     102 37.08173      32 0.19711538 0.02352941 0.01923077     208
+## 4     116 33.73000      29 0.10000000 0.22222222 0.21500000     200
+## 5     163 34.19003      34 0.14018692 0.02222222 0.07788162     321
+## 6      31 56.09091      53 0.44919786 0.88524590 0.11764706     187
+##        unemp males                       geometry
+## 1 0.04379562   122 MULTIPOLYGON (((335106.3 38...
+## 2 0.12101911   128 MULTIPOLYGON (((335810.5 39...
+## 3 0.11214953    95 MULTIPOLYGON (((336738 3931...
+## 4 0.03597122   120 MULTIPOLYGON (((335914.5 39...
+## 5 0.07428571   158 MULTIPOLYGON (((339325 3914...
+## 6 0.44615385   123 MULTIPOLYGON (((338198.1 39...</code></pre>
+<p><strong>TASK:</strong></p>
+<ul>
+<li>What are the geographical hierarchy in these data?</li>
+<li>What is the smallest geography?</li>
+<li>What is the largest geography?</li>
+</ul>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Lovelace_et_al_2020_book">
+<p>Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2020. <em>An Introduction to Statistical Learning</em>. Vol. 112. CRC Press, R Series. <a href="https://geocompr.robinlovelace.net" class="uri">https://geocompr.robinlovelace.net</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="saving.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="basic-mapping.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["spatial_analysis_notes.pdf", "spatial_analysis_notes.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

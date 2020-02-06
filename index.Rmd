@@ -14,5 +14,5 @@ description: "Materials for a Spatial Analysis course in R."
 
 # Spatial Analysis Notes
 
-Welcome to Spatial Analysis.
+This book contains computational illustrations on spatial analytical approaches using R. 
 

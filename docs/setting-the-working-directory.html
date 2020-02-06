@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Introduction | Spatial Analysis Notes</title>
+  <title>Chapter 3 Setting the working directory | Spatial Analysis Notes</title>
   <meta name="description" content="Materials for a Spatial Analysis course in R." />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Introduction | Spatial Analysis Notes" />
+  <meta property="og:title" content="Chapter 3 Setting the working directory | Spatial Analysis Notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="gdsl-ul/san" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Introduction | Spatial Analysis Notes" />
+  <meta name="twitter:title" content="Chapter 3 Setting the working directory | Spatial Analysis Notes" />
   
   <meta name="twitter:description" content="Materials for a Spatial Analysis course in R." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="points.html"/>
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="basic-mapping.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -107,53 +107,57 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#dependencies"><i class="fa fa-check"></i><b>2.1</b> Dependencies</a></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#introducing-r"><i class="fa fa-check"></i><b>2.2</b> Introducing R</a></li>
-<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.3</b> Setting the working directory</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#r-scripts-and-notebooks"><i class="fa fa-check"></i><b>2.4</b> R Scripts and Notebooks</a></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#getting-help"><i class="fa fa-check"></i><b>2.5</b> Getting Help</a></li>
-<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#variables-and-objects"><i class="fa fa-check"></i><b>2.6</b> Variables and objects</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="intro.html"><a href="intro.html#basic-data-types"><i class="fa fa-check"></i><b>2.6.1</b> Basic Data Types</a></li>
-<li class="chapter" data-level="2.6.2" data-path="intro.html"><a href="intro.html#random-variables"><i class="fa fa-check"></i><b>2.6.2</b> Random Variables</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#data-frames"><i class="fa fa-check"></i><b>2.7</b> Data Frames</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="intro.html"><a href="intro.html#creating-a-data-frame"><i class="fa fa-check"></i><b>2.7.1</b> Creating a data frame</a></li>
-<li class="chapter" data-level="2.7.2" data-path="intro.html"><a href="intro.html#referencing-data-frame"><i class="fa fa-check"></i><b>2.7.2</b> Referencing data frame</a></li>
+<li class="chapter" data-level="3" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html"><i class="fa fa-check"></i><b>3</b> Setting the working directory</a><ul>
+<li class="chapter" data-level="3.1" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#r-scripts-and-notebooks"><i class="fa fa-check"></i><b>3.1</b> R Scripts and Notebooks</a></li>
+<li class="chapter" data-level="3.2" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#getting-help"><i class="fa fa-check"></i><b>3.2</b> Getting Help</a></li>
+<li class="chapter" data-level="3.3" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#variables-and-objects"><i class="fa fa-check"></i><b>3.3</b> Variables and objects</a></li>
+<li class="chapter" data-level="3.4" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#basic-data-types"><i class="fa fa-check"></i><b>3.4</b> Basic Data Types</a></li>
+<li class="chapter" data-level="3.5" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#random-variables"><i class="fa fa-check"></i><b>3.5</b> Random Variables</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#factor"><i class="fa fa-check"></i><b>3.5.1</b> Factor</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#read-data"><i class="fa fa-check"></i><b>2.8</b> Read Data</a><ul>
-<li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>2.8.1</b> Quickly inspect the data</a></li>
+<li class="chapter" data-level="3.6" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#create-a-factor"><i class="fa fa-check"></i><b>3.6</b> Create a factor</a></li>
+<li class="chapter" data-level="3.7" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#data-frames"><i class="fa fa-check"></i><b>3.7</b> Data Frames</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#create-a-data-frame"><i class="fa fa-check"></i><b>3.7.1</b> Create a data frame</a></li>
+<li class="chapter" data-level="3.7.2" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#referencing-data-frame"><i class="fa fa-check"></i><b>3.7.2</b> Referencing data frame</a></li>
 </ul></li>
-<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#manipulation-data"><i class="fa fa-check"></i><b>2.9</b> Manipulation Data</a><ul>
-<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#adding-new-variables"><i class="fa fa-check"></i><b>2.9.1</b> Adding New Variables</a></li>
-<li class="chapter" data-level="2.9.2" data-path="intro.html"><a href="intro.html#selecting-variables"><i class="fa fa-check"></i><b>2.9.2</b> Selecting Variables</a></li>
-<li class="chapter" data-level="2.9.3" data-path="intro.html"><a href="intro.html#filtering-data"><i class="fa fa-check"></i><b>2.9.3</b> Filtering Data</a></li>
-<li class="chapter" data-level="2.9.4" data-path="intro.html"><a href="intro.html#joining-data-drames"><i class="fa fa-check"></i><b>2.9.4</b> Joining Data Drames</a></li>
-<li class="chapter" data-level="2.9.5" data-path="intro.html"><a href="intro.html#saving-data"><i class="fa fa-check"></i><b>2.9.5</b> Saving Data</a></li>
+<li class="chapter" data-level="3.8" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#read-data"><i class="fa fa-check"></i><b>3.8</b> Read Data</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>3.8.1</b> Quickly inspect the data</a></li>
+<li class="chapter" data-level="3.8.2" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#adding-new-variables"><i class="fa fa-check"></i><b>3.8.2</b> Adding new variables</a></li>
 </ul></li>
-<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>2.10</b> Using Spatial Data Frames</a><ul>
-<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#read-spatial-data"><i class="fa fa-check"></i><b>2.10.1</b> Read Spatial Data</a></li>
-<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#basic-mapping"><i class="fa fa-check"></i><b>2.10.2</b> Basic Mapping</a></li>
-<li class="chapter" data-level="2.10.3" data-path="intro.html"><a href="intro.html#comparing-geographies"><i class="fa fa-check"></i><b>2.10.3</b> Comparing geographies</a></li>
+<li class="chapter" data-level="3.9" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#selecting-variables"><i class="fa fa-check"></i><b>3.9</b> Selecting variables</a></li>
+<li class="chapter" data-level="3.10" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#filtering-data"><i class="fa fa-check"></i><b>3.10</b> Filtering data</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#joining-data-frames"><i class="fa fa-check"></i><b>3.10.1</b> Joining data frames</a></li>
 </ul></li>
-<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#useful-functions"><i class="fa fa-check"></i><b>2.11</b> Useful Functions</a></li>
+<li class="chapter" data-level="3.11" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#saving"><i class="fa fa-check"></i><b>3.11</b> Saving</a></li>
+<li class="chapter" data-level="3.12" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#spatial-data-frames"><i class="fa fa-check"></i><b>3.12</b> Spatial Data Frames</a></li>
+<li class="chapter" data-level="3.13" data-path="setting-the-working-directory.html"><a href="setting-the-working-directory.html#read-spatial-data"><i class="fa fa-check"></i><b>3.13</b> Read Spatial Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>3</b> Points</a><ul>
-<li class="chapter" data-level="3.1" data-path="points.html"><a href="points.html#dependencies-1"><i class="fa fa-check"></i><b>3.1</b> Dependencies</a></li>
-<li class="chapter" data-level="3.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>3.2</b> Data</a></li>
-<li class="chapter" data-level="3.3" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>3.3</b> KDE</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>3.3.1</b> One-dimensional KDE</a></li>
-<li class="chapter" data-level="3.3.2" data-path="points.html"><a href="points.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>3.3.2</b> Two-dimensional (spatial) KDE</a></li>
+<li class="chapter" data-level="4" data-path="basic-mapping.html"><a href="basic-mapping.html"><i class="fa fa-check"></i><b>4</b> Basic Mapping</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="basic-mapping.html"><a href="basic-mapping.html#using-plot"><i class="fa fa-check"></i><b>4.0.1</b> Using <code>plot</code></a></li>
+<li class="chapter" data-level="4.0.2" data-path="basic-mapping.html"><a href="basic-mapping.html#using-tmap"><i class="fa fa-check"></i><b>4.0.2</b> Using <code>tmap</code></a></li>
+<li class="chapter" data-level="4.0.3" data-path="basic-mapping.html"><a href="basic-mapping.html#comparing-geographies"><i class="fa fa-check"></i><b>4.0.3</b> Comparing geographies</a></li>
+<li class="chapter" data-level="4.1" data-path="basic-mapping.html"><a href="basic-mapping.html#useful-functions"><i class="fa fa-check"></i><b>4.1</b> Useful Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>3.4</b> Spatial Interpolation</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="points.html"><a href="points.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>3.4.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
-<li class="chapter" data-level="3.4.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>3.4.2</b> A surface of housing prices</a></li>
-<li class="chapter" data-level="3.4.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>3.4.3</b> <em>“What should the next house’s price be?”</em></a></li>
+<li class="chapter" data-level="5" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>5</b> Points</a><ul>
+<li class="chapter" data-level="5.1" data-path="points.html"><a href="points.html#dependencies-1"><i class="fa fa-check"></i><b>5.1</b> Dependencies</a></li>
+<li class="chapter" data-level="5.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>5.2</b> Data</a></li>
+<li class="chapter" data-level="5.3" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>5.3</b> KDE</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>5.3.1</b> One-dimensional KDE</a></li>
+<li class="chapter" data-level="5.3.2" data-path="points.html"><a href="points.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>5.3.2</b> Two-dimensional (spatial) KDE</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>5.4</b> Spatial Interpolation</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="points.html"><a href="points.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>5.4.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
+<li class="chapter" data-level="5.4.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>5.4.2</b> A surface of housing prices</a></li>
+<li class="chapter" data-level="5.4.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>5.4.3</b> <em>“What should the next house’s price be?”</em></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>4</b> Flows</a></li>
-<li class="chapter" data-level="5" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>5</b> Spatial Econometrics</a></li>
-<li class="chapter" data-level="6" data-path="multilevel-models-pt-i.html"><a href="multilevel-models-pt-i.html"><i class="fa fa-check"></i><b>6</b> Multilevel Models (Pt. I)</a></li>
-<li class="chapter" data-level="7" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>7</b> Multilevel Models (Pt. II)</a></li>
-<li class="chapter" data-level="8" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>8</b> GWR</a></li>
-<li class="chapter" data-level="9" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>9</b> Space-Time Analysis</a></li>
+<li class="chapter" data-level="6" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>6</b> Flows</a></li>
+<li class="chapter" data-level="7" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>7</b> Spatial Econometrics</a></li>
+<li class="chapter" data-level="8" data-path="multilevel-models-pt-i.html"><a href="multilevel-models-pt-i.html"><i class="fa fa-check"></i><b>8</b> Multilevel Models (Pt. I)</a></li>
+<li class="chapter" data-level="9" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>9</b> Multilevel Models (Pt. II)</a></li>
+<li class="chapter" data-level="10" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>10</b> GWR</a></li>
+<li class="chapter" data-level="11" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>11</b> Space-Time Analysis</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -175,49 +179,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
-<p>This session<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> introduces R Notebooks, basic functions and data types. These are all important concepts that we will use during the module.</p>
-<p>If you are already familiar with <em>R</em>, R notebooks and data types, you may want to jump to Section <em>Read Data</em> and start from there. This section describes how to read and manipulate data using <code>sf</code> and <code>tidyverse</code> functions, including <code>mutate()</code>, <code>%&gt;%</code> (known as pipe operator), <code>select()</code>, <code>filter()</code> and specific packages and functions how to manipulate spatial data.</p>
-<p>The content of this session is based on the following references:</p>
-<ul>
-<li><p><span class="citation">Grolemund and Wickham (<a href="#ref-grolemund_wickham_2019_book">2019</a>)</span>, this book illustrates key libraries, including tidyverse, and functions for data manipulation in R</p></li>
-<li><p><span class="citation">Xie, Allaire, and Grolemund (<a href="#ref-Xie_et_al_2019_book">2019</a>)</span>, excellent introduction to R markdown!</p></li>
-<li><p><span class="citation">Williamson (<a href="#ref-envs450_2018">2018</a>)</span>, some examples from the first lecture of ENVS450 are used to explain the various types of random variables.</p></li>
-<li><p><span class="citation">Lovelace, Nowosad, and Muenchow (<a href="#ref-Lovelace_et_al_2020_book">2020</a>)</span>, a really good book on handling spatial data and historical background of the evolution of R packages for spatial data analysis.</p></li>
-</ul>
-<div id="dependencies" class="section level2">
-<h2><span class="header-section-number">2.1</span> Dependencies</h2>
-<p>This tutorial uses the libraries below. Ensure they are installed on your machine<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> before loading them executing the following code chunk:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Data manipulation, transformation and visualisation</span>
-<span class="kw">library</span>(tidyverse)
-<span class="co"># Nice tables</span>
-<span class="kw">library</span>(kableExtra)
-<span class="co"># Simple features (a standardised way to encode vector data ie. points, lines, polygons)</span>
-<span class="kw">library</span>(sf) 
-<span class="co"># Spatial objects conversion</span>
-<span class="kw">library</span>(sp) 
-<span class="co"># Thematic maps</span>
-<span class="kw">library</span>(tmap) 
-<span class="co"># Colour palettes</span>
-<span class="kw">library</span>(RColorBrewer) 
-<span class="co"># More colour palettes</span>
-<span class="kw">library</span>(viridis) <span class="co"># nice colour schemes</span></code></pre></div>
-</div>
-<div id="introducing-r" class="section level2">
-<h2><span class="header-section-number">2.2</span> Introducing R</h2>
-<p>R is a freely available language and environment for statistical computing and graphics which provides a wide variety of statistical and graphical techniques. It has gained widespread use in academia and industry. R offers a wider array of functionality than a traditional statistics package, such as SPSS and is composed of core (base) functionality, and is expandable through libraries hosted on <a href="https://cran.r-project.org">CRAN</a>. CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R.</p>
-<p>Commands are sent to R using either the terminal / command line or the R Console which is installed with R on either Windows or OS X. On Linux, there is no equivalent of the console, however, third party solutions exist. On your own machine, R can be installed from <a href="https://www.r-project.org/">here</a>.</p>
-<p>Normally RStudio is used to implement R coding. RStudio is an integrated development environment (IDE) for R and provides a more user-friendly front-end to R than the front-end provided with R.</p>
-<p>To run R or RStudio, just double click on the R or RStudio icon. Throughout this module, we will be using RStudio:</p>
-<div class="figure">
-<img src="figs/ch2/rstudio_features.png" alt="Fig. 1. RStudio features." />
-<p class="caption">Fig. 1. RStudio features.</p>
-</div>
-<p>If you would like to know more about the various features of RStudio, watch this <a href="https://rstudio.com/products/rstudio/">video</a></p>
-</div>
-<div id="setting-the-working-directory" class="section level2">
-<h2><span class="header-section-number">2.3</span> Setting the working directory</h2>
+<div id="setting-the-working-directory" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Setting the working directory</h1>
 <p>Before we start any analysis, ensure to set the path to the directory where we are working. We can easily do that with <code>setwd()</code>. Please replace in the following line the path to the folder where you have placed this file -and where the <code>data</code> folder lives.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#setwd(&#39;../data/sar.csv&#39;)</span>
 <span class="co">#setwd(&#39;.&#39;)</span></code></pre></div>
@@ -225,9 +188,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>You can check your current working directory by typing:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre></div>
 <pre><code>## [1] &quot;/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san&quot;</code></pre>
-</div>
 <div id="r-scripts-and-notebooks" class="section level2">
-<h2><span class="header-section-number">2.4</span> R Scripts and Notebooks</h2>
+<h2><span class="header-section-number">3.1</span> R Scripts and Notebooks</h2>
 <p>An <em>R script</em> is a series of commands that you can execute at one time and help you save time. So you don’t repeat the same steps every time you want to execute the same process with different datasets. An R script is just a plain text file with R commands in it.</p>
 <p>To create an R script in RStudio, you need to</p>
 <ul>
@@ -278,7 +240,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Open a new script file: <em>File</em> &gt; <em>New File</em> &gt; <em>R Notebook</em></li>
 </ul>
 <div class="figure">
-<img src="figs/ch2/rnotebook_yaml.png" alt="Fig. 2. YAML metadata for notebooks." />
+<img src="../san/figs/rnotebook_yaml.png" alt="Fig. 2. YAML metadata for notebooks." />
 <p class="caption">Fig. 2. YAML metadata for notebooks.</p>
 </div>
 <ul>
@@ -291,7 +253,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ol>
 <p>In a chunk code you can produce text output, tables, graphics and write code! You can control these outputs via chunk options which are provided inside the curly brackets eg.</p>
 <div class="figure">
-<img src="figs/ch2/codechunk.png" alt="Fig. 3. Code chunk example. Details on the various options: https://rmarkdown.rstudio.com/lesson-3.html" />
+<img src="../san/figs/codechunk.png" alt="Fig. 3. Code chunk example. Details on the various options: https://rmarkdown.rstudio.com/lesson-3.html" />
 <p class="caption">Fig. 3. Code chunk example. Details on the various options: <a href="https://rmarkdown.rstudio.com/lesson-3.html" class="uri">https://rmarkdown.rstudio.com/lesson-3.html</a></p>
 </div>
 <ul>
@@ -301,7 +263,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Rstudio also offers a <em>Preview</em> option on the toolbar which can be used to create pdf, html and word versions of the notebook. To do this, choose from the drop-down list menu <code>knit to ...</code></p>
 </div>
 <div id="getting-help" class="section level2">
-<h2><span class="header-section-number">2.5</span> Getting Help</h2>
+<h2><span class="header-section-number">3.2</span> Getting Help</h2>
 <p>You can use <code>help</code> or <code>?</code> to ask for details for a specific function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(sqrt) <span class="co">#or ?sqrt</span></code></pre></div>
 <p>And using <code>example</code> provides examples for said function:</p>
@@ -317,14 +279,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="figure"><span id="fig:unnamed-chunk-7"></span>
 <img src="01-intro_files/figure-html/unnamed-chunk-7-1.png" alt="Example sqrt" width="672" />
 <p class="caption">
-Figure 2.1: Example sqrt
+Figure 3.1: Example sqrt
 </p>
 </div>
 <pre><code>## 
 ## sqrt&gt; lines(spline(xx, sqrt(abs(xx)), n=101), col = &quot;pink&quot;)</code></pre>
 </div>
 <div id="variables-and-objects" class="section level2">
-<h2><span class="header-section-number">2.6</span> Variables and objects</h2>
+<h2><span class="header-section-number">3.3</span> Variables and objects</h2>
 <p>An <em>object</em> is a data structure having attributes and methods. In fact, everything in R is an object!</p>
 <p>A <em>variable</em> is a type of data object. Data objects also include list, vector, matrices and text.</p>
 <ul>
@@ -357,8 +319,9 @@ age</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(age) <span class="co">#..but now a vector (set) of 5 separate values</span></code></pre></div>
 <pre><code>##  num [1:5] 28 36 25 24 32</code></pre>
 <p>Note that on each line in the code above any text following the <code>#</code> character is ignored by R when executing the code. Instead, text following a <code>#</code> can be used to add comments to the code to make clear what the code is doing. Two marks of good code are a clear layout and clear commentary on the code.</p>
-<div id="basic-data-types" class="section level3">
-<h3><span class="header-section-number">2.6.1</span> Basic Data Types</h3>
+</div>
+<div id="basic-data-types" class="section level2">
+<h2><span class="header-section-number">3.4</span> Basic Data Types</h2>
 <p>There are a number of data types. Four are the most common. In R, <strong>numeric</strong> is the default type for numbers. It stores all numbers as floating-point numbers (numbers with decimals). This is because most statistical calculations deal with numbers with up to two decimals.</p>
 <ul>
 <li>Numeric</li>
@@ -387,8 +350,8 @@ log</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(log)</code></pre></div>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 </div>
-<div id="random-variables" class="section level3">
-<h3><span class="header-section-number">2.6.2</span> Random Variables</h3>
+<div id="random-variables" class="section level2">
+<h2><span class="header-section-number">3.5</span> Random Variables</h2>
 <p>In statistics, we differentiate between data to capture:</p>
 <ul>
 <li><p><em>Qualitative attributes</em> categorise objects eg.gender, marital status. To measure these attributes, we use <em>Categorical</em> data which can be divided into:</p></li>
@@ -446,12 +409,17 @@ numeric
 </tbody>
 </table>
 <p>We have already encountered the R data type <em>numeric</em>. The next section introduces the <em>factor</em> data type.</p>
-<div id="factor" class="section level4">
-<h4><span class="header-section-number">2.6.2.1</span> Factor</h4>
-<p><strong>What is a factor?</strong></p>
+<div id="factor" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Factor</h3>
+<div id="what-is-a-factor" class="section level4">
+<h4><span class="header-section-number">3.5.1.1</span> What is a factor?</h4>
 <p>A factor variable assigns a numeric code to each possible category (<em>level</em>) in a variable. Behind the scenes, R stores the variable using these numeric codes to save space and speed up computing. For example, compare the size of a list of <code>10,000</code> <em>males</em> and <em>females</em> to a list of <code>10,000</code> <code>1s</code> and <code>0s</code>. At the same time R also saves the category names associated with each numeric code (level). These are used for display purposes.</p>
 <p>For example, the variable <em>gender</em>, converted to a factor, would be stored as a series of <code>1s</code> and <code>2s</code>, where <code>1 = female</code> and <code>2 = male</code>; but would be displayed in all outputs using their category labels of <em>female</em> and <em>male</em>.</p>
-<p><strong>Creating a factor</strong></p>
+</div>
+</div>
+</div>
+<div id="create-a-factor" class="section level2">
+<h2><span class="header-section-number">3.6</span> Create a factor</h2>
 <p>To convert a numeric or character vector into a factor use the <code>factor( )</code> function. For instance:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gender &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;female&quot;</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;female&quot;</span>) <span class="co"># create a gender variable</span>
 gender &lt;-<span class="st"> </span><span class="kw">factor</span>(gender) <span class="co"># replace character vector with a factor version</span>
@@ -467,10 +435,8 @@ gender</code></pre></div>
 <pre><code>## [1] &quot;female&quot; &quot;male&quot;</code></pre>
 <p>The categories are reported in the order that they have been numbered (starting from <code>1</code>). Hence from the output we can infer that <code>females</code> are coded as <code>1</code>, and <code>males</code> as <code>2</code>.</p>
 </div>
-</div>
-</div>
 <div id="data-frames" class="section level2">
-<h2><span class="header-section-number">2.7</span> Data Frames</h2>
+<h2><span class="header-section-number">3.7</span> Data Frames</h2>
 <p>R stores different types of data using different types of data structure. Data are normally stored as a <em>data.frame</em>. A data frames contain one row per observation (e.g. wards) and one column per attribute (eg. population and health).</p>
 <p>We create three variables wards, population (<code>pop</code>) and people with good health (<code>ghealth</code>). We use 2011 census data counts for total population and good health for wards in Liverpool.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wards &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Allerton and Hunts Cross&quot;</span>,<span class="st">&quot;Anfield&quot;</span>,<span class="st">&quot;Belle Vale&quot;</span>,<span class="st">&quot;Central&quot;</span>,<span class="st">&quot;Childwall&quot;</span>,<span class="st">&quot;Church&quot;</span>,<span class="st">&quot;Clubmoor&quot;</span>,<span class="st">&quot;County&quot;</span>,<span class="st">&quot;Cressington&quot;</span>,<span class="st">&quot;Croxteth&quot;</span>,<span class="st">&quot;Everton&quot;</span>,<span class="st">&quot;Fazakerley&quot;</span>,<span class="st">&quot;Greenbank&quot;</span>,<span class="st">&quot;Kensington and Fairfield&quot;</span>,<span class="st">&quot;Kirkdale&quot;</span>,<span class="st">&quot;Knotty Ash&quot;</span>,<span class="st">&quot;Mossley Hill&quot;</span>,<span class="st">&quot;Norris Green&quot;</span>,<span class="st">&quot;Old Swan&quot;</span>,<span class="st">&quot;Picton&quot;</span>,<span class="st">&quot;Princes Park&quot;</span>,<span class="st">&quot;Riverside&quot;</span>,<span class="st">&quot;St Michael&#39;s&quot;</span>,<span class="st">&quot;Speke-Garston&quot;</span>,<span class="st">&quot;Tuebrook and Stoneycroft&quot;</span>,<span class="st">&quot;Warbreck&quot;</span>,<span class="st">&quot;Wavertree&quot;</span>,<span class="st">&quot;West Derby&quot;</span>,<span class="st">&quot;Woolton&quot;</span>,<span class="st">&quot;Yew Tree&quot;</span>)
@@ -484,8 +450,8 @@ ghealth &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv"
                  <span class="dv">5517</span>,<span class="dv">7879</span>,<span class="dv">8990</span>,<span class="dv">6495</span>,<span class="dv">6662</span>,<span class="dv">5981</span>,<span class="dv">7322</span>,<span class="dv">6529</span>,<span class="dv">7192</span>,<span class="dv">7953</span>,
                  <span class="dv">7636</span>,<span class="dv">9001</span>,<span class="dv">6450</span>,<span class="dv">8973</span>,<span class="dv">7302</span>,<span class="dv">7521</span>,<span class="dv">7268</span>,<span class="dv">7013</span>,<span class="dv">6025</span>,<span class="dv">7717</span>)</code></pre></div>
 <p>Note that <code>pop</code> and <code>ghealth</code> and <code>wards</code> contains characters.</p>
-<div id="creating-a-data-frame" class="section level3">
-<h3><span class="header-section-number">2.7.1</span> Creating a data frame</h3>
+<div id="create-a-data-frame" class="section level3">
+<h3><span class="header-section-number">3.7.1</span> Create a data frame</h3>
 <p>We can create a data frame and examine its structure:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(wards, pop, ghealth)
 df <span class="co"># or use view(data)</span></code></pre></div>
@@ -527,7 +493,7 @@ df <span class="co"># or use view(data)</span></code></pre></div>
 ##  $ ghealth: num  7274 6124 6129 11925 7219 ...</code></pre>
 </div>
 <div id="referencing-data-frame" class="section level3">
-<h3><span class="header-section-number">2.7.2</span> Referencing data frame</h3>
+<h3><span class="header-section-number">3.7.2</span> Referencing data frame</h3>
 <p>Throughout this module, you will need to refer to particular parts of a dataframe - perhaps a particular column (an area attribute); or a particular subset of respondents. Hence it is worth spending some time now mastering this particular skill.</p>
 <p>The relevant R function, <code>[ ]</code>, has the format <code>[row,col]</code> or, more generally, <code>[set of rows, set of cols]</code>.</p>
 <p>Run the following commands to get a feel of how to extract different slices of the data:</p>
@@ -558,7 +524,7 @@ pop <span class="co"># but be careful if you already have an age variable in you
 </div>
 </div>
 <div id="read-data" class="section level2">
-<h2><span class="header-section-number">2.8</span> Read Data</h2>
+<h2><span class="header-section-number">3.8</span> Read Data</h2>
 <p>Ensure your memory is clear</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>()) <span class="co"># rm for targeted deletion / ls for listing all existing objects</span></code></pre></div>
 <p>There are many commands to read / load data onto R. The command to use will depend upon the format they have been saved. Normally they are saved in <em>csv</em> format from Excel or other software packages. So we use either:</p>
@@ -587,7 +553,7 @@ pop <span class="co"># but be careful if you already have an age variable in you
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># </span><span class="al">NOTE</span><span class="co">: always ensure your are setting the correct directory leading to the data. </span>
 <span class="co"># It may differ from your existing working directory</span></code></pre></div>
 <div id="quickly-inspect-the-data" class="section level3">
-<h3><span class="header-section-number">2.8.1</span> Quickly inspect the data</h3>
+<h3><span class="header-section-number">3.8.1</span> Quickly inspect the data</h3>
 <ol style="list-style-type: decimal">
 <li><p>What class?</p></li>
 <li><p>What R data types?</p></li>
@@ -604,30 +570,27 @@ pop <span class="co"># but be careful if you already have an age variable in you
 <p>or want to view the data:</p>
 <p><code>View(census)</code></p>
 </div>
-</div>
-<div id="manipulation-data" class="section level2">
-<h2><span class="header-section-number">2.9</span> Manipulation Data</h2>
 <div id="adding-new-variables" class="section level3">
-<h3><span class="header-section-number">2.9.1</span> Adding New Variables</h3>
+<h3><span class="header-section-number">3.8.2</span> Adding new variables</h3>
 <p>Usually you want to add / create new variables to your data frame using existing variables eg. computing percentages by dividing two variables. There are many ways in which you can do this i.e. referecing a data frame as we have done above, or using <code>$</code> (e.g. <code>census$pop</code>). For this module, we’ll use <code>tidyverse</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">census &lt;-<span class="st"> </span>census <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">per_ghealth =</span> ghealth <span class="op">/</span><span class="st"> </span>pop)</code></pre></div>
 <p>Note we used a <em>pipe operator</em> <code>%&gt;%</code>, which helps make the code more efficient and readable - more details, see <span class="citation">Grolemund and Wickham (<a href="#ref-grolemund_wickham_2019_book">2019</a>)</span>. When using the pipe operator, recall to first indicate the data frame before <code>%&gt;%</code>.</p>
 <p>Note also the use a variable name before the <code>=</code> sign in brackets to indicate the name of the new variable after <code>mutate</code>.</p>
 </div>
-<div id="selecting-variables" class="section level3">
-<h3><span class="header-section-number">2.9.2</span> Selecting Variables</h3>
+</div>
+<div id="selecting-variables" class="section level2">
+<h2><span class="header-section-number">3.9</span> Selecting variables</h2>
 <p>Usually you want to select a subset of variables for your analysis as storing to large data sets in your R memory can reduce the processing speed of your machine. A selection of data can be achieved by using the <code>select</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ndf &lt;-<span class="st"> </span>census <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ward, pop16_<span class="dv">74</span>, per_ghealth)</code></pre></div>
 <p>Again first indicate the data frame and then the variable you want to select to build a new data frame. Note the code chunk above has created a new data frame called <code>ndf</code>. Explore it.</p>
 </div>
-<div id="filtering-data" class="section level3">
-<h3><span class="header-section-number">2.9.3</span> Filtering Data</h3>
+<div id="filtering-data" class="section level2">
+<h2><span class="header-section-number">3.10</span> Filtering data</h2>
 <p>You may also want to filter values based on defined conditions. You may want to filter observations greater than a certain threshold or only areas within a certain region. For example, you may want to select areas with a percentage of good health population over 50%:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ndf2 &lt;-<span class="st"> </span>census <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(per_ghealth <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.5</span>)</code></pre></div>
 <p>You can use more than one variables to set conditions. Use “<code>,</code>” to add a condition.</p>
-</div>
-<div id="joining-data-drames" class="section level3">
-<h3><span class="header-section-number">2.9.4</span> Joining Data Drames</h3>
+<div id="joining-data-frames" class="section level3">
+<h3><span class="header-section-number">3.10.1</span> Joining data frames</h3>
 <p>When working with spatial data, we often need to join data. To this end, you need a common unique <code>id variable</code>. Let’s say, we want to add a data frame containing census data on households for Liverpool, and join the new attributes to one of the existing data frames in the workspace. First we will read the data frame we want to join (ie. <code>census_data2.csv</code>).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read data</span>
 census2 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;../san/data/census/census_data2.csv&quot;</span>)
@@ -657,8 +620,9 @@ join_dfs &lt;-<span class="st"> </span><span class="kw">merge</span>(census, cen
 ## 5    7219   0.5190538       5391                     374
 ## 6    7461   0.5339201       5884                     178</code></pre>
 </div>
-<div id="saving-data" class="section level3">
-<h3><span class="header-section-number">2.9.5</span> Saving Data</h3>
+</div>
+<div id="saving" class="section level2">
+<h2><span class="header-section-number">3.11</span> Saving</h2>
 <p>It may also be convinient to save your R projects. They contains all the objects that you have created in your workspace by using the <code>save.image( )</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">save.image</span>(<span class="st">&quot;week1_envs453.RData&quot;</span>)</code></pre></div>
 <p>This creates a file labelled “week1_envs453.RData” in your working directory. You can load this at a later stage using the <code>load( )</code> function.</p>
@@ -666,14 +630,14 @@ join_dfs &lt;-<span class="st"> </span><span class="kw">merge</span>(census, cen
 <p>Alternatively you can save / export your data into a <code>csv</code> file. The first argument in the function is the object name, and the second: the name of the csv we want to create.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.csv</span>(join_dfs, <span class="st">&quot;join_censusdfs.csv&quot;</span>)</code></pre></div>
 </div>
-</div>
-<div id="using-spatial-data-frames" class="section level2">
-<h2><span class="header-section-number">2.10</span> Using Spatial Data Frames</h2>
+<div id="spatial-data-frames" class="section level2">
+<h2><span class="header-section-number">3.12</span> Spatial Data Frames</h2>
 <p>A core area of this module is learning to work with spatial data in R. R has various purposedly designed <strong>packages</strong> for manipulation of spatial data and spatial analysis techniques. Various R packages exist in CRAN eg. <code>spatial</code>, <code>sgeostat</code>, <code>splancs</code>, <code>maptools</code>, <code>tmap</code>, <code>rgdal</code>, <code>spand</code> and more recent development of <code>sf</code> - see <span class="citation">Lovelace, Nowosad, and Muenchow (<a href="#ref-Lovelace_et_al_2020_book">2020</a>)</span> for a great description and historical context for some of these packages.</p>
 <p>During this session, we will use <code>sf</code>.</p>
 <p>We first need to import our spatial data. We will use a shapefile containing data at Output Area (OA) level for Liverpool. These data illustrates the hierarchical structure of spatial data.</p>
-<div id="read-spatial-data" class="section level3">
-<h3><span class="header-section-number">2.10.1</span> Read Spatial Data</h3>
+</div>
+<div id="read-spatial-data" class="section level2">
+<h2><span class="header-section-number">3.13</span> Read Spatial Data</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">oa_shp &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;../san/data/census/Liverpool_OA.shp&quot;</span>)</code></pre></div>
 <pre><code>## Reading layer `Liverpool_OA&#39; from data source `/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/census/Liverpool_OA.shp&#39; using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 1584 features and 18 fields
@@ -755,157 +719,6 @@ join_dfs &lt;-<span class="st"> </span><span class="kw">merge</span>(census, cen
 <li>What is the largest geography?</li>
 </ul>
 </div>
-<div id="basic-mapping" class="section level3">
-<h3><span class="header-section-number">2.10.2</span> Basic Mapping</h3>
-<p>Again, many functions exist in CRAN for creating maps:</p>
-<ul>
-<li><code>plot</code> to create static maps</li>
-<li><code>tmap</code> to create static and interactive maps</li>
-<li><code>leaflet</code> to create interactive maps</li>
-<li><code>mapview</code> to create interactive maps</li>
-<li><code>ggplot2</code> to create data visualisations, including static maps</li>
-<li><code>shiny</code> to create web applications, including maps</li>
-</ul>
-<p>Here this notebook demonstrates the use of <code>plot</code> and <code>tmap</code>. First <code>plot</code> is used to map the spatial distribution of non-British-born population in Liverpool. First we only map the geometries on the right,</p>
-<div id="using-plot" class="section level4">
-<h4><span class="header-section-number">2.10.2.1</span> Using <code>plot</code></h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mapping geometry</span>
-<span class="kw">plot</span>(<span class="kw">st_geometry</span>(oa_shp))</code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-40"></span>
-<img src="01-intro_files/figure-html/unnamed-chunk-40-1.png" alt="OAs of Livepool" width="672" />
-<p class="caption">
-Figure 2.2: OAs of Livepool
-</p>
-</div>
-<p>and then:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># map attributes, adding intervals</span>
-<span class="kw">plot</span>(oa_shp[<span class="st">&quot;Ethnic&quot;</span>], <span class="dt">key.pos =</span> <span class="dv">4</span>, <span class="dt">axes =</span> <span class="ot">TRUE</span>, <span class="dt">key.width =</span> <span class="kw">lcm</span>(<span class="fl">1.3</span>), <span class="dt">key.length =</span> <span class="dv">1</span>.,
-     <span class="dt">breaks =</span> <span class="st">&quot;jenks&quot;</span>, <span class="dt">lwd =</span> <span class="fl">0.1</span>, <span class="dt">border =</span> <span class="st">&#39;grey&#39;</span>) </code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-41"></span>
-<img src="01-intro_files/figure-html/unnamed-chunk-41-1.png" alt="Spatial distribution of ethnic groups, Liverpool" width="672" />
-<p class="caption">
-Figure 2.3: Spatial distribution of ethnic groups, Liverpool
-</p>
-</div>
-<p><strong>TASK:</strong></p>
-<ul>
-<li>What is the key pattern emerging from this map?</li>
-</ul>
-</div>
-<div id="using-tmap" class="section level4">
-<h4><span class="header-section-number">2.10.2.2</span> Using <code>tmap</code></h4>
-<p>Similar to <code>ggplot2</code>, <code>tmap</code> is based on the idea of a ‘grammar of graphics’ which involves a separation between the input data and aesthetics (i.e. the way data are visualised). Each data set can be mapped in various different ways, including location as defined by its geometry, colour and other features. The basic building block is <code>tm_shape()</code> (which defines input data), followed by one or more layer elements such as <code>tm_fill()</code> and <code>tm_dots()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ensure geometry is valid</span>
-oa_shp =<span class="st"> </span>lwgeom<span class="op">::</span><span class="kw">st_make_valid</span>(oa_shp)
-
-<span class="co"># map</span>
-legend_title =<span class="st"> </span><span class="kw">expression</span>(<span class="st">&quot;% ethnic pop.&quot;</span>)
-map_oa =<span class="st"> </span><span class="kw">tm_shape</span>(oa_shp) <span class="op">+</span>
-<span class="st">  </span><span class="kw">tm_fill</span>(<span class="dt">col =</span> <span class="st">&quot;Ethnic&quot;</span>, <span class="dt">title =</span> legend_title, <span class="dt">palette =</span> <span class="kw">magma</span>(<span class="dv">256</span>), <span class="dt">style =</span> <span class="st">&quot;cont&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="co"># add fill</span>
-<span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">lwd =</span> .<span class="dv">01</span>)  <span class="op">+</span><span class="st"> </span><span class="co"># add borders</span>
-<span class="st">  </span><span class="kw">tm_compass</span>(<span class="dt">type =</span> <span class="st">&quot;arrow&quot;</span>, <span class="dt">position =</span> <span class="kw">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>) , <span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span><span class="co"># add compass</span>
-<span class="st">  </span><span class="kw">tm_scale_bar</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">text.size =</span> <span class="fl">0.5</span>, <span class="dt">position =</span>  <span class="kw">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;bottom&quot;</span>)) <span class="co"># add scale bar</span>
-map_oa</code></pre></div>
-<p><img src="01-intro_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
-<p>Note that the operation <code>+</code> is used to add new layers. You can set style themes by <code>tm_style</code>. To visualise the existing styles use <code>tmap_style_catalogue()</code>, and you can also evaluate the code chunk below if you would like to create an interactive map.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tmap_mode</span>(<span class="st">&quot;view&quot;</span>)
-map_oa</code></pre></div>
-<p><strong>TASK:</strong></p>
-<ul>
-<li>Try mapping other variables in the spatial data frame. Where do population aged 60 and over concentrate?</li>
-</ul>
-</div>
-</div>
-<div id="comparing-geographies" class="section level3">
-<h3><span class="header-section-number">2.10.3</span> Comparing geographies</h3>
-<p>If you recall, one of the key issues of working with spatial data is the modifiable area unit problem (MAUP) - see lecture notes. To get a sense of the effects of MAUP, we analyse differences in the spatial patterns of the ethnic population in Liverpool between Middle Layer Super Output Areas (MSOAs) and OAs. So we map these geographies together.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read data at the msoa level</span>
-msoa_shp &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;../san/data/census/Liverpool_MSOA.shp&quot;</span>)</code></pre></div>
-<pre><code>## Reading layer `Liverpool_MSOA&#39; from data source `/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/census/Liverpool_MSOA.shp&#39; using driver `ESRI Shapefile&#39;
-## Simple feature collection with 61 features and 16 fields
-## geometry type:  MULTIPOLYGON
-## dimension:      XY
-## bbox:           xmin: 333086.1 ymin: 381426.3 xmax: 345636 ymax: 397980.1
-## epsg (SRID):    NA
-## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ensure geometry is valid</span>
-msoa_shp =<span class="st"> </span>lwgeom<span class="op">::</span><span class="kw">st_make_valid</span>(msoa_shp)
-
-<span class="co"># create a map</span>
-map_msoa =<span class="st"> </span><span class="kw">tm_shape</span>(msoa_shp) <span class="op">+</span>
-<span class="st">  </span><span class="kw">tm_fill</span>(<span class="dt">col =</span> <span class="st">&quot;Ethnic&quot;</span>, <span class="dt">title =</span> legend_title, <span class="dt">palette =</span> <span class="kw">magma</span>(<span class="dv">256</span>), <span class="dt">style =</span> <span class="st">&quot;cont&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">lwd =</span> .<span class="dv">01</span>)  <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">tm_compass</span>(<span class="dt">type =</span> <span class="st">&quot;arrow&quot;</span>, <span class="dt">position =</span> <span class="kw">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>) , <span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">tm_scale_bar</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">text.size =</span> <span class="fl">0.5</span>, <span class="dt">position =</span>  <span class="kw">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;bottom&quot;</span>)) 
-
-<span class="co"># arrange maps </span>
-<span class="kw">tmap_arrange</span>(map_msoa, map_oa) </code></pre></div>
-<p><img src="01-intro_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
-<p><strong>TASK:</strong></p>
-<ul>
-<li>What differences do you see between OAs and MSOAs?</li>
-<li>Can you identify areas of spatial clustering? Where are they?</li>
-</ul>
-</div>
-</div>
-<div id="useful-functions" class="section level2">
-<h2><span class="header-section-number">2.11</span> Useful Functions</h2>
-<table>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>read.csv()</td>
-<td>read csv files into data frames</td>
-</tr>
-<tr class="even">
-<td>str()</td>
-<td>inspect data structure</td>
-</tr>
-<tr class="odd">
-<td>mutate()</td>
-<td>create a new variable</td>
-</tr>
-<tr class="even">
-<td>filter()</td>
-<td>filter observations based on variable values</td>
-</tr>
-<tr class="odd">
-<td>%&gt;%</td>
-<td>pipe operator - chain operations</td>
-</tr>
-<tr class="even">
-<td>select()</td>
-<td>select variables</td>
-</tr>
-<tr class="odd">
-<td>merge()</td>
-<td>join dat frames</td>
-</tr>
-<tr class="even">
-<td>st_read</td>
-<td>read spatial data (ie. shapefiles)</td>
-</tr>
-<tr class="odd">
-<td>plot()</td>
-<td>create a map based a spatial data set</td>
-</tr>
-<tr class="even">
-<td>tm_shape(), tm_fill(), tm_borders()</td>
-<td>create a map using tmap functions</td>
-</tr>
-<tr class="odd">
-<td>tm_arrange</td>
-<td>display multiple maps in a single “metaplot”</td>
-</tr>
-</tbody>
-</table>
-
-</div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
@@ -915,27 +728,17 @@ map_msoa =<span class="st"> </span><span class="kw">tm_shape</span>(msoa_shp) <s
 <div id="ref-Lovelace_et_al_2020_book">
 <p>Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2020. <em>An Introduction to Statistical Learning</em>. Vol. 112. CRC Press, R Series. <a href="https://geocompr.robinlovelace.net" class="uri">https://geocompr.robinlovelace.net</a>.</p>
 </div>
-<div id="ref-envs450_2018">
-<p>Williamson, Paul. 2018. “Survey Analysis.”</p>
-</div>
 <div id="ref-Xie_et_al_2019_book">
 <p>Xie, Yihui, JJ Allaire, and Garrett Grolemund. 2019. <em>R Markdown: The Definitive Guide</em>. CRC Press, Taylor &amp; Francis, Chapman &amp; Hall Book. <a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a>.</p>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>This note is part of <a href="index.html">Spatial Analysis Notes</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Introduction – R Notebooks + Basic Functions + Data Types</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<a href="intro.html#fnref1">↩</a></p></li>
-<li id="fn2"><p>You can install package <code>mypackage</code> by running the command <code>install.packages(&quot;mypackage&quot;)</code> on the R prompt or through the <code>Tools --&gt; Install Packages...</code> menu in RStudio.<a href="intro.html#fnref2">↩</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="points.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="basic-mapping.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
