@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-02-05" />
+<meta name="date" content="2020-02-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -100,13 +100,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Spatial Analysis Notes</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Spatial Analysis Notes</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#dependencies"><i class="fa fa-check"></i><b>2.1</b> Dependencies</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#introducing-r"><i class="fa fa-check"></i><b>2.2</b> Introducing R</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#r-scripts-and-notebooks"><i class="fa fa-check"></i><b>2.4</b> R Scripts and Notebooks</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#getting-help"><i class="fa fa-check"></i><b>2.5</b> Getting Help</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#variables-and-objects"><i class="fa fa-check"></i><b>2.6</b> Variables and objects</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="intro.html"><a href="intro.html#basic-data-types"><i class="fa fa-check"></i><b>2.6.1</b> Basic Data Types</a></li>
+<li class="chapter" data-level="2.6.2" data-path="intro.html"><a href="intro.html#random-variables"><i class="fa fa-check"></i><b>2.6.2</b> Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#data-frames"><i class="fa fa-check"></i><b>2.7</b> Data Frames</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="intro.html"><a href="intro.html#creating-a-data-frame"><i class="fa fa-check"></i><b>2.7.1</b> Creating a data frame</a></li>
+<li class="chapter" data-level="2.7.2" data-path="intro.html"><a href="intro.html#referencing-data-frame"><i class="fa fa-check"></i><b>2.7.2</b> Referencing data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#read-data"><i class="fa fa-check"></i><b>2.8</b> Read Data</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>2.8.1</b> Quickly inspect the data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#manipulation-data"><i class="fa fa-check"></i><b>2.9</b> Manipulation Data</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#adding-new-variables"><i class="fa fa-check"></i><b>2.9.1</b> Adding New Variables</a></li>
+<li class="chapter" data-level="2.9.2" data-path="intro.html"><a href="intro.html#selecting-variables"><i class="fa fa-check"></i><b>2.9.2</b> Selecting Variables</a></li>
+<li class="chapter" data-level="2.9.3" data-path="intro.html"><a href="intro.html#filtering-data"><i class="fa fa-check"></i><b>2.9.3</b> Filtering Data</a></li>
+<li class="chapter" data-level="2.9.4" data-path="intro.html"><a href="intro.html#joining-data-drames"><i class="fa fa-check"></i><b>2.9.4</b> Joining Data Drames</a></li>
+<li class="chapter" data-level="2.9.5" data-path="intro.html"><a href="intro.html#saving-data"><i class="fa fa-check"></i><b>2.9.5</b> Saving Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>2.10</b> Using Spatial Data Frames</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#read-spatial-data"><i class="fa fa-check"></i><b>2.10.1</b> Read Spatial Data</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#basic-mapping"><i class="fa fa-check"></i><b>2.10.2</b> Basic Mapping</a></li>
+<li class="chapter" data-level="2.10.3" data-path="intro.html"><a href="intro.html#comparing-geographies"><i class="fa fa-check"></i><b>2.10.3</b> Comparing geographies</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#useful-functions"><i class="fa fa-check"></i><b>2.11</b> Useful Functions</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>3</b> Points</a><ul>
-<li class="chapter" data-level="3.1" data-path="points.html"><a href="points.html#dependencies"><i class="fa fa-check"></i><b>3.1</b> Dependencies</a></li>
+<li class="chapter" data-level="3.1" data-path="points.html"><a href="points.html#dependencies-1"><i class="fa fa-check"></i><b>3.1</b> Dependencies</a></li>
 <li class="chapter" data-level="3.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>3.2</b> Data</a></li>
 <li class="chapter" data-level="3.3" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>3.3</b> KDE</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>3.3.1</b> One-dimensional KDE</a></li>
@@ -162,10 +192,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Cressie, Noel. 2015. <em>Statistics for Spatial Data</em>. John Wiley &amp; Sons.</p>
 </div>
 <div>
+<p>Grolemund, Garrett, and Hadley Wickham. 2019. <em>R for Data Science</em>. O’Reilly, US. <a href="https://r4ds.had.co.nz" class="uri">https://r4ds.had.co.nz</a>.</p>
+</div>
+<div>
 <p>Lovelace, Robin, and James Cheshire. 2014. “Introduction to visualising spatial data in R.” <em>National Centre for Research Methods Working Papers</em> 14 (03). <a href="https://github.com/Robinlovelace/Creating-maps-in-R" class="uri">https://github.com/Robinlovelace/Creating-maps-in-R</a>.</p>
 </div>
+<div>
+<p>Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2020. <em>An Introduction to Statistical Learning</em>. Vol. 112. CRC Press, R Series. <a href="https://geocompr.robinlovelace.net" class="uri">https://geocompr.robinlovelace.net</a>.</p>
+</div>
+<div>
+<p>Williamson, Paul. 2018. “Survey Analysis.”</p>
+</div>
+<div>
+<p>Xie, Yihui, JJ Allaire, and Garrett Grolemund. 2019. <em>R Markdown: The Definitive Guide</em>. CRC Press, Taylor &amp; Francis, Chapman &amp; Hall Book. <a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a>.</p>
 </div>
 </div>
+</div>
+
+
 
 
 

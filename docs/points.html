@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-02-05" />
+<meta name="date" content="2020-02-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -100,13 +100,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Spatial Analysis Notes</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Spatial Analysis Notes</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#dependencies"><i class="fa fa-check"></i><b>2.1</b> Dependencies</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#introducing-r"><i class="fa fa-check"></i><b>2.2</b> Introducing R</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#r-scripts-and-notebooks"><i class="fa fa-check"></i><b>2.4</b> R Scripts and Notebooks</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#getting-help"><i class="fa fa-check"></i><b>2.5</b> Getting Help</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#variables-and-objects"><i class="fa fa-check"></i><b>2.6</b> Variables and objects</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="intro.html"><a href="intro.html#basic-data-types"><i class="fa fa-check"></i><b>2.6.1</b> Basic Data Types</a></li>
+<li class="chapter" data-level="2.6.2" data-path="intro.html"><a href="intro.html#random-variables"><i class="fa fa-check"></i><b>2.6.2</b> Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#data-frames"><i class="fa fa-check"></i><b>2.7</b> Data Frames</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="intro.html"><a href="intro.html#creating-a-data-frame"><i class="fa fa-check"></i><b>2.7.1</b> Creating a data frame</a></li>
+<li class="chapter" data-level="2.7.2" data-path="intro.html"><a href="intro.html#referencing-data-frame"><i class="fa fa-check"></i><b>2.7.2</b> Referencing data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#read-data"><i class="fa fa-check"></i><b>2.8</b> Read Data</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>2.8.1</b> Quickly inspect the data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#manipulation-data"><i class="fa fa-check"></i><b>2.9</b> Manipulation Data</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#adding-new-variables"><i class="fa fa-check"></i><b>2.9.1</b> Adding New Variables</a></li>
+<li class="chapter" data-level="2.9.2" data-path="intro.html"><a href="intro.html#selecting-variables"><i class="fa fa-check"></i><b>2.9.2</b> Selecting Variables</a></li>
+<li class="chapter" data-level="2.9.3" data-path="intro.html"><a href="intro.html#filtering-data"><i class="fa fa-check"></i><b>2.9.3</b> Filtering Data</a></li>
+<li class="chapter" data-level="2.9.4" data-path="intro.html"><a href="intro.html#joining-data-drames"><i class="fa fa-check"></i><b>2.9.4</b> Joining Data Drames</a></li>
+<li class="chapter" data-level="2.9.5" data-path="intro.html"><a href="intro.html#saving-data"><i class="fa fa-check"></i><b>2.9.5</b> Saving Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>2.10</b> Using Spatial Data Frames</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#read-spatial-data"><i class="fa fa-check"></i><b>2.10.1</b> Read Spatial Data</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#basic-mapping"><i class="fa fa-check"></i><b>2.10.2</b> Basic Mapping</a></li>
+<li class="chapter" data-level="2.10.3" data-path="intro.html"><a href="intro.html#comparing-geographies"><i class="fa fa-check"></i><b>2.10.3</b> Comparing geographies</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#useful-functions"><i class="fa fa-check"></i><b>2.11</b> Useful Functions</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>3</b> Points</a><ul>
-<li class="chapter" data-level="3.1" data-path="points.html"><a href="points.html#dependencies"><i class="fa fa-check"></i><b>3.1</b> Dependencies</a></li>
+<li class="chapter" data-level="3.1" data-path="points.html"><a href="points.html#dependencies-1"><i class="fa fa-check"></i><b>3.1</b> Dependencies</a></li>
 <li class="chapter" data-level="3.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>3.2</b> Data</a></li>
 <li class="chapter" data-level="3.3" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>3.3</b> KDE</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>3.3.1</b> One-dimensional KDE</a></li>
@@ -147,7 +177,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="points" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Points</h1>
-<p>This session<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> is based on the following references, which are great follow-up’s on the topic:</p>
+<p>This session<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> is based on the following references, which are great follow-up’s on the topic:</p>
 <ul>
 <li><span class="citation">Lovelace and Cheshire (<a href="#ref-lovelace2014introduction">2014</a>)</span> is a great introduction.</li>
 <li>Chapter 6 of <span class="citation">Brunsdon and Comber (<a href="#ref-comber2015">2015</a>)</span>, in particular subsections 6.3 and 6.7.</li>
@@ -160,9 +190,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>As a <a href="https://github.com/darribas/spa_notes/raw/master/points_book.pdf">pdf document</a></li>
 <li>As a <a href="https://github.com/darribas/spa_notes">GitHub repository</a>.</li>
 </ul>
-<div id="dependencies" class="section level2">
+<div id="dependencies-1" class="section level2">
 <h2><span class="header-section-number">3.1</span> Dependencies</h2>
-<p>This tutorial relies on the following libraries that you will need to have installed on your machine to be able to interactively follow along<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. Once installed, load them up with the following commands:</p>
+<p>This tutorial relies on the following libraries that you will need to have installed on your machine to be able to interactively follow along<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>. Once installed, load them up with the following commands:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Layout</span>
 <span class="kw">library</span>(tufte)
 <span class="co"># For pretty table</span>
@@ -421,14 +451,14 @@ final</code></pre></div>
 Figure 3.7: KDE of house transactions in Liverpool
 </p>
 </div>
-<p>The plot above<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> allows us to not only see the distribution of house transactions, but to relate it to what we know about Liverpool, allowing us to establish many more connections than we were previously able. Mainly, we can easily see that the area with a highest volume of houses being sold is the city centre, with a “hole” around it that displays very few to no transactions and then several pockets further away.</p>
+<p>The plot above<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> allows us to not only see the distribution of house transactions, but to relate it to what we know about Liverpool, allowing us to establish many more connections than we were previously able. Mainly, we can easily see that the area with a highest volume of houses being sold is the city centre, with a “hole” around it that displays very few to no transactions and then several pockets further away.</p>
 </div>
 </div>
 <div id="spatial-interpolation" class="section level2">
 <h2><span class="header-section-number">3.4</span> Spatial Interpolation</h2>
 <p>The previous section demonstrates how to visualize the distribution of a set of spatial objects represented as points. In particular, given a bunch of house transactions, it shows how one can effectively visualize their distribution over space and get a sense of the density of occurrences. Such visualization, because it is based on KDE, is based on a smooth continuum, rather than on a discrete approach (as a choropleth would do, for example).</p>
 <p>Many times however, we are not particularly interested in learning about the density of occurrences, but about the distribution of a given value attached to each location. Think for example of weather stations and temperature: the location of the stations is no secret and rarely changes, so it is not of particular interest to visualize the density of stations; what we are usually interested instead is to know how temperature is distributed over space, given we only measure it in a few places. One could argue the example we have been working with so far, house price transactions, fits into this category as well: although where house are sold may be of relevance, more often we are interested in finding out what the “surface of price” looks like. Rather than <em>where are most houses being sold?</em> we usually want to know <em>where the most expensive or most affordable</em> houses are located.</p>
-<p>In cases where we are interested in creating a surface of a given value, rather than a simple density surface of occurrences, KDE cannot help us. In these cases, what we are interested in is <em>spatial interpolation</em>, a family of techniques that aim at exactly that: creating continuous surfaces for a particular phenomenon (e.g. temperature, house prices) given only a finite sample of observations. Spatial interpolation is a large field of research that is still being actively developed and that can involve a substantial amount of mathematical complexity in order to obtain the most accurate estimates possible<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>. In this session, we will introduce the simplest possible way of interpolating values, hoping this will give you a general understanding of the methodology and, if you are interested, you can check out further literature. For example, <span class="citation">Banerjee, Carlin, and Gelfand (<a href="#ref-banerjee2014hierarchical">2014</a>)</span> or <span class="citation">Cressie (<a href="#ref-cressie2015statistics">2015</a>)</span> are hard but good overviews.</p>
+<p>In cases where we are interested in creating a surface of a given value, rather than a simple density surface of occurrences, KDE cannot help us. In these cases, what we are interested in is <em>spatial interpolation</em>, a family of techniques that aim at exactly that: creating continuous surfaces for a particular phenomenon (e.g. temperature, house prices) given only a finite sample of observations. Spatial interpolation is a large field of research that is still being actively developed and that can involve a substantial amount of mathematical complexity in order to obtain the most accurate estimates possible<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>. In this session, we will introduce the simplest possible way of interpolating values, hoping this will give you a general understanding of the methodology and, if you are interested, you can check out further literature. For example, <span class="citation">Banerjee, Carlin, and Gelfand (<a href="#ref-banerjee2014hierarchical">2014</a>)</span> or <span class="citation">Cressie (<a href="#ref-cressie2015statistics">2015</a>)</span> are hard but good overviews.</p>
 <div id="inverse-distance-weight-idw-interpolation" class="section level3">
 <h3><span class="header-section-number">3.4.1</span> Inverse Distance Weight (IDW) interpolation</h3>
 <p>The technique we will cover here is called <em>Inverse Distance Weighting</em>, or IDW for convenience. <span class="citation">Brunsdon and Comber (<a href="#ref-comber2015">2015</a>)</span> offer a good description:</p>
@@ -436,7 +466,7 @@ Figure 3.7: KDE of house transactions in Liverpool
 <p>In the <em>inverse distance weighting</em> (IDW) approach to interpolation, to estimate the value of <span class="math inline">\(z\)</span> at location <span class="math inline">\(x\)</span> a weighted mean of nearby observations is taken […]. To accommodate the idea that observations of <span class="math inline">\(z\)</span> at points closer to <span class="math inline">\(x\)</span> should be given more importance in the interpolation, greater weight is given to these points […]</p>
 <p>— Page 204</p>
 </blockquote>
-<p>The math<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> is not particularly complicated and may be found in detail elsewhere (the reference above is a good starting point), so we will not spend too much time on it. More relevant in this context is the intuition behind. Essentially, the idea is that we will create a surface of house price by smoothing many values arranged along a regular grid and obtained by interpolating from the known locations to the regular grid locations. This will give us full and equal coverage to soundly perform the smoothing.</p>
+<p>The math<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a> is not particularly complicated and may be found in detail elsewhere (the reference above is a good starting point), so we will not spend too much time on it. More relevant in this context is the intuition behind. Essentially, the idea is that we will create a surface of house price by smoothing many values arranged along a regular grid and obtained by interpolating from the known locations to the regular grid locations. This will give us full and equal coverage to soundly perform the smoothing.</p>
 <p>Enough chat, let’s code.</p>
 <p>From what we have just mentioned, there are a few steps to perform an IDW spatial interpolation:</p>
 <ol style="list-style-type: decimal">
@@ -444,31 +474,31 @@ Figure 3.7: KDE of house transactions in Liverpool
 <li>Obtain IDW estimates for each point in the grid, based on the values of <span class="math inline">\(k\)</span> nearest neighbors.</li>
 <li>Plot a smoothed version of the grid, effectively representing the surface of house prices.</li>
 </ol>
-<p>Let us go in detail into each of them<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>. First, let us set up a grid:</p>
+<p>Let us go in detail into each of them<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>. First, let us set up a grid:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">liv.grid &lt;-<span class="st"> </span><span class="kw">spsample</span>(db, <span class="dt">type=</span><span class="st">&#39;regular&#39;</span>, <span class="dt">n=</span><span class="dv">25000</span>)</code></pre></div>
 <p>That’s it, we’re done! The function <code>spsample</code> hugely simplifies the task by taking a spatial object and returning the grid we need. Not a couple of additional arguments we pass: <code>type</code> allows us to get a set of points that are <em>uniformly</em> distributed over space, which is handy for the later smoothing; <code>n</code> controls how many points we want to create in that grid.</p>
 <p>On to the IDW. Again, this is hugely simplified by <code>gstat</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">idw.hp &lt;-<span class="st"> </span><span class="kw">idw</span>(price <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">locations=</span>db, <span class="dt">newdata=</span>liv.grid)</code></pre></div>
 <pre><code>## [inverse distance weighted interpolation]</code></pre>
-<p>Boom! We’ve got it. Let us pause for a second to see how we just did it. First, we pass <code>price ~ 1</code>. This specifies the formula we are using to model house prices. The name on the left of <code>~</code> represents the variable we want to explain, while everything to its right captures the <em>explanatory</em> variables. Since we are considering the simplest possible case, we do not have further variables to add, so we simply write <code>1</code>. Then we specify the original locations for which we do have house prices (our original <code>db</code> object), and the points where we want to interpolate the house prices (the <code>liv.grid</code> object we just created above). One more note: by default, <code>idw.hp</code> uses all the available observations, weighted by distance, to provide an estimate for a given point. If you want to modify that and restrict the maximum number of neighbors to consider, you need to tweak the argument <code>nmax</code>, as we do above by using the 150 neares observations to each point<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>.</p>
+<p>Boom! We’ve got it. Let us pause for a second to see how we just did it. First, we pass <code>price ~ 1</code>. This specifies the formula we are using to model house prices. The name on the left of <code>~</code> represents the variable we want to explain, while everything to its right captures the <em>explanatory</em> variables. Since we are considering the simplest possible case, we do not have further variables to add, so we simply write <code>1</code>. Then we specify the original locations for which we do have house prices (our original <code>db</code> object), and the points where we want to interpolate the house prices (the <code>liv.grid</code> object we just created above). One more note: by default, <code>idw.hp</code> uses all the available observations, weighted by distance, to provide an estimate for a given point. If you want to modify that and restrict the maximum number of neighbors to consider, you need to tweak the argument <code>nmax</code>, as we do above by using the 150 neares observations to each point<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a>.</p>
 <p>The object we get from <code>idw</code> is another spatial table, just as <code>db</code>, containing the interpolated values. As such, we can inspect it just as with any other of its kind. For example, to check out the top of the estimated table:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(idw.hp<span class="op">@</span>data)</code></pre></div>
 <pre><code>##   var1.pred var1.var
-## 1  158113.9       NA
-## 2  158225.1       NA
-## 3  158339.2       NA
-## 4  158456.3       NA
-## 5  158576.6       NA
-## 6  158700.1       NA</code></pre>
+## 1  158115.1       NA
+## 2  158226.4       NA
+## 3  158340.5       NA
+## 4  158457.6       NA
+## 5  158577.7       NA
+## 6  158701.0       NA</code></pre>
 <p>The column we will pay attention to is <code>var1.pred</code>. And to see the locations for which those correspond:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(idw.hp<span class="op">@</span>coords)</code></pre></div>
-<pre><code>##            x1       x2
-## [1,] 333599.4 382767.7
-## [2,] 333684.4 382767.7
-## [3,] 333769.4 382767.7
-## [4,] 333854.3 382767.7
-## [5,] 333939.3 382767.7
-## [6,] 334024.2 382767.7</code></pre>
+<pre><code>##            x1     x2
+## [1,] 333610.0 382713
+## [2,] 333695.0 382713
+## [3,] 333779.9 382713
+## [4,] 333864.9 382713
+## [5,] 333949.8 382713
+## [6,] 334034.8 382713</code></pre>
 <p>So, for a hypothetical house sold at the location in the first row of <code>idw.hp@coords</code> (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column <code>var1.pred</code> in <code>idw.hp@data</code>.</p>
 </div>
 <div id="a-surface-of-housing-prices" class="section level3">
@@ -534,7 +564,7 @@ surface</code></pre></div>
 Figure 3.10: Surface of log-prices in Liverpool
 </p>
 </div>
-<p>Now this looks better. We can start to tell some patterns. To bring in context, it would be great to be able to add a basemap layer, as we did for the KDE. This is conceptually very similar to what we did above, starting by reprojecting the points and continuing by overlaying them on top of the basemap. However, technically speaking it is not possible because <code>ggmap</code> –the library we have been using to display tiles from cloud providers– does not play well with our own rasters (i.e. the price surface). At the moment, it is surprisingly tricky to get this to work, so we will park it for now. However, developments such as the <a href="https://github.com/edzer/sfr"><code>sf</code></a> project promise to make this easier in the future<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>.</p>
+<p>Now this looks better. We can start to tell some patterns. To bring in context, it would be great to be able to add a basemap layer, as we did for the KDE. This is conceptually very similar to what we did above, starting by reprojecting the points and continuing by overlaying them on top of the basemap. However, technically speaking it is not possible because <code>ggmap</code> –the library we have been using to display tiles from cloud providers– does not play well with our own rasters (i.e. the price surface). At the moment, it is surprisingly tricky to get this to work, so we will park it for now. However, developments such as the <a href="https://github.com/edzer/sfr"><code>sf</code></a> project promise to make this easier in the future<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a>.</p>
 </div>
 <div id="what-should-the-next-houses-price-be" class="section level3">
 <h3><span class="header-section-number">3.4.3</span> <em>“What should the next house’s price be?”</em></h3>
@@ -552,7 +582,7 @@ idw.one &lt;-<span class="st"> </span><span class="kw">idw</span>(price <span cl
 ## variables   : 2
 ## names       :        var1.pred, var1.var 
 ## value       : 157099.029513871,       NA</code></pre>
-<p>And, as show above, the estimated value is GBP157,099<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a>.</p>
+<p>And, as show above, the estimated value is GBP157,099<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a>.</p>
 <p>Using this predictive logic, and taking advantage of Google Maps and its geocoding capabilities, it is possible to devise a function that takes an arbitrary address in Liverpool and, based on the transactions occurred throughout 2014, provides an estimate of what the price for a property in that location could be.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">how.much.is &lt;-<span class="st"> </span><span class="cf">function</span>(address, <span class="dt">print.message=</span><span class="ot">TRUE</span>){
   <span class="co"># Convert the address into Lon/Lat coordinates</span>
@@ -603,16 +633,16 @@ idw.one &lt;-<span class="st"> </span><span class="kw">idw</span>(price <span cl
 </div>
 <div class="footnotes">
 <hr />
-<ol start="1">
-<li id="fn1"><p>This note is part of <a href="index.html">Spatial Analysis Notes</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Points – Kernel Density Estimation and Spatial interpolation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<a href="points.html#fnref1">↩</a></p></li>
-<li id="fn2"><p>You can install package <code>mypackage</code> by running the command <code>install.packages(&quot;mypackage&quot;)</code> on the R prompt or through the <code>Tools --&gt; Install Packages...</code> menu in RStudio.<a href="points.html#fnref2">↩</a></p></li>
-<li id="fn3"><p><strong>EXERCISE</strong> The map above uses the Stamen map <code>toner-lite</code>. Explore additional tile styles on their <a href="http://maps.stamen.com/#watercolor/12/37.7706/-122.3782">website</a> and try to recreate the plot above.<a href="points.html#fnref3">↩</a></p></li>
-<li id="fn4"><p>There is also an important economic incentive to do this: some of the most popular applications are in the oil and gas or mining industries. In fact, the very creator of this technique, <a href="https://en.wikipedia.org/wiki/Danie_G._Krige">Danie G. Krige</a>, was a mining engineer. His name is usually used to nickname spatial interpolation as <em>kriging</em>.<a href="points.html#fnref4">↩</a></p></li>
-<li id="fn5"><p>Essentially, for any point <span class="math inline">\(x\)</span> in space, the IDW estimate for value <span class="math inline">\(z\)</span> is equivalent to <span class="math inline">\(\hat{z} (x) = \dfrac{\sum_i w_i z_i}{\sum_i w_i}\)</span> where <span class="math inline">\(i\)</span> are the observations for which we do have a value, and <span class="math inline">\(w_i\)</span> is a weight given to location <span class="math inline">\(i\)</span> based on its distance to <span class="math inline">\(x\)</span>.<a href="points.html#fnref5">↩</a></p></li>
-<li id="fn6"><p>For the relevant calculations, we will be using the <code>gstat</code> library.<a href="points.html#fnref6">↩</a></p></li>
-<li id="fn7"><p>Have a play with this because the results do change significantly. Can you reason why?<a href="points.html#fnref7">↩</a></p></li>
-<li id="fn8"><p><strong>BONUS</strong> if you can figure out a way to do it yourself!<a href="points.html#fnref8">↩</a></p></li>
-<li id="fn9"><p><strong>PRO QUESTION</strong> Is that house expensive or cheap, as compared to the other houses sold in this dataset? Can you figure out where the house is?<a href="points.html#fnref9">↩</a></p></li>
+<ol start="3">
+<li id="fn3"><p>This note is part of <a href="index.html">Spatial Analysis Notes</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Points – Kernel Density Estimation and Spatial interpolation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<a href="points.html#fnref3">↩</a></p></li>
+<li id="fn4"><p>You can install package <code>mypackage</code> by running the command <code>install.packages(&quot;mypackage&quot;)</code> on the R prompt or through the <code>Tools --&gt; Install Packages...</code> menu in RStudio.<a href="points.html#fnref4">↩</a></p></li>
+<li id="fn5"><p><strong>EXERCISE</strong> The map above uses the Stamen map <code>toner-lite</code>. Explore additional tile styles on their <a href="http://maps.stamen.com/#watercolor/12/37.7706/-122.3782">website</a> and try to recreate the plot above.<a href="points.html#fnref5">↩</a></p></li>
+<li id="fn6"><p>There is also an important economic incentive to do this: some of the most popular applications are in the oil and gas or mining industries. In fact, the very creator of this technique, <a href="https://en.wikipedia.org/wiki/Danie_G._Krige">Danie G. Krige</a>, was a mining engineer. His name is usually used to nickname spatial interpolation as <em>kriging</em>.<a href="points.html#fnref6">↩</a></p></li>
+<li id="fn7"><p>Essentially, for any point <span class="math inline">\(x\)</span> in space, the IDW estimate for value <span class="math inline">\(z\)</span> is equivalent to <span class="math inline">\(\hat{z} (x) = \dfrac{\sum_i w_i z_i}{\sum_i w_i}\)</span> where <span class="math inline">\(i\)</span> are the observations for which we do have a value, and <span class="math inline">\(w_i\)</span> is a weight given to location <span class="math inline">\(i\)</span> based on its distance to <span class="math inline">\(x\)</span>.<a href="points.html#fnref7">↩</a></p></li>
+<li id="fn8"><p>For the relevant calculations, we will be using the <code>gstat</code> library.<a href="points.html#fnref8">↩</a></p></li>
+<li id="fn9"><p>Have a play with this because the results do change significantly. Can you reason why?<a href="points.html#fnref9">↩</a></p></li>
+<li id="fn10"><p><strong>BONUS</strong> if you can figure out a way to do it yourself!<a href="points.html#fnref10">↩</a></p></li>
+<li id="fn11"><p><strong>PRO QUESTION</strong> Is that house expensive or cheap, as compared to the other houses sold in this dataset? Can you figure out where the house is?<a href="points.html#fnref11">↩</a></p></li>
 </ol>
 </div>
             </section>

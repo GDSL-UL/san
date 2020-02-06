@@ -1,7 +1,7 @@
 --- 
 title: "Spatial Analysis Notes"
 author: "Francisco Rowe & Dani Arribas-Bel"
-date: "2020-02-05"
+date: "2020-02-06"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -14,5 +14,5 @@ description: "Materials for a Spatial Analysis course in R."
 
 # Spatial Analysis Notes
 
-Welcome to Spatial Analysis.
+This book contains computational illustrations on spatial analytical approaches using R. 
 
