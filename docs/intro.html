@@ -115,10 +115,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.6.2" data-path="intro.html"><a href="intro.html#random-variables"><i class="fa fa-check"></i><b>2.6.2</b> Random Variables</a></li>
 </ul></li>
 <li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#data-frames"><i class="fa fa-check"></i><b>2.7</b> Data Frames</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="intro.html"><a href="intro.html#creating-a-data-frame"><i class="fa fa-check"></i><b>2.7.1</b> Creating a data frame</a></li>
-<li class="chapter" data-level="2.7.2" data-path="intro.html"><a href="intro.html#referencing-data-frame"><i class="fa fa-check"></i><b>2.7.2</b> Referencing data frame</a></li>
+<li class="chapter" data-level="2.7.1" data-path="intro.html"><a href="intro.html#creating-a-data-frame"><i class="fa fa-check"></i><b>2.7.1</b> Creating A Data Frame</a></li>
+<li class="chapter" data-level="2.7.2" data-path="intro.html"><a href="intro.html#referencing-data-frames"><i class="fa fa-check"></i><b>2.7.2</b> Referencing Data Frames</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#read-data"><i class="fa fa-check"></i><b>2.8</b> Read Data</a><ul>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#sec_readdata"><i class="fa fa-check"></i><b>2.8</b> Read Data</a><ul>
 <li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>2.8.1</b> Quickly inspect the data</a></li>
 </ul></li>
 <li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#manipulation-data"><i class="fa fa-check"></i><b>2.9</b> Manipulation Data</a><ul>
@@ -178,7 +178,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
 <p>This session<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> introduces R Notebooks, basic functions and data types. These are all important concepts that we will use during the module.</p>
-<p>If you are already familiar with <em>R</em>, R notebooks and data types, you may want to jump to Section <em>Read Data</em> and start from there. This section describes how to read and manipulate data using <code>sf</code> and <code>tidyverse</code> functions, including <code>mutate()</code>, <code>%&gt;%</code> (known as pipe operator), <code>select()</code>, <code>filter()</code> and specific packages and functions how to manipulate spatial data.</p>
+<p>If you are already familiar with R, R notebooks and data types, you may want to jump to Section <a href="intro.html#sec_readdata">Read Data</a> and start from there. This section describes how to read and manipulate data using <code>sf</code> and <code>tidyverse</code> functions, including <code>mutate()</code>, <code>%&gt;%</code> (known as pipe operator), <code>select()</code>, <code>filter()</code> and specific packages and functions how to manipulate spatial data.</p>
 <p>The content of this session is based on the following references:</p>
 <ul>
 <li><p><span class="citation">Grolemund and Wickham (<a href="#ref-grolemund_wickham_2019_book">2019</a>)</span>, this book illustrates key libraries, including tidyverse, and functions for data manipulation in R</p></li>
@@ -485,7 +485,7 @@ ghealth &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv"
                  <span class="dv">7636</span>,<span class="dv">9001</span>,<span class="dv">6450</span>,<span class="dv">8973</span>,<span class="dv">7302</span>,<span class="dv">7521</span>,<span class="dv">7268</span>,<span class="dv">7013</span>,<span class="dv">6025</span>,<span class="dv">7717</span>)</code></pre></div>
 <p>Note that <code>pop</code> and <code>ghealth</code> and <code>wards</code> contains characters.</p>
 <div id="creating-a-data-frame" class="section level3">
-<h3><span class="header-section-number">2.7.1</span> Creating a data frame</h3>
+<h3><span class="header-section-number">2.7.1</span> Creating A Data Frame</h3>
 <p>We can create a data frame and examine its structure:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(wards, pop, ghealth)
 df <span class="co"># or use view(data)</span></code></pre></div>
@@ -526,8 +526,8 @@ df <span class="co"># or use view(data)</span></code></pre></div>
 ##  $ pop    : num  14853 14510 15004 20340 13908 ...
 ##  $ ghealth: num  7274 6124 6129 11925 7219 ...</code></pre>
 </div>
-<div id="referencing-data-frame" class="section level3">
-<h3><span class="header-section-number">2.7.2</span> Referencing data frame</h3>
+<div id="referencing-data-frames" class="section level3">
+<h3><span class="header-section-number">2.7.2</span> Referencing Data Frames</h3>
 <p>Throughout this module, you will need to refer to particular parts of a dataframe - perhaps a particular column (an area attribute); or a particular subset of respondents. Hence it is worth spending some time now mastering this particular skill.</p>
 <p>The relevant R function, <code>[ ]</code>, has the format <code>[row,col]</code> or, more generally, <code>[set of rows, set of cols]</code>.</p>
 <p>Run the following commands to get a feel of how to extract different slices of the data:</p>
@@ -557,7 +557,7 @@ pop <span class="co"># but be careful if you already have an age variable in you
 <pre><code>## [1] &quot;wards&quot;   &quot;pop&quot;     &quot;ghealth&quot;</code></pre>
 </div>
 </div>
-<div id="read-data" class="section level2">
+<div id="sec_readdata" class="section level2">
 <h2><span class="header-section-number">2.8</span> Read Data</h2>
 <p>Ensure your memory is clear</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>()) <span class="co"># rm for targeted deletion / ls for listing all existing objects</span></code></pre></div>
@@ -980,20 +980,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

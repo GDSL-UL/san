@@ -2,7 +2,7 @@
 
 This session^[This note is part of [Spatial Analysis Notes](index.html) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Introduction -- R Notebooks + Basic Functions + Data Types</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.] introduces R Notebooks, basic functions and data types. These are all important concepts that we will use during the module.
 
-If you are already familiar with *R*, R notebooks and data types, you may want to jump to Section *Read Data* and start from there. This section describes how to read and manipulate data using `sf` and `tidyverse` functions, including `mutate()`, `%>%` (known as pipe operator), `select()`, `filter()` and specific packages and functions how to manipulate spatial data.
+If you are already familiar with R, R notebooks and data types, you may want to jump to Section [Read Data] and start from there. This section describes how to read and manipulate data using `sf` and `tidyverse` functions, including `mutate()`, `%>%` (known as pipe operator), `select()`, `filter()` and specific packages and functions how to manipulate spatial data.
 
 The content of this session is based on the following references:
 
@@ -442,7 +442,7 @@ ghealth <- c(7274,6124,6129,11925,7219,7461,6403,5930,7094,6992,
 
 Note that `pop` and `ghealth` and `wards` contains characters.
 
-### Creating a data frame
+### Creating A Data Frame
 
 We can create a data frame and examine its structure:
 
@@ -496,7 +496,7 @@ str(df) # or use glimpse(data)
 ##  $ ghealth: num  7274 6124 6129 11925 7219 ...
 ```
 
-### Referencing data frame
+### Referencing Data Frames
 
 Throughout this module, you will need to refer to particular parts of a dataframe - perhaps a particular column (an area attribute); or a particular subset of respondents. Hence it is worth spending some time now mastering this particular skill.
 
@@ -545,7 +545,7 @@ names(df)
 ## [1] "wards"   "pop"     "ghealth"
 ```
 
-## Read Data
+## Read Data {#sec_readdata}
 
 Ensure your memory is clear
 
