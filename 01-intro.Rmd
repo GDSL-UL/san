@@ -46,7 +46,7 @@ Normally RStudio is used to implement R coding. RStudio is an integrated develop
 
 To run R or RStudio, just double click on the R or RStudio icon. Throughout this module, we will be using RStudio:
 
-![Fig. 1. RStudio features.](/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/figs/ch2/rstudio_features.png)
+![Fig. 1. RStudio features.](figs/ch2/rstudio_features.png)
 
 If you would like to know more about the various features of RStudio, watch this [video](https://rstudio.com/products/rstudio/) 
 
@@ -89,7 +89,7 @@ To create an R Notebook, you need to:
 
 * Open a new script file: *File* > *New File* > *R Notebook*
 
-![Fig. 2. YAML metadata for notebooks.](/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/figs/ch2/rnotebook_yaml.png)
+![Fig. 2. YAML metadata for notebooks.](figs/ch2/rnotebook_yaml.png)
 
 * Insert code chunks, either:
 
@@ -104,7 +104,7 @@ In a chunk code you can produce text output, tables, graphics and write code! Yo
 hist(mtcars$mpg)
 ```
 
-![Fig. 3. Code chunk example. Details on the various options: https://rmarkdown.rstudio.com/lesson-3.html](/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/figs/ch2/codechunk.png)
+![Fig. 3. Code chunk example. Details on the various options: https://rmarkdown.rstudio.com/lesson-3.html](figs/ch2/codechunk.png)
 
 * Execute code: hit *"Run Current Chunk”*, *Ctrl + Shift + Enter* or *Cmd + Shift + Enter* (Mac)
 
@@ -339,7 +339,7 @@ There are many commands to read / load data onto R. The command to use will depe
 To read files in other formats, refer to this useful [DataCamp tutorial](https://www.datacamp.com/community/tutorials/r-data-import-tutorial?utm_source=adwords_ppc&utm_campaignid=1655852085&utm_adgroupid=61045434382&utm_device=c&utm_keyword=%2Bread%20%2Bdata%20%2Br&utm_matchtype=b&utm_network=g&utm_adpostion=1t1&utm_creative=318880582308&utm_targetid=kwd-309793905111&utm_loc_interest_ms=&utm_loc_physical_ms=9046551&gclid=CjwKCAiA3uDwBRBFEiwA1VsajJO0QK0Jg7VipIt8_t82qQrnUliI0syAlh8CIxnE76Rb0kh3FbiehxoCzCgQAvD_BwE#csv)
 
 ```{r}
-census <- read.csv("../san/data/census/census_data.csv")
+census <- read.csv("data/census/census_data.csv")
 head(census)
 # NOTE: always ensure your are setting the correct directory leading to the data. 
 # It may differ from your existing working directory
@@ -407,7 +407,7 @@ When working with spatial data, we often need to join data. To this end, you nee
 
 ```{r}
 # read data
-census2 <- read.csv("../san/data/census/census_data2.csv")
+census2 <- read.csv("data/census/census_data2.csv")
 # visualise data structure
 str(census2)
 ```
@@ -451,7 +451,7 @@ We first need to import our spatial data. We will use a shapefile containing dat
 
 ### Read Spatial Data
 ```{r}
-oa_shp <- st_read("../san/data/census/Liverpool_OA.shp")
+oa_shp <- st_read("data/census/Liverpool_OA.shp")
 ```
 Examine the input data. A spatial data frame stores a range of attributes derived from a shapefile including the **geometry** of features (e.g. polygon shape and location), **attributes** for each feature (stored in the .dbf), [projection](https://en.wikipedia.org/wiki/Map_projection) and coordinates of the shapefile's bounding box - for details, execute:
 
@@ -542,7 +542,7 @@ If you recall, one of the key issues of working with spatial data is the modifia
 
 ```{r}
 # read data at the msoa level
-msoa_shp <- st_read("../san/data/census/Liverpool_MSOA.shp")
+msoa_shp <- st_read("data/census/Liverpool_MSOA.shp")
 
 # ensure geometry is valid
 msoa_shp = lwgeom::st_make_valid(msoa_shp)
