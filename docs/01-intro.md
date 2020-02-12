@@ -47,7 +47,7 @@ Normally RStudio is used to implement R coding. RStudio is an integrated develop
 
 To run R or RStudio, just double click on the R or RStudio icon. Throughout this module, we will be using RStudio:
 
-![Fig. 1. RStudio features.](/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/figs/ch2/rstudio_features.png)
+![Fig. 1. RStudio features.](figs/ch2/rstudio_features.png)
 
 If you would like to know more about the various features of RStudio, watch this [video](https://rstudio.com/products/rstudio/) 
 
@@ -70,7 +70,7 @@ getwd()
 ```
 
 ```
-## [1] "/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san"
+## [1] "/home/jovyan/work"
 ```
 
 ## R Scripts and Notebooks
@@ -133,7 +133,7 @@ To create an R Notebook, you need to:
 
 * Open a new script file: *File* > *New File* > *R Notebook*
 
-![Fig. 2. YAML metadata for notebooks.](/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/figs/ch2/rnotebook_yaml.png)
+![Fig. 2. YAML metadata for notebooks.](figs/ch2/rnotebook_yaml.png)
 
 * Insert code chunks, either:
 
@@ -146,7 +146,7 @@ In a chunk code you can produce text output, tables, graphics and write code! Yo
 
 
 
-![Fig. 3. Code chunk example. Details on the various options: https://rmarkdown.rstudio.com/lesson-3.html](/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/figs/ch2/codechunk.png)
+![Fig. 3. Code chunk example. Details on the various options: https://rmarkdown.rstudio.com/lesson-3.html](figs/ch2/codechunk.png)
 
 * Execute code: hit *"Run Current Chunk”*, *Ctrl + Shift + Enter* or *Cmd + Shift + Enter* (Mac)
 
@@ -180,7 +180,7 @@ example(sqrt)
 ```
 
 <div class="figure">
-<img src="01-intro_files/figure-html/unnamed-chunk-7-1.png" alt="Example sqrt" width="672" />
+<img src="01-intro_files/figure-epub3/unnamed-chunk-7-1.png" alt="Example sqrt"  />
 <p class="caption">(\#fig:unnamed-chunk-7)Example sqrt</p>
 </div>
 
@@ -563,7 +563,7 @@ To read files in other formats, refer to this useful [DataCamp tutorial](https:/
 
 
 ```r
-census <- read.csv("../san/data/census/census_data.csv")
+census <- read.csv("data/census/census_data.csv")
 head(census)
 ```
 
@@ -662,7 +662,7 @@ When working with spatial data, we often need to join data. To this end, you nee
 
 ```r
 # read data
-census2 <- read.csv("../san/data/census/census_data2.csv")
+census2 <- read.csv("data/census/census_data2.csv")
 # visualise data structure
 str(census2)
 ```
@@ -735,11 +735,11 @@ We first need to import our spatial data. We will use a shapefile containing dat
 ### Read Spatial Data
 
 ```r
-oa_shp <- st_read("../san/data/census/Liverpool_OA.shp")
+oa_shp <- st_read("data/census/Liverpool_OA.shp")
 ```
 
 ```
-## Reading layer `Liverpool_OA' from data source `/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/census/Liverpool_OA.shp' using driver `ESRI Shapefile'
+## Reading layer `Liverpool_OA' from data source `/home/jovyan/work/data/census/Liverpool_OA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 1584 features and 18 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -865,7 +865,7 @@ plot(st_geometry(oa_shp))
 ```
 
 <div class="figure">
-<img src="01-intro_files/figure-html/unnamed-chunk-40-1.png" alt="OAs of Livepool" width="672" />
+<img src="01-intro_files/figure-epub3/unnamed-chunk-40-1.png" alt="OAs of Livepool"  />
 <p class="caption">(\#fig:unnamed-chunk-40)OAs of Livepool</p>
 </div>
 
@@ -879,7 +879,7 @@ plot(oa_shp["Ethnic"], key.pos = 4, axes = TRUE, key.width = lcm(1.3), key.lengt
 ```
 
 <div class="figure">
-<img src="01-intro_files/figure-html/unnamed-chunk-41-1.png" alt="Spatial distribution of ethnic groups, Liverpool" width="672" />
+<img src="01-intro_files/figure-epub3/unnamed-chunk-41-1.png" alt="Spatial distribution of ethnic groups, Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-41)Spatial distribution of ethnic groups, Liverpool</p>
 </div>
 
@@ -906,7 +906,7 @@ map_oa = tm_shape(oa_shp) +
 map_oa
 ```
 
-<img src="01-intro_files/figure-html/unnamed-chunk-42-1.png" width="672" />
+![](01-intro_files/figure-epub3/unnamed-chunk-42-1.png)<!-- -->
 
 Note that the operation `+` is used to add new layers. You can set style themes by `tm_style`. To visualise the existing styles use `tmap_style_catalogue()`, and you can also evaluate the code chunk below if you would like to create an interactive map.
 
@@ -927,11 +927,11 @@ If you recall, one of the key issues of working with spatial data is the modifia
 
 ```r
 # read data at the msoa level
-msoa_shp <- st_read("../san/data/census/Liverpool_MSOA.shp")
+msoa_shp <- st_read("data/census/Liverpool_MSOA.shp")
 ```
 
 ```
-## Reading layer `Liverpool_MSOA' from data source `/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/census/Liverpool_MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `Liverpool_MSOA' from data source `/home/jovyan/work/data/census/Liverpool_MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 16 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -955,7 +955,7 @@ map_msoa = tm_shape(msoa_shp) +
 tmap_arrange(map_msoa, map_oa) 
 ```
 
-<img src="01-intro_files/figure-html/unnamed-chunk-44-1.png" width="672" />
+![](01-intro_files/figure-epub3/unnamed-chunk-44-1.png)<!-- -->
 
 **TASK:**
 

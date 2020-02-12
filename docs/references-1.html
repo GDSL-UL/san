@@ -4,34 +4,34 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | A Minimal Book Example</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <title>References | Spatial Analysis Notes</title>
+  <meta name="description" content="Materials for a Spatial Analysis course in R." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | A Minimal Book Example" />
+  <meta property="og:title" content="References | Spatial Analysis Notes" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta property="og:description" content="Materials for a Spatial Analysis course in R." />
+  <meta name="github-repo" content="gdsl-ul/san" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | A Minimal Book Example" />
+  <meta name="twitter:title" content="References | Spatial Analysis Notes" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="Materials for a Spatial Analysis course in R." />
   
 
-<meta name="author" content="Yihui Xie" />
+<meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-02-03" />
+<meta name="date" content="2020-02-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="references.html"/>
+<link rel="prev" href="space-time-analysis.html"/>
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -130,20 +130,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Spatial Analysis Notes</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
-<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
-<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
-<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
-<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Spatial Analysis Notes</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#dependencies"><i class="fa fa-check"></i><b>2.1</b> Dependencies</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#introducing-r"><i class="fa fa-check"></i><b>2.2</b> Introducing R</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#r-scripts-and-notebooks"><i class="fa fa-check"></i><b>2.4</b> R Scripts and Notebooks</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#getting-help"><i class="fa fa-check"></i><b>2.5</b> Getting Help</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#variables-and-objects"><i class="fa fa-check"></i><b>2.6</b> Variables and objects</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="intro.html"><a href="intro.html#basic-data-types"><i class="fa fa-check"></i><b>2.6.1</b> Basic Data Types</a></li>
+<li class="chapter" data-level="2.6.2" data-path="intro.html"><a href="intro.html#random-variables"><i class="fa fa-check"></i><b>2.6.2</b> Random Variables</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
-<li class="chapter" data-level="7" data-path="final-words-1.html"><a href="final-words-1.html"><i class="fa fa-check"></i><b>7</b> Final Words</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#data-frames"><i class="fa fa-check"></i><b>2.7</b> Data Frames</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="intro.html"><a href="intro.html#creating-a-data-frame"><i class="fa fa-check"></i><b>2.7.1</b> Creating A Data Frame</a></li>
+<li class="chapter" data-level="2.7.2" data-path="intro.html"><a href="intro.html#referencing-data-frames"><i class="fa fa-check"></i><b>2.7.2</b> Referencing Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#sec_readdata"><i class="fa fa-check"></i><b>2.8</b> Read Data</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>2.8.1</b> Quickly inspect the data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#manipulation-data"><i class="fa fa-check"></i><b>2.9</b> Manipulation Data</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#adding-new-variables"><i class="fa fa-check"></i><b>2.9.1</b> Adding New Variables</a></li>
+<li class="chapter" data-level="2.9.2" data-path="intro.html"><a href="intro.html#selecting-variables"><i class="fa fa-check"></i><b>2.9.2</b> Selecting Variables</a></li>
+<li class="chapter" data-level="2.9.3" data-path="intro.html"><a href="intro.html#filtering-data"><i class="fa fa-check"></i><b>2.9.3</b> Filtering Data</a></li>
+<li class="chapter" data-level="2.9.4" data-path="intro.html"><a href="intro.html#joining-data-drames"><i class="fa fa-check"></i><b>2.9.4</b> Joining Data Drames</a></li>
+<li class="chapter" data-level="2.9.5" data-path="intro.html"><a href="intro.html#saving-data"><i class="fa fa-check"></i><b>2.9.5</b> Saving Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>2.10</b> Using Spatial Data Frames</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#read-spatial-data"><i class="fa fa-check"></i><b>2.10.1</b> Read Spatial Data</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#basic-mapping"><i class="fa fa-check"></i><b>2.10.2</b> Basic Mapping</a></li>
+<li class="chapter" data-level="2.10.3" data-path="intro.html"><a href="intro.html#comparing-geographies"><i class="fa fa-check"></i><b>2.10.3</b> Comparing geographies</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#useful-functions"><i class="fa fa-check"></i><b>2.11</b> Useful Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>3</b> Points</a><ul>
+<li class="chapter" data-level="3.1" data-path="points.html"><a href="points.html#dependencies-1"><i class="fa fa-check"></i><b>3.1</b> Dependencies</a></li>
+<li class="chapter" data-level="3.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>3.2</b> Data</a></li>
+<li class="chapter" data-level="3.3" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>3.3</b> KDE</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>3.3.1</b> One-dimensional KDE</a></li>
+<li class="chapter" data-level="3.3.2" data-path="points.html"><a href="points.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>3.3.2</b> Two-dimensional (spatial) KDE</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>3.4</b> Spatial Interpolation</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="points.html"><a href="points.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>3.4.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
+<li class="chapter" data-level="3.4.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>3.4.2</b> A surface of housing prices</a></li>
+<li class="chapter" data-level="3.4.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>3.4.3</b> <em>“What should the next house’s price be?”</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>4</b> Flows</a></li>
+<li class="chapter" data-level="5" data-path="dependencies-2.html"><a href="dependencies-2.html"><i class="fa fa-check"></i><b>5</b> Dependencies</a></li>
+<li class="chapter" data-level="6" data-path="data-1.html"><a href="data-1.html"><i class="fa fa-check"></i><b>6</b> Data</a></li>
+<li class="chapter" data-level="7" data-path="seeing-flows.html"><a href="seeing-flows.html"><i class="fa fa-check"></i><b>7</b> “<em>Seeing</em>” flows</a></li>
+<li class="chapter" data-level="8" data-path="modelling-flows.html"><a href="modelling-flows.html"><i class="fa fa-check"></i><b>8</b> Modelling flows</a><ul>
+<li class="chapter" data-level="8.1" data-path="modelling-flows.html"><a href="modelling-flows.html#baseline-model"><i class="fa fa-check"></i><b>8.1</b> Baseline model</a></li>
+<li class="chapter" data-level="8.2" data-path="modelling-flows.html"><a href="modelling-flows.html#improving-the-model"><i class="fa fa-check"></i><b>8.2</b> Improving the model</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="predicting-flows.html"><a href="predicting-flows.html"><i class="fa fa-check"></i><b>9</b> Predicting flows</a></li>
+<li class="chapter" data-level="10" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>10</b> References</a></li>
+<li class="chapter" data-level="11" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>11</b> Spatial Econometrics</a></li>
+<li class="chapter" data-level="12" data-path="multilevel-models-pt-i.html"><a href="multilevel-models-pt-i.html"><i class="fa fa-check"></i><b>12</b> Multilevel Models (Pt. I)</a></li>
+<li class="chapter" data-level="13" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>13</b> Multilevel Models (Pt. II)</a></li>
+<li class="chapter" data-level="14" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>14</b> GWR</a></li>
+<li class="chapter" data-level="15" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>15</b> Space-Time Analysis</a></li>
 <li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -157,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Spatial Analysis Notes</a>
           </h1>
         </div>
 
@@ -170,19 +219,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="refs" class="references">
 <div>
-<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a>.</p>
+<p>Banerjee, Sudipto, Bradley P Carlin, and Alan E Gelfand. 2014. <em>Hierarchical Modeling and Analysis for Spatial Data</em>. Crc Press.</p>
 </div>
 <div>
-<p>———. 2020. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</p>
+<p>Bivand, Roger S, Edzer Pebesma, and Virgilio Gómez-Rubio. 2013. <em>Applied Spatial Data Analysis with R</em>. Springer New York.</p>
+</div>
+<div>
+<p>Brunsdon, Chris, and Lex Comber. 2015. <em>An Introduction to R for Spatial Analysis &amp; Mapping</em>. Sage.</p>
+</div>
+<div>
+<p>Cressie, Noel. 2015. <em>Statistics for Spatial Data</em>. John Wiley &amp; Sons.</p>
+</div>
+<div>
+<p>Gelman, Andrew, and Jennifer Hill. 2006. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge University Press.</p>
+</div>
+<div>
+<p>Grolemund, Garrett, and Hadley Wickham. 2019. <em>R for Data Science</em>. O’Reilly, US. <a href="https://r4ds.had.co.nz">https://r4ds.had.co.nz</a>.</p>
+</div>
+<div>
+<p>Lovelace, Robin, and James Cheshire. 2014. “Introduction to visualising spatial data in R.” <em>National Centre for Research Methods Working Papers</em> 14 (03). <a href="https://github.com/Robinlovelace/Creating-maps-in-R">https://github.com/Robinlovelace/Creating-maps-in-R</a>.</p>
+</div>
+<div>
+<p>Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2020. <em>An Introduction to Statistical Learning</em>. Vol. 112. CRC Press, R Series. <a href="https://geocompr.robinlovelace.net">https://geocompr.robinlovelace.net</a>.</p>
+</div>
+<div>
+<p>Singleton, Alex. 2017. “Geographic Data Science for Urban Analytics.” <a href="http://www.alex-singleton.com/GDS_UA_2017/">http://www.alex-singleton.com/GDS_UA_2017/</a>.</p>
+</div>
+<div>
+<p>Williamson, Paul. 2018. “Survey Analysis.”</p>
+</div>
+<div>
+<p>Xie, Yihui, JJ Allaire, and Garrett Grolemund. 2019. <em>R Markdown: The Definitive Guide</em>. CRC Press, Taylor &amp; Francis, Chapman &amp; Hall Book. <a href="https://bookdown.org/yihui/rmarkdown/">https://bookdown.org/yihui/rmarkdown/</a>.</p>
 </div>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="references.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="space-time-analysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -214,7 +319,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-st_analysis.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-references.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -225,7 +330,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["spatial_analysis_notes.pdf", "spatial_analysis_notes.epub"],
 "toc": {
 "collapse": "subsection"
 }
