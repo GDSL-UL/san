@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 “Seeing” flows | Spatial Analysis Notes</title>
+  <meta name="description" content="Materials for a Spatial Analysis course in R." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 “Seeing” flows | Spatial Analysis Notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Materials for a Spatial Analysis course in R." />
+  <meta name="github-repo" content="gdsl-ul/san" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 “Seeing” flows | Spatial Analysis Notes" />
+  
+  <meta name="twitter:description" content="Materials for a Spatial Analysis course in R." />
+  
+
+<meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
+
+
+<meta name="date" content="2020-02-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-1.html"/>
+<link rel="next" href="modelling-flows.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Spatial Analysis Notes</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Spatial Analysis Notes</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#dependencies"><i class="fa fa-check"></i><b>2.1</b> Dependencies</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#introducing-r"><i class="fa fa-check"></i><b>2.2</b> Introducing R</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#r-scripts-and-notebooks"><i class="fa fa-check"></i><b>2.4</b> R Scripts and Notebooks</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#getting-help"><i class="fa fa-check"></i><b>2.5</b> Getting Help</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#variables-and-objects"><i class="fa fa-check"></i><b>2.6</b> Variables and objects</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="intro.html"><a href="intro.html#basic-data-types"><i class="fa fa-check"></i><b>2.6.1</b> Basic Data Types</a></li>
+<li class="chapter" data-level="2.6.2" data-path="intro.html"><a href="intro.html#random-variables"><i class="fa fa-check"></i><b>2.6.2</b> Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#data-frames"><i class="fa fa-check"></i><b>2.7</b> Data Frames</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="intro.html"><a href="intro.html#creating-a-data-frame"><i class="fa fa-check"></i><b>2.7.1</b> Creating A Data Frame</a></li>
+<li class="chapter" data-level="2.7.2" data-path="intro.html"><a href="intro.html#referencing-data-frames"><i class="fa fa-check"></i><b>2.7.2</b> Referencing Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#sec_readdata"><i class="fa fa-check"></i><b>2.8</b> Read Data</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>2.8.1</b> Quickly inspect the data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#manipulation-data"><i class="fa fa-check"></i><b>2.9</b> Manipulation Data</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#adding-new-variables"><i class="fa fa-check"></i><b>2.9.1</b> Adding New Variables</a></li>
+<li class="chapter" data-level="2.9.2" data-path="intro.html"><a href="intro.html#selecting-variables"><i class="fa fa-check"></i><b>2.9.2</b> Selecting Variables</a></li>
+<li class="chapter" data-level="2.9.3" data-path="intro.html"><a href="intro.html#filtering-data"><i class="fa fa-check"></i><b>2.9.3</b> Filtering Data</a></li>
+<li class="chapter" data-level="2.9.4" data-path="intro.html"><a href="intro.html#joining-data-drames"><i class="fa fa-check"></i><b>2.9.4</b> Joining Data Drames</a></li>
+<li class="chapter" data-level="2.9.5" data-path="intro.html"><a href="intro.html#saving-data"><i class="fa fa-check"></i><b>2.9.5</b> Saving Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>2.10</b> Using Spatial Data Frames</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#read-spatial-data"><i class="fa fa-check"></i><b>2.10.1</b> Read Spatial Data</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#basic-mapping"><i class="fa fa-check"></i><b>2.10.2</b> Basic Mapping</a></li>
+<li class="chapter" data-level="2.10.3" data-path="intro.html"><a href="intro.html#comparing-geographies"><i class="fa fa-check"></i><b>2.10.3</b> Comparing geographies</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#useful-functions"><i class="fa fa-check"></i><b>2.11</b> Useful Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>3</b> Points</a><ul>
+<li class="chapter" data-level="3.1" data-path="points.html"><a href="points.html#dependencies-1"><i class="fa fa-check"></i><b>3.1</b> Dependencies</a></li>
+<li class="chapter" data-level="3.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>3.2</b> Data</a></li>
+<li class="chapter" data-level="3.3" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>3.3</b> KDE</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>3.3.1</b> One-dimensional KDE</a></li>
+<li class="chapter" data-level="3.3.2" data-path="points.html"><a href="points.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>3.3.2</b> Two-dimensional (spatial) KDE</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>3.4</b> Spatial Interpolation</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="points.html"><a href="points.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>3.4.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
+<li class="chapter" data-level="3.4.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>3.4.2</b> A surface of housing prices</a></li>
+<li class="chapter" data-level="3.4.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>3.4.3</b> <em>“What should the next house’s price be?”</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>4</b> Flows</a></li>
+<li class="chapter" data-level="5" data-path="dependencies-2.html"><a href="dependencies-2.html"><i class="fa fa-check"></i><b>5</b> Dependencies</a></li>
+<li class="chapter" data-level="6" data-path="data-1.html"><a href="data-1.html"><i class="fa fa-check"></i><b>6</b> Data</a></li>
+<li class="chapter" data-level="7" data-path="seeing-flows.html"><a href="seeing-flows.html"><i class="fa fa-check"></i><b>7</b> “<em>Seeing</em>” flows</a></li>
+<li class="chapter" data-level="8" data-path="modelling-flows.html"><a href="modelling-flows.html"><i class="fa fa-check"></i><b>8</b> Modelling flows</a><ul>
+<li class="chapter" data-level="8.1" data-path="modelling-flows.html"><a href="modelling-flows.html#baseline-model"><i class="fa fa-check"></i><b>8.1</b> Baseline model</a></li>
+<li class="chapter" data-level="8.2" data-path="modelling-flows.html"><a href="modelling-flows.html#improving-the-model"><i class="fa fa-check"></i><b>8.2</b> Improving the model</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="predicting-flows.html"><a href="predicting-flows.html"><i class="fa fa-check"></i><b>9</b> Predicting flows</a></li>
+<li class="chapter" data-level="10" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>10</b> References</a></li>
+<li class="chapter" data-level="11" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>11</b> Spatial Econometrics</a></li>
+<li class="chapter" data-level="12" data-path="multilevel-models-pt-i.html"><a href="multilevel-models-pt-i.html"><i class="fa fa-check"></i><b>12</b> Multilevel Models (Pt. I)</a></li>
+<li class="chapter" data-level="13" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>13</b> Multilevel Models (Pt. II)</a></li>
+<li class="chapter" data-level="14" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>14</b> GWR</a></li>
+<li class="chapter" data-level="15" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>15</b> Space-Time Analysis</a></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Spatial Analysis Notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="seeing-flows" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> “<em>Seeing</em>” flows</h1>
+<p>The easiest way to get a quick preview of what the data looks like spatially is to make a simple plot:</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="seeing-flows.html#cb170-1"></a><span class="kw">plot</span>(db)</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-5"></span>
+<img src="03-flows_files/figure-html/unnamed-chunk-5-1.png" alt="Potential routes" width="672" />
+<p class="caption">
+Figure 7.1: Potential routes
+</p>
+</div>
+<p>Equally, if we want to visualize a single route, we can simply subset the table. For example, to get the shape of the trip from station <code>39</code> to station <code>48</code>, we can:</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="seeing-flows.html#cb171-1"></a>one39to48 &lt;-<span class="st"> </span>db[ <span class="kw">which</span>(</span>
+<span id="cb171-2"><a href="seeing-flows.html#cb171-2"></a>          db<span class="op">@</span>data<span class="op">$</span>orig <span class="op">==</span><span class="st"> </span><span class="dv">39</span> <span class="op">&amp;</span><span class="st"> </span>db<span class="op">@</span>data<span class="op">$</span>dest <span class="op">==</span><span class="st"> </span><span class="dv">48</span></span>
+<span id="cb171-3"><a href="seeing-flows.html#cb171-3"></a>          ) , ]</span>
+<span id="cb171-4"><a href="seeing-flows.html#cb171-4"></a><span class="kw">plot</span>(one39to48)</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-6"></span>
+<img src="03-flows_files/figure-html/unnamed-chunk-6-1.png" alt="Trip from station 39 to 48" width="672" />
+<p class="caption">
+Figure 7.2: Trip from station 39 to 48
+</p>
+</div>
+<p>or, for the most popular route, we can:</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="seeing-flows.html#cb172-1"></a>most_pop &lt;-<span class="st"> </span>db[ <span class="kw">which</span>(</span>
+<span id="cb172-2"><a href="seeing-flows.html#cb172-2"></a>          db<span class="op">@</span>data<span class="op">$</span>trips15 <span class="op">==</span><span class="st"> </span><span class="kw">max</span>(db<span class="op">@</span>data<span class="op">$</span>trips15)</span>
+<span id="cb172-3"><a href="seeing-flows.html#cb172-3"></a>          ) , ]</span>
+<span id="cb172-4"><a href="seeing-flows.html#cb172-4"></a><span class="kw">plot</span>(most_pop)</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-7"></span>
+<img src="03-flows_files/figure-html/unnamed-chunk-7-1.png" alt="Most popular trip" width="672" />
+<p class="caption">
+Figure 2.1: Most popular trip
+</p>
+</div>
+<p>These however do not reveal a lot: there is no geographical context (<em>why are there so many routes along the NE?</em>) and no sense of how volumes of bikers are allocated along different routes. Let us fix those two.</p>
+<p>The easiest way to bring in geographical context is by overlaying the routes on top of a background map of tiles downloaded from the internet. Let us download this using <code>ggmap</code>:</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="seeing-flows.html#cb173-1"></a>sf_bb &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">left=</span>db<span class="op">@</span>bbox[<span class="st">&#39;x&#39;</span>, <span class="st">&#39;min&#39;</span>],</span>
+<span id="cb173-2"><a href="seeing-flows.html#cb173-2"></a>           <span class="dt">right=</span>db<span class="op">@</span>bbox[<span class="st">&#39;x&#39;</span>, <span class="st">&#39;max&#39;</span>],</span>
+<span id="cb173-3"><a href="seeing-flows.html#cb173-3"></a>           <span class="dt">bottom=</span>db<span class="op">@</span>bbox[<span class="st">&#39;y&#39;</span>, <span class="st">&#39;min&#39;</span>],</span>
+<span id="cb173-4"><a href="seeing-flows.html#cb173-4"></a>           <span class="dt">top=</span>db<span class="op">@</span>bbox[<span class="st">&#39;y&#39;</span>, <span class="st">&#39;max&#39;</span>])</span>
+<span id="cb173-5"><a href="seeing-flows.html#cb173-5"></a>SanFran &lt;-<span class="st"> </span><span class="kw">get_stamenmap</span>(sf_bb, </span>
+<span id="cb173-6"><a href="seeing-flows.html#cb173-6"></a>                         <span class="dt">zoom =</span> <span class="dv">14</span>, </span>
+<span id="cb173-7"><a href="seeing-flows.html#cb173-7"></a>                         <span class="dt">maptype =</span> <span class="st">&quot;toner-lite&quot;</span>)</span></code></pre></div>
+<pre><code>## Source : http://tile.stamen.com/toner-lite/14/2620/6330.png</code></pre>
+<pre><code>## Source : http://tile.stamen.com/toner-lite/14/2621/6330.png</code></pre>
+<pre><code>## Source : http://tile.stamen.com/toner-lite/14/2622/6330.png</code></pre>
+<pre><code>## Source : http://tile.stamen.com/toner-lite/14/2620/6331.png</code></pre>
+<pre><code>## Source : http://tile.stamen.com/toner-lite/14/2621/6331.png</code></pre>
+<pre><code>## Source : http://tile.stamen.com/toner-lite/14/2622/6331.png</code></pre>
+<pre><code>## Source : http://tile.stamen.com/toner-lite/14/2620/6332.png</code></pre>
+<pre><code>## Source : http://tile.stamen.com/toner-lite/14/2621/6332.png</code></pre>
+<pre><code>## Source : http://tile.stamen.com/toner-lite/14/2622/6332.png</code></pre>
+<pre><code>## Source : http://tile.stamen.com/toner-lite/14/2620/6333.png</code></pre>
+<pre><code>## Source : http://tile.stamen.com/toner-lite/14/2621/6333.png</code></pre>
+<pre><code>## Source : http://tile.stamen.com/toner-lite/14/2622/6333.png</code></pre>
+<p>and make sure it looks like we intend it to look:</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="seeing-flows.html#cb186-1"></a><span class="kw">ggmap</span>(SanFran)</span></code></pre></div>
+<p><img src="03-flows_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Now to combine tiles and routes, we need to pull out the coordinates that make up each line. For the route example above, this would be:</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="seeing-flows.html#cb187-1"></a>xys1 &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">coordinates</span>(most_pop))</span></code></pre></div>
+<p>Now we can plot the route<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> (note we also dim down the background to focus the attention on flows):</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="seeing-flows.html#cb188-1"></a><span class="kw">ggmap</span>(SanFran, <span class="dt">darken=</span><span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb188-2"><a href="seeing-flows.html#cb188-2"></a><span class="st">  </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(<span class="dt">x=</span>X1, <span class="dt">y=</span>X2), </span>
+<span id="cb188-3"><a href="seeing-flows.html#cb188-3"></a>            <span class="dt">data=</span>xys1,</span>
+<span id="cb188-4"><a href="seeing-flows.html#cb188-4"></a>            <span class="dt">size=</span><span class="dv">1</span>,</span>
+<span id="cb188-5"><a href="seeing-flows.html#cb188-5"></a>            <span class="dt">color=</span><span class="kw">rgb</span>(<span class="fl">0.996078431372549</span>, <span class="fl">0.7019607843137254</span>, <span class="fl">0.03137254901960784</span>),</span>
+<span id="cb188-6"><a href="seeing-flows.html#cb188-6"></a>            <span class="dt">lineend=</span><span class="st">&#39;round&#39;</span>)</span></code></pre></div>
+<p><img src="03-flows_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Now we can plot all of the lines by using a short <code>for</code> loop to build up the table:</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="seeing-flows.html#cb189-1"></a><span class="co"># Set up shell data.frame</span></span>
+<span id="cb189-2"><a href="seeing-flows.html#cb189-2"></a>lines &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">lat =</span> <span class="kw">numeric</span>(<span class="dv">0</span>), </span>
+<span id="cb189-3"><a href="seeing-flows.html#cb189-3"></a>                    <span class="dt">lon =</span> <span class="kw">numeric</span>(<span class="dv">0</span>), </span>
+<span id="cb189-4"><a href="seeing-flows.html#cb189-4"></a>                    <span class="dt">trips =</span> <span class="kw">numeric</span>(<span class="dv">0</span>),</span>
+<span id="cb189-5"><a href="seeing-flows.html#cb189-5"></a>                    <span class="dt">id =</span> <span class="kw">numeric</span>(<span class="dv">0</span>)</span>
+<span id="cb189-6"><a href="seeing-flows.html#cb189-6"></a>                    )</span>
+<span id="cb189-7"><a href="seeing-flows.html#cb189-7"></a><span class="co"># Run loop</span></span>
+<span id="cb189-8"><a href="seeing-flows.html#cb189-8"></a><span class="cf">for</span>(x <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(db)){</span>
+<span id="cb189-9"><a href="seeing-flows.html#cb189-9"></a>  <span class="co"># Pull out row</span></span>
+<span id="cb189-10"><a href="seeing-flows.html#cb189-10"></a>  r &lt;-<span class="st"> </span>db[x, ]</span>
+<span id="cb189-11"><a href="seeing-flows.html#cb189-11"></a>  <span class="co"># Extract lon/lat coords</span></span>
+<span id="cb189-12"><a href="seeing-flows.html#cb189-12"></a>  xys &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">coordinates</span>(r))</span>
+<span id="cb189-13"><a href="seeing-flows.html#cb189-13"></a>  <span class="kw">names</span>(xys) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;lon&#39;</span>, <span class="st">&#39;lat&#39;</span>)</span>
+<span id="cb189-14"><a href="seeing-flows.html#cb189-14"></a>  <span class="co"># Insert trips and id</span></span>
+<span id="cb189-15"><a href="seeing-flows.html#cb189-15"></a>  xys[<span class="st">&#39;trips&#39;</span>] &lt;-<span class="st"> </span>r<span class="op">@</span>data<span class="op">$</span>trips15</span>
+<span id="cb189-16"><a href="seeing-flows.html#cb189-16"></a>  xys[<span class="st">&#39;id&#39;</span>] &lt;-<span class="st"> </span>x</span>
+<span id="cb189-17"><a href="seeing-flows.html#cb189-17"></a>  <span class="co"># Append them to `lines`</span></span>
+<span id="cb189-18"><a href="seeing-flows.html#cb189-18"></a>  lines &lt;-<span class="st"> </span><span class="kw">rbind</span>(lines, xys)</span>
+<span id="cb189-19"><a href="seeing-flows.html#cb189-19"></a>}</span></code></pre></div>
+<p>Now we can go on and plot all of them:</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="seeing-flows.html#cb190-1"></a><span class="kw">ggmap</span>(SanFran, <span class="dt">darken=</span><span class="fl">0.75</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb190-2"><a href="seeing-flows.html#cb190-2"></a><span class="st">  </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(</span>
+<span id="cb190-3"><a href="seeing-flows.html#cb190-3"></a>                <span class="dt">x=</span>lon, </span>
+<span id="cb190-4"><a href="seeing-flows.html#cb190-4"></a>                <span class="dt">y=</span>lat,</span>
+<span id="cb190-5"><a href="seeing-flows.html#cb190-5"></a>                <span class="dt">group=</span>id</span>
+<span id="cb190-6"><a href="seeing-flows.html#cb190-6"></a>                ),</span>
+<span id="cb190-7"><a href="seeing-flows.html#cb190-7"></a>            <span class="dt">data=</span>lines,</span>
+<span id="cb190-8"><a href="seeing-flows.html#cb190-8"></a>            <span class="dt">size=</span><span class="fl">0.1</span>,</span>
+<span id="cb190-9"><a href="seeing-flows.html#cb190-9"></a>            <span class="dt">color=</span><span class="kw">rgb</span>(<span class="fl">0.996078431372549</span>, <span class="fl">0.7019607843137254</span>, <span class="fl">0.03137254901960784</span>),</span>
+<span id="cb190-10"><a href="seeing-flows.html#cb190-10"></a>            <span class="dt">lineend=</span><span class="st">&#39;round&#39;</span>)</span></code></pre></div>
+<p><img src="03-flows_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Finally, we can get a sense of the distribution of the flows by associating a color gradient to each flow based on its number of trips:</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="seeing-flows.html#cb191-1"></a><span class="kw">ggmap</span>(SanFran, <span class="dt">darken=</span><span class="fl">0.75</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb191-2"><a href="seeing-flows.html#cb191-2"></a><span class="st">  </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(</span>
+<span id="cb191-3"><a href="seeing-flows.html#cb191-3"></a>                <span class="dt">x=</span>lon, </span>
+<span id="cb191-4"><a href="seeing-flows.html#cb191-4"></a>                <span class="dt">y=</span>lat,</span>
+<span id="cb191-5"><a href="seeing-flows.html#cb191-5"></a>                <span class="dt">group=</span>id,</span>
+<span id="cb191-6"><a href="seeing-flows.html#cb191-6"></a>                <span class="dt">colour=</span>trips</span>
+<span id="cb191-7"><a href="seeing-flows.html#cb191-7"></a>                ),</span>
+<span id="cb191-8"><a href="seeing-flows.html#cb191-8"></a>            <span class="dt">data=</span>lines,</span>
+<span id="cb191-9"><a href="seeing-flows.html#cb191-9"></a>            <span class="dt">size=</span><span class="kw">log1p</span>(lines<span class="op">$</span>trips <span class="op">/</span><span class="st"> </span><span class="kw">max</span>(lines<span class="op">$</span>trips)),</span>
+<span id="cb191-10"><a href="seeing-flows.html#cb191-10"></a>            <span class="dt">lineend=</span><span class="st">&#39;round&#39;</span>) <span class="op">+</span></span>
+<span id="cb191-11"><a href="seeing-flows.html#cb191-11"></a><span class="st">  </span><span class="kw">scale_colour_gradient</span>(<span class="dt">low=</span><span class="st">&#39;grey&#39;</span>,</span>
+<span id="cb191-12"><a href="seeing-flows.html#cb191-12"></a>                        <span class="dt">high=</span><span class="st">&#39;#07eda0&#39;</span>) <span class="op">+</span></span>
+<span id="cb191-13"><a href="seeing-flows.html#cb191-13"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(),</span>
+<span id="cb191-14"><a href="seeing-flows.html#cb191-14"></a>      <span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>(),</span>
+<span id="cb191-15"><a href="seeing-flows.html#cb191-15"></a>      <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>()</span>
+<span id="cb191-16"><a href="seeing-flows.html#cb191-16"></a>      )</span></code></pre></div>
+<p><img src="03-flows_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Note how we transform the size so it’s a proportion of the largest trip and then it is compressed with a logarithm.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="14">
+<li id="fn14"><p><strong>EXERCISE</strong>: <em>can you plot the route for the largest climb?</em><a href="seeing-flows.html#fnref14" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modelling-flows.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-flows.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["spatial_analysis_notes.pdf", "spatial_analysis_notes.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,19 +1,19 @@
 # Points
 
-This session^[This note is part of [Spatial Analysis Notes](index.html) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Points -- Kernel Density Estimation and Spatial interpolation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.] is based on the following references, which are great follow-up's on the topic:
+This chapter^[This chapter is part of [Spatial Analysis Notes](index.html) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Points -- Kernel Density Estimation and Spatial interpolation</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.] is based on the following references, which are great follow-up's on the topic:
 
 * @lovelace2014introduction is a great introduction.
 * Chapter 6 of @comber2015, in particular subsections 6.3 and 6.7.
 * @bivand2013applied provides an in-depth treatment of spatial data in R.
 
-This tutorial is part of [Spatial Analysis Notes](index.html), a compilation hosted as a GitHub repository that you can access it in a few ways:
+This chapter is part of [Spatial Analysis Notes](index.html), a compilation hosted as a GitHub repository that you can access it in a few ways:
 
-* As a [download](https://github.com/darribas/spa_notes/archive/master.zip) of a `.zip` file that contains all the materials.
+* As a [download](https://github.com/GDSL-UL/san/archive/master.zip) of a `.zip` file that contains all the materials.
 * As an [html
-  website](http://darribas.org/spa_notes/points.html).
+  website](https://gdsl-ul.github.io/san/points.html).
 * As a [pdf
-  document](https://github.com/darribas/spa_notes/raw/master/points_book.pdf)
-* As a [GitHub repository](https://github.com/darribas/spa_notes).
+  document](https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf)
+* As a [GitHub repository](https://github.com/GDSL-UL/san).
 
 ## Dependencies
 
@@ -34,13 +34,13 @@ library(rgdal)
 ```
 
 ```
-## rgdal: version: 1.4-6, (SVN revision 841)
+## rgdal: version: 1.4-4, (SVN revision 833)
 ##  Geospatial Data Abstraction Library extensions to R successfully loaded
-##  Loaded GDAL runtime: GDAL 2.4.2, released 2019/06/28
-##  Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rgdal/gdal
-##  GDAL binary built with GEOS: FALSE 
-##  Loaded PROJ.4 runtime: Rel. 5.2.0, September 15th, 2018, [PJ_VERSION: 520]
-##  Path to PROJ.4 shared files: /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rgdal/proj
+##  Loaded GDAL runtime: GDAL 2.2.3, released 2017/11/20
+##  Path to GDAL shared files: /usr/share/gdal/2.2
+##  GDAL binary built with GEOS: TRUE 
+##  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
+##  Path to PROJ.4 shared files: (autodetected)
 ##  Linking to sp version: 1.3-1
 ```
 
@@ -88,7 +88,7 @@ library(GISTools)
 
 ```
 ## rgeos version: 0.5-1, (SVN revision 614)
-##  GEOS runtime version: 3.7.2-CAPI-1.11.2 
+##  GEOS runtime version: 3.6.2-CAPI-1.10.2 
 ##  Linking to sp version: 1.3-1 
 ##  Polygon checking: TRUE
 ```
@@ -130,7 +130,7 @@ db <- readOGR(dsn = 'data/house_transactions', layer = 'liv_house_trans')
 
 ```
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/house_transactions", layer: "liv_house_trans"
+## Source: "/home/jovyan/work/data/house_transactions", layer: "liv_house_trans"
 ## with 6324 features
 ## It has 18 fields
 ## Integer64 fields read as strings:  price
@@ -177,9 +177,8 @@ summary(db)
 ## Is projected: TRUE 
 ## proj4string :
 ## [+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000
-## +y_0=-100000 +ellps=airy
-## +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m
-## +no_defs]
+## +y_0=-100000 +datum=OSGB36 +units=m +no_defs +ellps=airy
+## +towgs84=446.448,-125.157,542.060,0.1502,0.2470,0.8421,-20.4894]
 ## Number of points: 6324
 ## Data attributes:
 ##       pcds                                           id      
@@ -252,7 +251,7 @@ hist
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-8-1.png" alt="Raw house prices in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-8-1.png" alt="Raw house prices in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-8)Raw house prices in Liverpool</p>
 </div>
 
@@ -273,7 +272,7 @@ hist
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-9-1.png" alt="Log of house price in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-9-1.png" alt="Log of house price in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-9)Log of house price in Liverpool</p>
 </div>
 
@@ -285,7 +284,7 @@ plot(db)
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-10-1.png" alt="Spatial distribution of house transactions in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-10-1.png" alt="Spatial distribution of house transactions in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-10)Spatial distribution of house transactions in Liverpool</p>
 </div>
 
@@ -311,7 +310,7 @@ kde
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-11-1.png" alt="Histogram and KDE of the log of house prices in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-11-1.png" alt="Histogram and KDE of the log of house prices in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-11)Histogram and KDE of the log of house prices in Liverpool</p>
 </div>
 
@@ -338,7 +337,7 @@ kde
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-12-1.png" alt="KDE of house transactions in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-12-1.png" alt="KDE of house transactions in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-12)KDE of house transactions in Liverpool</p>
 </div>
 
@@ -353,7 +352,7 @@ level.plot(kde)
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-13-1.png" alt="KDE of house transactions in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-13-1.png" alt="KDE of house transactions in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-13)KDE of house transactions in Liverpool</p>
 </div>
 
@@ -429,7 +428,7 @@ final
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-14-1.png" alt="KDE of house transactions in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-14-1.png" alt="KDE of house transactions in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-14)KDE of house transactions in Liverpool</p>
 </div>
 
@@ -492,12 +491,12 @@ head(idw.hp@data)
 
 ```
 ##   var1.pred var1.var
-## 1  158115.1       NA
-## 2  158226.4       NA
-## 3  158340.5       NA
-## 4  158457.6       NA
-## 5  158577.7       NA
-## 6  158701.0       NA
+## 1  158024.7       NA
+## 2  158133.8       NA
+## 3  158245.5       NA
+## 4  158360.2       NA
+## 5  158477.7       NA
+## 6  158598.4       NA
 ```
 
 The column we will pay attention to is `var1.pred`. And to see the locations for which those correspond:
@@ -509,12 +508,12 @@ head(idw.hp@coords)
 
 ```
 ##            x1     x2
-## [1,] 333610.0 382713
-## [2,] 333695.0 382713
-## [3,] 333779.9 382713
-## [4,] 333864.9 382713
-## [5,] 333949.8 382713
-## [6,] 334034.8 382713
+## [1,] 333537.4 382724
+## [2,] 333622.4 382724
+## [3,] 333707.4 382724
+## [4,] 333792.3 382724
+## [5,] 333877.3 382724
+## [6,] 333962.3 382724
 ```
 
 So, for a hypothetical house sold at the location in the first row of `idw.hp@coords` (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column `var1.pred` in `idw.hp@data`.
@@ -528,7 +527,7 @@ Once we have the IDW object computed, we can plot it to explore the distribution
 spplot(idw.hp['var1.pred'])
 ```
 
-<img src="02-points_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+![](02-points_files/figure-epub3/unnamed-chunk-19-1.png)<!-- -->
 
 However, this is not entirely satisfactory for a number of reasons. Let us get an equivalen plot with the package `tmap`, which streamlines some of this and makes more aesthetically pleasant maps easier to build as it follows a "ggplot-y" approach.
 
@@ -540,7 +539,7 @@ liv.otl <- readOGR('data/house_transactions', 'liv_outline')
 
 ```
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/house_transactions", layer: "liv_outline"
+## Source: "/home/jovyan/work/data/house_transactions", layer: "liv_outline"
 ## with 1 features
 ## It has 1 fields
 ```
@@ -552,7 +551,7 @@ The shape we will overlay looks like this:
 qtm(liv.otl)
 ```
 
-<img src="02-points_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+![](02-points_files/figure-epub3/unnamed-chunk-21-1.png)<!-- -->
 
 Now let's give it a first go!
 
@@ -566,7 +565,7 @@ p = tm_shape(liv.otl) + tm_fill(col='black', alpha=1) +
 p
 ```
 
-<img src="02-points_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+![](02-points_files/figure-epub3/unnamed-chunk-22-1.png)<!-- -->
 
 
 The last two plots, however, are not really a surface, but a representation of the points we have just estimated. To create a surface, we need to do an interim transformation to convert the spatial object `idw.hp` into a table that a "surface plotter" can understand.
@@ -588,7 +587,7 @@ surface
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-24-1.png" alt="Contour of prices in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-24-1.png" alt="Contour of prices in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-24)Contour of prices in Liverpool</p>
 </div>
 
@@ -601,7 +600,7 @@ surface <- base + geom_raster(aes(fill=z))
 surface
 ```
 
-<img src="02-points_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+![](02-points_files/figure-epub3/unnamed-chunk-25-1.png)<!-- -->
 
 The problem here, when compared to the KDE above for example, is that a few values are extremely large:
 
@@ -611,7 +610,7 @@ qplot(data=xyz, x=z, geom='density')
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-26-1.png" alt="Skewness of prices in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-26-1.png" alt="Skewness of prices in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-26)Skewness of prices in Liverpool</p>
 </div>
 
@@ -628,7 +627,7 @@ surface
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-27-1.png" alt="Surface of log-prices in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-27-1.png" alt="Surface of log-prices in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-27)Surface of log-prices in Liverpool</p>
 </div>
 
@@ -659,7 +658,7 @@ idw.one
 ## class       : SpatialPointsDataFrame 
 ## features    : 1 
 ## extent      : 340000, 340000, 390000, 390000  (xmin, xmax, ymin, ymax)
-## crs         : +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs 
+## crs         : +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs +ellps=airy +towgs84=446.448,-125.157,542.060,0.1502,0.2470,0.8421,-20.4894 
 ## variables   : 2
 ## names       :        var1.pred, var1.var 
 ## value       : 157099.029513871,       NA
