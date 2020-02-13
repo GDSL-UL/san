@@ -17,7 +17,7 @@ This tutorial is part of [Spatial Analysis Notes](index.html), a compilation hos
   document](https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf)
 * As a [GitHub repository](https://github.com/GDSL-UL/san).
 
-# Dependencies
+## Dependencies
 
 This tutorial relies on the following libraries that you will need to have installed on your machine to be able to interactively follow along^[You can install package `mypackage` by running the command `install.packages("mypackage")` on the R prompt or through the `Tools --> Install Packages...` menu in RStudio.]. Once installed, load them up with the following commands:
 
@@ -94,7 +94,7 @@ Before we start any analysis, let us set the path to the directory where we are 
 setwd('.')
 ```
 
-# Data
+## Data
 
 In this note, we will use data from the city of San Francisco representing bike trips on their public bike share system. The original source is the SF Open Data portal ([link](http://www.bayareabikeshare.com/open-data)) and the dataset comprises both the location of each station in the Bay Area as well as information on trips (station of origin to station of destination) undertaken in the system from September 2014 to August 2015 and the following year. Since this note is about modeling and not data preparation, a cleanly reshaped version of the data, together with some additional information, has been created and placed in the `sf_bikes` folder. The data file is named `flows.geojson` and, in case you are interested, the (Python) code required to created from the original files in the SF Data Portal is also available on the `flows_prep.ipynb` notebook [[url]](https://github.com/darribas/spa_notes/blob/master/sf_bikes/flows_prep.ipynb), also in the same folder.
 
@@ -145,7 +145,7 @@ head(db@data)
 
 where `orig` and `dest` are the station IDs of the origin and destination, `street/straight_dist` is the distance in metres between stations measured along the street network or as-the-crow-flies, `total_down/up` is the total downhil and climb in the trip, and `tripsXX` contains the amount of trips undertaken in the years of study.
 
-# "*Seeing*" flows
+## "*Seeing*" flows
 
 The easiest way to get a quick preview of what the data looks like spatially is to make a simple plot:
 
@@ -351,7 +351,7 @@ ggmap(SanFran, darken=0.75) +
 
 Note how we transform the size so it's a proportion of the largest trip and then it is compressed with a logarithm.
 
-# Modelling flows
+## Modelling flows
 
 Now we have an idea of the spatial distribution of flows, we can begin to think about modeling them. The core idea in this section is to fit a model that can capture the particular characteristics of our variable of interest (the volume of trips) using a set of predictors that describe the nature of a given flow. We will start from the simplest model and then progressively build complexity until we get to a satisfying point. Along the way, we will be exploring each model using concepts from @gelman2006data such as predictive performance checks^[For a more elaborate introduction to PPC, have a look at Chapters 7 and 8.] (PPC)
 
@@ -369,7 +369,7 @@ db_std$orig <- as.factor(db@data$orig)
 db_std$dest <- as.factor(db@data$dest)
 ```
 
-## Baseline model
+**Baseline model**
 
 One of the simplest possible models we can fit in this context is a linear model that explains the number of trips as a function of the straight distance between the two stations and total amount of climb and downhill. We will take this as the baseline on which we can further build later:
 
@@ -523,7 +523,7 @@ The plot shows there is a significant mismatch between the fitted values, which 
 
 It is important to keep in mind that the issues discussed in the paragraph above relate only to the uncertainty behind our model, not to the point predictions derived from them, which are a mechanistic result of the minimization of the squared residuals and hence are not subject to probability or inference. That allows them in this case to provide a fitted distribution much more accurate apparently (black line above). However, the lesson to take from this model is that, even if the point predictions (fitted values) are artificially accurate^[which they are not really, in light of the comparison between the black and red lines.], our capabilities to infer about the more general underlying process are fairly limited.
 
-## Improving the model
+**Improving the model**
 
 The bad news from the previous section is that our initial model is not great at explaining bike trips. The good news is there are several ways in which we can improve this. In this section we will cover three main extensions that exemplify three different routes you can take when enriching and augmenting models in general, and spatial interaction ones in particular^[These principles are general and can be applied to pretty much any modeling exercise you run into. The specific approaches we take in this note relate to spatial interaction models]. These three routes are aligned around the following principles:
 
@@ -756,7 +756,7 @@ $$
 
 we need to transform $\beta$ through an exponential in order to get a sense of the effect of distance on the number of trips. This means that for the street distance, our original estimate is $\beta_{street} = -0.0996$, but this needs to be translated through the exponential into $e^{-0.0996} = 0.906$. In other words, since distance is expressed in standard deviations^[Remember the transformation at the very beginning.], we can expect a 10% decrease in the number of trips for an increase of one standard deviation (about 1Km) in the distance between the stations. This can be compared with $e^{-0.0782} = 0.925$ for the straight distances, or a reduction of about 8% the number of trips for every increase of a standard deviation (about 720m).
 
-# Predicting flows
+## Predicting flows
 
 So far we have put all of our modeling efforts in understanding the model we fit and improving such model so it fits our data as closely as possible. This is essential in any modelling exercise but should be far from a stopping point. Once we're confident our model is a decent representation of the data generating process, we can start exploiting it. In this section, we will cover one specific case that showcases how a fitted model can help: out-of-sample forecasts.
 
@@ -828,5 +828,5 @@ rmses
 
 The table is both encouraging and disheartning at the same time. On the one hand, all the modeling techniques covered above behave as we would expect: the baseline model displays the worst predicting power of all, and every improvement (except the street distances!) results in notable decreases of the RMSE. This is good news. However, on the other hand, all of our modelling efforts fall short of given a better guess than simply using the previous year's counts. *Why? Does this mean that we should not pay attention to modeling and inference?* Not really. Generally speaking, a model is as good at predicting as it is able to mimic the underlying process that gave rise to the data in the first place. The results above point to a case where our model is not picking up all the factors that determine the amount of trips undertaken in a give route. This could be improved by enriching the model with more/better predictors, as we have seen above. Also, the example above seems to point to a case where those idiosyncracies in 2015 that the model does not pick up seem to be at work in 2016 as well. This is great news for our prediction efforts this time, but we have no idea why this is the case and, for all that matters, it could change the coming year. Besides the elegant quantification of uncertainty, the true advantage of a modeling approach in this context is that, if well fit, it is able to pick up the fundamentals that apply over and over. This means that, if next year we're not as lucky as this one and previous counts are not good predictors but the variables we used in our model continue to have a role in determining the outcome, the data scientist should be luckier and hit a better prediction.
 
-# References
+## References
 

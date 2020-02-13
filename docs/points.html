@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-02-12" />
+<meta name="date" content="2020-02-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -178,21 +178,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>3.4.3</b> <em>“What should the next house’s price be?”</em></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>4</b> Flows</a></li>
-<li class="chapter" data-level="5" data-path="dependencies-2.html"><a href="dependencies-2.html"><i class="fa fa-check"></i><b>5</b> Dependencies</a></li>
-<li class="chapter" data-level="6" data-path="data-1.html"><a href="data-1.html"><i class="fa fa-check"></i><b>6</b> Data</a></li>
-<li class="chapter" data-level="7" data-path="seeing-flows.html"><a href="seeing-flows.html"><i class="fa fa-check"></i><b>7</b> “<em>Seeing</em>” flows</a></li>
-<li class="chapter" data-level="8" data-path="modelling-flows.html"><a href="modelling-flows.html"><i class="fa fa-check"></i><b>8</b> Modelling flows</a><ul>
-<li class="chapter" data-level="8.1" data-path="modelling-flows.html"><a href="modelling-flows.html#baseline-model"><i class="fa fa-check"></i><b>8.1</b> Baseline model</a></li>
-<li class="chapter" data-level="8.2" data-path="modelling-flows.html"><a href="modelling-flows.html#improving-the-model"><i class="fa fa-check"></i><b>8.2</b> Improving the model</a></li>
+<li class="chapter" data-level="4" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>4</b> Flows</a><ul>
+<li class="chapter" data-level="4.1" data-path="flows.html"><a href="flows.html#dependencies-2"><i class="fa fa-check"></i><b>4.1</b> Dependencies</a></li>
+<li class="chapter" data-level="4.2" data-path="flows.html"><a href="flows.html#data-1"><i class="fa fa-check"></i><b>4.2</b> Data</a></li>
+<li class="chapter" data-level="4.3" data-path="flows.html"><a href="flows.html#seeing-flows"><i class="fa fa-check"></i><b>4.3</b> “<em>Seeing</em>” flows</a></li>
+<li class="chapter" data-level="4.4" data-path="flows.html"><a href="flows.html#modelling-flows"><i class="fa fa-check"></i><b>4.4</b> Modelling flows</a></li>
+<li class="chapter" data-level="4.5" data-path="flows.html"><a href="flows.html#predicting-flows"><i class="fa fa-check"></i><b>4.5</b> Predicting flows</a></li>
+<li class="chapter" data-level="4.6" data-path="flows.html"><a href="flows.html#references"><i class="fa fa-check"></i><b>4.6</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="predicting-flows.html"><a href="predicting-flows.html"><i class="fa fa-check"></i><b>9</b> Predicting flows</a></li>
-<li class="chapter" data-level="10" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>10</b> References</a></li>
-<li class="chapter" data-level="11" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>11</b> Spatial Econometrics</a></li>
-<li class="chapter" data-level="12" data-path="multilevel-models-pt-i.html"><a href="multilevel-models-pt-i.html"><i class="fa fa-check"></i><b>12</b> Multilevel Models (Pt. I)</a></li>
-<li class="chapter" data-level="13" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>13</b> Multilevel Models (Pt. II)</a></li>
-<li class="chapter" data-level="14" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>14</b> GWR</a></li>
-<li class="chapter" data-level="15" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>15</b> Space-Time Analysis</a></li>
+<li class="chapter" data-level="5" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>5</b> Spatial Econometrics</a></li>
+<li class="chapter" data-level="6" data-path="multilevel-models-pt-i.html"><a href="multilevel-models-pt-i.html"><i class="fa fa-check"></i><b>6</b> Multilevel Models (Pt. I)</a></li>
+<li class="chapter" data-level="7" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>7</b> Multilevel Models (Pt. II)</a></li>
+<li class="chapter" data-level="8" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>8</b> GWR</a></li>
+<li class="chapter" data-level="9" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>9</b> Space-Time Analysis</a></li>
 <li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -524,21 +522,21 @@ Figure 3.7: KDE of house transactions in Liverpool
 <p>The object we get from <code>idw</code> is another spatial table, just as <code>db</code>, containing the interpolated values. As such, we can inspect it just as with any other of its kind. For example, to check out the top of the estimated table:</p>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="points.html#cb132-1"></a><span class="kw">head</span>(idw.hp<span class="op">@</span>data)</span></code></pre></div>
 <pre><code>##   var1.pred var1.var
-## 1  158103.0       NA
-## 2  158214.0       NA
-## 3  158327.8       NA
-## 4  158444.6       NA
-## 5  158564.4       NA
-## 6  158687.5       NA</code></pre>
+## 1  158091.7       NA
+## 2  158202.4       NA
+## 3  158315.9       NA
+## 4  158432.3       NA
+## 5  158551.8       NA
+## 6  158674.4       NA</code></pre>
 <p>The column we will pay attention to is <code>var1.pred</code>. And to see the locations for which those correspond:</p>
 <div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="points.html#cb134-1"></a><span class="kw">head</span>(idw.hp<span class="op">@</span>coords)</span></code></pre></div>
 <pre><code>##            x1       x2
-## [1,] 333595.2 382743.3
-## [2,] 333680.2 382743.3
-## [3,] 333765.1 382743.3
-## [4,] 333850.1 382743.3
-## [5,] 333935.1 382743.3
-## [6,] 334020.0 382743.3</code></pre>
+## [1,] 333590.5 382720.2
+## [2,] 333675.5 382720.2
+## [3,] 333760.4 382720.2
+## [4,] 333845.4 382720.2
+## [5,] 333930.4 382720.2
+## [6,] 334015.3 382720.2</code></pre>
 <p>So, for a hypothetical house sold at the location in the first row of <code>idw.hp@coords</code> (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column <code>var1.pred</code> in <code>idw.hp@data</code>.</p>
 </div>
 <div id="a-surface-of-housing-prices" class="section level3">
