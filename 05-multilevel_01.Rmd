@@ -28,6 +28,9 @@ library(tmap)
 library(RColorBrewer) 
 # More colour palettes
 library(viridis) # nice colour schemes
+
+# Set working directory
+setwd(".")
 ```
 
 > Flow of the argument: explanation of key components of linear regressions which matter to introduce multilevel models
@@ -145,7 +148,7 @@ Recall set the working directory before reading the data.
 
 ```{r}
 # read data
-oa_shp <- st_read("data/mml/OA.shp")
+oa_shp <- st_read("data/mlm/OA.shp")
 ```
 
 Visualise the hierarchical structure of the data
