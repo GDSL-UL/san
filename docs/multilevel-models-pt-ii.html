@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Multilevel Models (Pt. II) | Spatial Analysis Notes</title>
+  <title>Chapter 10 Multilevel Models (Pt. II) | Spatial Analysis Notes</title>
   <meta name="description" content="Materials for a Spatial Analysis course in R." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Multilevel Models (Pt. II) | Spatial Analysis Notes" />
+  <meta property="og:title" content="Chapter 10 Multilevel Models (Pt. II) | Spatial Analysis Notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="gdsl-ul/san" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Multilevel Models (Pt. II) | Spatial Analysis Notes" />
+  <meta name="twitter:title" content="Chapter 10 Multilevel Models (Pt. II) | Spatial Analysis Notes" />
   
   <meta name="twitter:description" content="Materials for a Spatial Analysis course in R." />
   
@@ -24,14 +24,14 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-02-13" />
+<meta name="date" content="2020-02-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="multilevel-models-pt-i.html"/>
+<link rel="prev" href="multilevel-modelling.html"/>
 <link rel="next" href="gwr.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -186,12 +186,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="flows.html"><a href="flows.html#predicting-flows"><i class="fa fa-check"></i><b>4.5</b> Predicting flows</a></li>
 <li class="chapter" data-level="4.6" data-path="flows.html"><a href="flows.html#references"><i class="fa fa-check"></i><b>4.6</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>5</b> Spatial Econometrics</a></li>
-<li class="chapter" data-level="6" data-path="multilevel-models-pt-i.html"><a href="multilevel-models-pt-i.html"><i class="fa fa-check"></i><b>6</b> Multilevel Models (Pt. I)</a></li>
-<li class="chapter" data-level="7" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>7</b> Multilevel Models (Pt. II)</a></li>
-<li class="chapter" data-level="8" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>8</b> GWR</a></li>
-<li class="chapter" data-level="9" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>9</b> Space-Time Analysis</a></li>
-<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="5" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>5</b> Spatial Econometrics</a><ul>
+<li class="chapter" data-level="5.1" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#dependencies-3"><i class="fa fa-check"></i><b>5.1</b> Dependencies</a></li>
+<li class="chapter" data-level="5.2" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#data-2"><i class="fa fa-check"></i><b>5.2</b> Data</a></li>
+<li class="chapter" data-level="5.3" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#non-spatial-regression-a-refresh"><i class="fa fa-check"></i><b>5.3</b> Non-spatial regression, a refresh</a></li>
+<li class="chapter" data-level="5.4" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#spatial-regression-a-very-first-dip"><i class="fa fa-check"></i><b>5.4</b> Spatial regression: a (very) first dip</a></li>
+<li class="chapter" data-level="5.5" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#spatial-heterogeneity"><i class="fa fa-check"></i><b>5.5</b> Spatial heterogeneity</a></li>
+<li class="chapter" data-level="5.6" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#spatial-dependence"><i class="fa fa-check"></i><b>5.6</b> Spatial dependence</a></li>
+<li class="chapter" data-level="5.7" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#predicting-house-prices"><i class="fa fa-check"></i><b>5.7</b> Predicting house prices</a></li>
+<li class="chapter" data-level="5.8" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#references-1"><i class="fa fa-check"></i><b>5.8</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html"><i class="fa fa-check"></i><b>6</b> Multilevel Modelling - Part 1</a><ul>
+<li class="chapter" data-level="6.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#dependencies-4"><i class="fa fa-check"></i><b>6.1</b> Dependencies</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="multilevel-data-structures.html"><a href="multilevel-data-structures.html"><i class="fa fa-check"></i><b>7</b> Multilevel Data Structures</a><ul>
+<li class="chapter" data-level="7.1" data-path="multilevel-data-structures.html"><a href="multilevel-data-structures.html#data-3"><i class="fa fa-check"></i><b>7.1</b> Data</a></li>
+<li class="chapter" data-level="7.2" data-path="multilevel-data-structures.html"><a href="multilevel-data-structures.html#long-vs-wide-format"><i class="fa fa-check"></i><b>7.2</b> Long vs wide format</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="single-level-regression-models.html"><a href="single-level-regression-models.html"><i class="fa fa-check"></i><b>8</b> Single-level Regression Models</a><ul>
+<li class="chapter" data-level="8.1" data-path="single-level-regression-models.html"><a href="single-level-regression-models.html#limitations"><i class="fa fa-check"></i><b>8.1</b> Limitations</a></li>
+<li class="chapter" data-level="8.2" data-path="single-level-regression-models.html"><a href="single-level-regression-models.html#adding-group-fixed-effects"><i class="fa fa-check"></i><b>8.2</b> Adding Group Fixed Effects</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="multilevel-modelling.html"><a href="multilevel-modelling.html"><i class="fa fa-check"></i><b>9</b> Multilevel Modelling</a><ul>
+<li class="chapter" data-level="9.1" data-path="multilevel-modelling.html"><a href="multilevel-modelling.html#the-intuition"><i class="fa fa-check"></i><b>9.1</b> The Intuition</a></li>
+<li class="chapter" data-level="9.2" data-path="multilevel-modelling.html"><a href="multilevel-modelling.html#practice"><i class="fa fa-check"></i><b>9.2</b> Practice</a></li>
+<li class="chapter" data-level="9.3" data-path="multilevel-modelling.html"><a href="multilevel-modelling.html#intercept-only-model"><i class="fa fa-check"></i><b>9.3</b> Intercept Only Model</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>10</b> Multilevel Models (Pt. II)</a></li>
+<li class="chapter" data-level="11" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>11</b> GWR</a></li>
+<li class="chapter" data-level="12" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>12</b> Space-Time Analysis</a></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -213,7 +237,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="multilevel-models-pt.-ii" class="section level1">
-<h1><span class="header-section-number">Chapter 7</span> Multilevel Models (Pt. II)</h1>
+<h1><span class="header-section-number">Chapter 10</span> Multilevel Models (Pt. II)</h1>
 <p>FR to fill in</p>
 
 </div>
@@ -222,7 +246,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="multilevel-models-pt-i.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="multilevel-modelling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="gwr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
