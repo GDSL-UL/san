@@ -28,9 +28,18 @@ library(tmap)
 library(RColorBrewer) 
 # More colour palettes
 library(viridis) # nice colour schemes
+<<<<<<< HEAD
+# Fitting multilevel models
+library(lme4)
+# Exportable regression tables
+library(jtools)
+library(stargazer)
+library(sjPlot)
+=======
 
 # Set working directory
 setwd(".")
+>>>>>>> 3b2ea553ef068dfea5a6f2cd59ee0e48ec8812d2
 ```
 
 > Flow of the argument: explanation of key components of linear regressions which matter to introduce multilevel models
@@ -66,15 +75,15 @@ Technically, we have incorrect estimates of precision, standard errors, confiden
 
 ## Data
 
-## Long vs wide format
+### Long vs wide format
 
-# Single-level Regression Models
+## Single-level Regression Models
 
 $$y_{i} = \beta_{0} + \beta_{1} x_{1i} + e_{i}$$
 
 **Example: estimate regression model**
 
-## Limitations
+### Limitations
 
 * Captures averages
 
@@ -86,7 +95,7 @@ $$y_{i} = \beta_{0} + \beta_{1} x_{1i} + e_{i}$$
 
 * May lead to drawn erroneous conclusions frome the identification of misleading relationships
 
-## Adding Group Fixed Effects
+### Adding Group Fixed Effects
 
 Introduce this as adding dummy variables
 
@@ -96,7 +105,7 @@ Introduce this as adding dummy variables
 * No single parameter assesses between group differences
 * Cannot include group-level predictors
 
-# Multilevel Modelling
+### Multilevel Modelling
 
 ## The Intuition
 
@@ -162,7 +171,78 @@ head(oa_shp)
 ```
 **What is the hierarchy of the data?**
 
+```{r}
+# number of OAs nested within MSOAs
+MSOA_CD %>% table() %>%
+  sort() %>%
+  plot()
+# mean of nested OAs
+MSOA_CD %>% table() %>%
+  mean()
+```
+
+## Baseline Linear Regression Model
+
+```{r}
+# dependent variable
+oa_shp$y <- (H_Vbad + H_bad) / pop
+```
+
+```{r}
+# create a map
+legend_title = expression("% bad health")
+map_oa = tm_shape(oa_shp) +
+  tm_fill(col = "y", title = legend_title, palette = magma(256, begin = 0.25, end = 1), style = "cont") + 
+  tm_borders(col = "white", lwd = .01)  + 
+  tm_compass(type = "arrow", position = c("right", "top") , size = 4) + 
+  tm_scale_bar(breaks = c(0,1,2), text.size = 0.5, position =  c("center", "bottom")) 
+map_oa
+```
+```{r}
+# high %s
+oa_shp %>% filter(y > 0.2)
+```
+
+
+```{r}
+# specify a model equation
+eq1 <- y ~ age_60 + Ethnic + unemp
+model1 <- lm(formula = eq, data = oa_shp)
+# coefficients
+summ(model1)
+# export_summs(model1) or stargazer(model1, type = "html") to export tables into word documents
+```
+
+## Multilevel Modelling
+
 ## Intercept Only Model
 
+Note: use `(1 | MSOA_CD)` to indicate group-level variables. 
 
+```{r}
+# specify a model equation
+eq2 <- y ~ 1 + (1 | MSOA_CD)
+model2 <- lmer(eq2, data = oa_shp)
+# coefficients
+summary(model2)
+# summ(model2) formatted output
+```
+
+
+> Explain how to read the output table by blocks
+
+Model info
+
+Model fit
+
+* Random effects
+  > Variance: the MSOA-level variance (=0.0009071) and OA-level variance (0.0017041)
+  > Standard Deviance:
+
+Fixed effects
+
+
+
+
+MSOA-level variance is 0.0009071 and the OA-level variance 0.0017041
 
