@@ -1,9 +1,9 @@
 # Multilevel Modelling - Part 1
 
-This session^[This note is part of [Spatial Analysis Notes](index.html) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Multilevel Modelling -- Random Intercept Multilevel Model</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.] introduces multi-level data structures, .
+This chapter^[This note is part of [Spatial Analysis Notes](index.html) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Multilevel Modelling -- Random Intercept Multilevel Model</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.] provides an introduction to multi-level data structures and multi-level modelling.
 
 
-The content of this session is based on the following references:
+The content of this chapter is based on:
 
 * @Snijders_Bosker_2012_book
 
@@ -29,6 +29,9 @@ library(tmap)
 library(RColorBrewer) 
 # More colour palettes
 library(viridis) # nice colour schemes
+
+# Set working directory
+setwd(".")
 ```
 
 > Flow of the argument: explanation of key components of linear regressions which matter to introduce multilevel models
@@ -68,6 +71,8 @@ Technically, we have incorrect estimates of precision, standard errors, confiden
 
 # Single-level Regression Models
 
+$$y_{i} = \beta_{0} + \beta_{1} x_{1i} + e_{i}$$
+
 **Example: estimate regression model**
 
 ## Limitations
@@ -94,6 +99,34 @@ Introduce this as adding dummy variables
 
 # Multilevel Modelling
 
+## The Intuition
+
+Get a more general and simple explanation:
+* 2 levels 
+* capture the hierarchical structure of the data
+* enable capturing for spatial heterogenity, spatial dependence and macro & micro factors in a same model
+
+Micro level or level 1: 
+$$y_{ij} = \beta_{0j} + \beta_{1j} x_{1ij} + e_{ij}$$
+Macro level or level 2: 
+$$\beta_{0j} = \beta_{0} + u_{0j}$$
+Embedding level 2 into level 1:
+$$y_{ij} = [ \beta_{0} + u_{0j} ] + \beta_{1j} x_{1ij} + e_{ij}$$
+where: 
+$u_{0j}$ is the level-2 random component and represents variability between groups / areas;
+$e_{ij}$ is the level-1 random component and represents variability within groups / areas ie. between level-1 units (eg. houses)
+
+By dividing the variability of the model into different levels, we can estimate the proportion of the variance at each level and assess their extent. This can be achieved by using the variance partitioning coefficient.
+
+Estimating the residuals is more complex! 
+For linear regressions $e_{i} = y_{i} - \hat{y}_{i}$
+For MLMs, a two step procedure is required:
+1. Estimate the variance
+2. Estimate individual random effects
+
+Introduce mathematical notation of multilevel models for a two-level model
+Explain technically what it does
+
 > Too technical
 * Partition residual variance into between- and within-group (level 2 and level 1) components.
 * Allows for un-observables at each level, corrects standard errors: measures of uncertainty
@@ -108,6 +141,71 @@ Various labels:
 * Random-coefficient Models
 * Linear / Generalised Linear Mixed Models
 
-## Theory
-
 ## Practice
+
+In R, there are several Packages implementing multilevel models. This tutorial will show how to use the `lme4` Package (short for linear mixed effect models) in R to fit MLM and use the companion `merTools` Package to neatly analyse the model output from `lme4`. This tutorial will cover getting set up and running a few random interpet multilevel models and interpret model estiamtion results.
+
+Recall set the working directory before reading the data.
+
+
+```r
+# read data
+oa_shp <- st_read("data/mlm/OA.shp")
+```
+
+```
+## Reading layer `OA' from data source `/home/jovyan/work/data/mlm/OA.shp' using driver `ESRI Shapefile'
+## Simple feature collection with 1584 features and 19 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 332390.2 ymin: 379748.5 xmax: 345636 ymax: 397980.1
+## epsg (SRID):    NA
+## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs
+```
+
+Visualise the hierarchical structure of the data
+
+```r
+# attach data frame
+attach(oa_shp)
+
+# sort data by oa
+oa_shp <- oa_shp[order(OA_CD),]
+head(oa_shp)
+```
+
+```
+## Simple feature collection with 6 features and 19 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 335056 ymin: 389163 xmax: 336155 ymax: 389642
+## epsg (SRID):    NA
+## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs
+##         OA_CD   LSOA_CD   MSOA_CD    LAD_CD pop H_Vbad H_bad H_fair H_good
+## 558 E00032987 E01006515 E02001383 E08000012 198      3    13     23     70
+## 441 E00032988 E01006514 E02001383 E08000012 348      5    36     65    116
+## 736 E00032989 E01033768 E02001383 E08000012 333      7    22     49    115
+## 41  E00032990 E01033768 E02001383 E08000012 330      8    17     65    113
+## 419 E00032991 E01033768 E02001383 E08000012 320      7    28     46    101
+## 907 E00032992 E01033768 E02001383 E08000012 240      7    16     42     69
+##     H_Vgood  age_men age_med     age_60    S_Rent    Ethnic illness
+## 558      89 32.19192    28.0 0.11616162 0.5862069 0.5050505     198
+## 441     126 40.30460    39.5 0.16954023 0.6500000 0.2327586     348
+## 736     140 35.35435    34.0 0.09009009 0.7586207 0.3423423     333
+## 41      127 36.87879    32.0 0.15151515 0.5799087 0.3848485     330
+## 419     138 34.73125    33.0 0.04687500 0.6073059 0.3406250     320
+## 907     106 34.40000    32.0 0.05833333 0.8121212 0.4833333     240
+##         unemp males   dis_ind                       geometry
+## 558 0.1130435    92 0.2378571 MULTIPOLYGON (((335187 3894...
+## 441 0.1458333   203 0.2378571 MULTIPOLYGON (((335834 3895...
+## 736 0.1049724   214 0.2378571 MULTIPOLYGON (((335975.2 38...
+## 41  0.1329787   197 0.2378571 MULTIPOLYGON (((336030.8 38...
+## 419 0.1813725   194 0.2378571 MULTIPOLYGON (((335804.9 38...
+## 907 0.2519685   139 0.2378571 MULTIPOLYGON (((335804.9 38...
+```
+**What is the hierarchy of the data?**
+
+## Intercept Only Model
+
+
+

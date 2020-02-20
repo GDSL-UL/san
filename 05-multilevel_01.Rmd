@@ -28,12 +28,18 @@ library(tmap)
 library(RColorBrewer) 
 # More colour palettes
 library(viridis) # nice colour schemes
+<<<<<<< HEAD
 # Fitting multilevel models
 library(lme4)
 # Exportable regression tables
 library(jtools)
 library(stargazer)
 library(sjPlot)
+=======
+
+# Set working directory
+setwd(".")
+>>>>>>> 3b2ea553ef068dfea5a6f2cd59ee0e48ec8812d2
 ```
 
 > Flow of the argument: explanation of key components of linear regressions which matter to introduce multilevel models
