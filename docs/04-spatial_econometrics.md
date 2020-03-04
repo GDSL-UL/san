@@ -263,7 +263,7 @@ plot(db)
 ```
 
 <div class="figure">
-<img src="04-spatial_econometrics_files/figure-html/unnamed-chunk-13-1.png" alt="Spatial distribution of house transactions in Liverpool" width="672" />
+<img src="04-spatial_econometrics_files/figure-epub3/unnamed-chunk-13-1.png" alt="Spatial distribution of house transactions in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-13)Spatial distribution of house transactions in Liverpool</p>
 </div>
 
@@ -733,8 +733,8 @@ hknn
 ## 
 ## Weights style: W 
 ## Weights constants summary:
-##      n       nn   S0       S1       S2
-## W 6324 39992976 6324 230.4392 25815.48
+##      n       nn   S0       S1      S2
+## W 6324 39992976 6324 230.4288 25816.1
 ```
 
 **Exogenous spatial effects**
@@ -770,19 +770,19 @@ summary(m6)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2906 -0.3015 -0.0151  0.2823  5.2605 
+## -4.2906 -0.3014 -0.0155  0.2824  5.2632 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) 12.2811959  0.0145282 845.338  < 2e-16 ***
-## newY         0.2475880  0.0195190  12.684  < 2e-16 ***
-## imd_score   -0.0042270  0.0008916  -4.741 2.18e-06 ***
-## w_imd_score -0.0147938  0.0009685 -15.275  < 2e-16 ***
+## (Intercept) 12.2812233  0.0145258 845.477  < 2e-16 ***
+## newY         0.2474932  0.0195180  12.680  < 2e-16 ***
+## imd_score   -0.0042136  0.0008914  -4.727 2.33e-06 ***
+## w_imd_score -0.0148092  0.0009682 -15.296  < 2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.5201 on 6320 degrees of freedom
-## Multiple R-squared:  0.3347,	Adjusted R-squared:  0.3344 
+## Residual standard error: 0.52 on 6320 degrees of freedom
+## Multiple R-squared:  0.3348,	Adjusted R-squared:  0.3345 
 ## F-statistic:  1060 on 3 and 6320 DF,  p-value: < 2.2e-16
 ```
 
@@ -845,7 +845,7 @@ new.price
 
 ```
 ##        1 
-## 11.47207
+## 11.47223
 ```
 
 Now remember we were using the log of the price as dependent variable. If we want to recover the actual price of the house, we need to take its exponent:
@@ -857,7 +857,7 @@ exp(new.price)
 
 ```
 ##        1 
-## 95996.99
+## 96012.51
 ```
 
 According to our model, the house would be worth GBP96,060.29^[**EXERCISE** *How would the price change if the surrounding houses did not have an average of 50 but of 80?* Obtain a new prediction and compare it with the original one.].
