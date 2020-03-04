@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Multilevel Modelling - Part 1 | Spatial Analysis Notes</title>
+  <title>Chapter 6 Multilevel Modelling - Part 1 | Spatial Analysis Notes</title>
   <meta name="description" content="Materials for a Spatial Analysis course in R." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Multilevel Modelling - Part 1 | Spatial Analysis Notes" />
+  <meta property="og:title" content="Chapter 6 Multilevel Modelling - Part 1 | Spatial Analysis Notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="gdsl-ul/san" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Multilevel Modelling - Part 1 | Spatial Analysis Notes" />
+  <meta name="twitter:title" content="Chapter 6 Multilevel Modelling - Part 1 | Spatial Analysis Notes" />
   
   <meta name="twitter:description" content="Materials for a Spatial Analysis course in R." />
   
@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flows.html"/>
+<link rel="prev" href="spatial-econometrics.html"/>
 <link rel="next" href="multilevel-models-pt-ii.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -159,29 +159,39 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.5" data-path="flows.html"><a href="flows.html#predicting-flows"><i class="fa fa-check"></i><b>4.5</b> Predicting flows</a></li>
 <li class="chapter" data-level="4.6" data-path="flows.html"><a href="flows.html#references"><i class="fa fa-check"></i><b>4.6</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html"><i class="fa fa-check"></i><b>5</b> Multilevel Modelling - Part 1</a><ul>
-<li class="chapter" data-level="5.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#dependencies-3"><i class="fa fa-check"></i><b>5.1</b> Dependencies</a></li>
-<li class="chapter" data-level="5.2" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#data-2"><i class="fa fa-check"></i><b>5.2</b> Data</a></li>
-<li class="chapter" data-level="5.3" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#modelling"><i class="fa fa-check"></i><b>5.3</b> Modelling</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#baseline-linear-regression-model"><i class="fa fa-check"></i><b>5.3.1</b> Baseline Linear Regression Model</a></li>
+<li class="chapter" data-level="5" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>5</b> Spatial Econometrics</a><ul>
+<li class="chapter" data-level="5.1" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#dependencies-3"><i class="fa fa-check"></i><b>5.1</b> Dependencies</a></li>
+<li class="chapter" data-level="5.2" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#data-2"><i class="fa fa-check"></i><b>5.2</b> Data</a></li>
+<li class="chapter" data-level="5.3" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#non-spatial-regression-a-refresh"><i class="fa fa-check"></i><b>5.3</b> Non-spatial regression, a refresh</a></li>
+<li class="chapter" data-level="5.4" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#spatial-regression-a-very-first-dip"><i class="fa fa-check"></i><b>5.4</b> Spatial regression: a (very) first dip</a></li>
+<li class="chapter" data-level="5.5" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#spatial-heterogeneity"><i class="fa fa-check"></i><b>5.5</b> Spatial heterogeneity</a></li>
+<li class="chapter" data-level="5.6" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#spatial-dependence"><i class="fa fa-check"></i><b>5.6</b> Spatial dependence</a></li>
+<li class="chapter" data-level="5.7" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#predicting-house-prices"><i class="fa fa-check"></i><b>5.7</b> Predicting house prices</a></li>
+<li class="chapter" data-level="5.8" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#references-1"><i class="fa fa-check"></i><b>5.8</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#multilevel-modelling-random-intercept-model"><i class="fa fa-check"></i><b>5.4</b> Multilevel Modelling: Random Intercept Model</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#interpretation"><i class="fa fa-check"></i><b>5.4.1</b> Interpretation</a></li>
-<li class="chapter" data-level="5.4.2" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#variance-partition-coefficient-vpc"><i class="fa fa-check"></i><b>5.4.2</b> Variance Partition Coefficient (VPC)</a></li>
-<li class="chapter" data-level="5.4.3" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#uncertainty-of-estimates"><i class="fa fa-check"></i><b>5.4.3</b> Uncertainty of Estimates</a></li>
-<li class="chapter" data-level="5.4.4" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#assessing-group-level-variation"><i class="fa fa-check"></i><b>5.4.4</b> Assessing Group-level Variation</a></li>
-<li class="chapter" data-level="5.4.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#adding-individual-level-predictors"><i class="fa fa-check"></i><b>5.4.5</b> Adding Individual-level Predictors</a></li>
-<li class="chapter" data-level="5.4.6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#adding-group-level-predictors"><i class="fa fa-check"></i><b>5.4.6</b> Adding Group-level Predictors</a></li>
+<li class="chapter" data-level="6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html"><i class="fa fa-check"></i><b>6</b> Multilevel Modelling - Part 1</a><ul>
+<li class="chapter" data-level="6.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#dependencies-4"><i class="fa fa-check"></i><b>6.1</b> Dependencies</a></li>
+<li class="chapter" data-level="6.2" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#data-3"><i class="fa fa-check"></i><b>6.2</b> Data</a></li>
+<li class="chapter" data-level="6.3" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#modelling"><i class="fa fa-check"></i><b>6.3</b> Modelling</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#baseline-linear-regression-model"><i class="fa fa-check"></i><b>6.3.1</b> Baseline Linear Regression Model</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#model-building"><i class="fa fa-check"></i><b>5.5</b> Model building</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#model-comparison"><i class="fa fa-check"></i><b>5.5.1</b> Model Comparison</a></li>
+<li class="chapter" data-level="6.4" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#multilevel-modelling-random-intercept-model"><i class="fa fa-check"></i><b>6.4</b> Multilevel Modelling: Random Intercept Model</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#interpretation"><i class="fa fa-check"></i><b>6.4.1</b> Interpretation</a></li>
+<li class="chapter" data-level="6.4.2" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#variance-partition-coefficient-vpc"><i class="fa fa-check"></i><b>6.4.2</b> Variance Partition Coefficient (VPC)</a></li>
+<li class="chapter" data-level="6.4.3" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#uncertainty-of-estimates"><i class="fa fa-check"></i><b>6.4.3</b> Uncertainty of Estimates</a></li>
+<li class="chapter" data-level="6.4.4" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#assessing-group-level-variation"><i class="fa fa-check"></i><b>6.4.4</b> Assessing Group-level Variation</a></li>
+<li class="chapter" data-level="6.4.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#adding-individual-level-predictors"><i class="fa fa-check"></i><b>6.4.5</b> Adding Individual-level Predictors</a></li>
+<li class="chapter" data-level="6.4.6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#adding-group-level-predictors"><i class="fa fa-check"></i><b>6.4.6</b> Adding Group-level Predictors</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#useful-functions-1"><i class="fa fa-check"></i><b>5.6</b> Useful Functions</a></li>
+<li class="chapter" data-level="6.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#model-building"><i class="fa fa-check"></i><b>6.5</b> Model building</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#model-comparison"><i class="fa fa-check"></i><b>6.5.1</b> Model Comparison</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>6</b> Multilevel Models (Pt. II)</a></li>
-<li class="chapter" data-level="7" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>7</b> GWR</a></li>
-<li class="chapter" data-level="8" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>8</b> Space-Time Analysis</a></li>
-<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="6.6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#useful-functions-1"><i class="fa fa-check"></i><b>6.6</b> Useful Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>7</b> Multilevel Models (Pt. II)</a></li>
+<li class="chapter" data-level="8" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>8</b> GWR</a></li>
+<li class="chapter" data-level="9" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>9</b> Space-Time Analysis</a></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -203,16 +213,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="multilevel-modelling---part-1" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Multilevel Modelling - Part 1</h1>
-<p>This chapter<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a> provides an introduction to multi-level data structures and multi-level modelling.</p>
+<h1><span class="header-section-number">Chapter 6</span> Multilevel Modelling - Part 1</h1>
+<p>This chapter<a href="#fn38" class="footnoteRef" id="fnref38"><sup>38</sup></a> provides an introduction to multi-level data structures and multi-level modelling.</p>
 <p>The content of this chapter is based on:</p>
 <ul>
 <li><p><span class="citation">Gelman and Hill (<a href="#ref-Gelman_Hill_2006_book">2006</a><a href="#ref-Gelman_Hill_2006_book">b</a>)</span> provides an excellent and intuitive explanation of multilevel modelling and data analysis in general. Read Part 2A for a really good explanation of multilevel models.</p></li>
 <li><p><span class="citation">Multilevel Modelling (n.d.)</span> is an useful online resource on multilevel modelling and is free!</p></li>
 </ul>
-<div id="dependencies-3" class="section level2">
-<h2><span class="header-section-number">5.1</span> Dependencies</h2>
-<p>This chapter uses the foollowing libraries: Ensure they are installed on your machine<a href="#fn26" class="footnoteRef" id="fnref26"><sup>26</sup></a> before loading them executing the following code chunk:</p>
+<div id="dependencies-4" class="section level2">
+<h2><span class="header-section-number">6.1</span> Dependencies</h2>
+<p>This chapter uses the foollowing libraries: Ensure they are installed on your machine<a href="#fn39" class="footnoteRef" id="fnref39"><sup>39</sup></a> before loading them executing the following code chunk:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Data manipulation, transformation and visualisation</span>
 <span class="kw">library</span>(tidyverse)
 <span class="co"># Nice tables</span>
@@ -236,9 +246,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">library</span>(stargazer)
 <span class="kw">library</span>(sjPlot)</code></pre></div>
 </div>
-<div id="data-2" class="section level2">
-<h2><span class="header-section-number">5.2</span> Data</h2>
-<p>For this chapter, we will data for Liverpool from England’s 2011 Census. The original source is the <a href="https://www.nomisweb.co.uk/home/census2001.asp">Office of National Statistics</a> and the dataset comprises a number of selected variables capturing demographic, health and socio-economic of the local resident population at four geographic levels: Output Area (OA), Lower Super Output Area (LSOA), Middle Super Output Area (MSOA) and Local Authority District (LAD). The variables include population counts, percentages, means and medians. For a description of the variables, see the readme file in the mlm data folder.<a href="#fn27" class="footnoteRef" id="fnref27"><sup>27</sup></a></p>
+<div id="data-3" class="section level2">
+<h2><span class="header-section-number">6.2</span> Data</h2>
+<p>For this chapter, we will data for Liverpool from England’s 2011 Census. The original source is the <a href="https://www.nomisweb.co.uk/home/census2001.asp">Office of National Statistics</a> and the dataset comprises a number of selected variables capturing demographic, health and socio-economic of the local resident population at four geographic levels: Output Area (OA), Lower Super Output Area (LSOA), Middle Super Output Area (MSOA) and Local Authority District (LAD). The variables include population counts, percentages, means and medians. For a description of the variables, see the readme file in the mlm data folder.<a href="#fn40" class="footnoteRef" id="fnref40"><sup>40</sup></a></p>
 <p>Let us read the data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># clean workspace</span>
 <span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
@@ -313,7 +323,7 @@ lsoa_cd <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">
 <p><img src="05-multilevel_01_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
 </div>
 <div id="modelling" class="section level2">
-<h2><span class="header-section-number">5.3</span> Modelling</h2>
+<h2><span class="header-section-number">6.3</span> Modelling</h2>
 <p>We should now be persuaded that ignoring the hierarchical structure of data may be a major issue. Let us now use a simple example to understand the intuition of multilevel model using the census data. We will seek to understand the spatial distribution of the proportion of population in unemployment in Liverpool, particularly why and where concentrations in this proportion occur. To illustrate the advantages of taking a multilevel modelling approach, we will start by estimating a linear regression model and progressively building complexity. We will first estimate a model and then explain the intuition underpinning the process. We will seek to gain a general understanding of multilevel modelling. If you are interested in the statistical and mathemathical formalisation of the underpinning concepts, please refer to: <strong>PROVIDE REFERENCES</strong></p>
 <p>We first need to want to understand our dependent variable: its density ditribution;</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> oa_shp) <span class="op">+</span>
@@ -359,7 +369,7 @@ oa_shp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">f
 ## 9  E00033137 289 0.2661290 MULTIPOLYGON (((337363.8 39...
 ## 10 E00033138 171 0.3561644 MULTIPOLYGON (((337481.5 39...</code></pre>
 <div id="baseline-linear-regression-model" class="section level3">
-<h3><span class="header-section-number">5.3.1</span> Baseline Linear Regression Model</h3>
+<h3><span class="header-section-number">6.3.1</span> Baseline Linear Regression Model</h3>
 <p>Now let us estimate a simple linear regression model with the intercept only:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># specify a model equation</span>
 eq1 &lt;-<span class="st"> </span>unemp <span class="op">~</span><span class="st"> </span><span class="dv">1</span>
@@ -385,19 +395,19 @@ model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt"
 <p>To understand the differences between the linear regression model and multilevel models, let us consider the model we have estimated:</p>
 <p><span class="math display">\[y_{i} = \beta_{0} + e_{i}\]</span> where <span class="math inline">\(y_{i}\)</span> represents the proportion of the unemployed resident population in the OA <span class="math inline">\(i\)</span>; <span class="math inline">\(\beta_{0}\)</span> is the regression intercept and measures the average proportion of the unemployed resident population across OAs; and, <span class="math inline">\(e_{i}\)</span> is the error term. But how do we deal with the hierarchical structure of the data?</p>
 <div id="limitations" class="section level4">
-<h4><span class="header-section-number">5.3.1.1</span> Limitations</h4>
+<h4><span class="header-section-number">6.3.1.1</span> Limitations</h4>
 <p>Before looking at the answer, let’s first understand some of the key limitations of the linear regression model to handle the hierarchical structure of data. A key limitation of the linear regression model is that it only captures average relationships in the data. It does not capture variations in the relationship between variables across areas or groups. Another key limitation is that the linear regression model can capture associations at either macro or micro levels, but it does not simultaneously measure their interdependencies.</p>
 <p>To illustrate this, let us consider the regression intercept. It indicates that the average percentage of unemployed population at the OA level is 0.12 but this model ignores any spatial clustering ie. the percentage of unemployed population tends to be similar across OAs nested within a same LSOA or MSOA. A side effect of ignoring this is that our standard errors are biased, and thus claims about statistical significance based on them would be misleading. Additionally, this situation also mean we cannot explore variations in the percentage of unemployed population across LSOAs or MSOAs ie. how the percentage of unemployed population may be dependent on various contextual factors at these geographical scales.</p>
 </div>
 <div id="fixed-effect-approach" class="section level4">
-<h4><span class="header-section-number">5.3.1.2</span> Fixed Effect Approach</h4>
+<h4><span class="header-section-number">6.3.1.2</span> Fixed Effect Approach</h4>
 <p>An alternative approach is to adopt a fixed effects approach, or no-pooling model; that is, adding dummy variables indicating the group classification into the regression model eg. the way OAs is nested within LSOAs (or MSOAs). This approach has limitations. First, there is high risk of overfitting. The number of groups may be too large, relative to the number of observations. Second, the estimation of multiple parameters may be required so that measuring differences between groups may be challenging. Third, a fixed effects approach does not allow including group-level explanatory variables. You can try fitting a linear regression model extending our estimated model to include dummy variables for individual LSOAs (and/or MSOAs) so you can compare this to the multilevel model below.</p>
 <p>An alternative is fitting separate linear regression models for each group. This approach is not always possible if there are groups with small sizes.</p>
 </div>
 </div>
 </div>
 <div id="multilevel-modelling-random-intercept-model" class="section level2">
-<h2><span class="header-section-number">5.4</span> Multilevel Modelling: Random Intercept Model</h2>
+<h2><span class="header-section-number">6.4</span> Multilevel Modelling: Random Intercept Model</h2>
 <p>We use multilevel modelling to account for the hierarchical nature of the data by explicitly recognising that OAs are nested within LSOAs and MSOAs. Multilevel models can easily be estimated using in R using the package <code>lme4</code>. We implement an two-level model to allow for variation across LSOAs. We estimate an only intercept model allowing for variation across LSOAs. In essence, we are estimating a model with varying intercept coefficient by LSOA. As you can see in the code chunk below, the equation has an additional component. This is the group component or LSOA effect. The <code>(1 | lsoa_cd)</code> means that we are allowing the intercept, represented by 1, to vary by LSOA.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># specify a model equation</span>
 eq2 &lt;-<span class="st"> </span>unemp <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">|</span><span class="st"> </span>lsoa_cd)
@@ -492,7 +502,7 @@ model3 &lt;-<span class="st"> </span><span class="kw">lmer</span>(eq3, <span cla
 ##             Estimate Std. Error t value
 ## (Intercept) 0.115288   0.006187   18.64</code></pre>
 <div id="interpretation" class="section level3">
-<h3><span class="header-section-number">5.4.1</span> Interpretation</h3>
+<h3><span class="header-section-number">6.4.1</span> Interpretation</h3>
 <blockquote>
 <p>Fixed effects</p>
 </blockquote>
@@ -507,8 +517,8 @@ model3 &lt;-<span class="st"> </span><span class="kw">lmer</span>(eq3, <span cla
 <p>The set of random effects contains three estimates of variance and standard deviation and refer to the variance components discussed above. The <code>lsoa_cd</code>, <code>msoa_cd</code> and <code>Residual</code> estimates indicate that the extent of estimated LSOA-, MSOA- and individual-level variance is <code>0.0007603</code>, <code>0.0020735</code> and <code>0.0025723</code>, respectively.</p>
 </div>
 <div id="variance-partition-coefficient-vpc" class="section level3">
-<h3><span class="header-section-number">5.4.2</span> Variance Partition Coefficient (VPC)</h3>
-<p>The purpose of multilevel models is to partition variance in the outcome between the different groupings in the data. We thus often want to know the percentage of variation in the dependent variable accounted by differences across groups i.e. what proportion of the total variance is attributable to variation within-groups, or how much is found between-groups. The statistic to obtain this is termed the variance partition coefficient (VPC), or intraclass correlation.<a href="#fn28" class="footnoteRef" id="fnref28"><sup>28</sup></a> For our case, the VPC at the LSOA level indicates that 14% of the variation in percentage of unemployed resident population across OAs can be explained by differences across LSOAs. What is the VPC at the MSOA level?</p>
+<h3><span class="header-section-number">6.4.2</span> Variance Partition Coefficient (VPC)</h3>
+<p>The purpose of multilevel models is to partition variance in the outcome between the different groupings in the data. We thus often want to know the percentage of variation in the dependent variable accounted by differences across groups i.e. what proportion of the total variance is attributable to variation within-groups, or how much is found between-groups. The statistic to obtain this is termed the variance partition coefficient (VPC), or intraclass correlation.<a href="#fn41" class="footnoteRef" id="fnref41"><sup>41</sup></a> For our case, the VPC at the LSOA level indicates that 14% of the variation in percentage of unemployed resident population across OAs can be explained by differences across LSOAs. What is the VPC at the MSOA level?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vpc_lsoa &lt;-<span class="st"> </span><span class="fl">0.0007603</span> <span class="op">/</span><span class="st"> </span>(<span class="fl">0.0007603</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.0020735</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.0025723</span>)
 vpc_lsoa <span class="op">*</span><span class="st"> </span><span class="dv">100</span></code></pre></div>
 <pre><code>## [1] 14.06374</code></pre>
@@ -516,7 +526,7 @@ vpc_lsoa <span class="op">*</span><span class="st"> </span><span class="dv">100<
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#summ(model3)</span></code></pre></div>
 </div>
 <div id="uncertainty-of-estimates" class="section level3">
-<h3><span class="header-section-number">5.4.3</span> Uncertainty of Estimates</h3>
+<h3><span class="header-section-number">6.4.3</span> Uncertainty of Estimates</h3>
 <p>You may have noticed that <code>lme4</code> does not provide p-values, because of <a href="https://stat.ethz.ch/pipermail/r-help/2006-May/094765.html">various reasons</a> as explained by Doug Bates, one of the author of <code>lme4</code>. These explanations mainly refer tothe complexity of dealing with varying sample sizes at a given hierarchical level. The number of observations at each hierarchical level varies across individual groupings (i.e. LSOA or MSOA). It may even be one single observation. This has implications for the distributional assumptions, denominator degrees of freedom and how to approximate a “best” solution. Various approaches exist to compute the statistical significance of estimates. We use the <code>confint</code> function available within <code>lme4</code> to obtain confidence intervals.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(model3, <span class="dt">level =</span> <span class="fl">0.95</span>)</code></pre></div>
 <pre><code>## Computing profile confidence intervals ...</code></pre>
@@ -528,7 +538,7 @@ vpc_lsoa <span class="op">*</span><span class="st"> </span><span class="dv">100<
 <p><code>.sig01</code> refers to the LSOA level; <code>.sig02</code> refers to the MSOA level; and, <code>.sigma</code> refers to the OA level.</p>
 </div>
 <div id="assessing-group-level-variation" class="section level3">
-<h3><span class="header-section-number">5.4.4</span> Assessing Group-level Variation</h3>
+<h3><span class="header-section-number">6.4.4</span> Assessing Group-level Variation</h3>
 <p><em>Estimated regression coefficients</em></p>
 <p>In multilevel modelling, our primary interest is in knowing differences across groups. To visualise the estimated model within each group (ie. LSOA and MSOA), we type:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coef_m3 &lt;-<span class="st"> </span><span class="kw">coef</span>(model3)
@@ -554,17 +564,17 @@ vpc_lsoa <span class="op">*</span><span class="st"> </span><span class="dv">100<
 <p>We can also obtain group-level errors (<em>random effects</em>) by using a simulation approach, labelled “Empirical Bayes” and discussed <a href="https://stat.ethz.ch/pipermail/r-sig-mixed-models/2009q4/002984.html">here</a>. To this end, we run:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># obtain estimates</span>
 <span class="kw">REsim</span>(model3) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">10</span>)</code></pre></div>
-<pre><code>##    groupFctr   groupID        term         mean       median         sd
-## 1    lsoa_cd E01006512 (Intercept) -0.015583638 -0.016626819 0.02189066
-## 2    lsoa_cd E01006513 (Intercept) -0.017671392 -0.019221092 0.02146543
-## 3    lsoa_cd E01006514 (Intercept) -0.024905228 -0.025234959 0.01975886
-## 4    lsoa_cd E01006515 (Intercept) -0.017245305 -0.017724387 0.02015810
-## 5    lsoa_cd E01006518 (Intercept) -0.019546045 -0.020269381 0.01971451
-## 6    lsoa_cd E01006519 (Intercept) -0.015395898 -0.015855255 0.00962872
-## 7    lsoa_cd E01006520 (Intercept) -0.021265554 -0.019317117 0.01854275
-## 8    lsoa_cd E01006521 (Intercept)  0.005621337  0.006912918 0.02195892
-## 9    lsoa_cd E01006522 (Intercept)  0.019707897  0.019316241 0.01793201
-## 10   lsoa_cd E01006523 (Intercept)  0.003788028  0.005407838 0.02043457</code></pre>
+<pre><code>##    groupFctr   groupID        term         mean       median          sd
+## 1    lsoa_cd E01006512 (Intercept) -0.014249675 -0.014358704 0.019221763
+## 2    lsoa_cd E01006513 (Intercept) -0.015375648 -0.015096630 0.019754492
+## 3    lsoa_cd E01006514 (Intercept) -0.022688856 -0.021518330 0.019086757
+## 4    lsoa_cd E01006515 (Intercept) -0.018188039 -0.018606511 0.019935620
+## 5    lsoa_cd E01006518 (Intercept) -0.019122540 -0.018258911 0.017773175
+## 6    lsoa_cd E01006519 (Intercept) -0.015979449 -0.016619920 0.009268876
+## 7    lsoa_cd E01006520 (Intercept) -0.028559631 -0.028342993 0.018743930
+## 8    lsoa_cd E01006521 (Intercept)  0.004108657  0.002990998 0.018796603
+## 9    lsoa_cd E01006522 (Intercept)  0.017233302  0.018060688 0.019970988
+## 10   lsoa_cd E01006523 (Intercept)  0.002606438  0.002609687 0.018078806</code></pre>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
 <p>To gain an undertanding of the general pattern of the <em>random effects</em>, we can use caterpillar plots via <code>plotREsim</code> - reported below. The plot on the right shows the estimated random effects for each MSOA and their respective interval estimate. Note that random effects are on average zero, represented by the red horizontal line. Intervals that do not include zero are in bold. Also note that the width of the confidence interval depends on the standard error of the respective residual estimate, which is inversely related to the size of the sample. The residuals represent an observation departures from the grand mean, so an observation whose confidence interval does not overlap the line at zero (representing the mean proportion of unemployed population across all areas) is said to differ significantly from the average at the 5% level.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot</span>
@@ -609,9 +619,9 @@ re_msoa &lt;-<span class="st"> </span>re <span class="op">%&gt;%</span><span cla
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; ...
-##  $ mean     : num  -0.00736 -0.0185 -0.03117 0.00967 0.01989 ...
-##  $ median   : num  -0.009 -0.0157 -0.0305 0.0104 0.0196 ...
-##  $ sd       : num  0.0308 0.0314 0.0311 0.0311 0.0155 ...</code></pre>
+##  $ mean     : num  -0.01333 -0.02449 -0.03148 0.00548 0.02277 ...
+##  $ median   : num  -0.01527 -0.02346 -0.02928 0.00676 0.02264 ...
+##  $ sd       : num  0.0335 0.0338 0.0336 0.0345 0.0166 ...</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># merge data</span>
 msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</code></pre></div>
 <p>Now we can create our map:</p>
@@ -627,7 +637,7 @@ map_msoa</code></pre></div>
 <p><img src="05-multilevel_01_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 </div>
 <div id="adding-individual-level-predictors" class="section level3">
-<h3><span class="header-section-number">5.4.5</span> Adding Individual-level Predictors</h3>
+<h3><span class="header-section-number">6.4.5</span> Adding Individual-level Predictors</h3>
 <p>In this example, <span class="math inline">\(\mu\)</span> represents the sample mean but it could include a collection of independent variables or predictors. To explain the logic, we will assume that unemployment is strongly associated to long-term illness. We could expect that long-term illness (<code>lt_ill</code>) will reduce the chances of working and therefore being unemployed. Note that our focus is on the relationship, not on establishing causation. Specifically we want to estimate the relationship between unemployment and long-term illness and we are interested in variations in OA-level unemployment by MSOAs so we will estimate the following two-level model:</p>
 <p>OA-level:</p>
 <p><span class="math display">\[y_{ij} = \beta_{0j} + \beta_{1}x_{ij} + e_{ij}\]</span> MSOA-level:</p>
@@ -687,7 +697,7 @@ model4 &lt;-<span class="st"> </span><span class="kw">lmer</span>(eq4, <span cla
 <p>In the bottom of the output, we have the correlations between the fixed-effects estimates. In our example, it refers to the correlation between <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{1}\)</span>. It is negative indicating that in MSOAs where the relationship between unemployment and long-term ilness is greater, as measured by <span class="math inline">\(\beta_{1}\)</span>), the average proportion of unemployed people tends to be smaller, as captured by <span class="math inline">\(\beta_{0}\)</span>.</p>
 </div>
 <div id="adding-group-level-predictors" class="section level3">
-<h3><span class="header-section-number">5.4.6</span> Adding Group-level Predictors</h3>
+<h3><span class="header-section-number">6.4.6</span> Adding Group-level Predictors</h3>
 <p>We can also add group-level predictors. We use the formulation:</p>
 <p>OA-level:</p>
 <p><span class="math display">\[y_{ij} = \beta_{0j} + \beta_{1}x_{ij} + e_{ij}\]</span></p>
@@ -779,13 +789,13 @@ ranef_m5 &lt;-<span class="st"> </span><span class="kw">ranef</span>(model5)
 </div>
 </div>
 <div id="model-building" class="section level2">
-<h2><span class="header-section-number">5.5</span> Model building</h2>
+<h2><span class="header-section-number">6.5</span> Model building</h2>
 <p>Now we know how to estimate multilevel regression models in <em>R</em>. The question that remains is: <em>When does multilevel modeling make a difference?</em> The short answer is: when there is little group-level variation. When there is very little group-level variation, the multilevel modelling reduces to classical linear regression estimates with no group indicators. Inversely, when group-level coefficients vary greatly (compared to their standard errors of estimation), multilevel modelling reduces to classical regression with group indicators <span class="citation">Gelman and Hill (<a href="#ref-Gelman_Hill_2006_book">2006</a><a href="#ref-Gelman_Hill_2006_book">b</a>)</span>.</p>
 <p><em>How do you go about building a model?</em> We generally start simple by fitting simple linear regressions and then work our way up to a full multilevel model - see <span class="citation">Gelman and Hill (<a href="#ref-Gelman_Hill_2006_book">2006</a><a href="#ref-Gelman_Hill_2006_book">b</a>)</span> p. 270.</p>
 <p><em>How many groups are needed?</em> As an absolute minimum, more than two groups are required. With only one or two groups, a multilevel model reduces to a linear regression model.</p>
 <p><em>How many observations per group?</em> Two observations per group is sufficient to fit a multilevel model.</p>
 <div id="model-comparison" class="section level3">
-<h3><span class="header-section-number">5.5.1</span> Model Comparison</h3>
+<h3><span class="header-section-number">6.5.1</span> Model Comparison</h3>
 <p><em>How we assess different candidate models?</em> We can use the function <code>anova()</code> and assess various statistics: The Akaike Information Criterion (AIC), the Bayesian Information Criterion (BIC), Loglik and Deviance. Generally, we look for lower scores for all these indicators. We can also refer to the <em>Chisq</em> statistic below. It tests the hypothesis of whether additional predictors improve model fit. Particularly it tests the <em>Null Hypothesis</em> whether the coefficients of the additional predictors equal <code>0</code>. It does so comparing the deviance statistic and determining if changes in the deviance are statistically significant. Note that a major limitation of the deviance test is that it is for nested models i.e. a model being compared must be nested in the other.</p>
 <p>Here a model comparison for three of our models. It seems that adding varying intercepts for LSOA and MSOA levels provide the model with the better fit. Though, they don’t explain the source of differences between OAs.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(model3, model4, model5)</code></pre></div>
@@ -804,7 +814,7 @@ ranef_m5 &lt;-<span class="st"> </span><span class="kw">ranef</span>(model5)
 </div>
 </div>
 <div id="useful-functions-1" class="section level2">
-<h2><span class="header-section-number">5.6</span> Useful Functions</h2>
+<h2><span class="header-section-number">6.6</span> Useful Functions</h2>
 <table style="width:79%;">
 <colgroup>
 <col width="15%" />
@@ -858,11 +868,11 @@ ranef_m5 &lt;-<span class="st"> </span><span class="kw">ranef</span>(model5)
 </div>
 <div class="footnotes">
 <hr />
-<ol start="25">
-<li id="fn25"><p>This note is part of <a href="index.html">Spatial Analysis Notes</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Multilevel Modelling – Random Intercept Multilevel Model</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<a href="multilevel-modelling-part-1.html#fnref25">↩</a></p></li>
-<li id="fn26"><p>You can install package <code>mypackage</code> by running the command <code>install.packages(&quot;mypackage&quot;)</code> on the R prompt or through the <code>Tools --&gt; Install Packages...</code> menu in RStudio.<a href="multilevel-modelling-part-1.html#fnref26">↩</a></p></li>
-<li id="fn27"><p>Read the file in R by executing <code>read_tsv(&quot;data/mlm/readme.txt&quot;)</code><a href="multilevel-modelling-part-1.html#fnref27">↩</a></p></li>
-<li id="fn28"><p>The VPC is equal to the intra-class correlation coefficient which is the correlation between the observations of the dependent variable selected randomly from the same group. For instance, if the VPC is 0.1, we would say that 10% of the variation is between groups and 90% within. The correlation between randomly chosen pairs of observations belonging to the same group is 0.1.<a href="multilevel-modelling-part-1.html#fnref28">↩</a></p></li>
+<ol start="38">
+<li id="fn38"><p>This note is part of <a href="index.html">Spatial Analysis Notes</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Multilevel Modelling – Random Intercept Multilevel Model</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<a href="multilevel-modelling-part-1.html#fnref38">↩</a></p></li>
+<li id="fn39"><p>You can install package <code>mypackage</code> by running the command <code>install.packages(&quot;mypackage&quot;)</code> on the R prompt or through the <code>Tools --&gt; Install Packages...</code> menu in RStudio.<a href="multilevel-modelling-part-1.html#fnref39">↩</a></p></li>
+<li id="fn40"><p>Read the file in R by executing <code>read_tsv(&quot;data/mlm/readme.txt&quot;)</code><a href="multilevel-modelling-part-1.html#fnref40">↩</a></p></li>
+<li id="fn41"><p>The VPC is equal to the intra-class correlation coefficient which is the correlation between the observations of the dependent variable selected randomly from the same group. For instance, if the VPC is 0.1, we would say that 10% of the variation is between groups and 90% within. The correlation between randomly chosen pairs of observations belonging to the same group is 0.1.<a href="multilevel-modelling-part-1.html#fnref41">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -870,7 +880,7 @@ ranef_m5 &lt;-<span class="st"> </span><span class="kw">ranef</span>(model5)
           </div>
         </div>
       </div>
-<a href="flows.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="spatial-econometrics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="multilevel-models-pt-ii.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
