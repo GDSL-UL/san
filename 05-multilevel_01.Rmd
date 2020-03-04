@@ -9,6 +9,15 @@ The content of this chapter is based on:
 
 * @bristol is an useful online resource on multilevel modelling and is free!
 
+This Chapter is part of [Spatial Analysis Notes](index.html), a compilation hosted as a GitHub repository that you can access it in a few ways:
+
+* As a [download](https://github.com/GDSL-UL/san/archive/master.zip) of a `.zip` file that contains all the materials.
+* As an [html
+  website](https://gdsl-ul.github.io/san/multilevel-modelling-part-1.html).
+* As a [pdf
+  document](https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf)
+* As a [GitHub repository](https://github.com/GDSL-UL/san).
+
 ## Dependencies
 
 This chapter uses the foollowing libraries: Ensure they are installed on your machine^[You can install package `mypackage` by running the command `install.packages("mypackage")` on the R prompt or through the `Tools --> Install Packages...` menu in RStudio.] before loading them executing the following code chunk:
