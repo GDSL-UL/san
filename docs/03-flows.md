@@ -34,14 +34,14 @@ library(rgdal)
 ```
 
 ```
-## rgdal: version: 1.4-4, (SVN revision 833)
+## rgdal: version: 1.4-8, (SVN revision 845)
 ##  Geospatial Data Abstraction Library extensions to R successfully loaded
-##  Loaded GDAL runtime: GDAL 2.2.3, released 2017/11/20
-##  Path to GDAL shared files: /usr/share/gdal/2.2
-##  GDAL binary built with GEOS: TRUE 
-##  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
-##  Path to PROJ.4 shared files: (autodetected)
-##  Linking to sp version: 1.3-1
+##  Loaded GDAL runtime: GDAL 2.4.2, released 2019/06/28
+##  Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rgdal/gdal
+##  GDAL binary built with GEOS: FALSE 
+##  Loaded PROJ.4 runtime: Rel. 5.2.0, September 15th, 2018, [PJ_VERSION: 520]
+##  Path to PROJ.4 shared files: /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rgdal/proj
+##  Linking to sp version: 1.3-2
 ```
 
 ```r
@@ -84,7 +84,7 @@ library(arm)
 ```
 
 ```
-## Working directory is /home/jovyan/work
+## Working directory is /Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san
 ```
 
 Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with `setwd()`. Please replace in the following line the path to the folder where you have placed this file -and where the `sf_bikes` folder with the data lives.
@@ -107,7 +107,7 @@ db <- readOGR('./data/sf_bikes/flows.geojson')
 
 ```
 ## OGR data source with driver: GeoJSON 
-## Source: "/home/jovyan/work/data/sf_bikes/flows.geojson", layer: "flows"
+## Source: "/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/sf_bikes/flows.geojson", layer: "flows"
 ## with 1722 features
 ## It has 9 fields
 ```
@@ -127,20 +127,13 @@ head(db@data)
 ```
 
 ```
-##       dest orig straight_dist street_dist total_down total_up trips15
-## 39-41   41   39      1452.201   1804.1150  11.205753 4.698162      68
-## 39-42   42   39      1734.861   2069.1557  10.290236 2.897886      23
-## 39-45   45   39      1255.349   1747.9928  11.015596 4.593927      83
-## 39-46   46   39      1323.303   1490.8361   3.511543 5.038044     258
-## 39-47   47   39       715.689    769.9189   0.000000 3.282495     127
-## 39-48   48   39      1996.778   2740.1290  11.375186 3.841296      81
-##       trips16
-## 39-41      68
-## 39-42      29
-## 39-45      50
-## 39-46     163
-## 39-47      73
-## 39-48      56
+##       dest orig straight_dist street_dist total_down total_up trips15 trips16
+## 39-41   41   39      1452.201   1804.1150  11.205753 4.698162      68      68
+## 39-42   42   39      1734.861   2069.1557  10.290236 2.897886      23      29
+## 39-45   45   39      1255.349   1747.9928  11.015596 4.593927      83      50
+## 39-46   46   39      1323.303   1490.8361   3.511543 5.038044     258     163
+## 39-47   47   39       715.689    769.9189   0.000000 3.282495     127      73
+## 39-48   48   39      1996.778   2740.1290  11.375186 3.841296      81      56
 ```
 
 where `orig` and `dest` are the station IDs of the origin and destination, `street/straight_dist` is the distance in metres between stations measured along the street network or as-the-crow-flies, `total_down/up` is the total downhil and climb in the trip, and `tripsXX` contains the amount of trips undertaken in the years of study.
@@ -155,7 +148,7 @@ plot(db)
 ```
 
 <div class="figure">
-<img src="03-flows_files/figure-epub3/unnamed-chunk-5-1.png" alt="Potential routes"  />
+<img src="03-flows_files/figure-html/unnamed-chunk-5-1.png" alt="Potential routes" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-5)Potential routes</p>
 </div>
 
@@ -170,7 +163,7 @@ plot(one39to48)
 ```
 
 <div class="figure">
-<img src="03-flows_files/figure-epub3/unnamed-chunk-6-1.png" alt="Trip from station 39 to 48"  />
+<img src="03-flows_files/figure-html/unnamed-chunk-6-1.png" alt="Trip from station 39 to 48" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-6)Trip from station 39 to 48</p>
 </div>
 
@@ -185,7 +178,7 @@ plot(most_pop)
 ```
 
 <div class="figure">
-<img src="03-flows_files/figure-epub3/unnamed-chunk-7-1.png" alt="Most popular trip"  />
+<img src="03-flows_files/figure-html/unnamed-chunk-7-1.png" alt="Most popular trip" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-7)Most popular trip</p>
 </div>
 
@@ -259,7 +252,7 @@ and make sure it looks like we intend it to look:
 ggmap(SanFran)
 ```
 
-![](03-flows_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+<img src="03-flows_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 Now to combine tiles and routes, we need to pull out the coordinates that make up each line. For the route example above, this would be:
 
@@ -280,7 +273,7 @@ ggmap(SanFran, darken=0.5) +
             lineend='round')
 ```
 
-![](03-flows_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
+<img src="03-flows_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 Now we can plot all of the lines by using a short `for` loop to build up the table:
 
@@ -323,7 +316,7 @@ ggmap(SanFran, darken=0.75) +
             lineend='round')
 ```
 
-![](03-flows_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
+<img src="03-flows_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 Finally, we can get a sense of the distribution of the flows by associating a color gradient to each flow based on its number of trips:
 
@@ -347,7 +340,7 @@ ggmap(SanFran, darken=0.75) +
       )
 ```
 
-![](03-flows_files/figure-epub3/unnamed-chunk-14-1.png)<!-- -->
+<img src="03-flows_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 
 Note how we transform the size so it's a proportion of the largest trip and then it is compressed with a logarithm.
 
@@ -420,7 +413,7 @@ legend('topright',
 title(main="Predictive check, point estimates - Baseline model")
 ```
 
-![](03-flows_files/figure-epub3/unnamed-chunk-17-1.png)<!-- -->
+<img src="03-flows_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 
 The plot makes pretty obvious that our initial model captures very few aspects of the distribution we want to explain. However, we should not get too attached to this plot just yet. What it is showing is the distribution of predicted *point* estimates from our model. Since our model is not deterministic but inferential, there is a certain degree of uncertainty attached to its predictions, and that is completely absent from this plot. 
 
@@ -479,7 +472,7 @@ legend('topright',
        lwd=1)
 ```
 
-![](03-flows_files/figure-epub3/unnamed-chunk-19-1.png)<!-- -->
+<img src="03-flows_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 
 Once we have this "draw engine", we can set it to work as many times as we want using a simple `for` loop. In fact, we can directly plot these lines as compared to the expected one and the trip count:
 
@@ -517,7 +510,7 @@ legend('topright',
 title(main="Predictive check - Baseline model")
 ```
 
-![](03-flows_files/figure-epub3/unnamed-chunk-20-1.png)<!-- -->
+<img src="03-flows_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 The plot shows there is a significant mismatch between the fitted values, which are much more concentrated around small positive values, and the realizations of our "inferential engine", which depict a much less concentrated distribution of values. This is likely due to the combination of two different reasons: on the one hand, the accuracy of our estimates may be poor, causing them to jump around a wide range of potential values and hence resulting in very diverse predictions (inferential uncertainty); on the other hand, it may be that the amount of variation we are not able to account for in the model^[The $R^2$ of our model is around 2%] is so large that the degree of uncertainty contained in the error term of the model is very large, hence resulting in such a flat predictive distribution.
 
@@ -575,7 +568,7 @@ legend('topright',
 title(main="Predictive check, point estimates - Poisson model")
 ```
 
-![](03-flows_files/figure-epub3/unnamed-chunk-22-1.png)<!-- -->
+<img src="03-flows_files/figure-html/unnamed-chunk-22-1.png" width="672" />
 
 To incorporate uncertainty to these predictions, we need to tweak our `generate_draw`  function so it accommodates the fact that our model is not linear anymore.
 
@@ -633,7 +626,7 @@ legend('topright',
 title(main="Predictive check - Poisson model")
 ```
 
-![](03-flows_files/figure-epub3/unnamed-chunk-24-1.png)<!-- -->
+<img src="03-flows_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 Voila! Although the curve is still a bit off, centered too much to the right of the actual data, our predictive simulation leaves the fitted values right in the middle. This speaks to a better fit of the model to the actual distribution othe original data follow.  
 
@@ -681,7 +674,7 @@ legend('topright',
 title(main="Predictive check - Orig/dest FE Poisson model")
 ```
 
-![](03-flows_files/figure-epub3/unnamed-chunk-26-1.png)<!-- -->
+<img src="03-flows_files/figure-html/unnamed-chunk-26-1.png" width="672" />
 
 That looks significantly better, doesn't it? In fact, our model now better accounts for the long tail where a few routes take a lot of trips. This is likely because the distribution of trips is far from random across stations and our origin and destination fixed effects do a decent job at accounting for that structure. However our model is still notably underpredicting less popular routes and overpredicting routes with above average number of trips. Maybe we should think about moving beyond a simple linear model.
 
@@ -722,7 +715,7 @@ legend('topright',
 title(main="Predictive check - Orig/dest FE Poisson model")
 ```
 
-![](03-flows_files/figure-epub3/unnamed-chunk-28-1.png)<!-- -->
+<img src="03-flows_files/figure-html/unnamed-chunk-28-1.png" width="672" />
 
 Hard to tell any noticeable difference, right? To see if there is any, we can have a look at the estimates obtained:
 

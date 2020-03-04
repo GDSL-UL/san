@@ -70,7 +70,7 @@ getwd()
 ```
 
 ```
-## [1] "/home/jovyan/work"
+## [1] "/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san"
 ```
 
 ## R Scripts and Notebooks
@@ -180,7 +180,7 @@ example(sqrt)
 ```
 
 <div class="figure">
-<img src="01-intro_files/figure-epub3/unnamed-chunk-7-1.png" alt="Example sqrt"  />
+<img src="01-intro_files/figure-html/unnamed-chunk-7-1.png" alt="Example sqrt" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-7)Example sqrt</p>
 </div>
 
@@ -568,20 +568,13 @@ head(census)
 ```
 
 ```
-##        code                     ward pop16_74 higher_managerial   pop
-## 1 E05000886 Allerton and Hunts Cross    10930              1103 14853
-## 2 E05000887                  Anfield    10712               312 14510
-## 3 E05000888               Belle Vale    10987               432 15004
-## 4 E05000889                  Central    19174              1346 20340
-## 5 E05000890                Childwall    10410              1123 13908
-## 6 E05000891                   Church    10569              1843 13974
-##   ghealth
-## 1    7274
-## 2    6124
-## 3    6129
-## 4   11925
-## 5    7219
-## 6    7461
+##        code                     ward pop16_74 higher_managerial   pop ghealth
+## 1 E05000886 Allerton and Hunts Cross    10930              1103 14853    7274
+## 2 E05000887                  Anfield    10712               312 14510    6124
+## 3 E05000888               Belle Vale    10987               432 15004    6129
+## 4 E05000889                  Central    19174              1346 20340   11925
+## 5 E05000890                Childwall    10410              1123 13908    7219
+## 6 E05000891                   Church    10569              1843 13974    7461
 ```
 
 ```r
@@ -685,20 +678,20 @@ head(join_dfs)
 ```
 
 ```
-##        code                     ward pop16_74 higher_managerial   pop
-## 1 E05000886 Allerton and Hunts Cross    10930              1103 14853
-## 2 E05000887                  Anfield    10712               312 14510
-## 3 E05000888               Belle Vale    10987               432 15004
-## 4 E05000889                  Central    19174              1346 20340
-## 5 E05000890                Childwall    10410              1123 13908
-## 6 E05000891                   Church    10569              1843 13974
-##   ghealth per_ghealth households socialrented_households
-## 1    7274   0.4897327       6359                     827
-## 2    6124   0.4220538       6622                    1508
-## 3    6129   0.4084911       6622                    2818
-## 4   11925   0.5862832       7139                    1311
-## 5    7219   0.5190538       5391                     374
-## 6    7461   0.5339201       5884                     178
+##        code                     ward pop16_74 higher_managerial   pop ghealth
+## 1 E05000886 Allerton and Hunts Cross    10930              1103 14853    7274
+## 2 E05000887                  Anfield    10712               312 14510    6124
+## 3 E05000888               Belle Vale    10987               432 15004    6129
+## 4 E05000889                  Central    19174              1346 20340   11925
+## 5 E05000890                Childwall    10410              1123 13908    7219
+## 6 E05000891                   Church    10569              1843 13974    7461
+##   per_ghealth households socialrented_households
+## 1   0.4897327       6359                     827
+## 2   0.4220538       6622                    1508
+## 3   0.4084911       6622                    2818
+## 4   0.5862832       7139                    1311
+## 5   0.5190538       5391                     374
+## 6   0.5339201       5884                     178
 ```
 
 ### Saving Data
@@ -739,13 +732,13 @@ oa_shp <- st_read("data/census/Liverpool_OA.shp")
 ```
 
 ```
-## Reading layer `Liverpool_OA' from data source `/home/jovyan/work/data/census/Liverpool_OA.shp' using driver `ESRI Shapefile'
+## Reading layer `Liverpool_OA' from data source `/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/census/Liverpool_OA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 1584 features and 18 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
 ## bbox:           xmin: 332390.2 ymin: 379748.5 xmax: 345636 ymax: 397980.1
-## epsg (SRID):    NA
-## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs
+## epsg (SRID):    27700
+## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs
 ```
 Examine the input data. A spatial data frame stores a range of attributes derived from a shapefile including the **geometry** of features (e.g. polygon shape and location), **attributes** for each feature (stored in the .dbf), [projection](https://en.wikipedia.org/wiki/Map_projection) and coordinates of the shapefile's bounding box - for details, execute:
 
@@ -813,8 +806,8 @@ head(oa_shp)
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
 ## bbox:           xmin: 335071.6 ymin: 389876.7 xmax: 339426.9 ymax: 394479
-## epsg (SRID):    NA
-## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs
+## epsg (SRID):    27700
+## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs
 ##       OA_CD   LSOA_CD   MSOA_CD    LAD_CD pop H_Vbad H_bad H_fair H_good
 ## 1 E00176737 E01033761 E02006932 E08000012 185      1     2      9     53
 ## 2 E00033515 E01006614 E02001358 E08000012 281      2    20     47    111
@@ -822,20 +815,20 @@ head(oa_shp)
 ## 4 E00176757 E01006646 E02001369 E08000012 200      7     8     17     52
 ## 5 E00034050 E01006712 E02001375 E08000012 321      4    10     32    112
 ## 6 E00034280 E01006761 E02001366 E08000012 187      4    25     70     57
-##   H_Vgood  age_men age_med     age_60     S_Rent     Ethnic illness
-## 1     120 27.94054      25 0.01081081 0.05263158 0.35135135     185
-## 2     101 37.71174      36 0.16370107 0.17600000 0.04626335     281
-## 3     102 37.08173      32 0.19711538 0.02352941 0.01923077     208
-## 4     116 33.73000      29 0.10000000 0.22222222 0.21500000     200
-## 5     163 34.19003      34 0.14018692 0.02222222 0.07788162     321
-## 6      31 56.09091      53 0.44919786 0.88524590 0.11764706     187
-##        unemp males                       geometry
-## 1 0.04379562   122 MULTIPOLYGON (((335106.3 38...
-## 2 0.12101911   128 MULTIPOLYGON (((335810.5 39...
-## 3 0.11214953    95 MULTIPOLYGON (((336738 3931...
-## 4 0.03597122   120 MULTIPOLYGON (((335914.5 39...
-## 5 0.07428571   158 MULTIPOLYGON (((339325 3914...
-## 6 0.44615385   123 MULTIPOLYGON (((338198.1 39...
+##   H_Vgood  age_men age_med     age_60     S_Rent     Ethnic illness      unemp
+## 1     120 27.94054      25 0.01081081 0.05263158 0.35135135     185 0.04379562
+## 2     101 37.71174      36 0.16370107 0.17600000 0.04626335     281 0.12101911
+## 3     102 37.08173      32 0.19711538 0.02352941 0.01923077     208 0.11214953
+## 4     116 33.73000      29 0.10000000 0.22222222 0.21500000     200 0.03597122
+## 5     163 34.19003      34 0.14018692 0.02222222 0.07788162     321 0.07428571
+## 6      31 56.09091      53 0.44919786 0.88524590 0.11764706     187 0.44615385
+##   males                       geometry
+## 1   122 MULTIPOLYGON (((335106.3 38...
+## 2   128 MULTIPOLYGON (((335810.5 39...
+## 3    95 MULTIPOLYGON (((336738 3931...
+## 4   120 MULTIPOLYGON (((335914.5 39...
+## 5   158 MULTIPOLYGON (((339325 3914...
+## 6   123 MULTIPOLYGON (((338198.1 39...
 ```
 **TASK:**
 
@@ -865,7 +858,7 @@ plot(st_geometry(oa_shp))
 ```
 
 <div class="figure">
-<img src="01-intro_files/figure-epub3/unnamed-chunk-40-1.png" alt="OAs of Livepool"  />
+<img src="01-intro_files/figure-html/unnamed-chunk-40-1.png" alt="OAs of Livepool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-40)OAs of Livepool</p>
 </div>
 
@@ -879,7 +872,7 @@ plot(oa_shp["Ethnic"], key.pos = 4, axes = TRUE, key.width = lcm(1.3), key.lengt
 ```
 
 <div class="figure">
-<img src="01-intro_files/figure-epub3/unnamed-chunk-41-1.png" alt="Spatial distribution of ethnic groups, Liverpool"  />
+<img src="01-intro_files/figure-html/unnamed-chunk-41-1.png" alt="Spatial distribution of ethnic groups, Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-41)Spatial distribution of ethnic groups, Liverpool</p>
 </div>
 
@@ -906,7 +899,7 @@ map_oa = tm_shape(oa_shp) +
 map_oa
 ```
 
-![](01-intro_files/figure-epub3/unnamed-chunk-42-1.png)<!-- -->
+<img src="01-intro_files/figure-html/unnamed-chunk-42-1.png" width="672" />
 
 Note that the operation `+` is used to add new layers. You can set style themes by `tm_style`. To visualise the existing styles use `tmap_style_catalogue()`, and you can also evaluate the code chunk below if you would like to create an interactive map.
 
@@ -931,13 +924,13 @@ msoa_shp <- st_read("data/census/Liverpool_MSOA.shp")
 ```
 
 ```
-## Reading layer `Liverpool_MSOA' from data source `/home/jovyan/work/data/census/Liverpool_MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `Liverpool_MSOA' from data source `/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/census/Liverpool_MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 16 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
 ## bbox:           xmin: 333086.1 ymin: 381426.3 xmax: 345636 ymax: 397980.1
-## epsg (SRID):    NA
-## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs
+## epsg (SRID):    27700
+## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs
 ```
 
 ```r
@@ -955,7 +948,7 @@ map_msoa = tm_shape(msoa_shp) +
 tmap_arrange(map_msoa, map_oa) 
 ```
 
-![](01-intro_files/figure-epub3/unnamed-chunk-44-1.png)<!-- -->
+<img src="01-intro_files/figure-html/unnamed-chunk-44-1.png" width="672" />
 
 **TASK:**
 

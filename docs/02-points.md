@@ -34,14 +34,14 @@ library(rgdal)
 ```
 
 ```
-## rgdal: version: 1.4-4, (SVN revision 833)
+## rgdal: version: 1.4-8, (SVN revision 845)
 ##  Geospatial Data Abstraction Library extensions to R successfully loaded
-##  Loaded GDAL runtime: GDAL 2.2.3, released 2017/11/20
-##  Path to GDAL shared files: /usr/share/gdal/2.2
-##  GDAL binary built with GEOS: TRUE 
-##  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
-##  Path to PROJ.4 shared files: (autodetected)
-##  Linking to sp version: 1.3-1
+##  Loaded GDAL runtime: GDAL 2.4.2, released 2019/06/28
+##  Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rgdal/gdal
+##  GDAL binary built with GEOS: FALSE 
+##  Loaded PROJ.4 runtime: Rel. 5.2.0, September 15th, 2018, [PJ_VERSION: 520]
+##  Path to PROJ.4 shared files: /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rgdal/proj
+##  Linking to sp version: 1.3-2
 ```
 
 ```r
@@ -87,8 +87,8 @@ library(GISTools)
 ```
 
 ```
-## rgeos version: 0.5-1, (SVN revision 614)
-##  GEOS runtime version: 3.6.2-CAPI-1.10.2 
+## rgeos version: 0.5-2, (SVN revision 621)
+##  GEOS runtime version: 3.7.2-CAPI-1.11.2 
 ##  Linking to sp version: 1.3-1 
 ##  Polygon checking: TRUE
 ```
@@ -96,15 +96,6 @@ library(GISTools)
 ```r
 # For all your interpolation needs
 library(gstat)
-```
-
-```
-## Registered S3 method overwritten by 'xts':
-##   method     from
-##   as.zoo.xts zoo
-```
-
-```r
 # For data manipulation
 library(plyr)
 ```
@@ -130,7 +121,7 @@ db <- readOGR(dsn = 'data/house_transactions', layer = 'liv_house_trans')
 
 ```
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "/home/jovyan/work/data/house_transactions", layer: "liv_house_trans"
+## Source: "/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/house_transactions", layer: "liv_house_trans"
 ## with 6324 features
 ## It has 18 fields
 ## Integer64 fields read as strings:  price
@@ -155,10 +146,8 @@ tab
 ```
 
 ```
-##         Min.      1st Qu.       Median         Mean      3rd Qu. 
-## "2014-01-02" "2014-04-11" "2014-07-09" "2014-07-08" "2014-10-03" 
-##         Max. 
-## "2014-12-30"
+##         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
+## "2014-01-02" "2014-04-11" "2014-07-09" "2014-07-08" "2014-10-03" "2014-12-30"
 ```
 
 We can then examine the elements of the object with the `summary` method:
@@ -177,8 +166,9 @@ summary(db)
 ## Is projected: TRUE 
 ## proj4string :
 ## [+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000
-## +y_0=-100000 +datum=OSGB36 +units=m +no_defs +ellps=airy
-## +towgs84=446.448,-125.157,542.060,0.1502,0.2470,0.8421,-20.4894]
+## +y_0=-100000 +ellps=airy
+## +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m
+## +no_defs]
 ## Number of points: 6324
 ## Data attributes:
 ##       pcds                                           id      
@@ -197,30 +187,30 @@ summary(db)
 ##  3rd Qu.:  160000   2014-03-28 00:00:  94   T:2851                    
 ##  Max.   :26615720   2014-11-28 00:00:  94                             
 ##                     (Other)         :5718                             
-##       paon               saon                   street    
-##  3      : 203   FLAT 2     :  25   CROSSHALL STREET: 133  
-##  11     : 151   FLAT 3     :  25   STANHOPE STREET :  63  
-##  14     : 148   FLAT 1     :  24   PALL MALL       :  47  
-##  5      : 146   APARTMENT 4:  23   DUKE STREET     :  41  
-##  4      : 140   APARTMENT 2:  21   MANN ISLAND     :  41  
-##  8      : 128   (Other)    : 893   OLD HALL STREET :  39  
-##  (Other):5408   NA's       :5313   (Other)         :5960  
-##          locality           town           district           county    
-##  WAVERTREE   : 126   LIVERPOOL:6324   KNOWSLEY :  12   MERSEYSIDE:6324  
-##  MOSSLEY HILL: 102                    LIVERPOOL:6311                    
-##  WALTON      :  88                    WIRRAL   :   1                    
-##  WEST DERBY  :  71                                                      
-##  WOOLTON     :  66                                                      
-##  (Other)     : 548                                                      
-##  NA's        :5323                                                      
-##  ppd_cat  status         lsoa11          LSOA11CD   
-##  A:5393   A:6324   E01033762: 144   E01033762: 144  
-##  B: 931            E01033756:  98   E01033756:  98  
-##                    E01033752:  93   E01033752:  93  
-##                    E01033750:  71   E01033750:  71  
-##                    E01006518:  68   E01006518:  68  
-##                    E01033755:  65   E01033755:  65  
-##                    (Other)  :5785   (Other)  :5785
+##       paon               saon                   street             locality   
+##  3      : 203   FLAT 2     :  25   CROSSHALL STREET: 133   WAVERTREE   : 126  
+##  11     : 151   FLAT 3     :  25   STANHOPE STREET :  63   MOSSLEY HILL: 102  
+##  14     : 148   FLAT 1     :  24   PALL MALL       :  47   WALTON      :  88  
+##  5      : 146   APARTMENT 4:  23   DUKE STREET     :  41   WEST DERBY  :  71  
+##  4      : 140   APARTMENT 2:  21   MANN ISLAND     :  41   WOOLTON     :  66  
+##  8      : 128   (Other)    : 893   OLD HALL STREET :  39   (Other)     : 548  
+##  (Other):5408   NA's       :5313   (Other)         :5960   NA's        :5323  
+##         town           district           county     ppd_cat  status  
+##  LIVERPOOL:6324   KNOWSLEY :  12   MERSEYSIDE:6324   A:5393   A:6324  
+##                   LIVERPOOL:6311                     B: 931           
+##                   WIRRAL   :   1                                      
+##                                                                       
+##                                                                       
+##                                                                       
+##                                                                       
+##        lsoa11          LSOA11CD   
+##  E01033762: 144   E01033762: 144  
+##  E01033756:  98   E01033756:  98  
+##  E01033752:  93   E01033752:  93  
+##  E01033750:  71   E01033750:  71  
+##  E01006518:  68   E01006518:  68  
+##  E01033755:  65   E01033755:  65  
+##  (Other)  :5785   (Other)  :5785
 ```
 
 See how it contains several pieces, some relating to the spatial information, some relating to the tabular data attached to it. We can access each of the separately if we need it. For example, to pull out the names of the columns in the `data.frame`, we can use the `@data` appendix:
@@ -251,7 +241,7 @@ hist
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-epub3/unnamed-chunk-8-1.png" alt="Raw house prices in Liverpool"  />
+<img src="02-points_files/figure-html/unnamed-chunk-8-1.png" alt="Raw house prices in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-8)Raw house prices in Liverpool</p>
 </div>
 
@@ -272,7 +262,7 @@ hist
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-epub3/unnamed-chunk-9-1.png" alt="Log of house price in Liverpool"  />
+<img src="02-points_files/figure-html/unnamed-chunk-9-1.png" alt="Log of house price in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-9)Log of house price in Liverpool</p>
 </div>
 
@@ -284,7 +274,7 @@ plot(db)
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-epub3/unnamed-chunk-10-1.png" alt="Spatial distribution of house transactions in Liverpool"  />
+<img src="02-points_files/figure-html/unnamed-chunk-10-1.png" alt="Spatial distribution of house transactions in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-10)Spatial distribution of house transactions in Liverpool</p>
 </div>
 
@@ -310,7 +300,7 @@ kde
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-epub3/unnamed-chunk-11-1.png" alt="Histogram and KDE of the log of house prices in Liverpool"  />
+<img src="02-points_files/figure-html/unnamed-chunk-11-1.png" alt="Histogram and KDE of the log of house prices in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-11)Histogram and KDE of the log of house prices in Liverpool</p>
 </div>
 
@@ -337,7 +327,7 @@ kde
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-epub3/unnamed-chunk-12-1.png" alt="KDE of house transactions in Liverpool"  />
+<img src="02-points_files/figure-html/unnamed-chunk-12-1.png" alt="KDE of house transactions in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-12)KDE of house transactions in Liverpool</p>
 </div>
 
@@ -352,7 +342,7 @@ level.plot(kde)
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-epub3/unnamed-chunk-13-1.png" alt="KDE of house transactions in Liverpool"  />
+<img src="02-points_files/figure-html/unnamed-chunk-13-1.png" alt="KDE of house transactions in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-13)KDE of house transactions in Liverpool</p>
 </div>
 
@@ -428,7 +418,7 @@ final
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-epub3/unnamed-chunk-14-1.png" alt="KDE of house transactions in Liverpool"  />
+<img src="02-points_files/figure-html/unnamed-chunk-14-1.png" alt="KDE of house transactions in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-14)KDE of house transactions in Liverpool</p>
 </div>
 
@@ -491,12 +481,12 @@ head(idw.hp@data)
 
 ```
 ##   var1.pred var1.var
-## 1  158101.9       NA
-## 2  158212.9       NA
-## 3  158326.7       NA
-## 4  158443.4       NA
-## 5  158563.2       NA
-## 6  158686.2       NA
+## 1  158040.8       NA
+## 2  158150.3       NA
+## 3  158262.5       NA
+## 4  158377.5       NA
+## 5  158495.4       NA
+## 6  158616.4       NA
 ```
 
 The column we will pay attention to is `var1.pred`. And to see the locations for which those correspond:
@@ -508,12 +498,12 @@ head(idw.hp@coords)
 
 ```
 ##            x1       x2
-## [1,] 333597.6 382725.2
-## [2,] 333682.6 382725.2
-## [3,] 333767.5 382725.2
-## [4,] 333852.5 382725.2
-## [5,] 333937.4 382725.2
-## [6,] 334022.4 382725.2
+## [1,] 333556.1 382691.6
+## [2,] 333641.0 382691.6
+## [3,] 333726.0 382691.6
+## [4,] 333811.0 382691.6
+## [5,] 333895.9 382691.6
+## [6,] 333980.9 382691.6
 ```
 
 So, for a hypothetical house sold at the location in the first row of `idw.hp@coords` (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column `var1.pred` in `idw.hp@data`.
@@ -527,7 +517,7 @@ Once we have the IDW object computed, we can plot it to explore the distribution
 spplot(idw.hp['var1.pred'])
 ```
 
-![](02-points_files/figure-epub3/unnamed-chunk-19-1.png)<!-- -->
+<img src="02-points_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 
 However, this is not entirely satisfactory for a number of reasons. Let us get an equivalen plot with the package `tmap`, which streamlines some of this and makes more aesthetically pleasant maps easier to build as it follows a "ggplot-y" approach.
 
@@ -539,7 +529,7 @@ liv.otl <- readOGR('data/house_transactions', 'liv_outline')
 
 ```
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "/home/jovyan/work/data/house_transactions", layer: "liv_outline"
+## Source: "/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/house_transactions", layer: "liv_outline"
 ## with 1 features
 ## It has 1 fields
 ```
@@ -551,7 +541,7 @@ The shape we will overlay looks like this:
 qtm(liv.otl)
 ```
 
-![](02-points_files/figure-epub3/unnamed-chunk-21-1.png)<!-- -->
+<img src="02-points_files/figure-html/unnamed-chunk-21-1.png" width="672" />
 
 Now let's give it a first go!
 
@@ -565,7 +555,7 @@ p = tm_shape(liv.otl) + tm_fill(col='black', alpha=1) +
 p
 ```
 
-![](02-points_files/figure-epub3/unnamed-chunk-22-1.png)<!-- -->
+<img src="02-points_files/figure-html/unnamed-chunk-22-1.png" width="672" />
 
 
 The last two plots, however, are not really a surface, but a representation of the points we have just estimated. To create a surface, we need to do an interim transformation to convert the spatial object `idw.hp` into a table that a "surface plotter" can understand.
@@ -587,7 +577,7 @@ surface
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-epub3/unnamed-chunk-24-1.png" alt="Contour of prices in Liverpool"  />
+<img src="02-points_files/figure-html/unnamed-chunk-24-1.png" alt="Contour of prices in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-24)Contour of prices in Liverpool</p>
 </div>
 
@@ -600,7 +590,7 @@ surface <- base + geom_raster(aes(fill=z))
 surface
 ```
 
-![](02-points_files/figure-epub3/unnamed-chunk-25-1.png)<!-- -->
+<img src="02-points_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
 The problem here, when compared to the KDE above for example, is that a few values are extremely large:
 
@@ -610,7 +600,7 @@ qplot(data=xyz, x=z, geom='density')
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-epub3/unnamed-chunk-26-1.png" alt="Skewness of prices in Liverpool"  />
+<img src="02-points_files/figure-html/unnamed-chunk-26-1.png" alt="Skewness of prices in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-26)Skewness of prices in Liverpool</p>
 </div>
 
@@ -627,7 +617,7 @@ surface
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-epub3/unnamed-chunk-27-1.png" alt="Surface of log-prices in Liverpool"  />
+<img src="02-points_files/figure-html/unnamed-chunk-27-1.png" alt="Surface of log-prices in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-27)Surface of log-prices in Liverpool</p>
 </div>
 
@@ -658,7 +648,7 @@ idw.one
 ## class       : SpatialPointsDataFrame 
 ## features    : 1 
 ## extent      : 340000, 340000, 390000, 390000  (xmin, xmax, ymin, ymax)
-## crs         : +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs +ellps=airy +towgs84=446.448,-125.157,542.060,0.1502,0.2470,0.8421,-20.4894 
+## crs         : +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs 
 ## variables   : 2
 ## names       :        var1.pred, var1.var 
 ## value       : 157099.029513871,       NA

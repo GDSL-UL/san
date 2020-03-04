@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-02-20" />
+<meta name="date" content="2020-03-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="points.html"/>
-<link rel="next" href="spatial-econometrics.html"/>
+<link rel="next" href="multilevel-modelling-part-1.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,68 +53,41 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -186,36 +159,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="flows.html"><a href="flows.html#predicting-flows"><i class="fa fa-check"></i><b>4.5</b> Predicting flows</a></li>
 <li class="chapter" data-level="4.6" data-path="flows.html"><a href="flows.html#references"><i class="fa fa-check"></i><b>4.6</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>5</b> Spatial Econometrics</a><ul>
-<li class="chapter" data-level="5.1" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#dependencies-3"><i class="fa fa-check"></i><b>5.1</b> Dependencies</a></li>
-<li class="chapter" data-level="5.2" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#data-2"><i class="fa fa-check"></i><b>5.2</b> Data</a></li>
-<li class="chapter" data-level="5.3" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#non-spatial-regression-a-refresh"><i class="fa fa-check"></i><b>5.3</b> Non-spatial regression, a refresh</a></li>
-<li class="chapter" data-level="5.4" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#spatial-regression-a-very-first-dip"><i class="fa fa-check"></i><b>5.4</b> Spatial regression: a (very) first dip</a></li>
-<li class="chapter" data-level="5.5" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#spatial-heterogeneity"><i class="fa fa-check"></i><b>5.5</b> Spatial heterogeneity</a></li>
-<li class="chapter" data-level="5.6" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#spatial-dependence"><i class="fa fa-check"></i><b>5.6</b> Spatial dependence</a></li>
-<li class="chapter" data-level="5.7" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#predicting-house-prices"><i class="fa fa-check"></i><b>5.7</b> Predicting house prices</a></li>
-<li class="chapter" data-level="5.8" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#references-1"><i class="fa fa-check"></i><b>5.8</b> References</a></li>
+<li class="chapter" data-level="5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html"><i class="fa fa-check"></i><b>5</b> Multilevel Modelling - Part 1</a><ul>
+<li class="chapter" data-level="5.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#dependencies-3"><i class="fa fa-check"></i><b>5.1</b> Dependencies</a></li>
+<li class="chapter" data-level="5.2" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#data-2"><i class="fa fa-check"></i><b>5.2</b> Data</a></li>
+<li class="chapter" data-level="5.3" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#modelling"><i class="fa fa-check"></i><b>5.3</b> Modelling</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#baseline-linear-regression-model"><i class="fa fa-check"></i><b>5.3.1</b> Baseline Linear Regression Model</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html"><i class="fa fa-check"></i><b>6</b> Multilevel Modelling - Part 1</a><ul>
-<li class="chapter" data-level="6.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#dependencies-4"><i class="fa fa-check"></i><b>6.1</b> Dependencies</a></li>
+<li class="chapter" data-level="5.4" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#multilevel-modelling-random-intercept-model"><i class="fa fa-check"></i><b>5.4</b> Multilevel Modelling: Random Intercept Model</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#interpretation"><i class="fa fa-check"></i><b>5.4.1</b> Interpretation</a></li>
+<li class="chapter" data-level="5.4.2" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#variance-partition-coefficient-vpc"><i class="fa fa-check"></i><b>5.4.2</b> Variance Partition Coefficient (VPC)</a></li>
+<li class="chapter" data-level="5.4.3" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#uncertainty-of-estimates"><i class="fa fa-check"></i><b>5.4.3</b> Uncertainty of Estimates</a></li>
+<li class="chapter" data-level="5.4.4" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#assessing-group-level-variation"><i class="fa fa-check"></i><b>5.4.4</b> Assessing Group-level Variation</a></li>
+<li class="chapter" data-level="5.4.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#adding-individual-level-predictors"><i class="fa fa-check"></i><b>5.4.5</b> Adding Individual-level Predictors</a></li>
+<li class="chapter" data-level="5.4.6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#adding-group-level-predictors"><i class="fa fa-check"></i><b>5.4.6</b> Adding Group-level Predictors</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="multilevel-data-structures.html"><a href="multilevel-data-structures.html"><i class="fa fa-check"></i><b>7</b> Multilevel Data Structures</a><ul>
-<li class="chapter" data-level="7.1" data-path="multilevel-data-structures.html"><a href="multilevel-data-structures.html#data-3"><i class="fa fa-check"></i><b>7.1</b> Data</a></li>
-<li class="chapter" data-level="7.2" data-path="multilevel-data-structures.html"><a href="multilevel-data-structures.html#long-vs-wide-format"><i class="fa fa-check"></i><b>7.2</b> Long vs wide format</a></li>
+<li class="chapter" data-level="5.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#model-building"><i class="fa fa-check"></i><b>5.5</b> Model building</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#model-comparison"><i class="fa fa-check"></i><b>5.5.1</b> Model Comparison</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="single-level-regression-models.html"><a href="single-level-regression-models.html"><i class="fa fa-check"></i><b>8</b> Single-level Regression Models</a><ul>
-<li class="chapter" data-level="8.1" data-path="single-level-regression-models.html"><a href="single-level-regression-models.html#limitations"><i class="fa fa-check"></i><b>8.1</b> Limitations</a></li>
-<li class="chapter" data-level="8.2" data-path="single-level-regression-models.html"><a href="single-level-regression-models.html#adding-group-fixed-effects"><i class="fa fa-check"></i><b>8.2</b> Adding Group Fixed Effects</a></li>
+<li class="chapter" data-level="5.6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#useful-functions-1"><i class="fa fa-check"></i><b>5.6</b> Useful Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="multilevel-modelling.html"><a href="multilevel-modelling.html"><i class="fa fa-check"></i><b>9</b> Multilevel Modelling</a><ul>
-<li class="chapter" data-level="9.1" data-path="multilevel-modelling.html"><a href="multilevel-modelling.html#the-intuition"><i class="fa fa-check"></i><b>9.1</b> The Intuition</a></li>
-<li class="chapter" data-level="9.2" data-path="multilevel-modelling.html"><a href="multilevel-modelling.html#practice"><i class="fa fa-check"></i><b>9.2</b> Practice</a></li>
-<li class="chapter" data-level="9.3" data-path="multilevel-modelling.html"><a href="multilevel-modelling.html#intercept-only-model"><i class="fa fa-check"></i><b>9.3</b> Intercept Only Model</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>10</b> Multilevel Models (Pt. II)</a></li>
-<li class="chapter" data-level="11" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>11</b> GWR</a></li>
-<li class="chapter" data-level="12" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>12</b> Space-Time Analysis</a></li>
-<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="6" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>6</b> Multilevel Models (Pt. II)</a></li>
+<li class="chapter" data-level="7" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>7</b> GWR</a></li>
+<li class="chapter" data-level="8" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>8</b> Space-Time Analysis</a></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -238,90 +204,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="flows" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Flows</h1>
-<p>This chapter<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> covers spatial interaction flows. Using open data from the city of San Francisco about trips on its bikeshare system, we will estimate spatial interaction models that try to capture and explain the variation in the amount of trips on each given route. After visualizing the dataset, we begin with a very simple model and then build complexity progressively by augmenting it with more information, refined measurements, and better modeling approaches. Throughout the chapter, we explore different ways to grasp the predictive performance of each model. We finish with a prediction example that illustrates how these models can be deployed in a real-world application.</p>
+<p>This chapter<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a> covers spatial interaction flows. Using open data from the city of San Francisco about trips on its bikeshare system, we will estimate spatial interaction models that try to capture and explain the variation in the amount of trips on each given route. After visualizing the dataset, we begin with a very simple model and then build complexity progressively by augmenting it with more information, refined measurements, and better modeling approaches. Throughout the chapter, we explore different ways to grasp the predictive performance of each model. We finish with a prediction example that illustrates how these models can be deployed in a real-world application.</p>
 <p>Content is based on the following references, which are great follow-up’s on the topic:</p>
 <ul>
-<li><span class="citation">Singleton (<a href="#ref-gds_ua17" role="doc-biblioref">2017</a>)</span>, an online short course on R for Geographic Data Science and Urban Analytics. In particular, the section on <a href="https://github.com/alexsingleton/GDS_UA_2017/tree/master/Mapping_Flows">mapping flows</a> is specially relevant here.</li>
-<li>The predictive checks section draws heavily from <span class="citation">Gelman and Hill (<a href="#ref-gelman2006data" role="doc-biblioref">2006</a>)</span>, in particular Chapters 6 and 7.</li>
+<li><span class="citation">Singleton (<a href="#ref-gds_ua17">2017</a>)</span>, an online short course on R for Geographic Data Science and Urban Analytics. In particular, the section on <a href="https://github.com/alexsingleton/GDS_UA_2017/tree/master/Mapping_Flows">mapping flows</a> is specially relevant here.</li>
+<li>The predictive checks section draws heavily from <span class="citation">Gelman and Hill (<a href="#ref-gelman2006data">2006</a><a href="#ref-gelman2006data">a</a>)</span>, in particular Chapters 6 and 7.</li>
 </ul>
 <p>This tutorial is part of <a href="index.html">Spatial Analysis Notes</a>, a compilation hosted as a GitHub repository that you can access in a few ways:</p>
 <ul>
 <li>As a <a href="https://github.com/GDSL-UL/san/archive/master.zip">download</a> of a <code>.zip</code> file that contains all the materials.</li>
-<li>As an <a href="https://gdsl-ul.github.io/san/flows.html">html
-website</a>.</li>
-<li>As a <a href="https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf">pdf
-document</a></li>
+<li>As an <a href="https://gdsl-ul.github.io/san/flows.html">html website</a>.</li>
+<li>As a <a href="https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf">pdf document</a></li>
 <li>As a <a href="https://github.com/GDSL-UL/san">GitHub repository</a>.</li>
 </ul>
 <div id="dependencies-2" class="section level2">
 <h2><span class="header-section-number">4.1</span> Dependencies</h2>
-<p>This tutorial relies on the following libraries that you will need to have installed on your machine to be able to interactively follow along<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>. Once installed, load them up with the following commands:</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="flows.html#cb152-1"></a><span class="co"># Layout</span></span>
-<span id="cb152-2"><a href="flows.html#cb152-2"></a><span class="kw">library</span>(tufte)</span>
-<span id="cb152-3"><a href="flows.html#cb152-3"></a><span class="co"># Spatial Data management</span></span>
-<span id="cb152-4"><a href="flows.html#cb152-4"></a><span class="kw">library</span>(rgdal)</span></code></pre></div>
+<p>This tutorial relies on the following libraries that you will need to have installed on your machine to be able to interactively follow along<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>. Once installed, load them up with the following commands:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Layout</span>
+<span class="kw">library</span>(tufte)
+<span class="co"># Spatial Data management</span>
+<span class="kw">library</span>(rgdal)</code></pre></div>
 <pre><code>## Loading required package: sp</code></pre>
-<pre><code>## rgdal: version: 1.4-4, (SVN revision 833)
+<pre><code>## rgdal: version: 1.4-8, (SVN revision 845)
 ##  Geospatial Data Abstraction Library extensions to R successfully loaded
-##  Loaded GDAL runtime: GDAL 2.2.3, released 2017/11/20
-##  Path to GDAL shared files: /usr/share/gdal/2.2
-##  GDAL binary built with GEOS: TRUE 
-##  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
-##  Path to PROJ.4 shared files: (autodetected)
-##  Linking to sp version: 1.3-1</code></pre>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="flows.html#cb155-1"></a><span class="co"># Pretty graphics</span></span>
-<span id="cb155-2"><a href="flows.html#cb155-2"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb155-3"><a href="flows.html#cb155-3"></a><span class="co"># Thematic maps</span></span>
-<span id="cb155-4"><a href="flows.html#cb155-4"></a><span class="kw">library</span>(tmap)</span>
-<span id="cb155-5"><a href="flows.html#cb155-5"></a><span class="co"># Pretty maps</span></span>
-<span id="cb155-6"><a href="flows.html#cb155-6"></a><span class="kw">library</span>(ggmap)</span></code></pre></div>
+##  Loaded GDAL runtime: GDAL 2.4.2, released 2019/06/28
+##  Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rgdal/gdal
+##  GDAL binary built with GEOS: FALSE 
+##  Loaded PROJ.4 runtime: Rel. 5.2.0, September 15th, 2018, [PJ_VERSION: 520]
+##  Path to PROJ.4 shared files: /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rgdal/proj
+##  Linking to sp version: 1.3-2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Pretty graphics</span>
+<span class="kw">library</span>(ggplot2)
+<span class="co"># Thematic maps</span>
+<span class="kw">library</span>(tmap)
+<span class="co"># Pretty maps</span>
+<span class="kw">library</span>(ggmap)</code></pre></div>
 <pre><code>## Google&#39;s Terms of Service: https://cloud.google.com/maps-platform/terms/.</code></pre>
 <pre><code>## Please cite ggmap if you use it! See citation(&quot;ggmap&quot;) for details.</code></pre>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="flows.html#cb158-1"></a><span class="co"># Simulation methods</span></span>
-<span id="cb158-2"><a href="flows.html#cb158-2"></a><span class="kw">library</span>(arm)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Simulation methods</span>
+<span class="kw">library</span>(arm)</code></pre></div>
 <pre><code>## Loading required package: MASS</code></pre>
 <pre><code>## Loading required package: Matrix</code></pre>
 <pre><code>## Loading required package: lme4</code></pre>
 <pre><code>## 
 ## arm (Version 1.10-1, built: 2018-4-12)</code></pre>
-<pre><code>## Working directory is /home/jovyan/work</code></pre>
+<pre><code>## Working directory is /Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san</code></pre>
 <p>Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with <code>setwd()</code>. Please replace in the following line the path to the folder where you have placed this file -and where the <code>sf_bikes</code> folder with the data lives.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="flows.html#cb164-1"></a><span class="kw">setwd</span>(<span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>(<span class="st">&#39;.&#39;</span>)</code></pre></div>
 </div>
 <div id="data-1" class="section level2">
 <h2><span class="header-section-number">4.2</span> Data</h2>
 <p>In this note, we will use data from the city of San Francisco representing bike trips on their public bike share system. The original source is the SF Open Data portal (<a href="http://www.bayareabikeshare.com/open-data">link</a>) and the dataset comprises both the location of each station in the Bay Area as well as information on trips (station of origin to station of destination) undertaken in the system from September 2014 to August 2015 and the following year. Since this note is about modeling and not data preparation, a cleanly reshaped version of the data, together with some additional information, has been created and placed in the <code>sf_bikes</code> folder. The data file is named <code>flows.geojson</code> and, in case you are interested, the (Python) code required to created from the original files in the SF Data Portal is also available on the <code>flows_prep.ipynb</code> notebook <a href="https://github.com/darribas/spa_notes/blob/master/sf_bikes/flows_prep.ipynb">[url]</a>, also in the same folder.</p>
 <p>Let us then directly load the file with all the information necessary:</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="flows.html#cb165-1"></a>db &lt;-<span class="st"> </span><span class="kw">readOGR</span>(<span class="st">&#39;./data/sf_bikes/flows.geojson&#39;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">db &lt;-<span class="st"> </span><span class="kw">readOGR</span>(<span class="st">&#39;./data/sf_bikes/flows.geojson&#39;</span>)</code></pre></div>
 <pre><code>## OGR data source with driver: GeoJSON 
-## Source: &quot;/home/jovyan/work/data/sf_bikes/flows.geojson&quot;, layer: &quot;flows&quot;
+## Source: &quot;/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/sf_bikes/flows.geojson&quot;, layer: &quot;flows&quot;
 ## with 1722 features
 ## It has 9 fields</code></pre>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="flows.html#cb167-1"></a><span class="kw">rownames</span>(db<span class="op">@</span>data) &lt;-<span class="st"> </span>db<span class="op">$</span>flow_id</span>
-<span id="cb167-2"><a href="flows.html#cb167-2"></a>db<span class="op">@</span>data<span class="op">$</span>flow_id &lt;-<span class="st"> </span><span class="ot">NULL</span></span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rownames</span>(db<span class="op">@</span>data) &lt;-<span class="st"> </span>db<span class="op">$</span>flow_id
+db<span class="op">@</span>data<span class="op">$</span>flow_id &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
 <p>Note how the interface is slightly different since we are reading a <code>GeoJSON</code> file instead of a shapefile.</p>
 <p>The data contains the geometries of the flows, as calculated from the <a href="https://developers.google.com/maps/">Google Maps API</a>, as well as a series of columns with characteristics of each flow:</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="flows.html#cb168-1"></a><span class="kw">head</span>(db<span class="op">@</span>data)</span></code></pre></div>
-<pre><code>##       dest orig straight_dist street_dist total_down total_up trips15
-## 39-41   41   39      1452.201   1804.1150  11.205753 4.698162      68
-## 39-42   42   39      1734.861   2069.1557  10.290236 2.897886      23
-## 39-45   45   39      1255.349   1747.9928  11.015596 4.593927      83
-## 39-46   46   39      1323.303   1490.8361   3.511543 5.038044     258
-## 39-47   47   39       715.689    769.9189   0.000000 3.282495     127
-## 39-48   48   39      1996.778   2740.1290  11.375186 3.841296      81
-##       trips16
-## 39-41      68
-## 39-42      29
-## 39-45      50
-## 39-46     163
-## 39-47      73
-## 39-48      56</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(db<span class="op">@</span>data)</code></pre></div>
+<pre><code>##       dest orig straight_dist street_dist total_down total_up trips15 trips16
+## 39-41   41   39      1452.201   1804.1150  11.205753 4.698162      68      68
+## 39-42   42   39      1734.861   2069.1557  10.290236 2.897886      23      29
+## 39-45   45   39      1255.349   1747.9928  11.015596 4.593927      83      50
+## 39-46   46   39      1323.303   1490.8361   3.511543 5.038044     258     163
+## 39-47   47   39       715.689    769.9189   0.000000 3.282495     127      73
+## 39-48   48   39      1996.778   2740.1290  11.375186 3.841296      81      56</code></pre>
 <p>where <code>orig</code> and <code>dest</code> are the station IDs of the origin and destination, <code>street/straight_dist</code> is the distance in metres between stations measured along the street network or as-the-crow-flies, <code>total_down/up</code> is the total downhil and climb in the trip, and <code>tripsXX</code> contains the amount of trips undertaken in the years of study.</p>
 </div>
 <div id="seeing-flows" class="section level2">
 <h2><span class="header-section-number">4.3</span> “<em>Seeing</em>” flows</h2>
 <p>The easiest way to get a quick preview of what the data looks like spatially is to make a simple plot:</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="flows.html#cb170-1"></a><span class="kw">plot</span>(db)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(db)</code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-5"></span>
 <img src="03-flows_files/figure-html/unnamed-chunk-5-1.png" alt="Potential routes" width="672" />
 <p class="caption">
@@ -329,10 +286,10 @@ Figure 4.1: Potential routes
 </p>
 </div>
 <p>Equally, if we want to visualize a single route, we can simply subset the table. For example, to get the shape of the trip from station <code>39</code> to station <code>48</code>, we can:</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="flows.html#cb171-1"></a>one39to48 &lt;-<span class="st"> </span>db[ <span class="kw">which</span>(</span>
-<span id="cb171-2"><a href="flows.html#cb171-2"></a>          db<span class="op">@</span>data<span class="op">$</span>orig <span class="op">==</span><span class="st"> </span><span class="dv">39</span> <span class="op">&amp;</span><span class="st"> </span>db<span class="op">@</span>data<span class="op">$</span>dest <span class="op">==</span><span class="st"> </span><span class="dv">48</span></span>
-<span id="cb171-3"><a href="flows.html#cb171-3"></a>          ) , ]</span>
-<span id="cb171-4"><a href="flows.html#cb171-4"></a><span class="kw">plot</span>(one39to48)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">one39to48 &lt;-<span class="st"> </span>db[ <span class="kw">which</span>(
+          db<span class="op">@</span>data<span class="op">$</span>orig <span class="op">==</span><span class="st"> </span><span class="dv">39</span> <span class="op">&amp;</span><span class="st"> </span>db<span class="op">@</span>data<span class="op">$</span>dest <span class="op">==</span><span class="st"> </span><span class="dv">48</span>
+          ) , ]
+<span class="kw">plot</span>(one39to48)</code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-6"></span>
 <img src="03-flows_files/figure-html/unnamed-chunk-6-1.png" alt="Trip from station 39 to 48" width="672" />
 <p class="caption">
@@ -340,10 +297,10 @@ Figure 4.2: Trip from station 39 to 48
 </p>
 </div>
 <p>or, for the most popular route, we can:</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="flows.html#cb172-1"></a>most_pop &lt;-<span class="st"> </span>db[ <span class="kw">which</span>(</span>
-<span id="cb172-2"><a href="flows.html#cb172-2"></a>          db<span class="op">@</span>data<span class="op">$</span>trips15 <span class="op">==</span><span class="st"> </span><span class="kw">max</span>(db<span class="op">@</span>data<span class="op">$</span>trips15)</span>
-<span id="cb172-3"><a href="flows.html#cb172-3"></a>          ) , ]</span>
-<span id="cb172-4"><a href="flows.html#cb172-4"></a><span class="kw">plot</span>(most_pop)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">most_pop &lt;-<span class="st"> </span>db[ <span class="kw">which</span>(
+          db<span class="op">@</span>data<span class="op">$</span>trips15 <span class="op">==</span><span class="st"> </span><span class="kw">max</span>(db<span class="op">@</span>data<span class="op">$</span>trips15)
+          ) , ]
+<span class="kw">plot</span>(most_pop)</code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-7"></span>
 <img src="03-flows_files/figure-html/unnamed-chunk-7-1.png" alt="Most popular trip" width="672" />
 <p class="caption">
@@ -352,13 +309,13 @@ Figure 2.1: Most popular trip
 </div>
 <p>These however do not reveal a lot: there is no geographical context (<em>why are there so many routes along the NE?</em>) and no sense of how volumes of bikers are allocated along different routes. Let us fix those two.</p>
 <p>The easiest way to bring in geographical context is by overlaying the routes on top of a background map of tiles downloaded from the internet. Let us download this using <code>ggmap</code>:</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="flows.html#cb173-1"></a>sf_bb &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">left=</span>db<span class="op">@</span>bbox[<span class="st">&#39;x&#39;</span>, <span class="st">&#39;min&#39;</span>],</span>
-<span id="cb173-2"><a href="flows.html#cb173-2"></a>           <span class="dt">right=</span>db<span class="op">@</span>bbox[<span class="st">&#39;x&#39;</span>, <span class="st">&#39;max&#39;</span>],</span>
-<span id="cb173-3"><a href="flows.html#cb173-3"></a>           <span class="dt">bottom=</span>db<span class="op">@</span>bbox[<span class="st">&#39;y&#39;</span>, <span class="st">&#39;min&#39;</span>],</span>
-<span id="cb173-4"><a href="flows.html#cb173-4"></a>           <span class="dt">top=</span>db<span class="op">@</span>bbox[<span class="st">&#39;y&#39;</span>, <span class="st">&#39;max&#39;</span>])</span>
-<span id="cb173-5"><a href="flows.html#cb173-5"></a>SanFran &lt;-<span class="st"> </span><span class="kw">get_stamenmap</span>(sf_bb, </span>
-<span id="cb173-6"><a href="flows.html#cb173-6"></a>                         <span class="dt">zoom =</span> <span class="dv">14</span>, </span>
-<span id="cb173-7"><a href="flows.html#cb173-7"></a>                         <span class="dt">maptype =</span> <span class="st">&quot;toner-lite&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sf_bb &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">left=</span>db<span class="op">@</span>bbox[<span class="st">&#39;x&#39;</span>, <span class="st">&#39;min&#39;</span>],
+           <span class="dt">right=</span>db<span class="op">@</span>bbox[<span class="st">&#39;x&#39;</span>, <span class="st">&#39;max&#39;</span>],
+           <span class="dt">bottom=</span>db<span class="op">@</span>bbox[<span class="st">&#39;y&#39;</span>, <span class="st">&#39;min&#39;</span>],
+           <span class="dt">top=</span>db<span class="op">@</span>bbox[<span class="st">&#39;y&#39;</span>, <span class="st">&#39;max&#39;</span>])
+SanFran &lt;-<span class="st"> </span><span class="kw">get_stamenmap</span>(sf_bb, 
+                         <span class="dt">zoom =</span> <span class="dv">14</span>, 
+                         <span class="dt">maptype =</span> <span class="st">&quot;toner-lite&quot;</span>)</code></pre></div>
 <pre><code>## Source : http://tile.stamen.com/toner-lite/14/2620/6330.png</code></pre>
 <pre><code>## Source : http://tile.stamen.com/toner-lite/14/2621/6330.png</code></pre>
 <pre><code>## Source : http://tile.stamen.com/toner-lite/14/2622/6330.png</code></pre>
@@ -372,86 +329,86 @@ Figure 2.1: Most popular trip
 <pre><code>## Source : http://tile.stamen.com/toner-lite/14/2621/6333.png</code></pre>
 <pre><code>## Source : http://tile.stamen.com/toner-lite/14/2622/6333.png</code></pre>
 <p>and make sure it looks like we intend it to look:</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="flows.html#cb186-1"></a><span class="kw">ggmap</span>(SanFran)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggmap</span>(SanFran)</code></pre></div>
 <p><img src="03-flows_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>Now to combine tiles and routes, we need to pull out the coordinates that make up each line. For the route example above, this would be:</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="flows.html#cb187-1"></a>xys1 &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">coordinates</span>(most_pop))</span></code></pre></div>
-<p>Now we can plot the route<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> (note we also dim down the background to focus the attention on flows):</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="flows.html#cb188-1"></a><span class="kw">ggmap</span>(SanFran, <span class="dt">darken=</span><span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb188-2"><a href="flows.html#cb188-2"></a><span class="st">  </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(<span class="dt">x=</span>X1, <span class="dt">y=</span>X2), </span>
-<span id="cb188-3"><a href="flows.html#cb188-3"></a>            <span class="dt">data=</span>xys1,</span>
-<span id="cb188-4"><a href="flows.html#cb188-4"></a>            <span class="dt">size=</span><span class="dv">1</span>,</span>
-<span id="cb188-5"><a href="flows.html#cb188-5"></a>            <span class="dt">color=</span><span class="kw">rgb</span>(<span class="fl">0.996078431372549</span>, <span class="fl">0.7019607843137254</span>, <span class="fl">0.03137254901960784</span>),</span>
-<span id="cb188-6"><a href="flows.html#cb188-6"></a>            <span class="dt">lineend=</span><span class="st">&#39;round&#39;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xys1 &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">coordinates</span>(most_pop))</code></pre></div>
+<p>Now we can plot the route<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a> (note we also dim down the background to focus the attention on flows):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggmap</span>(SanFran, <span class="dt">darken=</span><span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(<span class="dt">x=</span>X1, <span class="dt">y=</span>X2), 
+            <span class="dt">data=</span>xys1,
+            <span class="dt">size=</span><span class="dv">1</span>,
+            <span class="dt">color=</span><span class="kw">rgb</span>(<span class="fl">0.996078431372549</span>, <span class="fl">0.7019607843137254</span>, <span class="fl">0.03137254901960784</span>),
+            <span class="dt">lineend=</span><span class="st">&#39;round&#39;</span>)</code></pre></div>
 <p><img src="03-flows_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>Now we can plot all of the lines by using a short <code>for</code> loop to build up the table:</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="flows.html#cb189-1"></a><span class="co"># Set up shell data.frame</span></span>
-<span id="cb189-2"><a href="flows.html#cb189-2"></a>lines &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">lat =</span> <span class="kw">numeric</span>(<span class="dv">0</span>), </span>
-<span id="cb189-3"><a href="flows.html#cb189-3"></a>                    <span class="dt">lon =</span> <span class="kw">numeric</span>(<span class="dv">0</span>), </span>
-<span id="cb189-4"><a href="flows.html#cb189-4"></a>                    <span class="dt">trips =</span> <span class="kw">numeric</span>(<span class="dv">0</span>),</span>
-<span id="cb189-5"><a href="flows.html#cb189-5"></a>                    <span class="dt">id =</span> <span class="kw">numeric</span>(<span class="dv">0</span>)</span>
-<span id="cb189-6"><a href="flows.html#cb189-6"></a>                    )</span>
-<span id="cb189-7"><a href="flows.html#cb189-7"></a><span class="co"># Run loop</span></span>
-<span id="cb189-8"><a href="flows.html#cb189-8"></a><span class="cf">for</span>(x <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(db)){</span>
-<span id="cb189-9"><a href="flows.html#cb189-9"></a>  <span class="co"># Pull out row</span></span>
-<span id="cb189-10"><a href="flows.html#cb189-10"></a>  r &lt;-<span class="st"> </span>db[x, ]</span>
-<span id="cb189-11"><a href="flows.html#cb189-11"></a>  <span class="co"># Extract lon/lat coords</span></span>
-<span id="cb189-12"><a href="flows.html#cb189-12"></a>  xys &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">coordinates</span>(r))</span>
-<span id="cb189-13"><a href="flows.html#cb189-13"></a>  <span class="kw">names</span>(xys) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;lon&#39;</span>, <span class="st">&#39;lat&#39;</span>)</span>
-<span id="cb189-14"><a href="flows.html#cb189-14"></a>  <span class="co"># Insert trips and id</span></span>
-<span id="cb189-15"><a href="flows.html#cb189-15"></a>  xys[<span class="st">&#39;trips&#39;</span>] &lt;-<span class="st"> </span>r<span class="op">@</span>data<span class="op">$</span>trips15</span>
-<span id="cb189-16"><a href="flows.html#cb189-16"></a>  xys[<span class="st">&#39;id&#39;</span>] &lt;-<span class="st"> </span>x</span>
-<span id="cb189-17"><a href="flows.html#cb189-17"></a>  <span class="co"># Append them to `lines`</span></span>
-<span id="cb189-18"><a href="flows.html#cb189-18"></a>  lines &lt;-<span class="st"> </span><span class="kw">rbind</span>(lines, xys)</span>
-<span id="cb189-19"><a href="flows.html#cb189-19"></a>}</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Set up shell data.frame</span>
+lines &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">lat =</span> <span class="kw">numeric</span>(<span class="dv">0</span>), 
+                    <span class="dt">lon =</span> <span class="kw">numeric</span>(<span class="dv">0</span>), 
+                    <span class="dt">trips =</span> <span class="kw">numeric</span>(<span class="dv">0</span>),
+                    <span class="dt">id =</span> <span class="kw">numeric</span>(<span class="dv">0</span>)
+                    )
+<span class="co"># Run loop</span>
+<span class="cf">for</span>(x <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(db)){
+  <span class="co"># Pull out row</span>
+  r &lt;-<span class="st"> </span>db[x, ]
+  <span class="co"># Extract lon/lat coords</span>
+  xys &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">coordinates</span>(r))
+  <span class="kw">names</span>(xys) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;lon&#39;</span>, <span class="st">&#39;lat&#39;</span>)
+  <span class="co"># Insert trips and id</span>
+  xys[<span class="st">&#39;trips&#39;</span>] &lt;-<span class="st"> </span>r<span class="op">@</span>data<span class="op">$</span>trips15
+  xys[<span class="st">&#39;id&#39;</span>] &lt;-<span class="st"> </span>x
+  <span class="co"># Append them to `lines`</span>
+  lines &lt;-<span class="st"> </span><span class="kw">rbind</span>(lines, xys)
+}</code></pre></div>
 <p>Now we can go on and plot all of them:</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="flows.html#cb190-1"></a><span class="kw">ggmap</span>(SanFran, <span class="dt">darken=</span><span class="fl">0.75</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb190-2"><a href="flows.html#cb190-2"></a><span class="st">  </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(</span>
-<span id="cb190-3"><a href="flows.html#cb190-3"></a>                <span class="dt">x=</span>lon, </span>
-<span id="cb190-4"><a href="flows.html#cb190-4"></a>                <span class="dt">y=</span>lat,</span>
-<span id="cb190-5"><a href="flows.html#cb190-5"></a>                <span class="dt">group=</span>id</span>
-<span id="cb190-6"><a href="flows.html#cb190-6"></a>                ),</span>
-<span id="cb190-7"><a href="flows.html#cb190-7"></a>            <span class="dt">data=</span>lines,</span>
-<span id="cb190-8"><a href="flows.html#cb190-8"></a>            <span class="dt">size=</span><span class="fl">0.1</span>,</span>
-<span id="cb190-9"><a href="flows.html#cb190-9"></a>            <span class="dt">color=</span><span class="kw">rgb</span>(<span class="fl">0.996078431372549</span>, <span class="fl">0.7019607843137254</span>, <span class="fl">0.03137254901960784</span>),</span>
-<span id="cb190-10"><a href="flows.html#cb190-10"></a>            <span class="dt">lineend=</span><span class="st">&#39;round&#39;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggmap</span>(SanFran, <span class="dt">darken=</span><span class="fl">0.75</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(
+                <span class="dt">x=</span>lon, 
+                <span class="dt">y=</span>lat,
+                <span class="dt">group=</span>id
+                ),
+            <span class="dt">data=</span>lines,
+            <span class="dt">size=</span><span class="fl">0.1</span>,
+            <span class="dt">color=</span><span class="kw">rgb</span>(<span class="fl">0.996078431372549</span>, <span class="fl">0.7019607843137254</span>, <span class="fl">0.03137254901960784</span>),
+            <span class="dt">lineend=</span><span class="st">&#39;round&#39;</span>)</code></pre></div>
 <p><img src="03-flows_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>Finally, we can get a sense of the distribution of the flows by associating a color gradient to each flow based on its number of trips:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="flows.html#cb191-1"></a><span class="kw">ggmap</span>(SanFran, <span class="dt">darken=</span><span class="fl">0.75</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb191-2"><a href="flows.html#cb191-2"></a><span class="st">  </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(</span>
-<span id="cb191-3"><a href="flows.html#cb191-3"></a>                <span class="dt">x=</span>lon, </span>
-<span id="cb191-4"><a href="flows.html#cb191-4"></a>                <span class="dt">y=</span>lat,</span>
-<span id="cb191-5"><a href="flows.html#cb191-5"></a>                <span class="dt">group=</span>id,</span>
-<span id="cb191-6"><a href="flows.html#cb191-6"></a>                <span class="dt">colour=</span>trips</span>
-<span id="cb191-7"><a href="flows.html#cb191-7"></a>                ),</span>
-<span id="cb191-8"><a href="flows.html#cb191-8"></a>            <span class="dt">data=</span>lines,</span>
-<span id="cb191-9"><a href="flows.html#cb191-9"></a>            <span class="dt">size=</span><span class="kw">log1p</span>(lines<span class="op">$</span>trips <span class="op">/</span><span class="st"> </span><span class="kw">max</span>(lines<span class="op">$</span>trips)),</span>
-<span id="cb191-10"><a href="flows.html#cb191-10"></a>            <span class="dt">lineend=</span><span class="st">&#39;round&#39;</span>) <span class="op">+</span></span>
-<span id="cb191-11"><a href="flows.html#cb191-11"></a><span class="st">  </span><span class="kw">scale_colour_gradient</span>(<span class="dt">low=</span><span class="st">&#39;grey&#39;</span>,</span>
-<span id="cb191-12"><a href="flows.html#cb191-12"></a>                        <span class="dt">high=</span><span class="st">&#39;#07eda0&#39;</span>) <span class="op">+</span></span>
-<span id="cb191-13"><a href="flows.html#cb191-13"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(),</span>
-<span id="cb191-14"><a href="flows.html#cb191-14"></a>      <span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>(),</span>
-<span id="cb191-15"><a href="flows.html#cb191-15"></a>      <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>()</span>
-<span id="cb191-16"><a href="flows.html#cb191-16"></a>      )</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggmap</span>(SanFran, <span class="dt">darken=</span><span class="fl">0.75</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(
+                <span class="dt">x=</span>lon, 
+                <span class="dt">y=</span>lat,
+                <span class="dt">group=</span>id,
+                <span class="dt">colour=</span>trips
+                ),
+            <span class="dt">data=</span>lines,
+            <span class="dt">size=</span><span class="kw">log1p</span>(lines<span class="op">$</span>trips <span class="op">/</span><span class="st"> </span><span class="kw">max</span>(lines<span class="op">$</span>trips)),
+            <span class="dt">lineend=</span><span class="st">&#39;round&#39;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_colour_gradient</span>(<span class="dt">low=</span><span class="st">&#39;grey&#39;</span>,
+                        <span class="dt">high=</span><span class="st">&#39;#07eda0&#39;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(),
+      <span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>(),
+      <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>()
+      )</code></pre></div>
 <p><img src="03-flows_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>Note how we transform the size so it’s a proportion of the largest trip and then it is compressed with a logarithm.</p>
 </div>
 <div id="modelling-flows" class="section level2">
 <h2><span class="header-section-number">4.4</span> Modelling flows</h2>
-<p>Now we have an idea of the spatial distribution of flows, we can begin to think about modeling them. The core idea in this section is to fit a model that can capture the particular characteristics of our variable of interest (the volume of trips) using a set of predictors that describe the nature of a given flow. We will start from the simplest model and then progressively build complexity until we get to a satisfying point. Along the way, we will be exploring each model using concepts from <span class="citation">Gelman and Hill (<a href="#ref-gelman2006data" role="doc-biblioref">2006</a>)</span> such as predictive performance checks<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> (PPC)</p>
+<p>Now we have an idea of the spatial distribution of flows, we can begin to think about modeling them. The core idea in this section is to fit a model that can capture the particular characteristics of our variable of interest (the volume of trips) using a set of predictors that describe the nature of a given flow. We will start from the simplest model and then progressively build complexity until we get to a satisfying point. Along the way, we will be exploring each model using concepts from <span class="citation">Gelman and Hill (<a href="#ref-gelman2006data">2006</a><a href="#ref-gelman2006data">a</a>)</span> such as predictive performance checks<a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a> (PPC)</p>
 <p>Before we start running regressions, let us first standardize the predictors so we can interpret the intercept as the average flow when all the predictors take the average value, and so we can interpret the model coefficients as changes in standard deviation units:</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="flows.html#cb192-1"></a><span class="co"># Scale all the table</span></span>
-<span id="cb192-2"><a href="flows.html#cb192-2"></a>db_std &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">scale</span>(db<span class="op">@</span>data))</span>
-<span id="cb192-3"><a href="flows.html#cb192-3"></a><span class="co"># Reset trips as we want the original version</span></span>
-<span id="cb192-4"><a href="flows.html#cb192-4"></a>db_std<span class="op">$</span>trips15 &lt;-<span class="st"> </span>db<span class="op">@</span>data<span class="op">$</span>trips15</span>
-<span id="cb192-5"><a href="flows.html#cb192-5"></a>db_std<span class="op">$</span>trips16 &lt;-<span class="st"> </span>db<span class="op">@</span>data<span class="op">$</span>trips16</span>
-<span id="cb192-6"><a href="flows.html#cb192-6"></a><span class="co"># Reset origin and destination station and express them as factors</span></span>
-<span id="cb192-7"><a href="flows.html#cb192-7"></a>db_std<span class="op">$</span>orig &lt;-<span class="st"> </span><span class="kw">as.factor</span>(db<span class="op">@</span>data<span class="op">$</span>orig)</span>
-<span id="cb192-8"><a href="flows.html#cb192-8"></a>db_std<span class="op">$</span>dest &lt;-<span class="st"> </span><span class="kw">as.factor</span>(db<span class="op">@</span>data<span class="op">$</span>dest)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Scale all the table</span>
+db_std &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">scale</span>(db<span class="op">@</span>data))
+<span class="co"># Reset trips as we want the original version</span>
+db_std<span class="op">$</span>trips15 &lt;-<span class="st"> </span>db<span class="op">@</span>data<span class="op">$</span>trips15
+db_std<span class="op">$</span>trips16 &lt;-<span class="st"> </span>db<span class="op">@</span>data<span class="op">$</span>trips16
+<span class="co"># Reset origin and destination station and express them as factors</span>
+db_std<span class="op">$</span>orig &lt;-<span class="st"> </span><span class="kw">as.factor</span>(db<span class="op">@</span>data<span class="op">$</span>orig)
+db_std<span class="op">$</span>dest &lt;-<span class="st"> </span><span class="kw">as.factor</span>(db<span class="op">@</span>data<span class="op">$</span>dest)</code></pre></div>
 <p><strong>Baseline model</strong></p>
 <p>One of the simplest possible models we can fit in this context is a linear model that explains the number of trips as a function of the straight distance between the two stations and total amount of climb and downhill. We will take this as the baseline on which we can further build later:</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="flows.html#cb193-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;trips15 ~ straight_dist + total_up + total_down&#39;</span>, <span class="dt">data=</span>db_std)</span>
-<span id="cb193-2"><a href="flows.html#cb193-2"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m1 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;trips15 ~ straight_dist + total_up + total_down&#39;</span>, <span class="dt">data=</span>db_std)
+<span class="kw">summary</span>(m1)</code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;trips15 ~ straight_dist + total_up + total_down&quot;, 
@@ -474,98 +431,97 @@ Figure 2.1: Most popular trip
 ## Multiple R-squared:  0.02196,    Adjusted R-squared:  0.02025 
 ## F-statistic: 12.86 on 3 and 1718 DF,  p-value: 2.625e-08</code></pre>
 <p>To explore how good this model is, we will be comparing the predictions the model makes about the number of trips each flow should have with the actual number of trips. A first approach is to simply plot the distribution of both variables:</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="flows.html#cb195-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(m1<span class="op">$</span>fitted.values), </span>
-<span id="cb195-2"><a href="flows.html#cb195-2"></a>     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>, <span class="kw">max</span>(db_std<span class="op">$</span>trips15)),</span>
-<span id="cb195-3"><a href="flows.html#cb195-3"></a>     <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb195-4"><a href="flows.html#cb195-4"></a><span class="kw">lines</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15), </span>
-<span id="cb195-5"><a href="flows.html#cb195-5"></a>      <span class="dt">col=</span><span class="st">&#39;red&#39;</span>,</span>
-<span id="cb195-6"><a href="flows.html#cb195-6"></a>      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb195-7"><a href="flows.html#cb195-7"></a><span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, </span>
-<span id="cb195-8"><a href="flows.html#cb195-8"></a>       <span class="kw">c</span>(<span class="st">&#39;Predicted&#39;</span>, <span class="st">&#39;Actual&#39;</span>),</span>
-<span id="cb195-9"><a href="flows.html#cb195-9"></a>       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>),</span>
-<span id="cb195-10"><a href="flows.html#cb195-10"></a>       <span class="dt">lwd=</span><span class="dv">1</span>)</span>
-<span id="cb195-11"><a href="flows.html#cb195-11"></a><span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Predictive check, point estimates - Baseline model&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(m1<span class="op">$</span>fitted.values), 
+     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>, <span class="kw">max</span>(db_std<span class="op">$</span>trips15)),
+     <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">lines</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15), 
+      <span class="dt">col=</span><span class="st">&#39;red&#39;</span>,
+      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, 
+       <span class="kw">c</span>(<span class="st">&#39;Predicted&#39;</span>, <span class="st">&#39;Actual&#39;</span>),
+       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>),
+       <span class="dt">lwd=</span><span class="dv">1</span>)
+<span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Predictive check, point estimates - Baseline model&quot;</span>)</code></pre></div>
 <p><img src="03-flows_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>The plot makes pretty obvious that our initial model captures very few aspects of the distribution we want to explain. However, we should not get too attached to this plot just yet. What it is showing is the distribution of predicted <em>point</em> estimates from our model. Since our model is not deterministic but inferential, there is a certain degree of uncertainty attached to its predictions, and that is completely absent from this plot.</p>
 <p>Generally speaking, a given model has two sources of uncertainty: <em>predictive</em>, and <em>inferential</em>. The former relates to the fact that the equation we fit does not capture all the elements or in the exact form they enter the true data generating process; the latter has to do with the fact that we never get to know the true value of the model parameters only guesses (estimates) subject to error and uncertainty. If you think of our linear model above as</p>
 <p><span class="math display">\[
 T_{ij} = X_{ij}\beta + \epsilon_{ij}
-\]</span>
-where <span class="math inline">\(T_{ij}\)</span> represents the number of trips undertaken between station <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>, <span class="math inline">\(X_{ij}\)</span> is the set of explanatory variables (length, climb, descent, etc.), and <span class="math inline">\(\epsilon_{ij}\)</span> is an error term assumed to be distributed as a normal distribution <span class="math inline">\(N(0, \sigma)\)</span>; then predictive uncertainty comes from the fact that there are elements to some extent relevant for <span class="math inline">\(y\)</span> that are not accounted for and thus subsummed into <span class="math inline">\(\epsilon_{ij}\)</span>. Inferential uncertainty comes from the fact that we never get to know <span class="math inline">\(\beta\)</span> but only an estimate of it which is also subject to uncertainty itself.</p>
+\]</span> where <span class="math inline">\(T_{ij}\)</span> represents the number of trips undertaken between station <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>, <span class="math inline">\(X_{ij}\)</span> is the set of explanatory variables (length, climb, descent, etc.), and <span class="math inline">\(\epsilon_{ij}\)</span> is an error term assumed to be distributed as a normal distribution <span class="math inline">\(N(0, \sigma)\)</span>; then predictive uncertainty comes from the fact that there are elements to some extent relevant for <span class="math inline">\(y\)</span> that are not accounted for and thus subsummed into <span class="math inline">\(\epsilon_{ij}\)</span>. Inferential uncertainty comes from the fact that we never get to know <span class="math inline">\(\beta\)</span> but only an estimate of it which is also subject to uncertainty itself.</p>
 <p>Taking these two sources into consideration means that the black line in the plot above represents only the behaviour of our model we expect if the error term is absent (no predictive uncertainty) and the coefficients are the true estimates (no inferential uncertainty). However, this is not necessarily the case as our estimate for the uncertainty of the error term is certainly not zero, and our estimates for each parameter are also subject to a great deal of inferential variability. we do not know to what extent other outcomes would be just as likely. Predictive checking relates to simulating several feasible scenarios under our model and use those to assess uncertainty and to get a better grasp of the quality of our predictions.</p>
 <p>Technically speaking, to do this, we need to build a mechanism to obtain a possible draw from our model and then repeat it several times. The first part of those two steps can be elegantly dealt with by writing a short function that takes a given model and a set of predictors, and produces a possible random draw from such model:</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="flows.html#cb196-1"></a>generate_draw &lt;-<span class="st"> </span><span class="cf">function</span>(m){</span>
-<span id="cb196-2"><a href="flows.html#cb196-2"></a>  <span class="co"># Set up predictors matrix</span></span>
-<span id="cb196-3"><a href="flows.html#cb196-3"></a>  x &lt;-<span class="st"> </span><span class="kw">model.matrix</span>(m)</span>
-<span id="cb196-4"><a href="flows.html#cb196-4"></a>  <span class="co"># Obtain draws of parameters (inferential uncertainty)</span></span>
-<span id="cb196-5"><a href="flows.html#cb196-5"></a>  sim_bs &lt;-<span class="st"> </span><span class="kw">sim</span>(m, <span class="dv">1</span>)</span>
-<span id="cb196-6"><a href="flows.html#cb196-6"></a>  <span class="co"># Predicted value</span></span>
-<span id="cb196-7"><a href="flows.html#cb196-7"></a>  mu &lt;-<span class="st"> </span>x <span class="op">%*%</span><span class="st"> </span>sim_bs<span class="op">@</span>coef[<span class="dv">1</span>, ]</span>
-<span id="cb196-8"><a href="flows.html#cb196-8"></a>  <span class="co"># Draw</span></span>
-<span id="cb196-9"><a href="flows.html#cb196-9"></a>  n &lt;-<span class="st"> </span><span class="kw">length</span>(mu)</span>
-<span id="cb196-10"><a href="flows.html#cb196-10"></a>  y_hat &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, mu, sim_bs<span class="op">@</span>sigma[<span class="dv">1</span>])</span>
-<span id="cb196-11"><a href="flows.html#cb196-11"></a>  <span class="kw">return</span>(y_hat)</span>
-<span id="cb196-12"><a href="flows.html#cb196-12"></a>}</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">generate_draw &lt;-<span class="st"> </span><span class="cf">function</span>(m){
+  <span class="co"># Set up predictors matrix</span>
+  x &lt;-<span class="st"> </span><span class="kw">model.matrix</span>(m)
+  <span class="co"># Obtain draws of parameters (inferential uncertainty)</span>
+  sim_bs &lt;-<span class="st"> </span><span class="kw">sim</span>(m, <span class="dv">1</span>)
+  <span class="co"># Predicted value</span>
+  mu &lt;-<span class="st"> </span>x <span class="op">%*%</span><span class="st"> </span>sim_bs<span class="op">@</span>coef[<span class="dv">1</span>, ]
+  <span class="co"># Draw</span>
+  n &lt;-<span class="st"> </span><span class="kw">length</span>(mu)
+  y_hat &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, mu, sim_bs<span class="op">@</span>sigma[<span class="dv">1</span>])
+  <span class="kw">return</span>(y_hat)
+}</code></pre></div>
 <p>This function takes a model <code>m</code> and the set of covariates <code>x</code> used and returns a random realization of predictions from the model. To get a sense of how this works, we can get and plot a realization of the model, compared to the expected one and the actual values:</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="flows.html#cb197-1"></a>new_y &lt;-<span class="st"> </span><span class="kw">generate_draw</span>(m1)</span>
-<span id="cb197-2"><a href="flows.html#cb197-2"></a></span>
-<span id="cb197-3"><a href="flows.html#cb197-3"></a><span class="kw">plot</span>(<span class="kw">density</span>(m1<span class="op">$</span>fitted.values), </span>
-<span id="cb197-4"><a href="flows.html#cb197-4"></a>     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>, <span class="kw">max</span>(db_std<span class="op">$</span>trips15)),</span>
-<span id="cb197-5"><a href="flows.html#cb197-5"></a>     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(<span class="kw">c</span>(</span>
-<span id="cb197-6"><a href="flows.html#cb197-6"></a>                      <span class="kw">max</span>(<span class="kw">density</span>(m1<span class="op">$</span>fitted.values)<span class="op">$</span>y), </span>
-<span id="cb197-7"><a href="flows.html#cb197-7"></a>                      <span class="kw">max</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15)<span class="op">$</span>y)</span>
-<span id="cb197-8"><a href="flows.html#cb197-8"></a>                      )</span>
-<span id="cb197-9"><a href="flows.html#cb197-9"></a>                   )</span>
-<span id="cb197-10"><a href="flows.html#cb197-10"></a>            ),</span>
-<span id="cb197-11"><a href="flows.html#cb197-11"></a>     <span class="dt">col=</span><span class="st">&#39;black&#39;</span>,</span>
-<span id="cb197-12"><a href="flows.html#cb197-12"></a>     <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb197-13"><a href="flows.html#cb197-13"></a><span class="kw">lines</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15), </span>
-<span id="cb197-14"><a href="flows.html#cb197-14"></a>      <span class="dt">col=</span><span class="st">&#39;red&#39;</span>,</span>
-<span id="cb197-15"><a href="flows.html#cb197-15"></a>      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb197-16"><a href="flows.html#cb197-16"></a><span class="kw">lines</span>(<span class="kw">density</span>(new_y), </span>
-<span id="cb197-17"><a href="flows.html#cb197-17"></a>      <span class="dt">col=</span><span class="st">&#39;green&#39;</span>,</span>
-<span id="cb197-18"><a href="flows.html#cb197-18"></a>      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb197-19"><a href="flows.html#cb197-19"></a><span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, </span>
-<span id="cb197-20"><a href="flows.html#cb197-20"></a>       <span class="kw">c</span>(<span class="st">&#39;Predicted&#39;</span>, <span class="st">&#39;Actual&#39;</span>, <span class="st">&#39;Simulated&#39;</span>),</span>
-<span id="cb197-21"><a href="flows.html#cb197-21"></a>       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>, <span class="st">&#39;green&#39;</span>),</span>
-<span id="cb197-22"><a href="flows.html#cb197-22"></a>       <span class="dt">lwd=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_y &lt;-<span class="st"> </span><span class="kw">generate_draw</span>(m1)
+
+<span class="kw">plot</span>(<span class="kw">density</span>(m1<span class="op">$</span>fitted.values), 
+     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>, <span class="kw">max</span>(db_std<span class="op">$</span>trips15)),
+     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(<span class="kw">c</span>(
+                      <span class="kw">max</span>(<span class="kw">density</span>(m1<span class="op">$</span>fitted.values)<span class="op">$</span>y), 
+                      <span class="kw">max</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15)<span class="op">$</span>y)
+                      )
+                   )
+            ),
+     <span class="dt">col=</span><span class="st">&#39;black&#39;</span>,
+     <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">lines</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15), 
+      <span class="dt">col=</span><span class="st">&#39;red&#39;</span>,
+      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">lines</span>(<span class="kw">density</span>(new_y), 
+      <span class="dt">col=</span><span class="st">&#39;green&#39;</span>,
+      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, 
+       <span class="kw">c</span>(<span class="st">&#39;Predicted&#39;</span>, <span class="st">&#39;Actual&#39;</span>, <span class="st">&#39;Simulated&#39;</span>),
+       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>, <span class="st">&#39;green&#39;</span>),
+       <span class="dt">lwd=</span><span class="dv">1</span>)</code></pre></div>
 <p><img src="03-flows_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>Once we have this “draw engine”, we can set it to work as many times as we want using a simple <code>for</code> loop. In fact, we can directly plot these lines as compared to the expected one and the trip count:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="flows.html#cb198-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(m1<span class="op">$</span>fitted.values), </span>
-<span id="cb198-2"><a href="flows.html#cb198-2"></a>     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>, <span class="kw">max</span>(db_std<span class="op">$</span>trips15)),</span>
-<span id="cb198-3"><a href="flows.html#cb198-3"></a>     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(<span class="kw">c</span>(</span>
-<span id="cb198-4"><a href="flows.html#cb198-4"></a>                  <span class="kw">max</span>(<span class="kw">density</span>(m1<span class="op">$</span>fitted.values)<span class="op">$</span>y), </span>
-<span id="cb198-5"><a href="flows.html#cb198-5"></a>                  <span class="kw">max</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15)<span class="op">$</span>y)</span>
-<span id="cb198-6"><a href="flows.html#cb198-6"></a>                  )</span>
-<span id="cb198-7"><a href="flows.html#cb198-7"></a>               )</span>
-<span id="cb198-8"><a href="flows.html#cb198-8"></a>        ),</span>
-<span id="cb198-9"><a href="flows.html#cb198-9"></a>     <span class="dt">col=</span><span class="st">&#39;white&#39;</span>,</span>
-<span id="cb198-10"><a href="flows.html#cb198-10"></a>     <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb198-11"><a href="flows.html#cb198-11"></a><span class="co"># Loop for realizations</span></span>
-<span id="cb198-12"><a href="flows.html#cb198-12"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">250</span>){</span>
-<span id="cb198-13"><a href="flows.html#cb198-13"></a>  tmp_y &lt;-<span class="st"> </span><span class="kw">generate_draw</span>(m1)</span>
-<span id="cb198-14"><a href="flows.html#cb198-14"></a>  <span class="kw">lines</span>(<span class="kw">density</span>(tmp_y),</span>
-<span id="cb198-15"><a href="flows.html#cb198-15"></a>        <span class="dt">col=</span><span class="st">&#39;grey&#39;</span>,</span>
-<span id="cb198-16"><a href="flows.html#cb198-16"></a>        <span class="dt">lwd=</span><span class="fl">0.1</span></span>
-<span id="cb198-17"><a href="flows.html#cb198-17"></a>        )</span>
-<span id="cb198-18"><a href="flows.html#cb198-18"></a>}</span>
-<span id="cb198-19"><a href="flows.html#cb198-19"></a><span class="co">#</span></span>
-<span id="cb198-20"><a href="flows.html#cb198-20"></a><span class="kw">lines</span>(<span class="kw">density</span>(m1<span class="op">$</span>fitted.values), </span>
-<span id="cb198-21"><a href="flows.html#cb198-21"></a>      <span class="dt">col=</span><span class="st">&#39;black&#39;</span>,</span>
-<span id="cb198-22"><a href="flows.html#cb198-22"></a>      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb198-23"><a href="flows.html#cb198-23"></a><span class="kw">lines</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15), </span>
-<span id="cb198-24"><a href="flows.html#cb198-24"></a>      <span class="dt">col=</span><span class="st">&#39;red&#39;</span>,</span>
-<span id="cb198-25"><a href="flows.html#cb198-25"></a>      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb198-26"><a href="flows.html#cb198-26"></a><span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, </span>
-<span id="cb198-27"><a href="flows.html#cb198-27"></a>       <span class="kw">c</span>(<span class="st">&#39;Actual&#39;</span>, <span class="st">&#39;Predicted&#39;</span>, <span class="st">&#39;Simulated (n=250)&#39;</span>),</span>
-<span id="cb198-28"><a href="flows.html#cb198-28"></a>       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;red&#39;</span>, <span class="st">&#39;black&#39;</span>, <span class="st">&#39;grey&#39;</span>),</span>
-<span id="cb198-29"><a href="flows.html#cb198-29"></a>       <span class="dt">lwd=</span><span class="dv">1</span>)</span>
-<span id="cb198-30"><a href="flows.html#cb198-30"></a><span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Predictive check - Baseline model&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(m1<span class="op">$</span>fitted.values), 
+     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>, <span class="kw">max</span>(db_std<span class="op">$</span>trips15)),
+     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(<span class="kw">c</span>(
+                  <span class="kw">max</span>(<span class="kw">density</span>(m1<span class="op">$</span>fitted.values)<span class="op">$</span>y), 
+                  <span class="kw">max</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15)<span class="op">$</span>y)
+                  )
+               )
+        ),
+     <span class="dt">col=</span><span class="st">&#39;white&#39;</span>,
+     <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="co"># Loop for realizations</span>
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">250</span>){
+  tmp_y &lt;-<span class="st"> </span><span class="kw">generate_draw</span>(m1)
+  <span class="kw">lines</span>(<span class="kw">density</span>(tmp_y),
+        <span class="dt">col=</span><span class="st">&#39;grey&#39;</span>,
+        <span class="dt">lwd=</span><span class="fl">0.1</span>
+        )
+}
+<span class="co">#</span>
+<span class="kw">lines</span>(<span class="kw">density</span>(m1<span class="op">$</span>fitted.values), 
+      <span class="dt">col=</span><span class="st">&#39;black&#39;</span>,
+      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">lines</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15), 
+      <span class="dt">col=</span><span class="st">&#39;red&#39;</span>,
+      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, 
+       <span class="kw">c</span>(<span class="st">&#39;Actual&#39;</span>, <span class="st">&#39;Predicted&#39;</span>, <span class="st">&#39;Simulated (n=250)&#39;</span>),
+       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;red&#39;</span>, <span class="st">&#39;black&#39;</span>, <span class="st">&#39;grey&#39;</span>),
+       <span class="dt">lwd=</span><span class="dv">1</span>)
+<span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Predictive check - Baseline model&quot;</span>)</code></pre></div>
 <p><img src="03-flows_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
-<p>The plot shows there is a significant mismatch between the fitted values, which are much more concentrated around small positive values, and the realizations of our “inferential engine”, which depict a much less concentrated distribution of values. This is likely due to the combination of two different reasons: on the one hand, the accuracy of our estimates may be poor, causing them to jump around a wide range of potential values and hence resulting in very diverse predictions (inferential uncertainty); on the other hand, it may be that the amount of variation we are not able to account for in the model<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a> is so large that the degree of uncertainty contained in the error term of the model is very large, hence resulting in such a flat predictive distribution.</p>
-<p>It is important to keep in mind that the issues discussed in the paragraph above relate only to the uncertainty behind our model, not to the point predictions derived from them, which are a mechanistic result of the minimization of the squared residuals and hence are not subject to probability or inference. That allows them in this case to provide a fitted distribution much more accurate apparently (black line above). However, the lesson to take from this model is that, even if the point predictions (fitted values) are artificially accurate<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>, our capabilities to infer about the more general underlying process are fairly limited.</p>
+<p>The plot shows there is a significant mismatch between the fitted values, which are much more concentrated around small positive values, and the realizations of our “inferential engine”, which depict a much less concentrated distribution of values. This is likely due to the combination of two different reasons: on the one hand, the accuracy of our estimates may be poor, causing them to jump around a wide range of potential values and hence resulting in very diverse predictions (inferential uncertainty); on the other hand, it may be that the amount of variation we are not able to account for in the model<a href="#fn16" class="footnoteRef" id="fnref16"><sup>16</sup></a> is so large that the degree of uncertainty contained in the error term of the model is very large, hence resulting in such a flat predictive distribution.</p>
+<p>It is important to keep in mind that the issues discussed in the paragraph above relate only to the uncertainty behind our model, not to the point predictions derived from them, which are a mechanistic result of the minimization of the squared residuals and hence are not subject to probability or inference. That allows them in this case to provide a fitted distribution much more accurate apparently (black line above). However, the lesson to take from this model is that, even if the point predictions (fitted values) are artificially accurate<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a>, our capabilities to infer about the more general underlying process are fairly limited.</p>
 <p><strong>Improving the model</strong></p>
-<p>The bad news from the previous section is that our initial model is not great at explaining bike trips. The good news is there are several ways in which we can improve this. In this section we will cover three main extensions that exemplify three different routes you can take when enriching and augmenting models in general, and spatial interaction ones in particular<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a>. These three routes are aligned around the following principles:</p>
+<p>The bad news from the previous section is that our initial model is not great at explaining bike trips. The good news is there are several ways in which we can improve this. In this section we will cover three main extensions that exemplify three different routes you can take when enriching and augmenting models in general, and spatial interaction ones in particular<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a>. These three routes are aligned around the following principles:</p>
 <ol style="list-style-type: decimal">
 <li>Use better approximations to model your dependent variable.</li>
 <li>Recognize the structure of your data.</li>
@@ -574,82 +530,82 @@ where <span class="math inline">\(T_{ij}\)</span> represents the number of trips
 <ul>
 <li><strong>Use better approximations to model your dependent variable</strong></li>
 </ul>
-<p>Standard OLS regression assumes that the error term and, since the predictors are deterministic, the dependent variable are distributed following a normal (gaussian) distribution. This is usually a good approximation for several phenomena of interest, but maybe not the best one for trips along routes: for one, we know trips cannot be negative, which the normal distribution does not account for<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a>; more subtly, their distribution is not really symmetric but skewed with a very long tail on the right. This is common in variables that represent counts and that is why usually it is more appropriate to fit a model that relies on a distribution different from the normal.</p>
+<p>Standard OLS regression assumes that the error term and, since the predictors are deterministic, the dependent variable are distributed following a normal (gaussian) distribution. This is usually a good approximation for several phenomena of interest, but maybe not the best one for trips along routes: for one, we know trips cannot be negative, which the normal distribution does not account for<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a>; more subtly, their distribution is not really symmetric but skewed with a very long tail on the right. This is common in variables that represent counts and that is why usually it is more appropriate to fit a model that relies on a distribution different from the normal.</p>
 <p>One of the most common distributions for this cases is the Poisson, which can be incorporated through a general linear model (or GLM). The underlying assumption here is that instead of <span class="math inline">\(T_{ij} \sim N(\mu_{ij}, \sigma)\)</span>, our model now follows:</p>
 <p><span class="math display">\[
 T_{ij} \sim Poisson (\exp^{X_{ij}\beta})
 \]</span></p>
 <p>As usual, such a model is easy to run in R:</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="flows.html#cb199-1"></a>m2 &lt;-<span class="st"> </span><span class="kw">glm</span>(<span class="st">&#39;trips15 ~ straight_dist + total_up + total_down&#39;</span>, </span>
-<span id="cb199-2"><a href="flows.html#cb199-2"></a>          <span class="dt">data=</span>db_std,</span>
-<span id="cb199-3"><a href="flows.html#cb199-3"></a>          <span class="dt">family=</span>poisson,</span>
-<span id="cb199-4"><a href="flows.html#cb199-4"></a>          )</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 &lt;-<span class="st"> </span><span class="kw">glm</span>(<span class="st">&#39;trips15 ~ straight_dist + total_up + total_down&#39;</span>, 
+          <span class="dt">data=</span>db_std,
+          <span class="dt">family=</span>poisson,
+          )</code></pre></div>
 <p>Now let’s see how much better, if any, this approach is. To get a quick overview, we can simply plot the point predictions:</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="flows.html#cb200-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(m2<span class="op">$</span>fitted.values), </span>
-<span id="cb200-2"><a href="flows.html#cb200-2"></a>     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>, <span class="kw">max</span>(db_std<span class="op">$</span>trips15)),</span>
-<span id="cb200-3"><a href="flows.html#cb200-3"></a>     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(<span class="kw">c</span>(</span>
-<span id="cb200-4"><a href="flows.html#cb200-4"></a>                  <span class="kw">max</span>(<span class="kw">density</span>(m2<span class="op">$</span>fitted.values)<span class="op">$</span>y), </span>
-<span id="cb200-5"><a href="flows.html#cb200-5"></a>                  <span class="kw">max</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15)<span class="op">$</span>y)</span>
-<span id="cb200-6"><a href="flows.html#cb200-6"></a>                  )</span>
-<span id="cb200-7"><a href="flows.html#cb200-7"></a>               )</span>
-<span id="cb200-8"><a href="flows.html#cb200-8"></a>      ),</span>
-<span id="cb200-9"><a href="flows.html#cb200-9"></a>     <span class="dt">col=</span><span class="st">&#39;black&#39;</span>,</span>
-<span id="cb200-10"><a href="flows.html#cb200-10"></a>     <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb200-11"><a href="flows.html#cb200-11"></a><span class="kw">lines</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15), </span>
-<span id="cb200-12"><a href="flows.html#cb200-12"></a>      <span class="dt">col=</span><span class="st">&#39;red&#39;</span>,</span>
-<span id="cb200-13"><a href="flows.html#cb200-13"></a>      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb200-14"><a href="flows.html#cb200-14"></a><span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, </span>
-<span id="cb200-15"><a href="flows.html#cb200-15"></a>       <span class="kw">c</span>(<span class="st">&#39;Predicted&#39;</span>, <span class="st">&#39;Actual&#39;</span>),</span>
-<span id="cb200-16"><a href="flows.html#cb200-16"></a>       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>),</span>
-<span id="cb200-17"><a href="flows.html#cb200-17"></a>       <span class="dt">lwd=</span><span class="dv">1</span>)</span>
-<span id="cb200-18"><a href="flows.html#cb200-18"></a><span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Predictive check, point estimates - Poisson model&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(m2<span class="op">$</span>fitted.values), 
+     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>, <span class="kw">max</span>(db_std<span class="op">$</span>trips15)),
+     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(<span class="kw">c</span>(
+                  <span class="kw">max</span>(<span class="kw">density</span>(m2<span class="op">$</span>fitted.values)<span class="op">$</span>y), 
+                  <span class="kw">max</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15)<span class="op">$</span>y)
+                  )
+               )
+      ),
+     <span class="dt">col=</span><span class="st">&#39;black&#39;</span>,
+     <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">lines</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15), 
+      <span class="dt">col=</span><span class="st">&#39;red&#39;</span>,
+      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, 
+       <span class="kw">c</span>(<span class="st">&#39;Predicted&#39;</span>, <span class="st">&#39;Actual&#39;</span>),
+       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>),
+       <span class="dt">lwd=</span><span class="dv">1</span>)
+<span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Predictive check, point estimates - Poisson model&quot;</span>)</code></pre></div>
 <p><img src="03-flows_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <p>To incorporate uncertainty to these predictions, we need to tweak our <code>generate_draw</code> function so it accommodates the fact that our model is not linear anymore.</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="flows.html#cb201-1"></a>generate_draw_poi &lt;-<span class="st"> </span><span class="cf">function</span>(m){</span>
-<span id="cb201-2"><a href="flows.html#cb201-2"></a>  <span class="co"># Set up predictors matrix</span></span>
-<span id="cb201-3"><a href="flows.html#cb201-3"></a>  x &lt;-<span class="st"> </span><span class="kw">model.matrix</span>(m)</span>
-<span id="cb201-4"><a href="flows.html#cb201-4"></a>  <span class="co"># Obtain draws of parameters (inferential uncertainty)</span></span>
-<span id="cb201-5"><a href="flows.html#cb201-5"></a>  sim_bs &lt;-<span class="st"> </span><span class="kw">sim</span>(m, <span class="dv">1</span>)</span>
-<span id="cb201-6"><a href="flows.html#cb201-6"></a>  <span class="co"># Predicted value</span></span>
-<span id="cb201-7"><a href="flows.html#cb201-7"></a>  xb &lt;-<span class="st"> </span>x <span class="op">%*%</span><span class="st"> </span>sim_bs<span class="op">@</span>coef[<span class="dv">1</span>, ]</span>
-<span id="cb201-8"><a href="flows.html#cb201-8"></a>  <span class="co">#xb &lt;- x %*% m$coefficients</span></span>
-<span id="cb201-9"><a href="flows.html#cb201-9"></a>  <span class="co"># Transform using the link function</span></span>
-<span id="cb201-10"><a href="flows.html#cb201-10"></a>  mu &lt;-<span class="st"> </span><span class="kw">exp</span>(xb)</span>
-<span id="cb201-11"><a href="flows.html#cb201-11"></a>  <span class="co"># Obtain a random realization</span></span>
-<span id="cb201-12"><a href="flows.html#cb201-12"></a>  y_hat &lt;-<span class="st"> </span><span class="kw">rpois</span>(<span class="dt">n=</span><span class="kw">length</span>(mu), <span class="dt">lambda=</span>mu)</span>
-<span id="cb201-13"><a href="flows.html#cb201-13"></a>  <span class="kw">return</span>(y_hat)</span>
-<span id="cb201-14"><a href="flows.html#cb201-14"></a>}</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">generate_draw_poi &lt;-<span class="st"> </span><span class="cf">function</span>(m){
+  <span class="co"># Set up predictors matrix</span>
+  x &lt;-<span class="st"> </span><span class="kw">model.matrix</span>(m)
+  <span class="co"># Obtain draws of parameters (inferential uncertainty)</span>
+  sim_bs &lt;-<span class="st"> </span><span class="kw">sim</span>(m, <span class="dv">1</span>)
+  <span class="co"># Predicted value</span>
+  xb &lt;-<span class="st"> </span>x <span class="op">%*%</span><span class="st"> </span>sim_bs<span class="op">@</span>coef[<span class="dv">1</span>, ]
+  <span class="co">#xb &lt;- x %*% m$coefficients</span>
+  <span class="co"># Transform using the link function</span>
+  mu &lt;-<span class="st"> </span><span class="kw">exp</span>(xb)
+  <span class="co"># Obtain a random realization</span>
+  y_hat &lt;-<span class="st"> </span><span class="kw">rpois</span>(<span class="dt">n=</span><span class="kw">length</span>(mu), <span class="dt">lambda=</span>mu)
+  <span class="kw">return</span>(y_hat)
+}</code></pre></div>
 <p>And then we can examine both point predictions an uncertainty around them:</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="flows.html#cb202-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(m2<span class="op">$</span>fitted.values), </span>
-<span id="cb202-2"><a href="flows.html#cb202-2"></a>     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>, <span class="kw">max</span>(db_std<span class="op">$</span>trips15)),</span>
-<span id="cb202-3"><a href="flows.html#cb202-3"></a>     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(<span class="kw">c</span>(</span>
-<span id="cb202-4"><a href="flows.html#cb202-4"></a>                  <span class="kw">max</span>(<span class="kw">density</span>(m2<span class="op">$</span>fitted.values)<span class="op">$</span>y), </span>
-<span id="cb202-5"><a href="flows.html#cb202-5"></a>                  <span class="kw">max</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15)<span class="op">$</span>y)</span>
-<span id="cb202-6"><a href="flows.html#cb202-6"></a>                  )</span>
-<span id="cb202-7"><a href="flows.html#cb202-7"></a>               )</span>
-<span id="cb202-8"><a href="flows.html#cb202-8"></a>      ),</span>
-<span id="cb202-9"><a href="flows.html#cb202-9"></a>     <span class="dt">col=</span><span class="st">&#39;white&#39;</span>,</span>
-<span id="cb202-10"><a href="flows.html#cb202-10"></a>     <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb202-11"><a href="flows.html#cb202-11"></a><span class="co"># Loop for realizations</span></span>
-<span id="cb202-12"><a href="flows.html#cb202-12"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">250</span>){</span>
-<span id="cb202-13"><a href="flows.html#cb202-13"></a>  tmp_y &lt;-<span class="st"> </span><span class="kw">generate_draw_poi</span>(m2)</span>
-<span id="cb202-14"><a href="flows.html#cb202-14"></a>  <span class="kw">lines</span>(<span class="kw">density</span>(tmp_y),</span>
-<span id="cb202-15"><a href="flows.html#cb202-15"></a>        <span class="dt">col=</span><span class="st">&#39;grey&#39;</span>,</span>
-<span id="cb202-16"><a href="flows.html#cb202-16"></a>        <span class="dt">lwd=</span><span class="fl">0.1</span></span>
-<span id="cb202-17"><a href="flows.html#cb202-17"></a>        )</span>
-<span id="cb202-18"><a href="flows.html#cb202-18"></a>}</span>
-<span id="cb202-19"><a href="flows.html#cb202-19"></a><span class="co">#</span></span>
-<span id="cb202-20"><a href="flows.html#cb202-20"></a><span class="kw">lines</span>(<span class="kw">density</span>(m2<span class="op">$</span>fitted.values), </span>
-<span id="cb202-21"><a href="flows.html#cb202-21"></a>      <span class="dt">col=</span><span class="st">&#39;black&#39;</span>,</span>
-<span id="cb202-22"><a href="flows.html#cb202-22"></a>      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb202-23"><a href="flows.html#cb202-23"></a><span class="kw">lines</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15), </span>
-<span id="cb202-24"><a href="flows.html#cb202-24"></a>      <span class="dt">col=</span><span class="st">&#39;red&#39;</span>,</span>
-<span id="cb202-25"><a href="flows.html#cb202-25"></a>      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb202-26"><a href="flows.html#cb202-26"></a><span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, </span>
-<span id="cb202-27"><a href="flows.html#cb202-27"></a>       <span class="kw">c</span>(<span class="st">&#39;Predicted&#39;</span>, <span class="st">&#39;Actual&#39;</span>, <span class="st">&#39;Simulated (n=250)&#39;</span>),</span>
-<span id="cb202-28"><a href="flows.html#cb202-28"></a>       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>, <span class="st">&#39;grey&#39;</span>),</span>
-<span id="cb202-29"><a href="flows.html#cb202-29"></a>       <span class="dt">lwd=</span><span class="dv">1</span>)</span>
-<span id="cb202-30"><a href="flows.html#cb202-30"></a><span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Predictive check - Poisson model&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(m2<span class="op">$</span>fitted.values), 
+     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>, <span class="kw">max</span>(db_std<span class="op">$</span>trips15)),
+     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(<span class="kw">c</span>(
+                  <span class="kw">max</span>(<span class="kw">density</span>(m2<span class="op">$</span>fitted.values)<span class="op">$</span>y), 
+                  <span class="kw">max</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15)<span class="op">$</span>y)
+                  )
+               )
+      ),
+     <span class="dt">col=</span><span class="st">&#39;white&#39;</span>,
+     <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="co"># Loop for realizations</span>
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">250</span>){
+  tmp_y &lt;-<span class="st"> </span><span class="kw">generate_draw_poi</span>(m2)
+  <span class="kw">lines</span>(<span class="kw">density</span>(tmp_y),
+        <span class="dt">col=</span><span class="st">&#39;grey&#39;</span>,
+        <span class="dt">lwd=</span><span class="fl">0.1</span>
+        )
+}
+<span class="co">#</span>
+<span class="kw">lines</span>(<span class="kw">density</span>(m2<span class="op">$</span>fitted.values), 
+      <span class="dt">col=</span><span class="st">&#39;black&#39;</span>,
+      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">lines</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15), 
+      <span class="dt">col=</span><span class="st">&#39;red&#39;</span>,
+      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, 
+       <span class="kw">c</span>(<span class="st">&#39;Predicted&#39;</span>, <span class="st">&#39;Actual&#39;</span>, <span class="st">&#39;Simulated (n=250)&#39;</span>),
+       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>, <span class="st">&#39;grey&#39;</span>),
+       <span class="dt">lwd=</span><span class="dv">1</span>)
+<span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Predictive check - Poisson model&quot;</span>)</code></pre></div>
 <p><img src="03-flows_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <p>Voila! Although the curve is still a bit off, centered too much to the right of the actual data, our predictive simulation leaves the fitted values right in the middle. This speaks to a better fit of the model to the actual distribution othe original data follow.</p>
 <ul>
@@ -660,29 +616,29 @@ T_{ij} \sim Poisson (\exp^{X_{ij}\beta})
 <p><span class="math display">\[
 T_{ij} = X_{ij}\beta + \delta_i + \delta_j + \epsilon_{ij}
 \]</span></p>
-<p>where <span class="math inline">\(\delta_i\)</span> and <span class="math inline">\(\delta_j\)</span> are origin and destination station fixed effects<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a>, and the rest is as above. This strategy accounts for all the unobserved heterogeneity associated with the location of the station. Technically speaking, we simply need to introduce <code>orig</code> and <code>dest</code> in the the model:</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="flows.html#cb203-1"></a>m3 &lt;-<span class="st"> </span><span class="kw">glm</span>(<span class="st">&#39;trips15 ~ straight_dist + total_up + total_down + orig + dest&#39;</span>, </span>
-<span id="cb203-2"><a href="flows.html#cb203-2"></a>          <span class="dt">data=</span>db_std,</span>
-<span id="cb203-3"><a href="flows.html#cb203-3"></a>          <span class="dt">family=</span>poisson)</span></code></pre></div>
-<p>And with our new model, we can have a look at how well it does at predicting the overall number of trips<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>:</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="flows.html#cb204-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(m3<span class="op">$</span>fitted.values), </span>
-<span id="cb204-2"><a href="flows.html#cb204-2"></a>     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>, <span class="kw">max</span>(db_std<span class="op">$</span>trips15)),</span>
-<span id="cb204-3"><a href="flows.html#cb204-3"></a>     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(<span class="kw">c</span>(</span>
-<span id="cb204-4"><a href="flows.html#cb204-4"></a>                  <span class="kw">max</span>(<span class="kw">density</span>(m3<span class="op">$</span>fitted.values)<span class="op">$</span>y), </span>
-<span id="cb204-5"><a href="flows.html#cb204-5"></a>                  <span class="kw">max</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15)<span class="op">$</span>y)</span>
-<span id="cb204-6"><a href="flows.html#cb204-6"></a>                  )</span>
-<span id="cb204-7"><a href="flows.html#cb204-7"></a>               )</span>
-<span id="cb204-8"><a href="flows.html#cb204-8"></a>      ),</span>
-<span id="cb204-9"><a href="flows.html#cb204-9"></a>     <span class="dt">col=</span><span class="st">&#39;black&#39;</span>,</span>
-<span id="cb204-10"><a href="flows.html#cb204-10"></a>     <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb204-11"><a href="flows.html#cb204-11"></a><span class="kw">lines</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15), </span>
-<span id="cb204-12"><a href="flows.html#cb204-12"></a>      <span class="dt">col=</span><span class="st">&#39;red&#39;</span>,</span>
-<span id="cb204-13"><a href="flows.html#cb204-13"></a>      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb204-14"><a href="flows.html#cb204-14"></a><span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, </span>
-<span id="cb204-15"><a href="flows.html#cb204-15"></a>       <span class="kw">c</span>(<span class="st">&#39;Predicted&#39;</span>, <span class="st">&#39;Actual&#39;</span>),</span>
-<span id="cb204-16"><a href="flows.html#cb204-16"></a>       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>),</span>
-<span id="cb204-17"><a href="flows.html#cb204-17"></a>       <span class="dt">lwd=</span><span class="dv">1</span>)</span>
-<span id="cb204-18"><a href="flows.html#cb204-18"></a><span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Predictive check - Orig/dest FE Poisson model&quot;</span>)</span></code></pre></div>
+<p>where <span class="math inline">\(\delta_i\)</span> and <span class="math inline">\(\delta_j\)</span> are origin and destination station fixed effects<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a>, and the rest is as above. This strategy accounts for all the unobserved heterogeneity associated with the location of the station. Technically speaking, we simply need to introduce <code>orig</code> and <code>dest</code> in the the model:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m3 &lt;-<span class="st"> </span><span class="kw">glm</span>(<span class="st">&#39;trips15 ~ straight_dist + total_up + total_down + orig + dest&#39;</span>, 
+          <span class="dt">data=</span>db_std,
+          <span class="dt">family=</span>poisson)</code></pre></div>
+<p>And with our new model, we can have a look at how well it does at predicting the overall number of trips<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(m3<span class="op">$</span>fitted.values), 
+     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>, <span class="kw">max</span>(db_std<span class="op">$</span>trips15)),
+     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(<span class="kw">c</span>(
+                  <span class="kw">max</span>(<span class="kw">density</span>(m3<span class="op">$</span>fitted.values)<span class="op">$</span>y), 
+                  <span class="kw">max</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15)<span class="op">$</span>y)
+                  )
+               )
+      ),
+     <span class="dt">col=</span><span class="st">&#39;black&#39;</span>,
+     <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">lines</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15), 
+      <span class="dt">col=</span><span class="st">&#39;red&#39;</span>,
+      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, 
+       <span class="kw">c</span>(<span class="st">&#39;Predicted&#39;</span>, <span class="st">&#39;Actual&#39;</span>),
+       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>),
+       <span class="dt">lwd=</span><span class="dv">1</span>)
+<span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Predictive check - Orig/dest FE Poisson model&quot;</span>)</code></pre></div>
 <p><img src="03-flows_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <p>That looks significantly better, doesn’t it? In fact, our model now better accounts for the long tail where a few routes take a lot of trips. This is likely because the distribution of trips is far from random across stations and our origin and destination fixed effects do a decent job at accounting for that structure. However our model is still notably underpredicting less popular routes and overpredicting routes with above average number of trips. Maybe we should think about moving beyond a simple linear model.</p>
 <ul>
@@ -690,42 +646,42 @@ T_{ij} = X_{ij}\beta + \delta_i + \delta_j + \epsilon_{ij}
 </ul>
 <p>The final extension is, in principle, always available but, in practice, it can be tricky to implement. The core idea is that your baseline model might not have the best measurement of the phenomena you want to account for. In our example, we can think of the distance between stations. So far, we have been including the distance measured “as the crow flies” between stations. Although in some cases this is a good approximation (particularly when distances are long and likely route taken is as close to straight as possible), in some cases like ours, where the street layout and the presence of elevation probably matter more than the actual final distance pedalled, this is not necessarily a safe assumption.</p>
 <p>As an exampe of this approach, we can replace the straight distance measurements for more refined ones based on the Google Maps API routes. This is very easy as all we need to do (once the distances have been calculated!) is to swap <code>straight_dist</code> for <code>street_dist</code>:</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="flows.html#cb205-1"></a>m4 &lt;-<span class="st"> </span><span class="kw">glm</span>(<span class="st">&#39;trips15 ~ street_dist + total_up + total_down + orig + dest&#39;</span>, </span>
-<span id="cb205-2"><a href="flows.html#cb205-2"></a>          <span class="dt">data=</span>db_std,</span>
-<span id="cb205-3"><a href="flows.html#cb205-3"></a>          <span class="dt">family=</span>poisson)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m4 &lt;-<span class="st"> </span><span class="kw">glm</span>(<span class="st">&#39;trips15 ~ street_dist + total_up + total_down + orig + dest&#39;</span>, 
+          <span class="dt">data=</span>db_std,
+          <span class="dt">family=</span>poisson)</code></pre></div>
 <p>And we can similarly get a sense of our predictive fitting with:</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="flows.html#cb206-1"></a><span class="kw">plot</span>(<span class="kw">density</span>(m4<span class="op">$</span>fitted.values), </span>
-<span id="cb206-2"><a href="flows.html#cb206-2"></a>     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>, <span class="kw">max</span>(db_std<span class="op">$</span>trips15)),</span>
-<span id="cb206-3"><a href="flows.html#cb206-3"></a>     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(<span class="kw">c</span>(</span>
-<span id="cb206-4"><a href="flows.html#cb206-4"></a>                  <span class="kw">max</span>(<span class="kw">density</span>(m4<span class="op">$</span>fitted.values)<span class="op">$</span>y), </span>
-<span id="cb206-5"><a href="flows.html#cb206-5"></a>                  <span class="kw">max</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15)<span class="op">$</span>y)</span>
-<span id="cb206-6"><a href="flows.html#cb206-6"></a>                  )</span>
-<span id="cb206-7"><a href="flows.html#cb206-7"></a>               )</span>
-<span id="cb206-8"><a href="flows.html#cb206-8"></a>      ),</span>
-<span id="cb206-9"><a href="flows.html#cb206-9"></a>     <span class="dt">col=</span><span class="st">&#39;black&#39;</span>,</span>
-<span id="cb206-10"><a href="flows.html#cb206-10"></a>     <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb206-11"><a href="flows.html#cb206-11"></a><span class="kw">lines</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15), </span>
-<span id="cb206-12"><a href="flows.html#cb206-12"></a>      <span class="dt">col=</span><span class="st">&#39;red&#39;</span>,</span>
-<span id="cb206-13"><a href="flows.html#cb206-13"></a>      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)</span>
-<span id="cb206-14"><a href="flows.html#cb206-14"></a><span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, </span>
-<span id="cb206-15"><a href="flows.html#cb206-15"></a>       <span class="kw">c</span>(<span class="st">&#39;Predicted&#39;</span>, <span class="st">&#39;Actual&#39;</span>),</span>
-<span id="cb206-16"><a href="flows.html#cb206-16"></a>       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>),</span>
-<span id="cb206-17"><a href="flows.html#cb206-17"></a>       <span class="dt">lwd=</span><span class="dv">1</span>)</span>
-<span id="cb206-18"><a href="flows.html#cb206-18"></a><span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Predictive check - Orig/dest FE Poisson model&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(m4<span class="op">$</span>fitted.values), 
+     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>, <span class="kw">max</span>(db_std<span class="op">$</span>trips15)),
+     <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(<span class="kw">c</span>(
+                  <span class="kw">max</span>(<span class="kw">density</span>(m4<span class="op">$</span>fitted.values)<span class="op">$</span>y), 
+                  <span class="kw">max</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15)<span class="op">$</span>y)
+                  )
+               )
+      ),
+     <span class="dt">col=</span><span class="st">&#39;black&#39;</span>,
+     <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">lines</span>(<span class="kw">density</span>(db_std<span class="op">$</span>trips15), 
+      <span class="dt">col=</span><span class="st">&#39;red&#39;</span>,
+      <span class="dt">main=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, 
+       <span class="kw">c</span>(<span class="st">&#39;Predicted&#39;</span>, <span class="st">&#39;Actual&#39;</span>),
+       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>),
+       <span class="dt">lwd=</span><span class="dv">1</span>)
+<span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Predictive check - Orig/dest FE Poisson model&quot;</span>)</code></pre></div>
 <p><img src="03-flows_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 <p>Hard to tell any noticeable difference, right? To see if there is any, we can have a look at the estimates obtained:</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="flows.html#cb207-1"></a><span class="kw">summary</span>(m4)<span class="op">$</span>coefficients[<span class="st">&#39;street_dist&#39;</span>, ]</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(m4)<span class="op">$</span>coefficients[<span class="st">&#39;street_dist&#39;</span>, ]</code></pre></div>
 <pre><code>##       Estimate     Std. Error        z value       Pr(&gt;|z|) 
 ##  -9.961619e-02   2.688731e-03  -3.704952e+01  1.828096e-300</code></pre>
 <p>And compare this to that of the straight distances in the previous model:</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="flows.html#cb209-1"></a><span class="kw">summary</span>(m3)<span class="op">$</span>coefficients[<span class="st">&#39;straight_dist&#39;</span>, ]</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(m3)<span class="op">$</span>coefficients[<span class="st">&#39;straight_dist&#39;</span>, ]</code></pre></div>
 <pre><code>##       Estimate     Std. Error        z value       Pr(&gt;|z|) 
 ##  -7.820014e-02   2.683052e-03  -2.914596e+01  9.399407e-187</code></pre>
-<p>As we can see, the differences exist but ar not massive. Let’s use this example to learn how to interpret coefficients in a Poisson model<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a>. Effectively, these estimates can be understood as multiplicative effects. Since our model fits</p>
+<p>As we can see, the differences exist but ar not massive. Let’s use this example to learn how to interpret coefficients in a Poisson model<a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a>. Effectively, these estimates can be understood as multiplicative effects. Since our model fits</p>
 <p><span class="math display">\[
 T_{ij} \sim Poisson (\exp^{X_{ij}\beta})
 \]</span></p>
-<p>we need to transform <span class="math inline">\(\beta\)</span> through an exponential in order to get a sense of the effect of distance on the number of trips. This means that for the street distance, our original estimate is <span class="math inline">\(\beta_{street} = -0.0996\)</span>, but this needs to be translated through the exponential into <span class="math inline">\(e^{-0.0996} = 0.906\)</span>. In other words, since distance is expressed in standard deviations<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>, we can expect a 10% decrease in the number of trips for an increase of one standard deviation (about 1Km) in the distance between the stations. This can be compared with <span class="math inline">\(e^{-0.0782} = 0.925\)</span> for the straight distances, or a reduction of about 8% the number of trips for every increase of a standard deviation (about 720m).</p>
+<p>we need to transform <span class="math inline">\(\beta\)</span> through an exponential in order to get a sense of the effect of distance on the number of trips. This means that for the street distance, our original estimate is <span class="math inline">\(\beta_{street} = -0.0996\)</span>, but this needs to be translated through the exponential into <span class="math inline">\(e^{-0.0996} = 0.906\)</span>. In other words, since distance is expressed in standard deviations<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a>, we can expect a 10% decrease in the number of trips for an increase of one standard deviation (about 1Km) in the distance between the stations. This can be compared with <span class="math inline">\(e^{-0.0782} = 0.925\)</span> for the straight distances, or a reduction of about 8% the number of trips for every increase of a standard deviation (about 720m).</p>
 </div>
 <div id="predicting-flows" class="section level2">
 <h2><span class="header-section-number">4.5</span> Predicting flows</h2>
@@ -737,34 +693,34 @@ T_{ij} \sim Poisson (\exp^{X_{ij}\beta})
 RMSE = \sqrt{ \sum_{ij} (\hat{T_{ij}} - T_{ij})^2}
 \]</span></p>
 <p>where <span class="math inline">\(\hat{T_{ij}}\)</span> is the predicted amount of trips between stations <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>. RMSE is straightforward in R and, since we will use it a couple of times, let’s write a short function to make our lives easier:</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="flows.html#cb211-1"></a>rmse &lt;-<span class="st"> </span><span class="cf">function</span>(t, p){</span>
-<span id="cb211-2"><a href="flows.html#cb211-2"></a>  se &lt;-<span class="st"> </span>(t <span class="op">-</span><span class="st"> </span>p)<span class="op">^</span><span class="dv">2</span></span>
-<span id="cb211-3"><a href="flows.html#cb211-3"></a>  mse &lt;-<span class="st"> </span><span class="kw">mean</span>(se)</span>
-<span id="cb211-4"><a href="flows.html#cb211-4"></a>  rmse &lt;-<span class="st"> </span><span class="kw">sqrt</span>(mse)</span>
-<span id="cb211-5"><a href="flows.html#cb211-5"></a>  <span class="kw">return</span>(rmse)</span>
-<span id="cb211-6"><a href="flows.html#cb211-6"></a>}</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rmse &lt;-<span class="st"> </span><span class="cf">function</span>(t, p){
+  se &lt;-<span class="st"> </span>(t <span class="op">-</span><span class="st"> </span>p)<span class="op">^</span><span class="dv">2</span>
+  mse &lt;-<span class="st"> </span><span class="kw">mean</span>(se)
+  rmse &lt;-<span class="st"> </span><span class="kw">sqrt</span>(mse)
+  <span class="kw">return</span>(rmse)
+}</code></pre></div>
 <p>where <code>t</code> stands for the vector of true values, and <code>p</code> is the vector of predictions. Let’s give it a spin to make sure it works:</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="flows.html#cb212-1"></a>rmse_m4 &lt;-<span class="st"> </span><span class="kw">rmse</span>(db_std<span class="op">$</span>trips16, m4<span class="op">$</span>fitted.values)</span>
-<span id="cb212-2"><a href="flows.html#cb212-2"></a>rmse_m4</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rmse_m4 &lt;-<span class="st"> </span><span class="kw">rmse</span>(db_std<span class="op">$</span>trips16, m4<span class="op">$</span>fitted.values)
+rmse_m4</code></pre></div>
 <pre><code>## [1] 256.2197</code></pre>
-<p>That means that, on average, predictions in our best model <code>m4</code> are 256 trips off. Is this good? Bad? Worse? It’s hard to say but, being practical, what we can say is whether this better than our alternative. Let us have a look at the RMSE of the other models as well as that of simply plugging in last year’s counts:<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a></p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="flows.html#cb214-1"></a>rmses &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">model=</span><span class="kw">c</span>(<span class="st">&#39;OLS&#39;</span>, <span class="st">&#39;Poisson&#39;</span>, <span class="st">&#39;Poisson + FE&#39;</span>, </span>
-<span id="cb214-2"><a href="flows.html#cb214-2"></a>                            <span class="st">&#39;Poisson + FE + street dist.&#39;</span>,</span>
-<span id="cb214-3"><a href="flows.html#cb214-3"></a>                            <span class="st">&#39;Trips-2015&#39;</span></span>
-<span id="cb214-4"><a href="flows.html#cb214-4"></a>                            ),</span>
-<span id="cb214-5"><a href="flows.html#cb214-5"></a>                    <span class="dt">RMSE=</span><span class="kw">c</span>(<span class="kw">rmse</span>(db_std<span class="op">$</span>trips16, </span>
-<span id="cb214-6"><a href="flows.html#cb214-6"></a>                              m1<span class="op">$</span>fitted.values),</span>
-<span id="cb214-7"><a href="flows.html#cb214-7"></a>                           <span class="kw">rmse</span>(db_std<span class="op">$</span>trips16, </span>
-<span id="cb214-8"><a href="flows.html#cb214-8"></a>                              m2<span class="op">$</span>fitted.values),</span>
-<span id="cb214-9"><a href="flows.html#cb214-9"></a>                           <span class="kw">rmse</span>(db_std<span class="op">$</span>trips16, </span>
-<span id="cb214-10"><a href="flows.html#cb214-10"></a>                              m3<span class="op">$</span>fitted.values),</span>
-<span id="cb214-11"><a href="flows.html#cb214-11"></a>                           <span class="kw">rmse</span>(db_std<span class="op">$</span>trips16, </span>
-<span id="cb214-12"><a href="flows.html#cb214-12"></a>                              m4<span class="op">$</span>fitted.values),</span>
-<span id="cb214-13"><a href="flows.html#cb214-13"></a>                           <span class="kw">rmse</span>(db_std<span class="op">$</span>trips16, </span>
-<span id="cb214-14"><a href="flows.html#cb214-14"></a>                                db_std<span class="op">$</span>trips15)</span>
-<span id="cb214-15"><a href="flows.html#cb214-15"></a>                           )</span>
-<span id="cb214-16"><a href="flows.html#cb214-16"></a>                      )</span>
-<span id="cb214-17"><a href="flows.html#cb214-17"></a>rmses</span></code></pre></div>
+<p>That means that, on average, predictions in our best model <code>m4</code> are 256 trips off. Is this good? Bad? Worse? It’s hard to say but, being practical, what we can say is whether this better than our alternative. Let us have a look at the RMSE of the other models as well as that of simply plugging in last year’s counts:<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rmses &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">model=</span><span class="kw">c</span>(<span class="st">&#39;OLS&#39;</span>, <span class="st">&#39;Poisson&#39;</span>, <span class="st">&#39;Poisson + FE&#39;</span>, 
+                            <span class="st">&#39;Poisson + FE + street dist.&#39;</span>,
+                            <span class="st">&#39;Trips-2015&#39;</span>
+                            ),
+                    <span class="dt">RMSE=</span><span class="kw">c</span>(<span class="kw">rmse</span>(db_std<span class="op">$</span>trips16, 
+                              m1<span class="op">$</span>fitted.values),
+                           <span class="kw">rmse</span>(db_std<span class="op">$</span>trips16, 
+                              m2<span class="op">$</span>fitted.values),
+                           <span class="kw">rmse</span>(db_std<span class="op">$</span>trips16, 
+                              m3<span class="op">$</span>fitted.values),
+                           <span class="kw">rmse</span>(db_std<span class="op">$</span>trips16, 
+                              m4<span class="op">$</span>fitted.values),
+                           <span class="kw">rmse</span>(db_std<span class="op">$</span>trips16, 
+                                db_std<span class="op">$</span>trips15)
+                           )
+                      )
+rmses</code></pre></div>
 <pre><code>##                         model     RMSE
 ## 1                         OLS 323.6135
 ## 2                     Poisson 320.8962
@@ -781,28 +737,28 @@ RMSE = \sqrt{ \sum_{ij} (\hat{T_{ij}} - T_{ij})^2}
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-gelman2006data">
-<p>Gelman, Andrew, and Jennifer Hill. 2006. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge University Press.</p>
+<p>Gelman, Andrew, and Jennifer Hill. 2006a. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge University Press.</p>
 </div>
 <div id="ref-gds_ua17">
-<p>Singleton, Alex. 2017. “Geographic Data Science for Urban Analytics.” <a href="http://www.alex-singleton.com/GDS_UA_2017/">http://www.alex-singleton.com/GDS_UA_2017/</a>.</p>
+<p>Singleton, Alex. 2017. “Geographic Data Science for Urban Analytics.” <a href="http://www.alex-singleton.com/GDS_UA_2017/" class="uri">http://www.alex-singleton.com/GDS_UA_2017/</a>.</p>
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="12">
-<li id="fn12"><p>This chapter is part of <a href="index.html">Spatial Analysis Notes</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Flows – Exploring flows visually and through spatial interaction</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<a href="flows.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>You can install package <code>mypackage</code> by running the command <code>install.packages("mypackage")</code> on the R prompt or through the <code>Tools --&gt; Install Packages...</code> menu in RStudio.<a href="flows.html#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p><strong>EXERCISE</strong>: <em>can you plot the route for the largest climb?</em><a href="flows.html#fnref14" class="footnote-back">↩︎</a></p></li>
-<li id="fn15"><p>For a more elaborate introduction to PPC, have a look at Chapters 7 and 8.<a href="flows.html#fnref15" class="footnote-back">↩︎</a></p></li>
-<li id="fn16"><p>The <span class="math inline">\(R^2\)</span> of our model is around 2%<a href="flows.html#fnref16" class="footnote-back">↩︎</a></p></li>
-<li id="fn17"><p>which they are not really, in light of the comparison between the black and red lines.<a href="flows.html#fnref17" class="footnote-back">↩︎</a></p></li>
-<li id="fn18"><p>These principles are general and can be applied to pretty much any modeling exercise you run into. The specific approaches we take in this note relate to spatial interaction models<a href="flows.html#fnref18" class="footnote-back">↩︎</a></p></li>
-<li id="fn19"><p>For an illustration of this, consider the amount of probability mass to the left of zero in the predictive checks above.<a href="flows.html#fnref19" class="footnote-back">↩︎</a></p></li>
-<li id="fn20"><p>In this session, <span class="math inline">\(\delta_i\)</span> and <span class="math inline">\(\delta_j\)</span> are estimated as independent variables so their estimates are similar to interpret to those in <span class="math inline">\(\beta\)</span>. An alternative approach could be to model them as random effects in a multilevel framework.<a href="flows.html#fnref20" class="footnote-back">↩︎</a></p></li>
-<li id="fn21"><p>Although, theoretically, we could also include simulations of the model in the plot to get a better sense of the uncertainty behind our model, in practice this seems troublesome. The problems most likely arise from the fact that many of the origin and destination binary variable coefficients are estimated with a great deal of uncertainty. This causes some of the simulation to generate extreme values that, when passed through the exponential term of the Poisson link function, cause problems. If anything, this is testimony of how a simple fixed effect model can sometimes lack accuracy and generate very uncertain estimates. A potential extension to work around these problems could be to fit a multilevel model with two specific levels beyond the trip-level: one for origin and another one for destination stations.<a href="flows.html#fnref21" class="footnote-back">↩︎</a></p></li>
-<li id="fn22"><p>See section 6.2 of <span class="citation">Gelman and Hill (<a href="#ref-gelman2006data" role="doc-biblioref">2006</a>)</span> for a similar treatment of these.<a href="flows.html#fnref22" class="footnote-back">↩︎</a></p></li>
-<li id="fn23"><p>Remember the transformation at the very beginning.<a href="flows.html#fnref23" class="footnote-back">↩︎</a></p></li>
-<li id="fn24"><p><strong>EXERCISE</strong>: can you create a single plot that displays the distribution of the predicted values of the five different ways to predict trips in 2016 and the actual counts of trips?<a href="flows.html#fnref24" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>This chapter is part of <a href="index.html">Spatial Analysis Notes</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Flows – Exploring flows visually and through spatial interaction</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<a href="flows.html#fnref12">↩</a></p></li>
+<li id="fn13"><p>You can install package <code>mypackage</code> by running the command <code>install.packages(&quot;mypackage&quot;)</code> on the R prompt or through the <code>Tools --&gt; Install Packages...</code> menu in RStudio.<a href="flows.html#fnref13">↩</a></p></li>
+<li id="fn14"><p><strong>EXERCISE</strong>: <em>can you plot the route for the largest climb?</em><a href="flows.html#fnref14">↩</a></p></li>
+<li id="fn15"><p>For a more elaborate introduction to PPC, have a look at Chapters 7 and 8.<a href="flows.html#fnref15">↩</a></p></li>
+<li id="fn16"><p>The <span class="math inline">\(R^2\)</span> of our model is around 2%<a href="flows.html#fnref16">↩</a></p></li>
+<li id="fn17"><p>which they are not really, in light of the comparison between the black and red lines.<a href="flows.html#fnref17">↩</a></p></li>
+<li id="fn18"><p>These principles are general and can be applied to pretty much any modeling exercise you run into. The specific approaches we take in this note relate to spatial interaction models<a href="flows.html#fnref18">↩</a></p></li>
+<li id="fn19"><p>For an illustration of this, consider the amount of probability mass to the left of zero in the predictive checks above.<a href="flows.html#fnref19">↩</a></p></li>
+<li id="fn20"><p>In this session, <span class="math inline">\(\delta_i\)</span> and <span class="math inline">\(\delta_j\)</span> are estimated as independent variables so their estimates are similar to interpret to those in <span class="math inline">\(\beta\)</span>. An alternative approach could be to model them as random effects in a multilevel framework.<a href="flows.html#fnref20">↩</a></p></li>
+<li id="fn21"><p>Although, theoretically, we could also include simulations of the model in the plot to get a better sense of the uncertainty behind our model, in practice this seems troublesome. The problems most likely arise from the fact that many of the origin and destination binary variable coefficients are estimated with a great deal of uncertainty. This causes some of the simulation to generate extreme values that, when passed through the exponential term of the Poisson link function, cause problems. If anything, this is testimony of how a simple fixed effect model can sometimes lack accuracy and generate very uncertain estimates. A potential extension to work around these problems could be to fit a multilevel model with two specific levels beyond the trip-level: one for origin and another one for destination stations.<a href="flows.html#fnref21">↩</a></p></li>
+<li id="fn22"><p>See section 6.2 of <span class="citation">Gelman and Hill (<a href="#ref-gelman2006data">2006</a><a href="#ref-gelman2006data">a</a>)</span> for a similar treatment of these.<a href="flows.html#fnref22">↩</a></p></li>
+<li id="fn23"><p>Remember the transformation at the very beginning.<a href="flows.html#fnref23">↩</a></p></li>
+<li id="fn24"><p><strong>EXERCISE</strong>: can you create a single plot that displays the distribution of the predicted values of the five different ways to predict trips in 2016 and the actual counts of trips?<a href="flows.html#fnref24">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -811,7 +767,7 @@ RMSE = \sqrt{ \sum_{ij} (\hat{T_{ij}} - T_{ij})^2}
         </div>
       </div>
 <a href="points.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="spatial-econometrics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="multilevel-modelling-part-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -866,7 +822,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
