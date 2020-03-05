@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-03-04" />
+<meta name="date" content="2020-03-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -220,9 +220,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p><span class="citation">Gelman and Hill (<a href="#ref-Gelman_Hill_2006_book">2006</a><a href="#ref-Gelman_Hill_2006_book">b</a>)</span> provides an excellent and intuitive explanation of multilevel modelling and data analysis in general. Read Part 2A for a really good explanation of multilevel models.</p></li>
 <li><p><span class="citation">Multilevel Modelling (n.d.)</span> is an useful online resource on multilevel modelling and is free!</p></li>
 </ul>
+<p>This Chapter is part of <a href="index.html">Spatial Analysis Notes</a>, a compilation hosted as a GitHub repository that you can access it in a few ways:</p>
+<ul>
+<li>As a <a href="https://github.com/GDSL-UL/san/archive/master.zip">download</a> of a <code>.zip</code> file that contains all the materials.</li>
+<li>As an <a href="https://gdsl-ul.github.io/san/multilevel-modelling-part-1.html">html website</a>.</li>
+<li>As a <a href="https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf">pdf document</a></li>
+<li>As a <a href="https://github.com/GDSL-UL/san">GitHub repository</a>.</li>
+</ul>
 <div id="dependencies-4" class="section level2">
 <h2><span class="header-section-number">6.1</span> Dependencies</h2>
-<p>This chapter uses the foollowing libraries: Ensure they are installed on your machine<a href="#fn39" class="footnoteRef" id="fnref39"><sup>39</sup></a> before loading them executing the following code chunk:</p>
+<p>This chapter uses the following libraries: Ensure they are installed on your machine<a href="#fn39" class="footnoteRef" id="fnref39"><sup>39</sup></a> before loading them executing the following code chunk:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Data manipulation, transformation and visualisation</span>
 <span class="kw">library</span>(tidyverse)
 <span class="co"># Nice tables</span>
@@ -248,7 +255,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="data-3" class="section level2">
 <h2><span class="header-section-number">6.2</span> Data</h2>
-<p>For this chapter, we will data for Liverpool from England’s 2011 Census. The original source is the <a href="https://www.nomisweb.co.uk/home/census2001.asp">Office of National Statistics</a> and the dataset comprises a number of selected variables capturing demographic, health and socio-economic of the local resident population at four geographic levels: Output Area (OA), Lower Super Output Area (LSOA), Middle Super Output Area (MSOA) and Local Authority District (LAD). The variables include population counts, percentages, means and medians. For a description of the variables, see the readme file in the mlm data folder.<a href="#fn40" class="footnoteRef" id="fnref40"><sup>40</sup></a></p>
+<p>For this chapter, we will data for Liverpool from England’s 2011 Census. The original source is the <a href="https://www.nomisweb.co.uk/home/census2001.asp">Office of National Statistics</a> and the dataset comprises a number of selected variables capturing demographic, health and socio-economic attributes of the local resident population at four geographic levels: Output Area (OA), Lower Super Output Area (LSOA), Middle Super Output Area (MSOA) and Local Authority District (LAD). The variables include population counts and percentages. For a description of the variables, see the readme file in the mlm data folder.<a href="#fn40" class="footnoteRef" id="fnref40"><sup>40</sup></a></p>
 <p>Let us read the data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># clean workspace</span>
 <span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
@@ -301,7 +308,7 @@ oa_shp &lt;-<span class="st"> </span>oa_shp[<span class="kw">order</span>(oa_cd)
 </div>
 <p>The data are hierarchically structured: OAs nested within LSOAs; LSOAs nested within MSOAs; and, MSOAs nested within LADs. Observations nested within higher geographical units may be correlated.</p>
 <p>This is one type of hierarchical structure. There is a range of data structures: * Strict nested data structures eg. an individual unit is nested within only one higher unit * Repeated measures structures eg. various measurements for an individual unit * Crossed classified structures eg. individuals may work and live in different neighbourhoods * Multiple membership structure eg. individuals may have two different work places</p>
-<p>Why should we care about the structure of the data? * <em>Draw correct statistical inference</em>: Failing to recognise hierarchical structures will lead to underestimated standard errors of regression coefficients and an overstatement of statistical significance. Standard errors for the coefficients of higher-level predictor variables will be the most affected by ignoring grouping. * <em>Link context to individual units</em>: We can link and understand the extent of group effects on individual outcomes eg. how belonging to a certain socio-economic group influences on future career opportunities. * <em>Spatial dependency</em>:Recogniding the hierarchical structure of data may help mitigate the effects of severe spatial autocorrelation.</p>
+<p><em>Why should we care about the structure of the data?</em> * <em>Draw correct statistical inference</em>: Failing to recognise hierarchical structures will lead to underestimated standard errors of regression coefficients and an overstatement of statistical significance. Standard errors for the coefficients of higher-level predictor variables will be the most affected by ignoring grouping. * <em>Link context to individual units</em>: We can link and understand the extent of group effects on individual outcomes eg. how belonging to a certain socio-economic group influences on future career opportunities. * <em>Spatial dependency</em>: Recognising the hierarchical structure of data may help mitigate the effects of severe spatial autocorrelation.</p>
 <p>Quickly, let us get a better idea about the data and look at the number of OAs nested within LSOAs and MSOAs</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mean of nested OAs within LSOAs and MSOAs</span>
 lsoa_cd <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>() <span class="op">%&gt;%</span>
@@ -324,7 +331,7 @@ lsoa_cd <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">
 </div>
 <div id="modelling" class="section level2">
 <h2><span class="header-section-number">6.3</span> Modelling</h2>
-<p>We should now be persuaded that ignoring the hierarchical structure of data may be a major issue. Let us now use a simple example to understand the intuition of multilevel model using the census data. We will seek to understand the spatial distribution of the proportion of population in unemployment in Liverpool, particularly why and where concentrations in this proportion occur. To illustrate the advantages of taking a multilevel modelling approach, we will start by estimating a linear regression model and progressively building complexity. We will first estimate a model and then explain the intuition underpinning the process. We will seek to gain a general understanding of multilevel modelling. If you are interested in the statistical and mathemathical formalisation of the underpinning concepts, please refer to: <strong>PROVIDE REFERENCES</strong></p>
+<p>We should now be persuaded that ignoring the hierarchical structure of data may be a major issue. Let us now use a simple example to understand the intuition of multilevel model using the census data. We will seek to understand the spatial distribution of the proportion of population in unemployment in Liverpool, particularly why and where concentrations in this proportion occur. To illustrate the advantages of taking a multilevel modelling approach, we will start by estimating a linear regression model and progressively building complexity. We will first estimate a model and then explain the intuition underpinning the process. We will seek to gain a general understanding of multilevel modelling. If you are interested in the statistical and mathemathical formalisation of the underpinning concepts, please refer to <span class="citation">Gelman and Hill (<a href="#ref-Gelman_Hill_2006_book">2006</a><a href="#ref-Gelman_Hill_2006_book">b</a>)</span>.</p>
 <p>We first need to want to understand our dependent variable: its density ditribution;</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> oa_shp) <span class="op">+</span>
 <span class="kw">geom_density</span>(<span class="dt">alpha=</span><span class="fl">0.8</span>, <span class="dt">colour=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightblue&quot;</span>, <span class="kw">aes</span>(<span class="dt">x =</span> unemp)) <span class="op">+</span>
@@ -397,7 +404,7 @@ model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt"
 <div id="limitations" class="section level4">
 <h4><span class="header-section-number">6.3.1.1</span> Limitations</h4>
 <p>Before looking at the answer, let’s first understand some of the key limitations of the linear regression model to handle the hierarchical structure of data. A key limitation of the linear regression model is that it only captures average relationships in the data. It does not capture variations in the relationship between variables across areas or groups. Another key limitation is that the linear regression model can capture associations at either macro or micro levels, but it does not simultaneously measure their interdependencies.</p>
-<p>To illustrate this, let us consider the regression intercept. It indicates that the average percentage of unemployed population at the OA level is 0.12 but this model ignores any spatial clustering ie. the percentage of unemployed population tends to be similar across OAs nested within a same LSOA or MSOA. A side effect of ignoring this is that our standard errors are biased, and thus claims about statistical significance based on them would be misleading. Additionally, this situation also mean we cannot explore variations in the percentage of unemployed population across LSOAs or MSOAs ie. how the percentage of unemployed population may be dependent on various contextual factors at these geographical scales.</p>
+<p>To illustrate this, let us consider the regression intercept. It indicates that the average percentage of unemployed population at the OA level is 0.12 but this model ignores any spatial clustering ie. the percentage of unemployed population tends to be similar across OAs nested within a same LSOA or MSOA. A side effect of ignoring this is that our standard errors are biased, and thus claims about statistical significance based on them would be misleading. Additionally, this situation also means we cannot explore variations in the percentage of unemployed population across LSOAs or MSOAs ie. how the percentage of unemployed population may be dependent on various contextual factors at these geographical scales.</p>
 </div>
 <div id="fixed-effect-approach" class="section level4">
 <h4><span class="header-section-number">6.3.1.2</span> Fixed Effect Approach</h4>
@@ -461,7 +468,7 @@ model3 &lt;-<span class="st"> </span><span class="kw">lmer</span>(eq3, <span cla
 ## Fixed effects:
 ##             Estimate Std. Error t value
 ## (Intercept) 0.115288   0.006187   18.64</code></pre>
-<p>We see two sets of coefficients: <em>fixed effects</em> and <em>random effects</em>. <em>Fixed effects</em> correspond to the standard linear regression coefficients. Their interpretation is as usual. <em>Random effects</em> are the novelty. It is a term is in multilevel modelling and refers to varying coefficients i.e. the randomness in the probability of the model for the group-level coefficients. Specifically they relate to estimates of the average variance and standard deviation within groups (i.e. LSOAs or MSOAs). Intiutively, variance and standard deviation indicate the extent to which the intercept, on average, varies by LSOAs and MSOAs.</p>
+<p>We see two sets of coefficients: <em>fixed effects</em> and <em>random effects</em>. <em>Fixed effects</em> correspond to the standard linear regression coefficients. Their interpretation is as usual. <em>Random effects</em> are the novelty. It is a term in multilevel modelling and refers to varying coefficients i.e. the randomness in the probability of the model for the group-level coefficients. Specifically they relate to estimates of the average variance and standard deviation within groups (i.e. LSOAs or MSOAs). Intiutively, variance and standard deviation indicate the extent to which the intercept, on average, varies by LSOAs and MSOAs.</p>
 <div class="figure">
 <img src="figs/ch5/nm_dist_obs.png" alt="Fig. 2. Variation of observations around their level 1 group mean." />
 <p class="caption">Fig. 2. Variation of observations around their level 1 group mean.</p>
@@ -527,7 +534,7 @@ vpc_lsoa <span class="op">*</span><span class="st"> </span><span class="dv">100<
 </div>
 <div id="uncertainty-of-estimates" class="section level3">
 <h3><span class="header-section-number">6.4.3</span> Uncertainty of Estimates</h3>
-<p>You may have noticed that <code>lme4</code> does not provide p-values, because of <a href="https://stat.ethz.ch/pipermail/r-help/2006-May/094765.html">various reasons</a> as explained by Doug Bates, one of the author of <code>lme4</code>. These explanations mainly refer tothe complexity of dealing with varying sample sizes at a given hierarchical level. The number of observations at each hierarchical level varies across individual groupings (i.e. LSOA or MSOA). It may even be one single observation. This has implications for the distributional assumptions, denominator degrees of freedom and how to approximate a “best” solution. Various approaches exist to compute the statistical significance of estimates. We use the <code>confint</code> function available within <code>lme4</code> to obtain confidence intervals.</p>
+<p>You may have noticed that <code>lme4</code> does not provide p-values, because of <a href="https://stat.ethz.ch/pipermail/r-help/2006-May/094765.html">various reasons</a> as explained by Doug Bates, one of the author of <code>lme4</code>. These explanations mainly refer to the complexity of dealing with varying sample sizes at a given hierarchical level. The number of observations at each hierarchical level varies across individual groupings (i.e. LSOA or MSOA). It may even be one single observation. This has implications for the distributional assumptions, denominator degrees of freedom and how to approximate a “best” solution. Various approaches exist to compute the statistical significance of estimates. We use the <code>confint</code> function available within <code>lme4</code> to obtain confidence intervals.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(model3, <span class="dt">level =</span> <span class="fl">0.95</span>)</code></pre></div>
 <pre><code>## Computing profile confidence intervals ...</code></pre>
 <pre><code>##                  2.5 %     97.5 %
@@ -565,22 +572,22 @@ vpc_lsoa <span class="op">*</span><span class="st"> </span><span class="dv">100<
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># obtain estimates</span>
 <span class="kw">REsim</span>(model3) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">10</span>)</code></pre></div>
 <pre><code>##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.014249675 -0.014358704 0.019221763
-## 2    lsoa_cd E01006513 (Intercept) -0.015375648 -0.015096630 0.019754492
-## 3    lsoa_cd E01006514 (Intercept) -0.022688856 -0.021518330 0.019086757
-## 4    lsoa_cd E01006515 (Intercept) -0.018188039 -0.018606511 0.019935620
-## 5    lsoa_cd E01006518 (Intercept) -0.019122540 -0.018258911 0.017773175
-## 6    lsoa_cd E01006519 (Intercept) -0.015979449 -0.016619920 0.009268876
-## 7    lsoa_cd E01006520 (Intercept) -0.028559631 -0.028342993 0.018743930
-## 8    lsoa_cd E01006521 (Intercept)  0.004108657  0.002990998 0.018796603
-## 9    lsoa_cd E01006522 (Intercept)  0.017233302  0.018060688 0.019970988
-## 10   lsoa_cd E01006523 (Intercept)  0.002606438  0.002609687 0.018078806</code></pre>
+## 1    lsoa_cd E01006512 (Intercept) -0.015823891 -0.014954147 0.019199261
+## 2    lsoa_cd E01006513 (Intercept) -0.016459415 -0.018085959 0.018562794
+## 3    lsoa_cd E01006514 (Intercept) -0.021641301 -0.022335016 0.020188712
+## 4    lsoa_cd E01006515 (Intercept) -0.018121475 -0.019586416 0.017659141
+## 5    lsoa_cd E01006518 (Intercept) -0.017296083 -0.018046786 0.020391747
+## 6    lsoa_cd E01006519 (Intercept) -0.016560583 -0.016218051 0.009287833
+## 7    lsoa_cd E01006520 (Intercept) -0.023465603 -0.023450786 0.020768052
+## 8    lsoa_cd E01006521 (Intercept)  0.004343171  0.004192050 0.018505328
+## 9    lsoa_cd E01006522 (Intercept)  0.016921312  0.017183305 0.018215068
+## 10   lsoa_cd E01006523 (Intercept)  0.005390020  0.005837811 0.018372552</code></pre>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
 <p>To gain an undertanding of the general pattern of the <em>random effects</em>, we can use caterpillar plots via <code>plotREsim</code> - reported below. The plot on the right shows the estimated random effects for each MSOA and their respective interval estimate. Note that random effects are on average zero, represented by the red horizontal line. Intervals that do not include zero are in bold. Also note that the width of the confidence interval depends on the standard error of the respective residual estimate, which is inversely related to the size of the sample. The residuals represent an observation departures from the grand mean, so an observation whose confidence interval does not overlap the line at zero (representing the mean proportion of unemployed population across all areas) is said to differ significantly from the average at the 5% level.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot</span>
 <span class="kw">plotREsim</span>(<span class="kw">REsim</span>(model3)) </code></pre></div>
 <p><img src="05-multilevel_01_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
-<p>Focusing on the left-side plot, we see MSOAs whose mean proportion of unemployed population, assuming no explanatory variables, is lower than average. On the right-hand side of the plot, you will see MSOAs whose mean proportion is higher than average. The MSOAs with the smallest residuals include the districts of Allerton and Hunt Cross, Church, Childwall, Wavertree and Woolton. What districts do we have at the other extreme?</p>
+<p>Focusing on the plot on the right, we see MSOAs whose mean proportion of unemployed population, assuming no explanatory variables, is lower than average. On the right-hand side of the plot, you will see MSOAs whose mean proportion is higher than average. The MSOAs with the smallest residuals include the districts of Allerton and Hunt Cross, Church, Childwall, Wavertree and Woolton. What districts do we have at the other extreme?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">re &lt;-<span class="st"> </span><span class="kw">REsim</span>(model3)
 oa_shp <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(msoa_cd, ward_nm, unemp) <span class="op">%&gt;%</span>
 <span class="st">    </span><span class="kw">filter</span>(<span class="kw">as.character</span>(msoa_cd) <span class="op">==</span><span class="st"> &quot;E02001387&quot;</span> <span class="op">|</span><span class="st"> </span><span class="kw">as.character</span>(msoa_cd) <span class="op">==</span><span class="st"> &quot;E02001393&quot;</span>)</code></pre></div>
@@ -619,9 +626,9 @@ re_msoa &lt;-<span class="st"> </span>re <span class="op">%&gt;%</span><span cla
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; ...
-##  $ mean     : num  -0.01333 -0.02449 -0.03148 0.00548 0.02277 ...
-##  $ median   : num  -0.01527 -0.02346 -0.02928 0.00676 0.02264 ...
-##  $ sd       : num  0.0335 0.0338 0.0336 0.0345 0.0166 ...</code></pre>
+##  $ mean     : num  -0.0123 -0.0259 -0.033 0.0056 0.023 ...
+##  $ median   : num  -0.01134 -0.02455 -0.03374 0.00356 0.02297 ...
+##  $ sd       : num  0.0328 0.0324 0.0311 0.034 0.0169 ...</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># merge data</span>
 msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</code></pre></div>
 <p>Now we can create our map:</p>
@@ -691,10 +698,10 @@ model4 &lt;-<span class="st"> </span><span class="kw">lmer</span>(eq4, <span cla
 ## E02001349 -0.022469313
 ## E02001350 -0.003539869
 ## E02001351  0.008502813</code></pre>
-<p>yields an estimated intercept for MSOA <code>E02001347</code> which is <code>0.017474815</code> lower than the average with a regression line: <code>(0.04681959 - 0.017474815) + 0.29588110x</code> <code>=</code> <code>0.02934478 + 0.29588110x</code>. You can confirm this by looking at the estimated model within each MSOA:</p>
+<p>yields an estimated intercept for MSOA <code>E02001347</code> which is <code>0.017474815</code> lower than the average with a regression line: <code>(0.04681959 - 0.017474815) + 0.29588110x</code> <code>=</code> <code>0.02934478 + 0.29588110x</code>. You can confirm this by looking at the estimated model within each MSOA by executing (remove the <code>#</code> sign):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#coef(model4)</span></code></pre></div>
 <p><em>Fixed effect correlations</em></p>
-<p>In the bottom of the output, we have the correlations between the fixed-effects estimates. In our example, it refers to the correlation between <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{1}\)</span>. It is negative indicating that in MSOAs where the relationship between unemployment and long-term ilness is greater, as measured by <span class="math inline">\(\beta_{1}\)</span>), the average proportion of unemployed people tends to be smaller, as captured by <span class="math inline">\(\beta_{0}\)</span>.</p>
+<p>In the bottom of the output, we have the correlations between the fixed-effects estimates. In our example, it refers to the correlation between <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{1}\)</span>. It is negative indicating that in MSOAs where the relationship between unemployment and long-term illness is greater, as measured by <span class="math inline">\(\beta_{1}\)</span>, the average proportion of unemployed people tends to be smaller, as captured by <span class="math inline">\(\beta_{0}\)</span>.</p>
 </div>
 <div id="adding-group-level-predictors" class="section level3">
 <h3><span class="header-section-number">6.4.6</span> Adding Group-level Predictors</h3>
@@ -785,19 +792,19 @@ ranef_m5 &lt;-<span class="st"> </span><span class="kw">ranef</span>(model5)
 ## E02001349 -0.023709996
 ## E02001350  0.003003862
 ## E02001351  0.003508479</code></pre>
-<p>Adding group-level predictors tends to improve inferences for group coefficients. Examine the confidence intervals and examine how the precision of our estimates of the MSOA intercepts have changed. <em>Have confidence intervals for the intercepts of Model 4 and 5 increased or reduced?</em></p>
+<p>Adding group-level predictors tends to improve inferences for group coefficients. Examine the confidence intervals, in order to evalute how the precision of our estimates of the MSOA intercepts have changed. <em>Have confidence intervals for the intercepts of Model 4 and 5 increased or reduced?</em> Hint: look at how to get the confidence intervals above.</p>
 </div>
 </div>
 <div id="model-building" class="section level2">
 <h2><span class="header-section-number">6.5</span> Model building</h2>
-<p>Now we know how to estimate multilevel regression models in <em>R</em>. The question that remains is: <em>When does multilevel modeling make a difference?</em> The short answer is: when there is little group-level variation. When there is very little group-level variation, the multilevel modelling reduces to classical linear regression estimates with no group indicators. Inversely, when group-level coefficients vary greatly (compared to their standard errors of estimation), multilevel modelling reduces to classical regression with group indicators <span class="citation">Gelman and Hill (<a href="#ref-Gelman_Hill_2006_book">2006</a><a href="#ref-Gelman_Hill_2006_book">b</a>)</span>.</p>
+<p>Now we know how to estimate multilevel regression models in <em>R</em>. The question that remains is: <em>When does multilevel modeling make a difference?</em> The short answer is: when there is little group-level variation. When there is very little group-level variation, the multilevel modelling reduces to classical linear regression estimates <em>with no group indicators</em>. Inversely, when group-level coefficients vary greatly (compared to their standard errors of estimation), multilevel modelling reduces to classical regression <em>with group indicators</em> <span class="citation">Gelman and Hill (<a href="#ref-Gelman_Hill_2006_book">2006</a><a href="#ref-Gelman_Hill_2006_book">b</a>)</span>.</p>
 <p><em>How do you go about building a model?</em> We generally start simple by fitting simple linear regressions and then work our way up to a full multilevel model - see <span class="citation">Gelman and Hill (<a href="#ref-Gelman_Hill_2006_book">2006</a><a href="#ref-Gelman_Hill_2006_book">b</a>)</span> p. 270.</p>
 <p><em>How many groups are needed?</em> As an absolute minimum, more than two groups are required. With only one or two groups, a multilevel model reduces to a linear regression model.</p>
 <p><em>How many observations per group?</em> Two observations per group is sufficient to fit a multilevel model.</p>
 <div id="model-comparison" class="section level3">
 <h3><span class="header-section-number">6.5.1</span> Model Comparison</h3>
 <p><em>How we assess different candidate models?</em> We can use the function <code>anova()</code> and assess various statistics: The Akaike Information Criterion (AIC), the Bayesian Information Criterion (BIC), Loglik and Deviance. Generally, we look for lower scores for all these indicators. We can also refer to the <em>Chisq</em> statistic below. It tests the hypothesis of whether additional predictors improve model fit. Particularly it tests the <em>Null Hypothesis</em> whether the coefficients of the additional predictors equal <code>0</code>. It does so comparing the deviance statistic and determining if changes in the deviance are statistically significant. Note that a major limitation of the deviance test is that it is for nested models i.e. a model being compared must be nested in the other.</p>
-<p>Here a model comparison for three of our models. It seems that adding varying intercepts for LSOA and MSOA levels provide the model with the better fit. Though, they don’t explain the source of differences between OAs.</p>
+<p>Here compare three of our estimated models. It seems that adding varying intercepts for LSOA and MSOA levels provide the model with the better fit. Though, they don’t explain the source of differences between OAs.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(model3, model4, model5)</code></pre></div>
 <pre><code>## refitting model(s) with ML (instead of REML)</code></pre>
 <pre><code>## Data: oa_shp
