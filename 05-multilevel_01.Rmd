@@ -53,7 +53,7 @@ For this chapter, we will data for Liverpool from England's 2011 Census. The ori
 
 Let us read the data:
 
-```{r}
+```{r, results = 'hide'}
 # clean workspace
 rm(list=ls())
 # read data
@@ -76,15 +76,22 @@ head(oa_shp)
 
 The data are hierarchically structured: OAs nested within LSOAs; LSOAs nested within MSOAs; and, MSOAs nested within LADs. Observations nested within higher geographical units may be correlated. 
 
-This is one type of hierarchical structure. There is a range of data structures: 
+This is one type of hierarchical structure. There is a range of data structures:
+
 * Strict nested data structures eg. an individual unit is nested within only one higher unit
+
 * Repeated measures structures eg. various measurements for an individual unit
+
 * Crossed classified structures eg. individuals may work and live in different neighbourhoods
+
 * Multiple membership structure eg. individuals may have two different work places
 
 *Why should we care about the structure of the data?*
+
 * *Draw correct statistical inference*: Failing to recognise hierarchical structures will lead to underestimated standard errors of regression coefficients and an overstatement of statistical significance. Standard errors for the coefficients of higher-level predictor variables will be the most affected by ignoring grouping.
+
 * *Link context to individual units*: We can link and understand the extent of group effects on individual outcomes eg. how belonging to a certain socio-economic group influences on future career opportunities.
+
 * *Spatial dependency*: Recognising the hierarchical structure of data may help mitigate the effects of severe spatial autocorrelation.
 
 Quickly, let us get a better idea about the data and look at the number of OAs nested within LSOAs and MSOAs

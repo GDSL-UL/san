@@ -62,16 +62,6 @@ rm(list=ls())
 oa_shp <- st_read("data/mlm/oa.shp")
 ```
 
-```
-## Reading layer `oa' from data source `/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/mlm/oa.shp' using driver `ESRI Shapefile'
-## Simple feature collection with 1584 features and 19 fields
-## geometry type:  MULTIPOLYGON
-## dimension:      XY
-## bbox:           xmin: 332390.2 ymin: 379748.5 xmax: 345636 ymax: 397980.1
-## epsg (SRID):    NA
-## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs
-```
-
 
 We can now attach and visualise the structure of the data. 
 
@@ -119,15 +109,22 @@ head(oa_shp)
 
 The data are hierarchically structured: OAs nested within LSOAs; LSOAs nested within MSOAs; and, MSOAs nested within LADs. Observations nested within higher geographical units may be correlated. 
 
-This is one type of hierarchical structure. There is a range of data structures: 
+This is one type of hierarchical structure. There is a range of data structures:
+
 * Strict nested data structures eg. an individual unit is nested within only one higher unit
+
 * Repeated measures structures eg. various measurements for an individual unit
+
 * Crossed classified structures eg. individuals may work and live in different neighbourhoods
+
 * Multiple membership structure eg. individuals may have two different work places
 
 *Why should we care about the structure of the data?*
+
 * *Draw correct statistical inference*: Failing to recognise hierarchical structures will lead to underestimated standard errors of regression coefficients and an overstatement of statistical significance. Standard errors for the coefficients of higher-level predictor variables will be the most affected by ignoring grouping.
+
 * *Link context to individual units*: We can link and understand the extent of group effects on individual outcomes eg. how belonging to a certain socio-economic group influences on future career opportunities.
+
 * *Spatial dependency*: Recognising the hierarchical structure of data may help mitigate the effects of severe spatial autocorrelation.
 
 Quickly, let us get a better idea about the data and look at the number of OAs nested within LSOAs and MSOAs
@@ -161,7 +158,7 @@ lsoa_cd %>% table() %>%
   plot()
 ```
 
-![](05-multilevel_01_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
+<img src="05-multilevel_01_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 ```r
 msoa_cd %>% table() %>%
@@ -169,7 +166,7 @@ msoa_cd %>% table() %>%
   plot()
 ```
 
-![](05-multilevel_01_files/figure-latex/unnamed-chunk-4-2.pdf)<!-- --> 
+<img src="05-multilevel_01_files/figure-html/unnamed-chunk-4-2.png" width="672" />
 
 ## Modelling 
 
@@ -184,7 +181,7 @@ geom_density(alpha=0.8, colour="black", fill="lightblue", aes(x = unemp)) +
    theme_classic()
 ```
 
-![](05-multilevel_01_files/figure-latex/unnamed-chunk-5-1.pdf)<!-- --> 
+<img src="05-multilevel_01_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 
 ```r
@@ -213,7 +210,7 @@ map_oa = tm_shape(oa_shp) +
 map_oa
 ```
 
-![](05-multilevel_01_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
+<img src="05-multilevel_01_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 Let us look at those areas:
 
@@ -534,16 +531,16 @@ REsim(model3) %>% head(10)
 
 ```
 ##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.016839632 -0.015013673 0.019824986
-## 2    lsoa_cd E01006513 (Intercept) -0.017375463 -0.015216892 0.019625350
-## 3    lsoa_cd E01006514 (Intercept) -0.022810507 -0.020705298 0.019444137
-## 4    lsoa_cd E01006515 (Intercept) -0.019959547 -0.020461116 0.019017227
-## 5    lsoa_cd E01006518 (Intercept) -0.019487105 -0.019690971 0.019767639
-## 6    lsoa_cd E01006519 (Intercept) -0.014972371 -0.014696076 0.009513841
-## 7    lsoa_cd E01006520 (Intercept) -0.023854296 -0.025161107 0.020631612
-## 8    lsoa_cd E01006521 (Intercept)  0.006763346  0.007039051 0.019650834
-## 9    lsoa_cd E01006522 (Intercept)  0.017917160  0.018491632 0.020798463
-## 10   lsoa_cd E01006523 (Intercept)  0.003566191  0.005257741 0.020199998
+## 1    lsoa_cd E01006512 (Intercept) -0.016411006 -0.016176088 0.020505472
+## 2    lsoa_cd E01006513 (Intercept) -0.016565994 -0.015703001 0.020299176
+## 3    lsoa_cd E01006514 (Intercept) -0.021910535 -0.020312504 0.019133606
+## 4    lsoa_cd E01006515 (Intercept) -0.016803113 -0.015393862 0.018107430
+## 5    lsoa_cd E01006518 (Intercept) -0.018576841 -0.016750182 0.018909657
+## 6    lsoa_cd E01006519 (Intercept) -0.016993962 -0.016714714 0.009940236
+## 7    lsoa_cd E01006520 (Intercept) -0.024186514 -0.022364300 0.020764031
+## 8    lsoa_cd E01006521 (Intercept)  0.006409488  0.006138779 0.020468205
+## 9    lsoa_cd E01006522 (Intercept)  0.017863792  0.017563513 0.020766188
+## 10   lsoa_cd E01006523 (Intercept)  0.004786113  0.006732217 0.019904731
 ```
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from `ranef` with some small differences due to rounding.
@@ -556,7 +553,7 @@ To gain an undertanding of the general pattern of the *random effects*, we can u
 plotREsim(REsim(model3)) 
 ```
 
-![](05-multilevel_01_files/figure-latex/unnamed-chunk-20-1.pdf)<!-- --> 
+<img src="05-multilevel_01_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 Focusing on the plot on the right, we see MSOAs whose mean proportion of unemployed population, assuming no explanatory variables, is lower than average. On the right-hand side of the plot, you will see MSOAs whose mean proportion is higher than average. The MSOAs with the smallest residuals include the districts of Allerton and Hunt Cross, Church, Childwall, Wavertree and Woolton. What districts do we have at the other extreme?
 
@@ -617,9 +614,9 @@ str(re_msoa)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.01171 -0.02183 -0.02779 0.00625 0.02156 ...
-##  $ median   : num  -0.01237 -0.02259 -0.02648 0.00654 0.02356 ...
-##  $ sd       : num  0.0332 0.0318 0.0343 0.0326 0.0184 ...
+##  $ mean     : num  -0.01242 -0.02678 -0.03197 0.00176 0.02428 ...
+##  $ median   : num  -0.01386 -0.02949 -0.03246 0.00287 0.02496 ...
+##  $ sd       : num  0.0326 0.0327 0.0305 0.0314 0.0175 ...
 ```
 
 ```r
@@ -645,7 +642,7 @@ map_msoa
 ## Warning: The shape msoa_shp is invalid. See sf::st_is_valid
 ```
 
-![](05-multilevel_01_files/figure-latex/unnamed-chunk-23-1.pdf)<!-- --> 
+<img src="05-multilevel_01_files/figure-html/unnamed-chunk-23-1.png" width="672" />
  
 ### Adding Individual-level Predictors
 

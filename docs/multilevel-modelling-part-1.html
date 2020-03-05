@@ -261,13 +261,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
 <span class="co"># read data</span>
 oa_shp &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/mlm/oa.shp&quot;</span>)</code></pre></div>
-<pre><code>## Reading layer `oa&#39; from data source `/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/mlm/oa.shp&#39; using driver `ESRI Shapefile&#39;
-## Simple feature collection with 1584 features and 19 fields
-## geometry type:  MULTIPOLYGON
-## dimension:      XY
-## bbox:           xmin: 332390.2 ymin: 379748.5 xmax: 345636 ymax: 397980.1
-## epsg (SRID):    NA
-## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs</code></pre>
 <p>We can now attach and visualise the structure of the data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># attach data frame</span>
 <span class="kw">attach</span>(oa_shp)
@@ -307,8 +300,19 @@ oa_shp &lt;-<span class="st"> </span>oa_shp[<span class="kw">order</span>(oa_cd)
 <p class="caption">Fig. 1. Data Structure.</p>
 </div>
 <p>The data are hierarchically structured: OAs nested within LSOAs; LSOAs nested within MSOAs; and, MSOAs nested within LADs. Observations nested within higher geographical units may be correlated.</p>
-<p>This is one type of hierarchical structure. There is a range of data structures: * Strict nested data structures eg. an individual unit is nested within only one higher unit * Repeated measures structures eg. various measurements for an individual unit * Crossed classified structures eg. individuals may work and live in different neighbourhoods * Multiple membership structure eg. individuals may have two different work places</p>
-<p><em>Why should we care about the structure of the data?</em> * <em>Draw correct statistical inference</em>: Failing to recognise hierarchical structures will lead to underestimated standard errors of regression coefficients and an overstatement of statistical significance. Standard errors for the coefficients of higher-level predictor variables will be the most affected by ignoring grouping. * <em>Link context to individual units</em>: We can link and understand the extent of group effects on individual outcomes eg. how belonging to a certain socio-economic group influences on future career opportunities. * <em>Spatial dependency</em>: Recognising the hierarchical structure of data may help mitigate the effects of severe spatial autocorrelation.</p>
+<p>This is one type of hierarchical structure. There is a range of data structures:</p>
+<ul>
+<li><p>Strict nested data structures eg. an individual unit is nested within only one higher unit</p></li>
+<li><p>Repeated measures structures eg. various measurements for an individual unit</p></li>
+<li><p>Crossed classified structures eg. individuals may work and live in different neighbourhoods</p></li>
+<li><p>Multiple membership structure eg. individuals may have two different work places</p></li>
+</ul>
+<p><em>Why should we care about the structure of the data?</em></p>
+<ul>
+<li><p><em>Draw correct statistical inference</em>: Failing to recognise hierarchical structures will lead to underestimated standard errors of regression coefficients and an overstatement of statistical significance. Standard errors for the coefficients of higher-level predictor variables will be the most affected by ignoring grouping.</p></li>
+<li><p><em>Link context to individual units</em>: We can link and understand the extent of group effects on individual outcomes eg. how belonging to a certain socio-economic group influences on future career opportunities.</p></li>
+<li><p><em>Spatial dependency</em>: Recognising the hierarchical structure of data may help mitigate the effects of severe spatial autocorrelation.</p></li>
+</ul>
 <p>Quickly, let us get a better idea about the data and look at the number of OAs nested within LSOAs and MSOAs</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mean of nested OAs within LSOAs and MSOAs</span>
 lsoa_cd <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>() <span class="op">%&gt;%</span>
@@ -572,16 +576,16 @@ vpc_lsoa <span class="op">*</span><span class="st"> </span><span class="dv">100<
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># obtain estimates</span>
 <span class="kw">REsim</span>(model3) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">10</span>)</code></pre></div>
 <pre><code>##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.015823891 -0.014954147 0.019199261
-## 2    lsoa_cd E01006513 (Intercept) -0.016459415 -0.018085959 0.018562794
-## 3    lsoa_cd E01006514 (Intercept) -0.021641301 -0.022335016 0.020188712
-## 4    lsoa_cd E01006515 (Intercept) -0.018121475 -0.019586416 0.017659141
-## 5    lsoa_cd E01006518 (Intercept) -0.017296083 -0.018046786 0.020391747
-## 6    lsoa_cd E01006519 (Intercept) -0.016560583 -0.016218051 0.009287833
-## 7    lsoa_cd E01006520 (Intercept) -0.023465603 -0.023450786 0.020768052
-## 8    lsoa_cd E01006521 (Intercept)  0.004343171  0.004192050 0.018505328
-## 9    lsoa_cd E01006522 (Intercept)  0.016921312  0.017183305 0.018215068
-## 10   lsoa_cd E01006523 (Intercept)  0.005390020  0.005837811 0.018372552</code></pre>
+## 1    lsoa_cd E01006512 (Intercept) -0.016411006 -0.016176088 0.020505472
+## 2    lsoa_cd E01006513 (Intercept) -0.016565994 -0.015703001 0.020299176
+## 3    lsoa_cd E01006514 (Intercept) -0.021910535 -0.020312504 0.019133606
+## 4    lsoa_cd E01006515 (Intercept) -0.016803113 -0.015393862 0.018107430
+## 5    lsoa_cd E01006518 (Intercept) -0.018576841 -0.016750182 0.018909657
+## 6    lsoa_cd E01006519 (Intercept) -0.016993962 -0.016714714 0.009940236
+## 7    lsoa_cd E01006520 (Intercept) -0.024186514 -0.022364300 0.020764031
+## 8    lsoa_cd E01006521 (Intercept)  0.006409488  0.006138779 0.020468205
+## 9    lsoa_cd E01006522 (Intercept)  0.017863792  0.017563513 0.020766188
+## 10   lsoa_cd E01006523 (Intercept)  0.004786113  0.006732217 0.019904731</code></pre>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
 <p>To gain an undertanding of the general pattern of the <em>random effects</em>, we can use caterpillar plots via <code>plotREsim</code> - reported below. The plot on the right shows the estimated random effects for each MSOA and their respective interval estimate. Note that random effects are on average zero, represented by the red horizontal line. Intervals that do not include zero are in bold. Also note that the width of the confidence interval depends on the standard error of the respective residual estimate, which is inversely related to the size of the sample. The residuals represent an observation departures from the grand mean, so an observation whose confidence interval does not overlap the line at zero (representing the mean proportion of unemployed population across all areas) is said to differ significantly from the average at the 5% level.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot</span>
@@ -626,9 +630,9 @@ re_msoa &lt;-<span class="st"> </span>re <span class="op">%&gt;%</span><span cla
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; ...
-##  $ mean     : num  -0.0123 -0.0259 -0.033 0.0056 0.023 ...
-##  $ median   : num  -0.01134 -0.02455 -0.03374 0.00356 0.02297 ...
-##  $ sd       : num  0.0328 0.0324 0.0311 0.034 0.0169 ...</code></pre>
+##  $ mean     : num  -0.01242 -0.02678 -0.03197 0.00176 0.02428 ...
+##  $ median   : num  -0.01386 -0.02949 -0.03246 0.00287 0.02496 ...
+##  $ sd       : num  0.0326 0.0327 0.0305 0.0314 0.0175 ...</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># merge data</span>
 msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</code></pre></div>
 <p>Now we can create our map:</p>

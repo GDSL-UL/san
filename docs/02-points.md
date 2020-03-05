@@ -240,7 +240,10 @@ hist
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![(\#fig:unnamed-chunk-8)Raw house prices in Liverpool](02-points_files/figure-latex/unnamed-chunk-8-1.pdf) 
+<div class="figure">
+<img src="02-points_files/figure-html/unnamed-chunk-8-1.png" alt="Raw house prices in Liverpool" width="672" />
+<p class="caption">(\#fig:unnamed-chunk-8)Raw house prices in Liverpool</p>
+</div>
 
 This basically shows there is a lot of values concentrated around the lower end of the distribution but a few very large ones. A usual transformation to *shrink* these differences is to take logarithms:
 
@@ -258,7 +261,10 @@ hist
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![(\#fig:unnamed-chunk-9)Log of house price in Liverpool](02-points_files/figure-latex/unnamed-chunk-9-1.pdf) 
+<div class="figure">
+<img src="02-points_files/figure-html/unnamed-chunk-9-1.png" alt="Log of house price in Liverpool" width="672" />
+<p class="caption">(\#fig:unnamed-chunk-9)Log of house price in Liverpool</p>
+</div>
 
 To obtain the spatial distribution of these houses, we need to turn away from the `@data` component of `db`. The easiest, quickest (and also dirtiest) way to get a sense of what the data look like over space is using `plot`:
 
@@ -267,7 +273,10 @@ To obtain the spatial distribution of these houses, we need to turn away from th
 plot(db)
 ```
 
-![(\#fig:unnamed-chunk-10)Spatial distribution of house transactions in Liverpool](02-points_files/figure-latex/unnamed-chunk-10-1.pdf) 
+<div class="figure">
+<img src="02-points_files/figure-html/unnamed-chunk-10-1.png" alt="Spatial distribution of house transactions in Liverpool" width="672" />
+<p class="caption">(\#fig:unnamed-chunk-10)Spatial distribution of house transactions in Liverpool</p>
+</div>
 
 ## KDE
 
@@ -290,7 +299,10 @@ kde <- hist +
 kde
 ```
 
-![(\#fig:unnamed-chunk-11)Histogram and KDE of the log of house prices in Liverpool](02-points_files/figure-latex/unnamed-chunk-11-1.pdf) 
+<div class="figure">
+<img src="02-points_files/figure-html/unnamed-chunk-11-1.png" alt="Histogram and KDE of the log of house prices in Liverpool" width="672" />
+<p class="caption">(\#fig:unnamed-chunk-11)Histogram and KDE of the log of house prices in Liverpool</p>
+</div>
 
 The key idea is that we are smoothing out the discrete binning that the histogram involves. Note how the histogram is exactly the same as above shape-wise, but it has been rescalend on the Y axis to reflect probabilities rather than counts.
 
@@ -314,7 +326,10 @@ kde <- base + stat_density2d(aes(x = X, y = Y, alpha = ..level..),
 kde
 ```
 
-![(\#fig:unnamed-chunk-12)KDE of house transactions in Liverpool](02-points_files/figure-latex/unnamed-chunk-12-1.pdf) 
+<div class="figure">
+<img src="02-points_files/figure-html/unnamed-chunk-12-1.png" alt="KDE of house transactions in Liverpool" width="672" />
+<p class="caption">(\#fig:unnamed-chunk-12)KDE of house transactions in Liverpool</p>
+</div>
 
 Or, we can use a package such as the `GISTools`, which allows to pass a spatial object directly:
 
@@ -326,7 +341,10 @@ kde <- kde.points(db)
 level.plot(kde)
 ```
 
-![(\#fig:unnamed-chunk-13)KDE of house transactions in Liverpool](02-points_files/figure-latex/unnamed-chunk-13-1.pdf) 
+<div class="figure">
+<img src="02-points_files/figure-html/unnamed-chunk-13-1.png" alt="KDE of house transactions in Liverpool" width="672" />
+<p class="caption">(\#fig:unnamed-chunk-13)KDE of house transactions in Liverpool</p>
+</div>
 
 Either of these approaches generate a surface that represents the density of dots, that is an estimation of the probability of finding a house transaction at a given coordinate. However, without any further information, they are hard to interpret and link with previous knowledge of the area. To bring such context to the figure, we can plot an underlying basemap, using a cloud provider such as Google Maps or, as in this case, OpenStreetMap. To do it, we will leverage the library `ggmap`, which is designed to play nicely with the `ggplot2` family (hence the seemingly counterintuitive example above). Before we can plot them with the online map, we need to reproject them though.
 
@@ -399,7 +417,10 @@ final <- ggmap(basemap, extent = "device",
 final
 ```
 
-![(\#fig:unnamed-chunk-14)KDE of house transactions in Liverpool](02-points_files/figure-latex/unnamed-chunk-14-1.pdf) 
+<div class="figure">
+<img src="02-points_files/figure-html/unnamed-chunk-14-1.png" alt="KDE of house transactions in Liverpool" width="672" />
+<p class="caption">(\#fig:unnamed-chunk-14)KDE of house transactions in Liverpool</p>
+</div>
 
 The plot above^[**EXERCISE** The map above uses the Stamen map `toner-lite`. Explore additional tile styles on their [website](http://maps.stamen.com/#watercolor/12/37.7706/-122.3782) and try to recreate the plot above.] allows us to not only see the distribution of house transactions, but to relate it to what we know about Liverpool, allowing us to establish many more connections than we were previously able. Mainly, we can easily see that the area with a highest volume of houses being sold is the city centre, with a "hole" around it that displays very few to no transactions and then several pockets further away.
 
@@ -460,12 +481,12 @@ head(idw.hp@data)
 
 ```
 ##   var1.pred var1.var
-## 1  158108.2       NA
-## 2  158219.3       NA
-## 3  158333.2       NA
-## 4  158450.1       NA
-## 5  158570.0       NA
-## 6  158693.1       NA
+## 1  158060.4       NA
+## 2  158170.3       NA
+## 3  158283.0       NA
+## 4  158398.5       NA
+## 5  158517.0       NA
+## 6  158638.6       NA
 ```
 
 The column we will pay attention to is `var1.pred`. And to see the locations for which those correspond:
@@ -477,12 +498,12 @@ head(idw.hp@coords)
 
 ```
 ##            x1       x2
-## [1,] 333604.1 382715.9
-## [2,] 333689.1 382715.9
-## [3,] 333774.0 382715.9
-## [4,] 333859.0 382715.9
-## [5,] 333944.0 382715.9
-## [6,] 334028.9 382715.9
+## [1,] 333571.2 382692.9
+## [2,] 333656.1 382692.9
+## [3,] 333741.1 382692.9
+## [4,] 333826.0 382692.9
+## [5,] 333911.0 382692.9
+## [6,] 333996.0 382692.9
 ```
 
 So, for a hypothetical house sold at the location in the first row of `idw.hp@coords` (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column `var1.pred` in `idw.hp@data`.
@@ -496,7 +517,7 @@ Once we have the IDW object computed, we can plot it to explore the distribution
 spplot(idw.hp['var1.pred'])
 ```
 
-![](02-points_files/figure-latex/unnamed-chunk-19-1.pdf)<!-- --> 
+<img src="02-points_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 
 However, this is not entirely satisfactory for a number of reasons. Let us get an equivalen plot with the package `tmap`, which streamlines some of this and makes more aesthetically pleasant maps easier to build as it follows a "ggplot-y" approach.
 
@@ -520,7 +541,7 @@ The shape we will overlay looks like this:
 qtm(liv.otl)
 ```
 
-![](02-points_files/figure-latex/unnamed-chunk-21-1.pdf)<!-- --> 
+<img src="02-points_files/figure-html/unnamed-chunk-21-1.png" width="672" />
 
 Now let's give it a first go!
 
@@ -534,7 +555,7 @@ p = tm_shape(liv.otl) + tm_fill(col='black', alpha=1) +
 p
 ```
 
-![](02-points_files/figure-latex/unnamed-chunk-22-1.pdf)<!-- --> 
+<img src="02-points_files/figure-html/unnamed-chunk-22-1.png" width="672" />
 
 
 The last two plots, however, are not really a surface, but a representation of the points we have just estimated. To create a surface, we need to do an interim transformation to convert the spatial object `idw.hp` into a table that a "surface plotter" can understand.
@@ -555,7 +576,10 @@ surface <- base + geom_contour(aes(z=z))
 surface
 ```
 
-![(\#fig:unnamed-chunk-24)Contour of prices in Liverpool](02-points_files/figure-latex/unnamed-chunk-24-1.pdf) 
+<div class="figure">
+<img src="02-points_files/figure-html/unnamed-chunk-24-1.png" alt="Contour of prices in Liverpool" width="672" />
+<p class="caption">(\#fig:unnamed-chunk-24)Contour of prices in Liverpool</p>
+</div>
 
 Which can also be shown as a filled contour:
 
@@ -566,7 +590,7 @@ surface <- base + geom_raster(aes(fill=z))
 surface
 ```
 
-![](02-points_files/figure-latex/unnamed-chunk-25-1.pdf)<!-- --> 
+<img src="02-points_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
 The problem here, when compared to the KDE above for example, is that a few values are extremely large:
 
@@ -575,7 +599,10 @@ The problem here, when compared to the KDE above for example, is that a few valu
 qplot(data=xyz, x=z, geom='density')
 ```
 
-![(\#fig:unnamed-chunk-26)Skewness of prices in Liverpool](02-points_files/figure-latex/unnamed-chunk-26-1.pdf) 
+<div class="figure">
+<img src="02-points_files/figure-html/unnamed-chunk-26-1.png" alt="Skewness of prices in Liverpool" width="672" />
+<p class="caption">(\#fig:unnamed-chunk-26)Skewness of prices in Liverpool</p>
+</div>
 
 Let us then take the logarithm before we plot the surface:
 
@@ -589,7 +616,10 @@ surface <- base +
 surface
 ```
 
-![(\#fig:unnamed-chunk-27)Surface of log-prices in Liverpool](02-points_files/figure-latex/unnamed-chunk-27-1.pdf) 
+<div class="figure">
+<img src="02-points_files/figure-html/unnamed-chunk-27-1.png" alt="Surface of log-prices in Liverpool" width="672" />
+<p class="caption">(\#fig:unnamed-chunk-27)Surface of log-prices in Liverpool</p>
+</div>
 
 Now this looks better. We can start to tell some patterns. To bring in context, it would be great to be able to add a basemap layer, as we did for the KDE. This is conceptually very similar to what we did above, starting by reprojecting the points and continuing by overlaying them on top of the basemap. However, technically speaking it is not possible because `ggmap` --the library we have been using to display tiles from cloud providers-- does not play well with our own rasters (i.e. the price surface). At the moment, it is surprisingly tricky to get this to work, so we will park it for now. However, developments such as the [`sf`](https://github.com/edzer/sfr) project promise to make this easier in the future^[**BONUS** if you can figure out a way to do it yourself!]. 
 
