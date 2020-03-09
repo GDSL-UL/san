@@ -468,25 +468,6 @@ head(ranef_m5$msoa_cd, 5)
 
 Adding group-level predictors tends to improve inferences for group coefficients. Examine the confidence intervals, in order to evalute how the precision of our estimates of the MSOA intercepts have changed. *Have confidence intervals for the intercepts of Model 4 and 5 increased or reduced?* Hint: look at how to get the confidence intervals above.
 
-## Model building
-
-Now we know how to estimate multilevel regression models in *R*. The question that remains is: *When does multilevel modeling make a difference?* The short answer is: when there is little group-level variation. When there is very little group-level variation, the multilevel modelling reduces to classical linear regression estimates *with no group indicators*. Inversely, when group-level coefficients vary greatly (compared to their standard errors of estimation), multilevel modelling reduces to classical regression *with group indicators* @Gelman_Hill_2006_book.
-
-*How do you go about building a model?* We generally start simple by fitting simple linear regressions and then work our way up to a full multilevel model - see @Gelman_Hill_2006_book p. 270.
-
-*How many groups are needed?* As an absolute minimum, more than two groups are required. With only one or two groups, a multilevel model reduces to a linear regression model.
-
-*How many observations per group?* Two observations per group is sufficient to fit a multilevel model. 
-
-### Model Comparison
-
-*How we assess different candidate models?* We can use the function `anova()` and assess various statistics: The Akaike Information Criterion (AIC), the Bayesian Information Criterion (BIC), Loglik and Deviance. Generally, we look for lower scores for all these indicators. We can also refer to the *Chisq* statistic below. It tests the hypothesis of whether additional predictors improve model fit. Particularly it tests the *Null Hypothesis* whether the coefficients of the additional predictors equal `0`. It does so comparing the deviance statistic and determining if changes in the deviance are statistically significant. Note that a major limitation of the deviance test is that it is for nested models i.e. a model being compared must be nested in the other.
-
-Here compare three of our estimated models. It seems that adding varying intercepts for LSOA and MSOA levels provide the model with the better fit. Though, they don't explain the source of differences between OAs.
-
-```{r}
-anova(model3, model4, model5)
-```
 
 ## Useful Functions
 
