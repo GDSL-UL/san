@@ -531,16 +531,16 @@ REsim(model3) %>% head(10)
 
 ```
 ##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.016411006 -0.016176088 0.020505472
-## 2    lsoa_cd E01006513 (Intercept) -0.016565994 -0.015703001 0.020299176
-## 3    lsoa_cd E01006514 (Intercept) -0.021910535 -0.020312504 0.019133606
-## 4    lsoa_cd E01006515 (Intercept) -0.016803113 -0.015393862 0.018107430
-## 5    lsoa_cd E01006518 (Intercept) -0.018576841 -0.016750182 0.018909657
-## 6    lsoa_cd E01006519 (Intercept) -0.016993962 -0.016714714 0.009940236
-## 7    lsoa_cd E01006520 (Intercept) -0.024186514 -0.022364300 0.020764031
-## 8    lsoa_cd E01006521 (Intercept)  0.006409488  0.006138779 0.020468205
-## 9    lsoa_cd E01006522 (Intercept)  0.017863792  0.017563513 0.020766188
-## 10   lsoa_cd E01006523 (Intercept)  0.004786113  0.006732217 0.019904731
+## 1    lsoa_cd E01006512 (Intercept) -0.016507962 -0.016920563 0.020150412
+## 2    lsoa_cd E01006513 (Intercept) -0.014661294 -0.016717323 0.017312582
+## 3    lsoa_cd E01006514 (Intercept) -0.020567897 -0.019456636 0.018005931
+## 4    lsoa_cd E01006515 (Intercept) -0.018421146 -0.017278520 0.018619662
+## 5    lsoa_cd E01006518 (Intercept) -0.020121579 -0.021387602 0.019640782
+## 6    lsoa_cd E01006519 (Intercept) -0.016619572 -0.016740286 0.009690092
+## 7    lsoa_cd E01006520 (Intercept) -0.025926637 -0.027333717 0.019245487
+## 8    lsoa_cd E01006521 (Intercept)  0.007695354  0.009412365 0.019326427
+## 9    lsoa_cd E01006522 (Intercept)  0.018002800  0.018114719 0.020488544
+## 10   lsoa_cd E01006523 (Intercept)  0.005295880  0.005355979 0.020310817
 ```
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from `ranef` with some small differences due to rounding.
@@ -614,9 +614,9 @@ str(re_msoa)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.01242 -0.02678 -0.03197 0.00176 0.02428 ...
-##  $ median   : num  -0.01386 -0.02949 -0.03246 0.00287 0.02496 ...
-##  $ sd       : num  0.0326 0.0327 0.0305 0.0314 0.0175 ...
+##  $ mean     : num  -0.013024 -0.024903 -0.030162 0.000562 0.023027 ...
+##  $ median   : num  -0.01106 -0.02528 -0.03106 0.00217 0.02386 ...
+##  $ sd       : num  0.0332 0.0356 0.0297 0.0339 0.0164 ...
 ```
 
 ```r
@@ -628,6 +628,9 @@ Now we can create our map:
 
 
 ```r
+# ensure geometry is valid
+msoa_shp = lwgeom::st_make_valid(msoa_shp)
+
 # create a map
 legend_title = expression("MSOA-level residuals")
 map_msoa = tm_shape(msoa_shp) +
@@ -636,10 +639,6 @@ map_msoa = tm_shape(msoa_shp) +
   tm_compass(type = "arrow", position = c("right", "top") , size = 4) + 
   tm_scale_bar(breaks = c(0,1,2), text.size = 0.5, position =  c("center", "bottom")) 
 map_msoa
-```
-
-```
-## Warning: The shape msoa_shp is invalid. See sf::st_is_valid
 ```
 
 <img src="05-multilevel_01_files/figure-html/unnamed-chunk-23-1.png" width="672" />
@@ -657,7 +656,7 @@ $$\beta_{0j} = \beta_{0} + u_{0j}$$
 Replacing the first equation into the second, we have:
 
 $$y_{ij} = (\beta_{0} + u_{0j}) + \beta_{1}x_{ij} + e_{ij}$$
-where $y$ the proportion of unemployed population in OA $i$ within MSOA $j$; $\beta_{0}$ is the fixed intercept (averaging over all MSOAs); $u_{0j}$ represents the MSOA-level redisuals or *random effects*; $\beta_{0}$ and $u_{0j}$ together represent the varying-intercept; $\beta_{1}$ is the slope coefficient; $x_{ij}$ represents the percentage of long-term illness population; and, $e_{ij}$ is the individual-level residuals.
+where $y$ the proportion of unemployed population in OA $i$ within MSOA $j$; $\beta_{0}$ is the fixed intercept (averaging over all MSOAs); $u_{0j}$ represents the MSOA-level residuals or *random effects*; $\beta_{0}$ and $u_{0j}$ together represent the varying-intercept; $\beta_{1}$ is the slope coefficient; $x_{ij}$ represents the percentage of long-term illness population; and, $e_{ij}$ is the individual-level residuals.
 
 We estimate the model executing:
 
@@ -869,44 +868,6 @@ head(ranef_m5$msoa_cd, 5)
 
 Adding group-level predictors tends to improve inferences for group coefficients. Examine the confidence intervals, in order to evalute how the precision of our estimates of the MSOA intercepts have changed. *Have confidence intervals for the intercepts of Model 4 and 5 increased or reduced?* Hint: look at how to get the confidence intervals above.
 
-## Model building
-
-Now we know how to estimate multilevel regression models in *R*. The question that remains is: *When does multilevel modeling make a difference?* The short answer is: when there is little group-level variation. When there is very little group-level variation, the multilevel modelling reduces to classical linear regression estimates *with no group indicators*. Inversely, when group-level coefficients vary greatly (compared to their standard errors of estimation), multilevel modelling reduces to classical regression *with group indicators* @Gelman_Hill_2006_book.
-
-*How do you go about building a model?* We generally start simple by fitting simple linear regressions and then work our way up to a full multilevel model - see @Gelman_Hill_2006_book p. 270.
-
-*How many groups are needed?* As an absolute minimum, more than two groups are required. With only one or two groups, a multilevel model reduces to a linear regression model.
-
-*How many observations per group?* Two observations per group is sufficient to fit a multilevel model. 
-
-### Model Comparison
-
-*How we assess different candidate models?* We can use the function `anova()` and assess various statistics: The Akaike Information Criterion (AIC), the Bayesian Information Criterion (BIC), Loglik and Deviance. Generally, we look for lower scores for all these indicators. We can also refer to the *Chisq* statistic below. It tests the hypothesis of whether additional predictors improve model fit. Particularly it tests the *Null Hypothesis* whether the coefficients of the additional predictors equal `0`. It does so comparing the deviance statistic and determining if changes in the deviance are statistically significant. Note that a major limitation of the deviance test is that it is for nested models i.e. a model being compared must be nested in the other.
-
-Here compare three of our estimated models. It seems that adding varying intercepts for LSOA and MSOA levels provide the model with the better fit. Though, they don't explain the source of differences between OAs.
-
-
-```r
-anova(model3, model4, model5)
-```
-
-```
-## refitting model(s) with ML (instead of REML)
-```
-
-```
-## Data: oa_shp
-## Models:
-## model3: unemp ~ 1 + (1 | lsoa_cd) + (1 | msoa_cd)
-## model4: unemp ~ lt_ill + (1 | msoa_cd)
-## model5: unemp ~ lt_ill + pr_male + (1 | msoa_cd)
-##        Df     AIC     BIC logLik deviance    Chisq Chi Df Pr(>Chisq)    
-## model3  4 -4529.6 -4508.1 2268.8  -4537.6                               
-## model4  4 -4719.1 -4697.6 2363.6  -4727.1 189.4939      0     <2e-16 ***
-## model5  5 -4719.2 -4692.3 2364.6  -4729.2   2.0524      1      0.152    
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
 
 ## Useful Functions
 

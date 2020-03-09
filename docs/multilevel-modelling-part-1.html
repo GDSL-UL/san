@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-03-05" />
+<meta name="date" content="2020-03-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="spatial-econometrics.html"/>
-<link rel="next" href="multilevel-models-pt-ii.html"/>
+<link rel="next" href="multilevel-modelling-part-2.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -183,12 +183,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.4.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#adding-individual-level-predictors"><i class="fa fa-check"></i><b>6.4.5</b> Adding Individual-level Predictors</a></li>
 <li class="chapter" data-level="6.4.6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#adding-group-level-predictors"><i class="fa fa-check"></i><b>6.4.6</b> Adding Group-level Predictors</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#model-building"><i class="fa fa-check"></i><b>6.5</b> Model building</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#model-comparison"><i class="fa fa-check"></i><b>6.5.1</b> Model Comparison</a></li>
+<li class="chapter" data-level="6.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#useful-functions-1"><i class="fa fa-check"></i><b>6.5</b> Useful Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#useful-functions-1"><i class="fa fa-check"></i><b>6.6</b> Useful Functions</a></li>
+<li class="chapter" data-level="7" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html"><i class="fa fa-check"></i><b>7</b> Multilevel Modelling - Part 2</a><ul>
+<li class="chapter" data-level="7.1" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#dependencies-5"><i class="fa fa-check"></i><b>7.1</b> Dependencies</a></li>
+<li class="chapter" data-level="7.2" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#data-4"><i class="fa fa-check"></i><b>7.2</b> Data</a></li>
+<li class="chapter" data-level="7.3" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#conceptual-overview"><i class="fa fa-check"></i><b>7.3</b> Conceptual Overview</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#exploratory-analysis-varying-slopes"><i class="fa fa-check"></i><b>7.3.1</b> Exploratory Analysis: Varying Slopes</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>7</b> Multilevel Models (Pt. II)</a></li>
+<li class="chapter" data-level="7.4" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#estimating-varying-intercept-and-slopes-models"><i class="fa fa-check"></i><b>7.4</b> Estimating Varying Intercept and Slopes Models</a></li>
+<li class="chapter" data-level="7.5" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#interpreting-correlations-between-group-level-intercepts-and-slopes"><i class="fa fa-check"></i><b>7.5</b> Interpreting Correlations Between Group-level Intercepts and Slopes</a></li>
+<li class="chapter" data-level="7.6" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#model-building"><i class="fa fa-check"></i><b>7.6</b> Model building</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#model-comparison"><i class="fa fa-check"></i><b>7.6.1</b> Model Comparison</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="8" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>8</b> GWR</a></li>
 <li class="chapter" data-level="9" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>9</b> Space-Time Analysis</a></li>
 <li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
@@ -576,16 +584,16 @@ vpc_lsoa <span class="op">*</span><span class="st"> </span><span class="dv">100<
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># obtain estimates</span>
 <span class="kw">REsim</span>(model3) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">10</span>)</code></pre></div>
 <pre><code>##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.016411006 -0.016176088 0.020505472
-## 2    lsoa_cd E01006513 (Intercept) -0.016565994 -0.015703001 0.020299176
-## 3    lsoa_cd E01006514 (Intercept) -0.021910535 -0.020312504 0.019133606
-## 4    lsoa_cd E01006515 (Intercept) -0.016803113 -0.015393862 0.018107430
-## 5    lsoa_cd E01006518 (Intercept) -0.018576841 -0.016750182 0.018909657
-## 6    lsoa_cd E01006519 (Intercept) -0.016993962 -0.016714714 0.009940236
-## 7    lsoa_cd E01006520 (Intercept) -0.024186514 -0.022364300 0.020764031
-## 8    lsoa_cd E01006521 (Intercept)  0.006409488  0.006138779 0.020468205
-## 9    lsoa_cd E01006522 (Intercept)  0.017863792  0.017563513 0.020766188
-## 10   lsoa_cd E01006523 (Intercept)  0.004786113  0.006732217 0.019904731</code></pre>
+## 1    lsoa_cd E01006512 (Intercept) -0.016507962 -0.016920563 0.020150412
+## 2    lsoa_cd E01006513 (Intercept) -0.014661294 -0.016717323 0.017312582
+## 3    lsoa_cd E01006514 (Intercept) -0.020567897 -0.019456636 0.018005931
+## 4    lsoa_cd E01006515 (Intercept) -0.018421146 -0.017278520 0.018619662
+## 5    lsoa_cd E01006518 (Intercept) -0.020121579 -0.021387602 0.019640782
+## 6    lsoa_cd E01006519 (Intercept) -0.016619572 -0.016740286 0.009690092
+## 7    lsoa_cd E01006520 (Intercept) -0.025926637 -0.027333717 0.019245487
+## 8    lsoa_cd E01006521 (Intercept)  0.007695354  0.009412365 0.019326427
+## 9    lsoa_cd E01006522 (Intercept)  0.018002800  0.018114719 0.020488544
+## 10   lsoa_cd E01006523 (Intercept)  0.005295880  0.005355979 0.020310817</code></pre>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
 <p>To gain an undertanding of the general pattern of the <em>random effects</em>, we can use caterpillar plots via <code>plotREsim</code> - reported below. The plot on the right shows the estimated random effects for each MSOA and their respective interval estimate. Note that random effects are on average zero, represented by the red horizontal line. Intervals that do not include zero are in bold. Also note that the width of the confidence interval depends on the standard error of the respective residual estimate, which is inversely related to the size of the sample. The residuals represent an observation departures from the grand mean, so an observation whose confidence interval does not overlap the line at zero (representing the mean proportion of unemployed population across all areas) is said to differ significantly from the average at the 5% level.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot</span>
@@ -630,13 +638,16 @@ re_msoa &lt;-<span class="st"> </span>re <span class="op">%&gt;%</span><span cla
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; ...
-##  $ mean     : num  -0.01242 -0.02678 -0.03197 0.00176 0.02428 ...
-##  $ median   : num  -0.01386 -0.02949 -0.03246 0.00287 0.02496 ...
-##  $ sd       : num  0.0326 0.0327 0.0305 0.0314 0.0175 ...</code></pre>
+##  $ mean     : num  -0.013024 -0.024903 -0.030162 0.000562 0.023027 ...
+##  $ median   : num  -0.01106 -0.02528 -0.03106 0.00217 0.02386 ...
+##  $ sd       : num  0.0332 0.0356 0.0297 0.0339 0.0164 ...</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># merge data</span>
 msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</code></pre></div>
 <p>Now we can create our map:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a map</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ensure geometry is valid</span>
+msoa_shp =<span class="st"> </span>lwgeom<span class="op">::</span><span class="kw">st_make_valid</span>(msoa_shp)
+
+<span class="co"># create a map</span>
 legend_title =<span class="st"> </span><span class="kw">expression</span>(<span class="st">&quot;MSOA-level residuals&quot;</span>)
 map_msoa =<span class="st"> </span><span class="kw">tm_shape</span>(msoa_shp) <span class="op">+</span>
 <span class="st">  </span><span class="kw">tm_fill</span>(<span class="dt">col =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">title =</span> legend_title, <span class="dt">palette =</span> <span class="kw">magma</span>(<span class="dv">256</span>, <span class="dt">begin =</span> <span class="dv">0</span>, <span class="dt">end =</span> <span class="dv">1</span>), <span class="dt">style =</span> <span class="st">&quot;cont&quot;</span>) <span class="op">+</span><span class="st"> </span>
@@ -644,7 +655,6 @@ map_msoa =<span class="st"> </span><span class="kw">tm_shape</span>(msoa_shp) <s
 <span class="st">  </span><span class="kw">tm_compass</span>(<span class="dt">type =</span> <span class="st">&quot;arrow&quot;</span>, <span class="dt">position =</span> <span class="kw">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>) , <span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">tm_scale_bar</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">text.size =</span> <span class="fl">0.5</span>, <span class="dt">position =</span>  <span class="kw">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;bottom&quot;</span>)) 
 map_msoa</code></pre></div>
-<pre><code>## Warning: The shape msoa_shp is invalid. See sf::st_is_valid</code></pre>
 <p><img src="05-multilevel_01_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 </div>
 <div id="adding-individual-level-predictors" class="section level3">
@@ -653,7 +663,7 @@ map_msoa</code></pre></div>
 <p>OA-level:</p>
 <p><span class="math display">\[y_{ij} = \beta_{0j} + \beta_{1}x_{ij} + e_{ij}\]</span> MSOA-level:</p>
 <p><span class="math display">\[\beta_{0j} = \beta_{0} + u_{0j}\]</span> Replacing the first equation into the second, we have:</p>
-<p><span class="math display">\[y_{ij} = (\beta_{0} + u_{0j}) + \beta_{1}x_{ij} + e_{ij}\]</span> where <span class="math inline">\(y\)</span> the proportion of unemployed population in OA <span class="math inline">\(i\)</span> within MSOA <span class="math inline">\(j\)</span>; <span class="math inline">\(\beta_{0}\)</span> is the fixed intercept (averaging over all MSOAs); <span class="math inline">\(u_{0j}\)</span> represents the MSOA-level redisuals or <em>random effects</em>; <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(u_{0j}\)</span> together represent the varying-intercept; <span class="math inline">\(\beta_{1}\)</span> is the slope coefficient; <span class="math inline">\(x_{ij}\)</span> represents the percentage of long-term illness population; and, <span class="math inline">\(e_{ij}\)</span> is the individual-level residuals.</p>
+<p><span class="math display">\[y_{ij} = (\beta_{0} + u_{0j}) + \beta_{1}x_{ij} + e_{ij}\]</span> where <span class="math inline">\(y\)</span> the proportion of unemployed population in OA <span class="math inline">\(i\)</span> within MSOA <span class="math inline">\(j\)</span>; <span class="math inline">\(\beta_{0}\)</span> is the fixed intercept (averaging over all MSOAs); <span class="math inline">\(u_{0j}\)</span> represents the MSOA-level residuals or <em>random effects</em>; <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(u_{0j}\)</span> together represent the varying-intercept; <span class="math inline">\(\beta_{1}\)</span> is the slope coefficient; <span class="math inline">\(x_{ij}\)</span> represents the percentage of long-term illness population; and, <span class="math inline">\(e_{ij}\)</span> is the individual-level residuals.</p>
 <p>We estimate the model executing:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># change to proportion</span>
 oa_shp<span class="op">$</span>lt_ill &lt;-<span class="st"> </span>lt_ill<span class="op">/</span><span class="dv">100</span>
@@ -799,33 +809,8 @@ ranef_m5 &lt;-<span class="st"> </span><span class="kw">ranef</span>(model5)
 <p>Adding group-level predictors tends to improve inferences for group coefficients. Examine the confidence intervals, in order to evalute how the precision of our estimates of the MSOA intercepts have changed. <em>Have confidence intervals for the intercepts of Model 4 and 5 increased or reduced?</em> Hint: look at how to get the confidence intervals above.</p>
 </div>
 </div>
-<div id="model-building" class="section level2">
-<h2><span class="header-section-number">6.5</span> Model building</h2>
-<p>Now we know how to estimate multilevel regression models in <em>R</em>. The question that remains is: <em>When does multilevel modeling make a difference?</em> The short answer is: when there is little group-level variation. When there is very little group-level variation, the multilevel modelling reduces to classical linear regression estimates <em>with no group indicators</em>. Inversely, when group-level coefficients vary greatly (compared to their standard errors of estimation), multilevel modelling reduces to classical regression <em>with group indicators</em> <span class="citation">Gelman and Hill (<a href="#ref-Gelman_Hill_2006_book">2006</a><a href="#ref-Gelman_Hill_2006_book">b</a>)</span>.</p>
-<p><em>How do you go about building a model?</em> We generally start simple by fitting simple linear regressions and then work our way up to a full multilevel model - see <span class="citation">Gelman and Hill (<a href="#ref-Gelman_Hill_2006_book">2006</a><a href="#ref-Gelman_Hill_2006_book">b</a>)</span> p. 270.</p>
-<p><em>How many groups are needed?</em> As an absolute minimum, more than two groups are required. With only one or two groups, a multilevel model reduces to a linear regression model.</p>
-<p><em>How many observations per group?</em> Two observations per group is sufficient to fit a multilevel model.</p>
-<div id="model-comparison" class="section level3">
-<h3><span class="header-section-number">6.5.1</span> Model Comparison</h3>
-<p><em>How we assess different candidate models?</em> We can use the function <code>anova()</code> and assess various statistics: The Akaike Information Criterion (AIC), the Bayesian Information Criterion (BIC), Loglik and Deviance. Generally, we look for lower scores for all these indicators. We can also refer to the <em>Chisq</em> statistic below. It tests the hypothesis of whether additional predictors improve model fit. Particularly it tests the <em>Null Hypothesis</em> whether the coefficients of the additional predictors equal <code>0</code>. It does so comparing the deviance statistic and determining if changes in the deviance are statistically significant. Note that a major limitation of the deviance test is that it is for nested models i.e. a model being compared must be nested in the other.</p>
-<p>Here compare three of our estimated models. It seems that adding varying intercepts for LSOA and MSOA levels provide the model with the better fit. Though, they don’t explain the source of differences between OAs.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(model3, model4, model5)</code></pre></div>
-<pre><code>## refitting model(s) with ML (instead of REML)</code></pre>
-<pre><code>## Data: oa_shp
-## Models:
-## model3: unemp ~ 1 + (1 | lsoa_cd) + (1 | msoa_cd)
-## model4: unemp ~ lt_ill + (1 | msoa_cd)
-## model5: unemp ~ lt_ill + pr_male + (1 | msoa_cd)
-##        Df     AIC     BIC logLik deviance    Chisq Chi Df Pr(&gt;Chisq)    
-## model3  4 -4529.6 -4508.1 2268.8  -4537.6                               
-## model4  4 -4719.1 -4697.6 2363.6  -4727.1 189.4939      0     &lt;2e-16 ***
-## model5  5 -4719.2 -4692.3 2364.6  -4729.2   2.0524      1      0.152    
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-</div>
-</div>
 <div id="useful-functions-1" class="section level2">
-<h2><span class="header-section-number">6.6</span> Useful Functions</h2>
+<h2><span class="header-section-number">6.5</span> Useful Functions</h2>
 <table style="width:79%;">
 <colgroup>
 <col width="15%" />
@@ -892,7 +877,7 @@ ranef_m5 &lt;-<span class="st"> </span><span class="kw">ranef</span>(model5)
         </div>
       </div>
 <a href="spatial-econometrics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="multilevel-models-pt-ii.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="multilevel-modelling-part-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -63,7 +63,7 @@ oa_shp <- st_read("data/mlm/oa.shp")
 
 So far, we have estimated varying-intercept models; that is, when the intercept ($\beta_{0}$) is allowed to vary by group (eg. geographical area) - as shown in Fig. 1(a). The strength of the relationship between $y$ (i.e. unemployment rate) and $x$ (long-term illness) has been assumed to be the same across groups (i.e. MSOAs), as captured by the regression slope ($\beta_{1}$). Yet it can also vary by group as shown in Fig. 1(b), or we can observe group variability for both intercepts and slopes as represented in Fig. 1(c).
 
-![Fig. 1. Linear regression model with (a) varying intercepts, (b) varying slopes, and (c) both. Source: @Gelman_Hill_2006 p.238.](figs/ch6/fig11.1_Gelman_Hill.png)
+![Fig. 1. Linear regression model with (a) varying intercepts, (b) varying slopes, and (c) both. Source: @Gelman_Hill_2006_book p.238.](figs/ch6/fig11.1_Gelman_Hill.png)
 
 ### Exploratory Analysis: Varying Slopes
 

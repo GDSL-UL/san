@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-03-05" />
+<meta name="date" content="2020-03-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -183,12 +183,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.4.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#adding-individual-level-predictors"><i class="fa fa-check"></i><b>6.4.5</b> Adding Individual-level Predictors</a></li>
 <li class="chapter" data-level="6.4.6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#adding-group-level-predictors"><i class="fa fa-check"></i><b>6.4.6</b> Adding Group-level Predictors</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#model-building"><i class="fa fa-check"></i><b>6.5</b> Model building</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#model-comparison"><i class="fa fa-check"></i><b>6.5.1</b> Model Comparison</a></li>
+<li class="chapter" data-level="6.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#useful-functions-1"><i class="fa fa-check"></i><b>6.5</b> Useful Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#useful-functions-1"><i class="fa fa-check"></i><b>6.6</b> Useful Functions</a></li>
+<li class="chapter" data-level="7" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html"><i class="fa fa-check"></i><b>7</b> Multilevel Modelling - Part 2</a><ul>
+<li class="chapter" data-level="7.1" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#dependencies-5"><i class="fa fa-check"></i><b>7.1</b> Dependencies</a></li>
+<li class="chapter" data-level="7.2" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#data-4"><i class="fa fa-check"></i><b>7.2</b> Data</a></li>
+<li class="chapter" data-level="7.3" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#conceptual-overview"><i class="fa fa-check"></i><b>7.3</b> Conceptual Overview</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#exploratory-analysis-varying-slopes"><i class="fa fa-check"></i><b>7.3.1</b> Exploratory Analysis: Varying Slopes</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="multilevel-models-pt-ii.html"><a href="multilevel-models-pt-ii.html"><i class="fa fa-check"></i><b>7</b> Multilevel Models (Pt. II)</a></li>
+<li class="chapter" data-level="7.4" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#estimating-varying-intercept-and-slopes-models"><i class="fa fa-check"></i><b>7.4</b> Estimating Varying Intercept and Slopes Models</a></li>
+<li class="chapter" data-level="7.5" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#interpreting-correlations-between-group-level-intercepts-and-slopes"><i class="fa fa-check"></i><b>7.5</b> Interpreting Correlations Between Group-level Intercepts and Slopes</a></li>
+<li class="chapter" data-level="7.6" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#model-building"><i class="fa fa-check"></i><b>7.6</b> Model building</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#model-comparison"><i class="fa fa-check"></i><b>7.6.1</b> Model Comparison</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="8" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>8</b> GWR</a></li>
 <li class="chapter" data-level="9" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>9</b> Space-Time Analysis</a></li>
 <li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
@@ -516,21 +524,21 @@ Figure 3.7: KDE of house transactions in Liverpool
 <p>The object we get from <code>idw</code> is another spatial table, just as <code>db</code>, containing the interpolated values. As such, we can inspect it just as with any other of its kind. For example, to check out the top of the estimated table:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(idw.hp<span class="op">@</span>data)</code></pre></div>
 <pre><code>##   var1.pred var1.var
-## 1  158060.4       NA
-## 2  158170.3       NA
-## 3  158283.0       NA
-## 4  158398.5       NA
-## 5  158517.0       NA
-## 6  158638.6       NA</code></pre>
+## 1  158018.7       NA
+## 2  158127.6       NA
+## 3  158239.3       NA
+## 4  158353.7       NA
+## 5  158471.0       NA
+## 6  158591.4       NA</code></pre>
 <p>The column we will pay attention to is <code>var1.pred</code>. And to see the locations for which those correspond:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(idw.hp<span class="op">@</span>coords)</code></pre></div>
 <pre><code>##            x1       x2
-## [1,] 333571.2 382692.9
-## [2,] 333656.1 382692.9
-## [3,] 333741.1 382692.9
-## [4,] 333826.0 382692.9
-## [5,] 333911.0 382692.9
-## [6,] 333996.0 382692.9</code></pre>
+## [1,] 333538.7 382691.4
+## [2,] 333623.7 382691.4
+## [3,] 333708.6 382691.4
+## [4,] 333793.6 382691.4
+## [5,] 333878.6 382691.4
+## [6,] 333963.5 382691.4</code></pre>
 <p>So, for a hypothetical house sold at the location in the first row of <code>idw.hp@coords</code> (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column <code>var1.pred</code> in <code>idw.hp@data</code>.</p>
 </div>
 <div id="a-surface-of-housing-prices" class="section level3">

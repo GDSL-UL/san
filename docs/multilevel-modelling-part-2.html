@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Multilevel Modelling - Part 2 | Spatial Analysis Notes</title>
+  <meta name="description" content="Materials for a Spatial Analysis course in R." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Multilevel Modelling - Part 2 | Spatial Analysis Notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Materials for a Spatial Analysis course in R." />
+  <meta name="github-repo" content="gdsl-ul/san" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Multilevel Modelling - Part 2 | Spatial Analysis Notes" />
+  
+  <meta name="twitter:description" content="Materials for a Spatial Analysis course in R." />
+  
+
+<meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
+
+
+<meta name="date" content="2020-03-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="multilevel-modelling-part-1.html"/>
+<link rel="next" href="gwr.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Spatial Analysis Notes</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Spatial Analysis Notes</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#dependencies"><i class="fa fa-check"></i><b>2.1</b> Dependencies</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#introducing-r"><i class="fa fa-check"></i><b>2.2</b> Introducing R</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#setting-the-working-directory"><i class="fa fa-check"></i><b>2.3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#r-scripts-and-notebooks"><i class="fa fa-check"></i><b>2.4</b> R Scripts and Notebooks</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#getting-help"><i class="fa fa-check"></i><b>2.5</b> Getting Help</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#variables-and-objects"><i class="fa fa-check"></i><b>2.6</b> Variables and objects</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="intro.html"><a href="intro.html#basic-data-types"><i class="fa fa-check"></i><b>2.6.1</b> Basic Data Types</a></li>
+<li class="chapter" data-level="2.6.2" data-path="intro.html"><a href="intro.html#random-variables"><i class="fa fa-check"></i><b>2.6.2</b> Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#data-frames"><i class="fa fa-check"></i><b>2.7</b> Data Frames</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="intro.html"><a href="intro.html#creating-a-data-frame"><i class="fa fa-check"></i><b>2.7.1</b> Creating A Data Frame</a></li>
+<li class="chapter" data-level="2.7.2" data-path="intro.html"><a href="intro.html#referencing-data-frames"><i class="fa fa-check"></i><b>2.7.2</b> Referencing Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#sec_readdata"><i class="fa fa-check"></i><b>2.8</b> Read Data</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>2.8.1</b> Quickly inspect the data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#manipulation-data"><i class="fa fa-check"></i><b>2.9</b> Manipulation Data</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#adding-new-variables"><i class="fa fa-check"></i><b>2.9.1</b> Adding New Variables</a></li>
+<li class="chapter" data-level="2.9.2" data-path="intro.html"><a href="intro.html#selecting-variables"><i class="fa fa-check"></i><b>2.9.2</b> Selecting Variables</a></li>
+<li class="chapter" data-level="2.9.3" data-path="intro.html"><a href="intro.html#filtering-data"><i class="fa fa-check"></i><b>2.9.3</b> Filtering Data</a></li>
+<li class="chapter" data-level="2.9.4" data-path="intro.html"><a href="intro.html#joining-data-drames"><i class="fa fa-check"></i><b>2.9.4</b> Joining Data Drames</a></li>
+<li class="chapter" data-level="2.9.5" data-path="intro.html"><a href="intro.html#saving-data"><i class="fa fa-check"></i><b>2.9.5</b> Saving Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>2.10</b> Using Spatial Data Frames</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#read-spatial-data"><i class="fa fa-check"></i><b>2.10.1</b> Read Spatial Data</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#basic-mapping"><i class="fa fa-check"></i><b>2.10.2</b> Basic Mapping</a></li>
+<li class="chapter" data-level="2.10.3" data-path="intro.html"><a href="intro.html#comparing-geographies"><i class="fa fa-check"></i><b>2.10.3</b> Comparing geographies</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#useful-functions"><i class="fa fa-check"></i><b>2.11</b> Useful Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>3</b> Points</a><ul>
+<li class="chapter" data-level="3.1" data-path="points.html"><a href="points.html#dependencies-1"><i class="fa fa-check"></i><b>3.1</b> Dependencies</a></li>
+<li class="chapter" data-level="3.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>3.2</b> Data</a></li>
+<li class="chapter" data-level="3.3" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>3.3</b> KDE</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>3.3.1</b> One-dimensional KDE</a></li>
+<li class="chapter" data-level="3.3.2" data-path="points.html"><a href="points.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>3.3.2</b> Two-dimensional (spatial) KDE</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>3.4</b> Spatial Interpolation</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="points.html"><a href="points.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>3.4.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
+<li class="chapter" data-level="3.4.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>3.4.2</b> A surface of housing prices</a></li>
+<li class="chapter" data-level="3.4.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>3.4.3</b> <em>“What should the next house’s price be?”</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>4</b> Flows</a><ul>
+<li class="chapter" data-level="4.1" data-path="flows.html"><a href="flows.html#dependencies-2"><i class="fa fa-check"></i><b>4.1</b> Dependencies</a></li>
+<li class="chapter" data-level="4.2" data-path="flows.html"><a href="flows.html#data-1"><i class="fa fa-check"></i><b>4.2</b> Data</a></li>
+<li class="chapter" data-level="4.3" data-path="flows.html"><a href="flows.html#seeing-flows"><i class="fa fa-check"></i><b>4.3</b> “<em>Seeing</em>” flows</a></li>
+<li class="chapter" data-level="4.4" data-path="flows.html"><a href="flows.html#modelling-flows"><i class="fa fa-check"></i><b>4.4</b> Modelling flows</a></li>
+<li class="chapter" data-level="4.5" data-path="flows.html"><a href="flows.html#predicting-flows"><i class="fa fa-check"></i><b>4.5</b> Predicting flows</a></li>
+<li class="chapter" data-level="4.6" data-path="flows.html"><a href="flows.html#references"><i class="fa fa-check"></i><b>4.6</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>5</b> Spatial Econometrics</a><ul>
+<li class="chapter" data-level="5.1" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#dependencies-3"><i class="fa fa-check"></i><b>5.1</b> Dependencies</a></li>
+<li class="chapter" data-level="5.2" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#data-2"><i class="fa fa-check"></i><b>5.2</b> Data</a></li>
+<li class="chapter" data-level="5.3" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#non-spatial-regression-a-refresh"><i class="fa fa-check"></i><b>5.3</b> Non-spatial regression, a refresh</a></li>
+<li class="chapter" data-level="5.4" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#spatial-regression-a-very-first-dip"><i class="fa fa-check"></i><b>5.4</b> Spatial regression: a (very) first dip</a></li>
+<li class="chapter" data-level="5.5" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#spatial-heterogeneity"><i class="fa fa-check"></i><b>5.5</b> Spatial heterogeneity</a></li>
+<li class="chapter" data-level="5.6" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#spatial-dependence"><i class="fa fa-check"></i><b>5.6</b> Spatial dependence</a></li>
+<li class="chapter" data-level="5.7" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#predicting-house-prices"><i class="fa fa-check"></i><b>5.7</b> Predicting house prices</a></li>
+<li class="chapter" data-level="5.8" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#references-1"><i class="fa fa-check"></i><b>5.8</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html"><i class="fa fa-check"></i><b>6</b> Multilevel Modelling - Part 1</a><ul>
+<li class="chapter" data-level="6.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#dependencies-4"><i class="fa fa-check"></i><b>6.1</b> Dependencies</a></li>
+<li class="chapter" data-level="6.2" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#data-3"><i class="fa fa-check"></i><b>6.2</b> Data</a></li>
+<li class="chapter" data-level="6.3" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#modelling"><i class="fa fa-check"></i><b>6.3</b> Modelling</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#baseline-linear-regression-model"><i class="fa fa-check"></i><b>6.3.1</b> Baseline Linear Regression Model</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#multilevel-modelling-random-intercept-model"><i class="fa fa-check"></i><b>6.4</b> Multilevel Modelling: Random Intercept Model</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#interpretation"><i class="fa fa-check"></i><b>6.4.1</b> Interpretation</a></li>
+<li class="chapter" data-level="6.4.2" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#variance-partition-coefficient-vpc"><i class="fa fa-check"></i><b>6.4.2</b> Variance Partition Coefficient (VPC)</a></li>
+<li class="chapter" data-level="6.4.3" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#uncertainty-of-estimates"><i class="fa fa-check"></i><b>6.4.3</b> Uncertainty of Estimates</a></li>
+<li class="chapter" data-level="6.4.4" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#assessing-group-level-variation"><i class="fa fa-check"></i><b>6.4.4</b> Assessing Group-level Variation</a></li>
+<li class="chapter" data-level="6.4.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#adding-individual-level-predictors"><i class="fa fa-check"></i><b>6.4.5</b> Adding Individual-level Predictors</a></li>
+<li class="chapter" data-level="6.4.6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#adding-group-level-predictors"><i class="fa fa-check"></i><b>6.4.6</b> Adding Group-level Predictors</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#useful-functions-1"><i class="fa fa-check"></i><b>6.5</b> Useful Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html"><i class="fa fa-check"></i><b>7</b> Multilevel Modelling - Part 2</a><ul>
+<li class="chapter" data-level="7.1" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#dependencies-5"><i class="fa fa-check"></i><b>7.1</b> Dependencies</a></li>
+<li class="chapter" data-level="7.2" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#data-4"><i class="fa fa-check"></i><b>7.2</b> Data</a></li>
+<li class="chapter" data-level="7.3" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#conceptual-overview"><i class="fa fa-check"></i><b>7.3</b> Conceptual Overview</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#exploratory-analysis-varying-slopes"><i class="fa fa-check"></i><b>7.3.1</b> Exploratory Analysis: Varying Slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#estimating-varying-intercept-and-slopes-models"><i class="fa fa-check"></i><b>7.4</b> Estimating Varying Intercept and Slopes Models</a></li>
+<li class="chapter" data-level="7.5" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#interpreting-correlations-between-group-level-intercepts-and-slopes"><i class="fa fa-check"></i><b>7.5</b> Interpreting Correlations Between Group-level Intercepts and Slopes</a></li>
+<li class="chapter" data-level="7.6" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#model-building"><i class="fa fa-check"></i><b>7.6</b> Model building</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#model-comparison"><i class="fa fa-check"></i><b>7.6.1</b> Model Comparison</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>8</b> GWR</a></li>
+<li class="chapter" data-level="9" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>9</b> Space-Time Analysis</a></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Spatial Analysis Notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="multilevel-modelling---part-2" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Multilevel Modelling - Part 2</h1>
+<p>This chapter<a href="#fn42" class="footnoteRef" id="fnref42"><sup>42</sup></a> provides an introduction to multi-level data structures and multi-level modelling.</p>
+<p>The content of this chapter is based on:</p>
+<ul>
+<li><p><span class="citation">Gelman and Hill (<a href="#ref-Gelman_Hill_2006_book">2006</a><a href="#ref-Gelman_Hill_2006_book">b</a>)</span> provides an excellent and intuitive explanation of multilevel modelling and data analysis in general. Read Part 2A for a really good explanation of multilevel models.</p></li>
+<li><p><span class="citation">Multilevel Modelling (n.d.)</span> is an useful online resource on multilevel modelling and is free!</p></li>
+</ul>
+<p>This Chapter is part of <a href="index.html">Spatial Analysis Notes</a>, a compilation hosted as a GitHub repository that you can access it in a few ways:</p>
+<ul>
+<li>As a <a href="https://github.com/GDSL-UL/san/archive/master.zip">download</a> of a <code>.zip</code> file that contains all the materials.</li>
+<li>As an <a href="https://gdsl-ul.github.io/san/multilevel-modelling-part-2.html">html website</a>.</li>
+<li>As a <a href="https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf">pdf document</a></li>
+<li>As a <a href="https://github.com/GDSL-UL/san">GitHub repository</a>.</li>
+</ul>
+<div id="dependencies-5" class="section level2">
+<h2><span class="header-section-number">7.1</span> Dependencies</h2>
+<p>This chapter uses the following libraries: Ensure they are installed on your machine<a href="#fn43" class="footnoteRef" id="fnref43"><sup>43</sup></a> before loading them executing the following code chunk:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Data manipulation, transformation and visualisation</span>
+<span class="kw">library</span>(tidyverse)
+<span class="co"># Nice tables</span>
+<span class="kw">library</span>(kableExtra)
+<span class="co"># Simple features (a standardised way to encode vector data ie. points, lines, polygons)</span>
+<span class="kw">library</span>(sf) 
+<span class="co"># Spatial objects conversion</span>
+<span class="kw">library</span>(sp) 
+<span class="co"># Thematic maps</span>
+<span class="kw">library</span>(tmap) 
+<span class="co"># Colour palettes</span>
+<span class="kw">library</span>(RColorBrewer) 
+<span class="co"># More colour palettes</span>
+<span class="kw">library</span>(viridis) <span class="co"># nice colour schemes</span>
+<span class="co"># Fitting multilevel models</span>
+<span class="kw">library</span>(lme4)
+<span class="co"># Tools for extracting information generated by lme4</span>
+<span class="kw">library</span>(merTools)
+<span class="co"># Exportable regression tables</span>
+<span class="kw">library</span>(jtools)
+<span class="kw">library</span>(stargazer)
+<span class="kw">library</span>(sjPlot)</code></pre></div>
+</div>
+<div id="data-4" class="section level2">
+<h2><span class="header-section-number">7.2</span> Data</h2>
+<p>For this chapter, we will data for Liverpool from England’s 2011 Census. The original source is the <a href="https://www.nomisweb.co.uk/home/census2001.asp">Office of National Statistics</a> and the dataset comprises a number of selected variables capturing demographic, health and socio-economic of the local resident population at four geographic levels: Output Area (OA), Lower Super Output Area (LSOA), Middle Super Output Area (MSOA) and Local Authority District (LAD). The variables include population counts and percentages. For a description of the variables, see the readme file in the mlm data folder.<a href="#fn44" class="footnoteRef" id="fnref44"><sup>44</sup></a></p>
+<p>Let us read the data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># clean workspace</span>
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
+<span class="co"># read data</span>
+oa_shp &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/mlm/oa.shp&quot;</span>)</code></pre></div>
+</div>
+<div id="conceptual-overview" class="section level2">
+<h2><span class="header-section-number">7.3</span> Conceptual Overview</h2>
+<p>So far, we have estimated varying-intercept models; that is, when the intercept (<span class="math inline">\(\beta_{0}\)</span>) is allowed to vary by group (eg. geographical area) - as shown in Fig. 1(a). The strength of the relationship between <span class="math inline">\(y\)</span> (i.e. unemployment rate) and <span class="math inline">\(x\)</span> (long-term illness) has been assumed to be the same across groups (i.e. MSOAs), as captured by the regression slope (<span class="math inline">\(\beta_{1}\)</span>). Yet it can also vary by group as shown in Fig. 1(b), or we can observe group variability for both intercepts and slopes as represented in Fig. 1(c).</p>
+<div class="figure">
+<img src="figs/ch6/fig11.1_Gelman_Hill.png" alt="Fig. 1. Linear regression model with (a) varying intercepts, (b) varying slopes, and (c) both. Source: Gelman and Hill (2006b) p.238." />
+<p class="caption">Fig. 1. Linear regression model with (a) varying intercepts, (b) varying slopes, and (c) both. Source: <span class="citation">Gelman and Hill (<a href="#ref-Gelman_Hill_2006_book">2006</a><a href="#ref-Gelman_Hill_2006_book">b</a>)</span> p.238.</p>
+</div>
+<div id="exploratory-analysis-varying-slopes" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Exploratory Analysis: Varying Slopes</h3>
+<p>Let’s then explore if there is variation in the relationship between unemployment rate and the share of population in long-term illness. We do this by selecting teh 8 MSOAs containing OAs with the highest unemployment rates in Liverpool.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Sort data </span>
+oa_shp &lt;-<span class="st"> </span>oa_shp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="op">-</span>unemp)
+oa_shp[<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="kw">c</span>(<span class="st">&quot;msoa_cd&quot;</span>, <span class="st">&quot;unemp&quot;</span>)]</code></pre></div>
+<pre><code>## Simple feature collection with 9 features and 2 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 335032 ymin: 387777 xmax: 338576.1 ymax: 395022.4
+## epsg (SRID):    NA
+## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs
+##     msoa_cd     unemp                       geometry
+## 1 E02001354 0.5000000 MULTIPOLYGON (((337491.2 39...
+## 2 E02001369 0.4960630 MULTIPOLYGON (((335272.3 39...
+## 3 E02001366 0.4461538 MULTIPOLYGON (((338198.1 39...
+## 4 E02001365 0.4352941 MULTIPOLYGON (((336572.2 39...
+## 5 E02001370 0.4024390 MULTIPOLYGON (((336328.3 39...
+## 6 E02001390 0.3801653 MULTIPOLYGON (((335833.6 38...
+## 7 E02001354 0.3750000 MULTIPOLYGON (((337403 3949...
+## 8 E02001385 0.3707865 MULTIPOLYGON (((336251.6 38...
+## 9 E02001368 0.3648649 MULTIPOLYGON (((335209.3 39...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Select MSOAs</span>
+s_t8 &lt;-<span class="st"> </span>oa_shp <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(
+    <span class="kw">as.character</span>(msoa_cd) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(
+      <span class="st">&quot;E02001354&quot;</span>, 
+      <span class="st">&quot;E02001369&quot;</span>, 
+      <span class="st">&quot;E02001366&quot;</span>, 
+      <span class="st">&quot;E02001365&quot;</span>, 
+      <span class="st">&quot;E02001370&quot;</span>, 
+      <span class="st">&quot;E02001390&quot;</span>, 
+      <span class="st">&quot;E02001368&quot;</span>, 
+      <span class="st">&quot;E02001385&quot;</span>)
+    )</code></pre></div>
+<p>And then we generate a set of scatter plots and draw regression lines for each MSOA.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(s_t8, <span class="kw">aes</span>(<span class="dt">x =</span> lt_ill, <span class="dt">y =</span> unemp)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>msoa_cd, <span class="dt">nrow =</span> <span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Unemployment rate&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Long-term Illness (%)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
+<p><img src="06-multilevel_02_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>We can observe great variability in the relationship between unmployment rates and the percentage of population in long-term illness. A strong and positive relationship exists in MSOA <code>E02001366</code> (Tuebrook and Stoneycroft), while it is negative in MSOA <code>E02001370</code> (Everton) and neutral in MSOA <code>E02001390</code> (Princes Park &amp; Riverside). This visual inspection suggests that accounting for differences in the way unmployment rates relate to long-term illness is important. Contextual factors may differ across MSOAs in systematic ways.</p>
+</div>
+</div>
+<div id="estimating-varying-intercept-and-slopes-models" class="section level2">
+<h2><span class="header-section-number">7.4</span> Estimating Varying Intercept and Slopes Models</h2>
+<p>A way to capture for these group differences in the relationship between unmployment rates and long-term illness is to allow the relevant slope to vary by group (i.e. MSOA). We can do this estimating the following model:</p>
+<p>OA-level:</p>
+<p><span class="math display">\[y_{ij} = \beta_{0j} + \beta_{1j}x_{ij} + e_{ij}\]</span></p>
+<p>MSOA-level:</p>
+<p><span class="math display">\[\beta_{0j} = \beta_{0} + u_{0j}\]</span> <span class="math display">\[\beta_{1j} = \beta_{1} + u_{1j} \]</span> Replacing the first equation into the second generates:</p>
+<p><span class="math display">\[y_{ij} = (\beta_{0} + u_{0j}) + (\beta_{1} + u_{1j})x_{ij} + e_{ij}\]</span> where, as in the previous Chapter, <span class="math inline">\(y\)</span> the proportion of unemployed population in OA <span class="math inline">\(i\)</span> within MSOA <span class="math inline">\(j\)</span>; <span class="math inline">\(\beta_{0}\)</span> is the fixed intercept (averaging over all MSOAs); <span class="math inline">\(u_{0j}\)</span> represents the MSOA-level residuals, or <em>random effects</em>, of the intercept; <span class="math inline">\(e_{ij}\)</span> is the individual-level residuals; and, <span class="math inline">\(x_{ij}\)</span> represents the percentage of long-term illness population. <em>But</em> now we have a varying slope represented by <span class="math inline">\(\beta_{1}\)</span> and <span class="math inline">\(u_{1j}\)</span>: <span class="math inline">\(\beta_{1}\)</span> is estimated average slope - fixed part of the model; and, <span class="math inline">\(u_{1j}\)</span> is the estimated group-level errors of the slope.</p>
+<p>To estimate such model, we add <code>lt_ill</code> in the bracket with a <code>+</code> sign between <code>1</code> and <code>|</code> i.e. <code>(1 + lt_ill | msoa_cd)</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># attach df</span>
+<span class="kw">attach</span>(oa_shp)
+
+<span class="co"># change to proportion</span>
+oa_shp<span class="op">$</span>lt_ill &lt;-<span class="st"> </span>lt_ill<span class="op">/</span><span class="dv">100</span>
+
+<span class="co"># specify a model equation</span>
+eq6 &lt;-<span class="st"> </span>unemp <span class="op">~</span><span class="st"> </span>lt_ill <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>lt_ill <span class="op">|</span><span class="st"> </span>msoa_cd)
+model6 &lt;-<span class="st"> </span><span class="kw">lmer</span>(eq6, <span class="dt">data =</span> oa_shp)
+
+<span class="co"># estimates</span>
+<span class="kw">summary</span>(model6)</code></pre></div>
+<pre><code>## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: unemp ~ lt_ill + (1 + lt_ill | msoa_cd)
+##    Data: oa_shp
+## 
+## REML criterion at convergence: -4762.8
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -3.6639 -0.5744 -0.0873  0.4565  5.4876 
+## 
+## Random effects:
+##  Groups   Name        Variance Std.Dev. Corr 
+##  msoa_cd  (Intercept) 0.003428 0.05855       
+##           lt_ill      0.029427 0.17154  -0.73
+##  Residual             0.002474 0.04974       
+## Number of obs: 1584, groups:  msoa_cd, 61
+## 
+## Fixed effects:
+##             Estimate Std. Error t value
+## (Intercept) 0.047650   0.008634   5.519
+## lt_ill      0.301259   0.028163  10.697
+## 
+## Correlation of Fixed Effects:
+##        (Intr)
+## lt_ill -0.786</code></pre>
+<p>In this model, the estimated standard deviation of the unexplained within-MSOA variation is 0.04974, and the estimated standard deviation of the MSOA intercepts is 0.05855. But, additionally, we also have estimates of standard deviation of the MSOA slopes (0.17154) and correlation between MSOA-level residuals for the intercept and slope (-0.73). While the former measures the extent of average deviation in the slopes across MSOAs, the latter indicates that the intercept and slope MSOA-level residuals are negatively associated; that is, MSOAs with large slopes have relatively smaller intercepts and <em>vice versa</em>. We will come back to this in Section <a href="multilevel-modelling-part-2.html#interpreting-correlations-between-group-level-intercepts-and-slopes">Interpreting Correlations Between Group-level Intercepts and Slopes</a>.</p>
+<p>Similarly, the correlation of fixed effects indicates a negative relationship between the intercept and slope of the average regression model; that is, as the average model intercept tends to increase, the average strength of the relationship between unemployment rate and long-term illness decreasesand <em>vice versa</em>.</p>
+<p>We then explore the estimated average coefficients (<em>fixed effects</em>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fixef</span>(model6)</code></pre></div>
+<pre><code>## (Intercept)      lt_ill 
+##  0.04764998  0.30125916</code></pre>
+<p>yields an estimated regression line in an average LSOA: <span class="math inline">\(y = 0.04764998 + 0.30125916x\)</span>. The fixed intercent indicates that the average unemployment rate is 0.05 if the percentage of population with long-term illness is zero.The fixed slope indicates that the average relationship between unemployment rate and long-term illness is positive across MSOAs i.e. as the percentage of population with long-term illness increases by 1 percentage point, the unemployment rate increases by 0.3.</p>
+<p>We look the estimated MSOA-level errors (<em>random effects</em>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ranef_m6 &lt;-<span class="st"> </span><span class="kw">ranef</span>(model6)
+<span class="kw">head</span>(ranef_m6<span class="op">$</span>msoa_cd, <span class="dv">5</span>)</code></pre></div>
+<pre><code>##            (Intercept)      lt_ill
+## E02001347 -0.026561023  0.02717992
+## E02001348  0.001690577 -0.11534207
+## E02001349 -0.036084591  0.05547012
+## E02001350  0.032241334 -0.14298965
+## E02001351  0.086214974 -0.28130545</code></pre>
+<p>Recall these estimates indicate the extent of deviation of the MSOA-specific intercept and slope from the estimated model average captured by the fixed model component.</p>
+<p>We can also regain the estimated intercept and slope for each county by adding the estimated MSOA-level errors to the estimated average coefficients; or by executing:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#coef(model6)</span></code></pre></div>
+<p>We are normally more interested in identifying the extent of deviation and its significance. To this end, we create a caterpillar plot:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot</span>
+<span class="kw">plotREsim</span>(<span class="kw">REsim</span>(model6))</code></pre></div>
+<p><img src="06-multilevel_02_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>These plots reveal some interesting patterns. First, only one MSOA, containing wards such as Tuebrook and Stoneycroft, Anfield &amp; Everton, seems to have a statistically significantly different intercept, or average unemployment rate. Confidence intervals overlap zero for all other 60 MSOAs. Despite this, note that when a slope is allowed to vary by group, it generally makes sense for the intercept to also vary. Second, significant variability exists in the association between unemployment rate and long-term illness across MSOAs. Ten MSOAs display a significant positive association, while 12 exhibit a significantly negative relationship. Third, these results reveal that geographical differences in the relationship between unemployment rate and long-term illness can explain the significant differences in average unemployment rates in the varying intercept only model.</p>
+<p>Let’s try to get a better understanding of the varying relationship between unemployment rate and long-term illness by mapping the relevant MSOA-level errors.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read data</span>
+msoa_shp &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/mlm/MSOA.shp&quot;</span>)</code></pre></div>
+<pre><code>## Reading layer `MSOA&#39; from data source `/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/mlm/MSOA.shp&#39; using driver `ESRI Shapefile&#39;
+## Simple feature collection with 61 features and 17 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 333086.1 ymin: 381426.3 xmax: 345636 ymax: 397980.1
+## epsg (SRID):    27700
+## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a dataframe for MSOA-level random effects</span>
+re_msoa_m6 &lt;-<span class="st"> </span><span class="kw">REsim</span>(model6) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(groupFctr <span class="op">==</span><span class="st"> &quot;msoa_cd&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;lt_ill&quot;</span>)
+<span class="kw">str</span>(re_msoa_m6)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    61 obs. of  6 variables:
+##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
+##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
+##  $ term     : chr  &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; ...
+##  $ mean     : num  0.0271 -0.1144 0.0551 -0.1425 -0.2817 ...
+##  $ median   : num  0.0286 -0.1116 0.0507 -0.1426 -0.279 ...
+##  $ sd       : num  0.0448 0.0783 0.0865 0.0394 0.0379 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># merge data</span>
+msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa_m6, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ensure geometry is valid</span>
+msoa_shp =<span class="st"> </span>lwgeom<span class="op">::</span><span class="kw">st_make_valid</span>(msoa_shp)
+
+<span class="co"># create a map</span>
+legend_title =<span class="st"> </span><span class="kw">expression</span>(<span class="st">&quot;MSOA-level residuals&quot;</span>)
+map_msoa =<span class="st"> </span><span class="kw">tm_shape</span>(msoa_shp) <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_fill</span>(<span class="dt">col =</span> <span class="st">&quot;median&quot;</span>, <span class="dt">title =</span> legend_title, <span class="dt">palette =</span> <span class="kw">magma</span>(<span class="dv">256</span>, <span class="dt">begin =</span> <span class="dv">0</span>, <span class="dt">end =</span> <span class="dv">1</span>), <span class="dt">style =</span> <span class="st">&quot;cont&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">lwd =</span> .<span class="dv">01</span>)  <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">tm_compass</span>(<span class="dt">type =</span> <span class="st">&quot;arrow&quot;</span>, <span class="dt">position =</span> <span class="kw">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>) , <span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">tm_scale_bar</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">text.size =</span> <span class="fl">0.5</span>, <span class="dt">position =</span>  <span class="kw">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;bottom&quot;</span>)) 
+map_msoa</code></pre></div>
+<p><img src="06-multilevel_02_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>The map indicates that the relationship between unemployment rate and long-term illness is tends to stronger and positive in northern MSOAs; that is, the percentage of population with long-term illness explains a greater share of the variation in unemployment rates in these locations. As expected, a greater share of population in long-term illness is associated with higher local unemployment. In contrast, the relationship between unemployment rate and long-term illness tends to operate in the reverse direction in north-east and middle-southern MSOAs. In these MSOAs, OAs tend to have a higher unemployment rate relative the share of population in long-term illness. You can confirm this examining the data for specific MSOA executing:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">oa_shp <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(msoa_cd, ward_nm, unemp, lt_ill) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">filter</span>(<span class="kw">as.character</span>(msoa_cd) <span class="op">==</span><span class="st"> &quot;E02001370&quot;</span>)</code></pre></div>
+<pre><code>## Simple feature collection with 23 features and 4 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 335885 ymin: 391134.2 xmax: 337596.3 ymax: 392467
+## epsg (SRID):    NA
+## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs
+## First 10 features:
+##      msoa_cd                  ward_nm     unemp    lt_ill
+## 1  E02001370                  Everton 0.4024390 0.2792793
+## 2  E02001370 Tuebrook and Stoneycroft 0.3561644 0.3391813
+## 3  E02001370                  Everton 0.3285714 0.3106383
+## 4  E02001370                  Everton 0.3209877 0.3283019
+## 5  E02001370                  Anfield 0.3082707 0.1785714
+## 6  E02001370                  Everton 0.3000000 0.4369501
+## 7  E02001370                  Everton 0.2886598 0.3657143
+## 8  E02001370                  Everton 0.2727273 0.3375000
+## 9  E02001370                  Everton 0.2705882 0.2534247
+## 10 E02001370 Tuebrook and Stoneycroft 0.2661290 0.2941176
+##                          geometry
+## 1  MULTIPOLYGON (((336328.3 39...
+## 2  MULTIPOLYGON (((337481.5 39...
+## 3  MULTIPOLYGON (((336018.5 39...
+## 4  MULTIPOLYGON (((336475.7 39...
+## 5  MULTIPOLYGON (((337110.6 39...
+## 6  MULTIPOLYGON (((336516.3 39...
+## 7  MULTIPOLYGON (((336668.6 39...
+## 8  MULTIPOLYGON (((336173.8 39...
+## 9  MULTIPOLYGON (((336870 3917...
+## 10 MULTIPOLYGON (((337363.8 39...</code></pre>
+<p>Now try adding a group-level predictor and an individual-level predictor to the model. Unsure, look at the Sections <a href="multilevel-modelling-part-1.html#adding-group-level-predictors">Adding Group-level Predictors</a> and <a href="multilevel-modelling-part-1.html#adding-individual-level-predictors">Adding Individual-level Predictors</a> in the previous Chapter.</p>
+</div>
+<div id="interpreting-correlations-between-group-level-intercepts-and-slopes" class="section level2">
+<h2><span class="header-section-number">7.5</span> Interpreting Correlations Between Group-level Intercepts and Slopes</h2>
+<p>Correlations of random effects are confusing to interpret. Key for their appropriate interpretation is to recall they refer to group-level residuals i.e. deviation of intercepts and slopes from the average model intercept and slope. A strong <em>negative</em> correlation indicates that groups with high intercepts have relatively low slopes, and <em>vice versa</em>. A strong <em>positive</em> correlation indicates that groups with high intercepts have relatively high slopes, and <em>vice versa</em>. A correlation close to <em>zero</em> indicate little or no systematic between intercepts and slopes. Note that a high correlation between intercepts and slopes is not a problem, but it makes the interpretation of the estimated intercepts more challenging. For this reason, a suggestion is to center predictors (<span class="math inline">\(x&#39;s\)</span>); that is, substract their average value (<span class="math inline">\(z = x - \bar{x}\)</span>). For a more detailed discussion, see <span class="citation">Multilevel Modelling (n.d.)</span>.</p>
+<p>To illustrate this, let’s reestimate our model adding an individual-level predictor: the share of population with no educational qualification.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># centering to the mean</span>
+oa_shp<span class="op">$</span>z_no_qual &lt;-<span class="st"> </span>no_qual<span class="op">/</span><span class="dv">100</span> <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(no_qual<span class="op">/</span><span class="dv">100</span>)
+oa_shp<span class="op">$</span>z_lt_ill &lt;-<span class="st"> </span>lt_ill <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(lt_ill)
+
+<span class="co"># specify a model equation</span>
+eq7 &lt;-<span class="st"> </span>unemp <span class="op">~</span><span class="st"> </span>z_lt_ill <span class="op">+</span><span class="st"> </span>z_no_qual <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>z_lt_ill <span class="op">|</span><span class="st"> </span>msoa_cd)
+model7 &lt;-<span class="st"> </span><span class="kw">lmer</span>(eq7, <span class="dt">data =</span> oa_shp)
+
+<span class="co"># estimates</span>
+<span class="kw">summary</span>(model7)</code></pre></div>
+<pre><code>## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: unemp ~ z_lt_ill + z_no_qual + (1 + z_lt_ill | msoa_cd)
+##    Data: oa_shp
+## 
+## REML criterion at convergence: -4940.7
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -3.6830 -0.5949 -0.0868  0.4631  6.3556 
+## 
+## Random effects:
+##  Groups   Name        Variance  Std.Dev. Corr 
+##  msoa_cd  (Intercept) 8.200e-04 0.02864       
+##           z_lt_ill    2.161e-06 0.00147  -0.04
+##  Residual             2.246e-03 0.04739       
+## Number of obs: 1584, groups:  msoa_cd, 61
+## 
+## Fixed effects:
+##               Estimate Std. Error t value
+## (Intercept)  0.1163682  0.0039201   29.68
+## z_lt_ill    -0.0003130  0.0003404   -0.92
+## z_no_qual    0.3245811  0.0221347   14.66
+## 
+## Correlation of Fixed Effects:
+##           (Intr) z_lt_l
+## z_lt_ill  -0.007       
+## z_no_qual -0.015 -0.679</code></pre>
+<p>How do you interpret the random effect correlation?</p>
+</div>
+<div id="model-building" class="section level2">
+<h2><span class="header-section-number">7.6</span> Model building</h2>
+<p>Now we know how to estimate multilevel regression models in <em>R</em>. The question that remains is: <em>When does multilevel modeling make a difference?</em> The short answer is: when there is little group-level variation. When there is very little group-level variation, the multilevel modelling reduces to classical linear regression estimates <em>with no group indicators</em>. Inversely, when group-level coefficients vary greatly (compared to their standard errors of estimation), multilevel modelling reduces to classical regression <em>with group indicators</em> <span class="citation">Gelman and Hill (<a href="#ref-Gelman_Hill_2006_book">2006</a><a href="#ref-Gelman_Hill_2006_book">b</a>)</span>.</p>
+<p><em>How do you go about building a model?</em></p>
+<p>We generally start simple by fitting simple linear regressions and then work our way up to a full multilevel model - see <span class="citation">Gelman and Hill (<a href="#ref-Gelman_Hill_2006_book">2006</a><a href="#ref-Gelman_Hill_2006_book">b</a>)</span> p. 270.</p>
+<p><em>How many groups are needed?</em></p>
+<p>As an absolute minimum, more than two groups are required. With only one or two groups, a multilevel model reduces to a linear regression model.</p>
+<p><em>How many observations per group?</em></p>
+<p>Two observations per group is sufficient to fit a multilevel model.</p>
+<div id="model-comparison" class="section level3">
+<h3><span class="header-section-number">7.6.1</span> Model Comparison</h3>
+<p><em>How we assess different candidate models?</em> We can use the function <code>anova()</code> and assess various statistics: The Akaike Information Criterion (AIC), the Bayesian Information Criterion (BIC), Loglik and Deviance. Generally, we look for lower scores for all these indicators. We can also refer to the <em>Chisq</em> statistic below. It tests the hypothesis of whether additional predictors improve model fit. Particularly it tests the <em>Null Hypothesis</em> whether the coefficients of the additional predictors equal 0. It does so comparing the deviance statistic and determining if changes in the deviance are statistically significant. Note that a major limitation of the deviance test is that it is for nested models i.e. a model being compared must be nested in the other. Below we compare our two models. The results indicate that adding an individual-level predictor (i.e. the share of population with no qualification) provides a model with better.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(model6, model7)</code></pre></div>
+<pre><code>## refitting model(s) with ML (instead of REML)</code></pre>
+<pre><code>## Data: oa_shp
+## Models:
+## model6: unemp ~ lt_ill + (1 + lt_ill | msoa_cd)
+## model7: unemp ~ z_lt_ill + z_no_qual + (1 + z_lt_ill | msoa_cd)
+##        Df     AIC     BIC logLik deviance  Chisq Chi Df Pr(&gt;Chisq)    
+## model6  6 -4764.7 -4732.5 2388.3  -4776.7                             
+## model7  7 -4956.5 -4918.9 2485.2  -4970.5 193.76      1  &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Gelman_Hill_2006_book">
+<p>Gelman, Andrew, and Jennifer Hill. 2006b. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models. Cambridge University Press.</em> Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511790942" class="uri">https://doi.org/10.1017/CBO9780511790942</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="42">
+<li id="fn42"><p>This note is part of <a href="index.html">Spatial Analysis Notes</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Multilevel Modelling – Random Slope Model</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<a href="multilevel-modelling-part-2.html#fnref42">↩</a></p></li>
+<li id="fn43"><p>You can install package <code>mypackage</code> by running the command <code>install.packages(&quot;mypackage&quot;)</code> on the R prompt or through the <code>Tools --&gt; Install Packages...</code> menu in RStudio.<a href="multilevel-modelling-part-2.html#fnref43">↩</a></p></li>
+<li id="fn44"><p>Read the file in R by executing <code>read_tsv(&quot;data/mlm/readme.txt&quot;)</code><a href="multilevel-modelling-part-2.html#fnref44">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="multilevel-modelling-part-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="gwr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-multilevel_02.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["spatial_analysis_notes.pdf", "spatial_analysis_notes.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
