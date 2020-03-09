@@ -341,6 +341,9 @@ msoa_shp <- merge(x = msoa_shp, y = re_msoa, by.x = "MSOA_CD", by.y = "groupID")
 Now we can create our map:
 
 ```{r}
+# ensure geometry is valid
+msoa_shp = lwgeom::st_make_valid(msoa_shp)
+
 # create a map
 legend_title = expression("MSOA-level residuals")
 map_msoa = tm_shape(msoa_shp) +
@@ -364,7 +367,7 @@ $$\beta_{0j} = \beta_{0} + u_{0j}$$
 Replacing the first equation into the second, we have:
 
 $$y_{ij} = (\beta_{0} + u_{0j}) + \beta_{1}x_{ij} + e_{ij}$$
-where $y$ the proportion of unemployed population in OA $i$ within MSOA $j$; $\beta_{0}$ is the fixed intercept (averaging over all MSOAs); $u_{0j}$ represents the MSOA-level redisuals or *random effects*; $\beta_{0}$ and $u_{0j}$ together represent the varying-intercept; $\beta_{1}$ is the slope coefficient; $x_{ij}$ represents the percentage of long-term illness population; and, $e_{ij}$ is the individual-level residuals.
+where $y$ the proportion of unemployed population in OA $i$ within MSOA $j$; $\beta_{0}$ is the fixed intercept (averaging over all MSOAs); $u_{0j}$ represents the MSOA-level residuals or *random effects*; $\beta_{0}$ and $u_{0j}$ together represent the varying-intercept; $\beta_{1}$ is the slope coefficient; $x_{ij}$ represents the percentage of long-term illness population; and, $e_{ij}$ is the individual-level residuals.
 
 We estimate the model executing:
 ```{r}
