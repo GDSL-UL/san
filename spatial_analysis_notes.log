@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.9.13)  5 MAR 2020 11:12
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.9.13)  9 MAR 2020 23:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2311,7 +2311,10 @@ Package xcolor Warning: Incompatible color definition on input line 2399.
 
 File: 02-points_files/figure-latex/unnamed-chunk-27-1.pdf Graphic file (type QT
 m)
-<use  "02-points_files/figure-latex/unnamed-chunk-27-1.pdf" > [50]
+<use  "02-points_files/figure-latex/unnamed-chunk-27-1.pdf" >
+Underfull \vbox (badness 6236) has occurred while \output is active []
+
+[50]
 
 Package xcolor Warning: Incompatible color definition on input line 2435.
 
@@ -2321,6 +2324,7 @@ Package xcolor Warning: Incompatible color definition on input line 2441.
 
 Package xcolor Warning: Incompatible color definition on input line 2441.
 
+[51]
 
 Package xcolor Warning: Incompatible color definition on input line 2447.
 
@@ -2330,7 +2334,7 @@ Package xcolor Warning: Incompatible color definition on input line 2451.
 
 Package xcolor Warning: Incompatible color definition on input line 2451.
 
-[51]
+
 Overfull \hbox (10.25pt too wide) in paragraph at lines 2461--2461
 []\EU1/lmtt/m/n/10 ## extent      : 340000, 340000, 390000, 390000  (xmin, xmax
 , ymin, ymax)[] 
@@ -3351,194 +3355,175 @@ Package xcolor Warning: Incompatible color definition on input line 5117.
 Package xcolor Warning: Incompatible color definition on input line 5117.
 
 
-Overfull \hbox (507.25pt too wide) in paragraph at lines 5127--5127
-[]\EU1/lmtt/m/n/10 ## Reading layer `oa' from data source `/Users/Franciscorowe
-/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/mlm/oa.shp' us
-ing driver `ESRI Shapefile'[] 
- []
+Package xcolor Warning: Incompatible color definition on input line 5121.
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 5127--5127
-[]\EU1/lmtt/m/n/10 ## bbox:           xmin: 332390.2 ymin: 379748.5 xmax: 34563
-6 ymax: 397980.1[] 
- []
+Package xcolor Warning: Incompatible color definition on input line 5130.
 
 
-Overfull \hbox (267.5pt too wide) in paragraph at lines 5127--5127
+Package xcolor Warning: Incompatible color definition on input line 5130.
+
+
+Overfull \hbox (267.5pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996
 012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs[] 
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 5131.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5140.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5140.
-
-
-Overfull \hbox (267.5pt too wide) in paragraph at lines 5170--5170
-[]\EU1/lmtt/m/n/10 ## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996
-012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs[] 
- []
-
-
-Overfull \hbox (13.75pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (13.75pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ##       oa_cd   lsoa_cd   msoa_cd    lad_cd      ward_nm  d
 strt_nm    cnty_nm[] 
  []
 
 
-Overfull \hbox (45.25pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (45.25pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 1 E00032987 E01006515 E02001383 E08000012    Riverside Li
 verpool Merseyside[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (48.75pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 2 E00032988 E01006514 E02001383 E08000012 Princes Park Li
 verpool Merseyside[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (48.75pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 3 E00032989 E01033768 E02001383 E08000012 Princes Park Li
 verpool Merseyside[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (48.75pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 4 E00032990 E01033768 E02001383 E08000012 Princes Park Li
 verpool Merseyside[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (48.75pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 5 E00032991 E01033768 E02001383 E08000012 Princes Park Li
 verpool Merseyside[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (48.75pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 6 E00032992 E01033768 E02001383 E08000012 Princes Park Li
 verpool Merseyside[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (31.25pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 1  England 198 0.11616162 0.1130435 53.39821 -2.976786 46
 .46465 19.19192[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (31.25pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 2  England 348 0.16954023 0.1458333 53.39813 -2.969072 58
 .33333 33.62069[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (31.25pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 3  England 333 0.09009009 0.1049724 53.39778 -2.965290 64
 .26426 23.72372[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (31.25pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 4  England 330 0.15151515 0.1329787 53.39802 -2.963597 59
 .69697 23.03030[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (31.25pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 5  England 320 0.04687500 0.1813725 53.39706 -2.968030 60
 .62500 25.00000[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (31.25pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 6  England 240 0.05833333 0.2519685 53.39679 -2.966494 57
 .91667 28.33333[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (20.75pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 1  6.565657 1.515152 24.69136  7.643312 MULTIPOLYGON (((3
 35187 3894...[] 
  []
 
 
-Overfull \hbox (24.25pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (24.25pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 2 10.344828 1.436782 14.84848 13.375796 MULTIPOLYGON (((3
 35834 3895...[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (22.5pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 3  6.606607 2.102102 15.38462 10.204082 MULTIPOLYGON (((3
 35975.2 38...[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (22.5pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 4  5.151515 2.424242 17.91531 15.224913 MULTIPOLYGON (((3
 36030.8 38...[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (22.5pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 5  8.750000 2.187500 12.58278 11.333333 MULTIPOLYGON (((3
 35804.9 38...[] 
  []
 
-[105]
-Overfull \hbox (20.75pt too wide) in paragraph at lines 5170--5170
+
+Overfull \hbox (20.75pt too wide) in paragraph at lines 5160--5160
 []\EU1/lmtt/m/n/10 ## 6  6.666667 2.916667 27.47748  5.479452 MULTIPOLYGON (((3
 35804.9 38...[] 
  []
 
 File: figs/ch5/datastr.png Graphic file (type QTm)
-<use  "figs/ch5/datastr.png" >
-
-Package xcolor Warning: Incompatible color definition on input line 5205.
-
+<use  "figs/ch5/datastr.png" > [105]
 
 Package xcolor Warning: Incompatible color definition on input line 5212.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5212.
+Package xcolor Warning: Incompatible color definition on input line 5219.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5218.
+Package xcolor Warning: Incompatible color definition on input line 5219.
 
 [106]
 
-Package xcolor Warning: Incompatible color definition on input line 5224.
+Package xcolor Warning: Incompatible color definition on input line 5225.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5224.
+Package xcolor Warning: Incompatible color definition on input line 5231.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5230.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5237.
+Package xcolor Warning: Incompatible color definition on input line 5231.
 
 
 Package xcolor Warning: Incompatible color definition on input line 5237.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5244.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5244.
 
 File: 05-multilevel_01_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (t
 ype QTm)
 <use  "05-multilevel_01_files/figure-latex/unnamed-chunk-4-1.pdf" >
 
-Package xcolor Warning: Incompatible color definition on input line 5241.
+Package xcolor Warning: Incompatible color definition on input line 5248.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5247.
+Package xcolor Warning: Incompatible color definition on input line 5254.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5247.
+Package xcolor Warning: Incompatible color definition on input line 5254.
 
 File: 05-multilevel_01_files/figure-latex/unnamed-chunk-4-2.pdf Graphic file (t
 ype QTm)
@@ -3547,38 +3532,38 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [107]
 
-Package xcolor Warning: Incompatible color definition on input line 5270.
+Package xcolor Warning: Incompatible color definition on input line 5277.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5276.
+Package xcolor Warning: Incompatible color definition on input line 5283.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5276.
+Package xcolor Warning: Incompatible color definition on input line 5283.
 
 File: 05-multilevel_01_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (t
 ype QTm)
 <use  "05-multilevel_01_files/figure-latex/unnamed-chunk-5-1.pdf" >
 
-Package xcolor Warning: Incompatible color definition on input line 5280.
+Package xcolor Warning: Incompatible color definition on input line 5287.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [108]
 
-Package xcolor Warning: Incompatible color definition on input line 5284.
+Package xcolor Warning: Incompatible color definition on input line 5291.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5284.
+Package xcolor Warning: Incompatible color definition on input line 5291.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5293.
+Package xcolor Warning: Incompatible color definition on input line 5300.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5307.
+Package xcolor Warning: Incompatible color definition on input line 5314.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5307.
+Package xcolor Warning: Incompatible color definition on input line 5314.
 
 File: 05-multilevel_01_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (t
 ype QTm)
@@ -3587,22 +3572,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [109]
 
-Package xcolor Warning: Incompatible color definition on input line 5313.
+Package xcolor Warning: Incompatible color definition on input line 5320.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5319.
+Package xcolor Warning: Incompatible color definition on input line 5326.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5319.
+Package xcolor Warning: Incompatible color definition on input line 5326.
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5340--5340
+Overfull \hbox (31.25pt too wide) in paragraph at lines 5347--5347
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 333993.8 ymin: 379748.5 xmax: 34560
 0.2 ymax: 397681.5[] 
  []
 
 
-Overfull \hbox (267.5pt too wide) in paragraph at lines 5340--5340
+Overfull \hbox (267.5pt too wide) in paragraph at lines 5347--5347
 []\EU1/lmtt/m/n/10 ## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996
 012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs[] 
  []
@@ -3612,35 +3597,35 @@ Underfull \vbox (badness 2435) has occurred while \output is active []
 
 [110]
 
-Package xcolor Warning: Incompatible color definition on input line 5348.
+Package xcolor Warning: Incompatible color definition on input line 5355.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5357.
+Package xcolor Warning: Incompatible color definition on input line 5364.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5357.
+Package xcolor Warning: Incompatible color definition on input line 5364.
 
 
 Underfull \vbox (badness 1577) has occurred while \output is active []
 
 [111] [112]
 
-Package xcolor Warning: Incompatible color definition on input line 5442.
+Package xcolor Warning: Incompatible color definition on input line 5449.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5451.
+Package xcolor Warning: Incompatible color definition on input line 5458.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5451.
+Package xcolor Warning: Incompatible color definition on input line 5458.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5479.
+Package xcolor Warning: Incompatible color definition on input line 5486.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5488.
+Package xcolor Warning: Incompatible color definition on input line 5495.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5488.
+Package xcolor Warning: Incompatible color definition on input line 5495.
 
 [113]
 File: figs/ch5/nm_dist_obs.png Graphic file (type QTm)
@@ -3650,485 +3635,719 @@ File: figs/ch5/nm_dist_msoa.png Graphic file (type QTm)
 File: figs/ch5/nm_dist_grand.png Graphic file (type QTm)
 <use  "figs/ch5/nm_dist_grand.png" > [114] [115]
 
-Package xcolor Warning: Incompatible color definition on input line 5577.
+Package xcolor Warning: Incompatible color definition on input line 5584.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5582.
+Package xcolor Warning: Incompatible color definition on input line 5589.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5582.
+Package xcolor Warning: Incompatible color definition on input line 5589.
 
 [116]
 
-Package xcolor Warning: Incompatible color definition on input line 5617.
+Package xcolor Warning: Incompatible color definition on input line 5624.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5621.
+Package xcolor Warning: Incompatible color definition on input line 5628.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5621.
+Package xcolor Warning: Incompatible color definition on input line 5628.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5663.
+Package xcolor Warning: Incompatible color definition on input line 5670.
 
 [117]
 
-Package xcolor Warning: Incompatible color definition on input line 5668.
+Package xcolor Warning: Incompatible color definition on input line 5675.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5668.
+Package xcolor Warning: Incompatible color definition on input line 5675.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5676.
+Package xcolor Warning: Incompatible color definition on input line 5683.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5680.
+Package xcolor Warning: Incompatible color definition on input line 5687.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5680.
+Package xcolor Warning: Incompatible color definition on input line 5687.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5698.
+Package xcolor Warning: Incompatible color definition on input line 5705.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5702.
+Package xcolor Warning: Incompatible color definition on input line 5709.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5702.
+Package xcolor Warning: Incompatible color definition on input line 5709.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5728.
+Package xcolor Warning: Incompatible color definition on input line 5735.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5733.
+Package xcolor Warning: Incompatible color definition on input line 5740.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5733.
+Package xcolor Warning: Incompatible color definition on input line 5740.
 
 [118]
 
-Package xcolor Warning: Incompatible color definition on input line 5754.
+Package xcolor Warning: Incompatible color definition on input line 5761.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5759.
+Package xcolor Warning: Incompatible color definition on input line 5766.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5759.
+Package xcolor Warning: Incompatible color definition on input line 5766.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5782.
+Package xcolor Warning: Incompatible color definition on input line 5789.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5787.
+Package xcolor Warning: Incompatible color definition on input line 5794.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5787.
+Package xcolor Warning: Incompatible color definition on input line 5794.
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5801--5801
-[]\EU1/lmtt/m/n/10 ## 1    lsoa_cd E01006512 (Intercept) -0.016839632 -0.015013
-673 0.019824986[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 1    lsoa_cd E01006512 (Intercept) -0.016064521 -0.017004
+407 0.01955174[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5801--5801
-[]\EU1/lmtt/m/n/10 ## 2    lsoa_cd E01006513 (Intercept) -0.017375463 -0.015216
-892 0.019625350[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 2    lsoa_cd E01006513 (Intercept) -0.012983353 -0.013303
+014 0.01795480[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5801--5801
-[]\EU1/lmtt/m/n/10 ## 3    lsoa_cd E01006514 (Intercept) -0.022810507 -0.020705
-298 0.019444137[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 3    lsoa_cd E01006514 (Intercept) -0.020641805 -0.019907
+313 0.01983250[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5801--5801
-[]\EU1/lmtt/m/n/10 ## 4    lsoa_cd E01006515 (Intercept) -0.019959547 -0.020461
-116 0.019017227[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 4    lsoa_cd E01006515 (Intercept) -0.016376298 -0.017334
+003 0.02134515[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5801--5801
-[]\EU1/lmtt/m/n/10 ## 5    lsoa_cd E01006518 (Intercept) -0.019487105 -0.019690
-971 0.019767639[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 5    lsoa_cd E01006518 (Intercept) -0.019170477 -0.018246
+275 0.02056063[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5801--5801
-[]\EU1/lmtt/m/n/10 ## 6    lsoa_cd E01006519 (Intercept) -0.014972371 -0.014696
-076 0.009513841[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 6    lsoa_cd E01006519 (Intercept) -0.017207355 -0.017339
+962 0.00940608[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5801--5801
-[]\EU1/lmtt/m/n/10 ## 7    lsoa_cd E01006520 (Intercept) -0.023854296 -0.025161
-107 0.020631612[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 7    lsoa_cd E01006520 (Intercept) -0.025121954 -0.023873
+618 0.01787543[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 5801--5801
-[]\EU1/lmtt/m/n/10 ## 8    lsoa_cd E01006521 (Intercept)  0.006763346  0.007039
-051 0.019650834[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 8    lsoa_cd E01006521 (Intercept)  0.004408231  0.002616
+283 0.01888662[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 5801--5801
-[]\EU1/lmtt/m/n/10 ## 9    lsoa_cd E01006522 (Intercept)  0.017917160  0.018491
-632 0.020798463[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 9    lsoa_cd E01006522 (Intercept)  0.018643484  0.016821
+580 0.01983241[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 5801--5801
-[]\EU1/lmtt/m/n/10 ## 10   lsoa_cd E01006523 (Intercept)  0.003566191  0.005257
-741 0.020199998[] 
+Overfull \hbox (24.25pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 10   lsoa_cd E01006523 (Intercept)  0.004557691  0.005311
+269 0.02043877[] 
  []
 
 [119]
 
-Package xcolor Warning: Incompatible color definition on input line 5822.
+Package xcolor Warning: Incompatible color definition on input line 5829.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5827.
+Package xcolor Warning: Incompatible color definition on input line 5834.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5827.
+Package xcolor Warning: Incompatible color definition on input line 5834.
 
 File: 05-multilevel_01_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file (
 type QTm)
 <use  "05-multilevel_01_files/figure-latex/unnamed-chunk-20-1.pdf" >
 
-Package xcolor Warning: Incompatible color definition on input line 5839.
+Package xcolor Warning: Incompatible color definition on input line 5846.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5845.
+Package xcolor Warning: Incompatible color definition on input line 5852.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5845.
+Package xcolor Warning: Incompatible color definition on input line 5852.
 
 [120]
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5866--5866
+Overfull \hbox (31.25pt too wide) in paragraph at lines 5873--5873
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 339178.6 ymin: 386244.2 xmax: 34195
 9.9 ymax: 389646.7[] 
  []
 
 
-Overfull \hbox (267.5pt too wide) in paragraph at lines 5866--5866
+Overfull \hbox (267.5pt too wide) in paragraph at lines 5873--5873
 []\EU1/lmtt/m/n/10 ## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996
 012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs[] 
  []
 
 
-Overfull \hbox (66.25pt too wide) in paragraph at lines 5866--5866
+Overfull \hbox (66.25pt too wide) in paragraph at lines 5873--5873
 []\EU1/lmtt/m/n/10 ## 1  E02001393 Allerton and Hunts Cross 0.03246753 MULTIPOL
 YGON (((341333.6 38...[] 
  []
 
 
-Overfull \hbox (66.25pt too wide) in paragraph at lines 5866--5866
+Overfull \hbox (66.25pt too wide) in paragraph at lines 5873--5873
 []\EU1/lmtt/m/n/10 ## 2  E02001393 Allerton and Hunts Cross 0.03684211 MULTIPOL
 YGON (((340658.2 38...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 5866--5866
+Overfull \hbox (40.0pt too wide) in paragraph at lines 5873--5873
 []\EU1/lmtt/m/n/10 ## 3  E02001393                   Church 0.04098361 MULTIPOL
 YGON (((339908.1 38...[] 
  []
 
 
-Overfull \hbox (66.25pt too wide) in paragraph at lines 5866--5866
+Overfull \hbox (66.25pt too wide) in paragraph at lines 5873--5873
 []\EU1/lmtt/m/n/10 ## 4  E02001393 Allerton and Hunts Cross 0.05982906 MULTIPOL
 YGON (((340306 3865...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 5866--5866
+Overfull \hbox (40.0pt too wide) in paragraph at lines 5873--5873
 []\EU1/lmtt/m/n/10 ## 5  E02001393                   Church 0.01212121 MULTIPOL
 YGON (((339974.2 38...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 5866--5866
+Overfull \hbox (40.0pt too wide) in paragraph at lines 5873--5873
 []\EU1/lmtt/m/n/10 ## 6  E02001393                   Church 0.09219858 MULTIPOL
 YGON (((340181.4 38...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 5866--5866
+Overfull \hbox (40.0pt too wide) in paragraph at lines 5873--5873
 []\EU1/lmtt/m/n/10 ## 7  E02001393                   Church 0.01986755 MULTIPOL
 YGON (((340301.2 38...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 5866--5866
+Overfull \hbox (40.0pt too wide) in paragraph at lines 5873--5873
 []\EU1/lmtt/m/n/10 ## 8  E02001393                   Church 0.04615385 MULTIPOL
 YGON (((340375.9 38...[] 
  []
 
 
-Overfull \hbox (66.25pt too wide) in paragraph at lines 5866--5866
+Overfull \hbox (66.25pt too wide) in paragraph at lines 5873--5873
 []\EU1/lmtt/m/n/10 ## 9  E02001393 Allerton and Hunts Cross 0.04117647 MULTIPOL
 YGON (((340435.3 38...[] 
  []
 
 
-Overfull \hbox (68.0pt too wide) in paragraph at lines 5866--5866
+Overfull \hbox (68.0pt too wide) in paragraph at lines 5873--5873
 []\EU1/lmtt/m/n/10 ## 10 E02001393 Allerton and Hunts Cross 0.02272727 MULTIPOL
 YGON (((340681.7 38...[] 
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 5872.
+Package xcolor Warning: Incompatible color definition on input line 5879.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5877.
+Package xcolor Warning: Incompatible color definition on input line 5884.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5877.
+Package xcolor Warning: Incompatible color definition on input line 5884.
 
 
-Overfull \hbox (528.25pt too wide) in paragraph at lines 5887--5887
+Overfull \hbox (528.25pt too wide) in paragraph at lines 5894--5894
 []\EU1/lmtt/m/n/10 ## Reading layer `MSOA' from data source `/Users/Franciscoro
 we/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/mlm/MSOA.shp
 ' using driver `ESRI Shapefile'[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 5887--5887
+Overfull \hbox (20.75pt too wide) in paragraph at lines 5894--5894
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 333086.1 ymin: 381426.3 xmax: 34563
 6 ymax: 397980.1[] 
  []
 
 
-Overfull \hbox (570.25pt too wide) in paragraph at lines 5887--5887
+Overfull \hbox (570.25pt too wide) in paragraph at lines 5894--5894
 []\EU1/lmtt/m/n/10 ## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996
 012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.
 15,0.247,0.842,-20.489 +units=m +no_defs[] 
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 5889.
+Package xcolor Warning: Incompatible color definition on input line 5896.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5895.
+Package xcolor Warning: Incompatible color definition on input line 5902.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5895.
+Package xcolor Warning: Incompatible color definition on input line 5902.
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 5905--5905
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5912--5912
 []\EU1/lmtt/m/n/10 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E
 02001350" ...[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 5905--5905
+Overfull \hbox (54.0pt too wide) in paragraph at lines 5912--5912
 []\EU1/lmtt/m/n/10 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercep
 t)" "(Intercept)" ...[] 
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 5907.
+Package xcolor Warning: Incompatible color definition on input line 5914.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5912.
+Package xcolor Warning: Incompatible color definition on input line 5919.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5912.
+Package xcolor Warning: Incompatible color definition on input line 5919.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5916.
+Package xcolor Warning: Incompatible color definition on input line 5923.
 
 [121]
 
-Package xcolor Warning: Incompatible color definition on input line 5927.
+Package xcolor Warning: Incompatible color definition on input line 5937.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5927.
+Package xcolor Warning: Incompatible color definition on input line 5937.
 
 File: 05-multilevel_01_files/figure-latex/unnamed-chunk-23-1.pdf Graphic file (
 type QTm)
 <use  "05-multilevel_01_files/figure-latex/unnamed-chunk-23-1.pdf" > [122]
 
-Package xcolor Warning: Incompatible color definition on input line 5967.
+Package xcolor Warning: Incompatible color definition on input line 5973.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5979.
+Package xcolor Warning: Incompatible color definition on input line 5985.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5979.
+Package xcolor Warning: Incompatible color definition on input line 5985.
 
 [123]
 
-Package xcolor Warning: Incompatible color definition on input line 6010.
+Package xcolor Warning: Incompatible color definition on input line 6016.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6014.
+Package xcolor Warning: Incompatible color definition on input line 6020.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6014.
+Package xcolor Warning: Incompatible color definition on input line 6020.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6026.
+Package xcolor Warning: Incompatible color definition on input line 6032.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6031.
+Package xcolor Warning: Incompatible color definition on input line 6037.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6031.
+Package xcolor Warning: Incompatible color definition on input line 6037.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6049.
+Package xcolor Warning: Incompatible color definition on input line 6055.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6053.
+Package xcolor Warning: Incompatible color definition on input line 6059.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6053.
+Package xcolor Warning: Incompatible color definition on input line 6059.
 
 [124]
 
-Package xcolor Warning: Incompatible color definition on input line 6081.
+Package xcolor Warning: Incompatible color definition on input line 6087.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6102.
+Package xcolor Warning: Incompatible color definition on input line 6108.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6102.
+Package xcolor Warning: Incompatible color definition on input line 6108.
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 6118--6118
+Overfull \hbox (20.75pt too wide) in paragraph at lines 6124--6124
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 337693.5 ymin: 396068.2 xmax: 33943
 0.9 ymax: 397790[] 
  []
 
 
-Overfull \hbox (267.5pt too wide) in paragraph at lines 6118--6118
+Overfull \hbox (267.5pt too wide) in paragraph at lines 6124--6124
 []\EU1/lmtt/m/n/10 ## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996
 012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 6118--6118
+Overfull \hbox (40.0pt too wide) in paragraph at lines 6124--6124
 []\EU1/lmtt/m/n/10 ## 1 E02001347 E00033730 0.10322581 0.4775905 MULTIPOLYGON (
 ((338376 3970...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 6118--6118
+Overfull \hbox (40.0pt too wide) in paragraph at lines 6124--6124
 []\EU1/lmtt/m/n/10 ## 2 E02001347 E00033722 0.06306306 0.4775905 MULTIPOLYGON (
 ((337929.4 39...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 6118--6118
+Overfull \hbox (40.0pt too wide) in paragraph at lines 6124--6124
 []\EU1/lmtt/m/n/10 ## 3 E02001347 E00033712 0.09090909 0.4775905 MULTIPOLYGON (
 ((338830 3960...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 6118--6118
+Overfull \hbox (40.0pt too wide) in paragraph at lines 6124--6124
 []\EU1/lmtt/m/n/10 ## 4 E02001347 E00033739 0.09401709 0.4775905 MULTIPOLYGON (
 ((339140.3 39...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 6118--6118
+Overfull \hbox (40.0pt too wide) in paragraph at lines 6124--6124
 []\EU1/lmtt/m/n/10 ## 5 E02001347 E00033719 0.05855856 0.4775905 MULTIPOLYGON (
 ((338128.8 39...[] 
  []
 
 [125]
-Overfull \hbox (40.0pt too wide) in paragraph at lines 6118--6118
+Overfull \hbox (40.0pt too wide) in paragraph at lines 6124--6124
 []\EU1/lmtt/m/n/10 ## 6 E02001347 E00033711 0.12195122 0.4775905 MULTIPOLYGON (
 ((339163.2 39...[] 
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 6122.
+Package xcolor Warning: Incompatible color definition on input line 6128.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6134.
+Package xcolor Warning: Incompatible color definition on input line 6140.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6134.
+Package xcolor Warning: Incompatible color definition on input line 6140.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6171.
+Package xcolor Warning: Incompatible color definition on input line 6177.
 
 [126]
 
-Package xcolor Warning: Incompatible color definition on input line 6176.
+Package xcolor Warning: Incompatible color definition on input line 6182.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6176.
-
-
-Package xcolor Warning: Incompatible color definition on input line 6183.
+Package xcolor Warning: Incompatible color definition on input line 6182.
 
 
 Package xcolor Warning: Incompatible color definition on input line 6189.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6189.
-
-[127]
-
-Package xcolor Warning: Incompatible color definition on input line 6249.
+Package xcolor Warning: Incompatible color definition on input line 6195.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6253.
+Package xcolor Warning: Incompatible color definition on input line 6195.
 
 
-Package xcolor Warning: Incompatible color definition on input line 6253.
-
-
-Overfull \hbox (12.0pt too wide) in paragraph at lines 6271--6271
-[]\EU1/lmtt/m/n/10 ## model4  4 -4719.1 -4697.6 2363.6  -4727.1 189.4939      0
-     <2e-16 ***[] 
- []
-
-
-Overfull \hbox (5.9302pt too wide) in paragraph at lines 6305--6307
+Overfull \hbox (5.9302pt too wide) in paragraph at lines 6245--6247
 []|\EU1/lmr/m/n/10 plotREsim()|  
  []
 
-[128] [129] [130
+[127] [128
 
 ]
 Chapter 7.
-[131] [132
 
-]
+Underfull \hbox (badness 10000) in paragraph at lines 6314--6314
+[][][]\EU1/lmr/m/n/8 You can install package \EU1/lmtt/m/n/8 mypackage \EU1/lmr
+/m/n/8 by running the command
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 6316.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[129]
+
+Package xcolor Warning: Incompatible color definition on input line 6341.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6341.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6359.
+
+[130]
+
+Package xcolor Warning: Incompatible color definition on input line 6366.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6366.
+
+File: figs/ch6/fig11.1_Gelman_Hill.png Graphic file (type QTm)
+<use  "figs/ch6/fig11.1_Gelman_Hill.png" >
+
+Package xcolor Warning: Incompatible color definition on input line 6395.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6401.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6401.
+
+
+Overfull \hbox (10.25pt too wide) in paragraph at lines 6420--6420
+[]\EU1/lmtt/m/n/10 ## bbox:           xmin: 335032 ymin: 387777 xmax: 338576.1 
+ymax: 395022.4[] 
+ []
+
+[131]
+Overfull \hbox (267.5pt too wide) in paragraph at lines 6420--6420
+[]\EU1/lmtt/m/n/10 ## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996
+012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs[] 
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 6422.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6437.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6437.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6442.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6452.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6452.
+
+File: 06-multilevel_02_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (t
+ype QTm)
+<use  "06-multilevel_02_files/figure-latex/unnamed-chunk-4-1.pdf" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[132] [133]
+
+Package xcolor Warning: Incompatible color definition on input line 6498.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6513.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6513.
+
+[134]
+
+Package xcolor Warning: Incompatible color definition on input line 6565.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6569.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6569.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6586.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6591.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6591.
+
+[135]
+
+Package xcolor Warning: Incompatible color definition on input line 6610.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6614.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6614.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6619.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6624.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6624.
+
+File: 06-multilevel_02_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (t
+ype QTm)
+<use  "06-multilevel_02_files/figure-latex/unnamed-chunk-9-1.pdf" > [136]
+
+Package xcolor Warning: Incompatible color definition on input line 6646.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6651.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6651.
+
+
+Overfull \hbox (528.25pt too wide) in paragraph at lines 6661--6661
+[]\EU1/lmtt/m/n/10 ## Reading layer `MSOA' from data source `/Users/Franciscoro
+we/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/mlm/MSOA.shp
+' using driver `ESRI Shapefile'[] 
+ []
+
+
+Overfull \hbox (20.75pt too wide) in paragraph at lines 6661--6661
+[]\EU1/lmtt/m/n/10 ## bbox:           xmin: 333086.1 ymin: 381426.3 xmax: 34563
+6 ymax: 397980.1[] 
+ []
+
+
+Overfull \hbox (570.25pt too wide) in paragraph at lines 6661--6661
+[]\EU1/lmtt/m/n/10 ## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996
+012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.
+15,0.247,0.842,-20.489 +units=m +no_defs[] 
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 6663.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6670.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6670.
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6680--6680
+[]\EU1/lmtt/m/n/10 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E
+02001350" ...[] 
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 6682.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6687.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6687.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6689.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6703.
+
+File: 06-multilevel_02_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (
+type QTm)
+<use  "06-multilevel_02_files/figure-latex/unnamed-chunk-11-1.pdf" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[137]
+
+Package xcolor Warning: Incompatible color definition on input line 6719.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6724.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6724.
+
+
+Overfull \hbox (10.25pt too wide) in paragraph at lines 6756--6756
+[]\EU1/lmtt/m/n/10 ## bbox:           xmin: 335885 ymin: 391134.2 xmax: 337596.
+3 ymax: 392467[] 
+ []
+
+
+Overfull \hbox (267.5pt too wide) in paragraph at lines 6756--6756
+[]\EU1/lmtt/m/n/10 ## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996
+012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs[] 
+ []
+
+[138]
+Overfull \hbox (119.67343pt too wide) has occurred while \output is active
+\EU1/lmr/m/sl/10 7.5.  INTERPRETING CORRELATIONS BETWEEN GROUP-LEVEL INTERCEPTS
+ AND SLOPES \EU1/lmr/m/n/10 139
+ []
+
+[139]
+
+Package xcolor Warning: Incompatible color definition on input line 6788.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6801.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6801.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[140]
+
+Package xcolor Warning: Incompatible color definition on input line 6879.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6883.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6883.
+
+[141]
+Overfull \hbox (5.0pt too wide) in paragraph at lines 6899--6899
+[]\EU1/lmtt/m/n/10 ## model7  7 -4956.5 -4918.9 2485.2  -4970.5 193.76      1  
+< 2.2e-16 ***[] 
+ []
+
+[142]
 Chapter 8.
-[133] [134
+[143
+
+] [144
 
 ]
 Chapter 9.
-(./spatial_analysis_notes.bbl [135] [136
+(./spatial_analysis_notes.bbl [145] [146
 
-] [137])
+] [147])
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6337.
-[138]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 6337.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6911.
+[148]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 6911.
 (./spatial_analysis_notes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 6337.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 6337.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 6911.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 6911.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 26826 strings out of 493591
- 470191 string characters out of 6143546
- 538447 words of memory out of 5000000
- 29850 multiletter control sequences out of 15000+600000
+ 26841 strings out of 493591
+ 470717 string characters out of 6143546
+ 540015 words of memory out of 5000000
+ 29862 multiletter control sequences out of 15000+600000
  28597 words of font info for 72 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
  54i,8n,54p,10420b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on spatial_analysis_notes.pdf (138 pages).
+Output written on spatial_analysis_notes.pdf (148 pages).

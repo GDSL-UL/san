@@ -241,7 +241,7 @@ hist
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-8-1.png" alt="Raw house prices in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-8-1.png" alt="Raw house prices in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-8)Raw house prices in Liverpool</p>
 </div>
 
@@ -262,7 +262,7 @@ hist
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-9-1.png" alt="Log of house price in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-9-1.png" alt="Log of house price in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-9)Log of house price in Liverpool</p>
 </div>
 
@@ -274,7 +274,7 @@ plot(db)
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-10-1.png" alt="Spatial distribution of house transactions in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-10-1.png" alt="Spatial distribution of house transactions in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-10)Spatial distribution of house transactions in Liverpool</p>
 </div>
 
@@ -300,7 +300,7 @@ kde
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-11-1.png" alt="Histogram and KDE of the log of house prices in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-11-1.png" alt="Histogram and KDE of the log of house prices in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-11)Histogram and KDE of the log of house prices in Liverpool</p>
 </div>
 
@@ -327,7 +327,7 @@ kde
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-12-1.png" alt="KDE of house transactions in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-12-1.png" alt="KDE of house transactions in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-12)KDE of house transactions in Liverpool</p>
 </div>
 
@@ -342,7 +342,7 @@ level.plot(kde)
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-13-1.png" alt="KDE of house transactions in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-13-1.png" alt="KDE of house transactions in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-13)KDE of house transactions in Liverpool</p>
 </div>
 
@@ -418,7 +418,7 @@ final
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-14-1.png" alt="KDE of house transactions in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-14-1.png" alt="KDE of house transactions in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-14)KDE of house transactions in Liverpool</p>
 </div>
 
@@ -481,12 +481,12 @@ head(idw.hp@data)
 
 ```
 ##   var1.pred var1.var
-## 1  158018.7       NA
-## 2  158127.6       NA
-## 3  158239.3       NA
-## 4  158353.7       NA
-## 5  158471.0       NA
-## 6  158591.4       NA
+## 1  158045.7       NA
+## 2  158155.2       NA
+## 3  158267.5       NA
+## 4  158382.7       NA
+## 5  158500.9       NA
+## 6  158622.3       NA
 ```
 
 The column we will pay attention to is `var1.pred`. And to see the locations for which those correspond:
@@ -498,12 +498,12 @@ head(idw.hp@coords)
 
 ```
 ##            x1       x2
-## [1,] 333538.7 382691.4
-## [2,] 333623.7 382691.4
-## [3,] 333708.6 382691.4
-## [4,] 333793.6 382691.4
-## [5,] 333878.6 382691.4
-## [6,] 333963.5 382691.4
+## [1,] 333550.7 382741.8
+## [2,] 333635.7 382741.8
+## [3,] 333720.7 382741.8
+## [4,] 333805.6 382741.8
+## [5,] 333890.6 382741.8
+## [6,] 333975.5 382741.8
 ```
 
 So, for a hypothetical house sold at the location in the first row of `idw.hp@coords` (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column `var1.pred` in `idw.hp@data`.
@@ -517,7 +517,7 @@ Once we have the IDW object computed, we can plot it to explore the distribution
 spplot(idw.hp['var1.pred'])
 ```
 
-<img src="02-points_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+![](02-points_files/figure-epub3/unnamed-chunk-19-1.png)<!-- -->
 
 However, this is not entirely satisfactory for a number of reasons. Let us get an equivalen plot with the package `tmap`, which streamlines some of this and makes more aesthetically pleasant maps easier to build as it follows a "ggplot-y" approach.
 
@@ -541,7 +541,7 @@ The shape we will overlay looks like this:
 qtm(liv.otl)
 ```
 
-<img src="02-points_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+![](02-points_files/figure-epub3/unnamed-chunk-21-1.png)<!-- -->
 
 Now let's give it a first go!
 
@@ -555,7 +555,7 @@ p = tm_shape(liv.otl) + tm_fill(col='black', alpha=1) +
 p
 ```
 
-<img src="02-points_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+![](02-points_files/figure-epub3/unnamed-chunk-22-1.png)<!-- -->
 
 
 The last two plots, however, are not really a surface, but a representation of the points we have just estimated. To create a surface, we need to do an interim transformation to convert the spatial object `idw.hp` into a table that a "surface plotter" can understand.
@@ -577,7 +577,7 @@ surface
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-24-1.png" alt="Contour of prices in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-24-1.png" alt="Contour of prices in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-24)Contour of prices in Liverpool</p>
 </div>
 
@@ -590,7 +590,7 @@ surface <- base + geom_raster(aes(fill=z))
 surface
 ```
 
-<img src="02-points_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+![](02-points_files/figure-epub3/unnamed-chunk-25-1.png)<!-- -->
 
 The problem here, when compared to the KDE above for example, is that a few values are extremely large:
 
@@ -600,7 +600,7 @@ qplot(data=xyz, x=z, geom='density')
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-26-1.png" alt="Skewness of prices in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-26-1.png" alt="Skewness of prices in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-26)Skewness of prices in Liverpool</p>
 </div>
 
@@ -617,7 +617,7 @@ surface
 ```
 
 <div class="figure">
-<img src="02-points_files/figure-html/unnamed-chunk-27-1.png" alt="Surface of log-prices in Liverpool" width="672" />
+<img src="02-points_files/figure-epub3/unnamed-chunk-27-1.png" alt="Surface of log-prices in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-27)Surface of log-prices in Liverpool</p>
 </div>
 

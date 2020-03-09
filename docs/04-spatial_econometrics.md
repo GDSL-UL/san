@@ -263,7 +263,7 @@ plot(db)
 ```
 
 <div class="figure">
-<img src="04-spatial_econometrics_files/figure-html/unnamed-chunk-13-1.png" alt="Spatial distribution of house transactions in Liverpool" width="672" />
+<img src="04-spatial_econometrics_files/figure-epub3/unnamed-chunk-13-1.png" alt="Spatial distribution of house transactions in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-13)Spatial distribution of house transactions in Liverpool</p>
 </div>
 
@@ -734,7 +734,7 @@ hknn
 ## Weights style: W 
 ## Weights constants summary:
 ##      n       nn   S0       S1       S2
-## W 6324 39992976 6324 230.4552 25814.83
+## W 6324 39992976 6324 230.4664 25814.46
 ```
 
 **Exogenous spatial effects**
@@ -770,20 +770,20 @@ summary(m6)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2905 -0.3012 -0.0155  0.2821  5.2631 
+## -4.2906 -0.3014 -0.0156  0.2824  5.2605 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) 12.2813669  0.0145274 845.391  < 2e-16 ***
-## newY         0.2476452  0.0195175  12.688  < 2e-16 ***
-## imd_score   -0.0042027  0.0008915  -4.714 2.48e-06 ***
-## w_imd_score -0.0148239  0.0009684 -15.307  < 2e-16 ***
+## (Intercept) 12.2814688  0.0145259 845.486  < 2e-16 ***
+## newY         0.2474160  0.0195162  12.677  < 2e-16 ***
+## imd_score   -0.0041828  0.0008913  -4.693 2.75e-06 ***
+## w_imd_score -0.0148450  0.0009681 -15.333  < 2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## Residual standard error: 0.52 on 6320 degrees of freedom
-## Multiple R-squared:  0.3348,	Adjusted R-squared:  0.3345 
-## F-statistic:  1060 on 3 and 6320 DF,  p-value: < 2.2e-16
+## Multiple R-squared:  0.3349,	Adjusted R-squared:  0.3346 
+## F-statistic:  1061 on 3 and 6320 DF,  p-value: < 2.2e-16
 ```
 
 As we can see, the lag is not only significative and negative (as expected), but its effect seems to be even larger that that of the house itself. Taken literally, this would imply that prospective owners value more the area of the surrounding houses than that of the actual house they buy. However, it is important to remember how these variables have been constructed and what they really represent. Because the IMD score is not exactly calculated at the house level, but at the area level, many of the surrounding houses will share that so, to some extent, the IMD of neighboring houses is that of the house itself^[**EXERCISE** *How do results change if you modify the number of neighbors included to compute the $K$-nn spatial weight matrix?* Replace the originak $k$ used and re-run the regressions. Try to interpret the results and the (potential) differences with the original ones.]. This is likely to be affecting the final parameter, and it is a reminder and an illustration that we cannot take model results as universal truth but we need to use them as tools to inform analysis, couple with theory and what we know about the particular question of analysis. Nevertheless, the example does illustrate how to introduce spatial dependence in a regression framework in a fairly straight forward way.
@@ -845,7 +845,7 @@ new.price
 
 ```
 ##        1 
-## 11.47261
+## 11.47292
 ```
 
 Now remember we were using the log of the price as dependent variable. If we want to recover the actual price of the house, we need to take its exponent:
@@ -857,7 +857,7 @@ exp(new.price)
 
 ```
 ##        1 
-## 96048.64
+## 96078.77
 ```
 
 According to our model, the house would be worth GBP96,060.29^[**EXERCISE** *How would the price change if the surrounding houses did not have an average of 50 but of 80?* Obtain a new prediction and compare it with the original one.].
