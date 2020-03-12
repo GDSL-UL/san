@@ -133,7 +133,7 @@
 
 \title{Spatial Analysis Notes}
 \author{Francisco Rowe \& Dani Arribas-Bel}
-\date{2020-03-09}
+\date{2020-03-12}
 
 \begin{document}
 \maketitle
@@ -2235,12 +2235,12 @@ of the estimated table:
 
 \begin{verbatim}
 ##   var1.pred var1.var
-## 1  158122.0       NA
-## 2  158233.5       NA
-## 3  158347.8       NA
-## 4  158465.0       NA
-## 5  158585.2       NA
-## 6  158708.6       NA
+## 1  158031.5       NA
+## 2  158140.7       NA
+## 3  158252.7       NA
+## 4  158367.5       NA
+## 5  158485.3       NA
+## 6  158606.2       NA
 \end{verbatim}
 
 The column we will pay attention to is \texttt{var1.pred}. And to see
@@ -2253,13 +2253,13 @@ the locations for which those correspond:
 \end{Shaded}
 
 \begin{verbatim}
-##            x1     x2
-## [1,] 333619.8 382689
-## [2,] 333704.7 382689
-## [3,] 333789.7 382689
-## [4,] 333874.7 382689
-## [5,] 333959.6 382689
-## [6,] 334044.6 382689
+##            x1       x2
+## [1,] 333540.2 382738.7
+## [2,] 333625.1 382738.7
+## [3,] 333710.1 382738.7
+## [4,] 333795.1 382738.7
+## [5,] 333880.0 382738.7
+## [6,] 333965.0 382738.7
 \end{verbatim}
 
 So, for a hypothetical house sold at the location in the first row of
@@ -4790,8 +4790,8 @@ object:
 ## 
 ## Weights style: W 
 ## Weights constants summary:
-##      n       nn   S0       S1      S2
-## W 6324 39992976 6324 230.4296 25815.4
+##      n       nn   S0       S1       S2
+## W 6324 39992976 6324 230.3712 25817.71
 \end{verbatim}
 
 \textbf{Exogenous spatial effects}
@@ -4846,19 +4846,19 @@ apply the log to the lag, not the reverse:
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2906 -0.3012 -0.0151  0.2821  5.2631 
+## -4.2906 -0.3016 -0.0155  0.2821  5.2631 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) 12.2812151  0.0145270 845.405  < 2e-16 ***
-## newY         0.2475976  0.0195185  12.685  < 2e-16 ***
-## imd_score   -0.0042195  0.0008915  -4.733 2.26e-06 ***
-## w_imd_score -0.0148019  0.0009683 -15.286  < 2e-16 ***
+## (Intercept) 12.2813545  0.0145260 845.474  < 2e-16 ***
+## newY         0.2474798  0.0195171  12.680  < 2e-16 ***
+## imd_score   -0.0041954  0.0008915  -4.706 2.58e-06 ***
+## w_imd_score -0.0148290  0.0009683 -15.315  < 2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.5201 on 6320 degrees of freedom
-## Multiple R-squared:  0.3347, Adjusted R-squared:  0.3344 
+## Residual standard error: 0.52 on 6320 degrees of freedom
+## Multiple R-squared:  0.3348, Adjusted R-squared:  0.3345 
 ## F-statistic:  1060 on 3 and 6320 DF,  p-value: < 2.2e-16
 \end{verbatim}
 
@@ -4986,7 +4986,7 @@ method:
 
 \begin{verbatim}
 ##        1 
-## 11.47225
+## 11.47273
 \end{verbatim}
 
 Now remember we were using the log of the price as dependent variable.
@@ -5001,7 +5001,7 @@ exponent:
 
 \begin{verbatim}
 ##        1 
-## 96014.47
+## 96060.22
 \end{verbatim}
 
 According to our model, the house would be worth GBP96,060.29\footnote{\textbf{EXERCISE}
@@ -5794,17 +5794,17 @@ To this end, we run:
 \end{Shaded}
 
 \begin{verbatim}
-##    groupFctr   groupID        term         mean       median         sd
-## 1    lsoa_cd E01006512 (Intercept) -0.016064521 -0.017004407 0.01955174
-## 2    lsoa_cd E01006513 (Intercept) -0.012983353 -0.013303014 0.01795480
-## 3    lsoa_cd E01006514 (Intercept) -0.020641805 -0.019907313 0.01983250
-## 4    lsoa_cd E01006515 (Intercept) -0.016376298 -0.017334003 0.02134515
-## 5    lsoa_cd E01006518 (Intercept) -0.019170477 -0.018246275 0.02056063
-## 6    lsoa_cd E01006519 (Intercept) -0.017207355 -0.017339962 0.00940608
-## 7    lsoa_cd E01006520 (Intercept) -0.025121954 -0.023873618 0.01787543
-## 8    lsoa_cd E01006521 (Intercept)  0.004408231  0.002616283 0.01888662
-## 9    lsoa_cd E01006522 (Intercept)  0.018643484  0.016821580 0.01983241
-## 10   lsoa_cd E01006523 (Intercept)  0.004557691  0.005311269 0.02043877
+##    groupFctr   groupID        term         mean       median          sd
+## 1    lsoa_cd E01006512 (Intercept) -0.015232611 -0.014641656 0.020034611
+## 2    lsoa_cd E01006513 (Intercept) -0.018184299 -0.018116212 0.020309112
+## 3    lsoa_cd E01006514 (Intercept) -0.025733307 -0.026734165 0.020515911
+## 4    lsoa_cd E01006515 (Intercept) -0.016720342 -0.018187815 0.020490800
+## 5    lsoa_cd E01006518 (Intercept) -0.019127498 -0.019811616 0.020749093
+## 6    lsoa_cd E01006519 (Intercept) -0.015648725 -0.015891097 0.009346311
+## 7    lsoa_cd E01006520 (Intercept) -0.023381660 -0.023819482 0.019572351
+## 8    lsoa_cd E01006521 (Intercept)  0.007262341  0.007551165 0.021785490
+## 9    lsoa_cd E01006522 (Intercept)  0.018998519  0.020144737 0.021017827
+## 10   lsoa_cd E01006523 (Intercept)  0.003767771  0.002918970 0.019674392
 \end{verbatim}
 
 The results contain the estimated mean, median and standard deviation
@@ -5906,9 +5906,9 @@ merge it with the \emph{random effects} estimates.
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.01136 -0.02697 -0.02767 0.00321 0.02263 ...
-##  $ median   : num  -0.01284 -0.02648 -0.03066 0.00134 0.02357 ...
-##  $ sd       : num  0.0327 0.0322 0.032 0.0319 0.0154 ...
+##  $ mean     : num  -0.0138 -0.0275 -0.0338 0.007 0.0241 ...
+##  $ median   : num  -0.01155 -0.02777 -0.03532 0.00888 0.02501 ...
+##  $ sd       : num  0.0319 0.0306 0.0325 0.0304 0.016 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -6389,7 +6389,7 @@ Slopes}\label{exploratory-analysis-varying-slopes}
 
 Let's then explore if there is variation in the relationship between
 unemployment rate and the share of population in long-term illness. We
-do this by selecting teh 8 MSOAs containing OAs with the highest
+do this by selecting the 8 MSOAs containing OAs with the highest
 unemployment rates in Liverpool.
 
 \begin{Shaded}
@@ -6453,21 +6453,21 @@ for each MSOA.
 
 \includegraphics{06-multilevel_02_files/figure-latex/unnamed-chunk-4-1.pdf}
 
-We can observe great variability in the relationship between unmployment
-rates and the percentage of population in long-term illness. A strong
-and positive relationship exists in MSOA \texttt{E02001366} (Tuebrook
-and Stoneycroft), while it is negative in MSOA \texttt{E02001370}
-(Everton) and neutral in MSOA \texttt{E02001390} (Princes Park \&
-Riverside). This visual inspection suggests that accounting for
-differences in the way unmployment rates relate to long-term illness is
-important. Contextual factors may differ across MSOAs in systematic
-ways.
+We can observe great variability in the relationship between
+unemployment rates and the percentage of population in long-term
+illness. A strong and positive relationship exists in MSOA
+\texttt{E02001366} (Tuebrook and Stoneycroft), while it is negative in
+MSOA \texttt{E02001370} (Everton) and neutral in MSOA \texttt{E02001390}
+(Princes Park \& Riverside). This visual inspection suggests that
+accounting for differences in the way unmployment rates relate to
+long-term illness is important. Contextual factors may differ across
+MSOAs in systematic ways.
 
 \section{Estimating Varying Intercept and Slopes
 Models}\label{estimating-varying-intercept-and-slopes-models}
 
 A way to capture for these group differences in the relationship between
-unmployment rates and long-term illness is to allow the relevant slope
+unemployment rates and long-term illness is to allow the relevant slope
 to vary by group (i.e.~MSOA). We can do this estimating the following
 model:
 
@@ -6557,7 +6557,7 @@ Similarly, the correlation of fixed effects indicates a negative
 relationship between the intercept and slope of the average regression
 model; that is, as the average model intercept tends to increase, the
 average strength of the relationship between unemployment rate and
-long-term illness decreasesand \emph{vice versa}.
+long-term illness decreases and \emph{vice versa}.
 
 We then explore the estimated average coefficients (\emph{fixed
 effects}):
@@ -6574,7 +6574,7 @@ effects}):
 \end{verbatim}
 
 yields an estimated regression line in an average LSOA:
-\(y = 0.04764998 + 0.30125916x\). The fixed intercent indicates that the
+\(y = 0.04764998 + 0.30125916x\). The fixed intercept indicates that the
 average unemployment rate is 0.05 if the percentage of population with
 long-term illness is zero.The fixed slope indicates that the average
 relationship between unemployment rate and long-term illness is positive
@@ -6674,9 +6674,9 @@ MSOA-level errors.
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.0263 -0.1152 0.0534 -0.1431 -0.2793 ...
-##  $ median   : num  0.0305 -0.1102 0.0502 -0.1429 -0.2841 ...
-##  $ sd       : num  0.0465 0.0714 0.0874 0.0386 0.0413 ...
+##  $ mean     : num  0.0233 -0.1249 0.0521 -0.1449 -0.2818 ...
+##  $ median   : num  0.0252 -0.1253 0.0574 -0.1487 -0.282 ...
+##  $ sd       : num  0.0448 0.0745 0.0946 0.0382 0.0422 ...
 \end{verbatim}
 
 \begin{Shaded}

@@ -69,7 +69,7 @@ So far, we have estimated varying-intercept models; that is, when the intercept 
 
 ### Exploratory Analysis: Varying Slopes
 
-Let's then explore if there is variation in the relationship between unemployment rate and the share of population in long-term illness. We do this by selecting teh 8 MSOAs containing OAs with the highest unemployment rates in Liverpool.
+Let's then explore if there is variation in the relationship between unemployment rate and the share of population in long-term illness. We do this by selecting the 8 MSOAs containing OAs with the highest unemployment rates in Liverpool.
 
 
 ```r
@@ -126,11 +126,11 @@ ggplot(s_t8, aes(x = lt_ill, y = unemp)) +
 
 ![](06-multilevel_02_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
       
-We can observe great variability in the relationship between unmployment rates and the percentage of population in long-term illness. A strong and positive relationship exists in MSOA `E02001366` (Tuebrook and Stoneycroft), while it is negative in MSOA `E02001370` (Everton) and neutral in MSOA `E02001390` (Princes Park & Riverside). This visual inspection suggests that accounting for differences in the way unmployment rates relate to long-term illness is important. Contextual factors may differ across MSOAs in systematic ways.
+We can observe great variability in the relationship between unemployment rates and the percentage of population in long-term illness. A strong and positive relationship exists in MSOA `E02001366` (Tuebrook and Stoneycroft), while it is negative in MSOA `E02001370` (Everton) and neutral in MSOA `E02001390` (Princes Park & Riverside). This visual inspection suggests that accounting for differences in the way unmployment rates relate to long-term illness is important. Contextual factors may differ across MSOAs in systematic ways.
 
 ## Estimating Varying Intercept and Slopes Models
 
-A way to capture for these group differences in the relationship between unmployment rates and long-term illness is to allow the relevant slope to vary by group (i.e. MSOA). We can do this estimating the following model:
+A way to capture for these group differences in the relationship between unemployment rates and long-term illness is to allow the relevant slope to vary by group (i.e. MSOA). We can do this estimating the following model:
 
 OA-level:
 
@@ -193,7 +193,7 @@ summary(model6)
 
 In this model, the estimated standard deviation of the unexplained within-MSOA variation is 0.04974, and the estimated standard deviation of the MSOA intercepts is 0.05855. But, additionally, we also have estimates of standard deviation of the MSOA slopes (0.17154) and correlation between MSOA-level residuals for the intercept and slope (-0.73). While the former measures the extent of average deviation in the slopes across MSOAs, the latter indicates that the intercept and slope MSOA-level residuals are negatively associated; that is, MSOAs with large slopes have relatively smaller intercepts and *vice versa*. We will come back to this in Section [Interpreting Correlations Between Group-level Intercepts and Slopes].
 
-Similarly, the correlation of fixed effects indicates a negative relationship between the intercept and slope of the average regression model; that is, as the average model intercept tends to increase, the average strength of the relationship between unemployment rate and long-term illness decreasesand *vice versa*.
+Similarly, the correlation of fixed effects indicates a negative relationship between the intercept and slope of the average regression model; that is, as the average model intercept tends to increase, the average strength of the relationship between unemployment rate and long-term illness decreases and *vice versa*.
 
 We then explore the estimated average coefficients (*fixed effects*):
 
@@ -207,7 +207,7 @@ fixef(model6)
 ##  0.04764998  0.30125916
 ```
 
-yields an estimated regression line in an average LSOA: $y =  0.04764998 + 0.30125916x$. The fixed intercent indicates that the average unemployment rate is 0.05 if the percentage of population with long-term illness is zero.The fixed slope indicates that the average relationship between unemployment rate and long-term illness is positive across MSOAs i.e. as the percentage of population with long-term illness increases by 1 percentage point, the unemployment rate increases by 0.3. 
+yields an estimated regression line in an average LSOA: $y =  0.04764998 + 0.30125916x$. The fixed intercept indicates that the average unemployment rate is 0.05 if the percentage of population with long-term illness is zero.The fixed slope indicates that the average relationship between unemployment rate and long-term illness is positive across MSOAs i.e. as the percentage of population with long-term illness increases by 1 percentage point, the unemployment rate increases by 0.3. 
 
 We look the estimated MSOA-level errors (*random effects*):
 
@@ -276,9 +276,9 @@ str(re_msoa_m6)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.0289 -0.1219 0.0532 -0.1398 -0.2829 ...
-##  $ median   : num  0.0275 -0.1187 0.0574 -0.1407 -0.2853 ...
-##  $ sd       : num  0.0487 0.0703 0.0801 0.0384 0.0413 ...
+##  $ mean     : num  0.0295 -0.1133 0.0587 -0.1446 -0.2831 ...
+##  $ median   : num  0.0316 -0.1142 0.053 -0.1439 -0.2849 ...
+##  $ sd       : num  0.0457 0.0739 0.0787 0.0406 0.0381 ...
 ```
 
 ```r

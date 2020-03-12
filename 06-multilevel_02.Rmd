@@ -137,7 +137,7 @@ summary(model6)
 
 In this model, the estimated standard deviation of the unexplained within-MSOA variation is 0.04974, and the estimated standard deviation of the MSOA intercepts is 0.05855. But, additionally, we also have estimates of standard deviation of the MSOA slopes (0.17154) and correlation between MSOA-level residuals for the intercept and slope (-0.73). While the former measures the extent of average deviation in the slopes across MSOAs, the latter indicates that the intercept and slope MSOA-level residuals are negatively associated; that is, MSOAs with large slopes have relatively smaller intercepts and *vice versa*. We will come back to this in Section [Interpreting Correlations Between Group-level Intercepts and Slopes].
 
-Similarly, the correlation of fixed effects indicates a negative relationship between the intercept and slope of the average regression model; that is, as the average model intercept tends to increase, the average strength of the relationship between unemployment rate and long-term illness decreasesand *vice versa*.
+Similarly, the correlation of fixed effects indicates a negative relationship between the intercept and slope of the average regression model; that is, as the average model intercept tends to increase, the average strength of the relationship between unemployment rate and long-term illness decreases and *vice versa*.
 
 We then explore the estimated average coefficients (*fixed effects*):
 
@@ -145,7 +145,7 @@ We then explore the estimated average coefficients (*fixed effects*):
 fixef(model6)
 ```
 
-yields an estimated regression line in an average LSOA: $y =  0.04764998 + 0.30125916x$. The fixed intercent indicates that the average unemployment rate is 0.05 if the percentage of population with long-term illness is zero.The fixed slope indicates that the average relationship between unemployment rate and long-term illness is positive across MSOAs i.e. as the percentage of population with long-term illness increases by 1 percentage point, the unemployment rate increases by 0.3. 
+yields an estimated regression line in an average LSOA: $y =  0.04764998 + 0.30125916x$. The fixed intercept indicates that the average unemployment rate is 0.05 if the percentage of population with long-term illness is zero.The fixed slope indicates that the average relationship between unemployment rate and long-term illness is positive across MSOAs i.e. as the percentage of population with long-term illness increases by 1 percentage point, the unemployment rate increases by 0.3. 
 
 We look the estimated MSOA-level errors (*random effects*):
 

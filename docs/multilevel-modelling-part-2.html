@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-03-09" />
+<meta name="date" content="2020-03-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -279,7 +279,7 @@ oa_shp &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class
 </div>
 <div id="exploratory-analysis-varying-slopes" class="section level3">
 <h3><span class="header-section-number">7.3.1</span> Exploratory Analysis: Varying Slopes</h3>
-<p>Let’s then explore if there is variation in the relationship between unemployment rate and the share of population in long-term illness. We do this by selecting teh 8 MSOAs containing OAs with the highest unemployment rates in Liverpool.</p>
+<p>Let’s then explore if there is variation in the relationship between unemployment rate and the share of population in long-term illness. We do this by selecting the 8 MSOAs containing OAs with the highest unemployment rates in Liverpool.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Sort data </span>
 oa_shp &lt;-<span class="st"> </span>oa_shp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="op">-</span>unemp)
 oa_shp[<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="kw">c</span>(<span class="st">&quot;msoa_cd&quot;</span>, <span class="st">&quot;unemp&quot;</span>)]</code></pre></div>
@@ -320,12 +320,12 @@ s_t8 &lt;-<span class="st"> </span>oa_shp <span class="op">%&gt;%</span><span cl
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Long-term Illness (%)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
 <p><img src="06-multilevel_02_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>We can observe great variability in the relationship between unmployment rates and the percentage of population in long-term illness. A strong and positive relationship exists in MSOA <code>E02001366</code> (Tuebrook and Stoneycroft), while it is negative in MSOA <code>E02001370</code> (Everton) and neutral in MSOA <code>E02001390</code> (Princes Park &amp; Riverside). This visual inspection suggests that accounting for differences in the way unmployment rates relate to long-term illness is important. Contextual factors may differ across MSOAs in systematic ways.</p>
+<p>We can observe great variability in the relationship between unemployment rates and the percentage of population in long-term illness. A strong and positive relationship exists in MSOA <code>E02001366</code> (Tuebrook and Stoneycroft), while it is negative in MSOA <code>E02001370</code> (Everton) and neutral in MSOA <code>E02001390</code> (Princes Park &amp; Riverside). This visual inspection suggests that accounting for differences in the way unmployment rates relate to long-term illness is important. Contextual factors may differ across MSOAs in systematic ways.</p>
 </div>
 </div>
 <div id="estimating-varying-intercept-and-slopes-models" class="section level2">
 <h2><span class="header-section-number">7.4</span> Estimating Varying Intercept and Slopes Models</h2>
-<p>A way to capture for these group differences in the relationship between unmployment rates and long-term illness is to allow the relevant slope to vary by group (i.e. MSOA). We can do this estimating the following model:</p>
+<p>A way to capture for these group differences in the relationship between unemployment rates and long-term illness is to allow the relevant slope to vary by group (i.e. MSOA). We can do this estimating the following model:</p>
 <p>OA-level:</p>
 <p><span class="math display">\[y_{ij} = \beta_{0j} + \beta_{1j}x_{ij} + e_{ij}\]</span></p>
 <p>MSOA-level:</p>
@@ -370,12 +370,12 @@ model6 &lt;-<span class="st"> </span><span class="kw">lmer</span>(eq6, <span cla
 ##        (Intr)
 ## lt_ill -0.786</code></pre>
 <p>In this model, the estimated standard deviation of the unexplained within-MSOA variation is 0.04974, and the estimated standard deviation of the MSOA intercepts is 0.05855. But, additionally, we also have estimates of standard deviation of the MSOA slopes (0.17154) and correlation between MSOA-level residuals for the intercept and slope (-0.73). While the former measures the extent of average deviation in the slopes across MSOAs, the latter indicates that the intercept and slope MSOA-level residuals are negatively associated; that is, MSOAs with large slopes have relatively smaller intercepts and <em>vice versa</em>. We will come back to this in Section <a href="multilevel-modelling-part-2.html#interpreting-correlations-between-group-level-intercepts-and-slopes">Interpreting Correlations Between Group-level Intercepts and Slopes</a>.</p>
-<p>Similarly, the correlation of fixed effects indicates a negative relationship between the intercept and slope of the average regression model; that is, as the average model intercept tends to increase, the average strength of the relationship between unemployment rate and long-term illness decreasesand <em>vice versa</em>.</p>
+<p>Similarly, the correlation of fixed effects indicates a negative relationship between the intercept and slope of the average regression model; that is, as the average model intercept tends to increase, the average strength of the relationship between unemployment rate and long-term illness decreases and <em>vice versa</em>.</p>
 <p>We then explore the estimated average coefficients (<em>fixed effects</em>):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fixef</span>(model6)</code></pre></div>
 <pre><code>## (Intercept)      lt_ill 
 ##  0.04764998  0.30125916</code></pre>
-<p>yields an estimated regression line in an average LSOA: <span class="math inline">\(y = 0.04764998 + 0.30125916x\)</span>. The fixed intercent indicates that the average unemployment rate is 0.05 if the percentage of population with long-term illness is zero.The fixed slope indicates that the average relationship between unemployment rate and long-term illness is positive across MSOAs i.e. as the percentage of population with long-term illness increases by 1 percentage point, the unemployment rate increases by 0.3.</p>
+<p>yields an estimated regression line in an average LSOA: <span class="math inline">\(y = 0.04764998 + 0.30125916x\)</span>. The fixed intercept indicates that the average unemployment rate is 0.05 if the percentage of population with long-term illness is zero.The fixed slope indicates that the average relationship between unemployment rate and long-term illness is positive across MSOAs i.e. as the percentage of population with long-term illness increases by 1 percentage point, the unemployment rate increases by 0.3.</p>
 <p>We look the estimated MSOA-level errors (<em>random effects</em>):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ranef_m6 &lt;-<span class="st"> </span><span class="kw">ranef</span>(model6)
 <span class="kw">head</span>(ranef_m6<span class="op">$</span>msoa_cd, <span class="dv">5</span>)</code></pre></div>
@@ -411,9 +411,9 @@ re_msoa_m6 &lt;-<span class="st"> </span><span class="kw">REsim</span>(model6) <
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; ...
-##  $ mean     : num  0.0271 -0.1144 0.0551 -0.1425 -0.2817 ...
-##  $ median   : num  0.0286 -0.1116 0.0507 -0.1426 -0.279 ...
-##  $ sd       : num  0.0448 0.0783 0.0865 0.0394 0.0379 ...</code></pre>
+##  $ mean     : num  0.0222 -0.1255 0.0571 -0.1456 -0.2826 ...
+##  $ median   : num  0.0227 -0.1284 0.0623 -0.1453 -0.2829 ...
+##  $ sd       : num  0.0499 0.0727 0.0823 0.0365 0.0402 ...</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># merge data</span>
 msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa_m6, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ensure geometry is valid</span>
