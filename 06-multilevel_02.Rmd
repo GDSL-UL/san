@@ -67,7 +67,7 @@ So far, we have estimated varying-intercept models; that is, when the intercept 
 
 ### Exploratory Analysis: Varying Slopes
 
-Let's then explore if there is variation in the relationship between unemployment rate and the share of population in long-term illness. We do this by selecting teh 8 MSOAs containing OAs with the highest unemployment rates in Liverpool.
+Let's then explore if there is variation in the relationship between unemployment rate and the share of population in long-term illness. We do this by selecting the 8 MSOAs containing OAs with the highest unemployment rates in Liverpool.
 
 ```{r}
 # Sort data 
@@ -99,11 +99,11 @@ ggplot(s_t8, aes(x = lt_ill, y = unemp)) +
   theme_classic()
 ```
       
-We can observe great variability in the relationship between unmployment rates and the percentage of population in long-term illness. A strong and positive relationship exists in MSOA `E02001366` (Tuebrook and Stoneycroft), while it is negative in MSOA `E02001370` (Everton) and neutral in MSOA `E02001390` (Princes Park & Riverside). This visual inspection suggests that accounting for differences in the way unmployment rates relate to long-term illness is important. Contextual factors may differ across MSOAs in systematic ways.
+We can observe great variability in the relationship between unemployment rates and the percentage of population in long-term illness. A strong and positive relationship exists in MSOA `E02001366` (Tuebrook and Stoneycroft), while it is negative in MSOA `E02001370` (Everton) and neutral in MSOA `E02001390` (Princes Park & Riverside). This visual inspection suggests that accounting for differences in the way unmployment rates relate to long-term illness is important. Contextual factors may differ across MSOAs in systematic ways.
 
 ## Estimating Varying Intercept and Slopes Models
 
-A way to capture for these group differences in the relationship between unmployment rates and long-term illness is to allow the relevant slope to vary by group (i.e. MSOA). We can do this estimating the following model:
+A way to capture for these group differences in the relationship between unemployment rates and long-term illness is to allow the relevant slope to vary by group (i.e. MSOA). We can do this estimating the following model:
 
 OA-level:
 
