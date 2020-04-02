@@ -531,16 +531,16 @@ REsim(model3) %>% head(10)
 
 ```
 ##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.015057369 -0.015296197 0.018598806
-## 2    lsoa_cd E01006513 (Intercept) -0.014119067 -0.013579995 0.020874528
-## 3    lsoa_cd E01006514 (Intercept) -0.019480441 -0.019172294 0.020004444
-## 4    lsoa_cd E01006515 (Intercept) -0.018705411 -0.017996586 0.020877711
-## 5    lsoa_cd E01006518 (Intercept) -0.019668958 -0.020936152 0.021830961
-## 6    lsoa_cd E01006519 (Intercept) -0.017089999 -0.017968902 0.009596273
-## 7    lsoa_cd E01006520 (Intercept) -0.023578882 -0.023652406 0.021041009
-## 8    lsoa_cd E01006521 (Intercept)  0.005278748  0.004804155 0.018716039
-## 9    lsoa_cd E01006522 (Intercept)  0.019206339  0.019355017 0.020324548
-## 10   lsoa_cd E01006523 (Intercept)  0.005306227  0.004404966 0.019388312
+## 1    lsoa_cd E01006512 (Intercept) -0.016597349 -0.015767730 0.019873816
+## 2    lsoa_cd E01006513 (Intercept) -0.018632576 -0.018997036 0.021087676
+## 3    lsoa_cd E01006514 (Intercept) -0.023610639 -0.022743407 0.019266017
+## 4    lsoa_cd E01006515 (Intercept) -0.017312005 -0.017633660 0.020626160
+## 5    lsoa_cd E01006518 (Intercept) -0.019559714 -0.018123847 0.021365401
+## 6    lsoa_cd E01006519 (Intercept) -0.015530425 -0.016256574 0.009444326
+## 7    lsoa_cd E01006520 (Intercept) -0.025474788 -0.025384604 0.018577340
+## 8    lsoa_cd E01006521 (Intercept)  0.006651686  0.006118234 0.019576651
+## 9    lsoa_cd E01006522 (Intercept)  0.018955278  0.017884777 0.019769593
+## 10   lsoa_cd E01006523 (Intercept)  0.003135531  0.002881117 0.020325704
 ```
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from `ranef` with some small differences due to rounding.
@@ -614,9 +614,9 @@ str(re_msoa)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.0101 -0.024 -0.0325 0.0039 0.0237 ...
-##  $ median   : num  -0.01235 -0.02421 -0.02878 0.00545 0.02418 ...
-##  $ sd       : num  0.0342 0.0345 0.0332 0.0348 0.0176 ...
+##  $ mean     : num  -0.01182 -0.02359 -0.02943 0.00756 0.02447 ...
+##  $ median   : num  -0.01431 -0.01992 -0.03187 0.00797 0.02419 ...
+##  $ sd       : num  0.0333 0.0342 0.0326 0.0289 0.0145 ...
 ```
 
 ```r
@@ -711,7 +711,7 @@ fixef(model4)
 ##  0.04681959  0.29588110
 ```
 
-yields an estimated regression line in an average LSOA: $y =  0.04681959 + 0.29588110x$
+yields an estimated regression line in an average McSOA: $y =  0.04681959 + 0.29588110x$
 
 *Random effects*: MSOA-level errors
 

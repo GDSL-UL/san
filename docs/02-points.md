@@ -481,12 +481,12 @@ head(idw.hp@data)
 
 ```
 ##   var1.pred var1.var
-## 1  158118.5       NA
-## 2  158229.9       NA
-## 3  158344.1       NA
-## 4  158461.3       NA
-## 5  158581.6       NA
-## 6  158705.1       NA
+## 1  158052.6       NA
+## 2  158162.4       NA
+## 3  158274.9       NA
+## 4  158390.2       NA
+## 5  158508.5       NA
+## 6  158629.8       NA
 ```
 
 The column we will pay attention to is `var1.pred`. And to see the locations for which those correspond:
@@ -498,12 +498,12 @@ head(idw.hp@coords)
 
 ```
 ##            x1       x2
-## [1,] 333609.2 382732.2
-## [2,] 333694.2 382732.2
-## [3,] 333779.1 382732.2
-## [4,] 333864.1 382732.2
-## [5,] 333949.0 382732.2
-## [6,] 334034.0 382732.2
+## [1,] 333565.8 382689.2
+## [2,] 333650.7 382689.2
+## [3,] 333735.7 382689.2
+## [4,] 333820.7 382689.2
+## [5,] 333905.6 382689.2
+## [6,] 333990.6 382689.2
 ```
 
 So, for a hypothetical house sold at the location in the first row of `idw.hp@coords` (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column `var1.pred` in `idw.hp@data`.

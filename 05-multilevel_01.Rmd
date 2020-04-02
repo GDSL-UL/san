@@ -388,7 +388,7 @@ summary(model4)
 fixef(model4)
 ```
 
-yields an estimated regression line in an average LSOA: $y =  0.04681959 + 0.29588110x$
+yields an estimated regression line in an average McSOA: $y =  0.04681959 + 0.29588110x$
 
 *Random effects*: MSOA-level errors
 

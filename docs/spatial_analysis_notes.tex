@@ -133,7 +133,7 @@
 
 \title{Spatial Analysis Notes}
 \author{Francisco Rowe \& Dani Arribas-Bel}
-\date{2020-03-12}
+\date{2020-03-27}
 
 \begin{document}
 \maketitle
@@ -2235,12 +2235,12 @@ of the estimated table:
 
 \begin{verbatim}
 ##   var1.pred var1.var
-## 1  158031.5       NA
-## 2  158140.7       NA
-## 3  158252.7       NA
-## 4  158367.5       NA
-## 5  158485.3       NA
-## 6  158606.2       NA
+## 1  158087.3       NA
+## 2  158197.9       NA
+## 3  158311.3       NA
+## 4  158427.6       NA
+## 5  158547.0       NA
+## 6  158669.7       NA
 \end{verbatim}
 
 The column we will pay attention to is \texttt{var1.pred}. And to see
@@ -2254,12 +2254,12 @@ the locations for which those correspond:
 
 \begin{verbatim}
 ##            x1       x2
-## [1,] 333540.2 382738.7
-## [2,] 333625.1 382738.7
-## [3,] 333710.1 382738.7
-## [4,] 333795.1 382738.7
-## [5,] 333880.0 382738.7
-## [6,] 333965.0 382738.7
+## [1,] 333582.6 382745.7
+## [2,] 333667.5 382745.7
+## [3,] 333752.5 382745.7
+## [4,] 333837.5 382745.7
+## [5,] 333922.4 382745.7
+## [6,] 334007.4 382745.7
 \end{verbatim}
 
 So, for a hypothetical house sold at the location in the first row of
@@ -4790,8 +4790,8 @@ object:
 ## 
 ## Weights style: W 
 ## Weights constants summary:
-##      n       nn   S0       S1       S2
-## W 6324 39992976 6324 230.3712 25817.71
+##      n       nn   S0      S1       S2
+## W 6324 39992976 6324 230.464 25810.73
 \end{verbatim}
 
 \textbf{Exogenous spatial effects}
@@ -4846,14 +4846,14 @@ apply the log to the lag, not the reverse:
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2906 -0.3016 -0.0155  0.2821  5.2631 
+## -4.2906 -0.3016 -0.0153  0.2817  5.2631 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) 12.2813545  0.0145260 845.474  < 2e-16 ***
-## newY         0.2474798  0.0195171  12.680  < 2e-16 ***
-## imd_score   -0.0041954  0.0008915  -4.706 2.58e-06 ***
-## w_imd_score -0.0148290  0.0009683 -15.315  < 2e-16 ***
+## (Intercept) 12.2813156  0.0145273 845.393  < 2e-16 ***
+## newY         0.2475670  0.0195179  12.684  < 2e-16 ***
+## imd_score   -0.0042075  0.0008916  -4.719 2.42e-06 ***
+## w_imd_score -0.0148166  0.0009684 -15.300  < 2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
@@ -4986,7 +4986,7 @@ method:
 
 \begin{verbatim}
 ##        1 
-## 11.47273
+## 11.47249
 \end{verbatim}
 
 Now remember we were using the log of the price as dependent variable.
@@ -5001,7 +5001,7 @@ exponent:
 
 \begin{verbatim}
 ##        1 
-## 96060.22
+## 96037.09
 \end{verbatim}
 
 According to our model, the house would be worth GBP96,060.29\footnote{\textbf{EXERCISE}
@@ -5795,16 +5795,16 @@ To this end, we run:
 
 \begin{verbatim}
 ##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.015232611 -0.014641656 0.020034611
-## 2    lsoa_cd E01006513 (Intercept) -0.018184299 -0.018116212 0.020309112
-## 3    lsoa_cd E01006514 (Intercept) -0.025733307 -0.026734165 0.020515911
-## 4    lsoa_cd E01006515 (Intercept) -0.016720342 -0.018187815 0.020490800
-## 5    lsoa_cd E01006518 (Intercept) -0.019127498 -0.019811616 0.020749093
-## 6    lsoa_cd E01006519 (Intercept) -0.015648725 -0.015891097 0.009346311
-## 7    lsoa_cd E01006520 (Intercept) -0.023381660 -0.023819482 0.019572351
-## 8    lsoa_cd E01006521 (Intercept)  0.007262341  0.007551165 0.021785490
-## 9    lsoa_cd E01006522 (Intercept)  0.018998519  0.020144737 0.021017827
-## 10   lsoa_cd E01006523 (Intercept)  0.003767771  0.002918970 0.019674392
+## 1    lsoa_cd E01006512 (Intercept) -0.017318442 -0.016110349 0.019686077
+## 2    lsoa_cd E01006513 (Intercept) -0.014395021 -0.014910830 0.019900639
+## 3    lsoa_cd E01006514 (Intercept) -0.022270247 -0.022332328 0.018868540
+## 4    lsoa_cd E01006515 (Intercept) -0.017522889 -0.016520148 0.018395855
+## 5    lsoa_cd E01006518 (Intercept) -0.017649891 -0.016861768 0.020620397
+## 6    lsoa_cd E01006519 (Intercept) -0.015857953 -0.015276387 0.009668197
+## 7    lsoa_cd E01006520 (Intercept) -0.023907575 -0.023590443 0.019805141
+## 8    lsoa_cd E01006521 (Intercept)  0.007391788  0.007076058 0.019114378
+## 9    lsoa_cd E01006522 (Intercept)  0.016853450  0.015098119 0.019858287
+## 10   lsoa_cd E01006523 (Intercept)  0.004200268  0.004154191 0.019658887
 \end{verbatim}
 
 The results contain the estimated mean, median and standard deviation
@@ -5906,9 +5906,9 @@ merge it with the \emph{random effects} estimates.
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.0138 -0.0275 -0.0338 0.007 0.0241 ...
-##  $ median   : num  -0.01155 -0.02777 -0.03532 0.00888 0.02501 ...
-##  $ sd       : num  0.0319 0.0306 0.0325 0.0304 0.016 ...
+##  $ mean     : num  -0.01355 -0.02823 -0.03004 0.00513 0.02317 ...
+##  $ median   : num  -0.0141 -0.0265 -0.0305 0.0054 0.0232 ...
+##  $ sd       : num  0.033 0.0328 0.0316 0.0311 0.0163 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -6024,7 +6024,7 @@ We estimate the model executing:
 ##  0.04681959  0.29588110
 \end{verbatim}
 
-yields an estimated regression line in an average LSOA:
+yields an estimated regression line in an average McSOA:
 \(y = 0.04681959 + 0.29588110x\)
 
 \emph{Random effects}: MSOA-level errors
@@ -6674,9 +6674,9 @@ MSOA-level errors.
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.0233 -0.1249 0.0521 -0.1449 -0.2818 ...
-##  $ median   : num  0.0252 -0.1253 0.0574 -0.1487 -0.282 ...
-##  $ sd       : num  0.0448 0.0745 0.0946 0.0382 0.0422 ...
+##  $ mean     : num  0.0264 -0.1257 0.0535 -0.1452 -0.2813 ...
+##  $ median   : num  0.0237 -0.1189 0.0534 -0.1454 -0.2795 ...
+##  $ sd       : num  0.0446 0.0696 0.0907 0.0351 0.0392 ...
 \end{verbatim}
 
 \begin{Shaded}
