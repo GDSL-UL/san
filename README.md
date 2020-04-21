@@ -1,7 +1,7 @@
 # `SAN` - Spatial Analysis Notes
 
-- [Dani Arribas-Bel](http://darribas.org)
 - [Francisco Rowe](http://www.franciscorowe.com/)
+- [Dani Arribas-Bel](http://darribas.org)
 
 - Build the site:
 

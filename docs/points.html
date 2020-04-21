@@ -542,21 +542,21 @@ Figure 3.7: KDE of house transactions in Liverpool
 <p>The object we get from <code>idw</code> is another spatial table, just as <code>db</code>, containing the interpolated values. As such, we can inspect it just as with any other of its kind. For example, to check out the top of the estimated table:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(idw.hp<span class="op">@</span>data)</code></pre></div>
 <pre><code>##   var1.pred var1.var
-## 1  158130.0       NA
-## 2  158241.7       NA
-## 3  158356.2       NA
-## 4  158473.7       NA
-## 5  158594.3       NA
-## 6  158718.2       NA</code></pre>
+## 1  158121.6       NA
+## 2  158233.1       NA
+## 3  158347.4       NA
+## 4  158464.6       NA
+## 5  158585.0       NA
+## 6  158708.5       NA</code></pre>
 <p>The column we will pay attention to is <code>var1.pred</code>. And to see the locations for which those correspond:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(idw.hp<span class="op">@</span>coords)</code></pre></div>
-<pre><code>##            x1       x2
-## [1,] 333618.8 382728.2
-## [2,] 333703.7 382728.2
-## [3,] 333788.7 382728.2
-## [4,] 333873.7 382728.2
-## [5,] 333958.6 382728.2
-## [6,] 334043.6 382728.2</code></pre>
+<pre><code>##            x1     x2
+## [1,] 333613.4 382722
+## [2,] 333698.4 382722
+## [3,] 333783.3 382722
+## [4,] 333868.3 382722
+## [5,] 333953.3 382722
+## [6,] 334038.2 382722</code></pre>
 <p>So, for a hypothetical house sold at the location in the first row of <code>idw.hp@coords</code> (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column <code>var1.pred</code> in <code>idw.hp@data</code>.</p>
 </div>
 <div id="a-surface-of-housing-prices" class="section level3">
