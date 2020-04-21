@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-03-27" />
+<meta name="date" content="2020-04-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -197,7 +197,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.6.1" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#model-comparison"><i class="fa fa-check"></i><b>7.6.1</b> Model Comparison</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>8</b> GWR</a></li>
+<li class="chapter" data-level="8" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html"><i class="fa fa-check"></i><b>8</b> Geographically Weighted Regression</a><ul>
+<li class="chapter" data-level="8.1" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#dependencies-6"><i class="fa fa-check"></i><b>8.1</b> Dependencies</a></li>
+<li class="chapter" data-level="8.2" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#data-5"><i class="fa fa-check"></i><b>8.2</b> Data</a></li>
+<li class="chapter" data-level="8.3" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#recap-spatial-effects"><i class="fa fa-check"></i><b>8.3</b> Recap: Spatial Effects</a></li>
+<li class="chapter" data-level="8.4" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#exploratory-analysis"><i class="fa fa-check"></i><b>8.4</b> Exploratory Analysis</a></li>
+<li class="chapter" data-level="8.5" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#global-regression"><i class="fa fa-check"></i><b>8.5</b> Global Regression</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#global-regression-results"><i class="fa fa-check"></i><b>8.5.1</b> Global Regression Results</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#fitting-a-geographically-weighted-regression"><i class="fa fa-check"></i><b>8.6</b> Fitting a Geographically Weighted Regression</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#fixed-or-adaptive-kernel"><i class="fa fa-check"></i><b>8.6.1</b> Fixed or Adaptive Kernel</a></li>
+<li class="chapter" data-level="8.6.2" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#optimal-bandwidth"><i class="fa fa-check"></i><b>8.6.2</b> Optimal Bandwidth</a></li>
+<li class="chapter" data-level="8.6.3" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#shape-of-spatial-kernel"><i class="fa fa-check"></i><b>8.6.3</b> Shape of Spatial Kernel</a></li>
+<li class="chapter" data-level="8.6.4" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#selecting-a-bandwidth"><i class="fa fa-check"></i><b>8.6.4</b> Selecting a Bandwidth</a></li>
+<li class="chapter" data-level="8.6.5" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#model-fit"><i class="fa fa-check"></i><b>8.6.5</b> Model fit</a></li>
+<li class="chapter" data-level="8.6.6" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#interpretation-1"><i class="fa fa-check"></i><b>8.6.6</b> Interpretation</a></li>
+<li class="chapter" data-level="8.6.7" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#assessing-statistical-significance"><i class="fa fa-check"></i><b>8.6.7</b> Assessing statistical significance</a></li>
+<li class="chapter" data-level="8.6.8" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#collinearity-in-gwr"><i class="fa fa-check"></i><b>8.6.8</b> Collinearity in GWR</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>9</b> Space-Time Analysis</a></li>
 <li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -584,16 +602,16 @@ vpc_lsoa <span class="op">*</span><span class="st"> </span><span class="dv">100<
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># obtain estimates</span>
 <span class="kw">REsim</span>(model3) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">10</span>)</code></pre></div>
 <pre><code>##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.018246266 -0.018781317 0.018740853
-## 2    lsoa_cd E01006513 (Intercept) -0.017687206 -0.018670974 0.019977817
-## 3    lsoa_cd E01006514 (Intercept) -0.024083526 -0.023081405 0.019947909
-## 4    lsoa_cd E01006515 (Intercept) -0.015083107 -0.015432366 0.020791669
-## 5    lsoa_cd E01006518 (Intercept) -0.019488159 -0.019014750 0.018276074
-## 6    lsoa_cd E01006519 (Intercept) -0.016526771 -0.017141218 0.008973036
-## 7    lsoa_cd E01006520 (Intercept) -0.025418715 -0.025995575 0.020146983
-## 8    lsoa_cd E01006521 (Intercept)  0.007695142  0.007116483 0.020299895
-## 9    lsoa_cd E01006522 (Intercept)  0.018999360  0.019426206 0.019153186
-## 10   lsoa_cd E01006523 (Intercept)  0.004631968  0.004435093 0.018430862</code></pre>
+## 1    lsoa_cd E01006512 (Intercept) -0.016814731 -0.016175045 0.017945132
+## 2    lsoa_cd E01006513 (Intercept) -0.018113818 -0.017673886 0.020266974
+## 3    lsoa_cd E01006514 (Intercept) -0.023147743 -0.023973585 0.020806912
+## 4    lsoa_cd E01006515 (Intercept) -0.016305220 -0.016734829 0.019836782
+## 5    lsoa_cd E01006518 (Intercept) -0.020292498 -0.020554165 0.018964621
+## 6    lsoa_cd E01006519 (Intercept) -0.014830112 -0.014156818 0.009378388
+## 7    lsoa_cd E01006520 (Intercept) -0.023434378 -0.023649051 0.020535252
+## 8    lsoa_cd E01006521 (Intercept)  0.007930372  0.006777354 0.019655158
+## 9    lsoa_cd E01006522 (Intercept)  0.017361943  0.018568229 0.019029034
+## 10   lsoa_cd E01006523 (Intercept)  0.005408312  0.005698685 0.019234141</code></pre>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
 <p>To gain an undertanding of the general pattern of the <em>random effects</em>, we can use caterpillar plots via <code>plotREsim</code> - reported below. The plot on the right shows the estimated random effects for each MSOA and their respective interval estimate. Note that random effects are on average zero, represented by the red horizontal line. Intervals that do not include zero are in bold. Also note that the width of the confidence interval depends on the standard error of the respective residual estimate, which is inversely related to the size of the sample. The residuals represent an observation departures from the grand mean, so an observation whose confidence interval does not overlap the line at zero (representing the mean proportion of unemployed population across all areas) is said to differ significantly from the average at the 5% level.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot</span>
@@ -638,9 +656,9 @@ re_msoa &lt;-<span class="st"> </span>re <span class="op">%&gt;%</span><span cla
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; ...
-##  $ mean     : num  -0.01459 -0.02513 -0.02968 0.00409 0.02271 ...
-##  $ median   : num  -0.01338 -0.02674 -0.03247 0.00567 0.02242 ...
-##  $ sd       : num  0.0355 0.0321 0.0311 0.0291 0.0148 ...</code></pre>
+##  $ mean     : num  -0.01335 -0.02581 -0.03254 0.00712 0.02369 ...
+##  $ median   : num  -0.01245 -0.02467 -0.03357 0.00496 0.02361 ...
+##  $ sd       : num  0.0339 0.0347 0.0302 0.0349 0.0178 ...</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># merge data</span>
 msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</code></pre></div>
 <p>Now we can create our map:</p>

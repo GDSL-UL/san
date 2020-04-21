@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-03-27" />
+<meta name="date" content="2020-04-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -197,7 +197,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.6.1" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#model-comparison"><i class="fa fa-check"></i><b>7.6.1</b> Model Comparison</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>8</b> GWR</a></li>
+<li class="chapter" data-level="8" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html"><i class="fa fa-check"></i><b>8</b> Geographically Weighted Regression</a><ul>
+<li class="chapter" data-level="8.1" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#dependencies-6"><i class="fa fa-check"></i><b>8.1</b> Dependencies</a></li>
+<li class="chapter" data-level="8.2" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#data-5"><i class="fa fa-check"></i><b>8.2</b> Data</a></li>
+<li class="chapter" data-level="8.3" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#recap-spatial-effects"><i class="fa fa-check"></i><b>8.3</b> Recap: Spatial Effects</a></li>
+<li class="chapter" data-level="8.4" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#exploratory-analysis"><i class="fa fa-check"></i><b>8.4</b> Exploratory Analysis</a></li>
+<li class="chapter" data-level="8.5" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#global-regression"><i class="fa fa-check"></i><b>8.5</b> Global Regression</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#global-regression-results"><i class="fa fa-check"></i><b>8.5.1</b> Global Regression Results</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#fitting-a-geographically-weighted-regression"><i class="fa fa-check"></i><b>8.6</b> Fitting a Geographically Weighted Regression</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#fixed-or-adaptive-kernel"><i class="fa fa-check"></i><b>8.6.1</b> Fixed or Adaptive Kernel</a></li>
+<li class="chapter" data-level="8.6.2" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#optimal-bandwidth"><i class="fa fa-check"></i><b>8.6.2</b> Optimal Bandwidth</a></li>
+<li class="chapter" data-level="8.6.3" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#shape-of-spatial-kernel"><i class="fa fa-check"></i><b>8.6.3</b> Shape of Spatial Kernel</a></li>
+<li class="chapter" data-level="8.6.4" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#selecting-a-bandwidth"><i class="fa fa-check"></i><b>8.6.4</b> Selecting a Bandwidth</a></li>
+<li class="chapter" data-level="8.6.5" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#model-fit"><i class="fa fa-check"></i><b>8.6.5</b> Model fit</a></li>
+<li class="chapter" data-level="8.6.6" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#interpretation-1"><i class="fa fa-check"></i><b>8.6.6</b> Interpretation</a></li>
+<li class="chapter" data-level="8.6.7" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#assessing-statistical-significance"><i class="fa fa-check"></i><b>8.6.7</b> Assessing statistical significance</a></li>
+<li class="chapter" data-level="8.6.8" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#collinearity-in-gwr"><i class="fa fa-check"></i><b>8.6.8</b> Collinearity in GWR</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>9</b> Space-Time Analysis</a></li>
 <li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -524,21 +542,21 @@ Figure 3.7: KDE of house transactions in Liverpool
 <p>The object we get from <code>idw</code> is another spatial table, just as <code>db</code>, containing the interpolated values. As such, we can inspect it just as with any other of its kind. For example, to check out the top of the estimated table:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(idw.hp<span class="op">@</span>data)</code></pre></div>
 <pre><code>##   var1.pred var1.var
-## 1  158022.9       NA
-## 2  158132.0       NA
-## 3  158243.7       NA
-## 4  158358.2       NA
-## 5  158475.7       NA
-## 6  158596.3       NA</code></pre>
+## 1  158130.0       NA
+## 2  158241.7       NA
+## 3  158356.2       NA
+## 4  158473.7       NA
+## 5  158594.3       NA
+## 6  158718.2       NA</code></pre>
 <p>The column we will pay attention to is <code>var1.pred</code>. And to see the locations for which those correspond:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(idw.hp<span class="op">@</span>coords)</code></pre></div>
 <pre><code>##            x1       x2
-## [1,] 333539.3 382706.2
-## [2,] 333624.2 382706.2
-## [3,] 333709.2 382706.2
-## [4,] 333794.2 382706.2
-## [5,] 333879.1 382706.2
-## [6,] 333964.1 382706.2</code></pre>
+## [1,] 333618.8 382728.2
+## [2,] 333703.7 382728.2
+## [3,] 333788.7 382728.2
+## [4,] 333873.7 382728.2
+## [5,] 333958.6 382728.2
+## [6,] 334043.6 382728.2</code></pre>
 <p>So, for a hypothetical house sold at the location in the first row of <code>idw.hp@coords</code> (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column <code>var1.pred</code> in <code>idw.hp@data</code>.</p>
 </div>
 <div id="a-surface-of-housing-prices" class="section level3">

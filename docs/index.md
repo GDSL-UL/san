@@ -1,7 +1,7 @@
 --- 
 title: "Spatial Analysis Notes"
 author: "Francisco Rowe & Dani Arribas-Bel"
-date: "2020-03-27"
+date: "2020-04-21"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book

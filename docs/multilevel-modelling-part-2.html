@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-03-27" />
+<meta name="date" content="2020-04-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="multilevel-modelling-part-1.html"/>
-<link rel="next" href="gwr.html"/>
+<link rel="next" href="geographically-weighted-regression.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -197,7 +197,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.6.1" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#model-comparison"><i class="fa fa-check"></i><b>7.6.1</b> Model Comparison</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>8</b> GWR</a></li>
+<li class="chapter" data-level="8" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html"><i class="fa fa-check"></i><b>8</b> Geographically Weighted Regression</a><ul>
+<li class="chapter" data-level="8.1" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#dependencies-6"><i class="fa fa-check"></i><b>8.1</b> Dependencies</a></li>
+<li class="chapter" data-level="8.2" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#data-5"><i class="fa fa-check"></i><b>8.2</b> Data</a></li>
+<li class="chapter" data-level="8.3" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#recap-spatial-effects"><i class="fa fa-check"></i><b>8.3</b> Recap: Spatial Effects</a></li>
+<li class="chapter" data-level="8.4" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#exploratory-analysis"><i class="fa fa-check"></i><b>8.4</b> Exploratory Analysis</a></li>
+<li class="chapter" data-level="8.5" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#global-regression"><i class="fa fa-check"></i><b>8.5</b> Global Regression</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#global-regression-results"><i class="fa fa-check"></i><b>8.5.1</b> Global Regression Results</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#fitting-a-geographically-weighted-regression"><i class="fa fa-check"></i><b>8.6</b> Fitting a Geographically Weighted Regression</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#fixed-or-adaptive-kernel"><i class="fa fa-check"></i><b>8.6.1</b> Fixed or Adaptive Kernel</a></li>
+<li class="chapter" data-level="8.6.2" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#optimal-bandwidth"><i class="fa fa-check"></i><b>8.6.2</b> Optimal Bandwidth</a></li>
+<li class="chapter" data-level="8.6.3" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#shape-of-spatial-kernel"><i class="fa fa-check"></i><b>8.6.3</b> Shape of Spatial Kernel</a></li>
+<li class="chapter" data-level="8.6.4" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#selecting-a-bandwidth"><i class="fa fa-check"></i><b>8.6.4</b> Selecting a Bandwidth</a></li>
+<li class="chapter" data-level="8.6.5" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#model-fit"><i class="fa fa-check"></i><b>8.6.5</b> Model fit</a></li>
+<li class="chapter" data-level="8.6.6" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#interpretation-1"><i class="fa fa-check"></i><b>8.6.6</b> Interpretation</a></li>
+<li class="chapter" data-level="8.6.7" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#assessing-statistical-significance"><i class="fa fa-check"></i><b>8.6.7</b> Assessing statistical significance</a></li>
+<li class="chapter" data-level="8.6.8" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#collinearity-in-gwr"><i class="fa fa-check"></i><b>8.6.8</b> Collinearity in GWR</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>9</b> Space-Time Analysis</a></li>
 <li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -411,9 +429,9 @@ re_msoa_m6 &lt;-<span class="st"> </span><span class="kw">REsim</span>(model6) <
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; ...
-##  $ mean     : num  0.0296 -0.1121 0.0522 -0.1414 -0.2779 ...
-##  $ median   : num  0.0283 -0.1158 0.0576 -0.1414 -0.2752 ...
-##  $ sd       : num  0.0409 0.0689 0.0887 0.0356 0.039 ...</code></pre>
+##  $ mean     : num  0.0248 -0.1211 0.055 -0.1427 -0.2824 ...
+##  $ median   : num  0.0218 -0.1169 0.0545 -0.1404 -0.2851 ...
+##  $ sd       : num  0.0473 0.0738 0.0864 0.0381 0.037 ...</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># merge data</span>
 msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa_m6, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ensure geometry is valid</span>
@@ -552,7 +570,7 @@ model7 &lt;-<span class="st"> </span><span class="kw">lmer</span>(eq7, <span cla
         </div>
       </div>
 <a href="multilevel-modelling-part-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="gwr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="geographically-weighted-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
