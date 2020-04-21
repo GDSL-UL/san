@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.9.13)  27 MAR 2020 22:17
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.9.13)  21 APR 2020 07:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3710,63 +3710,63 @@ Package xcolor Warning: Incompatible color definition on input line 5794.
 Package xcolor Warning: Incompatible color definition on input line 5794.
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5808--5808
-[]\EU1/lmtt/m/n/10 ## 1    lsoa_cd E01006512 (Intercept) -0.017318442 -0.016110
-349 0.019686077[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 1    lsoa_cd E01006512 (Intercept) -0.015098404 -0.015356
+280 0.01795783[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5808--5808
-[]\EU1/lmtt/m/n/10 ## 2    lsoa_cd E01006513 (Intercept) -0.014395021 -0.014910
-830 0.019900639[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 2    lsoa_cd E01006513 (Intercept) -0.016415742 -0.017199
+053 0.01933994[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5808--5808
-[]\EU1/lmtt/m/n/10 ## 3    lsoa_cd E01006514 (Intercept) -0.022270247 -0.022332
-328 0.018868540[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 3    lsoa_cd E01006514 (Intercept) -0.021901662 -0.020595
+008 0.02063415[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5808--5808
-[]\EU1/lmtt/m/n/10 ## 4    lsoa_cd E01006515 (Intercept) -0.017522889 -0.016520
-148 0.018395855[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 4    lsoa_cd E01006515 (Intercept) -0.020392665 -0.019730
+887 0.01936845[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5808--5808
-[]\EU1/lmtt/m/n/10 ## 5    lsoa_cd E01006518 (Intercept) -0.017649891 -0.016861
-768 0.020620397[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 5    lsoa_cd E01006518 (Intercept) -0.018072425 -0.019580
+164 0.01871606[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5808--5808
-[]\EU1/lmtt/m/n/10 ## 6    lsoa_cd E01006519 (Intercept) -0.015857953 -0.015276
-387 0.009668197[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 6    lsoa_cd E01006519 (Intercept) -0.016625907 -0.016645
+732 0.00918911[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5808--5808
-[]\EU1/lmtt/m/n/10 ## 7    lsoa_cd E01006520 (Intercept) -0.023907575 -0.023590
-443 0.019805141[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 7    lsoa_cd E01006520 (Intercept) -0.024797635 -0.023255
+156 0.01835375[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 5808--5808
-[]\EU1/lmtt/m/n/10 ## 8    lsoa_cd E01006521 (Intercept)  0.007391788  0.007076
-058 0.019114378[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 8    lsoa_cd E01006521 (Intercept)  0.006172547  0.007329
+774 0.01975328[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 5808--5808
-[]\EU1/lmtt/m/n/10 ## 9    lsoa_cd E01006522 (Intercept)  0.016853450  0.015098
-119 0.019858287[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 9    lsoa_cd E01006522 (Intercept)  0.017180446  0.017496
+996 0.01912818[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 5808--5808
-[]\EU1/lmtt/m/n/10 ## 10   lsoa_cd E01006523 (Intercept)  0.004200268  0.004154
-191 0.019658887[] 
+Overfull \hbox (24.25pt too wide) in paragraph at lines 5808--5808
+[]\EU1/lmtt/m/n/10 ## 10   lsoa_cd E01006523 (Intercept)  0.004265357  0.003811
+797 0.01946192[] 
  []
 
 [119]
@@ -4319,35 +4319,412 @@ Overfull \hbox (5.0pt too wide) in paragraph at lines 6899--6899
 
 [142]
 Chapter 8.
+
+Underfull \hbox (badness 10000) in paragraph at lines 6953--6953
+[][][]\EU1/lmr/m/n/8 You can install package \EU1/lmtt/m/n/8 mypackage \EU1/lmr
+/m/n/8 by running the command
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 6955.
+
 [143
 
-] [144
+]
+
+Package xcolor Warning: Incompatible color definition on input line 6982.
+
+
+Package xcolor Warning: Incompatible color definition on input line 6982.
+
+[144]
+
+Package xcolor Warning: Incompatible color definition on input line 7017.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7030.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7030.
+
+[145]
+
+Package xcolor Warning: Incompatible color definition on input line 7072.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7082.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7082.
+
+File: 07-gwr_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type QTm)
+<use  "07-gwr_files/figure-latex/unnamed-chunk-3-1.pdf" >
+
+Package xcolor Warning: Incompatible color definition on input line 7086.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7091.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7091.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7103.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7108.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7108.
+
+
+Overfull \hbox (895.75pt too wide) in paragraph at lines 7118--7118
+[]\EU1/lmtt/m/n/10 ## Reading layer `Regions_December_2019_Boundaries_EN_BGC' f
+rom data source `/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/20
+1920/lectures/san/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp' using d
+river `ESRI Shapefile'[] 
+ []
+
+[146]
+Overfull \hbox (570.25pt too wide) in paragraph at lines 7118--7118
+[]\EU1/lmtt/m/n/10 ## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996
+012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.
+15,0.247,0.842,-20.489 +units=m +no_defs[] 
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 7120.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7137.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7137.
+
+File: 07-gwr_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type QTm)
+<use  "07-gwr_files/figure-latex/unnamed-chunk-4-1.pdf" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[147]
+
+Package xcolor Warning: Incompatible color definition on input line 7146.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7152.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7152.
+
+
+Overfull \hbox (31.25pt too wide) in paragraph at lines 7173--7173
+[]\EU1/lmtt/m/n/10 ## bbox:           xmin: 293941.4 ymin: 155850.8 xmax: 56195
+6.7 ymax: 588517.4[] 
+ []
+
+
+Overfull \hbox (267.5pt too wide) in paragraph at lines 7173--7173
+[]\EU1/lmtt/m/n/10 ## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996
+012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs[] 
+ []
+
+
+Underfull \vbox (badness 2478) has occurred while \output is active []
+
+[148]
+
+Package xcolor Warning: Incompatible color definition on input line 7193.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7210.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7210.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7216.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7234.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7234.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7234.
+
+[149]
+
+Package xcolor Warning: Incompatible color definition on input line 7234.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7234.
+
+File: 07-gwr_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (type QTm)
+<use  "07-gwr_files/figure-latex/unnamed-chunk-7-1.pdf" > [150]
+
+Package xcolor Warning: Incompatible color definition on input line 7296.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7308.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7308.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7308.
+
+[151]
+
+Package xcolor Warning: Incompatible color definition on input line 7308.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7308.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7334.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7338.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7338.
+
+[152]
+
+Package xcolor Warning: Incompatible color definition on input line 7395.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7410.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7410.
+
+File: 07-gwr_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type QTm)
+<use  "07-gwr_files/figure-latex/unnamed-chunk-10-1.pdf" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[153] [154]
+File: figs/ch8/fixed_bandwidth.png Graphic file (type QTm)
+<use  "figs/ch8/fixed_bandwidth.png" >
+File: figs/ch8/adaptive_bandwidth.png Graphic file (type QTm)
+<use  "figs/ch8/adaptive_bandwidth.png" > [155]
+Underfull \vbox (badness 2165) has occurred while \output is active []
+
+[156]
+
+Package xcolor Warning: Incompatible color definition on input line 7527.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7541.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7541.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7553.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7567.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7567.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7567.
+
+[157]
+
+Package xcolor Warning: Incompatible color definition on input line 7567.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7567.
+
+
+Overfull \hbox (36.5pt too wide) in paragraph at lines 7593--7593
+[]\EU1/lmtt/m/n/10 ##     bandwidth = fbw, gweight = gwr.Gauss, hatmatrix = TRU
+E, longlat = TRUE,[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 7593--7593
+[]\EU1/lmtt/m/n/10 ## X.Intercept.  -191.648   -27.948    95.366   235.818   68
+9.921  63.768[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 7593--7593
+[]\EU1/lmtt/m/n/10 ## ethnic        -651.291   111.928   199.139   261.223  100
+8.347 271.096[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 7593--7593
+[]\EU1/lmtt/m/n/10 ## lt_illness   -2112.245  -735.222   131.716   660.402  139
+8.447 216.198[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 7593--7593
+[]\EU1/lmtt/m/n/10 ## Effective number of parameters (residual: 2traceS - trace
+S'S): 53.7278[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 7593--7593
+[]\EU1/lmtt/m/n/10 ## Effective degrees of freedom (residual: 2traceS - traceS'
+S): 96.2722[] 
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 7603.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7622.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7622.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7622.
+
+[158]
+
+Package xcolor Warning: Incompatible color definition on input line 7622.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7622.
+
+File: 07-gwr_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type QTm)
+<use  "07-gwr_files/figure-latex/unnamed-chunk-13-1.pdf" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[159]
+
+Package xcolor Warning: Incompatible color definition on input line 7648.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7662.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7662.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7679.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7693.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7693.
+
+
+Overfull \hbox (15.5pt too wide) in paragraph at lines 7719--7719
+[]\EU1/lmtt/m/n/10 ##     gweight = gwr.Gauss, adapt = abw, hatmatrix = TRUE, l
+onglat = TRUE,[] 
+ []
+
+[160]
+Overfull \hbox (27.75pt too wide) in paragraph at lines 7719--7719
+[]\EU1/lmtt/m/n/10 ## Effective number of parameters (residual: 2traceS - trace
+S'S): 50.87778[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 7719--7719
+[]\EU1/lmtt/m/n/10 ## Effective degrees of freedom (residual: 2traceS - traceS'
+S): 99.12222[] 
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 7730.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7751.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7751.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7751.
+
+[161]
+
+Package xcolor Warning: Incompatible color definition on input line 7751.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7751.
+
+File: 07-gwr_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type QTm)
+<use  "07-gwr_files/figure-latex/unnamed-chunk-16-1.pdf" > [162]
+
+Package xcolor Warning: Incompatible color definition on input line 7782.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7807.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7807.
+
+File: 07-gwr_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type QTm)
+<use  "07-gwr_files/figure-latex/unnamed-chunk-17-1.pdf" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[163]
+
+Package xcolor Warning: Incompatible color definition on input line 7838.
+
+[164]
+
+Package xcolor Warning: Incompatible color definition on input line 7860.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7860.
+
+File: 07-gwr_files/figure-latex/unnamed-chunk-18-1.pdf Graphic file (type QTm)
+<use  "07-gwr_files/figure-latex/unnamed-chunk-18-1.pdf" >
+
+Package xcolor Warning: Incompatible color definition on input line 7864.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[165]
+
+Package xcolor Warning: Incompatible color definition on input line 7869.
+
+
+Package xcolor Warning: Incompatible color definition on input line 7869.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[166] [167] [168
 
 ]
 Chapter 9.
-(./spatial_analysis_notes.bbl [145] [146
+(./spatial_analysis_notes.bbl [169] [170
 
-] [147])
+] [171])
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6911.
-[148]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 6911.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7909.
+[172]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 7909.
 (./spatial_analysis_notes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 6911.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 6911.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7909.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 7909.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 26841 strings out of 493591
- 470717 string characters out of 6143546
- 540015 words of memory out of 5000000
- 29862 multiletter control sequences out of 15000+600000
+ 26897 strings out of 493591
+ 472334 string characters out of 6143546
+ 542392 words of memory out of 5000000
+ 29911 multiletter control sequences out of 15000+600000
  28597 words of font info for 72 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 54i,8n,54p,10420b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 54i,8n,54p,10420b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on spatial_analysis_notes.pdf (148 pages).
+Output written on spatial_analysis_notes.pdf (172 pages).

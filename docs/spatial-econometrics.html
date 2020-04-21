@@ -732,8 +732,8 @@ hknn &lt;-<span class="st"> </span><span class="kw">nb2listw</span>(hnb)</code><
 ## 
 ## Weights style: W 
 ## Weights constants summary:
-##      n       nn   S0       S1      S2
-## W 6324 39992976 6324 230.5048 25811.3</code></pre>
+##      n       nn   S0       S1       S2
+## W 6324 39992976 6324 230.5856 25812.27</code></pre>
 <p><strong>Exogenous spatial effects</strong></p>
 <p>Let us come back to the house price example we have been working with. So far, we have hypothesized that the price of a house sold in Liverpool can be explained using information about whether it is newly built, the level of deprivation of the area where it is located, and its postcode. However, it is also reasonable to think that prospective house owners care about the larger area around a house, not only about its immediate surroundings, and would be willing to pay more for a house that was close to nicer areas, everything else being equal. How could we test this idea?</p>
 <p>The most straightforward way to introduce spatial dependence in a regression is by considering not only a given explanatory variable, but also its spatial lag. In our example case, in addition to including the level of deprivation in the area of the house, we will include its spatial lag. In other words, we will be saying that it is not only the level of deprivation of the area where a house is located but also that of the surrounding locations that helps explain the final price at which a house is sold. Mathematically, this implies estimating the following model:</p>
@@ -752,20 +752,20 @@ m6 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#3
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2907 -0.3018 -0.0146  0.2824  5.2631 
+## -4.2906 -0.3013 -0.0151  0.2820  5.2605 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 12.2811557  0.0145311 845.162  &lt; 2e-16 ***
-## newY         0.2475916  0.0195202  12.684  &lt; 2e-16 ***
-## imd_score   -0.0042419  0.0008921  -4.755 2.03e-06 ***
-## w_imd_score -0.0147773  0.0009691 -15.249  &lt; 2e-16 ***
+## (Intercept) 12.2812726  0.0145278 845.361  &lt; 2e-16 ***
+## newY         0.2475126  0.0195183  12.681  &lt; 2e-16 ***
+## imd_score   -0.0042139  0.0008917  -4.726 2.34e-06 ***
+## w_imd_score -0.0148099  0.0009686 -15.289  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 0.5201 on 6320 degrees of freedom
-## Multiple R-squared:  0.3346, Adjusted R-squared:  0.3343 
-## F-statistic:  1059 on 3 and 6320 DF,  p-value: &lt; 2.2e-16</code></pre>
+## Multiple R-squared:  0.3347, Adjusted R-squared:  0.3344 
+## F-statistic:  1060 on 3 and 6320 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>As we can see, the lag is not only significative and negative (as expected), but its effect seems to be even larger that that of the house itself. Taken literally, this would imply that prospective owners value more the area of the surrounding houses than that of the actual house they buy. However, it is important to remember how these variables have been constructed and what they really represent. Because the IMD score is not exactly calculated at the house level, but at the area level, many of the surrounding houses will share that so, to some extent, the IMD of neighboring houses is that of the house itself<a href="#fn36" class="footnoteRef" id="fnref36"><sup>36</sup></a>. This is likely to be affecting the final parameter, and it is a reminder and an illustration that we cannot take model results as universal truth but we need to use them as tools to inform analysis, couple with theory and what we know about the particular question of analysis. Nevertheless, the example does illustrate how to introduce spatial dependence in a regression framework in a fairly straight forward way.</p>
 <p><strong>A note on more advanced spatial regression</strong></p>
 <p>Introducing a spatial lag of an explanatory variable, as we have just seen, is the most straightforward way of incorporating the notion of spatial dependence in a linear regression framework. It does not require additional changes, it can be estimated with OLS, and the interpretation is rather similar to interpreting non-spatial variables. The field of spatial econometrics however is a much broader one and has produced over the last decades many techniques to deal with spatial effects and spatial dependence in different ways. Although this might be an over simplification, one can say that most of such efforts for the case of a single cross-section are focused on two main variations: the spatial lag and the spatial error model. Both are similar to the case we have seen in that they are based on the introduction of a spatial lag, but they differ in the component of the model they modify and affect.</p>
@@ -799,11 +799,11 @@ u_i = u_{lag-i} + \epsilon_i
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new.price &lt;-<span class="st"> </span><span class="kw">predict</span>(m6, new.house)
 new.price</code></pre></div>
 <pre><code>##        1 
-## 11.47174</code></pre>
+## 11.47225</code></pre>
 <p>Now remember we were using the log of the price as dependent variable. If we want to recover the actual price of the house, we need to take its exponent:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(new.price)</code></pre></div>
 <pre><code>##        1 
-## 95965.06</code></pre>
+## 96013.88</code></pre>
 <p>According to our model, the house would be worth GBP96,060.29<a href="#fn37" class="footnoteRef" id="fnref37"><sup>37</sup></a>.</p>
 </div>
 <div id="references-1" class="section level2">

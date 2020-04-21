@@ -133,7 +133,7 @@
 
 \title{Spatial Analysis Notes}
 \author{Francisco Rowe \& Dani Arribas-Bel}
-\date{2020-03-27}
+\date{2020-04-21}
 
 \begin{document}
 \maketitle
@@ -2235,12 +2235,12 @@ of the estimated table:
 
 \begin{verbatim}
 ##   var1.pred var1.var
-## 1  158087.3       NA
-## 2  158197.9       NA
-## 3  158311.3       NA
-## 4  158427.6       NA
-## 5  158547.0       NA
-## 6  158669.7       NA
+## 1  158068.3       NA
+## 2  158178.4       NA
+## 3  158291.3       NA
+## 4  158407.2       NA
+## 5  158526.1       NA
+## 6  158648.2       NA
 \end{verbatim}
 
 The column we will pay attention to is \texttt{var1.pred}. And to see
@@ -2254,12 +2254,12 @@ the locations for which those correspond:
 
 \begin{verbatim}
 ##            x1       x2
-## [1,] 333582.6 382745.7
-## [2,] 333667.5 382745.7
-## [3,] 333752.5 382745.7
-## [4,] 333837.5 382745.7
-## [5,] 333922.4 382745.7
-## [6,] 334007.4 382745.7
+## [1,] 333566.0 382755.9
+## [2,] 333651.0 382755.9
+## [3,] 333736.0 382755.9
+## [4,] 333820.9 382755.9
+## [5,] 333905.9 382755.9
+## [6,] 333990.8 382755.9
 \end{verbatim}
 
 So, for a hypothetical house sold at the location in the first row of
@@ -4790,8 +4790,8 @@ object:
 ## 
 ## Weights style: W 
 ## Weights constants summary:
-##      n       nn   S0      S1       S2
-## W 6324 39992976 6324 230.464 25810.73
+##      n       nn   S0       S1       S2
+## W 6324 39992976 6324 230.5584 25810.22
 \end{verbatim}
 
 \textbf{Exogenous spatial effects}
@@ -4846,19 +4846,19 @@ apply the log to the lag, not the reverse:
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2906 -0.3016 -0.0153  0.2817  5.2631 
+## -4.2906 -0.3016 -0.0154  0.2819  5.2605 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) 12.2813156  0.0145273 845.393  < 2e-16 ***
-## newY         0.2475670  0.0195179  12.684  < 2e-16 ***
-## imd_score   -0.0042075  0.0008916  -4.719 2.42e-06 ***
-## w_imd_score -0.0148166  0.0009684 -15.300  < 2e-16 ***
+## (Intercept) 12.2812895  0.0145286 845.319  < 2e-16 ***
+## newY         0.2475271  0.0195184  12.682  < 2e-16 ***
+## imd_score   -0.0042207  0.0008914  -4.735 2.24e-06 ***
+## w_imd_score -0.0148027  0.0009683 -15.287  < 2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.52 on 6320 degrees of freedom
-## Multiple R-squared:  0.3348, Adjusted R-squared:  0.3345 
+## Residual standard error: 0.5201 on 6320 degrees of freedom
+## Multiple R-squared:  0.3347, Adjusted R-squared:  0.3344 
 ## F-statistic:  1060 on 3 and 6320 DF,  p-value: < 2.2e-16
 \end{verbatim}
 
@@ -4986,7 +4986,7 @@ method:
 
 \begin{verbatim}
 ##        1 
-## 11.47249
+## 11.47213
 \end{verbatim}
 
 Now remember we were using the log of the price as dependent variable.
@@ -5001,7 +5001,7 @@ exponent:
 
 \begin{verbatim}
 ##        1 
-## 96037.09
+## 96002.87
 \end{verbatim}
 
 According to our model, the house would be worth GBP96,060.29\footnote{\textbf{EXERCISE}
@@ -5794,17 +5794,17 @@ To this end, we run:
 \end{Shaded}
 
 \begin{verbatim}
-##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.017318442 -0.016110349 0.019686077
-## 2    lsoa_cd E01006513 (Intercept) -0.014395021 -0.014910830 0.019900639
-## 3    lsoa_cd E01006514 (Intercept) -0.022270247 -0.022332328 0.018868540
-## 4    lsoa_cd E01006515 (Intercept) -0.017522889 -0.016520148 0.018395855
-## 5    lsoa_cd E01006518 (Intercept) -0.017649891 -0.016861768 0.020620397
-## 6    lsoa_cd E01006519 (Intercept) -0.015857953 -0.015276387 0.009668197
-## 7    lsoa_cd E01006520 (Intercept) -0.023907575 -0.023590443 0.019805141
-## 8    lsoa_cd E01006521 (Intercept)  0.007391788  0.007076058 0.019114378
-## 9    lsoa_cd E01006522 (Intercept)  0.016853450  0.015098119 0.019858287
-## 10   lsoa_cd E01006523 (Intercept)  0.004200268  0.004154191 0.019658887
+##    groupFctr   groupID        term         mean       median         sd
+## 1    lsoa_cd E01006512 (Intercept) -0.015098404 -0.015356280 0.01795783
+## 2    lsoa_cd E01006513 (Intercept) -0.016415742 -0.017199053 0.01933994
+## 3    lsoa_cd E01006514 (Intercept) -0.021901662 -0.020595008 0.02063415
+## 4    lsoa_cd E01006515 (Intercept) -0.020392665 -0.019730887 0.01936845
+## 5    lsoa_cd E01006518 (Intercept) -0.018072425 -0.019580164 0.01871606
+## 6    lsoa_cd E01006519 (Intercept) -0.016625907 -0.016645732 0.00918911
+## 7    lsoa_cd E01006520 (Intercept) -0.024797635 -0.023255156 0.01835375
+## 8    lsoa_cd E01006521 (Intercept)  0.006172547  0.007329774 0.01975328
+## 9    lsoa_cd E01006522 (Intercept)  0.017180446  0.017496996 0.01912818
+## 10   lsoa_cd E01006523 (Intercept)  0.004265357  0.003811797 0.01946192
 \end{verbatim}
 
 The results contain the estimated mean, median and standard deviation
@@ -5906,9 +5906,9 @@ merge it with the \emph{random effects} estimates.
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.01355 -0.02823 -0.03004 0.00513 0.02317 ...
-##  $ median   : num  -0.0141 -0.0265 -0.0305 0.0054 0.0232 ...
-##  $ sd       : num  0.033 0.0328 0.0316 0.0311 0.0163 ...
+##  $ mean     : num  -0.01244 -0.02738 -0.02925 0.00154 0.02424 ...
+##  $ median   : num  -0.0118 -0.02778 -0.02664 0.00272 0.02331 ...
+##  $ sd       : num  0.0309 0.0327 0.0325 0.0332 0.0157 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -6674,9 +6674,9 @@ MSOA-level errors.
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.0264 -0.1257 0.0535 -0.1452 -0.2813 ...
-##  $ median   : num  0.0237 -0.1189 0.0534 -0.1454 -0.2795 ...
-##  $ sd       : num  0.0446 0.0696 0.0907 0.0351 0.0392 ...
+##  $ mean     : num  0.0257 -0.12 0.0626 -0.141 -0.2845 ...
+##  $ median   : num  0.0248 -0.1161 0.071 -0.1454 -0.2853 ...
+##  $ sd       : num  0.0427 0.0727 0.094 0.0394 0.0386 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -6898,9 +6898,1007 @@ population with no qualification) provides a model with better.
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 \end{verbatim}
 
-\chapter{GWR}\label{gwr}
+\chapter{Geographically Weighted
+Regression}\label{geographically-weighted-regression}
 
-FR
+This chapter\footnote{This note is part of \href{index.html}{Spatial
+  Analysis Notes} {Geographically Weighted Regression -- Spatial
+  Nonstationarity} by Francisco Rowe is licensed under a Creative
+  Commons Attribution-NonCommercial-ShareAlike 4.0 International
+  License.} provides an introduction to geographically weighted
+regression models.
+
+The content of this chapter is based on:
+
+\begin{itemize}
+\item
+  \citet{Fotheringham_et_al_2002_book}, a must-go book if you are
+  working or planning to start working on geographically weighted
+  regression modelling.
+\item
+  \citet{comber2020gwr} is recently published preprint which provides a
+  roadmap to approach various practical issues in the application of
+  GWR.
+\end{itemize}
+
+This Chapter is part of \href{index.html}{Spatial Analysis Notes}, a
+compilation hosted as a GitHub repository that you can access in a few
+ways:
+
+\begin{itemize}
+\tightlist
+\item
+  As a
+  \href{https://github.com/GDSL-UL/san/archive/master.zip}{download} of
+  a \texttt{.zip} file that contains all the materials.
+\item
+  As an
+  \href{https://gdsl-ul.github.io/san/geographically-weighted-regression.html}{html
+  website}.
+\item
+  As a
+  \href{https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf}{pdf
+  document}
+\item
+  As a \href{https://github.com/GDSL-UL/san}{GitHub repository}.
+\end{itemize}
+
+\section{Dependencies}\label{dependencies-6}
+
+This chapter uses the following libraries: Ensure they are installed on
+your machine\footnote{You can install package \texttt{mypackage} by
+  running the command \texttt{install.packages("mypackage")} on the R
+  prompt or through the
+  \texttt{Tools\ -\/-\textgreater{}\ Install\ Packages...} menu in
+  RStudio.} before loading them executing the following code chunk:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Data manipulation, transformation and visualisation}
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\CommentTok{# Nice tables}
+\KeywordTok{library}\NormalTok{(kableExtra)}
+\CommentTok{# Simple features (a standardised way to encode vector data ie. points, lines, polygons)}
+\KeywordTok{library}\NormalTok{(sf) }
+\CommentTok{# Spatial objects conversion}
+\KeywordTok{library}\NormalTok{(sp) }
+\CommentTok{# Thematic maps}
+\KeywordTok{library}\NormalTok{(tmap) }
+\CommentTok{# Colour palettes}
+\KeywordTok{library}\NormalTok{(RColorBrewer) }
+\CommentTok{# More colour palettes}
+\KeywordTok{library}\NormalTok{(viridis) }\CommentTok{# nice colour schemes}
+\CommentTok{# Fitting geographically weighted regression models}
+\KeywordTok{library}\NormalTok{(spgwr)}
+\CommentTok{# Obtain correlation coefficients}
+\KeywordTok{library}\NormalTok{(corrplot)}
+\CommentTok{# Exportable regression tables}
+\KeywordTok{library}\NormalTok{(jtools)}
+\KeywordTok{library}\NormalTok{(stargazer)}
+\KeywordTok{library}\NormalTok{(sjPlot)}
+\CommentTok{# Assess multicollinearity}
+\KeywordTok{library}\NormalTok{(car)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Data}\label{data-5}
+
+For this chapter, we will data on:
+
+\begin{itemize}
+\item
+  cummulative COVID-19 confirmed cases from 1st January, 2020 to 14th
+  April, 2020 from Public Health England via the
+  \href{https://coronavirus.data.gov.uk}{GOV.UK dashboard};
+\item
+  resident population characteristics from the 2011 census data from the
+  \href{https://www.nomisweb.co.uk/home/census2001.asp}{Office of
+  National Statistics}; and,
+\item
+  2019 index of multiple deprivation data from
+  \href{https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019}{GOV.UK}
+  and published by the Ministry of Housing, Communities \& Local
+  Government.
+\end{itemize}
+
+The data are used for this Chapter are organised at the ONS Upper Tier
+Local Authority (UTLA) - also known as
+\href{https://ago-item-storage.s3.us-east-1.amazonaws.com/7bb8db84e0f54e83aa05204f7bd674b8/EN37152_CTY_UA_DEC_2018_UK.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEI7\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2FwEaCXVzLWVhc3QtMSJHMEUCIHGIIjyriwWRx5QXeakP\%2BhJr39uh7b7jP1dr4q\%2FbEgC3AiEA0ohlaSFkwlCKLMy3vFhZDcQvDgzEVEP0kS17VN2ZnxMqvQMIpv\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2FARAAGgw2MDQ3NTgxMDI2NjUiDD2XGTMX5p\%2BWiurX2iqRA\%2FHRJfiW8YaOjNi65RC8AFZ5shx\%2Fn3Upl\%2B9YP5xhX4YzsRqkYkx\%2FYkwbMZ\%2FlDDqWpBHcZzoRdFDz1IGLueQJvDhFignjzIBmExSJ0UdMvuU56tXbnZQ\%2BI8lTjP9JRtLpZELENSjVeoi5qJpphGzoBo9O9cCJkQvWC3NNxqV6eFez00ld5qlRMpJ4KTOl7\%2FxJBBfua\%2F8WYdrcZ4H0KA47l\%2FIJnp2AklUv\%2Fw0cBoU0LZq3djjuVlE\%2FseJKOnm1Z8KMFItEanYUpOrMfROJ5C\%2FTwqqJ2GQMSvr30W\%2F4\%2FY\%2F2BKNTiyCvbEJnD03SWrB20bBlN0Gr13YYvcSBBjgwmhe4EKIrrLSKo8SOZNOg02nq\%2Bmrc0\%2FsPo\%2BYyLgA0MXASt9kDPL4N5IF9yG3lS7vd7E7\%2FpesIlC\%2FW3g3TVOBA92bKMtU6QA\%2B93URcqkrXyrvN6LGAt2C83HjvuAmtbSmlJOD5enC7abdOEqJMyJdUH\%2BwbBKXN8TK\%2F\%2BbRMzgshl1dJElvSnPAYZEuNwaso8bVXwSK\%2F31m6MP\%2Bv4fQFOusBk4G2Dlca6chTsAlFjXomtOeu6Kxm0MRAgdhF4mSRnKggkWu8mBYY68\%2BeGt3egIOtssrEVcWYr1nseCriPHpsA\%2BGi3IFnyPVIKZpStdv\%2F\%2FNoOip3YGsb\%2BSxgkIdxjVJdnkTsEvEf7AZtu6BFTKfTtTAII\%2Boh46F\%2BH\%2FDztv9kHuQMMXQsJozbphriOJDxP8TMSe16v8Tc1yULmRuenrfX1CMGTPrTcoUYPEu82qwDWlcMWwRRTMAv3xcupkZXVOQhMzkcyOOxQdOLWyIH5\%2FZ\%2BuIkNMQzndBya5nNjpGJ6UniQp22CkZ5n52KK\%2Fnw\%3D\%3D\&X-Amz-Algorithm=AWS4-HMAC-SHA256\&X-Amz-Date=20200416T135331Z\&X-Amz-SignedHeaders=host\&X-Amz-Expires=300\&X-Amz-Credential=ASIAYZTTEKKEUJMS7TPU\%2F20200416\%2Fus-east-1\%2Fs3\%2Faws4_request\&X-Amz-Signature=02022ae0228c2fc1d09a90a389d7fd00b9de38ff2df002159d3ad84666c213e8}{Counties
+and Unitary Authorities}. They are the geographical units used to report
+COVID-19 data.
+
+If you use the dataset utilised in this chapter, cite this book. For a
+full list of the variables included in the data set we will use in this
+chapter, see the readme file in the gwr data folder.\footnote{Read the
+  file in R by executing \texttt{read\_tsv("data/gwr/readme.txt")}}
+
+Let's read the data:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# clean workspace}
+\KeywordTok{rm}\NormalTok{(}\DataTypeTok{list=}\KeywordTok{ls}\NormalTok{())}
+\CommentTok{# read data}
+\NormalTok{utla_shp <-}\StringTok{ }\KeywordTok{st_read}\NormalTok{(}\StringTok{"data/gwr/Covid19_total_cases_geo.shp"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(objct, cty19c, ctyu19nm, long, lat, st_rs, st_ln, X2020.}\FloatTok{04.14}\NormalTok{, I.PL1, IMD20, IMD2., Rsdnt, Hshld, Dwlln, Hsh_S, E_16_, A_65_, Ag_}\DecValTok{85}\NormalTok{, Mixed, Indin, Pkstn, Bngld, Chins, Oth_A, Black, Othr_t, CB_U_, Crwd_, Lng__, Trn__, Adm__, Ac___, Pb___, Edctn, H____, geometry)}
+
+\CommentTok{# replace nas with 0s}
+\NormalTok{utla_shp[}\KeywordTok{is.na}\NormalTok{(utla_shp)] <-}\StringTok{ }\DecValTok{0}
+\CommentTok{# explore data}
+\KeywordTok{str}\NormalTok{(utla_shp)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Recap: Spatial Effects}\label{recap-spatial-effects}
+
+To this point, we have implicitly discussed three distinctive spatial
+effects:
+
+\begin{itemize}
+\item
+  \emph{Spatial heterogeneity} refers to the uneven distribution of a
+  variable's values across space
+\item
+  \emph{Spatial dependence} refers to the spatial relationship of a
+  variable's values for a pairs of locations at a certain distance
+  apart, so that are more similar (or less similar) than expected for
+  randomly associated pairs of observations
+\item
+  \emph{Spatial nonstationarity} refers to variations in the
+  relationship between an outcome variable and a set of predictor
+  variables across space
+\end{itemize}
+
+In previous sessions, we considered multilevel models to deal with
+spatial nonstationarity, recognising that the strength and direction of
+the relationship between an outcome \(y\) and a set of predictors \(x\)
+may vary over space. Here we consider a different approach, namely
+geographically weighted regression (GWR).
+
+\section{Exploratory Analysis}\label{exploratory-analysis}
+
+We will explore this technique through an empirical analysis considering
+the current global COVID-19 outbreak. Specifically we will seek to
+identify potential contextual factors that may be related to an
+increased risk of local infection. Population density, housing
+overcrowding, vulnerable individuals and critical workers have all been
+linked to a higher risk of COVID-19 infection.
+
+First, we will define and develop some basic understanding of our
+variable of interest. We define the risk of COVID-19 infection by the
+cummulative number of confirmed positive cases COVID-19 per 100,000
+people:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# risk of covid-19 infection}
+\NormalTok{utla_shp}\OperatorTok{$}\NormalTok{covid19_r <-}\StringTok{ }\NormalTok{(utla_shp}\OperatorTok{$}\NormalTok{X2020.}\FloatTok{04.14} \OperatorTok{/}\StringTok{ }\NormalTok{utla_shp}\OperatorTok{$}\NormalTok{Rsdnt) }\OperatorTok{*}\StringTok{ }\DecValTok{100000}
+
+\CommentTok{# histogram}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ utla_shp) }\OperatorTok{+}
+\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{alpha=}\FloatTok{0.8}\NormalTok{, }\DataTypeTok{colour=}\StringTok{"black"}\NormalTok{, }\DataTypeTok{fill=}\StringTok{"lightblue"}\NormalTok{, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ covid19_r)) }\OperatorTok{+}
+\StringTok{   }\KeywordTok{theme_classic}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{07-gwr_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# distribution in numbers}
+\KeywordTok{summary}\NormalTok{(utla_shp}\OperatorTok{$}\NormalTok{covid19_r)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   32.11   92.81  140.15  146.66  190.96  341.56
+\end{verbatim}
+
+The results indicate a wide variation in the risk of infection across
+UTLAs in England, ranging from 31 to 342 confirmed positive cases of
+COVID-19 per 100,000 people with a median of 147. We map the cases to
+understand their spatial structure.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# read region boundaries for a better looking map}
+\NormalTok{reg_shp <-}\StringTok{ }\KeywordTok{st_read}\NormalTok{(}\StringTok{"data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reading layer `Regions_December_2019_Boundaries_EN_BGC' from data source `/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp' using driver `ESRI Shapefile'
+## Simple feature collection with 9 features and 9 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 82672 ymin: 5342.7 xmax: 655653.8 ymax: 657536
+## epsg (SRID):    27700
+## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# ensure geometry is valid}
+\NormalTok{utla_shp =}\StringTok{ }\NormalTok{lwgeom}\OperatorTok{::}\KeywordTok{st_make_valid}\NormalTok{(utla_shp)}
+\NormalTok{reg_shp =}\StringTok{ }\NormalTok{lwgeom}\OperatorTok{::}\KeywordTok{st_make_valid}\NormalTok{(reg_shp)}
+
+\CommentTok{# map}
+\NormalTok{legend_title =}\StringTok{ }\KeywordTok{expression}\NormalTok{(}\StringTok{"Cummulative cases per 100,000"}\NormalTok{)}
+\NormalTok{map_utla =}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(utla_shp) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_fill}\NormalTok{(}\DataTypeTok{col =} \StringTok{"covid19_r"}\NormalTok{, }\DataTypeTok{title =}\NormalTok{ legend_title, }\DataTypeTok{palette =} \KeywordTok{magma}\NormalTok{(}\DecValTok{256}\NormalTok{), }\DataTypeTok{style =} \StringTok{"cont"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add fill}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{1}\NormalTok{)  }\OperatorTok{+}\StringTok{ }\CommentTok{# add borders}
+\StringTok{  }\KeywordTok{tm_compass}\NormalTok{(}\DataTypeTok{type =} \StringTok{"arrow"}\NormalTok{, }\DataTypeTok{position =} \KeywordTok{c}\NormalTok{(}\StringTok{"right"}\NormalTok{, }\StringTok{"top"}\NormalTok{) , }\DataTypeTok{size =} \DecValTok{5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add compass}
+\StringTok{  }\KeywordTok{tm_scale_bar}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{), }\DataTypeTok{text.size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{position =}  \KeywordTok{c}\NormalTok{(}\StringTok{"center"}\NormalTok{, }\StringTok{"bottom"}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\CommentTok{# add scale bar}
+\StringTok{  }\KeywordTok{tm_layout}\NormalTok{(}\DataTypeTok{bg.color =} \StringTok{"white"}\NormalTok{) }\CommentTok{# change background colour}
+\NormalTok{map_utla }\OperatorTok{+}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(reg_shp) }\OperatorTok{+}\StringTok{ }\CommentTok{# add region boundaries}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{5}\NormalTok{) }\CommentTok{# add borders}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{07-gwr_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+The map shows that concentrations of high incidence of infections in the
+metropolitan areas of London, Liverpool, Newcastle, Sheffield,
+Middlesbrough and Birmingham. Below we list the UTLAs in these areas in
+descending order.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hotspots <-}\StringTok{ }\NormalTok{utla_shp }\OperatorTok{%>%}\StringTok{ }\KeywordTok{select}\NormalTok{(ctyu19nm, covid19_r) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(covid19_r }\OperatorTok{>}\StringTok{ }\DecValTok{190}\NormalTok{)}
+\NormalTok{hotspots[}\KeywordTok{order}\NormalTok{(}\OperatorTok{-}\NormalTok{hotspots}\OperatorTok{$}\NormalTok{covid19_r),]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Simple feature collection with 38 features and 2 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 293941.4 ymin: 155850.8 xmax: 561956.7 ymax: 588517.4
+## epsg (SRID):    NA
+## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs
+## First 10 features:
+##     ctyu19nm covid19_r                       geometry
+## 14     Brent  341.5645 MULTIPOLYGON (((520113.1 19...
+## 32 Southwark  337.1687 MULTIPOLYGON (((532223 1805...
+## 27   Lambeth  305.5238 MULTIPOLYGON (((531189.5 18...
+## 22    Harrow  286.1254 MULTIPOLYGON (((517363.8 19...
+## 17   Croydon  276.8467 MULTIPOLYGON (((531549.3 17...
+## 12    Barnet  274.1410 MULTIPOLYGON (((524645.2 19...
+## 28  Lewisham  261.3408 MULTIPOLYGON (((536691.6 17...
+## 30    Newham  258.4550 MULTIPOLYGON (((542600.7 18...
+## 38   Cumbria  255.6726 MULTIPOLYGON (((357012.9 58...
+## 15   Bromley  253.7234 MULTIPOLYGON (((542252.7 17...
+\end{verbatim}
+
+\begin{quote}
+Challenge 1: How does Liverpool ranked in this list?
+\end{quote}
+
+\section{Global Regression}\label{global-regression}
+
+To provide an intuitive understanding of GWR, exploring our data based
+on an ordinary least squares (OLS) linear regression model is a useful
+start. The key issue here is to understand if high incidence of COVID-19
+is linked to structural differences across UTLAs in England. As
+indicated above, confirmed positive cases of COVID-19 have been
+associated with overcrowding housing, vulnerable populations - including
+people in elderly age groups, economically disadvantaged groups and
+suffering from chronic health conditions - ethnic minorities, critical
+workers in the health \& social work, education, accommodation \& food,
+transport, and administrative \& support sectors. So let's create a set
+of variables to approximate these factors.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# define predictors}
+\NormalTok{utla_shp <-}\StringTok{ }\NormalTok{utla_shp }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}
+  \DataTypeTok{crowded_hou =}\NormalTok{ Crwd_ }\OperatorTok{/}\StringTok{ }\NormalTok{Hshld, }\CommentTok{# share of crowded housing}
+  \DataTypeTok{elderly =}\NormalTok{ (A_65_ }\OperatorTok{+}\StringTok{ }\NormalTok{Ag_}\DecValTok{85}\NormalTok{) }\OperatorTok{/}\StringTok{ }\NormalTok{Rsdnt, }\CommentTok{# share of population aged 65+}
+  \DataTypeTok{lt_illness =}\NormalTok{ Lng__ }\OperatorTok{/}\StringTok{ }\NormalTok{Rsdnt, }\CommentTok{# share of population in long-term illness}
+  \DataTypeTok{ethnic =}\NormalTok{ (Mixed }\OperatorTok{+}\StringTok{ }\NormalTok{Indin }\OperatorTok{+}\StringTok{ }\NormalTok{Pkstn }\OperatorTok{+}\StringTok{ }\NormalTok{Bngld }\OperatorTok{+}\StringTok{ }\NormalTok{Chins }\OperatorTok{+}\StringTok{ }\NormalTok{Oth_A }\OperatorTok{+}\StringTok{ }\NormalTok{Black }\OperatorTok{+}\StringTok{ }\NormalTok{Othr_t) }\OperatorTok{/}\StringTok{ }\NormalTok{Rsdnt, }\CommentTok{# share of nonwhite population}
+  \DataTypeTok{imd19_ext =}\NormalTok{ IMD20, }\CommentTok{# proportion of a larger area’s population living in the most deprived LSOAs in the country}
+  \DataTypeTok{hlthsoc_sec =}\NormalTok{ H____ }\OperatorTok{/}\StringTok{ }\NormalTok{E_16_, }\CommentTok{# share of workforce in the human health & social work sector}
+  \DataTypeTok{educ_sec =}\NormalTok{ Edctn }\OperatorTok{/}\StringTok{ }\NormalTok{E_16_, }\CommentTok{# share of workforce in the education sector}
+  \DataTypeTok{trnsp_sec=}\NormalTok{ Trn__ }\OperatorTok{/}\StringTok{ }\NormalTok{E_16_, }\CommentTok{# share of workforce in the Transport & storage sector}
+  \DataTypeTok{accfood_sec =}\NormalTok{ Ac___ }\OperatorTok{/}\StringTok{ }\NormalTok{E_16_, }\CommentTok{# share of workforce in the accommodation & food service sector}
+  \DataTypeTok{admsupport_sec =}\NormalTok{ Adm__ }\OperatorTok{/}\StringTok{  }\NormalTok{E_16_, }\CommentTok{# share of workforce in the administrative & support sector}
+  \DataTypeTok{pblic_sec =}\NormalTok{ Pb___ }\OperatorTok{/}\StringTok{ }\NormalTok{E_16_ }\CommentTok{# share of workforce in the public administration & defence sector}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Let's quickly examine how they correlate to our outcome variable
+i.e.~incidence rate of COVID-19 using correlation coefficients and
+correlograms.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# obtain a matrix of Pearson correlation coefficients}
+\NormalTok{df_sel <-}\StringTok{ }\KeywordTok{st_set_geometry}\NormalTok{(utla_shp[,}\DecValTok{37}\OperatorTok{:}\DecValTok{48}\NormalTok{], }\OtherTok{NULL}\NormalTok{) }\CommentTok{# temporary data set removing geometries}
+\NormalTok{cormat <-}\StringTok{ }\KeywordTok{cor}\NormalTok{(df_sel, }\DataTypeTok{use=}\StringTok{"complete.obs"}\NormalTok{, }\DataTypeTok{method=}\StringTok{"pearson"}\NormalTok{)}
+
+\CommentTok{# significance test}
+\NormalTok{sig1 <-}\StringTok{ }\NormalTok{corrplot}\OperatorTok{::}\KeywordTok{cor.mtest}\NormalTok{(df_sel, }\DataTypeTok{conf.level =}\NormalTok{ .}\DecValTok{95}\NormalTok{)}
+
+\CommentTok{# creta a correlogram}
+\NormalTok{corrplot}\OperatorTok{::}\KeywordTok{corrplot}\NormalTok{(cormat, }\DataTypeTok{type=}\StringTok{"lower"}\NormalTok{,}
+                   \DataTypeTok{method =} \StringTok{"circle"}\NormalTok{, }
+                   \DataTypeTok{order =} \StringTok{"original"}\NormalTok{, }
+                   \DataTypeTok{tl.cex =} \FloatTok{0.7}\NormalTok{,}
+                   \DataTypeTok{p.mat =}\NormalTok{ sig1}\OperatorTok{$}\NormalTok{p, }\DataTypeTok{sig.level =}\NormalTok{ .}\DecValTok{05}\NormalTok{, }
+                   \DataTypeTok{col =}\NormalTok{ viridis}\OperatorTok{::}\KeywordTok{viridis}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DataTypeTok{option =} \StringTok{"plasma"}\NormalTok{),}
+                   \DataTypeTok{diag =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{07-gwr_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+The correlogram shows the strength and significance of the linear
+relationship between our set of variables. The size of the circle
+reflects the strength of the relationships as captured by the Pearson
+correlation coefficient, and crosses indicate statistically
+insignificant relationships at the 95\% level of confidence. The colour
+indicate the direction of the relationship with dark (light) colours
+indicating a negative (positive) association.
+
+The resuls indicate that the incidence of COVID-19 is significantly and
+positively related to the share of crowded housing, nonwhite ethnic
+minorities and administrative \& support workers. Against the
+expectations, the incidence of COVID-19 appears negatively correlated to
+the share of elderly population, of population suffering from long-term
+illness and of administrative \& support workers, and displays no
+significant association with the share of population living in
+deprivated areas, of public administration \& defence, and of health \&
+social workers. The latter probably reflect the effectiveness of the
+protective measures undertaken to prevent infection among these
+population groups, but it may also reflect the partial coverage of
+COVID-19 testing and underreporting. It may also reveal the descriptive
+limitations of correlation coefficients as they show the relationship
+between a pairs of variables, not controling for others. Correlation
+coefficients can thus produce spurious relationships resulting from
+counfounded variables. We will return to this point below.
+
+The results also reveal high collinearity between particular pairs of
+variables, notably between the share of crowded housing and of nonwhite
+ethnic population, the share of crowded housing and of elderly
+population, the share of crowded housing and of administrative \&
+support workers, the share of elderly population and of population
+suffering from long-term illness. A more refined analysis of
+multicollinearity is needed. Various diagnostics for multicollinearity
+in a regression framework exist, including matrix condition numbers
+(CNs), predictor variance inflation factors (VIFs) and variance
+decomposition factors (VDPs). Rules of thumb (CNs \textgreater{} 30,
+VIFs \textgreater{} 10 and VDPs \textgreater{} 0.5) to indicate worrying
+levels of collinearity can be found \citep{belsley2005regression}. To
+avoid problems of multicollinearity, often a simple strategy is to
+remove highly correlated predictors. The difficultly is in deciding
+which predictor(s) to remove, especially when all are considered
+important. Have this in mind when specifying your model.
+
+\begin{quote}
+Challenge 2: Analyse the relationship of all the variables executing
+\texttt{pairs(df\_sel)}. How accurate would a linear regression be in
+capturing the relationships for our set of variables?
+\end{quote}
+
+\subsection{Global Regression Results}\label{global-regression-results}
+
+To gain a better understanding of these relationships, we can regress
+the incidence rate of COVID-19 on a series of factors capturing
+differences across areas. To focus on the description of GWR, we keep
+our analysis simple and study the incidence rate of COVID-19 as a
+function of the share of nonwhite ethnic population and of population
+suffering long-term illness by estimating the following OLS linear
+regression model:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# attach data}
+\KeywordTok{attach}\NormalTok{(utla_shp)}
+
+\CommentTok{# specify a model equation}
+\NormalTok{eq1 <-}\StringTok{ }\NormalTok{covid19_r }\OperatorTok{~}\StringTok{ }\NormalTok{ethnic }\OperatorTok{+}\StringTok{ }\NormalTok{lt_illness}
+\NormalTok{model1 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(}\DataTypeTok{formula =}\NormalTok{ eq1, }\DataTypeTok{data =}\NormalTok{ utla_shp)}
+
+\CommentTok{# estimates}
+\KeywordTok{summary}\NormalTok{(model1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = eq1, data = utla_shp)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -109.234  -38.386   -4.879   29.284  143.786 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)    63.77      30.13   2.117    0.036 *  
+## ethnic        271.10      30.65   8.845 2.64e-15 ***
+## lt_illness    216.20     151.88   1.424    0.157    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 51 on 147 degrees of freedom
+## Multiple R-squared:  0.3926, Adjusted R-squared:  0.3844 
+## F-statistic: 47.52 on 2 and 147 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+We also compute the VIFs for the variables in the model:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{vif}\NormalTok{(model1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     ethnic lt_illness 
+##    1.43015    1.43015
+\end{verbatim}
+
+The regression results indicate a positive relationship exists between
+the share of nonwhite population and an increased risk of COVID-19
+infection. A one percentage point increase in the share of nonwhite
+population returns a 271 rise in the cummulative count of COVID-19
+infection per 100,000 people, everything else constant. The results also
+reveal a positive (albeit statistically insignificant) relationship
+between the share of population suffering from long-term illness and an
+increased risk of COVID-19 infection, after controlling for the share of
+nonwhite population, confirming the suspicion of the limitations of
+correlation coefficients; that is, once differences in the share of
+nonwhite population are taken into account, the association between the
+share of population suffering from long-term illness and an increased
+risk of COVID-19 infection becomes positive. We also test for
+multicollinearity. The VIFs are below 10 indicating that
+multicollinearity is not highly problematic.
+
+The \(R^{2}\) value for the OLS regression is 0.393 indicating that our
+model explains only 39\% of the variance in the rate of COVID-19
+infection. This leaves 71\% of the variance unexplained. Some of this
+unexplained variance can be because we have only included two
+explanatory variables in our model, but also because the OLS regression
+model assumes that the relationships in the model are constant over
+space; that is, it assumes a stationary process. Hence, an OLS
+regression model is considered to capture global relationships. However,
+relationships may vary over space. Suppose, for instance, that there are
+intrinsic behavioural variations across England and that people have
+adhered more strictly to self-isolation and social distancing measures
+in some areas than in others, or that ethnic minorities are less exposed
+to contracting COVID-19 in certain parts of England. If such variations
+in associations exist over space, our estimated OLS model will be a
+misspecification of reality because it assumes these relationships to be
+constant.
+
+To better understand this potential misspecification, we investigate the
+model redisuals which show high variability. The distribution is
+non-random displaying large positive residuals in the metropolitan areas
+of London, Liverpool, Newcastle (in light colours) and the Lake District
+and large negative residuals across much of England (in black). This
+conforms to the spatial pattern of confirmed COVID-19 cases with high
+concentration in a limited number of metropolitan areas (see above).
+While our residual map reveals that there is a problem with the OLS
+model, it does not indicate which, if any, of the parameters in the
+model might exhibit spatial nonstationarity. A simple way of examining
+if the relationships being modelled in our global OLS model are likely
+to be stationary over space would be to estimate separate OLS model for
+each UTLA in England. But this would require higher resolution i.e.~data
+within UTLA, and we only have one data point per UTLA.
+\citet{Fotheringham_et_al_2002_book} (2002, p.40-44) discuss alternative
+approaches and their limitations.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{utla_shp}\OperatorTok{$}\NormalTok{res_m1 <-}\StringTok{ }\KeywordTok{residuals}\NormalTok{(model1)}
+
+\CommentTok{# map}
+\NormalTok{legend_title =}\StringTok{ }\KeywordTok{expression}\NormalTok{(}\StringTok{"OLS residuals"}\NormalTok{)}
+\NormalTok{map_utla =}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(utla_shp) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_fill}\NormalTok{(}\DataTypeTok{col =} \StringTok{"res_m1"}\NormalTok{, }\DataTypeTok{title =}\NormalTok{ legend_title, }\DataTypeTok{palette =} \KeywordTok{magma}\NormalTok{(}\DecValTok{256}\NormalTok{), }\DataTypeTok{style =} \StringTok{"cont"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add fill}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{1}\NormalTok{)  }\OperatorTok{+}\StringTok{ }\CommentTok{# add borders}
+\StringTok{  }\KeywordTok{tm_compass}\NormalTok{(}\DataTypeTok{type =} \StringTok{"arrow"}\NormalTok{, }\DataTypeTok{position =} \KeywordTok{c}\NormalTok{(}\StringTok{"right"}\NormalTok{, }\StringTok{"top"}\NormalTok{) , }\DataTypeTok{size =} \DecValTok{5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add compass}
+\StringTok{  }\KeywordTok{tm_scale_bar}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{), }\DataTypeTok{text.size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{position =}  \KeywordTok{c}\NormalTok{(}\StringTok{"center"}\NormalTok{, }\StringTok{"bottom"}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\CommentTok{# add scale bar}
+\StringTok{  }\KeywordTok{tm_layout}\NormalTok{(}\DataTypeTok{bg.color =} \StringTok{"white"}\NormalTok{) }\CommentTok{# change background colour}
+\NormalTok{map_utla }\OperatorTok{+}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(reg_shp) }\OperatorTok{+}\StringTok{ }\CommentTok{# add region boundaries}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{5}\NormalTok{) }\CommentTok{# add borders}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{07-gwr_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+\section{Fitting a Geographically Weighted
+Regression}\label{fitting-a-geographically-weighted-regression}
+
+GWR overcomes the limitation of the OLS regression model of generating a
+global set of estimates. The basic idea behind GWR is to examine the way
+in which the relationships between a dependent variable and a set of
+predictors might vary over space. GWR operates by moving a search window
+from one regression point to the next, working sequentially through all
+the existing regression points in the dataset. A set of regions is then
+defined around each regression point and within the search window. A
+regression model is then fitted to all data contained in each of the
+identified regions around a regression point, with data points closer to
+the sample point being weighted more heavily than are those farther
+away. This process is repeated for all samples points in the dataset.
+For a data set of 150 observations GWR will fit 150 weighted regression
+models. The resulting local estimates can then be mapped at the
+locations of the regression points to view possible variations in the
+relationships between variables.
+
+Graphically, GWR involves fitting a spatial kernel to the data as
+described in the Fig. 1. For a given regression point \(X\), the weight
+(\(W\)) of a data point is at a maximum at the location of the
+regression point. The weight decreases gradually as the distance between
+two points increases. A regression model is thus calibrated locally by
+moving the regression point across the area under study. For each
+location, the data are weighted differently so that the resulting
+estimates are unique to a particular location.
+
+\begin{figure}
+\centering
+\includegraphics{figs/ch8/fixed_bandwidth.png}
+\caption{Fig. 1. GWR with fixed spatial kernel. Source:
+\citet{Fotheringham_et_al_2002_book} (2002, p.45).}
+\end{figure}
+
+\subsection{Fixed or Adaptive Kernel}\label{fixed-or-adaptive-kernel}
+
+A key issue is to decide between two options of spatial kernels: a fixed
+kernel or an adaptive kernel. Intuitively, a fixed kernel involves using
+a fixed bandwidth to define a region around all regression points as
+displayed in Fig. 1. The extent of the kernel is determined by the
+distance to a given regression point, with the kernel being identical at
+any point in space. An adaptive kernel involves using varying bandwidth
+to define a region around regression points as displayed in Fig. 2. The
+extent of the kernel is determined by the number of nearest neighbours
+from a given regression point. The hernels have larger bandwidths where
+the data are sparse.
+
+\begin{figure}
+\centering
+\includegraphics{figs/ch8/adaptive_bandwidth.png}
+\caption{Fig. 2. GWR with adaptive spatial kernel. Source:
+\citet{Fotheringham_et_al_2002_book} (2002, p.47).}
+\end{figure}
+
+\subsection{Optimal Bandwidth}\label{optimal-bandwidth}
+
+A second issue is to define the extent of geographical area (i.e.
+\emph{optimal bandwidth}) of the spatial kernel. The bandwidth is the
+distance beyond which a value of zero is assigned to weight
+observations. Larger bandwidths include a larger number of observations
+receiving a non-zero weight and more observations are used to fit a
+local regression.
+
+To determine the optimal bandwidth, a cross-validation approach is
+applied; that is, for a location, a local regression is fitted based on
+a given bandwidth and used to predict the value of the dependent
+variable. The resulting predicted value is used to compute the residuals
+of the model. Residuals are compared using a series of bandwidth and the
+bandwidth returning the smallest local residuals are selected.
+
+** Variance and Bias Trade off **
+
+Choosing an optimal bandwidth involves a compromise between bias and
+precision. For example, a larger bandwidth will involve using a larger
+number of observations to fit a local regression, and hence result in
+reduced variance (or increased precision) but high bias of estimates. On
+the other hand, too small bandwidth involves using a very small number
+of observations resulting in increased variance but small bias. An
+optimal bandwidth offers a compromise between bias and variance.
+
+\subsection{Shape of Spatial Kernel}\label{shape-of-spatial-kernel}
+
+Two general set of kernel functions can be distinguished: continuous
+kernels and kernels with compact support. Continuous kernels are used to
+weight all observations in the study area and includes uniform, Gaussian
+and Exponetial kernel functions. Kernel with compact support are used to
+assign a nonzero weight to observations within a certain distance and a
+zero weight beyond it. The shape of the kernel has been reported to
+cause small changes to resulting estimates
+\citep{brunsdon1998geographically}.
+
+\subsection{Selecting a Bandwidth}\label{selecting-a-bandwidth}
+
+Let's now implement a GWR model. The first key step is to define the
+optimal bandwidth. We first illustrate the use of a fixed spatial
+kernel.
+
+\subsubsection{Fixed Bandwidth}\label{fixed-bandwidth}
+
+Cross-validation is used to search for the optimal bandwidth. Recall
+that this procedure compares the model residuals based on different
+bandwidths and chooses the optimal solution i.e.~the bandwidth returning
+the smallest model residuls based on a given model specification. A key
+parameter here is the shape of the geographical weight function
+(\texttt{gweight}). We set it to be a Gaussian function which is the
+default. A bi-square function is recommended to reduce computational
+time. Since we have a simple model, a Gaussian function should not take
+that long. Note that we set the argument \texttt{longlat} to
+\texttt{TRUE} and use latitude and longitude for coordinates
+(\texttt{coords}). When \texttt{longlat} is set to \texttt{TRUE},
+distances are measured in kilometers.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# find optimal kernel bandwidth using cross validation}
+\NormalTok{fbw <-}\StringTok{ }\KeywordTok{gwr.sel}\NormalTok{(eq1, }
+               \DataTypeTok{data =}\NormalTok{ utla_shp, }
+               \DataTypeTok{coords=}\KeywordTok{cbind}\NormalTok{( lat, long),}
+               \DataTypeTok{longlat =} \OtherTok{TRUE}\NormalTok{,}
+               \DataTypeTok{adapt=}\OtherTok{FALSE}\NormalTok{, }
+               \DataTypeTok{gweight =}\NormalTok{ gwr.Gauss, }
+               \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
+
+\CommentTok{# view selected bandwidth}
+\NormalTok{fbw}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 39.79709
+\end{verbatim}
+
+The result indicates that the optimal bandwidth is 39.79 kms. This means
+that neighbouring UTLAs within a fixed radius of 39.79 kms will be taken
+to estimate local regressions. To estimate a GWR, we execute the code
+below in which the optimal bandwidth above is used as an input in the
+argument \texttt{bandwidth}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# fit a gwr based on fixed bandwidth}
+\NormalTok{fb_gwr <-}\StringTok{ }\KeywordTok{gwr}\NormalTok{(eq1, }
+            \DataTypeTok{data =}\NormalTok{ utla_shp,}
+            \DataTypeTok{coords=}\KeywordTok{cbind}\NormalTok{( lat, long),}
+            \DataTypeTok{longlat =} \OtherTok{TRUE}\NormalTok{,}
+            \DataTypeTok{bandwidth =}\NormalTok{ fbw, }
+            \DataTypeTok{gweight =}\NormalTok{ gwr.Gauss,}
+            \DataTypeTok{hatmatrix=}\OtherTok{TRUE}\NormalTok{, }
+            \DataTypeTok{se.fit=}\OtherTok{TRUE}\NormalTok{)}
+
+\NormalTok{fb_gwr}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call:
+## gwr(formula = eq1, data = utla_shp, coords = cbind(lat, long), 
+##     bandwidth = fbw, gweight = gwr.Gauss, hatmatrix = TRUE, longlat = TRUE, 
+##     se.fit = TRUE)
+## Kernel function: gwr.Gauss 
+## Fixed bandwidth: 39.79709 
+## Summary of GWR coefficient estimates at data points:
+##                   Min.   1st Qu.    Median   3rd Qu.      Max.  Global
+## X.Intercept.  -191.648   -27.948    95.366   235.818   689.921  63.768
+## ethnic        -651.291   111.928   199.139   261.223  1008.347 271.096
+## lt_illness   -2112.245  -735.222   131.716   660.402  1398.447 216.198
+## Number of data points: 150 
+## Effective number of parameters (residual: 2traceS - traceS'S): 53.7278 
+## Effective degrees of freedom (residual: 2traceS - traceS'S): 96.2722 
+## Sigma (residual: 2traceS - traceS'S): 38.87087 
+## Effective number of parameters (model: traceS): 41.74245 
+## Effective degrees of freedom (model: traceS): 108.2576 
+## Sigma (model: traceS): 36.65605 
+## Sigma (ML): 31.14075 
+## AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): 1577.913 
+## AIC (GWR p. 96, eq. 4.22): 1498.979 
+## Residual sum of squares: 145462 
+## Quasi-global R2: 0.768978
+\end{verbatim}
+
+We will skip the interpretation of the results for now and consider them
+in the next section. Now, we want to focus on the overall model fit and
+will map the results of the \(R^{2}\) for the estimated local
+regressions. To do this, we extract the model results stored in a
+Spatial Data Frame (SDF) and add them to our spatial data frame
+\texttt{utla\_shp}. Note that the Quasi-global \(R^{2}\) is very high
+(0.77) indicating a high in-sample prediction accuracy.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# write gwr output into a data frame}
+\NormalTok{fb_gwr_out <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(fb_gwr}\OperatorTok{$}\NormalTok{SDF)}
+
+\NormalTok{utla_shp}\OperatorTok{$}\NormalTok{fmb_localR2 <-}\StringTok{ }\NormalTok{fb_gwr_out}\OperatorTok{$}\NormalTok{localR2}
+
+\CommentTok{# map}
+  \CommentTok{# Local R2}
+\NormalTok{legend_title =}\StringTok{ }\KeywordTok{expression}\NormalTok{(}\StringTok{"Fixed: Local R2"}\NormalTok{)}
+\NormalTok{map_fbgwr1 =}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(utla_shp) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_fill}\NormalTok{(}\DataTypeTok{col =} \StringTok{"fmb_localR2"}\NormalTok{, }\DataTypeTok{title =}\NormalTok{ legend_title, }\DataTypeTok{palette =} \KeywordTok{magma}\NormalTok{(}\DecValTok{256}\NormalTok{), }\DataTypeTok{style =} \StringTok{"cont"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add fill}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{1}\NormalTok{)  }\OperatorTok{+}\StringTok{ }\CommentTok{# add borders}
+\StringTok{  }\KeywordTok{tm_compass}\NormalTok{(}\DataTypeTok{type =} \StringTok{"arrow"}\NormalTok{, }\DataTypeTok{position =} \KeywordTok{c}\NormalTok{(}\StringTok{"right"}\NormalTok{, }\StringTok{"top"}\NormalTok{) , }\DataTypeTok{size =} \DecValTok{5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add compass}
+\StringTok{  }\KeywordTok{tm_scale_bar}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{), }\DataTypeTok{text.size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{position =}  \KeywordTok{c}\NormalTok{(}\StringTok{"center"}\NormalTok{, }\StringTok{"bottom"}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\CommentTok{# add scale bar}
+\StringTok{  }\KeywordTok{tm_layout}\NormalTok{(}\DataTypeTok{bg.color =} \StringTok{"white"}\NormalTok{) }\CommentTok{# change background colour}
+\NormalTok{map_fbgwr1 }\OperatorTok{+}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(reg_shp) }\OperatorTok{+}\StringTok{ }\CommentTok{# add region boundaries}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{5}\NormalTok{) }\CommentTok{# add borders}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{07-gwr_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+The map shows very high in-sample model predictions of up to 80\% in
+relatively large UTLAs (i.e.~Cornwall, Devon and Cumbria) but poor
+predictions in Linconshire and small UTLAs in the North West and
+Yorkshire \& The Humber Regions and the Greater London. The spatial
+distribution of this pattern may reflect a potential problem that arise
+in the application of GWR with fixed spatial kernels. The use of fixed
+kernels implies that local regressions for small spatial units may be
+calibrated on a large number of dissimilar areas, while local
+regressions for large areas may be calibrated on very few data points,
+giving rise to estimates with large standard errors. In extreme cases,
+generating estimates might not be possible due to insufficient variation
+in small samples. In practice, this issue is relatively common if the
+number of geographical areas in the dataset is small.
+
+\subsubsection{Adaptive Bandwidth}\label{adaptive-bandwidth}
+
+To reduce these problems, adaptive spatial kernels can be used. These
+kernels adapt in size to variations in the density of the data so that
+the kernels have larger bandwidths where the data are sparse and have
+smaller bandwidths where the data are plentiful. As above, we first need
+to search for the optimal bandwidth before estimating a GWR.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# find optimal kernel bandwidth using cross validation}
+\NormalTok{abw <-}\StringTok{ }\KeywordTok{gwr.sel}\NormalTok{(eq1, }
+               \DataTypeTok{data =}\NormalTok{ utla_shp, }
+               \DataTypeTok{coords=}\KeywordTok{cbind}\NormalTok{( lat, long),}
+               \DataTypeTok{longlat =} \OtherTok{TRUE}\NormalTok{,}
+               \DataTypeTok{adapt =} \OtherTok{TRUE}\NormalTok{, }
+               \DataTypeTok{gweight =}\NormalTok{ gwr.Gauss, }
+               \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
+
+\CommentTok{# view selected bandwidth}
+\NormalTok{abw}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0299492
+\end{verbatim}
+
+The optimal bandwidth is 0.03 indicating the proportion of observations
+(or k-nearest neighbours) to be included in the weighthing scheme. In
+this example, the optimal bandwidth indcates that for a given UTLA 3\%
+of its nearest neighbours should be used to calibrate the relevant local
+regression; that is about 5 UTLAs. The search window will thus be
+variable in size depending on the extent of UTLAs. Note that here the
+optimal bandwidth is defined based on a data point's k-nearest
+neighbours. It can also be defined by on geographical distance as done
+above for the fixed spatial kernel. We next fit a GWR based on an
+adaptive bandwidth.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# fit a gwr based on adaptive bandwidth}
+\NormalTok{ab_gwr <-}\StringTok{ }\KeywordTok{gwr}\NormalTok{(eq1, }
+            \DataTypeTok{data =}\NormalTok{ utla_shp,}
+            \DataTypeTok{coords=}\KeywordTok{cbind}\NormalTok{( lat, long),}
+            \DataTypeTok{longlat =} \OtherTok{TRUE}\NormalTok{,}
+            \DataTypeTok{adapt =}\NormalTok{ abw, }
+            \DataTypeTok{gweight =}\NormalTok{ gwr.Gauss,}
+            \DataTypeTok{hatmatrix=}\OtherTok{TRUE}\NormalTok{, }
+            \DataTypeTok{se.fit=}\OtherTok{TRUE}\NormalTok{)}
+
+\NormalTok{ab_gwr}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call:
+## gwr(formula = eq1, data = utla_shp, coords = cbind(lat, long), 
+##     gweight = gwr.Gauss, adapt = abw, hatmatrix = TRUE, longlat = TRUE, 
+##     se.fit = TRUE)
+## Kernel function: gwr.Gauss 
+## Adaptive quantile: 0.0299492 (about 4 of 150 data points)
+## Summary of GWR coefficient estimates at data points:
+##                  Min.  1st Qu.   Median  3rd Qu.     Max.  Global
+## X.Intercept.  -204.03   -18.69   124.56   242.76   386.98  63.768
+## ethnic        -148.41   106.29   234.78   291.24  1076.84 271.096
+## lt_illness   -2088.79  -868.29  -106.46   782.93  1510.41 216.198
+## Number of data points: 150 
+## Effective number of parameters (residual: 2traceS - traceS'S): 50.87778 
+## Effective degrees of freedom (residual: 2traceS - traceS'S): 99.12222 
+## Sigma (residual: 2traceS - traceS'S): 37.12782 
+## Effective number of parameters (model: traceS): 37.82821 
+## Effective degrees of freedom (model: traceS): 112.1718 
+## Sigma (model: traceS): 34.90142 
+## Sigma (ML): 30.18139 
+## AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): 1553.579 
+## AIC (GWR p. 96, eq. 4.22): 1485.677 
+## Residual sum of squares: 136637.5 
+## Quasi-global R2: 0.782993
+\end{verbatim}
+
+\subsection{Model fit}\label{model-fit}
+
+Assessing the global fit of the model, marginal improvements are
+observed. The \(AIC\) and \emph{Residual sum of squares} experienced
+marginal reductions, while the \(R^{2}\) increased compared to the GRW
+based on a fixed kernel. To gain a better understanding of these
+changes, as above, we map the \(R^{2}\) values for the estimated local
+regressions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# write gwr output into a data frame}
+\NormalTok{ab_gwr_out <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(ab_gwr}\OperatorTok{$}\NormalTok{SDF)}
+
+\NormalTok{utla_shp}\OperatorTok{$}\NormalTok{amb_ethnic <-}\StringTok{ }\NormalTok{ab_gwr_out}\OperatorTok{$}\NormalTok{ethnic}
+\NormalTok{utla_shp}\OperatorTok{$}\NormalTok{amb_lt_illness <-}\StringTok{ }\NormalTok{ab_gwr_out}\OperatorTok{$}\NormalTok{lt_illness}
+\NormalTok{utla_shp}\OperatorTok{$}\NormalTok{amb_localR2 <-}\StringTok{ }\NormalTok{ab_gwr_out}\OperatorTok{$}\NormalTok{localR2}
+
+\CommentTok{# map}
+  \CommentTok{# Local R2}
+\NormalTok{legend_title =}\StringTok{ }\KeywordTok{expression}\NormalTok{(}\StringTok{"Adaptive: Local R2"}\NormalTok{)}
+\NormalTok{map_abgwr1 =}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(utla_shp) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_fill}\NormalTok{(}\DataTypeTok{col =} \StringTok{"amb_localR2"}\NormalTok{, }\DataTypeTok{title =}\NormalTok{ legend_title, }\DataTypeTok{palette =} \KeywordTok{magma}\NormalTok{(}\DecValTok{256}\NormalTok{), }\DataTypeTok{style =} \StringTok{"cont"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add fill}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{1}\NormalTok{)  }\OperatorTok{+}\StringTok{ }\CommentTok{# add borders}
+\StringTok{  }\KeywordTok{tm_compass}\NormalTok{(}\DataTypeTok{type =} \StringTok{"arrow"}\NormalTok{, }\DataTypeTok{position =} \KeywordTok{c}\NormalTok{(}\StringTok{"right"}\NormalTok{, }\StringTok{"top"}\NormalTok{) , }\DataTypeTok{size =} \DecValTok{5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add compass}
+\StringTok{  }\KeywordTok{tm_scale_bar}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{), }\DataTypeTok{text.size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{position =}  \KeywordTok{c}\NormalTok{(}\StringTok{"center"}\NormalTok{, }\StringTok{"bottom"}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\CommentTok{# add scale bar}
+\StringTok{  }\KeywordTok{tm_layout}\NormalTok{(}\DataTypeTok{bg.color =} \StringTok{"white"}\NormalTok{) }\CommentTok{# change background colour}
+\NormalTok{map_abgwr1 }\OperatorTok{+}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(reg_shp) }\OperatorTok{+}\StringTok{ }\CommentTok{# add region boundaries}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{5}\NormalTok{) }\CommentTok{# add borders}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{07-gwr_files/figure-latex/unnamed-chunk-16-1.pdf}
+
+The map reveals notable improvements in local estimates for UTLAs within
+West and East Midlands, the South East, South West and East of England.
+Estimates are still poor in hot spot UTLAs concentrating confirmed cases
+of COVID-19, such as the Greater London, Liverpool and Newcastle areas.
+
+\subsection{Interpretation}\label{interpretation-1}
+
+The key strength of GWR models is in identifying patterns of spatial
+variation in the associations between pairs of variables. The results
+reveal how these coefficients vary across the 150 UTLAs of England. To
+examine this variability, let's first focus on the adaptive GWR output
+reported above. The output includes a summary of GWR coefficient
+estimates at various data points. The last column reports the global
+estimates which are the same as the coefficients from the OLS regression
+we fitted at the strat of our analysis. For our variable nonwhite ethnic
+population, the GWR outputs reveals that local coefficients range from a
+minimum value of -148.41 to a maximum value of 1076.84, indicating that
+one percentage point increase in the share of nonwhite ethnic population
+is associated with a a reduction of 148.41 in the number of cummulative
+confirmed cases of COVID-19 per 100,000 people in some UTLAs and an
+increase of 1076.84 in others. For half of the UTLAs in the dataset, as
+the share of nonwhite ethnic population increases by one percentage
+point, the rate of COVID-19 will decrease between 106.29 and 291.24
+cases; that is, the inter-quartile range between the 1st Qu and the 3rd
+Qu. To analyse the spatial structure, we next map the estimated
+coefficients obtained from the adaptive kernel GWR.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \CommentTok{# Ethnic}
+\NormalTok{legend_title =}\StringTok{ }\KeywordTok{expression}\NormalTok{(}\StringTok{"Ethnic"}\NormalTok{)}
+\NormalTok{map_abgwr2 =}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(utla_shp) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_fill}\NormalTok{(}\DataTypeTok{col =} \StringTok{"amb_ethnic"}\NormalTok{, }\DataTypeTok{title =}\NormalTok{ legend_title, }\DataTypeTok{palette =} \KeywordTok{magma}\NormalTok{(}\DecValTok{256}\NormalTok{), }\DataTypeTok{style =} \StringTok{"cont"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add fill}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{1}\NormalTok{)  }\OperatorTok{+}\StringTok{ }\CommentTok{# add borders}
+\StringTok{  }\KeywordTok{tm_compass}\NormalTok{(}\DataTypeTok{type =} \StringTok{"arrow"}\NormalTok{, }\DataTypeTok{position =} \KeywordTok{c}\NormalTok{(}\StringTok{"right"}\NormalTok{, }\StringTok{"top"}\NormalTok{) , }\DataTypeTok{size =} \DecValTok{5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add compass}
+\StringTok{  }\KeywordTok{tm_scale_bar}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{), }\DataTypeTok{text.size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{position =}  \KeywordTok{c}\NormalTok{(}\StringTok{"center"}\NormalTok{, }\StringTok{"bottom"}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\CommentTok{# add scale bar}
+\StringTok{  }\KeywordTok{tm_layout}\NormalTok{(}\DataTypeTok{bg.color =} \StringTok{"white"}\NormalTok{) }\CommentTok{# change background colour}
+\NormalTok{map_abgwr2 =}\StringTok{ }\NormalTok{map_abgwr2 }\OperatorTok{+}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(reg_shp) }\OperatorTok{+}\StringTok{ }\CommentTok{# add region boundaries}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{5}\NormalTok{) }\CommentTok{# add borders}
+
+  \CommentTok{# Long-term Illness}
+\NormalTok{legend_title =}\StringTok{ }\KeywordTok{expression}\NormalTok{(}\StringTok{"Long-term illness"}\NormalTok{)}
+\NormalTok{map_abgwr3 =}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(utla_shp) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_fill}\NormalTok{(}\DataTypeTok{col =} \StringTok{"amb_lt_illness"}\NormalTok{, }\DataTypeTok{title =}\NormalTok{ legend_title, }\DataTypeTok{palette =} \KeywordTok{magma}\NormalTok{(}\DecValTok{256}\NormalTok{), }\DataTypeTok{style =} \StringTok{"cont"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add fill}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{1}\NormalTok{)  }\OperatorTok{+}\StringTok{ }\CommentTok{# add borders}
+\StringTok{  }\KeywordTok{tm_scale_bar}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{), }\DataTypeTok{text.size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{position =}  \KeywordTok{c}\NormalTok{(}\StringTok{"center"}\NormalTok{, }\StringTok{"bottom"}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\CommentTok{# add scale bar}
+\StringTok{  }\KeywordTok{tm_layout}\NormalTok{(}\DataTypeTok{bg.color =} \StringTok{"white"}\NormalTok{) }\CommentTok{# change background colour}
+\NormalTok{map_abgwr3 =}\StringTok{ }\NormalTok{map_abgwr3 }\OperatorTok{+}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(reg_shp) }\OperatorTok{+}\StringTok{ }\CommentTok{# add region boundaries}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{5}\NormalTok{) }\CommentTok{# add borders}
+
+\KeywordTok{tmap_arrange}\NormalTok{(map_abgwr2, map_abgwr3)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{07-gwr_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+Analysing the map for long-term illness, a clear North-South divide can
+be identified. In the North we observed the expected positive
+relationship between COVID-19 and long-term illness i.e.~as the share of
+local population suffering from long-term illness rises, the cummulative
+number of positive COVID-19 cases is expected to increase. In the South,
+we observe the inverse pattern i.e.~as the share of local population
+suffering from long-term illness rises, the cummulative number of
+positive COVID-19 cases is expected to drop. This pattern is
+counterintuitive but may be explained by the wider socio-economic
+disadvantages between the North and the South of England. The North is
+usually characterised by a persistent concentration of more
+disadvantaged neighbourhoods than the South where affluent households
+have tended to cluster for the last 40 years \citep{rowe2020policy}.
+
+\subsection{Assessing statistical
+significance}\label{assessing-statistical-significance}
+
+While the maps above offer valuable insights to understand the spatial
+pattering of relationships, they do not identify whether these
+associations are statistically significant. They may not be. Roughly, if
+a coefficient estimate has an absolute value of t greater than 1.96 and
+the sample is sufficiently large, then it is statistically significant.
+Our sample has only 150 observations, so we are more conservative and
+considered a coefficient to be statistically significant if it has an
+absolute value of t larger than 2. Note also that p-values could be
+computed - see \citet{lu2014gwmodel}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# compute t statistic}
+\NormalTok{utla_shp}\OperatorTok{$}\NormalTok{t_ethnic =}\StringTok{ }\NormalTok{ab_gwr_out}\OperatorTok{$}\NormalTok{ethnic }\OperatorTok{/}\StringTok{ }\NormalTok{ab_gwr_out}\OperatorTok{$}\NormalTok{ethnic_se}
+
+\CommentTok{# categorise t values}
+\NormalTok{utla_shp}\OperatorTok{$}\NormalTok{t_ethnic_cat <-}\StringTok{ }\KeywordTok{cut}\NormalTok{(utla_shp}\OperatorTok{$}\NormalTok{t_ethnic,}
+                     \DataTypeTok{breaks=}\KeywordTok{c}\NormalTok{(}\KeywordTok{min}\NormalTok{(utla_shp}\OperatorTok{$}\NormalTok{t_ethnic), }\OperatorTok{-}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\KeywordTok{max}\NormalTok{(utla_shp}\OperatorTok{$}\NormalTok{t_ethnic)),}
+                     \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"sig"}\NormalTok{,}\StringTok{"nonsig"}\NormalTok{, }\StringTok{"sig"}\NormalTok{))}
+
+\CommentTok{# map statistically significant coefs for ethnic}
+\NormalTok{legend_title =}\StringTok{ }\KeywordTok{expression}\NormalTok{(}\StringTok{"Ethnic: significant"}\NormalTok{)}
+\NormalTok{map_sig =}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(utla_shp) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{tm_fill}\NormalTok{(}\DataTypeTok{col =} \StringTok{"t_ethnic_cat"}\NormalTok{, }\DataTypeTok{title =}\NormalTok{ legend_title, }\DataTypeTok{legend.hist =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{midpoint =} \OtherTok{NA}\NormalTok{, }\DataTypeTok{textNA =} \StringTok{""}\NormalTok{, }\DataTypeTok{colorNA =} \StringTok{"white"}\NormalTok{) }\OperatorTok{+}\StringTok{  }\CommentTok{# add fill}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{1}\NormalTok{)  }\OperatorTok{+}\StringTok{ }\CommentTok{# add borders}
+\StringTok{  }\KeywordTok{tm_compass}\NormalTok{(}\DataTypeTok{type =} \StringTok{"arrow"}\NormalTok{, }\DataTypeTok{position =} \KeywordTok{c}\NormalTok{(}\StringTok{"right"}\NormalTok{, }\StringTok{"top"}\NormalTok{) , }\DataTypeTok{size =} \DecValTok{5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add compass}
+\StringTok{  }\KeywordTok{tm_scale_bar}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{), }\DataTypeTok{text.size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{position =}  \KeywordTok{c}\NormalTok{(}\StringTok{"center"}\NormalTok{, }\StringTok{"bottom"}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\CommentTok{# add scale bar}
+\StringTok{  }\KeywordTok{tm_layout}\NormalTok{(}\DataTypeTok{bg.color =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{legend.outside =} \OtherTok{TRUE}\NormalTok{) }\CommentTok{# change background colour & place legend outside}
+
+\NormalTok{map_sig }\OperatorTok{+}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(reg_shp) }\OperatorTok{+}\StringTok{ }\CommentTok{# add region boundaries}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{5}\NormalTok{) }\CommentTok{# add borders}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{07-gwr_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# utla count}
+\KeywordTok{table}\NormalTok{(utla_shp}\OperatorTok{$}\NormalTok{t_ethnic_cat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##    sig nonsig 
+##    101     49
+\end{verbatim}
+
+For the share of nonwhite population, 67\% of all local coefficients are
+statistically significant and these are largerly in the South of
+England. Coefficients in the North tend to be insignificant. Through
+outliers exist in both regions. In the South, nonsignificant
+coefficients are observed in the metropolitan areas of London,
+Birmingham and Nottingham, while significant coefficients exist in the
+areas of Newcastle and Middlesbrough in the North.
+
+\begin{quote}
+Challenge 3 Compute the t values for the intercept and estimated
+coefficient for long-term illness and create maps of their statistical
+significance. How many UTLAs report statistically significant
+coefficients?
+\end{quote}
+
+\subsection{Collinearity in GWR}\label{collinearity-in-gwr}
+
+A important final note is: collinearity tends to be problematic in GWR
+models. It can be present in the data subsets to estimate local
+coefficients even when not observed globally
+\citet{wheeler2005multicollinearity}. Collinearity can be highly
+problematic in the case of compositional, categorical and ordinal
+predictors, and may result in exact local collinearity making the search
+for a optimal bandwidth impossible. A recent paper suggests potential
+ways foward \citep{comber2020gwr}.
 
 \chapter{Space-Time Analysis}\label{space-time-analysis}
 

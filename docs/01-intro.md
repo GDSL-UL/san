@@ -179,10 +179,7 @@ example(sqrt)
 ## sqrt> plot(xx, sqrt(abs(xx)),  col = "red")
 ```
 
-<div class="figure">
-<img src="01-intro_files/figure-html/unnamed-chunk-7-1.png" alt="Example sqrt" width="672" />
-<p class="caption">(\#fig:unnamed-chunk-7)Example sqrt</p>
-</div>
+![(\#fig:unnamed-chunk-7)Example sqrt](01-intro_files/figure-latex/unnamed-chunk-7-1.pdf) 
 
 ```
 ## 
@@ -341,32 +338,20 @@ In statistics, we differentiate between data to capture:
 
 In R these three types of random variables are represented by the following types of R data object:
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> variables </th>
-   <th style="text-align:left;"> objects </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> nominal </td>
-   <td style="text-align:left;"> factor </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> ordinal </td>
-   <td style="text-align:left;"> ordered factor </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> discrete </td>
-   <td style="text-align:left;"> numeric </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> continuous </td>
-   <td style="text-align:left;"> numeric </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}{l|l}
+\hline
+variables & objects\\
+\hline
+nominal & factor\\
+\hline
+ordinal & ordered factor\\
+\hline
+discrete & numeric\\
+\hline
+continuous & numeric\\
+\hline
+\end{tabular}
 
 We have already encountered the R data type *numeric*. The next section introduces the *factor* data type.
 
@@ -857,10 +842,7 @@ Here this notebook demonstrates the use of `plot` and `tmap`. First `plot` is us
 plot(st_geometry(oa_shp))
 ```
 
-<div class="figure">
-<img src="01-intro_files/figure-html/unnamed-chunk-40-1.png" alt="OAs of Livepool" width="672" />
-<p class="caption">(\#fig:unnamed-chunk-40)OAs of Livepool</p>
-</div>
+![(\#fig:unnamed-chunk-40)OAs of Livepool](01-intro_files/figure-latex/unnamed-chunk-40-1.pdf) 
 
 and then:
  
@@ -871,10 +853,7 @@ plot(oa_shp["Ethnic"], key.pos = 4, axes = TRUE, key.width = lcm(1.3), key.lengt
      breaks = "jenks", lwd = 0.1, border = 'grey') 
 ```
 
-<div class="figure">
-<img src="01-intro_files/figure-html/unnamed-chunk-41-1.png" alt="Spatial distribution of ethnic groups, Liverpool" width="672" />
-<p class="caption">(\#fig:unnamed-chunk-41)Spatial distribution of ethnic groups, Liverpool</p>
-</div>
+![(\#fig:unnamed-chunk-41)Spatial distribution of ethnic groups, Liverpool](01-intro_files/figure-latex/unnamed-chunk-41-1.pdf) 
 
 **TASK:** 
 
@@ -899,7 +878,7 @@ map_oa = tm_shape(oa_shp) +
 map_oa
 ```
 
-<img src="01-intro_files/figure-html/unnamed-chunk-42-1.png" width="672" />
+![](01-intro_files/figure-latex/unnamed-chunk-42-1.pdf)<!-- --> 
 
 Note that the operation `+` is used to add new layers. You can set style themes by `tm_style`. To visualise the existing styles use `tmap_style_catalogue()`, and you can also evaluate the code chunk below if you would like to create an interactive map.
 
@@ -948,7 +927,7 @@ map_msoa = tm_shape(msoa_shp) +
 tmap_arrange(map_msoa, map_oa) 
 ```
 
-<img src="01-intro_files/figure-html/unnamed-chunk-44-1.png" width="672" />
+![](01-intro_files/figure-latex/unnamed-chunk-44-1.pdf)<!-- --> 
 
 **TASK:**
 

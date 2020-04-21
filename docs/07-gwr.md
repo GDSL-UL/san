@@ -4,11 +4,11 @@ This chapter^[This note is part of [Spatial Analysis Notes](index.html) <a rel="
 
 The content of this chapter is based on:
 
-* @Fotheringham_et_al_2002_book, an must-go book if you are working or planning to start working on geographically weighted regression modelling.
+* @Fotheringham_et_al_2002_book, a must-go book if you are working or planning to start working on geographically weighted regression modelling.
 
 * @comber2020gwr is recently published preprint which provides a roadmap to approach various practical issues in the application of GWR.
 
-This Chapter is part of [Spatial Analysis Notes](index.html), a compilation hosted as a GitHub repository that you can access it in a few ways:
+This Chapter is part of [Spatial Analysis Notes](index.html), a compilation hosted as a GitHub repository that you can access in a few ways:
 
 * As a [download](https://github.com/GDSL-UL/san/archive/master.zip) of a `.zip` file that contains all the materials.
 * As an [html
@@ -57,8 +57,9 @@ For this chapter, we will data on:
 
 * resident population characteristics from the 2011 census data from the [Office of National Statistics](https://www.nomisweb.co.uk/home/census2001.asp); and,
 
-* 2019 index of multiple deprivation data from [GOV.UK](https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019) and published by the Ministry of Housing, Communities & Local Government. The data are at the ONS Upper Tier Local Authority 
-(UTLA) - also known as [Counties and Unitary Authorities](https://ago-item-storage.s3.us-east-1.amazonaws.com/7bb8db84e0f54e83aa05204f7bd674b8/EN37152_CTY_UA_DEC_2018_UK.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEI7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIHGIIjyriwWRx5QXeakP%2BhJr39uh7b7jP1dr4q%2FbEgC3AiEA0ohlaSFkwlCKLMy3vFhZDcQvDgzEVEP0kS17VN2ZnxMqvQMIpv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2MDQ3NTgxMDI2NjUiDD2XGTMX5p%2BWiurX2iqRA%2FHRJfiW8YaOjNi65RC8AFZ5shx%2Fn3Upl%2B9YP5xhX4YzsRqkYkx%2FYkwbMZ%2FlDDqWpBHcZzoRdFDz1IGLueQJvDhFignjzIBmExSJ0UdMvuU56tXbnZQ%2BI8lTjP9JRtLpZELENSjVeoi5qJpphGzoBo9O9cCJkQvWC3NNxqV6eFez00ld5qlRMpJ4KTOl7%2FxJBBfua%2F8WYdrcZ4H0KA47l%2FIJnp2AklUv%2Fw0cBoU0LZq3djjuVlE%2FseJKOnm1Z8KMFItEanYUpOrMfROJ5C%2FTwqqJ2GQMSvr30W%2F4%2FY%2F2BKNTiyCvbEJnD03SWrB20bBlN0Gr13YYvcSBBjgwmhe4EKIrrLSKo8SOZNOg02nq%2Bmrc0%2FsPo%2BYyLgA0MXASt9kDPL4N5IF9yG3lS7vd7E7%2FpesIlC%2FW3g3TVOBA92bKMtU6QA%2B93URcqkrXyrvN6LGAt2C83HjvuAmtbSmlJOD5enC7abdOEqJMyJdUH%2BwbBKXN8TK%2F%2BbRMzgshl1dJElvSnPAYZEuNwaso8bVXwSK%2F31m6MP%2Bv4fQFOusBk4G2Dlca6chTsAlFjXomtOeu6Kxm0MRAgdhF4mSRnKggkWu8mBYY68%2BeGt3egIOtssrEVcWYr1nseCriPHpsA%2BGi3IFnyPVIKZpStdv%2F%2FNoOip3YGsb%2BSxgkIdxjVJdnkTsEvEf7AZtu6BFTKfTtTAII%2Boh46F%2BH%2FDztv9kHuQMMXQsJozbphriOJDxP8TMSe16v8Tc1yULmRuenrfX1CMGTPrTcoUYPEu82qwDWlcMWwRRTMAv3xcupkZXVOQhMzkcyOOxQdOLWyIH5%2FZ%2BuIkNMQzndBya5nNjpGJ6UniQp22CkZ5n52KK%2Fnw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200416T135331Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAYZTTEKKEUJMS7TPU%2F20200416%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=02022ae0228c2fc1d09a90a389d7fd00b9de38ff2df002159d3ad84666c213e8).
+* 2019 index of multiple deprivation data from [GOV.UK](https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019) and published by the Ministry of Housing, Communities & Local Government. 
+
+The data are used for this Chapter are organised at the ONS Upper Tier Local Authority (UTLA) - also known as [Counties and Unitary Authorities](https://ago-item-storage.s3.us-east-1.amazonaws.com/7bb8db84e0f54e83aa05204f7bd674b8/EN37152_CTY_UA_DEC_2018_UK.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEI7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIHGIIjyriwWRx5QXeakP%2BhJr39uh7b7jP1dr4q%2FbEgC3AiEA0ohlaSFkwlCKLMy3vFhZDcQvDgzEVEP0kS17VN2ZnxMqvQMIpv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2MDQ3NTgxMDI2NjUiDD2XGTMX5p%2BWiurX2iqRA%2FHRJfiW8YaOjNi65RC8AFZ5shx%2Fn3Upl%2B9YP5xhX4YzsRqkYkx%2FYkwbMZ%2FlDDqWpBHcZzoRdFDz1IGLueQJvDhFignjzIBmExSJ0UdMvuU56tXbnZQ%2BI8lTjP9JRtLpZELENSjVeoi5qJpphGzoBo9O9cCJkQvWC3NNxqV6eFez00ld5qlRMpJ4KTOl7%2FxJBBfua%2F8WYdrcZ4H0KA47l%2FIJnp2AklUv%2Fw0cBoU0LZq3djjuVlE%2FseJKOnm1Z8KMFItEanYUpOrMfROJ5C%2FTwqqJ2GQMSvr30W%2F4%2FY%2F2BKNTiyCvbEJnD03SWrB20bBlN0Gr13YYvcSBBjgwmhe4EKIrrLSKo8SOZNOg02nq%2Bmrc0%2FsPo%2BYyLgA0MXASt9kDPL4N5IF9yG3lS7vd7E7%2FpesIlC%2FW3g3TVOBA92bKMtU6QA%2B93URcqkrXyrvN6LGAt2C83HjvuAmtbSmlJOD5enC7abdOEqJMyJdUH%2BwbBKXN8TK%2F%2BbRMzgshl1dJElvSnPAYZEuNwaso8bVXwSK%2F31m6MP%2Bv4fQFOusBk4G2Dlca6chTsAlFjXomtOeu6Kxm0MRAgdhF4mSRnKggkWu8mBYY68%2BeGt3egIOtssrEVcWYr1nseCriPHpsA%2BGi3IFnyPVIKZpStdv%2F%2FNoOip3YGsb%2BSxgkIdxjVJdnkTsEvEf7AZtu6BFTKfTtTAII%2Boh46F%2BH%2FDztv9kHuQMMXQsJozbphriOJDxP8TMSe16v8Tc1yULmRuenrfX1CMGTPrTcoUYPEu82qwDWlcMWwRRTMAv3xcupkZXVOQhMzkcyOOxQdOLWyIH5%2FZ%2BuIkNMQzndBya5nNjpGJ6UniQp22CkZ5n52KK%2Fnw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200416T135331Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAYZTTEKKEUJMS7TPU%2F20200416%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=02022ae0228c2fc1d09a90a389d7fd00b9de38ff2df002159d3ad84666c213e8). They are the geographical units used to report COVID-19 data.
 
 If you use the dataset utilised in this chapter, cite this book. For a full list of the variables included in the data set we will use in this chapter, see the readme file in the gwr data folder.^[Read the file in R by executing `read_tsv("data/gwr/readme.txt")`]
 
@@ -92,7 +93,7 @@ In previous sessions, we considered multilevel models to deal with spatial nonst
 
 ## Exploratory Analysis
 
-We will explore this technique through an empirical analysis considering the current global COVID-19 outbreak. Specifically we will seek to identify potential contextual factors that may be related to an increased risk of local infection. Population density, housing overcrowding, vulnerable individuals and critical workers have been linked to a higher risk of COVID-19 infections.
+We will explore this technique through an empirical analysis considering the current global COVID-19 outbreak. Specifically we will seek to identify potential contextual factors that may be related to an increased risk of local infection. Population density, housing overcrowding, vulnerable individuals and critical workers have all been linked to a higher risk of COVID-19 infection.
 
 First, we will define and develop some basic understanding of our variable of interest. We define the risk of COVID-19 infection by the cummulative number of confirmed positive cases COVID-19 per 100,000 people:
 
@@ -107,7 +108,7 @@ geom_density(alpha=0.8, colour="black", fill="lightblue", aes(x = covid19_r)) +
    theme_classic()
 ```
 
-<img src="07-gwr_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](07-gwr_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
 
 ```r
 # distribution in numbers
@@ -154,7 +155,7 @@ map_utla + tm_shape(reg_shp) + # add region boundaries
   tm_borders(col = "white", lwd = .5) # add borders
 ```
 
-<img src="07-gwr_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](07-gwr_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
 
 The map shows that concentrations of high incidence of infections in the metropolitan areas of London, Liverpool,  Newcastle, Sheffield, Middlesbrough and Birmingham. Below we list the UTLAs in these areas in descending order.
 
@@ -232,7 +233,7 @@ corrplot::corrplot(cormat, type="lower",
                    diag = FALSE)
 ```
 
-<img src="07-gwr_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+![](07-gwr_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
 
 The correlogram shows the strength and significance of the linear relationship between our set of variables. The size of the circle reflects the strength of the relationships as captured by the Pearson correlation coefficient, and crosses indicate statistically insignificant relationships at the 95% level of confidence. The colour indicate the direction of the relationship with dark (light) colours indicating a negative (positive) association.
 
@@ -316,7 +317,7 @@ map_utla + tm_shape(reg_shp) + # add region boundaries
   tm_borders(col = "white", lwd = .5) # add borders
 ```
 
-<img src="07-gwr_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](07-gwr_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
 
 ## Fitting a Geographically Weighted Regression
 
@@ -438,7 +439,7 @@ map_fbgwr1 + tm_shape(reg_shp) + # add region boundaries
   tm_borders(col = "white", lwd = .5) # add borders
 ```
 
-<img src="07-gwr_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+![](07-gwr_files/figure-latex/unnamed-chunk-13-1.pdf)<!-- --> 
 
 The map shows very high in-sample model predictions of up to 80% in relatively large UTLAs (i.e. Cornwall, Devon and Cumbria) but poor predictions in Linconshire and small UTLAs in the North West and Yorkshire & The Humber Regions and the Greater London. The spatial distribution of this pattern may reflect a potential problem that arise in the application of GWR with fixed spatial kernels. The use of fixed kernels implies that local regressions for small spatial units may be calibrated on a large number of dissimilar areas, while local regressions for large areas may be calibrated on very few data points, giving rise to estimates with large standard errors. In extreme cases, generating estimates might not be possible due to insufficient variation in small samples. In practice, this issue is relatively common if the number of geographical areas in the dataset is small.
 
@@ -534,7 +535,7 @@ map_abgwr1 + tm_shape(reg_shp) + # add region boundaries
   tm_borders(col = "white", lwd = .5) # add borders
 ```
 
-<img src="07-gwr_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+![](07-gwr_files/figure-latex/unnamed-chunk-16-1.pdf)<!-- --> 
 
 The map reveals notable improvements in local estimates for UTLAs within West and East Midlands, the South East, South West and East of England. Estimates are still poor in hot spot UTLAs concentrating confirmed cases of COVID-19, such as the Greater London, Liverpool and Newcastle areas. 
 
@@ -568,7 +569,7 @@ map_abgwr3 = map_abgwr3 + tm_shape(reg_shp) + # add region boundaries
 tmap_arrange(map_abgwr2, map_abgwr3)
 ```
 
-<img src="07-gwr_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+![](07-gwr_files/figure-latex/unnamed-chunk-17-1.pdf)<!-- --> 
 
 Analysing the map for long-term illness, a clear North-South divide can be identified. In the North we observed the expected positive relationship between COVID-19 and long-term illness i.e. as the share of local population suffering from long-term illness rises, the cummulative number of positive COVID-19 cases is expected to increase. In the South, we observe the inverse pattern i.e. as the share of local population suffering from long-term illness rises, the cummulative number of positive COVID-19 cases is expected to drop. This pattern is counterintuitive but may be explained by the wider socio-economic disadvantages between the North and the South of England. The North is usually characterised by a persistent concentration of more disadvantaged neighbourhoods than the South where affluent households have tended to cluster for the last 40 years [@rowe2020policy].
 
@@ -599,7 +600,7 @@ map_sig + tm_shape(reg_shp) + # add region boundaries
   tm_borders(col = "white", lwd = .5) # add borders
 ```
 
-<img src="07-gwr_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+![](07-gwr_files/figure-latex/unnamed-chunk-18-1.pdf)<!-- --> 
 
 ```r
 # utla count
