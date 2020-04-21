@@ -12,7 +12,7 @@ This Chapter is part of [Spatial Analysis Notes](index.html), a compilation host
 
 * As a [download](https://github.com/GDSL-UL/san/archive/master.zip) of a `.zip` file that contains all the materials.
 * As an [html
-  website](https://gdsl-ul.github.io/san/gwr.html).
+  website](https://gdsl-ul.github.io/san/geographically-weighted-regression.html).
 * As a [pdf
   document](https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf)
 * As a [GitHub repository](https://github.com/GDSL-UL/san).
