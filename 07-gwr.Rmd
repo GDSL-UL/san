@@ -240,13 +240,13 @@ GWR overcomes the limitation of the OLS regression model of generating a global 
 
 Graphically, GWR involves fitting a spatial kernel to the data as described in the Fig. 1. For a given regression point $X$, the weight ($W$) of a data point is at a maximum at the location of the regression point. The weight decreases gradually as the distance between two points increases. A regression model is thus calibrated locally by moving the regression point across the area under study. For each location, the data are weighted differently so that the resulting estimates are unique to a particular location.
 
-![Fig. 1. GWR with fixed spatial kernel. Source: -@Fotheringham_et_al_2002_book (2002, p.45).](figs/ch8/fixed_bandwidth.png)
+![Fig. 1. GWR with fixed spatial kernel. Source: Fotheringham et al. [-@Fotheringham_et_al_2002_book, p.45].] (figs/ch8/fixed_bandwidth.png)
 
 ### Fixed or Adaptive Kernel
 
 A key issue is to decide between two options of spatial kernels: a fixed kernel or an adaptive kernel. Intuitively, a fixed kernel involves using a fixed bandwidth to define a region around all regression points as displayed in Fig. 1. The extent of the kernel is determined by the distance to a given regression point, with the kernel being identical at any point in space. An adaptive kernel involves using varying bandwidth to define a region around regression points as displayed in Fig. 2. The extent of the kernel is determined by the number of nearest neighbours from a given regression point. The hernels have larger bandwidths where the data are sparse. 
 
-![Fig. 2. GWR with adaptive spatial kernel. Source: -@Fotheringham_et_al_2002_book (2002, p.47).](figs/ch8/adaptive_bandwidth.png)
+![Fig. 2. GWR with adaptive spatial kernel. Source: Fotheringham et al. [-@Fotheringham_et_al_2002_book, p.47].](figs/ch8/adaptive_bandwidth.png)
 
 ### Optimal Bandwidth
 
