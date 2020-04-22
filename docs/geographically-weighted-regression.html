@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-04-21" />
+<meta name="date" content="2020-04-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -477,16 +477,13 @@ map_utla <span class="op">+</span><span class="st"> </span><span class="kw">tm_s
 <h2><span class="header-section-number">8.6</span> Fitting a Geographically Weighted Regression</h2>
 <p>GWR overcomes the limitation of the OLS regression model of generating a global set of estimates. The basic idea behind GWR is to examine the way in which the relationships between a dependent variable and a set of predictors might vary over space. GWR operates by moving a search window from one regression point to the next, working sequentially through all the existing regression points in the dataset. A set of regions is then defined around each regression point and within the search window. A regression model is then fitted to all data contained in each of the identified regions around a regression point, with data points closer to the sample point being weighted more heavily than are those farther away. This process is repeated for all samples points in the dataset. For a data set of 150 observations GWR will fit 150 weighted regression models. The resulting local estimates can then be mapped at the locations of the regression points to view possible variations in the relationships between variables.</p>
 <p>Graphically, GWR involves fitting a spatial kernel to the data as described in the Fig. 1. For a given regression point <span class="math inline">\(X\)</span>, the weight (<span class="math inline">\(W\)</span>) of a data point is at a maximum at the location of the regression point. The weight decreases gradually as the distance between two points increases. A regression model is thus calibrated locally by moving the regression point across the area under study. For each location, the data are weighted differently so that the resulting estimates are unique to a particular location.</p>
-<div class="figure">
-<img src="figs/ch8/fixed_bandwidth.png" alt="Fig. 1. GWR with fixed spatial kernel. Source: Fotheringham, Brunsdon, and Charlton (2002) (2002, p.45)." />
-<p class="caption">Fig. 1. GWR with fixed spatial kernel. Source: <span class="citation">Fotheringham, Brunsdon, and Charlton (<a href="#ref-Fotheringham_et_al_2002_book">2002</a>)</span> (2002, p.45).</p>
-</div>
+<p>[Fig. 1. GWR with fixed spatial kernel. Source: Fotheringham et al. <span class="citation">(<a href="#ref-Fotheringham_et_al_2002_book">2002</a>, 45)</span>.] (figs/ch8/fixed_bandwidth.png)</p>
 <div id="fixed-or-adaptive-kernel" class="section level3">
 <h3><span class="header-section-number">8.6.1</span> Fixed or Adaptive Kernel</h3>
 <p>A key issue is to decide between two options of spatial kernels: a fixed kernel or an adaptive kernel. Intuitively, a fixed kernel involves using a fixed bandwidth to define a region around all regression points as displayed in Fig. 1. The extent of the kernel is determined by the distance to a given regression point, with the kernel being identical at any point in space. An adaptive kernel involves using varying bandwidth to define a region around regression points as displayed in Fig. 2. The extent of the kernel is determined by the number of nearest neighbours from a given regression point. The hernels have larger bandwidths where the data are sparse.</p>
 <div class="figure">
-<img src="figs/ch8/adaptive_bandwidth.png" alt="Fig. 2. GWR with adaptive spatial kernel. Source: Fotheringham, Brunsdon, and Charlton (2002) (2002, p.47)." />
-<p class="caption">Fig. 2. GWR with adaptive spatial kernel. Source: <span class="citation">Fotheringham, Brunsdon, and Charlton (<a href="#ref-Fotheringham_et_al_2002_book">2002</a>)</span> (2002, p.47).</p>
+<img src="figs/ch8/adaptive_bandwidth.png" alt="Fig. 2. GWR with adaptive spatial kernel. Source: Fotheringham et al. , p.47(2002, 47)." />
+<p class="caption">Fig. 2. GWR with adaptive spatial kernel. Source: Fotheringham et al. <span class="citation">(<a href="#ref-Fotheringham_et_al_2002_book">2002</a>, 47)</span>.</p>
 </div>
 </div>
 <div id="optimal-bandwidth" class="section level3">

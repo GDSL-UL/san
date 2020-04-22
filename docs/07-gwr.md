@@ -108,7 +108,7 @@ geom_density(alpha=0.8, colour="black", fill="lightblue", aes(x = covid19_r)) +
    theme_classic()
 ```
 
-![](07-gwr_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
+<img src="07-gwr_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 ```r
 # distribution in numbers
@@ -155,7 +155,7 @@ map_utla + tm_shape(reg_shp) + # add region boundaries
   tm_borders(col = "white", lwd = .5) # add borders
 ```
 
-![](07-gwr_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
+<img src="07-gwr_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 The map shows that concentrations of high incidence of infections in the metropolitan areas of London, Liverpool,  Newcastle, Sheffield, Middlesbrough and Birmingham. Below we list the UTLAs in these areas in descending order.
 
@@ -233,7 +233,7 @@ corrplot::corrplot(cormat, type="lower",
                    diag = FALSE)
 ```
 
-![](07-gwr_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
+<img src="07-gwr_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 The correlogram shows the strength and significance of the linear relationship between our set of variables. The size of the circle reflects the strength of the relationships as captured by the Pearson correlation coefficient, and crosses indicate statistically insignificant relationships at the 95% level of confidence. The colour indicate the direction of the relationship with dark (light) colours indicating a negative (positive) association.
 
@@ -317,7 +317,7 @@ map_utla + tm_shape(reg_shp) + # add region boundaries
   tm_borders(col = "white", lwd = .5) # add borders
 ```
 
-![](07-gwr_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
+<img src="07-gwr_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 ## Fitting a Geographically Weighted Regression
 
@@ -325,13 +325,13 @@ GWR overcomes the limitation of the OLS regression model of generating a global 
 
 Graphically, GWR involves fitting a spatial kernel to the data as described in the Fig. 1. For a given regression point $X$, the weight ($W$) of a data point is at a maximum at the location of the regression point. The weight decreases gradually as the distance between two points increases. A regression model is thus calibrated locally by moving the regression point across the area under study. For each location, the data are weighted differently so that the resulting estimates are unique to a particular location.
 
-![Fig. 1. GWR with fixed spatial kernel. Source: -@Fotheringham_et_al_2002_book (2002, p.45).](figs/ch8/fixed_bandwidth.png)
+![Fig. 1. GWR with fixed spatial kernel. Source: Fotheringham et al. [-@Fotheringham_et_al_2002_book, p.45].] (figs/ch8/fixed_bandwidth.png)
 
 ### Fixed or Adaptive Kernel
 
 A key issue is to decide between two options of spatial kernels: a fixed kernel or an adaptive kernel. Intuitively, a fixed kernel involves using a fixed bandwidth to define a region around all regression points as displayed in Fig. 1. The extent of the kernel is determined by the distance to a given regression point, with the kernel being identical at any point in space. An adaptive kernel involves using varying bandwidth to define a region around regression points as displayed in Fig. 2. The extent of the kernel is determined by the number of nearest neighbours from a given regression point. The hernels have larger bandwidths where the data are sparse. 
 
-![Fig. 2. GWR with adaptive spatial kernel. Source: -@Fotheringham_et_al_2002_book (2002, p.47).](figs/ch8/adaptive_bandwidth.png)
+![Fig. 2. GWR with adaptive spatial kernel. Source: Fotheringham et al. [-@Fotheringham_et_al_2002_book, p.47].](figs/ch8/adaptive_bandwidth.png)
 
 ### Optimal Bandwidth
 
@@ -439,7 +439,7 @@ map_fbgwr1 + tm_shape(reg_shp) + # add region boundaries
   tm_borders(col = "white", lwd = .5) # add borders
 ```
 
-![](07-gwr_files/figure-latex/unnamed-chunk-13-1.pdf)<!-- --> 
+<img src="07-gwr_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 The map shows very high in-sample model predictions of up to 80% in relatively large UTLAs (i.e. Cornwall, Devon and Cumbria) but poor predictions in Linconshire and small UTLAs in the North West and Yorkshire & The Humber Regions and the Greater London. The spatial distribution of this pattern may reflect a potential problem that arise in the application of GWR with fixed spatial kernels. The use of fixed kernels implies that local regressions for small spatial units may be calibrated on a large number of dissimilar areas, while local regressions for large areas may be calibrated on very few data points, giving rise to estimates with large standard errors. In extreme cases, generating estimates might not be possible due to insufficient variation in small samples. In practice, this issue is relatively common if the number of geographical areas in the dataset is small.
 
@@ -535,7 +535,7 @@ map_abgwr1 + tm_shape(reg_shp) + # add region boundaries
   tm_borders(col = "white", lwd = .5) # add borders
 ```
 
-![](07-gwr_files/figure-latex/unnamed-chunk-16-1.pdf)<!-- --> 
+<img src="07-gwr_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
 The map reveals notable improvements in local estimates for UTLAs within West and East Midlands, the South East, South West and East of England. Estimates are still poor in hot spot UTLAs concentrating confirmed cases of COVID-19, such as the Greater London, Liverpool and Newcastle areas. 
 
@@ -569,7 +569,7 @@ map_abgwr3 = map_abgwr3 + tm_shape(reg_shp) + # add region boundaries
 tmap_arrange(map_abgwr2, map_abgwr3)
 ```
 
-![](07-gwr_files/figure-latex/unnamed-chunk-17-1.pdf)<!-- --> 
+<img src="07-gwr_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 
 Analysing the map for long-term illness, a clear North-South divide can be identified. In the North we observed the expected positive relationship between COVID-19 and long-term illness i.e. as the share of local population suffering from long-term illness rises, the cummulative number of positive COVID-19 cases is expected to increase. In the South, we observe the inverse pattern i.e. as the share of local population suffering from long-term illness rises, the cummulative number of positive COVID-19 cases is expected to drop. This pattern is counterintuitive but may be explained by the wider socio-economic disadvantages between the North and the South of England. The North is usually characterised by a persistent concentration of more disadvantaged neighbourhoods than the South where affluent households have tended to cluster for the last 40 years [@rowe2020policy].
 
@@ -600,7 +600,7 @@ map_sig + tm_shape(reg_shp) + # add region boundaries
   tm_borders(col = "white", lwd = .5) # add borders
 ```
 
-![](07-gwr_files/figure-latex/unnamed-chunk-18-1.pdf)<!-- --> 
+<img src="07-gwr_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
 ```r
 # utla count

@@ -147,7 +147,10 @@ The easiest way to get a quick preview of what the data looks like spatially is 
 plot(db)
 ```
 
-![(\#fig:unnamed-chunk-5)Potential routes](03-flows_files/figure-latex/unnamed-chunk-5-1.pdf) 
+<div class="figure">
+<img src="03-flows_files/figure-html/unnamed-chunk-5-1.png" alt="Potential routes" width="672" />
+<p class="caption">(\#fig:unnamed-chunk-5)Potential routes</p>
+</div>
 
 Equally, if we want to visualize a single route, we can simply subset the table. For example, to get the shape of the trip from station `39` to station `48`, we can:
 
@@ -159,7 +162,10 @@ one39to48 <- db[ which(
 plot(one39to48)
 ```
 
-![(\#fig:unnamed-chunk-6)Trip from station 39 to 48](03-flows_files/figure-latex/unnamed-chunk-6-1.pdf) 
+<div class="figure">
+<img src="03-flows_files/figure-html/unnamed-chunk-6-1.png" alt="Trip from station 39 to 48" width="672" />
+<p class="caption">(\#fig:unnamed-chunk-6)Trip from station 39 to 48</p>
+</div>
 
 or, for the most popular route, we can:
 
@@ -171,7 +177,10 @@ most_pop <- db[ which(
 plot(most_pop)
 ```
 
-![(\#fig:unnamed-chunk-7)Most popular trip](03-flows_files/figure-latex/unnamed-chunk-7-1.pdf) 
+<div class="figure">
+<img src="03-flows_files/figure-html/unnamed-chunk-7-1.png" alt="Most popular trip" width="672" />
+<p class="caption">(\#fig:unnamed-chunk-7)Most popular trip</p>
+</div>
 
 These however do not reveal a lot: there is no geographical context (*why are there so many routes along the NE?*) and no sense of how volumes of bikers are allocated along different routes. Let us fix those two.
 
@@ -243,7 +252,7 @@ and make sure it looks like we intend it to look:
 ggmap(SanFran)
 ```
 
-![](03-flows_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
+<img src="03-flows_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 Now to combine tiles and routes, we need to pull out the coordinates that make up each line. For the route example above, this would be:
 
@@ -264,7 +273,7 @@ ggmap(SanFran, darken=0.5) +
             lineend='round')
 ```
 
-![](03-flows_files/figure-latex/unnamed-chunk-11-1.pdf)<!-- --> 
+<img src="03-flows_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 Now we can plot all of the lines by using a short `for` loop to build up the table:
 
@@ -307,7 +316,7 @@ ggmap(SanFran, darken=0.75) +
             lineend='round')
 ```
 
-![](03-flows_files/figure-latex/unnamed-chunk-13-1.pdf)<!-- --> 
+<img src="03-flows_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 Finally, we can get a sense of the distribution of the flows by associating a color gradient to each flow based on its number of trips:
 
@@ -331,7 +340,7 @@ ggmap(SanFran, darken=0.75) +
       )
 ```
 
-![](03-flows_files/figure-latex/unnamed-chunk-14-1.pdf)<!-- --> 
+<img src="03-flows_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 
 Note how we transform the size so it's a proportion of the largest trip and then it is compressed with a logarithm.
 
@@ -404,7 +413,7 @@ legend('topright',
 title(main="Predictive check, point estimates - Baseline model")
 ```
 
-![](03-flows_files/figure-latex/unnamed-chunk-17-1.pdf)<!-- --> 
+<img src="03-flows_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 
 The plot makes pretty obvious that our initial model captures very few aspects of the distribution we want to explain. However, we should not get too attached to this plot just yet. What it is showing is the distribution of predicted *point* estimates from our model. Since our model is not deterministic but inferential, there is a certain degree of uncertainty attached to its predictions, and that is completely absent from this plot. 
 
@@ -463,7 +472,7 @@ legend('topright',
        lwd=1)
 ```
 
-![](03-flows_files/figure-latex/unnamed-chunk-19-1.pdf)<!-- --> 
+<img src="03-flows_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 
 Once we have this "draw engine", we can set it to work as many times as we want using a simple `for` loop. In fact, we can directly plot these lines as compared to the expected one and the trip count:
 
@@ -501,7 +510,7 @@ legend('topright',
 title(main="Predictive check - Baseline model")
 ```
 
-![](03-flows_files/figure-latex/unnamed-chunk-20-1.pdf)<!-- --> 
+<img src="03-flows_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 The plot shows there is a significant mismatch between the fitted values, which are much more concentrated around small positive values, and the realizations of our "inferential engine", which depict a much less concentrated distribution of values. This is likely due to the combination of two different reasons: on the one hand, the accuracy of our estimates may be poor, causing them to jump around a wide range of potential values and hence resulting in very diverse predictions (inferential uncertainty); on the other hand, it may be that the amount of variation we are not able to account for in the model^[The $R^2$ of our model is around 2%] is so large that the degree of uncertainty contained in the error term of the model is very large, hence resulting in such a flat predictive distribution.
 
@@ -559,7 +568,7 @@ legend('topright',
 title(main="Predictive check, point estimates - Poisson model")
 ```
 
-![](03-flows_files/figure-latex/unnamed-chunk-22-1.pdf)<!-- --> 
+<img src="03-flows_files/figure-html/unnamed-chunk-22-1.png" width="672" />
 
 To incorporate uncertainty to these predictions, we need to tweak our `generate_draw`  function so it accommodates the fact that our model is not linear anymore.
 
@@ -617,7 +626,7 @@ legend('topright',
 title(main="Predictive check - Poisson model")
 ```
 
-![](03-flows_files/figure-latex/unnamed-chunk-24-1.pdf)<!-- --> 
+<img src="03-flows_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 Voila! Although the curve is still a bit off, centered too much to the right of the actual data, our predictive simulation leaves the fitted values right in the middle. This speaks to a better fit of the model to the actual distribution othe original data follow.  
 
@@ -665,7 +674,7 @@ legend('topright',
 title(main="Predictive check - Orig/dest FE Poisson model")
 ```
 
-![](03-flows_files/figure-latex/unnamed-chunk-26-1.pdf)<!-- --> 
+<img src="03-flows_files/figure-html/unnamed-chunk-26-1.png" width="672" />
 
 That looks significantly better, doesn't it? In fact, our model now better accounts for the long tail where a few routes take a lot of trips. This is likely because the distribution of trips is far from random across stations and our origin and destination fixed effects do a decent job at accounting for that structure. However our model is still notably underpredicting less popular routes and overpredicting routes with above average number of trips. Maybe we should think about moving beyond a simple linear model.
 
@@ -706,7 +715,7 @@ legend('topright',
 title(main="Predictive check - Orig/dest FE Poisson model")
 ```
 
-![](03-flows_files/figure-latex/unnamed-chunk-28-1.pdf)<!-- --> 
+<img src="03-flows_files/figure-html/unnamed-chunk-28-1.png" width="672" />
 
 Hard to tell any noticeable difference, right? To see if there is any, we can have a look at the estimates obtained:
 

@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-04-21" />
+<meta name="date" content="2020-04-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -542,21 +542,21 @@ Figure 3.7: KDE of house transactions in Liverpool
 <p>The object we get from <code>idw</code> is another spatial table, just as <code>db</code>, containing the interpolated values. As such, we can inspect it just as with any other of its kind. For example, to check out the top of the estimated table:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(idw.hp<span class="op">@</span>data)</code></pre></div>
 <pre><code>##   var1.pred var1.var
-## 1  158047.4       NA
-## 2  158157.0       NA
-## 3  158269.4       NA
-## 4  158384.6       NA
-## 5  158502.9       NA
-## 6  158624.3       NA</code></pre>
+## 1  158109.8       NA
+## 2  158221.0       NA
+## 3  158335.0       NA
+## 4  158451.9       NA
+## 5  158572.0       NA
+## 6  158695.3       NA</code></pre>
 <p>The column we will pay attention to is <code>var1.pred</code>. And to see the locations for which those correspond:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(idw.hp<span class="op">@</span>coords)</code></pre></div>
 <pre><code>##            x1       x2
-## [1,] 333552.1 382741.8
-## [2,] 333637.1 382741.8
-## [3,] 333722.1 382741.8
-## [4,] 333807.0 382741.8
-## [5,] 333892.0 382741.8
-## [6,] 333976.9 382741.8</code></pre>
+## [1,] 333599.9 382746.3
+## [2,] 333684.9 382746.3
+## [3,] 333769.9 382746.3
+## [4,] 333854.8 382746.3
+## [5,] 333939.8 382746.3
+## [6,] 334024.8 382746.3</code></pre>
 <p>So, for a hypothetical house sold at the location in the first row of <code>idw.hp@coords</code> (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column <code>var1.pred</code> in <code>idw.hp@data</code>.</p>
 </div>
 <div id="a-surface-of-housing-prices" class="section level3">
