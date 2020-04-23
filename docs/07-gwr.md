@@ -25,6 +25,13 @@ This chapter uses the following libraries: Ensure they are installed on your mac
 ```r
 # Data manipulation, transformation and visualisation
 library(tidyverse)
+```
+
+```
+## Warning: package 'tibble' was built under R version 3.6.2
+```
+
+```r
 # Nice tables
 library(kableExtra)
 # Simple features (a standardised way to encode vector data ie. points, lines, polygons)
@@ -325,7 +332,7 @@ GWR overcomes the limitation of the OLS regression model of generating a global 
 
 Graphically, GWR involves fitting a spatial kernel to the data as described in the Fig. 1. For a given regression point $X$, the weight ($W$) of a data point is at a maximum at the location of the regression point. The weight decreases gradually as the distance between two points increases. A regression model is thus calibrated locally by moving the regression point across the area under study. For each location, the data are weighted differently so that the resulting estimates are unique to a particular location.
 
-![Fig. 1. GWR with fixed spatial kernel. Source: Fotheringham et al. [-@Fotheringham_et_al_2002_book, p.45].] (figs/ch8/fixed_bandwidth.png)
+![Fig. 1. GWR with fixed spatial kernel. Source: Fotheringham et al. [-@Fotheringham_et_al_2002_book, p.45].](figs/ch8/fixed_bandwidth.png)
 
 ### Fixed or Adaptive Kernel
 
@@ -621,5 +628,5 @@ For the share of nonwhite population, 67% of all local coefficients are statisti
 
 ### Collinearity in GWR
 
-A important final note is: collinearity tends to be problematic in GWR models. It can be present in the data subsets to estimate local coefficients even when not observed globally @wheeler2005multicollinearity. Collinearity can be highly problematic in the case of compositional, categorical and ordinal predictors, and may result in exact local collinearity making the search for a optimal bandwidth impossible. A recent paper suggests potential ways foward [@comber2020gwr].
+A important final note is: collinearity tends to be problematic in GWR models. It can be present in the data subsets to estimate local coefficients even when not observed globally @wheeler2005multicollinearity. Collinearity can be highly problematic in the case of compositional, categorical and ordinal predictors, and may result in exact local collinearity making the search for an optimal bandwidth impossible. A recent paper suggests potential ways forward [@comber2020gwr].
 

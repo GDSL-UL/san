@@ -25,6 +25,13 @@ This chapter uses the following libraries: Ensure they are installed on your mac
 ```r
 # Data manipulation, transformation and visualisation
 library(tidyverse)
+```
+
+```
+## Warning: package 'tibble' was built under R version 3.6.2
+```
+
+```r
 # Nice tables
 library(kableExtra)
 # Simple features (a standardised way to encode vector data ie. points, lines, polygons)
@@ -122,6 +129,10 @@ ggplot(s_t8, aes(x = lt_ill, y = unemp)) +
   ylab("Unemployment rate") + 
   xlab("Long-term Illness (%)") +
   theme_classic()
+```
+
+```
+## `geom_smooth()` using formula 'y ~ x'
 ```
 
 <img src="06-multilevel_02_files/figure-html/unnamed-chunk-4-1.png" width="672" />
@@ -276,9 +287,9 @@ str(re_msoa_m6)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.0339 -0.1198 0.0515 -0.1391 -0.2818 ...
-##  $ median   : num  0.0361 -0.1172 0.0467 -0.1389 -0.2814 ...
-##  $ sd       : num  0.0447 0.0769 0.0793 0.0398 0.0406 ...
+##  $ mean     : num  0.027 -0.106 0.0645 -0.1447 -0.2837 ...
+##  $ median   : num  0.0248 -0.1057 0.066 -0.1434 -0.2873 ...
+##  $ sd       : num  0.0465 0.0733 0.0851 0.0393 0.036 ...
 ```
 
 ```r

@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-04-22" />
+<meta name="date" content="2020-04-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -257,8 +257,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">7.1</span> Dependencies</h2>
 <p>This chapter uses the following libraries: Ensure they are installed on your machine<a href="#fn43" class="footnoteRef" id="fnref43"><sup>43</sup></a> before loading them executing the following code chunk:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Data manipulation, transformation and visualisation</span>
-<span class="kw">library</span>(tidyverse)
-<span class="co"># Nice tables</span>
+<span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.6.2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Nice tables</span>
 <span class="kw">library</span>(kableExtra)
 <span class="co"># Simple features (a standardised way to encode vector data ie. points, lines, polygons)</span>
 <span class="kw">library</span>(sf) 
@@ -337,6 +338,7 @@ s_t8 &lt;-<span class="st"> </span>oa_shp <span class="op">%&gt;%</span><span cl
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Unemployment rate&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Long-term Illness (%)&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="06-multilevel_02_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>We can observe great variability in the relationship between unemployment rates and the percentage of population in long-term illness. A strong and positive relationship exists in MSOA <code>E02001366</code> (Tuebrook and Stoneycroft), while it is negative in MSOA <code>E02001370</code> (Everton) and neutral in MSOA <code>E02001390</code> (Princes Park &amp; Riverside). This visual inspection suggests that accounting for differences in the way unmployment rates relate to long-term illness is important. Contextual factors may differ across MSOAs in systematic ways.</p>
 </div>
@@ -429,9 +431,9 @@ re_msoa_m6 &lt;-<span class="st"> </span><span class="kw">REsim</span>(model6) <
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; ...
-##  $ mean     : num  0.0339 -0.1198 0.0515 -0.1391 -0.2818 ...
-##  $ median   : num  0.0361 -0.1172 0.0467 -0.1389 -0.2814 ...
-##  $ sd       : num  0.0447 0.0769 0.0793 0.0398 0.0406 ...</code></pre>
+##  $ mean     : num  0.027 -0.106 0.0645 -0.1447 -0.2837 ...
+##  $ median   : num  0.0248 -0.1057 0.066 -0.1434 -0.2873 ...
+##  $ sd       : num  0.0465 0.0733 0.0851 0.0393 0.036 ...</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># merge data</span>
 msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa_m6, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ensure geometry is valid</span>

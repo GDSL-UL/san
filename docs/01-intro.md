@@ -22,6 +22,13 @@ This tutorial uses the libraries below. Ensure they are installed on your machin
 ```r
 # Data manipulation, transformation and visualisation
 library(tidyverse)
+```
+
+```
+## Warning: package 'tibble' was built under R version 3.6.2
+```
+
+```r
 # Nice tables
 library(kableExtra)
 # Simple features (a standardised way to encode vector data ie. points, lines, polygons)

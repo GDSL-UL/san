@@ -26,6 +26,13 @@ This chapter uses the following libraries: Ensure they are installed on your mac
 ```r
 # Data manipulation, transformation and visualisation
 library(tidyverse)
+```
+
+```
+## Warning: package 'tibble' was built under R version 3.6.2
+```
+
+```r
 # Nice tables
 library(kableExtra)
 # Simple features (a standardised way to encode vector data ie. points, lines, polygons)
@@ -531,16 +538,16 @@ REsim(model3) %>% head(10)
 
 ```
 ##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.016401610 -0.017229299 0.021799977
-## 2    lsoa_cd E01006513 (Intercept) -0.017544623 -0.017635558 0.019914428
-## 3    lsoa_cd E01006514 (Intercept) -0.024472335 -0.026303279 0.019097973
-## 4    lsoa_cd E01006515 (Intercept) -0.017294236 -0.018211066 0.020434497
-## 5    lsoa_cd E01006518 (Intercept) -0.019418142 -0.018101173 0.018914015
-## 6    lsoa_cd E01006519 (Intercept) -0.015073612 -0.015073874 0.009888183
-## 7    lsoa_cd E01006520 (Intercept) -0.024615956 -0.025442900 0.019165238
-## 8    lsoa_cd E01006521 (Intercept)  0.007507558  0.008050863 0.018676247
-## 9    lsoa_cd E01006522 (Intercept)  0.018770880  0.018531319 0.019057553
-## 10   lsoa_cd E01006523 (Intercept)  0.004544766  0.004799820 0.020127649
+## 1    lsoa_cd E01006512 (Intercept) -0.014410137 -0.015164226 0.018867384
+## 2    lsoa_cd E01006513 (Intercept) -0.016533824 -0.017725975 0.019104111
+## 3    lsoa_cd E01006514 (Intercept) -0.023076591 -0.022924183 0.019663517
+## 4    lsoa_cd E01006515 (Intercept) -0.015844324 -0.014422942 0.020784021
+## 5    lsoa_cd E01006518 (Intercept) -0.021440852 -0.020789552 0.020347996
+## 6    lsoa_cd E01006519 (Intercept) -0.016344282 -0.016571428 0.009448111
+## 7    lsoa_cd E01006520 (Intercept) -0.024788881 -0.025767767 0.019934370
+## 8    lsoa_cd E01006521 (Intercept)  0.006819868  0.004697096 0.020179218
+## 9    lsoa_cd E01006522 (Intercept)  0.019210354  0.019905914 0.020789210
+## 10   lsoa_cd E01006523 (Intercept)  0.005793310  0.004507271 0.017094364
 ```
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from `ranef` with some small differences due to rounding.
@@ -614,9 +621,9 @@ str(re_msoa)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.00846 -0.02601 -0.03106 0.00309 0.0227 ...
-##  $ median   : num  -0.00989 -0.02752 -0.02882 0.00077 0.02262 ...
-##  $ sd       : num  0.0313 0.0322 0.0317 0.0325 0.0164 ...
+##  $ mean     : num  -0.01323 -0.02041 -0.03127 0.00749 0.02134 ...
+##  $ median   : num  -0.01506 -0.02374 -0.03185 0.00644 0.02181 ...
+##  $ sd       : num  0.032 0.0319 0.0309 0.0319 0.0159 ...
 ```
 
 ```r

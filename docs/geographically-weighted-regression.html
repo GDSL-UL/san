@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-04-22" />
+<meta name="date" content="2020-04-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -257,8 +257,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">8.1</span> Dependencies</h2>
 <p>This chapter uses the following libraries: Ensure they are installed on your machine<a href="#fn46" class="footnoteRef" id="fnref46"><sup>46</sup></a> before loading them executing the following code chunk:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Data manipulation, transformation and visualisation</span>
-<span class="kw">library</span>(tidyverse)
-<span class="co"># Nice tables</span>
+<span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.6.2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Nice tables</span>
 <span class="kw">library</span>(kableExtra)
 <span class="co"># Simple features (a standardised way to encode vector data ie. points, lines, polygons)</span>
 <span class="kw">library</span>(sf) 
@@ -477,7 +478,10 @@ map_utla <span class="op">+</span><span class="st"> </span><span class="kw">tm_s
 <h2><span class="header-section-number">8.6</span> Fitting a Geographically Weighted Regression</h2>
 <p>GWR overcomes the limitation of the OLS regression model of generating a global set of estimates. The basic idea behind GWR is to examine the way in which the relationships between a dependent variable and a set of predictors might vary over space. GWR operates by moving a search window from one regression point to the next, working sequentially through all the existing regression points in the dataset. A set of regions is then defined around each regression point and within the search window. A regression model is then fitted to all data contained in each of the identified regions around a regression point, with data points closer to the sample point being weighted more heavily than are those farther away. This process is repeated for all samples points in the dataset. For a data set of 150 observations GWR will fit 150 weighted regression models. The resulting local estimates can then be mapped at the locations of the regression points to view possible variations in the relationships between variables.</p>
 <p>Graphically, GWR involves fitting a spatial kernel to the data as described in the Fig. 1. For a given regression point <span class="math inline">\(X\)</span>, the weight (<span class="math inline">\(W\)</span>) of a data point is at a maximum at the location of the regression point. The weight decreases gradually as the distance between two points increases. A regression model is thus calibrated locally by moving the regression point across the area under study. For each location, the data are weighted differently so that the resulting estimates are unique to a particular location.</p>
-<p>[Fig. 1. GWR with fixed spatial kernel. Source: Fotheringham et al. <span class="citation">(<a href="#ref-Fotheringham_et_al_2002_book">2002</a>, 45)</span>.] (figs/ch8/fixed_bandwidth.png)</p>
+<div class="figure">
+<img src="figs/ch8/fixed_bandwidth.png" alt="Fig. 1. GWR with fixed spatial kernel. Source: Fotheringham et al. , p.45(2002, 45)." />
+<p class="caption">Fig. 1. GWR with fixed spatial kernel. Source: Fotheringham et al. <span class="citation">(<a href="#ref-Fotheringham_et_al_2002_book">2002</a>, 45)</span>.</p>
+</div>
 <div id="fixed-or-adaptive-kernel" class="section level3">
 <h3><span class="header-section-number">8.6.1</span> Fixed or Adaptive Kernel</h3>
 <p>A key issue is to decide between two options of spatial kernels: a fixed kernel or an adaptive kernel. Intuitively, a fixed kernel involves using a fixed bandwidth to define a region around all regression points as displayed in Fig. 1. The extent of the kernel is determined by the distance to a given regression point, with the kernel being identical at any point in space. An adaptive kernel involves using varying bandwidth to define a region around regression points as displayed in Fig. 2. The extent of the kernel is determined by the number of nearest neighbours from a given regression point. The hernels have larger bandwidths where the data are sparse.</p>
@@ -709,7 +713,7 @@ map_sig <span class="op">+</span><span class="st"> </span><span class="kw">tm_sh
 </div>
 <div id="collinearity-in-gwr" class="section level3">
 <h3><span class="header-section-number">8.6.8</span> Collinearity in GWR</h3>
-<p>A important final note is: collinearity tends to be problematic in GWR models. It can be present in the data subsets to estimate local coefficients even when not observed globally <span class="citation">Wheeler and Tiefelsdorf (<a href="#ref-wheeler2005multicollinearity">2005</a>)</span>. Collinearity can be highly problematic in the case of compositional, categorical and ordinal predictors, and may result in exact local collinearity making the search for a optimal bandwidth impossible. A recent paper suggests potential ways foward <span class="citation">(Comber et al. <a href="#ref-comber2020gwr">2020</a>)</span>.</p>
+<p>A important final note is: collinearity tends to be problematic in GWR models. It can be present in the data subsets to estimate local coefficients even when not observed globally <span class="citation">Wheeler and Tiefelsdorf (<a href="#ref-wheeler2005multicollinearity">2005</a>)</span>. Collinearity can be highly problematic in the case of compositional, categorical and ordinal predictors, and may result in exact local collinearity making the search for an optimal bandwidth impossible. A recent paper suggests potential ways forward <span class="citation">(Comber et al. <a href="#ref-comber2020gwr">2020</a>)</span>.</p>
 
 </div>
 </div>

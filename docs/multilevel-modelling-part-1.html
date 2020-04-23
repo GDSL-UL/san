@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-04-22" />
+<meta name="date" content="2020-04-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -257,8 +257,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">6.1</span> Dependencies</h2>
 <p>This chapter uses the following libraries: Ensure they are installed on your machine<a href="#fn39" class="footnoteRef" id="fnref39"><sup>39</sup></a> before loading them executing the following code chunk:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Data manipulation, transformation and visualisation</span>
-<span class="kw">library</span>(tidyverse)
-<span class="co"># Nice tables</span>
+<span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.6.2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Nice tables</span>
 <span class="kw">library</span>(kableExtra)
 <span class="co"># Simple features (a standardised way to encode vector data ie. points, lines, polygons)</span>
 <span class="kw">library</span>(sf) 
@@ -602,16 +603,16 @@ vpc_lsoa <span class="op">*</span><span class="st"> </span><span class="dv">100<
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># obtain estimates</span>
 <span class="kw">REsim</span>(model3) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">10</span>)</code></pre></div>
 <pre><code>##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.016401610 -0.017229299 0.021799977
-## 2    lsoa_cd E01006513 (Intercept) -0.017544623 -0.017635558 0.019914428
-## 3    lsoa_cd E01006514 (Intercept) -0.024472335 -0.026303279 0.019097973
-## 4    lsoa_cd E01006515 (Intercept) -0.017294236 -0.018211066 0.020434497
-## 5    lsoa_cd E01006518 (Intercept) -0.019418142 -0.018101173 0.018914015
-## 6    lsoa_cd E01006519 (Intercept) -0.015073612 -0.015073874 0.009888183
-## 7    lsoa_cd E01006520 (Intercept) -0.024615956 -0.025442900 0.019165238
-## 8    lsoa_cd E01006521 (Intercept)  0.007507558  0.008050863 0.018676247
-## 9    lsoa_cd E01006522 (Intercept)  0.018770880  0.018531319 0.019057553
-## 10   lsoa_cd E01006523 (Intercept)  0.004544766  0.004799820 0.020127649</code></pre>
+## 1    lsoa_cd E01006512 (Intercept) -0.014410137 -0.015164226 0.018867384
+## 2    lsoa_cd E01006513 (Intercept) -0.016533824 -0.017725975 0.019104111
+## 3    lsoa_cd E01006514 (Intercept) -0.023076591 -0.022924183 0.019663517
+## 4    lsoa_cd E01006515 (Intercept) -0.015844324 -0.014422942 0.020784021
+## 5    lsoa_cd E01006518 (Intercept) -0.021440852 -0.020789552 0.020347996
+## 6    lsoa_cd E01006519 (Intercept) -0.016344282 -0.016571428 0.009448111
+## 7    lsoa_cd E01006520 (Intercept) -0.024788881 -0.025767767 0.019934370
+## 8    lsoa_cd E01006521 (Intercept)  0.006819868  0.004697096 0.020179218
+## 9    lsoa_cd E01006522 (Intercept)  0.019210354  0.019905914 0.020789210
+## 10   lsoa_cd E01006523 (Intercept)  0.005793310  0.004507271 0.017094364</code></pre>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
 <p>To gain an undertanding of the general pattern of the <em>random effects</em>, we can use caterpillar plots via <code>plotREsim</code> - reported below. The plot on the right shows the estimated random effects for each MSOA and their respective interval estimate. Note that random effects are on average zero, represented by the red horizontal line. Intervals that do not include zero are in bold. Also note that the width of the confidence interval depends on the standard error of the respective residual estimate, which is inversely related to the size of the sample. The residuals represent an observation departures from the grand mean, so an observation whose confidence interval does not overlap the line at zero (representing the mean proportion of unemployed population across all areas) is said to differ significantly from the average at the 5% level.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot</span>
@@ -656,9 +657,9 @@ re_msoa &lt;-<span class="st"> </span>re <span class="op">%&gt;%</span><span cla
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; ...
-##  $ mean     : num  -0.00846 -0.02601 -0.03106 0.00309 0.0227 ...
-##  $ median   : num  -0.00989 -0.02752 -0.02882 0.00077 0.02262 ...
-##  $ sd       : num  0.0313 0.0322 0.0317 0.0325 0.0164 ...</code></pre>
+##  $ mean     : num  -0.01323 -0.02041 -0.03127 0.00749 0.02134 ...
+##  $ median   : num  -0.01506 -0.02374 -0.03185 0.00644 0.02181 ...
+##  $ sd       : num  0.032 0.0319 0.0309 0.0319 0.0159 ...</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># merge data</span>
 msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</code></pre></div>
 <p>Now we can create our map:</p>
