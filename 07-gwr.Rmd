@@ -274,7 +274,7 @@ Cross-validation is used to search for the optimal bandwidth. Recall that this p
 # find optimal kernel bandwidth using cross validation
 fbw <- gwr.sel(eq1, 
                data = utla_shp, 
-               coords=cbind( lat, long),
+               coords=cbind( long, lat),
                longlat = TRUE,
                adapt=FALSE, 
                gweight = gwr.Gauss, 
@@ -290,7 +290,7 @@ The result indicates that the optimal bandwidth is 39.79 kms. This means that ne
 # fit a gwr based on fixed bandwidth
 fb_gwr <- gwr(eq1, 
             data = utla_shp,
-            coords=cbind( lat, long),
+            coords=cbind( long, lat),
             longlat = TRUE,
             bandwidth = fbw, 
             gweight = gwr.Gauss,
@@ -331,7 +331,7 @@ To reduce these problems, adaptive spatial kernels can be used. These kernels ad
 # find optimal kernel bandwidth using cross validation
 abw <- gwr.sel(eq1, 
                data = utla_shp, 
-               coords=cbind( lat, long),
+               coords=cbind( long, lat),
                longlat = TRUE,
                adapt = TRUE, 
                gweight = gwr.Gauss, 
@@ -347,7 +347,7 @@ The optimal bandwidth is 0.03 indicating the proportion of observations (or k-ne
 # fit a gwr based on adaptive bandwidth
 ab_gwr <- gwr(eq1, 
             data = utla_shp,
-            coords=cbind( lat, long),
+            coords=cbind( long, lat),
             longlat = TRUE,
             adapt = abw, 
             gweight = gwr.Gauss,
