@@ -57,12 +57,12 @@ library(jtools)
 
 For this chapter, we will data on:
 
-* cummulative COVID-19 confirmed cases from 30th January, 2020 to 21st April, 2020 from Public Health England via the [GOV.UK dashboard](https://coronavirus.data.gov.uk);
+* COVID-19 confirmed cases from 30th January, 2020 to 21st April, 2020 from Public Health England via the [GOV.UK dashboard](https://coronavirus.data.gov.uk);
 
-* resident population characteristics from the 2011 census data from the [Office of National Statistics](https://www.nomisweb.co.uk/home/census2001.asp); and,
+* resident population characteristics from the 2011 census, available from the [Office of National Statistics](https://www.nomisweb.co.uk/home/census2001.asp); and,
 
-* 2019 index of multiple deprivation data from [GOV.UK](https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019) and published by the Ministry of Housing, Communities & Local Government. The data are at the ONS Upper Tier Local Authority 
-(UTLA) - also known as [Counties and Unitary Authorities](https://ago-item-storage.s3.us-east-1.amazonaws.com/7bb8db84e0f54e83aa05204f7bd674b8/EN37152_CTY_UA_DEC_2018_UK.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEI7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIHGIIjyriwWRx5QXeakP%2BhJr39uh7b7jP1dr4q%2FbEgC3AiEA0ohlaSFkwlCKLMy3vFhZDcQvDgzEVEP0kS17VN2ZnxMqvQMIpv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2MDQ3NTgxMDI2NjUiDD2XGTMX5p%2BWiurX2iqRA%2FHRJfiW8YaOjNi65RC8AFZ5shx%2Fn3Upl%2B9YP5xhX4YzsRqkYkx%2FYkwbMZ%2FlDDqWpBHcZzoRdFDz1IGLueQJvDhFignjzIBmExSJ0UdMvuU56tXbnZQ%2BI8lTjP9JRtLpZELENSjVeoi5qJpphGzoBo9O9cCJkQvWC3NNxqV6eFez00ld5qlRMpJ4KTOl7%2FxJBBfua%2F8WYdrcZ4H0KA47l%2FIJnp2AklUv%2Fw0cBoU0LZq3djjuVlE%2FseJKOnm1Z8KMFItEanYUpOrMfROJ5C%2FTwqqJ2GQMSvr30W%2F4%2FY%2F2BKNTiyCvbEJnD03SWrB20bBlN0Gr13YYvcSBBjgwmhe4EKIrrLSKo8SOZNOg02nq%2Bmrc0%2FsPo%2BYyLgA0MXASt9kDPL4N5IF9yG3lS7vd7E7%2FpesIlC%2FW3g3TVOBA92bKMtU6QA%2B93URcqkrXyrvN6LGAt2C83HjvuAmtbSmlJOD5enC7abdOEqJMyJdUH%2BwbBKXN8TK%2F%2BbRMzgshl1dJElvSnPAYZEuNwaso8bVXwSK%2F31m6MP%2Bv4fQFOusBk4G2Dlca6chTsAlFjXomtOeu6Kxm0MRAgdhF4mSRnKggkWu8mBYY68%2BeGt3egIOtssrEVcWYr1nseCriPHpsA%2BGi3IFnyPVIKZpStdv%2F%2FNoOip3YGsb%2BSxgkIdxjVJdnkTsEvEf7AZtu6BFTKfTtTAII%2Boh46F%2BH%2FDztv9kHuQMMXQsJozbphriOJDxP8TMSe16v8Tc1yULmRuenrfX1CMGTPrTcoUYPEu82qwDWlcMWwRRTMAv3xcupkZXVOQhMzkcyOOxQdOLWyIH5%2FZ%2BuIkNMQzndBya5nNjpGJ6UniQp22CkZ5n52KK%2Fnw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200416T135331Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAYZTTEKKEUJMS7TPU%2F20200416%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=02022ae0228c2fc1d09a90a389d7fd00b9de38ff2df002159d3ad84666c213e8).
+* 2019 Index of Multiple Deprivation (IMD) data from [GOV.UK](https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019) and published by the Ministry of Housing, Communities & Local Government. The data are at the ONS Upper Tier Local Authority 
+(UTLA) level - also known as [Counties and Unitary Authorities](https://ago-item-storage.s3.us-east-1.amazonaws.com/7bb8db84e0f54e83aa05204f7bd674b8/EN37152_CTY_UA_DEC_2018_UK.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEI7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIHGIIjyriwWRx5QXeakP%2BhJr39uh7b7jP1dr4q%2FbEgC3AiEA0ohlaSFkwlCKLMy3vFhZDcQvDgzEVEP0kS17VN2ZnxMqvQMIpv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2MDQ3NTgxMDI2NjUiDD2XGTMX5p%2BWiurX2iqRA%2FHRJfiW8YaOjNi65RC8AFZ5shx%2Fn3Upl%2B9YP5xhX4YzsRqkYkx%2FYkwbMZ%2FlDDqWpBHcZzoRdFDz1IGLueQJvDhFignjzIBmExSJ0UdMvuU56tXbnZQ%2BI8lTjP9JRtLpZELENSjVeoi5qJpphGzoBo9O9cCJkQvWC3NNxqV6eFez00ld5qlRMpJ4KTOl7%2FxJBBfua%2F8WYdrcZ4H0KA47l%2FIJnp2AklUv%2Fw0cBoU0LZq3djjuVlE%2FseJKOnm1Z8KMFItEanYUpOrMfROJ5C%2FTwqqJ2GQMSvr30W%2F4%2FY%2F2BKNTiyCvbEJnD03SWrB20bBlN0Gr13YYvcSBBjgwmhe4EKIrrLSKo8SOZNOg02nq%2Bmrc0%2FsPo%2BYyLgA0MXASt9kDPL4N5IF9yG3lS7vd7E7%2FpesIlC%2FW3g3TVOBA92bKMtU6QA%2B93URcqkrXyrvN6LGAt2C83HjvuAmtbSmlJOD5enC7abdOEqJMyJdUH%2BwbBKXN8TK%2F%2BbRMzgshl1dJElvSnPAYZEuNwaso8bVXwSK%2F31m6MP%2Bv4fQFOusBk4G2Dlca6chTsAlFjXomtOeu6Kxm0MRAgdhF4mSRnKggkWu8mBYY68%2BeGt3egIOtssrEVcWYr1nseCriPHpsA%2BGi3IFnyPVIKZpStdv%2F%2FNoOip3YGsb%2BSxgkIdxjVJdnkTsEvEf7AZtu6BFTKfTtTAII%2Boh46F%2BH%2FDztv9kHuQMMXQsJozbphriOJDxP8TMSe16v8Tc1yULmRuenrfX1CMGTPrTcoUYPEu82qwDWlcMWwRRTMAv3xcupkZXVOQhMzkcyOOxQdOLWyIH5%2FZ%2BuIkNMQzndBya5nNjpGJ6UniQp22CkZ5n52KK%2Fnw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200416T135331Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAYZTTEKKEUJMS7TPU%2F20200416%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=02022ae0228c2fc1d09a90a389d7fd00b9de38ff2df002159d3ad84666c213e8).
 
 For a full list of the variables included in the data set we will use in this chapter, see the readme file in the sta data folder.^[Read the file in R by executing `read_tsv("data/sta/readme.txt")`]. Before we get our hands on the data, there are some important concepts that we need to understand. These concepts provide a useful framework to understand the complex structure of spatio-temporal data. Let's start by first highlighling the importance of spatio-temporal analysis.
 
@@ -141,7 +141,7 @@ covid19 <- read_csv("data/sta/covid19_cases.csv")
 censusimd <- read_csv("data/sta/2011census_2019imd_utla.csv")
 ```
 
-If we explore the structure of the data via `head` and `str`, we can see we have data on daily and cummulative new COVID-19 cases for 150 spatial units (i.e. UTLAs) over 71 time points from January 30th to April 21st. We also have census and IMD data for a range of attributes.
+If we explore the structure of the data via `head` and `str`, we can see we have data on daily and cumulative new COVID-19 cases for 150 spatial units (i.e. UTLAs) over 71 time points from January 30th to April 21st. We also have census and IMD data for a range of attributes.
 
 ```{r}
 head(covid19, 3)
@@ -213,7 +213,7 @@ We now have all the required data in place. In this section first various method
 
 ### Visualisation
 
-In the context spatio-temporal data, a first challenge is data visualization. Visualising more than two dimensions of spatio-temporal data, so it is helpful to slice or aggregate the data over a dimension, use color, or build animations through time. Before exploring the data, we need to define our key variable of interest; that is, the number of confirmed COVID-19 cases per 100,000 people. We also compute the cummulative number of confirmed COVID-19 cases per 100,000 people as it may be handy in some analyses.
+In the context spatio-temporal data, a first challenge is data visualization. Visualising more than two dimensions of spatio-temporal data, so it is helpful to slice or aggregate the data over a dimension, use color, or build animations through time. Before exploring the data, we need to define our key variable of interest; that is, the number of confirmed COVID-19 cases per 100,000 people. We also compute the cumulative number of confirmed COVID-19 cases per 100,000 people as it may be handy in some analyses.
 
 Fisrt create variable to be analysed: 
 ```{r}
@@ -221,7 +221,7 @@ Fisrt create variable to be analysed:
 covid19_spt$n_covid19_r <- round( (covid19_spt$Daily.lab.confirmed.cases / covid19_spt$Residents) * 100000)
 covid19$n_covid19_r <- round( (covid19$Daily.lab.confirmed.cases / covid19$Residents) * 100000 )
 
-# risk of cummulative covid-19 infection
+# risk of cumulative covid-19 infection
 covid19_spt$c_covid19_r <- round( (covid19_spt$Cumulative.lab.confirmed.cases / covid19_spt$Residents) * 100000)
 covid19$c_covid19_r <- round( (covid19$Cumulative.lab.confirmed.cases / covid19$Residents) * 100000)
 ```
@@ -242,7 +242,7 @@ daycases_week <- covid19_spt %>% group_by(week, ctyu19nm, as.character(cty19c), 
 daycases_week$wn_covid19_r <- (daycases_week$n_daycases / daycases_week$Residents) * 100000
 
 # map
-legend_title = expression("Cummulative Cases per 100,000 Population")
+legend_title = expression("Cumulative Cases per 100,000 Population")
 tm_shape(daycases_week) +
   tm_fill("wn_covid19_r", title = legend_title, palette = magma(256), style ="cont", legend.hist=FALSE, legend.is.portrait=FALSE) +
   tm_facets(by = "week", ncol = 4) +
@@ -262,7 +262,7 @@ The series of maps reveal a stable pattern of low reported cases from calendar w
 
 #### Time-Series Plots
 
-Time-series plots can be used to capture a different dimension of the process in analysis. They can be used to better understand changes in an observation location, an aggregation of observations, or multiple locations simultaneously over time. We plot the cummulative number of COVID-19 cases per 100,000 people for UTLAs reporting over 310 cases. The plots identify the UTLAs in London, Newcastle and Sheffield reporting the largest numbers of COVID-19 cases. The plots also reveal that there has been a steady increase in the number of cases, with some differences. While cases have steadily increase in Brent and Southwark since mid March, the rise has been more sudden in Sunderland. The plots also reveal a possible case of misreporting in Sutton towards the end of the series.
+Time-series plots can be used to capture a different dimension of the process in analysis. They can be used to better understand changes in an observation location, an aggregation of observations, or multiple locations simultaneously over time. We plot the cumulative number of COVID-19 cases per 100,000 people for UTLAs reporting over 310 cases. The plots identify the UTLAs in London, Newcastle and Sheffield reporting the largest numbers of COVID-19 cases. The plots also reveal that there has been a steady increase in the number of cases, with some differences. While cases have steadily increase in Brent and Southwark since mid March, the rise has been more sudden in Sunderland. The plots also reveal a possible case of misreporting in Sutton towards the end of the series.
 
 ```{r, fig.width = 12, fig.height = 12}
 tsp <- ggplot(data = covid19_spt,
@@ -270,7 +270,7 @@ tsp <- ggplot(data = covid19_spt,
                           group = ctyu19nm))
 tsp + geom_line(color = "blue") + 
     gghighlight(max(c_covid19_r) > 310, use_direct_label = FALSE) +
-    labs(title= paste(" "), x="Date", y="Cummulative Cases per 100,000") +
+    labs(title= paste(" "), x="Date", y="Cumulative Cases per 100,000") +
     theme_classic() +
     theme(plot.title=element_text(size = 20)) +
     theme(axis.text=element_text(size=16)) +
@@ -307,7 +307,7 @@ Interactive visualisations comprise very effective ways to understand spatio-tem
 
 ```{r}
 # map
-legend_title = expression("Cummulative Cases per 100,000 Population")
+legend_title = expression("Cumulative Cases per 100,000 Population")
 imap = tm_shape(dplyr::filter(covid19_spt[,c("ctyu19nm", "date", "c_covid19_r")], as.character(date) == "2020-04-14"), labels = "Area.name") +
   tm_fill("c_covid19_r", title = legend_title, palette = magma(256), style ="cont", legend.is.portrait=FALSE, alpha = 0.7) +
   tm_borders(col = "white") +
@@ -317,7 +317,7 @@ imap = tm_shape(dplyr::filter(covid19_spt[,c("ctyu19nm", "date", "c_covid19_r")]
             legend.title.size = 1,
             legend.width = 1) 
 
-#tmap_mode("view")
+tmap_mode("view")
 #imap
 ```
     
@@ -368,7 +368,7 @@ ggplot() +
   geom_smooth(data = tm_av, mapping = aes(x =date, y = tm_mu_emp), 
               alpha = 0.5,
               se = FALSE) +
-    labs(title= paste(" "), x="Date", y="Cummulative Cases per 100,000") +
+    labs(title= paste(" "), x="Date", y="Cumulative Cases per 100,000") +
     theme_classic() +
     theme(plot.title=element_text(size = 18)) +
     theme(axis.text=element_text(size=14)) +
@@ -475,7 +475,7 @@ For our application, we start by considering a basic OLS regression model with t
 * linear time daily trend;
 * additional spatio-temporal basis functions which are presented below; and,
 
-These basis functions are incorporated as independent variables in the regression model. Additionally, we also include the share of population suffering long-term illness as we know it is highly correlated to the cummulative number of COVID-19 cases. The share of population suffering long-term illness is incorporated as a spatial-variant, temporal-invariant covariates given that rely in 2011 census data.
+These basis functions are incorporated as independent variables in the regression model. Additionally, we also include the share of population suffering long-term illness as we know it is highly correlated to the cumulative number of COVID-19 cases. The share of population suffering long-term illness is incorporated as a spatial-variant, temporal-invariant covariates given that rely in 2011 census data.
 
 #### Fitting Spatio-Temporal Models
 
