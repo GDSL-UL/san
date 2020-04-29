@@ -24,14 +24,14 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-04-23" />
+<meta name="date" content="2020-04-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="space-time-analysis.html"/>
+<link rel="prev" href="spatio-temporal-analysis.html"/>
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -216,7 +216,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.6.8" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#collinearity-in-gwr"><i class="fa fa-check"></i><b>8.6.8</b> Collinearity in GWR</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>9</b> Space-Time Analysis</a></li>
+<li class="chapter" data-level="9" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html"><i class="fa fa-check"></i><b>9</b> Spatio-Temporal Analysis</a><ul>
+<li class="chapter" data-level="9.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#dependencies-7"><i class="fa fa-check"></i><b>9.1</b> Dependencies</a></li>
+<li class="chapter" data-level="9.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-6"><i class="fa fa-check"></i><b>9.2</b> Data</a></li>
+<li class="chapter" data-level="9.3" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#why-spatio-temporal-analysis"><i class="fa fa-check"></i><b>9.3</b> Why Spatio-Temporal Analysis?</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#spatio-temporal-data-structures"><i class="fa fa-check"></i><b>9.3.1</b> Spatio-temporal Data Structures</a></li>
+<li class="chapter" data-level="9.3.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-wrangling"><i class="fa fa-check"></i><b>9.3.2</b> Data Wrangling</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>9.4</b> Exploring Spatio-Temporal Data</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#visualisation"><i class="fa fa-check"></i><b>9.4.1</b> Visualisation</a></li>
+<li class="chapter" data-level="9.4.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploratory-analysis-1"><i class="fa fa-check"></i><b>9.4.2</b> Exploratory Analysis</a></li>
+<li class="chapter" data-level="9.4.3" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>9.4.3</b> Spatio-Temporal Data Modelling</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -282,7 +294,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Cressie, Noel. 2015. <em>Statistics for Spatial Data</em>. John Wiley &amp; Sons.</p>
 </div>
 <div>
+<p>Cressie, Noel, and Gardar Johannesson. 2008. “Fixed Rank Kriging for Very Large Spatial Data Sets.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 70 (1). Wiley Online Library: 209–26.</p>
+</div>
+<div>
 <p>Fotheringham, Stewart, Chris Brunsdon, and Martin Charlton. 2002. <em>Geographically Weighted Regression</em>. John Wiley &amp; Sons.</p>
+</div>
+<div>
+<p>Gabadinho, Alexis, Gilbert Ritschard, Matthias Studer, and Nicolas S Müller. 2009. “Mining Sequence Data in R with the Traminer Package: A User’s Guide.” <em>Geneva: Department of Econometrics and Laboratory of Demography, University of Geneva</em>.</p>
 </div>
 <div>
 <p>Gelman, Andrew, and Jennifer Hill. 2006a. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge University Press.</p>
@@ -297,6 +315,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Grolemund, Garrett, and Hadley Wickham. 2019. <em>R for Data Science</em>. O’Reilly, US. <a href="https://r4ds.had.co.nz" class="uri">https://r4ds.had.co.nz</a>.</p>
 </div>
 <div>
+<p>Hyndman, Rob J, and George Athanasopoulos. 2018. <em>Forecasting: Principles and Practice</em>. OTexts.</p>
+</div>
+<div>
 <p>Lovelace, Robin, and James Cheshire. 2014. “Introduction to visualising spatial data in R.” <em>National Centre for Research Methods Working Papers</em> 14 (03). <a href="https://github.com/Robinlovelace/Creating-maps-in-R" class="uri">https://github.com/Robinlovelace/Creating-maps-in-R</a>.</p>
 </div>
 <div>
@@ -309,6 +330,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Multilevel Modelling, Centre for. n.d. “Introduction to Multilevel Modelling.” <a href="http://www.bristol.ac.uk/cmm/learning/online-course/course-topics.html#m04" class="uri">http://www.bristol.ac.uk/cmm/learning/online-course/course-topics.html#m04</a>.</p>
 </div>
 <div>
+<p>Pebesma, Edzer, and others. 2012. “Spacetime: Spatio-Temporal Data in R.” <em>Journal of Statistical Software</em> 51 (7): 1–30.</p>
+</div>
+<div>
 <p>Rowe, Francisco, Nikos Patias, and Dani Arribas-Bel. 2020. “Policy Brief: Neighbourhood Change and Trajectories of Inequality in Britain, 1971-2011.”</p>
 </div>
 <div>
@@ -318,13 +342,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Wheeler, David, and Michael Tiefelsdorf. 2005. “Multicollinearity and Correlation Among Local Regression Coefficients in Geographically Weighted Regression.” <em>Journal of Geographical Systems</em> 7 (2). Springer: 161–87.</p>
 </div>
 <div>
+<p>Wikle, Christopher K, Andrew Zammit-Mangion, and Noel Cressie. 2019. <em>Spatio-Temporal Statistics with R</em>. CRC Press.</p>
+</div>
+<div>
 <p>Williamson, Paul. 2018. “Survey Analysis.”</p>
 </div>
 <div>
 <p>Xie, Yihui, JJ Allaire, and Garrett Grolemund. 2019. <em>R Markdown: The Definitive Guide</em>. CRC Press, Taylor &amp; Francis, Chapman &amp; Hall Book. <a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a>.</p>
 </div>
+<div>
+<p>Zammit-Mangion, Andrew, and Noel Cressie. 2017. “FRK: An R Package for Spatial and Spatio-Temporal Prediction with Large Datasets.” <em>arXiv Preprint arXiv:1705.08105</em>.</p>
 </div>
 </div>
+</div>
+
+
+
 
 
 
@@ -382,7 +415,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="space-time-analysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="spatio-temporal-analysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

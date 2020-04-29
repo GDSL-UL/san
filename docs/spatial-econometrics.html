@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-04-23" />
+<meta name="date" content="2020-04-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -216,7 +216,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.6.8" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#collinearity-in-gwr"><i class="fa fa-check"></i><b>8.6.8</b> Collinearity in GWR</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="space-time-analysis.html"><a href="space-time-analysis.html"><i class="fa fa-check"></i><b>9</b> Space-Time Analysis</a></li>
+<li class="chapter" data-level="9" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html"><i class="fa fa-check"></i><b>9</b> Spatio-Temporal Analysis</a><ul>
+<li class="chapter" data-level="9.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#dependencies-7"><i class="fa fa-check"></i><b>9.1</b> Dependencies</a></li>
+<li class="chapter" data-level="9.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-6"><i class="fa fa-check"></i><b>9.2</b> Data</a></li>
+<li class="chapter" data-level="9.3" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#why-spatio-temporal-analysis"><i class="fa fa-check"></i><b>9.3</b> Why Spatio-Temporal Analysis?</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#spatio-temporal-data-structures"><i class="fa fa-check"></i><b>9.3.1</b> Spatio-temporal Data Structures</a></li>
+<li class="chapter" data-level="9.3.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-wrangling"><i class="fa fa-check"></i><b>9.3.2</b> Data Wrangling</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>9.4</b> Exploring Spatio-Temporal Data</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#visualisation"><i class="fa fa-check"></i><b>9.4.1</b> Visualisation</a></li>
+<li class="chapter" data-level="9.4.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploratory-analysis-1"><i class="fa fa-check"></i><b>9.4.2</b> Exploratory Analysis</a></li>
+<li class="chapter" data-level="9.4.3" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>9.4.3</b> Spatio-Temporal Data Modelling</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -284,6 +296,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## Checking rgeos availability: TRUE</code></pre>
 <pre><code>## Loading required package: RColorBrewer</code></pre>
 <pre><code>## Loading required package: MASS</code></pre>
+<pre><code>## Warning: package &#39;MASS&#39; was built under R version 3.6.2</code></pre>
 <pre><code>## Loading required package: rgeos</code></pre>
 <pre><code>## rgeos version: 0.5-2, (SVN revision 621)
 ##  GEOS runtime version: 3.7.2-CAPI-1.11.2 
@@ -733,7 +746,7 @@ hknn &lt;-<span class="st"> </span><span class="kw">nb2listw</span>(hnb)</code><
 ## Weights style: W 
 ## Weights constants summary:
 ##      n       nn   S0       S1       S2
-## W 6324 39992976 6324 230.4808 25814.59</code></pre>
+## W 6324 39992976 6324 230.4152 25817.22</code></pre>
 <p><strong>Exogenous spatial effects</strong></p>
 <p>Let us come back to the house price example we have been working with. So far, we have hypothesized that the price of a house sold in Liverpool can be explained using information about whether it is newly built, the level of deprivation of the area where it is located, and its postcode. However, it is also reasonable to think that prospective house owners care about the larger area around a house, not only about its immediate surroundings, and would be willing to pay more for a house that was close to nicer areas, everything else being equal. How could we test this idea?</p>
 <p>The most straightforward way to introduce spatial dependence in a regression is by considering not only a given explanatory variable, but also its spatial lag. In our example case, in addition to including the level of deprivation in the area of the house, we will include its spatial lag. In other words, we will be saying that it is not only the level of deprivation of the area where a house is located but also that of the surrounding locations that helps explain the final price at which a house is sold. Mathematically, this implies estimating the following model:</p>
@@ -752,19 +765,19 @@ m6 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#3
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2907 -0.3018 -0.0153  0.2817  5.2632 
+## -4.2906 -0.3015 -0.0151  0.2817  5.2631 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 12.2810935  0.0145287 845.299  &lt; 2e-16 ***
-## newY         0.2475926  0.0195199  12.684  &lt; 2e-16 ***
-## imd_score   -0.0042364  0.0008921  -4.749 2.09e-06 ***
-## w_imd_score -0.0147818  0.0009690 -15.255  &lt; 2e-16 ***
+## (Intercept) 12.2811995  0.0145287 845.308  &lt; 2e-16 ***
+## newY         0.2474899  0.0195191  12.679  &lt; 2e-16 ***
+## imd_score   -0.0042294  0.0008916  -4.743 2.15e-06 ***
+## w_imd_score -0.0147915  0.0009685 -15.272  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 0.5201 on 6320 degrees of freedom
-## Multiple R-squared:  0.3346, Adjusted R-squared:  0.3343 
+## Multiple R-squared:  0.3347, Adjusted R-squared:  0.3344 
 ## F-statistic:  1060 on 3 and 6320 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>As we can see, the lag is not only significative and negative (as expected), but its effect seems to be even larger that that of the house itself. Taken literally, this would imply that prospective owners value more the area of the surrounding houses than that of the actual house they buy. However, it is important to remember how these variables have been constructed and what they really represent. Because the IMD score is not exactly calculated at the house level, but at the area level, many of the surrounding houses will share that so, to some extent, the IMD of neighboring houses is that of the house itself<a href="#fn36" class="footnoteRef" id="fnref36"><sup>36</sup></a>. This is likely to be affecting the final parameter, and it is a reminder and an illustration that we cannot take model results as universal truth but we need to use them as tools to inform analysis, couple with theory and what we know about the particular question of analysis. Nevertheless, the example does illustrate how to introduce spatial dependence in a regression framework in a fairly straight forward way.</p>
 <p><strong>A note on more advanced spatial regression</strong></p>
@@ -799,11 +812,11 @@ u_i = u_{lag-i} + \epsilon_i
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new.price &lt;-<span class="st"> </span><span class="kw">predict</span>(m6, new.house)
 new.price</code></pre></div>
 <pre><code>##        1 
-## 11.47186</code></pre>
+## 11.47191</code></pre>
 <p>Now remember we were using the log of the price as dependent variable. If we want to recover the actual price of the house, we need to take its exponent:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(new.price)</code></pre></div>
 <pre><code>##        1 
-## 95976.82</code></pre>
+## 95981.56</code></pre>
 <p>According to our model, the house would be worth GBP96,060.29<a href="#fn37" class="footnoteRef" id="fnref37"><sup>37</sup></a>.</p>
 </div>
 <div id="references-1" class="section level2">

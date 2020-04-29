@@ -317,8 +317,8 @@ imap = tm_shape(dplyr::filter(covid19_spt[,c("ctyu19nm", "date", "c_covid19_r")]
             legend.title.size = 1,
             legend.width = 1) 
 
-tmap_mode("view")
-imap
+#tmap_mode("view")
+#imap
 ```
     
 Alternative data visualisation tools are animations, telliscope and shiny. Animations can be constructed by plotting spatial data frame-by-frame, and then stringing them together in sequence. A useful R packages `gganimate` and `tmap`! See @Lovelace_et_al_2020_book. Note that the creation of animations may require external dependencies; hence, they have been included here. Both `telliscope` and `shiny` are useful ways for visualising large spatio-temporal data sets in an interactive ways. Some effort is required to deploy these tools.
