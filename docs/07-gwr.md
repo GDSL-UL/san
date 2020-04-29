@@ -367,7 +367,7 @@ Cross-validation is used to search for the optimal bandwidth. Recall that this p
 # find optimal kernel bandwidth using cross validation
 fbw <- gwr.sel(eq1, 
                data = utla_shp, 
-               coords=cbind( lat, long),
+               coords=cbind( long, lat),
                longlat = TRUE,
                adapt=FALSE, 
                gweight = gwr.Gauss, 
@@ -378,7 +378,7 @@ fbw
 ```
 
 ```
-## [1] 39.79709
+## [1] 29.30417
 ```
 
 The result indicates that the optimal bandwidth is 39.79 kms. This means that neighbouring UTLAs within a fixed radius of 39.79 kms will be taken to estimate local regressions. To estimate a GWR, we execute the code below in which the optimal bandwidth above is used as an input in the argument `bandwidth`.
@@ -388,7 +388,7 @@ The result indicates that the optimal bandwidth is 39.79 kms. This means that ne
 # fit a gwr based on fixed bandwidth
 fb_gwr <- gwr(eq1, 
             data = utla_shp,
-            coords=cbind( lat, long),
+            coords=cbind( long, lat),
             longlat = TRUE,
             bandwidth = fbw, 
             gweight = gwr.Gauss,
@@ -400,28 +400,28 @@ fb_gwr
 
 ```
 ## Call:
-## gwr(formula = eq1, data = utla_shp, coords = cbind(lat, long), 
+## gwr(formula = eq1, data = utla_shp, coords = cbind(long, lat), 
 ##     bandwidth = fbw, gweight = gwr.Gauss, hatmatrix = TRUE, longlat = TRUE, 
 ##     se.fit = TRUE)
 ## Kernel function: gwr.Gauss 
-## Fixed bandwidth: 39.79709 
+## Fixed bandwidth: 29.30417 
 ## Summary of GWR coefficient estimates at data points:
 ##                   Min.   1st Qu.    Median   3rd Qu.      Max.  Global
-## X.Intercept.  -191.648   -27.948    95.366   235.818   689.921  63.768
-## ethnic        -651.291   111.928   199.139   261.223  1008.347 271.096
-## lt_illness   -2112.245  -735.222   131.716   660.402  1398.447 216.198
+## X.Intercept.  -187.913   -42.890    93.702   211.685   792.989  63.768
+## ethnic        -785.938   104.813   194.609   254.717  1078.854 271.096
+## lt_illness   -2599.119  -563.128   128.176   690.603  1507.024 216.198
 ## Number of data points: 150 
-## Effective number of parameters (residual: 2traceS - traceS'S): 53.7278 
-## Effective degrees of freedom (residual: 2traceS - traceS'S): 96.2722 
-## Sigma (residual: 2traceS - traceS'S): 38.87087 
-## Effective number of parameters (model: traceS): 41.74245 
-## Effective degrees of freedom (model: traceS): 108.2576 
-## Sigma (model: traceS): 36.65605 
-## Sigma (ML): 31.14075 
-## AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): 1577.913 
-## AIC (GWR p. 96, eq. 4.22): 1498.979 
-## Residual sum of squares: 145462 
-## Quasi-global R2: 0.768978
+## Effective number of parameters (residual: 2traceS - traceS'S): 57.11019 
+## Effective degrees of freedom (residual: 2traceS - traceS'S): 92.88981 
+## Sigma (residual: 2traceS - traceS'S): 38.34777 
+## Effective number of parameters (model: traceS): 44.65744 
+## Effective degrees of freedom (model: traceS): 105.3426 
+## Sigma (model: traceS): 36.00992 
+## Sigma (ML): 30.17717 
+## AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): 1580.349 
+## AIC (GWR p. 96, eq. 4.22): 1492.465 
+## Residual sum of squares: 136599.2 
+## Quasi-global R2: 0.7830537
 ```
 
 We will skip the interpretation of the results for now and consider them in the next section. Now, we want to focus on the overall model fit and will map the results of the $R^{2}$ for the estimated local regressions. To do this, we extract the model results stored in a Spatial Data Frame (SDF) and add them to our spatial data frame `utla_shp`. Note that the Quasi-global $R^{2}$ is very high (0.77) indicating a high in-sample prediction accuracy.
@@ -459,7 +459,7 @@ To reduce these problems, adaptive spatial kernels can be used. These kernels ad
 # find optimal kernel bandwidth using cross validation
 abw <- gwr.sel(eq1, 
                data = utla_shp, 
-               coords=cbind( lat, long),
+               coords=cbind( long, lat),
                longlat = TRUE,
                adapt = TRUE, 
                gweight = gwr.Gauss, 
@@ -470,7 +470,7 @@ abw
 ```
 
 ```
-## [1] 0.0299492
+## [1] 0.03126972
 ```
 
 The optimal bandwidth is 0.03 indicating the proportion of observations (or k-nearest neighbours) to be included in  the weighthing scheme. In this example, the optimal bandwidth indcates that for a given UTLA 3% of its nearest neighbours should be used to calibrate the relevant local regression; that is about 5 UTLAs. The search window will thus be variable in size depending on the extent of UTLAs. Note that here the optimal bandwidth is defined based on a data point's k-nearest neighbours. It can also be defined by on geographical distance as done above for the fixed spatial kernel. We next fit a GWR based on an adaptive bandwidth.
@@ -480,7 +480,7 @@ The optimal bandwidth is 0.03 indicating the proportion of observations (or k-ne
 # fit a gwr based on adaptive bandwidth
 ab_gwr <- gwr(eq1, 
             data = utla_shp,
-            coords=cbind( lat, long),
+            coords=cbind( long, lat),
             longlat = TRUE,
             adapt = abw, 
             gweight = gwr.Gauss,
@@ -492,28 +492,28 @@ ab_gwr
 
 ```
 ## Call:
-## gwr(formula = eq1, data = utla_shp, coords = cbind(lat, long), 
+## gwr(formula = eq1, data = utla_shp, coords = cbind(long, lat), 
 ##     gweight = gwr.Gauss, adapt = abw, hatmatrix = TRUE, longlat = TRUE, 
 ##     se.fit = TRUE)
 ## Kernel function: gwr.Gauss 
-## Adaptive quantile: 0.0299492 (about 4 of 150 data points)
+## Adaptive quantile: 0.03126972 (about 4 of 150 data points)
 ## Summary of GWR coefficient estimates at data points:
-##                  Min.  1st Qu.   Median  3rd Qu.     Max.  Global
-## X.Intercept.  -204.03   -18.69   124.56   242.76   386.98  63.768
-## ethnic        -148.41   106.29   234.78   291.24  1076.84 271.096
-## lt_illness   -2088.79  -868.29  -106.46   782.93  1510.41 216.198
+##                   Min.   1st Qu.    Median   3rd Qu.      Max.  Global
+## X.Intercept.  -198.790   -28.398   113.961   226.437   346.510  63.768
+## ethnic        -121.872   106.822   229.591   283.739  1162.123 271.096
+## lt_illness   -1907.098  -746.468  -125.855   798.875  1496.549 216.198
 ## Number of data points: 150 
-## Effective number of parameters (residual: 2traceS - traceS'S): 50.87778 
-## Effective degrees of freedom (residual: 2traceS - traceS'S): 99.12222 
-## Sigma (residual: 2traceS - traceS'S): 37.12782 
-## Effective number of parameters (model: traceS): 37.82821 
-## Effective degrees of freedom (model: traceS): 112.1718 
-## Sigma (model: traceS): 34.90142 
-## Sigma (ML): 30.18139 
-## AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): 1553.579 
-## AIC (GWR p. 96, eq. 4.22): 1485.677 
-## Residual sum of squares: 136637.5 
-## Quasi-global R2: 0.782993
+## Effective number of parameters (residual: 2traceS - traceS'S): 48.59361 
+## Effective degrees of freedom (residual: 2traceS - traceS'S): 101.4064 
+## Sigma (residual: 2traceS - traceS'S): 36.57493 
+## Effective number of parameters (model: traceS): 36.04378 
+## Effective degrees of freedom (model: traceS): 113.9562 
+## Sigma (model: traceS): 34.50222 
+## Sigma (ML): 30.07257 
+## AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): 1546.029 
+## AIC (GWR p. 96, eq. 4.22): 1482.809 
+## Residual sum of squares: 135653.9 
+## Quasi-global R2: 0.7845551
 ```
 
 ### Model fit
@@ -617,7 +617,7 @@ table(utla_shp$t_ethnic_cat)
 ```
 ## 
 ##    sig nonsig 
-##    101     49
+##    105     45
 ```
  
 For the share of nonwhite population, 67% of all local coefficients are statistically significant and these are largerly in the South of England. Coefficients in the North tend to be insignificant. Through outliers exist in both regions. In the South, nonsignificant coefficients are observed in the metropolitan areas of London, Birmingham and Nottingham, while significant coefficients exist in the areas of Newcastle and Middlesbrough in the North.
