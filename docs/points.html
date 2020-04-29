@@ -221,12 +221,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-6"><i class="fa fa-check"></i><b>9.2</b> Data</a></li>
 <li class="chapter" data-level="9.3" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#why-spatio-temporal-analysis"><i class="fa fa-check"></i><b>9.3</b> Why Spatio-Temporal Analysis?</a><ul>
 <li class="chapter" data-level="9.3.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#spatio-temporal-data-structures"><i class="fa fa-check"></i><b>9.3.1</b> Spatio-temporal Data Structures</a></li>
-<li class="chapter" data-level="9.3.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-wrangling"><i class="fa fa-check"></i><b>9.3.2</b> Data Wrangling</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>9.4</b> Exploring Spatio-Temporal Data</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#visualisation"><i class="fa fa-check"></i><b>9.4.1</b> Visualisation</a></li>
-<li class="chapter" data-level="9.4.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploratory-analysis-1"><i class="fa fa-check"></i><b>9.4.2</b> Exploratory Analysis</a></li>
-<li class="chapter" data-level="9.4.3" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>9.4.3</b> Spatio-Temporal Data Modelling</a></li>
+<li class="chapter" data-level="9.4" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-wrangling"><i class="fa fa-check"></i><b>9.4</b> Data Wrangling</a></li>
+<li class="chapter" data-level="9.5" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>9.5</b> Exploring Spatio-Temporal Data</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#visualisation"><i class="fa fa-check"></i><b>9.5.1</b> Visualisation</a></li>
+<li class="chapter" data-level="9.5.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploratory-analysis-1"><i class="fa fa-check"></i><b>9.5.2</b> Exploratory Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>9.6</b> Spatio-Temporal Data Modelling</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#intuition"><i class="fa fa-check"></i><b>9.6.1</b> Intuition</a></li>
+<li class="chapter" data-level="9.6.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#fitting-spatio-temporal-models"><i class="fa fa-check"></i><b>9.6.2</b> Fitting Spatio-Temporal Models</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
@@ -555,21 +558,21 @@ Figure 3.7: KDE of house transactions in Liverpool
 <p>The object we get from <code>idw</code> is another spatial table, just as <code>db</code>, containing the interpolated values. As such, we can inspect it just as with any other of its kind. For example, to check out the top of the estimated table:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(idw.hp<span class="op">@</span>data)</code></pre></div>
 <pre><code>##   var1.pred var1.var
-## 1  158074.4       NA
-## 2  158184.7       NA
-## 3  158297.8       NA
-## 4  158413.7       NA
-## 5  158532.8       NA
-## 6  158654.9       NA</code></pre>
+## 1  158073.3       NA
+## 2  158183.6       NA
+## 3  158296.6       NA
+## 4  158412.5       NA
+## 5  158531.5       NA
+## 6  158653.6       NA</code></pre>
 <p>The column we will pay attention to is <code>var1.pred</code>. And to see the locations for which those correspond:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(idw.hp<span class="op">@</span>coords)</code></pre></div>
 <pre><code>##            x1       x2
-## [1,] 333575.4 382729.9
-## [2,] 333660.3 382729.9
-## [3,] 333745.3 382729.9
-## [4,] 333830.3 382729.9
-## [5,] 333915.2 382729.9
-## [6,] 334000.2 382729.9</code></pre>
+## [1,] 333575.7 382723.4
+## [2,] 333660.6 382723.4
+## [3,] 333745.6 382723.4
+## [4,] 333830.5 382723.4
+## [5,] 333915.5 382723.4
+## [6,] 334000.5 382723.4</code></pre>
 <p>So, for a hypothetical house sold at the location in the first row of <code>idw.hp@coords</code> (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column <code>var1.pred</code> in <code>idw.hp@data</code>.</p>
 </div>
 <div id="a-surface-of-housing-prices" class="section level3">

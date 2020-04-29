@@ -221,12 +221,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-6"><i class="fa fa-check"></i><b>9.2</b> Data</a></li>
 <li class="chapter" data-level="9.3" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#why-spatio-temporal-analysis"><i class="fa fa-check"></i><b>9.3</b> Why Spatio-Temporal Analysis?</a><ul>
 <li class="chapter" data-level="9.3.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#spatio-temporal-data-structures"><i class="fa fa-check"></i><b>9.3.1</b> Spatio-temporal Data Structures</a></li>
-<li class="chapter" data-level="9.3.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-wrangling"><i class="fa fa-check"></i><b>9.3.2</b> Data Wrangling</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>9.4</b> Exploring Spatio-Temporal Data</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#visualisation"><i class="fa fa-check"></i><b>9.4.1</b> Visualisation</a></li>
-<li class="chapter" data-level="9.4.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploratory-analysis-1"><i class="fa fa-check"></i><b>9.4.2</b> Exploratory Analysis</a></li>
-<li class="chapter" data-level="9.4.3" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>9.4.3</b> Spatio-Temporal Data Modelling</a></li>
+<li class="chapter" data-level="9.4" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-wrangling"><i class="fa fa-check"></i><b>9.4</b> Data Wrangling</a></li>
+<li class="chapter" data-level="9.5" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>9.5</b> Exploring Spatio-Temporal Data</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#visualisation"><i class="fa fa-check"></i><b>9.5.1</b> Visualisation</a></li>
+<li class="chapter" data-level="9.5.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploratory-analysis-1"><i class="fa fa-check"></i><b>9.5.2</b> Exploratory Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>9.6</b> Spatio-Temporal Data Modelling</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#intuition"><i class="fa fa-check"></i><b>9.6.1</b> Intuition</a></li>
+<li class="chapter" data-level="9.6.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#fitting-spatio-temporal-models"><i class="fa fa-check"></i><b>9.6.2</b> Fitting Spatio-Temporal Models</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
@@ -338,8 +341,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>More details on these spatio-temporal structures, construction and manipulation, see <span class="citation">Pebesma and others (<a href="#ref-pebesma2012spacetime">2012</a>)</span>. Enough theory, let’s code!</p>
 </div>
 </div>
-<div id="data-wrangling" class="section level3">
-<h3><span class="header-section-number">9.3.2</span> Data Wrangling</h3>
+</div>
+<div id="data-wrangling" class="section level2">
+<h2><span class="header-section-number">9.4</span> Data Wrangling</h2>
 <p>This section illustrates the complexities of handling spatio-temporal data. It discusses good practices in data manipulation and construction of a Space Time Irregular Data Frame (STIDF) object. Three key requirements to define a STFDF object are:</p>
 <ol style="list-style-type: decimal">
 <li><p>Have a data frame in long format i.e. a location-time pair data frame</p></li>
@@ -433,12 +437,11 @@ covid19_spt &lt;-<span class="st"> </span><span class="kw">left_join</span>(covi
                          <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;ctyu19nm&quot;</span> =<span class="st"> &quot;UTLA19NM&quot;</span>))
 covid19 &lt;-<span class="st"> </span><span class="kw">left_join</span>(covid19, pop, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Area.name&quot;</span> =<span class="st"> &quot;UTLA19NM&quot;</span>))</code></pre></div>
 </div>
-</div>
 <div id="exploring-spatio-temporal-data" class="section level2">
-<h2><span class="header-section-number">9.4</span> Exploring Spatio-Temporal Data</h2>
+<h2><span class="header-section-number">9.5</span> Exploring Spatio-Temporal Data</h2>
 <p>We now have all the required data in place. In this section first various methods of data visualisation are illustrated and then key dimensions of the data are explored. Both of these types of exploration can be challenging as one or more dimensions in space and one in time need to be interrogated.</p>
 <div id="visualisation" class="section level3">
-<h3><span class="header-section-number">9.4.1</span> Visualisation</h3>
+<h3><span class="header-section-number">9.5.1</span> Visualisation</h3>
 <p>In the context spatio-temporal data, a first challenge is data visualization. Visualising more than two dimensions of spatio-temporal data, so it is helpful to slice or aggregate the data over a dimension, use color, or build animations through time. Before exploring the data, we need to define our key variable of interest; that is, the number of confirmed COVID-19 cases per 100,000 people. We also compute the cumulative number of confirmed COVID-19 cases per 100,000 people as it may be handy in some analyses.</p>
 <p>Fisrt create variable to be analysed:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># rate of new covid-19 infection</span>
@@ -449,7 +452,7 @@ covid19<span class="op">$</span>n_covid19_r &lt;-<span class="st"> </span><span 
 covid19_spt<span class="op">$</span>c_covid19_r &lt;-<span class="st"> </span><span class="kw">round</span>( (covid19_spt<span class="op">$</span>Cumulative.lab.confirmed.cases <span class="op">/</span><span class="st"> </span>covid19_spt<span class="op">$</span>Residents) <span class="op">*</span><span class="st"> </span><span class="dv">100000</span>)
 covid19<span class="op">$</span>c_covid19_r &lt;-<span class="st"> </span><span class="kw">round</span>( (covid19<span class="op">$</span>Cumulative.lab.confirmed.cases <span class="op">/</span><span class="st"> </span>covid19<span class="op">$</span>Residents) <span class="op">*</span><span class="st"> </span><span class="dv">100000</span>)</code></pre></div>
 <div id="spatial-plots" class="section level4">
-<h4><span class="header-section-number">9.4.1.1</span> Spatial Plots</h4>
+<h4><span class="header-section-number">9.5.1.1</span> Spatial Plots</h4>
 <p>One way to visualise the data is using spatial plots; that is, snapshots of a geographic process for a given time period. Data can be mapped in different ways using clorepleth, countour or surface plots. The key aim of these maps is to understand how the overall extent of spatial variation and local patterns of spatial concentration change over time. Below we visualise the weekly number of confirmed COVID-19 cases per 100,000 people.</p>
 <blockquote>
 <p>Note that Weeks range from 5 to 16 as they refer to calendar weeks. Calendar week 5 is when the first COVID-19 case in England was reported.</p>
@@ -480,7 +483,7 @@ legend_title =<span class="st"> </span><span class="kw">expression</span>(<span 
 <p>The series of maps reveal a stable pattern of low reported cases from calendar weeks 5 to 11. From week 12 a number of hot spots emerged, notably in London, Birmingham, Cumbria and subsequently around Liverpool. The intensity of new cases seem to have started to decline from week 15; yet, it is important to note that week 16 display reported cases for only two days.</p>
 </div>
 <div id="time-series-plots" class="section level4">
-<h4><span class="header-section-number">9.4.1.2</span> Time-Series Plots</h4>
+<h4><span class="header-section-number">9.5.1.2</span> Time-Series Plots</h4>
 <p>Time-series plots can be used to capture a different dimension of the process in analysis. They can be used to better understand changes in an observation location, an aggregation of observations, or multiple locations simultaneously over time. We plot the cumulative number of COVID-19 cases per 100,000 people for UTLAs reporting over 310 cases. The plots identify the UTLAs in London, Newcastle and Sheffield reporting the largest numbers of COVID-19 cases. The plots also reveal that there has been a steady increase in the number of cases, with some differences. While cases have steadily increase in Brent and Southwark since mid March, the rise has been more sudden in Sunderland. The plots also reveal a possible case of misreporting in Sutton towards the end of the series.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tsp &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> covid19_spt,
             <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> c_covid19_r,
@@ -499,7 +502,7 @@ tsp <span class="op">+</span><span class="st"> </span><span class="kw">geom_line
 <p><img src="08-st_analysis_files/figure-html/unnamed-chunk-10-1.png" width="1152" /></p>
 </div>
 <div id="hovmöller-plots" class="section level4">
-<h4><span class="header-section-number">9.4.1.3</span> Hovmöller Plots</h4>
+<h4><span class="header-section-number">9.5.1.3</span> Hovmöller Plots</h4>
 <p>An alternative visualisation is a Hovmöller plot - sometimes known as heatmap. It is a two-dimensional space-time representation in which space is collapsed onto one dimension against time. Hovmöller plots can easily be generated if the data are arranged on a space-time grid; however, this is rarely the case. Luckily we have <code>ggplot</code>! which can do magic rearranging the data as needed. Below we produce a Hovmöller plot for UTLAs with resident populations over 260,000. The plot makes clear that the critical period of COVID-19 spread has been during April despite the implementation of a series of social distancing measures by the government.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> dplyr<span class="op">::</span><span class="kw">filter</span>(covid19_spt, Residents <span class="op">&gt;</span><span class="st"> </span><span class="dv">260000</span>), 
            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span> date, <span class="dt">y=</span> <span class="kw">reorder</span>(ctyu19nm, c_covid19_r), <span class="dt">fill=</span> c_covid19_r)) <span class="op">+</span>
@@ -516,7 +519,7 @@ tsp <span class="op">+</span><span class="st"> </span><span class="kw">geom_line
 <p><img src="08-st_analysis_files/figure-html/unnamed-chunk-11-1.png" width="1152" /></p>
 </div>
 <div id="interactive-plots" class="section level4">
-<h4><span class="header-section-number">9.4.1.4</span> Interactive Plots</h4>
+<h4><span class="header-section-number">9.5.1.4</span> Interactive Plots</h4>
 <p>Interactive visualisations comprise very effective ways to understand spatio-temporal data and they are now fairly accessible. Interactive visualisations allow for a more data-immersive experience, and enable exploration of the data without having to resort to scripting. Here is when the use of <code>tmap</code> shines as it does not only enables easily creating nice static maps but also interactive maps! Below an interactive map for a time snapshot of the data (i.e. <code>2020-04-14</code>) is produced, but with a bit of work layers can be added to display multiple temporal slices of the data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># map</span>
 legend_title =<span class="st"> </span><span class="kw">expression</span>(<span class="st">&quot;Cumulative Cases per 100,000 Population&quot;</span>)
@@ -527,19 +530,18 @@ imap =<span class="st"> </span><span class="kw">tm_shape</span>(dplyr<span class
 <span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">bg.color =</span> <span class="st">&quot;white&quot;</span>, <span class="co"># change background colour</span>
             <span class="dt">legend.outside =</span> <span class="ot">TRUE</span>, <span class="co"># legend outside</span>
             <span class="dt">legend.title.size =</span> <span class="dv">1</span>,
-            <span class="dt">legend.width =</span> <span class="dv">1</span>) 
-
-<span class="kw">tmap_mode</span>(<span class="st">&quot;view&quot;</span>)</code></pre></div>
-<pre><code>## tmap mode set to interactive viewing</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#imap</span></code></pre></div>
+            <span class="dt">legend.width =</span> <span class="dv">1</span>) </code></pre></div>
+<p>To view the map on your local machines, execute the code chunk below removing the <code>#</code> sign.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#tmap_mode(&quot;view&quot;)</span>
+<span class="co">#imap</span></code></pre></div>
 <p>Alternative data visualisation tools are animations, telliscope and shiny. Animations can be constructed by plotting spatial data frame-by-frame, and then stringing them together in sequence. A useful R packages <code>gganimate</code> and <code>tmap</code>! See <span class="citation">Lovelace, Nowosad, and Muenchow (<a href="#ref-Lovelace_et_al_2020_book">2020</a>)</span>. Note that the creation of animations may require external dependencies; hence, they have been included here. Both <code>telliscope</code> and <code>shiny</code> are useful ways for visualising large spatio-temporal data sets in an interactive ways. Some effort is required to deploy these tools.</p>
 </div>
 </div>
 <div id="exploratory-analysis-1" class="section level3">
-<h3><span class="header-section-number">9.4.2</span> Exploratory Analysis</h3>
+<h3><span class="header-section-number">9.5.2</span> Exploratory Analysis</h3>
 <p>In addition to visualising data, we often want to obtain numerical summaries of the data. Again, innovative ways to reduce the inherent dimensionality of the data and examine dependence structures and potential relationships in time and space are needed. We consider visualisations of empirical spatial and temporal means, dependence structures and some basic time-series analysis.</p>
 <div id="means" class="section level4">
-<h4><span class="header-section-number">9.4.2.1</span> Means</h4>
+<h4><span class="header-section-number">9.5.2.1</span> Means</h4>
 <p><strong>Empirical Spatial Mean</strong></p>
 <p>The empirical spatial mean for a data set can be obtained by averaging over time points for one location. In our case, we can compute the empirical spatial mean by averaging the daily rate of new COVID-19 cases for UTLAs between January 30th and April 21st. It reveals that Brent, Southwark and Sunderland report an average daily infection rate of over 5 new cases per 100,000 people, whereas Rutland and Isle of Wight display an average of less than 1.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># compute empirical spatial mean</span>
@@ -555,7 +557,7 @@ sp_av &lt;-<span class="st"> </span>covid19_spt <span class="op">%&gt;%</span><s
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">7</span>)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>, <span class="dt">face=</span><span class="st">&quot;plain&quot;</span>))</code></pre></div>
-<p><img src="08-st_analysis_files/figure-html/unnamed-chunk-13-1.png" width="1152" /></p>
+<p><img src="08-st_analysis_files/figure-html/unnamed-chunk-14-1.png" width="1152" /></p>
 <p><strong>Empirical Temporal Mean</strong></p>
 <p>The empirical temporal mean for a data set can be obtained by averaging across spatial locations for a time point. In our case, we can compute the empirical temporal mean by averaging the rate of new COVID-19 cases over UTLAs by day. The empirical temporal mean is plotted below revealing a peak of 8.32 number of new cases per 100,000 people the 7th of April, steadily decreasing to 0.35 for the last reporting observation in our data; that is, April 21st.</p>
 <blockquote>
@@ -581,10 +583,10 @@ tm_av &lt;-<span class="st"> </span>covid19 <span class="op">%&gt;%</span><span 
 <span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">theme</span>(<span class="dt">plot.subtitle=</span><span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">18</span>, <span class="dt">face=</span><span class="st">&quot;plain&quot;</span>))</code></pre></div>
-<p><img src="08-st_analysis_files/figure-html/unnamed-chunk-14-1.png" width="1152" /></p>
+<p><img src="08-st_analysis_files/figure-html/unnamed-chunk-15-1.png" width="1152" /></p>
 </div>
 <div id="dependence" class="section level4">
-<h4><span class="header-section-number">9.4.2.2</span> Dependence</h4>
+<h4><span class="header-section-number">9.5.2.2</span> Dependence</h4>
 <p><strong>Spatial Dependence</strong></p>
 <p>As we know spatial dependence refers to the spatial relationship of a variable’s values for a pairs of locations at a certain distance apart, so that are more similar (or less similar) than expected for randomly associated pairs of observations. Patterns of spatial dependence may change over time. In the case of a disease outbreak patterns of spatial dependence can change very quickly as new cases emerge and social distancing measures are implemented. Chapter 6 illustrates how to measure spatial dependence in the context of spatial data.</p>
 <blockquote>
@@ -622,12 +624,13 @@ total_cnt &lt;-<span class="st"> </span><span class="kw">cbind</span>(total_cnt[
 dec_ts &lt;-<span class="st"> </span><span class="kw">decompose</span>(total_cases_ts)
 <span class="co"># plot time series components</span>
 <span class="kw">plot</span>(dec_ts)</code></pre></div>
-<p><img src="08-st_analysis_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="08-st_analysis_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>For a good introduction to time-series analysis in R, refer to <span class="citation">Hyndman and Athanasopoulos (<a href="#ref-hyndman2018forecasting">2018</a>)</span> and <a href="https://www.datacamp.com/courses/forecasting-using-r">DataCamp</a>.</p>
 </div>
 </div>
-<div id="spatio-temporal-data-modelling" class="section level3">
-<h3><span class="header-section-number">9.4.3</span> Spatio-Temporal Data Modelling</h3>
+</div>
+<div id="spatio-temporal-data-modelling" class="section level2">
+<h2><span class="header-section-number">9.6</span> Spatio-Temporal Data Modelling</h2>
 <p>Having some understanding of the spatio-temporal patterns of COVID-19 spread through data exploration, we are ready to start further examining structural relationships between the rate of new infections and local contextual factors via regression modelling across UTLAs. Specifically we consider the number of new cases per 100,000 people to capture the rate of new infections and only one contextual factor; that is, the share of population suffering from long-term sickness or disabled. We will consider some basic statistical models, of the form of linear regression and generalized linear models, to account for spatio-temporal dependencies in the data. Note that we do not consider more complex structures based on hierarchical models or spatio-temporal weighted regression models which would be the natural step moving forward.</p>
 <p>As any modelling approach, spatio-temporal statistical modelling has three principal goals:</p>
 <ol style="list-style-type: decimal">
@@ -635,8 +638,8 @@ dec_ts &lt;-<span class="st"> </span><span class="kw">decompose</span>(total_cas
 <li><p>performing statistical inference about the influence of predictors on an outcome variable in the presence of spatio-temporal dependence; and,</p></li>
 <li><p>forecasting future values of an outcome variable at some location, offering information about the uncertainty of the forecast.</p></li>
 </ol>
-<div id="intuition" class="section level4">
-<h4><span class="header-section-number">9.4.3.1</span> Intuition</h4>
+<div id="intuition" class="section level3">
+<h3><span class="header-section-number">9.6.1</span> Intuition</h3>
 <p>The key idea on what follows is to use a basic statistical regression model to understand the relationship between the share of new COVID-19 infections and the share of population suffering from long-term illness, accounting for spatio-temporal dependencies. We will consider what is known as a trend-surface regression model which assumes that spatio-temporal dependencies can be accounted for by “trend” components and incorporate as predictors in the model. Formally we consider the regression model below which seeks to account for spatial and temporal trends.</p>
 <p><span class="math display">\[y(s_{i}, t_{j}) = \beta_{0} + \beta_{k}x(s_{i}, t_{j}) + e(s_{i}, t_{j})\]</span></p>
 <p>where <span class="math inline">\(\beta_{0}\)</span> is the intercept and <span class="math inline">\(\beta_{k}\)</span> represents a set of regression coefficients associated with <span class="math inline">\(x(s_{i}, t_{j})\)</span>; the <span class="math inline">\(k\)</span> indicates the number of covariates at spatial location <span class="math inline">\(s_{i}\)</span> and time <span class="math inline">\(t_{j}\)</span>; <span class="math inline">\(e\)</span> represents the regression errors which are assumed to follow a normal distribution. The key difference to aproaches considered in previous chapters is the incorporation of space and time together. As we learnt from the previous section, this has implications are we now have two sources of dependence: spatial and temporal autocorrelation, as well as seasonal and trend components. This has implications for modelling as we now need to account for all of these components if we are to establish any relationship between <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span>.</p>
@@ -661,8 +664,8 @@ dec_ts &lt;-<span class="st"> </span><span class="kw">decompose</span>(total_cas
 </ul>
 <p>These basis functions are incorporated as independent variables in the regression model. Additionally, we also include the share of population suffering long-term illness as we know it is highly correlated to the cumulative number of COVID-19 cases. The share of population suffering long-term illness is incorporated as a spatial-variant, temporal-invariant covariates given that rely in 2011 census data.</p>
 </div>
-<div id="fitting-spatio-temporal-models" class="section level4">
-<h4><span class="header-section-number">9.4.3.2</span> Fitting Spatio-Temporal Models</h4>
+<div id="fitting-spatio-temporal-models" class="section level3">
+<h3><span class="header-section-number">9.6.2</span> Fitting Spatio-Temporal Models</h3>
 <p>As indicated at the start of this Chapter, we use the FRK framework developed by <span class="citation">Cressie and Johannesson (<a href="#ref-cressie2008fixed">2008</a>)</span>. It provides a scalable, relies on the use a spatial random effects model (with which we have some familiarity) and can be easily implemented in R by the use of the <code>FRK</code> package <span class="citation">(Zammit-Mangion and Cressie <a href="#ref-zammit2017frk">2017</a>)</span>. In this framework, a spatially correlated errors can be decomposed using a linear combination of spatial basis functions, effectively addressing issues of spatial-temporal dependence and nonstationarity. The specification of spatio-temporal basis functions is a key component of the model and they can be generated automatically or by the user via the <code>FRK</code> package. We will use the automatically generated functions. While as we will notice they are difficult to interpret, user generated functions require greater understanding of the spatio-temporal structure of COVID-19 which is beyond the scope of this Chapter.</p>
 <p><strong>Prepare Data</strong></p>
 <p>The first step to create a data frame with the variables that we will consider for the analysis. We first remove the geometries to convert <code>covid19_spt</code> from a simple feature object to a data frame and then compute the share of long-term illness population.</p>
@@ -870,9 +873,8 @@ nb_m2</code></pre></div>
 <p>This model leads to a better model by returning a slight reduction in the residual deviance and AIC score. Interestingly it also returns highly statisticaly significant coeficients for the interaction terms between longitude and latitude (<code>long:lat</code>) and latitude and day (<code>lat:day</code>). The former indicates that as we move one degree north and west, the number of new cases tend to increase in 2 cases. The latter indicates UTLAs on the west of England tend to report a lower number of cases as time passes.</p>
 <p>You can report the output for all models estimated above by executing (after removing <code>#</code>):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># export_summs(lm_m, poisson_m, qpoisson_m1, nb_m1, nb_m2)</span></code></pre></div>
-</div>
 <div id="model-comparision" class="section level4">
-<h4><span class="header-section-number">9.4.3.3</span> Model Comparision</h4>
+<h4><span class="header-section-number">9.6.2.1</span> Model Comparision</h4>
 <p>To compare regression models based on different specifications and assumptions, like those reported above, you may want to consider the cross-validation approach used in Chapter 4 <a href="flows.html#flows">Flows</a>. An easy approach if you would like to get a quick sense of model fit, you can look at the correlation between observed and predicted values of the dependent variable. For our models, we can achieve this by executing:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># computing predictions for all models</span>
 lm_cnt &lt;-<span class="st"> </span><span class="kw">predict</span>(lm_m)
@@ -895,7 +897,7 @@ corrplot<span class="op">::</span><span class="kw">corrplot.mixed</span>(cormat,
                          <span class="dt">number.cex =</span> <span class="dv">1</span>,
                          <span class="dt">tl.pos =</span> <span class="st">&quot;d&quot;</span>,
                          <span class="dt">tl.cex =</span> <span class="fl">0.9</span>)</code></pre></div>
-<p><img src="08-st_analysis_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><img src="08-st_analysis_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 <p>None of the models does a great job at predicting the observed count of new COVID-19 cases. They display correlation coefficients between 0.23 and 0.24 and high degree of correlation between them. Part of the assignment will be finding ways to improve this initial models. They should just be considered as a starting point.</p>
 <blockquote>
 <p>Challenge 3: Find ways to achive better model fit. Hint: There are a potentially few easy ways to make some considerable improvement. <em>One option</em> is to remove all zeros from the dependent variable <code>c_covid19_r</code>. They are likely to be affecting the ability of the model to predict positive values which are of main interest if we want to understand the spatio-temporal patterns of the outbreak. <em>A second idea</em> is to remove all zeros from the dependent variable and additionally use its log for the regression model. <em>A third idea</em> is to include more explanatory variables. Look for factors which can explain the spatial-temporal variability of the current COVID-19 outbreak. Look for hypotheses / anecdotal evidence from the newspapers and social media. <em>A fourth idea</em> is to check for collinearity. Collinearity is likely to be an issue given the way basis functions are created. Checking for collinearity of course will not improve the fit of the existing model but it is important to remove collinear terms if statistical inference is a key goal - which in this case is. Over to you now!</p>

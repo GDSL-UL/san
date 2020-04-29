@@ -221,12 +221,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-6"><i class="fa fa-check"></i><b>9.2</b> Data</a></li>
 <li class="chapter" data-level="9.3" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#why-spatio-temporal-analysis"><i class="fa fa-check"></i><b>9.3</b> Why Spatio-Temporal Analysis?</a><ul>
 <li class="chapter" data-level="9.3.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#spatio-temporal-data-structures"><i class="fa fa-check"></i><b>9.3.1</b> Spatio-temporal Data Structures</a></li>
-<li class="chapter" data-level="9.3.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-wrangling"><i class="fa fa-check"></i><b>9.3.2</b> Data Wrangling</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>9.4</b> Exploring Spatio-Temporal Data</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#visualisation"><i class="fa fa-check"></i><b>9.4.1</b> Visualisation</a></li>
-<li class="chapter" data-level="9.4.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploratory-analysis-1"><i class="fa fa-check"></i><b>9.4.2</b> Exploratory Analysis</a></li>
-<li class="chapter" data-level="9.4.3" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>9.4.3</b> Spatio-Temporal Data Modelling</a></li>
+<li class="chapter" data-level="9.4" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-wrangling"><i class="fa fa-check"></i><b>9.4</b> Data Wrangling</a></li>
+<li class="chapter" data-level="9.5" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>9.5</b> Exploring Spatio-Temporal Data</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#visualisation"><i class="fa fa-check"></i><b>9.5.1</b> Visualisation</a></li>
+<li class="chapter" data-level="9.5.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploratory-analysis-1"><i class="fa fa-check"></i><b>9.5.2</b> Exploratory Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>9.6</b> Spatio-Temporal Data Modelling</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#intuition"><i class="fa fa-check"></i><b>9.6.1</b> Intuition</a></li>
+<li class="chapter" data-level="9.6.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#fitting-spatio-temporal-models"><i class="fa fa-check"></i><b>9.6.2</b> Fitting Spatio-Temporal Models</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
@@ -615,17 +618,17 @@ vpc_lsoa <span class="op">*</span><span class="st"> </span><span class="dv">100<
 <p>We can also obtain group-level errors (<em>random effects</em>) by using a simulation approach, labelled “Empirical Bayes” and discussed <a href="https://stat.ethz.ch/pipermail/r-sig-mixed-models/2009q4/002984.html">here</a>. To this end, we run:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># obtain estimates</span>
 <span class="kw">REsim</span>(model3) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">10</span>)</code></pre></div>
-<pre><code>##    groupFctr   groupID        term         mean        median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.017436014 -0.0169258636 0.018935057
-## 2    lsoa_cd E01006513 (Intercept) -0.015678541 -0.0155570281 0.018874791
-## 3    lsoa_cd E01006514 (Intercept) -0.021492587 -0.0215460461 0.019069518
-## 4    lsoa_cd E01006515 (Intercept) -0.015089717 -0.0150618223 0.018852303
-## 5    lsoa_cd E01006518 (Intercept) -0.020586709 -0.0196995348 0.018108871
-## 6    lsoa_cd E01006519 (Intercept) -0.015736523 -0.0160050063 0.009918646
-## 7    lsoa_cd E01006520 (Intercept) -0.024551018 -0.0254357729 0.018146500
-## 8    lsoa_cd E01006521 (Intercept)  0.005693365  0.0080408023 0.021273501
-## 9    lsoa_cd E01006522 (Intercept)  0.019504161  0.0197925325 0.020599002
-## 10   lsoa_cd E01006523 (Intercept)  0.001356560  0.0007143537 0.019901752</code></pre>
+<pre><code>##    groupFctr   groupID        term         mean       median          sd
+## 1    lsoa_cd E01006512 (Intercept) -0.016053238 -0.017074198 0.020172202
+## 2    lsoa_cd E01006513 (Intercept) -0.017383109 -0.019094396 0.020670845
+## 3    lsoa_cd E01006514 (Intercept) -0.021873493 -0.024086702 0.020140924
+## 4    lsoa_cd E01006515 (Intercept) -0.017720367 -0.017946441 0.020670637
+## 5    lsoa_cd E01006518 (Intercept) -0.019137583 -0.017179486 0.020073493
+## 6    lsoa_cd E01006519 (Intercept) -0.016213658 -0.016263705 0.009512018
+## 7    lsoa_cd E01006520 (Intercept) -0.024874717 -0.025312924 0.019113922
+## 8    lsoa_cd E01006521 (Intercept)  0.004507181  0.005999756 0.019558088
+## 9    lsoa_cd E01006522 (Intercept)  0.019936588  0.020930033 0.020803876
+## 10   lsoa_cd E01006523 (Intercept)  0.001526451  0.001195936 0.018534461</code></pre>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
 <p>To gain an undertanding of the general pattern of the <em>random effects</em>, we can use caterpillar plots via <code>plotREsim</code> - reported below. The plot on the right shows the estimated random effects for each MSOA and their respective interval estimate. Note that random effects are on average zero, represented by the red horizontal line. Intervals that do not include zero are in bold. Also note that the width of the confidence interval depends on the standard error of the respective residual estimate, which is inversely related to the size of the sample. The residuals represent an observation departures from the grand mean, so an observation whose confidence interval does not overlap the line at zero (representing the mean proportion of unemployed population across all areas) is said to differ significantly from the average at the 5% level.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot</span>
@@ -670,9 +673,9 @@ re_msoa &lt;-<span class="st"> </span>re <span class="op">%&gt;%</span><span cla
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; ...
-##  $ mean     : num  -0.0122 -0.02327 -0.03369 0.00545 0.02331 ...
-##  $ median   : num  -0.01291 -0.02369 -0.03273 0.00501 0.02219 ...
-##  $ sd       : num  0.0323 0.0338 0.0305 0.0334 0.0149 ...</code></pre>
+##  $ mean     : num  -0.01268 -0.02612 -0.03128 0.00525 0.02158 ...
+##  $ median   : num  -0.01171 -0.02751 -0.02899 0.00444 0.02169 ...
+##  $ sd       : num  0.0313 0.0334 0.0294 0.0302 0.0158 ...</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># merge data</span>
 msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</code></pre></div>
 <p>Now we can create our map:</p>

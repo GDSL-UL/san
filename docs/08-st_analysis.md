@@ -101,7 +101,7 @@ To integrate spatio-temporal data, spatio-temporal objects are needed. We consid
 
 More details on these spatio-temporal structures, construction and manipulation, see @pebesma2012spacetime. Enough theory, let's code!
 
-### Data Wrangling
+## Data Wrangling
 
 This section illustrates the complexities of handling spatio-temporal data. It discusses good practices in data manipulation and construction of a Space Time Irregular Data Frame (STIDF) object. Three key requirements to define a STFDF object are:
 
@@ -373,15 +373,13 @@ imap = tm_shape(dplyr::filter(covid19_spt[,c("ctyu19nm", "date", "c_covid19_r")]
             legend.outside = TRUE, # legend outside
             legend.title.size = 1,
             legend.width = 1) 
-
-tmap_mode("view")
 ```
 
-```
-## tmap mode set to interactive viewing
-```
+To view the map on your local machines, execute the code chunk below removing the `#` sign.
+
 
 ```r
+#tmap_mode("view")
 #imap
 ```
     
@@ -414,7 +412,7 @@ ggplot(data=sp_av) +
   theme(axis.title=element_text(size=20, face="plain"))
 ```
 
-<img src="08-st_analysis_files/figure-html/unnamed-chunk-13-1.png" width="1152" />
+<img src="08-st_analysis_files/figure-html/unnamed-chunk-14-1.png" width="1152" />
       
 **Empirical Temporal Mean**
 
@@ -446,7 +444,7 @@ ggplot() +
     theme(axis.title=element_text(size=18, face="plain"))
 ```
 
-<img src="08-st_analysis_files/figure-html/unnamed-chunk-14-1.png" width="1152" />
+<img src="08-st_analysis_files/figure-html/unnamed-chunk-15-1.png" width="1152" />
       
 #### Dependence
 
@@ -510,11 +508,11 @@ dec_ts <- decompose(total_cases_ts)
 plot(dec_ts)
 ```
 
-<img src="08-st_analysis_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+<img src="08-st_analysis_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
 For a good introduction to time-series analysis in R, refer to @hyndman2018forecasting and [DataCamp](https://www.datacamp.com/courses/forecasting-using-r).
 
-### Spatio-Temporal Data Modelling
+## Spatio-Temporal Data Modelling
 
 Having some understanding of the spatio-temporal patterns of COVID-19 spread through data exploration, we are ready to start further examining structural relationships between the rate of new infections and local contextual factors via regression modelling across UTLAs. Specifically we consider the number of new cases per 100,000 people to capture the rate of new infections and only one contextual factor; that is, the share of population suffering from long-term sickness or disabled. We will consider some basic statistical models, of the form of linear regression and generalized linear models, to account for spatio-temporal dependencies in the data. Note that we do not consider more complex structures based on hierarchical models or spatio-temporal weighted regression models which would be the natural step moving forward.
 
@@ -526,7 +524,7 @@ As any modelling approach, spatio-temporal statistical modelling has three princ
 
 3. forecasting future values of an outcome variable at some location, offering information about the uncertainty of the forecast.
 
-#### Intuition
+### Intuition
 
 The key idea on what follows is to use a basic statistical regression model to understand the relationship between the share of new COVID-19 infections and the share of population suffering from long-term illness, accounting for spatio-temporal dependencies. We will consider what is known as a trend-surface regression model which assumes that spatio-temporal dependencies can be accounted for by "trend" components and incorporate as predictors in the model. Formally we consider the regression model below which seeks to account for spatial and temporal trends.
 
@@ -558,7 +556,7 @@ For our application, we start by considering a basic OLS regression model with t
 
 These basis functions are incorporated as independent variables in the regression model. Additionally, we also include the share of population suffering long-term illness as we know it is highly correlated to the cumulative number of COVID-19 cases. The share of population suffering long-term illness is incorporated as a spatial-variant, temporal-invariant covariates given that rely in 2011 census data.
 
-#### Fitting Spatio-Temporal Models
+### Fitting Spatio-Temporal Models
 
 As indicated at the start of this Chapter, we use the FRK framework developed by @cressie2008fixed. It provides a scalable, relies on the use a spatial random effects model (with which we have some familiarity) and can be easily implemented in R by the use of the `FRK` package [@zammit2017frk]. In this framework, a spatially correlated errors can be decomposed using a linear combination of spatial basis functions, effectively addressing issues of spatial-temporal dependence and nonstationarity. The specification of spatio-temporal basis functions is a key component of the model and they can be generated automatically or by the user via the `FRK` package. We will use the automatically generated functions. While as we will notice they are difficult to interpret, user generated functions require greater understanding of the spatio-temporal structure of COVID-19 which is beyond the scope of this Chapter. 
 
@@ -874,7 +872,7 @@ corrplot::corrplot.mixed(cormat,
                          tl.cex = 0.9)
 ```
 
-<img src="08-st_analysis_files/figure-html/unnamed-chunk-28-1.png" width="672" />
+<img src="08-st_analysis_files/figure-html/unnamed-chunk-29-1.png" width="672" />
 
 None of the models does a great job at predicting the observed count of new COVID-19 cases. They display correlation coefficients between 0.23 and 0.24 and high degree of correlation between them. Part of the assignment will be finding ways to improve this initial models. They should just be considered as a starting point.
 
