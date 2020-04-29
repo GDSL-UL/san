@@ -6,7 +6,7 @@ The content of this chapter is based on:
 
 * @Fotheringham_et_al_2002_book, a must-go book if you are working or planning to start working on geographically weighted regression modelling.
 
-* @comber2020gwr is recently published preprint which provides a roadmap to approach various practical issues in the application of GWR.
+* @comber2020gwr's recently published preprint which provides a roadmap to approach various practical issues in the application of GWR.
 
 This Chapter is part of [Spatial Analysis Notes](index.html), a compilation hosted as a GitHub repository that you can access in a few ways:
 
@@ -19,7 +19,7 @@ This Chapter is part of [Spatial Analysis Notes](index.html), a compilation host
 
 ## Dependencies
 
-This chapter uses the following libraries: Ensure they are installed on your machine^[You can install package `mypackage` by running the command `install.packages("mypackage")` on the R prompt or through the `Tools --> Install Packages...` menu in RStudio.] before loading them executing the following code chunk:
+This chapter uses the following libraries. Ensure they are installed on your machine^[You can install package `mypackage` by running the command `install.packages("mypackage")` on the R prompt or through the `Tools --> Install Packages...` menu in RStudio.] before loading them executing the following code chunk:
 
 ```{r, message = FALSE}
 # Data manipulation, transformation and visualisation
