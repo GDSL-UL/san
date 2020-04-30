@@ -738,7 +738,7 @@ hknn
 ## Weights style: W 
 ## Weights constants summary:
 ##      n       nn   S0       S1       S2
-## W 6324 39992976 6324 230.4224 25818.06
+## W 6324 39992976 6324 230.4032 25817.19
 ```
 
 **Exogenous spatial effects**
@@ -774,19 +774,19 @@ summary(m6)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2906 -0.3014 -0.0152  0.2828  5.2631 
+## -4.2907 -0.3016 -0.0152  0.2820  5.2631 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) 12.2812641  0.0145292 845.280  < 2e-16 ***
-## newY         0.2475355  0.0195188  12.682  < 2e-16 ***
-## imd_score   -0.0042217  0.0008918  -4.734 2.25e-06 ***
-## w_imd_score -0.0148005  0.0009687 -15.279  < 2e-16 ***
+## (Intercept) 12.2810789  0.0145288 845.292  < 2e-16 ***
+## newY         0.2475322  0.0195200  12.681  < 2e-16 ***
+## imd_score   -0.0042400  0.0008920  -4.753 2.04e-06 ***
+## w_imd_score -0.0147775  0.0009689 -15.252  < 2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## Residual standard error: 0.5201 on 6320 degrees of freedom
-## Multiple R-squared:  0.3347,	Adjusted R-squared:  0.3344 
+## Multiple R-squared:  0.3346,	Adjusted R-squared:  0.3343 
 ## F-statistic:  1060 on 3 and 6320 DF,  p-value: < 2.2e-16
 ```
 
@@ -849,7 +849,7 @@ new.price
 
 ```
 ##        1 
-## 11.47215
+## 11.47174
 ```
 
 Now remember we were using the log of the price as dependent variable. If we want to recover the actual price of the house, we need to take its exponent:
@@ -861,7 +861,7 @@ exp(new.price)
 
 ```
 ##        1 
-## 96004.57
+## 95964.98
 ```
 
 According to our model, the house would be worth GBP96,060.29^[**EXERCISE** *How would the price change if the surrounding houses did not have an average of 50 but of 80?* Obtain a new prediction and compare it with the original one.].

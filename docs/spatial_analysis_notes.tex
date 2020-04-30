@@ -2248,12 +2248,12 @@ of the estimated table:
 
 \begin{verbatim}
 ##   var1.pred var1.var
-## 1  158062.5       NA
-## 2  158172.4       NA
-## 3  158285.1       NA
-## 4  158400.8       NA
-## 5  158519.5       NA
-## 6  158641.5       NA
+## 1  158087.6       NA
+## 2  158198.2       NA
+## 3  158311.6       NA
+## 4  158427.9       NA
+## 5  158547.4       NA
+## 6  158670.0       NA
 \end{verbatim}
 
 The column we will pay attention to is \texttt{var1.pred}. And to see
@@ -2267,12 +2267,12 @@ the locations for which those correspond:
 
 \begin{verbatim}
 ##            x1       x2
-## [1,] 333561.3 382756.4
-## [2,] 333646.3 382756.4
-## [3,] 333731.3 382756.4
-## [4,] 333816.2 382756.4
-## [5,] 333901.2 382756.4
-## [6,] 333986.2 382756.4
+## [1,] 333581.7 382751.9
+## [2,] 333666.7 382751.9
+## [3,] 333751.7 382751.9
+## [4,] 333836.6 382751.9
+## [5,] 333921.6 382751.9
+## [6,] 334006.6 382751.9
 \end{verbatim}
 
 So, for a hypothetical house sold at the location in the first row of
@@ -4812,7 +4812,7 @@ object:
 ## Weights style: W 
 ## Weights constants summary:
 ##      n       nn   S0       S1      S2
-## W 6324 39992976 6324 230.5024 25810.9
+## W 6324 39992976 6324 230.5384 25813.4
 \end{verbatim}
 
 \textbf{Exogenous spatial effects}
@@ -4867,20 +4867,20 @@ apply the log to the lag, not the reverse:
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2905 -0.3014 -0.0151  0.2824  5.2631 
+## -4.2907 -0.3021 -0.0150  0.2829  5.2606 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) 12.2812667  0.0145275 845.383  < 2e-16 ***
-## newY         0.2475199  0.0195182  12.681  < 2e-16 ***
-## imd_score   -0.0042138  0.0008916  -4.726 2.34e-06 ***
-## w_imd_score -0.0148101  0.0009685 -15.291  < 2e-16 ***
+## (Intercept) 12.2809254  0.0145305 845.184  < 2e-16 ***
+## newY         0.2474972  0.0195216  12.678  < 2e-16 ***
+## imd_score   -0.0042699  0.0008920  -4.787 1.73e-06 ***
+## w_imd_score -0.0147443  0.0009689 -15.217  < 2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## Residual standard error: 0.5201 on 6320 degrees of freedom
-## Multiple R-squared:  0.3348, Adjusted R-squared:  0.3344 
-## F-statistic:  1060 on 3 and 6320 DF,  p-value: < 2.2e-16
+## Multiple R-squared:  0.3345, Adjusted R-squared:  0.3342 
+## F-statistic:  1059 on 3 and 6320 DF,  p-value: < 2.2e-16
 \end{verbatim}
 
 As we can see, the lag is not only significative and negative (as
@@ -5007,7 +5007,7 @@ method:
 
 \begin{verbatim}
 ##        1 
-## 11.47225
+## 11.47097
 \end{verbatim}
 
 Now remember we were using the log of the price as dependent variable.
@@ -5021,8 +5021,8 @@ exponent:
 \end{Shaded}
 
 \begin{verbatim}
-##       1 
-## 96013.9
+##        1 
+## 95891.06
 \end{verbatim}
 
 According to our model, the house would be worth GBP96,060.29\footnote{\textbf{EXERCISE}
@@ -5833,17 +5833,17 @@ To this end, we run:
 \end{Shaded}
 
 \begin{verbatim}
-##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.015600076 -0.014851926 0.019986264
-## 2    lsoa_cd E01006513 (Intercept) -0.014338263 -0.014353999 0.020844180
-## 3    lsoa_cd E01006514 (Intercept) -0.022008433 -0.020905617 0.019213390
-## 4    lsoa_cd E01006515 (Intercept) -0.015440395 -0.015156266 0.019200981
-## 5    lsoa_cd E01006518 (Intercept) -0.020945455 -0.022361732 0.019573014
-## 6    lsoa_cd E01006519 (Intercept) -0.016409120 -0.016228492 0.008892278
-## 7    lsoa_cd E01006520 (Intercept) -0.023699485 -0.025532316 0.019963745
-## 8    lsoa_cd E01006521 (Intercept)  0.006931716  0.008115453 0.019411630
-## 9    lsoa_cd E01006522 (Intercept)  0.021795357  0.023256214 0.018032514
-## 10   lsoa_cd E01006523 (Intercept)  0.003448003  0.002897920 0.017757626
+##    groupFctr   groupID        term         mean       median         sd
+## 1    lsoa_cd E01006512 (Intercept) -0.016004158 -0.016999898 0.01888703
+## 2    lsoa_cd E01006513 (Intercept) -0.016712058 -0.015975716 0.02119448
+## 3    lsoa_cd E01006514 (Intercept) -0.021472922 -0.021258511 0.01964500
+## 4    lsoa_cd E01006515 (Intercept) -0.017748795 -0.019673035 0.02042645
+## 5    lsoa_cd E01006518 (Intercept) -0.017909068 -0.018389420 0.01894424
+## 6    lsoa_cd E01006519 (Intercept) -0.016362049 -0.016050643 0.01064106
+## 7    lsoa_cd E01006520 (Intercept) -0.025175457 -0.026060229 0.01959393
+## 8    lsoa_cd E01006521 (Intercept)  0.007473659  0.006734569 0.02033335
+## 9    lsoa_cd E01006522 (Intercept)  0.017342659  0.018093014 0.02058550
+## 10   lsoa_cd E01006523 (Intercept)  0.007283864  0.007948232 0.01878893
 \end{verbatim}
 
 The results contain the estimated mean, median and standard deviation
@@ -5945,9 +5945,9 @@ merge it with the \emph{random effects} estimates.
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.00727 -0.02208 -0.02911 0.00765 0.02177 ...
-##  $ median   : num  -0.01117 -0.02416 -0.03017 0.00953 0.02166 ...
-##  $ sd       : num  0.0317 0.0334 0.0305 0.0313 0.016 ...
+##  $ mean     : num  -0.01243 -0.02076 -0.02862 0.00514 0.02261 ...
+##  $ median   : num  -0.01093 -0.02135 -0.03092 0.00353 0.02239 ...
+##  $ sd       : num  0.031 0.0331 0.0318 0.0326 0.0154 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -6735,9 +6735,9 @@ MSOA-level errors.
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.0304 -0.1026 0.0539 -0.1418 -0.2812 ...
-##  $ median   : num  0.0293 -0.1076 0.0573 -0.1467 -0.2801 ...
-##  $ sd       : num  0.0464 0.0665 0.0906 0.0394 0.0389 ...
+##  $ mean     : num  0.0257 -0.1123 0.0464 -0.1426 -0.2862 ...
+##  $ median   : num  0.0251 -0.114 0.0522 -0.1445 -0.284 ...
+##  $ sd       : num  0.0494 0.0768 0.0794 0.0383 0.0378 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -7982,9 +7982,9 @@ modelling. For modelling, we consider the Fixed Rank Kriging (FRK)
 framework developed by \citet{cressie2008fixed}. It enables constructing
 a spatial random effects model on a discretised spatial domain. Key
 advantages of this approach comprise the capacity to: (1) work with
-large data sets, (2) be scale; (3) generate predictions based on sparse
-linear algebraic techniques, and (4) produce fine-scale resolution
-uncertainty estimates.
+large data sets, (2) be scaled up; (3) generate predictions based on
+sparse linear algebraic techniques, and (4) produce fine-scale
+resolution uncertainty estimates.
 
 The content of this chapter is based on:
 
@@ -8065,7 +8065,7 @@ your machine\footnote{You can install package \texttt{mypackage} by
 
 \section{Data}\label{data-6}
 
-For this chapter, we will data on:
+For this chapter, we will use data on:
 
 \begin{itemize}
 \item
@@ -8086,11 +8086,11 @@ For this chapter, we will data on:
   and Unitary Authorities}.
 \end{itemize}
 
-For a full list of the variables included in the data set we will use in
-this chapter, see the readme file in the sta data folder.\footnote{Read
-  the file in R by executing \texttt{read\_tsv("data/sta/readme.txt")}}.
+For a full list of the variables included in the data sets used in this
+chapter, see the readme file in the sta data folder.\footnote{Read the
+  file in R by executing \texttt{read\_tsv("data/sta/readme.txt")}}.
 Before we get our hands on the data, there are some important concepts
-that we need to understand. These concepts provide a useful framework to
+that need to be introduced. They provide a useful framework to
 understand the complex structure of spatio-temporal data. Let's start by
 first highlighling the importance of spatio-temporal analysis.
 
@@ -8913,7 +8913,7 @@ dependencies as spatial weight matrices or temporal lags help accounting
 spatial autocorrelation in spatial models and temporal autocorrelation
 in time series analysis.
 
-As standard regression coefficientes, basis functions are related to
+As standard regression coefficients, basis functions are related to
 \(y\) via coefficients (or weights). The difference is that we typically
 assume that basis functions are known while coefficients are random.
 Examples of basis functions include polynomials, splines, wavelets,
@@ -8949,9 +8949,9 @@ structures:
 
 These basis functions are incorporated as independent variables in the
 regression model. Additionally, we also include the share of population
-suffering long-term illness as we know it is highly correlated to the
-cumulative number of COVID-19 cases. The share of population suffering
-long-term illness is incorporated as a spatial-variant,
+suffering from long-term illness as we know it is highly correlated to
+the cumulative number of COVID-19 cases. The share of population
+suffering long-term illness is incorporated as a spatial-variant,
 temporal-invariant covariates given that rely in 2011 census data.
 
 \subsection{Fitting Spatio-Temporal
@@ -9021,7 +9021,7 @@ basis function.
 We then prepare a data frame for the regression model, adding the
 weights extracted from the basis functions. These weights enter as
 covariates in our model. Note that the resulting number of basis
-functions is 9. Explore by executing \texttt{colnames(S)}. Below we
+functions is nine. Explore by executing \texttt{colnames(S)}. Below we
 select only relevant variables for our model.
 
 \begin{Shaded}

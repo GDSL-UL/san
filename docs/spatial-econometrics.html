@@ -748,8 +748,8 @@ hknn &lt;-<span class="st"> </span><span class="kw">nb2listw</span>(hnb)</code><
 ## 
 ## Weights style: W 
 ## Weights constants summary:
-##      n       nn   S0      S1       S2
-## W 6324 39992976 6324 230.428 25816.55</code></pre>
+##      n       nn   S0    S1       S2
+## W 6324 39992976 6324 230.5 25814.12</code></pre>
 <p><strong>Exogenous spatial effects</strong></p>
 <p>Let us come back to the house price example we have been working with. So far, we have hypothesized that the price of a house sold in Liverpool can be explained using information about whether it is newly built, the level of deprivation of the area where it is located, and its postcode. However, it is also reasonable to think that prospective house owners care about the larger area around a house, not only about its immediate surroundings, and would be willing to pay more for a house that was close to nicer areas, everything else being equal. How could we test this idea?</p>
 <p>The most straightforward way to introduce spatial dependence in a regression is by considering not only a given explanatory variable, but also its spatial lag. In our example case, in addition to including the level of deprivation in the area of the house, we will include its spatial lag. In other words, we will be saying that it is not only the level of deprivation of the area where a house is located but also that of the surrounding locations that helps explain the final price at which a house is sold. Mathematically, this implies estimating the following model:</p>
@@ -768,14 +768,14 @@ m6 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#3
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2906 -0.3014 -0.0150  0.2828  5.2631 
+## -4.2906 -0.3014 -0.0155  0.2824  5.2605 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 12.2813060  0.0145289 845.302  &lt; 2e-16 ***
-## newY         0.2474953  0.0195184  12.680  &lt; 2e-16 ***
-## imd_score   -0.0042156  0.0008917  -4.728 2.32e-06 ***
-## w_imd_score -0.0148077  0.0009686 -15.288  &lt; 2e-16 ***
+## (Intercept) 12.2812205  0.0145275 845.378  &lt; 2e-16 ***
+## newY         0.2475766  0.0195186  12.684  &lt; 2e-16 ***
+## imd_score   -0.0042149  0.0008919  -4.726 2.34e-06 ***
+## w_imd_score -0.0148067  0.0009688 -15.284  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
@@ -815,11 +815,11 @@ u_i = u_{lag-i} + \epsilon_i
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new.price &lt;-<span class="st"> </span><span class="kw">predict</span>(m6, new.house)
 new.price</code></pre></div>
 <pre><code>##        1 
-## 11.47225</code></pre>
+## 11.47235</code></pre>
 <p>Now remember we were using the log of the price as dependent variable. If we want to recover the actual price of the house, we need to take its exponent:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(new.price)</code></pre></div>
 <pre><code>##        1 
-## 96013.63</code></pre>
+## 96023.42</code></pre>
 <p>According to our model, the house would be worth GBP96,060.29<a href="#fn37" class="footnoteRef" id="fnref37"><sup>37</sup></a>.</p>
 </div>
 <div id="references-1" class="section level2">

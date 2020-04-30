@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.9.13)  30 APR 2020 07:02
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.9.13)  30 APR 2020 22:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3732,63 +3732,63 @@ Package xcolor Warning: Incompatible color definition on input line 5833.
 Package xcolor Warning: Incompatible color definition on input line 5833.
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5847--5847
-[]\EU1/lmtt/m/n/10 ## 1    lsoa_cd E01006512 (Intercept) -0.015600076 -0.014851
-926 0.019986264[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5847--5847
+[]\EU1/lmtt/m/n/10 ## 1    lsoa_cd E01006512 (Intercept) -0.016004158 -0.016999
+898 0.01888703[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5847--5847
-[]\EU1/lmtt/m/n/10 ## 2    lsoa_cd E01006513 (Intercept) -0.014338263 -0.014353
-999 0.020844180[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5847--5847
+[]\EU1/lmtt/m/n/10 ## 2    lsoa_cd E01006513 (Intercept) -0.016712058 -0.015975
+716 0.02119448[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5847--5847
-[]\EU1/lmtt/m/n/10 ## 3    lsoa_cd E01006514 (Intercept) -0.022008433 -0.020905
-617 0.019213390[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5847--5847
+[]\EU1/lmtt/m/n/10 ## 3    lsoa_cd E01006514 (Intercept) -0.021472922 -0.021258
+511 0.01964500[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5847--5847
-[]\EU1/lmtt/m/n/10 ## 4    lsoa_cd E01006515 (Intercept) -0.015440395 -0.015156
-266 0.019200981[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5847--5847
+[]\EU1/lmtt/m/n/10 ## 4    lsoa_cd E01006515 (Intercept) -0.017748795 -0.019673
+035 0.02042645[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5847--5847
-[]\EU1/lmtt/m/n/10 ## 5    lsoa_cd E01006518 (Intercept) -0.020945455 -0.022361
-732 0.019573014[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5847--5847
+[]\EU1/lmtt/m/n/10 ## 5    lsoa_cd E01006518 (Intercept) -0.017909068 -0.018389
+420 0.01894424[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5847--5847
-[]\EU1/lmtt/m/n/10 ## 6    lsoa_cd E01006519 (Intercept) -0.016409120 -0.016228
-492 0.008892278[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5847--5847
+[]\EU1/lmtt/m/n/10 ## 6    lsoa_cd E01006519 (Intercept) -0.016362049 -0.016050
+643 0.01064106[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 5847--5847
-[]\EU1/lmtt/m/n/10 ## 7    lsoa_cd E01006520 (Intercept) -0.023699485 -0.025532
-316 0.019963745[] 
+Overfull \hbox (26.0pt too wide) in paragraph at lines 5847--5847
+[]\EU1/lmtt/m/n/10 ## 7    lsoa_cd E01006520 (Intercept) -0.025175457 -0.026060
+229 0.01959393[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 5847--5847
-[]\EU1/lmtt/m/n/10 ## 8    lsoa_cd E01006521 (Intercept)  0.006931716  0.008115
-453 0.019411630[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 5847--5847
+[]\EU1/lmtt/m/n/10 ## 8    lsoa_cd E01006521 (Intercept)  0.007473659  0.006734
+569 0.02033335[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 5847--5847
-[]\EU1/lmtt/m/n/10 ## 9    lsoa_cd E01006522 (Intercept)  0.021795357  0.023256
-214 0.018032514[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 5847--5847
+[]\EU1/lmtt/m/n/10 ## 9    lsoa_cd E01006522 (Intercept)  0.017342659  0.018093
+014 0.02058550[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 5847--5847
-[]\EU1/lmtt/m/n/10 ## 10   lsoa_cd E01006523 (Intercept)  0.003448003  0.002897
-920 0.017757626[] 
+Overfull \hbox (24.25pt too wide) in paragraph at lines 5847--5847
+[]\EU1/lmtt/m/n/10 ## 10   lsoa_cd E01006523 (Intercept)  0.007283864  0.007948
+232 0.01878893[] 
  []
 
 [119]

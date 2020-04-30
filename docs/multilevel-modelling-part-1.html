@@ -619,16 +619,16 @@ vpc_lsoa <span class="op">*</span><span class="st"> </span><span class="dv">100<
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># obtain estimates</span>
 <span class="kw">REsim</span>(model3) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">10</span>)</code></pre></div>
 <pre><code>##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.016331031 -0.016706369 0.021179402
-## 2    lsoa_cd E01006513 (Intercept) -0.016093423 -0.016979877 0.018845589
-## 3    lsoa_cd E01006514 (Intercept) -0.023440667 -0.023032589 0.020697719
-## 4    lsoa_cd E01006515 (Intercept) -0.015001964 -0.014804299 0.020175940
-## 5    lsoa_cd E01006518 (Intercept) -0.018663107 -0.018381562 0.019480764
-## 6    lsoa_cd E01006519 (Intercept) -0.016862432 -0.017414815 0.009872429
-## 7    lsoa_cd E01006520 (Intercept) -0.024814408 -0.024265703 0.020435689
-## 8    lsoa_cd E01006521 (Intercept)  0.008512654  0.008119411 0.019638478
-## 9    lsoa_cd E01006522 (Intercept)  0.020476993  0.019268961 0.018664943
-## 10   lsoa_cd E01006523 (Intercept)  0.004682697  0.004012883 0.019820763</code></pre>
+## 1    lsoa_cd E01006512 (Intercept) -0.013313723 -0.014589236 0.019719860
+## 2    lsoa_cd E01006513 (Intercept) -0.016291876 -0.014983294 0.020238412
+## 3    lsoa_cd E01006514 (Intercept) -0.021808045 -0.021001444 0.020808903
+## 4    lsoa_cd E01006515 (Intercept) -0.016647734 -0.016847086 0.021124817
+## 5    lsoa_cd E01006518 (Intercept) -0.018034247 -0.016887844 0.020005826
+## 6    lsoa_cd E01006519 (Intercept) -0.017519688 -0.016956977 0.009683654
+## 7    lsoa_cd E01006520 (Intercept) -0.025375652 -0.026097339 0.019375812
+## 8    lsoa_cd E01006521 (Intercept)  0.007015769  0.006621113 0.018619850
+## 9    lsoa_cd E01006522 (Intercept)  0.020339429  0.018965436 0.018986025
+## 10   lsoa_cd E01006523 (Intercept)  0.004297096  0.003718701 0.018020218</code></pre>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
 <p>To gain an undertanding of the general pattern of the <em>random effects</em>, we can use caterpillar plots via <code>plotREsim</code> - reported below. The plot on the right shows the estimated random effects for each MSOA and their respective interval estimate. Note that random effects are on average zero, represented by the red horizontal line. Intervals that do not include zero are in bold. Also note that the width of the confidence interval depends on the standard error of the respective residual estimate, which is inversely related to the size of the sample. The residuals represent an observation departures from the grand mean, so an observation whose confidence interval does not overlap the line at zero (representing the mean proportion of unemployed population across all areas) is said to differ significantly from the average at the 5% level.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot</span>
@@ -673,9 +673,9 @@ re_msoa &lt;-<span class="st"> </span>re <span class="op">%&gt;%</span><span cla
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; ...
-##  $ mean     : num  -0.014 -0.0252 -0.0341 0.0057 0.0235 ...
-##  $ median   : num  -0.01381 -0.02475 -0.0307 0.00361 0.02345 ...
-##  $ sd       : num  0.0318 0.031 0.0304 0.0281 0.0158 ...</code></pre>
+##  $ mean     : num  -0.01109 -0.02358 -0.03231 0.00249 0.02333 ...
+##  $ median   : num  -0.008561 -0.02358 -0.031046 -0.000415 0.023539 ...
+##  $ sd       : num  0.0323 0.0349 0.0311 0.0323 0.0173 ...</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># merge data</span>
 msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</code></pre></div>
 <p>Now we can create our map:</p>
