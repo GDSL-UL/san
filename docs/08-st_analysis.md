@@ -6,13 +6,13 @@ The content of this chapter is based on:
 
 * @wikle2019spatio, a recently published book which provides a good overview of existing statistical approaches to spatio-temporal modelling and R packages.
 
-* @zammit2017frk, who introduces the staistical framework and R package for modelling spatio-temporal used in this Chapter.
+* @zammit2017frk, who introduce the statistical framework and R package for modelling spatio-temporal used in this Chapter.
 
 This Chapter is part of [Spatial Analysis Notes](index.html), a compilation hosted as a GitHub repository that you can access in a few ways:
 
 * As a [download](https://github.com/GDSL-UL/san/archive/master.zip) of a `.zip` file that contains all the materials.
 * As an [html
-  website](https://gdsl-ul.github.io/san/geographically-weighted-regression.html).
+  website](https://gdsl-ul.github.io/san/spatio-temporal-analysis.html).
 * As a [pdf
   document](https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf)
 * As a [GitHub repository](https://github.com/GDSL-UL/san).
@@ -109,7 +109,7 @@ This section illustrates the complexities of handling spatio-temporal data. It d
   
   2. Define a time stamp
   
-  3. Construct the spatio-temporal object of class xxx by indicating the spatial and temporal coordinates
+  3. Construct the spatio-temporal object of class STIDF by indicating the spatial and temporal coordinates
 
 Let's now read all the required data. While we can have all data in a single data frame, you will find helpful to have separate data objects to identify:
 
@@ -306,7 +306,7 @@ tm_shape(daycases_week) +
             main.title = "New COVID-19 Cases by Calendar Week, UTLA, England") 
 ```
 
-<img src="08-st_analysis_files/figure-html/unnamed-chunk-9-1.png" width="1152" />
+![](08-st_analysis_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
 
 The series of maps reveal a stable pattern of low reported cases from calendar weeks 5 to 11. From week 12 a number of hot spots emerged, notably in London, Birmingham, Cumbria and subsequently around Liverpool. The intensity of new cases seem to have started to decline from week 15; yet, it is important to note that week 16 display reported cases for only two days. 
 
@@ -332,7 +332,7 @@ tsp + geom_line(color = "blue") +
     facet_wrap(~ ctyu19nm)
 ```
 
-<img src="08-st_analysis_files/figure-html/unnamed-chunk-10-1.png" width="1152" />
+![](08-st_analysis_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
     
 #### Hovmöller Plots
 
@@ -354,7 +354,7 @@ ggplot(data = dplyr::filter(covid19_spt, Residents > 260000),
   theme(legend.key.width = unit(5, "cm"), legend.key.height = unit(2, "cm"))
 ```
 
-<img src="08-st_analysis_files/figure-html/unnamed-chunk-11-1.png" width="1152" />
+![](08-st_analysis_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
     
     
 #### Interactive Plots
@@ -412,7 +412,7 @@ ggplot(data=sp_av) +
   theme(axis.title=element_text(size=20, face="plain"))
 ```
 
-<img src="08-st_analysis_files/figure-html/unnamed-chunk-14-1.png" width="1152" />
+![](08-st_analysis_files/figure-epub3/unnamed-chunk-14-1.png)<!-- -->
       
 **Empirical Temporal Mean**
 
@@ -444,7 +444,7 @@ ggplot() +
     theme(axis.title=element_text(size=18, face="plain"))
 ```
 
-<img src="08-st_analysis_files/figure-html/unnamed-chunk-15-1.png" width="1152" />
+![](08-st_analysis_files/figure-epub3/unnamed-chunk-15-1.png)<!-- -->
       
 #### Dependence
 
@@ -508,7 +508,7 @@ dec_ts <- decompose(total_cases_ts)
 plot(dec_ts)
 ```
 
-<img src="08-st_analysis_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+![](08-st_analysis_files/figure-epub3/unnamed-chunk-18-1.png)<!-- -->
 
 For a good introduction to time-series analysis in R, refer to @hyndman2018forecasting and [DataCamp](https://www.datacamp.com/courses/forecasting-using-r).
 
@@ -872,7 +872,7 @@ corrplot::corrplot.mixed(cormat,
                          tl.cex = 0.9)
 ```
 
-<img src="08-st_analysis_files/figure-html/unnamed-chunk-29-1.png" width="672" />
+![](08-st_analysis_files/figure-epub3/unnamed-chunk-29-1.png)<!-- -->
 
 None of the models does a great job at predicting the observed count of new COVID-19 cases. They display correlation coefficients between 0.23 and 0.24 and high degree of correlation between them. Part of the assignment will be finding ways to improve this initial models. They should just be considered as a starting point.
 

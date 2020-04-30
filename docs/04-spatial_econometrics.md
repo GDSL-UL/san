@@ -267,7 +267,7 @@ plot(db)
 ```
 
 <div class="figure">
-<img src="04-spatial_econometrics_files/figure-html/unnamed-chunk-13-1.png" alt="Spatial distribution of house transactions in Liverpool" width="672" />
+<img src="04-spatial_econometrics_files/figure-epub3/unnamed-chunk-13-1.png" alt="Spatial distribution of house transactions in Liverpool"  />
 <p class="caption">(\#fig:unnamed-chunk-13)Spatial distribution of house transactions in Liverpool</p>
 </div>
 
@@ -737,8 +737,8 @@ hknn
 ## 
 ## Weights style: W 
 ## Weights constants summary:
-##      n       nn   S0      S1       S2
-## W 6324 39992976 6324 230.472 25813.59
+##      n       nn   S0       S1       S2
+## W 6324 39992976 6324 230.4224 25818.06
 ```
 
 **Exogenous spatial effects**
@@ -774,14 +774,14 @@ summary(m6)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2906 -0.3013 -0.0152  0.2822  5.2632 
+## -4.2906 -0.3014 -0.0152  0.2828  5.2631 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) 12.2812213  0.0145268 845.418  < 2e-16 ***
-## newY         0.2475608  0.0195184  12.683  < 2e-16 ***
-## imd_score   -0.0042133  0.0008918  -4.725 2.35e-06 ***
-## w_imd_score -0.0148095  0.0009687 -15.289  < 2e-16 ***
+## (Intercept) 12.2812641  0.0145292 845.280  < 2e-16 ***
+## newY         0.2475355  0.0195188  12.682  < 2e-16 ***
+## imd_score   -0.0042217  0.0008918  -4.734 2.25e-06 ***
+## w_imd_score -0.0148005  0.0009687 -15.279  < 2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
@@ -848,8 +848,8 @@ new.price
 ```
 
 ```
-##       1 
-## 11.4723
+##        1 
+## 11.47215
 ```
 
 Now remember we were using the log of the price as dependent variable. If we want to recover the actual price of the house, we need to take its exponent:
@@ -861,7 +861,7 @@ exp(new.price)
 
 ```
 ##        1 
-## 96019.32
+## 96004.57
 ```
 
 According to our model, the house would be worth GBP96,060.29^[**EXERCISE** *How would the price change if the surrounding houses did not have an average of 50 but of 80?* Obtain a new prediction and compare it with the original one.].

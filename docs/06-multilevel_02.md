@@ -142,7 +142,7 @@ ggplot(s_t8, aes(x = lt_ill, y = unemp)) +
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="06-multilevel_02_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](06-multilevel_02_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
       
 We can observe great variability in the relationship between unemployment rates and the percentage of population in long-term illness. A strong and positive relationship exists in MSOA `E02001366` (Tuebrook and Stoneycroft), while it is negative in MSOA `E02001370` (Everton) and neutral in MSOA `E02001390` (Princes Park & Riverside). This visual inspection suggests that accounting for differences in the way unmployment rates relate to long-term illness is important. Contextual factors may differ across MSOAs in systematic ways.
 
@@ -260,7 +260,7 @@ We are normally more interested in identifying the extent of deviation and its s
 plotREsim(REsim(model6))
 ```
 
-<img src="06-multilevel_02_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](06-multilevel_02_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
 
 These plots reveal some interesting patterns. First, only one MSOA, containing wards such as Tuebrook and Stoneycroft, Anfield & Everton, seems to have a statistically significantly different intercept, or average unemployment rate. Confidence intervals overlap zero for all other 60 MSOAs. Despite this, note that when a slope is allowed to vary by group, it generally makes sense for the intercept to also vary. Second, significant variability exists in the association between unemployment rate and long-term illness across MSOAs. Ten MSOAs display a significant positive association, while 12 exhibit a significantly negative relationship. Third, these results reveal that geographical differences in the relationship between unemployment rate and long-term illness can explain the significant differences in average unemployment rates in the varying intercept only model.
 
@@ -294,9 +294,9 @@ str(re_msoa_m6)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.0272 -0.1125 0.0439 -0.1452 -0.2804 ...
-##  $ median   : num  0.0247 -0.1153 0.0462 -0.1466 -0.2759 ...
-##  $ sd       : num  0.0521 0.0687 0.0829 0.0352 0.0391 ...
+##  $ mean     : num  0.0233 -0.1126 0.0573 -0.1434 -0.279 ...
+##  $ median   : num  0.0272 -0.1119 0.0542 -0.1432 -0.2772 ...
+##  $ sd       : num  0.0458 0.0714 0.0818 0.0377 0.0394 ...
 ```
 
 ```r
@@ -320,7 +320,7 @@ map_msoa = tm_shape(msoa_shp) +
 map_msoa
 ```
 
-<img src="06-multilevel_02_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+![](06-multilevel_02_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
 
 The map indicates that the relationship between unemployment rate and long-term illness is tends to stronger and positive in northern MSOAs; that is, the percentage of population with long-term illness explains a greater share of the variation in unemployment rates in these locations. As expected, a greater share of population in long-term illness is associated with higher local unemployment. In contrast, the relationship between unemployment rate and long-term illness tends to operate in the reverse direction in north-east and middle-southern MSOAs. In these MSOAs, OAs tend to have a higher unemployment rate relative the share of population in long-term illness. You can confirm this examining the data for specific MSOA executing:
 

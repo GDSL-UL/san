@@ -133,7 +133,7 @@
 
 \title{Spatial Analysis Notes}
 \author{Francisco Rowe \& Dani Arribas-Bel}
-\date{2020-04-21}
+\date{2020-04-30}
 
 \begin{document}
 \maketitle
@@ -195,6 +195,15 @@ your machine\footnote{You can install package \texttt{mypackage} by
 \begin{Highlighting}[]
 \CommentTok{# Data manipulation, transformation and visualisation}
 \KeywordTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tibble' was built under R version 3.6.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# Nice tables}
 \KeywordTok{library}\NormalTok{(kableExtra)}
 \CommentTok{# Simple features (a standardised way to encode vector data ie. points, lines, polygons)}
@@ -1646,6 +1655,10 @@ commands:
 \end{verbatim}
 
 \begin{verbatim}
+## Warning: package 'MASS' was built under R version 3.6.2
+\end{verbatim}
+
+\begin{verbatim}
 ## Loading required package: rgeos
 \end{verbatim}
 
@@ -2235,12 +2248,12 @@ of the estimated table:
 
 \begin{verbatim}
 ##   var1.pred var1.var
-## 1  158068.3       NA
-## 2  158178.4       NA
-## 3  158291.3       NA
-## 4  158407.2       NA
-## 5  158526.1       NA
-## 6  158648.2       NA
+## 1  158062.5       NA
+## 2  158172.4       NA
+## 3  158285.1       NA
+## 4  158400.8       NA
+## 5  158519.5       NA
+## 6  158641.5       NA
 \end{verbatim}
 
 The column we will pay attention to is \texttt{var1.pred}. And to see
@@ -2254,12 +2267,12 @@ the locations for which those correspond:
 
 \begin{verbatim}
 ##            x1       x2
-## [1,] 333566.0 382755.9
-## [2,] 333651.0 382755.9
-## [3,] 333736.0 382755.9
-## [4,] 333820.9 382755.9
-## [5,] 333905.9 382755.9
-## [6,] 333990.8 382755.9
+## [1,] 333561.3 382756.4
+## [2,] 333646.3 382756.4
+## [3,] 333731.3 382756.4
+## [4,] 333816.2 382756.4
+## [5,] 333901.2 382756.4
+## [6,] 333986.2 382756.4
 \end{verbatim}
 
 So, for a hypothetical house sold at the location in the first row of
@@ -2506,7 +2519,7 @@ Ready to test!
 \end{Highlighting}
 \end{Shaded}
 
-\chapter{Flows}\label{flows}
+\hypertarget{flows}{\chapter{Flows}\label{flows}}
 
 This chapter\footnote{This chapter is part of \href{index.html}{Spatial
   Analysis Notes} {Flows -- Exploring flows visually and through spatial
@@ -2620,6 +2633,10 @@ commands:
 
 \begin{verbatim}
 ## Loading required package: MASS
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'MASS' was built under R version 3.6.2
 \end{verbatim}
 
 \begin{verbatim}
@@ -3846,6 +3863,10 @@ follow along\footnote{You can install package \texttt{mypackage} by
 \end{verbatim}
 
 \begin{verbatim}
+## Warning: package 'MASS' was built under R version 3.6.2
+\end{verbatim}
+
+\begin{verbatim}
 ## Loading required package: rgeos
 \end{verbatim}
 
@@ -4790,8 +4811,8 @@ object:
 ## 
 ## Weights style: W 
 ## Weights constants summary:
-##      n       nn   S0       S1       S2
-## W 6324 39992976 6324 230.5584 25810.22
+##      n       nn   S0       S1      S2
+## W 6324 39992976 6324 230.5024 25810.9
 \end{verbatim}
 
 \textbf{Exogenous spatial effects}
@@ -4846,19 +4867,19 @@ apply the log to the lag, not the reverse:
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2906 -0.3016 -0.0154  0.2819  5.2605 
+## -4.2905 -0.3014 -0.0151  0.2824  5.2631 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) 12.2812895  0.0145286 845.319  < 2e-16 ***
-## newY         0.2475271  0.0195184  12.682  < 2e-16 ***
-## imd_score   -0.0042207  0.0008914  -4.735 2.24e-06 ***
-## w_imd_score -0.0148027  0.0009683 -15.287  < 2e-16 ***
+## (Intercept) 12.2812667  0.0145275 845.383  < 2e-16 ***
+## newY         0.2475199  0.0195182  12.681  < 2e-16 ***
+## imd_score   -0.0042138  0.0008916  -4.726 2.34e-06 ***
+## w_imd_score -0.0148101  0.0009685 -15.291  < 2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## Residual standard error: 0.5201 on 6320 degrees of freedom
-## Multiple R-squared:  0.3347, Adjusted R-squared:  0.3344 
+## Multiple R-squared:  0.3348, Adjusted R-squared:  0.3344 
 ## F-statistic:  1060 on 3 and 6320 DF,  p-value: < 2.2e-16
 \end{verbatim}
 
@@ -4986,7 +5007,7 @@ method:
 
 \begin{verbatim}
 ##        1 
-## 11.47213
+## 11.47225
 \end{verbatim}
 
 Now remember we were using the log of the price as dependent variable.
@@ -5000,8 +5021,8 @@ exponent:
 \end{Shaded}
 
 \begin{verbatim}
-##        1 
-## 96002.87
+##       1 
+## 96013.9
 \end{verbatim}
 
 According to our model, the house would be worth GBP96,060.29\footnote{\textbf{EXERCISE}
@@ -5068,6 +5089,15 @@ your machine\footnote{You can install package \texttt{mypackage} by
 \begin{Highlighting}[]
 \CommentTok{# Data manipulation, transformation and visualisation}
 \KeywordTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tibble' was built under R version 3.6.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# Nice tables}
 \KeywordTok{library}\NormalTok{(kableExtra)}
 \CommentTok{# Simple features (a standardised way to encode vector data ie. points, lines, polygons)}
@@ -5084,6 +5114,15 @@ your machine\footnote{You can install package \texttt{mypackage} by
 \KeywordTok{library}\NormalTok{(lme4)}
 \CommentTok{# Tools for extracting information generated by lme4}
 \KeywordTok{library}\NormalTok{(merTools)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'MASS' was built under R version 3.6.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# Exportable regression tables}
 \KeywordTok{library}\NormalTok{(jtools)}
 \KeywordTok{library}\NormalTok{(stargazer)}
@@ -5794,17 +5833,17 @@ To this end, we run:
 \end{Shaded}
 
 \begin{verbatim}
-##    groupFctr   groupID        term         mean       median         sd
-## 1    lsoa_cd E01006512 (Intercept) -0.015098404 -0.015356280 0.01795783
-## 2    lsoa_cd E01006513 (Intercept) -0.016415742 -0.017199053 0.01933994
-## 3    lsoa_cd E01006514 (Intercept) -0.021901662 -0.020595008 0.02063415
-## 4    lsoa_cd E01006515 (Intercept) -0.020392665 -0.019730887 0.01936845
-## 5    lsoa_cd E01006518 (Intercept) -0.018072425 -0.019580164 0.01871606
-## 6    lsoa_cd E01006519 (Intercept) -0.016625907 -0.016645732 0.00918911
-## 7    lsoa_cd E01006520 (Intercept) -0.024797635 -0.023255156 0.01835375
-## 8    lsoa_cd E01006521 (Intercept)  0.006172547  0.007329774 0.01975328
-## 9    lsoa_cd E01006522 (Intercept)  0.017180446  0.017496996 0.01912818
-## 10   lsoa_cd E01006523 (Intercept)  0.004265357  0.003811797 0.01946192
+##    groupFctr   groupID        term         mean       median          sd
+## 1    lsoa_cd E01006512 (Intercept) -0.015600076 -0.014851926 0.019986264
+## 2    lsoa_cd E01006513 (Intercept) -0.014338263 -0.014353999 0.020844180
+## 3    lsoa_cd E01006514 (Intercept) -0.022008433 -0.020905617 0.019213390
+## 4    lsoa_cd E01006515 (Intercept) -0.015440395 -0.015156266 0.019200981
+## 5    lsoa_cd E01006518 (Intercept) -0.020945455 -0.022361732 0.019573014
+## 6    lsoa_cd E01006519 (Intercept) -0.016409120 -0.016228492 0.008892278
+## 7    lsoa_cd E01006520 (Intercept) -0.023699485 -0.025532316 0.019963745
+## 8    lsoa_cd E01006521 (Intercept)  0.006931716  0.008115453 0.019411630
+## 9    lsoa_cd E01006522 (Intercept)  0.021795357  0.023256214 0.018032514
+## 10   lsoa_cd E01006523 (Intercept)  0.003448003  0.002897920 0.017757626
 \end{verbatim}
 
 The results contain the estimated mean, median and standard deviation
@@ -5906,9 +5945,9 @@ merge it with the \emph{random effects} estimates.
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.01244 -0.02738 -0.02925 0.00154 0.02424 ...
-##  $ median   : num  -0.0118 -0.02778 -0.02664 0.00272 0.02331 ...
-##  $ sd       : num  0.0309 0.0327 0.0325 0.0332 0.0157 ...
+##  $ mean     : num  -0.00727 -0.02208 -0.02911 0.00765 0.02177 ...
+##  $ median   : num  -0.01117 -0.02416 -0.03017 0.00953 0.02166 ...
+##  $ sd       : num  0.0317 0.0334 0.0305 0.0313 0.016 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -6317,6 +6356,15 @@ your machine\footnote{You can install package \texttt{mypackage} by
 \begin{Highlighting}[]
 \CommentTok{# Data manipulation, transformation and visualisation}
 \KeywordTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tibble' was built under R version 3.6.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# Nice tables}
 \KeywordTok{library}\NormalTok{(kableExtra)}
 \CommentTok{# Simple features (a standardised way to encode vector data ie. points, lines, polygons)}
@@ -6333,6 +6381,15 @@ your machine\footnote{You can install package \texttt{mypackage} by
 \KeywordTok{library}\NormalTok{(lme4)}
 \CommentTok{# Tools for extracting information generated by lme4}
 \KeywordTok{library}\NormalTok{(merTools)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'MASS' was built under R version 3.6.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# Exportable regression tables}
 \KeywordTok{library}\NormalTok{(jtools)}
 \KeywordTok{library}\NormalTok{(stargazer)}
@@ -6450,6 +6507,10 @@ for each MSOA.
 \StringTok{  }\KeywordTok{theme_classic}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
 
 \includegraphics{06-multilevel_02_files/figure-latex/unnamed-chunk-4-1.pdf}
 
@@ -6674,9 +6735,9 @@ MSOA-level errors.
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.0257 -0.12 0.0626 -0.141 -0.2845 ...
-##  $ median   : num  0.0248 -0.1161 0.071 -0.1454 -0.2853 ...
-##  $ sd       : num  0.0427 0.0727 0.094 0.0394 0.0386 ...
+##  $ mean     : num  0.0304 -0.1026 0.0539 -0.1418 -0.2812 ...
+##  $ median   : num  0.0293 -0.1076 0.0573 -0.1467 -0.2801 ...
+##  $ sd       : num  0.0464 0.0665 0.0906 0.0394 0.0389 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -6916,7 +6977,7 @@ The content of this chapter is based on:
   working or planning to start working on geographically weighted
   regression modelling.
 \item
-  \citet{comber2020gwr} is recently published preprint which provides a
+  \citet{comber2020gwr}'s recently published preprint which provides a
   roadmap to approach various practical issues in the application of
   GWR.
 \end{itemize}
@@ -6945,17 +7006,26 @@ ways:
 
 \section{Dependencies}\label{dependencies-6}
 
-This chapter uses the following libraries: Ensure they are installed on
+This chapter uses the following libraries. Ensure they are installed on
 your machine\footnote{You can install package \texttt{mypackage} by
   running the command \texttt{install.packages("mypackage")} on the R
   prompt or through the
   \texttt{Tools\ -\/-\textgreater{}\ Install\ Packages...} menu in
-  RStudio.} before loading them executing the following code chunk:
+  RStudio.} before loading them by executing the following code chunk:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Data manipulation, transformation and visualisation}
 \KeywordTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tibble' was built under R version 3.6.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# Nice tables}
 \KeywordTok{library}\NormalTok{(kableExtra)}
 \CommentTok{# Simple features (a standardised way to encode vector data ie. points, lines, polygons)}
@@ -6983,34 +7053,34 @@ your machine\footnote{You can install package \texttt{mypackage} by
 
 \section{Data}\label{data-5}
 
-For this chapter, we will data on:
+For this chapter, we will use data on:
 
 \begin{itemize}
 \item
-  cummulative COVID-19 confirmed cases from 1st January, 2020 to 14th
+  cumulative COVID-19 confirmed cases from 1st January, 2020 to 14th
   April, 2020 from Public Health England via the
   \href{https://coronavirus.data.gov.uk}{GOV.UK dashboard};
 \item
-  resident population characteristics from the 2011 census data from the
-  \href{https://www.nomisweb.co.uk/home/census2001.asp}{Office of
-  National Statistics}; and,
+  resident population characteristics from the 2011 census, available
+  from the \href{https://www.nomisweb.co.uk/home/census2001.asp}{Office
+  of National Statistics}; and,
 \item
-  2019 index of multiple deprivation data from
+  2019 Index of Multiple Deprivation (IMD) data from
   \href{https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019}{GOV.UK}
   and published by the Ministry of Housing, Communities \& Local
   Government.
 \end{itemize}
 
-The data are used for this Chapter are organised at the ONS Upper Tier
-Local Authority (UTLA) - also known as
+The data used for this Chapter are organised at the ONS Upper Tier Local
+Authority (UTLA) level - also known as
 \href{https://ago-item-storage.s3.us-east-1.amazonaws.com/7bb8db84e0f54e83aa05204f7bd674b8/EN37152_CTY_UA_DEC_2018_UK.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEI7\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2FwEaCXVzLWVhc3QtMSJHMEUCIHGIIjyriwWRx5QXeakP\%2BhJr39uh7b7jP1dr4q\%2FbEgC3AiEA0ohlaSFkwlCKLMy3vFhZDcQvDgzEVEP0kS17VN2ZnxMqvQMIpv\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2FARAAGgw2MDQ3NTgxMDI2NjUiDD2XGTMX5p\%2BWiurX2iqRA\%2FHRJfiW8YaOjNi65RC8AFZ5shx\%2Fn3Upl\%2B9YP5xhX4YzsRqkYkx\%2FYkwbMZ\%2FlDDqWpBHcZzoRdFDz1IGLueQJvDhFignjzIBmExSJ0UdMvuU56tXbnZQ\%2BI8lTjP9JRtLpZELENSjVeoi5qJpphGzoBo9O9cCJkQvWC3NNxqV6eFez00ld5qlRMpJ4KTOl7\%2FxJBBfua\%2F8WYdrcZ4H0KA47l\%2FIJnp2AklUv\%2Fw0cBoU0LZq3djjuVlE\%2FseJKOnm1Z8KMFItEanYUpOrMfROJ5C\%2FTwqqJ2GQMSvr30W\%2F4\%2FY\%2F2BKNTiyCvbEJnD03SWrB20bBlN0Gr13YYvcSBBjgwmhe4EKIrrLSKo8SOZNOg02nq\%2Bmrc0\%2FsPo\%2BYyLgA0MXASt9kDPL4N5IF9yG3lS7vd7E7\%2FpesIlC\%2FW3g3TVOBA92bKMtU6QA\%2B93URcqkrXyrvN6LGAt2C83HjvuAmtbSmlJOD5enC7abdOEqJMyJdUH\%2BwbBKXN8TK\%2F\%2BbRMzgshl1dJElvSnPAYZEuNwaso8bVXwSK\%2F31m6MP\%2Bv4fQFOusBk4G2Dlca6chTsAlFjXomtOeu6Kxm0MRAgdhF4mSRnKggkWu8mBYY68\%2BeGt3egIOtssrEVcWYr1nseCriPHpsA\%2BGi3IFnyPVIKZpStdv\%2F\%2FNoOip3YGsb\%2BSxgkIdxjVJdnkTsEvEf7AZtu6BFTKfTtTAII\%2Boh46F\%2BH\%2FDztv9kHuQMMXQsJozbphriOJDxP8TMSe16v8Tc1yULmRuenrfX1CMGTPrTcoUYPEu82qwDWlcMWwRRTMAv3xcupkZXVOQhMzkcyOOxQdOLWyIH5\%2FZ\%2BuIkNMQzndBya5nNjpGJ6UniQp22CkZ5n52KK\%2Fnw\%3D\%3D\&X-Amz-Algorithm=AWS4-HMAC-SHA256\&X-Amz-Date=20200416T135331Z\&X-Amz-SignedHeaders=host\&X-Amz-Expires=300\&X-Amz-Credential=ASIAYZTTEKKEUJMS7TPU\%2F20200416\%2Fus-east-1\%2Fs3\%2Faws4_request\&X-Amz-Signature=02022ae0228c2fc1d09a90a389d7fd00b9de38ff2df002159d3ad84666c213e8}{Counties
 and Unitary Authorities}. They are the geographical units used to report
 COVID-19 data.
 
-If you use the dataset utilised in this chapter, cite this book. For a
-full list of the variables included in the data set we will use in this
-chapter, see the readme file in the gwr data folder.\footnote{Read the
-  file in R by executing \texttt{read\_tsv("data/gwr/readme.txt")}}
+If you use the dataset utilised in this chapter, make sure cite this
+book. For a full list of the variables included in the data set used in
+this Chapter, see the readme file in the gwr data folder.\footnote{Read
+  the file in R by executing \texttt{read\_tsv("data/gwr/readme.txt")}}
 
 Let's read the data:
 
@@ -7040,8 +7110,8 @@ effects:
   variable's values across space
 \item
   \emph{Spatial dependence} refers to the spatial relationship of a
-  variable's values for a pairs of locations at a certain distance
-  apart, so that are more similar (or less similar) than expected for
+  variable's values for a pair of locations at a certain distance apart,
+  so that they are more similar (or less similar) than expected for
   randomly associated pairs of observations
 \item
   \emph{Spatial nonstationarity} refers to variations in the
@@ -7060,13 +7130,13 @@ geographically weighted regression (GWR).
 We will explore this technique through an empirical analysis considering
 the current global COVID-19 outbreak. Specifically we will seek to
 identify potential contextual factors that may be related to an
-increased risk of local infection. Population density, housing
-overcrowding, vulnerable individuals and critical workers have all been
+increased risk of local infection. Population density, overcrowded
+housing, vulnerable individuals and critical workers have all been
 linked to a higher risk of COVID-19 infection.
 
 First, we will define and develop some basic understanding of our
 variable of interest. We define the risk of COVID-19 infection by the
-cummulative number of confirmed positive cases COVID-19 per 100,000
+cumulative number of confirmed positive cases COVID-19 per 100,000
 people:
 
 \begin{Shaded}
@@ -7124,7 +7194,7 @@ understand their spatial structure.
 \NormalTok{reg_shp =}\StringTok{ }\NormalTok{lwgeom}\OperatorTok{::}\KeywordTok{st_make_valid}\NormalTok{(reg_shp)}
 
 \CommentTok{# map}
-\NormalTok{legend_title =}\StringTok{ }\KeywordTok{expression}\NormalTok{(}\StringTok{"Cummulative cases per 100,000"}\NormalTok{)}
+\NormalTok{legend_title =}\StringTok{ }\KeywordTok{expression}\NormalTok{(}\StringTok{"Cumulative cases per 100,000"}\NormalTok{)}
 \NormalTok{map_utla =}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(utla_shp) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{tm_fill}\NormalTok{(}\DataTypeTok{col =} \StringTok{"covid19_r"}\NormalTok{, }\DataTypeTok{title =}\NormalTok{ legend_title, }\DataTypeTok{palette =} \KeywordTok{magma}\NormalTok{(}\DecValTok{256}\NormalTok{), }\DataTypeTok{style =} \StringTok{"cont"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# add fill}
 \StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{1}\NormalTok{)  }\OperatorTok{+}\StringTok{ }\CommentTok{# add borders}
@@ -7178,17 +7248,17 @@ Challenge 1: How does Liverpool ranked in this list?
 
 \section{Global Regression}\label{global-regression}
 
-To provide an intuitive understanding of GWR, exploring our data based
-on an ordinary least squares (OLS) linear regression model is a useful
-start. The key issue here is to understand if high incidence of COVID-19
+To provide an intuitive understanding of GWR, a useful start is to
+explore the data using an ordinary least squares (OLS) linear regression
+model. The key issue here is to understand if high incidence of COVID-19
 is linked to structural differences across UTLAs in England. As
 indicated above, confirmed positive cases of COVID-19 have been
-associated with overcrowding housing, vulnerable populations - including
+associated with overcrowded housing, vulnerable populations - including
 people in elderly age groups, economically disadvantaged groups and
-suffering from chronic health conditions - ethnic minorities, critical
-workers in the health \& social work, education, accommodation \& food,
-transport, and administrative \& support sectors. So let's create a set
-of variables to approximate these factors.
+those suffering from chronic health conditions - ethnic minorities,
+critical workers in the health \& social work, education, accommodation
+\& food, transport, and administrative \& support sectors. So, let's
+create a set of variables to approximate these factors.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7243,27 +7313,27 @@ insignificant relationships at the 95\% level of confidence. The colour
 indicate the direction of the relationship with dark (light) colours
 indicating a negative (positive) association.
 
-The resuls indicate that the incidence of COVID-19 is significantly and
-positively related to the share of crowded housing, nonwhite ethnic
-minorities and administrative \& support workers. Against the
-expectations, the incidence of COVID-19 appears negatively correlated to
-the share of elderly population, of population suffering from long-term
+The results indicate that the incidence of COVID-19 is significantly and
+positively related to the share of overcrowded housing, nonwhite ethnic
+minorities and administrative \& support workers. Against expectations,
+the incidence of COVID-19 appears to be negatively correlated with the
+share of elderly population, of population suffering from long-term
 illness and of administrative \& support workers, and displays no
-significant association with the share of population living in
-deprivated areas, of public administration \& defence, and of health \&
-social workers. The latter probably reflect the effectiveness of the
-protective measures undertaken to prevent infection among these
-population groups, but it may also reflect the partial coverage of
-COVID-19 testing and underreporting. It may also reveal the descriptive
-limitations of correlation coefficients as they show the relationship
-between a pairs of variables, not controling for others. Correlation
-coefficients can thus produce spurious relationships resulting from
-counfounded variables. We will return to this point below.
+significant association with the share of the population living in
+deprived areas as well as the share of public administration \& defence
+workers, and health \& social workers. The latter probably reflects the
+effectiveness of the protective measures undertaken to prevent infection
+among these population groups, but it may also reflect the partial
+coverage of COVID-19 testing and underreporting. It may also reveal the
+descriptive limitations of correlation coefficients as they show the
+relationship between a pairs of variables, not controlling for others.
+Correlation coefficients can thus produce spurious relationships
+resulting from confounded variables. We will return to this point below.
 
 The results also reveal high collinearity between particular pairs of
 variables, notably between the share of crowded housing and of nonwhite
 ethnic population, the share of crowded housing and of elderly
-population, the share of crowded housing and of administrative \&
+population, the share of overcrowded housing and of administrative \&
 support workers, the share of elderly population and of population
 suffering from long-term illness. A more refined analysis of
 multicollinearity is needed. Various diagnostics for multicollinearity
@@ -7271,11 +7341,11 @@ in a regression framework exist, including matrix condition numbers
 (CNs), predictor variance inflation factors (VIFs) and variance
 decomposition factors (VDPs). Rules of thumb (CNs \textgreater{} 30,
 VIFs \textgreater{} 10 and VDPs \textgreater{} 0.5) to indicate worrying
-levels of collinearity can be found \citep{belsley2005regression}. To
+levels of collinearity can be found in \citet{belsley2005regression}. To
 avoid problems of multicollinearity, often a simple strategy is to
 remove highly correlated predictors. The difficultly is in deciding
 which predictor(s) to remove, especially when all are considered
-important. Have this in mind when specifying your model.
+important. Keep this in mind when specifying your model.
 
 \begin{quote}
 Challenge 2: Analyse the relationship of all the variables executing
@@ -7290,7 +7360,7 @@ the incidence rate of COVID-19 on a series of factors capturing
 differences across areas. To focus on the description of GWR, we keep
 our analysis simple and study the incidence rate of COVID-19 as a
 function of the share of nonwhite ethnic population and of population
-suffering long-term illness by estimating the following OLS linear
+suffering from long-term illness by estimating the following OLS linear
 regression model:
 
 \begin{Shaded}
@@ -7345,16 +7415,16 @@ We also compute the VIFs for the variables in the model:
 The regression results indicate a positive relationship exists between
 the share of nonwhite population and an increased risk of COVID-19
 infection. A one percentage point increase in the share of nonwhite
-population returns a 271 rise in the cummulative count of COVID-19
+population returns a 271 rise in the cumulative count of COVID-19
 infection per 100,000 people, everything else constant. The results also
 reveal a positive (albeit statistically insignificant) relationship
 between the share of population suffering from long-term illness and an
 increased risk of COVID-19 infection, after controlling for the share of
-nonwhite population, confirming the suspicion of the limitations of
-correlation coefficients; that is, once differences in the share of
-nonwhite population are taken into account, the association between the
-share of population suffering from long-term illness and an increased
-risk of COVID-19 infection becomes positive. We also test for
+nonwhite population, thereby confirming our suspicion about the
+limitations of correlation coefficients; that is, once differences in
+the share of nonwhite population are taken into account, the association
+between the share of population suffering from long-term illness and an
+increased risk of COVID-19 infection becomes positive. We also test for
 multicollinearity. The VIFs are below 10 indicating that
 multicollinearity is not highly problematic.
 
@@ -7376,21 +7446,21 @@ misspecification of reality because it assumes these relationships to be
 constant.
 
 To better understand this potential misspecification, we investigate the
-model redisuals which show high variability. The distribution is
-non-random displaying large positive residuals in the metropolitan areas
-of London, Liverpool, Newcastle (in light colours) and the Lake District
-and large negative residuals across much of England (in black). This
-conforms to the spatial pattern of confirmed COVID-19 cases with high
-concentration in a limited number of metropolitan areas (see above).
-While our residual map reveals that there is a problem with the OLS
-model, it does not indicate which, if any, of the parameters in the
-model might exhibit spatial nonstationarity. A simple way of examining
-if the relationships being modelled in our global OLS model are likely
-to be stationary over space would be to estimate separate OLS model for
-each UTLA in England. But this would require higher resolution i.e.~data
-within UTLA, and we only have one data point per UTLA.
-\citet{Fotheringham_et_al_2002_book} (2002, p.40-44) discuss alternative
-approaches and their limitations.
+model residuals which show high variability (see below). The
+distribution is non-random displaying large positive residuals in the
+metropolitan areas of London, Liverpool, Newcastle (in light colours)
+and the Lake District and large negative residuals across much of
+England (in black). This conforms to the spatial pattern of confirmed
+COVID-19 cases with high concentration in a limited number of
+metropolitan areas (see above). While our residual map reveals that
+there is a problem with the OLS model, it does not indicate which, if
+any, of the parameters in the model might exhibit spatial
+nonstationarity. A simple way of examining if the relationships being
+modelled in our global OLS model are likely to be stationary over space
+would be to estimate separate OLS model for each UTLA in England. But
+this would require higher resolution i.e.~data within UTLA, and we only
+have one data point per UTLA. \citet{Fotheringham_et_al_2002_book}
+(2002, p.40-44) discuss alternative approaches and their limitations.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7442,8 +7512,8 @@ estimates are unique to a particular location.
 \begin{figure}
 \centering
 \includegraphics{figs/ch8/fixed_bandwidth.png}
-\caption{Fig. 1. GWR with fixed spatial kernel. Source:
-\citet{Fotheringham_et_al_2002_book} (2002, p.45).}
+\caption{Fig. 1. GWR with fixed spatial kernel. Source: Fotheringham et
+al. \citeyearpar[p.45]{Fotheringham_et_al_2002_book}.}
 \end{figure}
 
 \subsection{Fixed or Adaptive Kernel}\label{fixed-or-adaptive-kernel}
@@ -7456,14 +7526,14 @@ distance to a given regression point, with the kernel being identical at
 any point in space. An adaptive kernel involves using varying bandwidth
 to define a region around regression points as displayed in Fig. 2. The
 extent of the kernel is determined by the number of nearest neighbours
-from a given regression point. The hernels have larger bandwidths where
+from a given regression point. The kernels have larger bandwidths where
 the data are sparse.
 
 \begin{figure}
 \centering
 \includegraphics{figs/ch8/adaptive_bandwidth.png}
-\caption{Fig. 2. GWR with adaptive spatial kernel. Source:
-\citet{Fotheringham_et_al_2002_book} (2002, p.47).}
+\caption{Fig. 2. GWR with adaptive spatial kernel. Source: Fotheringham
+et al. \citeyearpar[p.47]{Fotheringham_et_al_2002_book}.}
 \end{figure}
 
 \subsection{Optimal Bandwidth}\label{optimal-bandwidth}
@@ -7482,7 +7552,7 @@ variable. The resulting predicted value is used to compute the residuals
 of the model. Residuals are compared using a series of bandwidth and the
 bandwidth returning the smallest local residuals are selected.
 
-** Variance and Bias Trade off **
+\textbf{Variance and Bias Trade off}
 
 Choosing an optimal bandwidth involves a compromise between bias and
 precision. For example, a larger bandwidth will involve using a larger
@@ -7497,9 +7567,9 @@ optimal bandwidth offers a compromise between bias and variance.
 Two general set of kernel functions can be distinguished: continuous
 kernels and kernels with compact support. Continuous kernels are used to
 weight all observations in the study area and includes uniform, Gaussian
-and Exponetial kernel functions. Kernel with compact support are used to
-assign a nonzero weight to observations within a certain distance and a
-zero weight beyond it. The shape of the kernel has been reported to
+and Exponential kernel functions. Kernel with compact support are used
+to assign a nonzero weight to observations within a certain distance and
+a zero weight beyond it. The shape of the kernel has been reported to
 cause small changes to resulting estimates
 \citep{brunsdon1998geographically}.
 
@@ -7514,7 +7584,7 @@ kernel.
 Cross-validation is used to search for the optimal bandwidth. Recall
 that this procedure compares the model residuals based on different
 bandwidths and chooses the optimal solution i.e.~the bandwidth returning
-the smallest model residuls based on a given model specification. A key
+the smallest model residuals based on a given model specification. A key
 parameter here is the shape of the geographical weight function
 (\texttt{gweight}). We set it to be a Gaussian function which is the
 default. A bi-square function is recommended to reduce computational
@@ -7522,14 +7592,14 @@ time. Since we have a simple model, a Gaussian function should not take
 that long. Note that we set the argument \texttt{longlat} to
 \texttt{TRUE} and use latitude and longitude for coordinates
 (\texttt{coords}). When \texttt{longlat} is set to \texttt{TRUE},
-distances are measured in kilometers.
+distances are measured in kilometres.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# find optimal kernel bandwidth using cross validation}
 \NormalTok{fbw <-}\StringTok{ }\KeywordTok{gwr.sel}\NormalTok{(eq1, }
                \DataTypeTok{data =}\NormalTok{ utla_shp, }
-               \DataTypeTok{coords=}\KeywordTok{cbind}\NormalTok{( lat, long),}
+               \DataTypeTok{coords=}\KeywordTok{cbind}\NormalTok{( long, lat),}
                \DataTypeTok{longlat =} \OtherTok{TRUE}\NormalTok{,}
                \DataTypeTok{adapt=}\OtherTok{FALSE}\NormalTok{, }
                \DataTypeTok{gweight =}\NormalTok{ gwr.Gauss, }
@@ -7541,7 +7611,7 @@ distances are measured in kilometers.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 39.79709
+## [1] 29.30417
 \end{verbatim}
 
 The result indicates that the optimal bandwidth is 39.79 kms. This means
@@ -7555,7 +7625,7 @@ argument \texttt{bandwidth}.
 \CommentTok{# fit a gwr based on fixed bandwidth}
 \NormalTok{fb_gwr <-}\StringTok{ }\KeywordTok{gwr}\NormalTok{(eq1, }
             \DataTypeTok{data =}\NormalTok{ utla_shp,}
-            \DataTypeTok{coords=}\KeywordTok{cbind}\NormalTok{( lat, long),}
+            \DataTypeTok{coords=}\KeywordTok{cbind}\NormalTok{( long, lat),}
             \DataTypeTok{longlat =} \OtherTok{TRUE}\NormalTok{,}
             \DataTypeTok{bandwidth =}\NormalTok{ fbw, }
             \DataTypeTok{gweight =}\NormalTok{ gwr.Gauss,}
@@ -7568,28 +7638,28 @@ argument \texttt{bandwidth}.
 
 \begin{verbatim}
 ## Call:
-## gwr(formula = eq1, data = utla_shp, coords = cbind(lat, long), 
+## gwr(formula = eq1, data = utla_shp, coords = cbind(long, lat), 
 ##     bandwidth = fbw, gweight = gwr.Gauss, hatmatrix = TRUE, longlat = TRUE, 
 ##     se.fit = TRUE)
 ## Kernel function: gwr.Gauss 
-## Fixed bandwidth: 39.79709 
+## Fixed bandwidth: 29.30417 
 ## Summary of GWR coefficient estimates at data points:
 ##                   Min.   1st Qu.    Median   3rd Qu.      Max.  Global
-## X.Intercept.  -191.648   -27.948    95.366   235.818   689.921  63.768
-## ethnic        -651.291   111.928   199.139   261.223  1008.347 271.096
-## lt_illness   -2112.245  -735.222   131.716   660.402  1398.447 216.198
+## X.Intercept.  -187.913   -42.890    93.702   211.685   792.989  63.768
+## ethnic        -785.938   104.813   194.609   254.717  1078.854 271.096
+## lt_illness   -2599.119  -563.128   128.176   690.603  1507.024 216.198
 ## Number of data points: 150 
-## Effective number of parameters (residual: 2traceS - traceS'S): 53.7278 
-## Effective degrees of freedom (residual: 2traceS - traceS'S): 96.2722 
-## Sigma (residual: 2traceS - traceS'S): 38.87087 
-## Effective number of parameters (model: traceS): 41.74245 
-## Effective degrees of freedom (model: traceS): 108.2576 
-## Sigma (model: traceS): 36.65605 
-## Sigma (ML): 31.14075 
-## AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): 1577.913 
-## AIC (GWR p. 96, eq. 4.22): 1498.979 
-## Residual sum of squares: 145462 
-## Quasi-global R2: 0.768978
+## Effective number of parameters (residual: 2traceS - traceS'S): 57.11019 
+## Effective degrees of freedom (residual: 2traceS - traceS'S): 92.88981 
+## Sigma (residual: 2traceS - traceS'S): 38.34777 
+## Effective number of parameters (model: traceS): 44.65744 
+## Effective degrees of freedom (model: traceS): 105.3426 
+## Sigma (model: traceS): 36.00992 
+## Sigma (ML): 30.17717 
+## AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): 1580.349 
+## AIC (GWR p. 96, eq. 4.22): 1492.465 
+## Residual sum of squares: 136599.2 
+## Quasi-global R2: 0.7830537
 \end{verbatim}
 
 We will skip the interpretation of the results for now and consider them
@@ -7650,7 +7720,7 @@ to search for the optimal bandwidth before estimating a GWR.
 \CommentTok{# find optimal kernel bandwidth using cross validation}
 \NormalTok{abw <-}\StringTok{ }\KeywordTok{gwr.sel}\NormalTok{(eq1, }
                \DataTypeTok{data =}\NormalTok{ utla_shp, }
-               \DataTypeTok{coords=}\KeywordTok{cbind}\NormalTok{( lat, long),}
+               \DataTypeTok{coords=}\KeywordTok{cbind}\NormalTok{( long, lat),}
                \DataTypeTok{longlat =} \OtherTok{TRUE}\NormalTok{,}
                \DataTypeTok{adapt =} \OtherTok{TRUE}\NormalTok{, }
                \DataTypeTok{gweight =}\NormalTok{ gwr.Gauss, }
@@ -7662,17 +7732,17 @@ to search for the optimal bandwidth before estimating a GWR.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.0299492
+## [1] 0.03126972
 \end{verbatim}
 
 The optimal bandwidth is 0.03 indicating the proportion of observations
-(or k-nearest neighbours) to be included in the weighthing scheme. In
-this example, the optimal bandwidth indcates that for a given UTLA 3\%
+(or k-nearest neighbours) to be included in the weighting scheme. In
+this example, the optimal bandwidth indicates that for a given UTLA, 3\%
 of its nearest neighbours should be used to calibrate the relevant local
 regression; that is about 5 UTLAs. The search window will thus be
 variable in size depending on the extent of UTLAs. Note that here the
 optimal bandwidth is defined based on a data point's k-nearest
-neighbours. It can also be defined by on geographical distance as done
+neighbours. It can also be defined by geographical distance as done
 above for the fixed spatial kernel. We next fit a GWR based on an
 adaptive bandwidth.
 
@@ -7681,7 +7751,7 @@ adaptive bandwidth.
 \CommentTok{# fit a gwr based on adaptive bandwidth}
 \NormalTok{ab_gwr <-}\StringTok{ }\KeywordTok{gwr}\NormalTok{(eq1, }
             \DataTypeTok{data =}\NormalTok{ utla_shp,}
-            \DataTypeTok{coords=}\KeywordTok{cbind}\NormalTok{( lat, long),}
+            \DataTypeTok{coords=}\KeywordTok{cbind}\NormalTok{( long, lat),}
             \DataTypeTok{longlat =} \OtherTok{TRUE}\NormalTok{,}
             \DataTypeTok{adapt =}\NormalTok{ abw, }
             \DataTypeTok{gweight =}\NormalTok{ gwr.Gauss,}
@@ -7694,28 +7764,28 @@ adaptive bandwidth.
 
 \begin{verbatim}
 ## Call:
-## gwr(formula = eq1, data = utla_shp, coords = cbind(lat, long), 
+## gwr(formula = eq1, data = utla_shp, coords = cbind(long, lat), 
 ##     gweight = gwr.Gauss, adapt = abw, hatmatrix = TRUE, longlat = TRUE, 
 ##     se.fit = TRUE)
 ## Kernel function: gwr.Gauss 
-## Adaptive quantile: 0.0299492 (about 4 of 150 data points)
+## Adaptive quantile: 0.03126972 (about 4 of 150 data points)
 ## Summary of GWR coefficient estimates at data points:
-##                  Min.  1st Qu.   Median  3rd Qu.     Max.  Global
-## X.Intercept.  -204.03   -18.69   124.56   242.76   386.98  63.768
-## ethnic        -148.41   106.29   234.78   291.24  1076.84 271.096
-## lt_illness   -2088.79  -868.29  -106.46   782.93  1510.41 216.198
+##                   Min.   1st Qu.    Median   3rd Qu.      Max.  Global
+## X.Intercept.  -198.790   -28.398   113.961   226.437   346.510  63.768
+## ethnic        -121.872   106.822   229.591   283.739  1162.123 271.096
+## lt_illness   -1907.098  -746.468  -125.855   798.875  1496.549 216.198
 ## Number of data points: 150 
-## Effective number of parameters (residual: 2traceS - traceS'S): 50.87778 
-## Effective degrees of freedom (residual: 2traceS - traceS'S): 99.12222 
-## Sigma (residual: 2traceS - traceS'S): 37.12782 
-## Effective number of parameters (model: traceS): 37.82821 
-## Effective degrees of freedom (model: traceS): 112.1718 
-## Sigma (model: traceS): 34.90142 
-## Sigma (ML): 30.18139 
-## AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): 1553.579 
-## AIC (GWR p. 96, eq. 4.22): 1485.677 
-## Residual sum of squares: 136637.5 
-## Quasi-global R2: 0.782993
+## Effective number of parameters (residual: 2traceS - traceS'S): 48.59361 
+## Effective degrees of freedom (residual: 2traceS - traceS'S): 101.4064 
+## Sigma (residual: 2traceS - traceS'S): 36.57493 
+## Effective number of parameters (model: traceS): 36.04378 
+## Effective degrees of freedom (model: traceS): 113.9562 
+## Sigma (model: traceS): 34.50222 
+## Sigma (ML): 30.07257 
+## AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): 1546.029 
+## AIC (GWR p. 96, eq. 4.22): 1482.809 
+## Residual sum of squares: 135653.9 
+## Quasi-global R2: 0.7845551
 \end{verbatim}
 
 \subsection{Model fit}\label{model-fit}
@@ -7763,21 +7833,22 @@ The key strength of GWR models is in identifying patterns of spatial
 variation in the associations between pairs of variables. The results
 reveal how these coefficients vary across the 150 UTLAs of England. To
 examine this variability, let's first focus on the adaptive GWR output
-reported above. The output includes a summary of GWR coefficient
-estimates at various data points. The last column reports the global
-estimates which are the same as the coefficients from the OLS regression
-we fitted at the strat of our analysis. For our variable nonwhite ethnic
-population, the GWR outputs reveals that local coefficients range from a
-minimum value of -148.41 to a maximum value of 1076.84, indicating that
-one percentage point increase in the share of nonwhite ethnic population
-is associated with a a reduction of 148.41 in the number of cummulative
-confirmed cases of COVID-19 per 100,000 people in some UTLAs and an
-increase of 1076.84 in others. For half of the UTLAs in the dataset, as
-the share of nonwhite ethnic population increases by one percentage
-point, the rate of COVID-19 will decrease between 106.29 and 291.24
-cases; that is, the inter-quartile range between the 1st Qu and the 3rd
-Qu. To analyse the spatial structure, we next map the estimated
-coefficients obtained from the adaptive kernel GWR.
+reported in Section 8.6.4.2. The output includes a summary of GWR
+coefficient estimates at various data points. The last column reports
+the global estimates which are the same as the coefficients from the OLS
+regression we fitted at the start of our analysis. For our variable
+nonwhite ethnic population, the GWR outputs reveals that local
+coefficients range from a minimum value of -148.41 to a maximum value of
+1076.84, indicating that one percentage point increase in the share of
+nonwhite ethnic population is associated with a a reduction of 148.41 in
+the number of cumulative confirmed cases of COVID-19 per 100,000 people
+in some UTLAs and an increase of 1076.84 in others. For half of the
+UTLAs in the dataset, as the share of nonwhite ethnic population
+increases by one percentage point, the rate of COVID-19 will increase
+between 106.29 and 291.24 cases; that is, the inter-quartile range
+between the 1st Qu and the 3rd Qu. To analyse the spatial structure, we
+next map the estimated coefficients obtained from the adaptive kernel
+GWR.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7811,11 +7882,11 @@ coefficients obtained from the adaptive kernel GWR.
 Analysing the map for long-term illness, a clear North-South divide can
 be identified. In the North we observed the expected positive
 relationship between COVID-19 and long-term illness i.e.~as the share of
-local population suffering from long-term illness rises, the cummulative
-number of positive COVID-19 cases is expected to increase. In the South,
-we observe the inverse pattern i.e.~as the share of local population
-suffering from long-term illness rises, the cummulative number of
-positive COVID-19 cases is expected to drop. This pattern is
+the local population suffering from long-term illness rises, the
+cumulative number of positive COVID-19 cases is expected to increase. In
+the South, we observe the inverse pattern i.e.~as the share of local
+population suffering from long-term illness rises, the cumulative number
+of positive COVID-19 cases is expected to drop. This pattern is
 counterintuitive but may be explained by the wider socio-economic
 disadvantages between the North and the South of England. The North is
 usually characterised by a persistent concentration of more
@@ -7871,16 +7942,16 @@ computed - see \citet{lu2014gwmodel}.
 \begin{verbatim}
 ## 
 ##    sig nonsig 
-##    101     49
+##    105     45
 \end{verbatim}
 
 For the share of nonwhite population, 67\% of all local coefficients are
-statistically significant and these are largerly in the South of
-England. Coefficients in the North tend to be insignificant. Through
-outliers exist in both regions. In the South, nonsignificant
-coefficients are observed in the metropolitan areas of London,
-Birmingham and Nottingham, while significant coefficients exist in the
-areas of Newcastle and Middlesbrough in the North.
+statistically significant and these are largely in the South of England.
+Coefficients in the North tend to be insignificant. Through outliers
+exist in both regions. In the South, nonsignificant coefficients are
+observed in the metropolitan areas of London, Birmingham and Nottingham,
+while significant coefficients exist in the areas of Newcastle and
+Middlesbrough in the North.
 
 \begin{quote}
 Challenge 3 Compute the t values for the intercept and estimated
@@ -7891,18 +7962,1447 @@ coefficients?
 
 \subsection{Collinearity in GWR}\label{collinearity-in-gwr}
 
-A important final note is: collinearity tends to be problematic in GWR
+An important final note is: collinearity tends to be problematic in GWR
 models. It can be present in the data subsets to estimate local
 coefficients even when not observed globally
 \citet{wheeler2005multicollinearity}. Collinearity can be highly
 problematic in the case of compositional, categorical and ordinal
 predictors, and may result in exact local collinearity making the search
-for a optimal bandwidth impossible. A recent paper suggests potential
-ways foward \citep{comber2020gwr}.
+for an optimal bandwidth impossible. A recent paper suggests potential
+ways forward \citep{comber2020gwr}.
 
-\chapter{Space-Time Analysis}\label{space-time-analysis}
+\chapter{Spatio-Temporal Analysis}\label{spatio-temporal-analysis}
 
-FR
+This chapter\footnote{This note is part of \href{index.html}{Spatial
+  Analysis Notes} {Space-Time Analysis -- Spatio-temporal modelling} by
+  Francisco Rowe is licensed under a Creative Commons
+  Attribution-NonCommercial-ShareAlike 4.0 International License.}
+provides an introduction to the complexities of spatio-temporal data and
+modelling. For modelling, we consider the Fixed Rank Kriging (FRK)
+framework developed by \citet{cressie2008fixed}. It enables constructing
+a spatial random effects model on a discretised spatial domain. Key
+advantages of this approach comprise the capacity to: (1) work with
+large data sets, (2) be scale; (3) generate predictions based on sparse
+linear algebraic techniques, and (4) produce fine-scale resolution
+uncertainty estimates.
+
+The content of this chapter is based on:
+
+\begin{itemize}
+\item
+  \citet{wikle2019spatio}, a recently published book which provides a
+  good overview of existing statistical approaches to spatio-temporal
+  modelling and R packages.
+\item
+  \citet{zammit2017frk}, who introduce the statistical framework and R
+  package for modelling spatio-temporal used in this Chapter.
+\end{itemize}
+
+This Chapter is part of \href{index.html}{Spatial Analysis Notes}, a
+compilation hosted as a GitHub repository that you can access in a few
+ways:
+
+\begin{itemize}
+\tightlist
+\item
+  As a
+  \href{https://github.com/GDSL-UL/san/archive/master.zip}{download} of
+  a \texttt{.zip} file that contains all the materials.
+\item
+  As an
+  \href{https://gdsl-ul.github.io/san/spatio-temporal-analysis.html}{html
+  website}.
+\item
+  As a
+  \href{https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf}{pdf
+  document}
+\item
+  As a \href{https://github.com/GDSL-UL/san}{GitHub repository}.
+\end{itemize}
+
+\section{Dependencies}\label{dependencies-7}
+
+This chapter uses the following libraries: Ensure they are installed on
+your machine\footnote{You can install package \texttt{mypackage} by
+  running the command \texttt{install.packages("mypackage")} on the R
+  prompt or through the
+  \texttt{Tools\ -\/-\textgreater{}\ Install\ Packages...} menu in
+  RStudio.} before loading them executing the following code chunk:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Data manipulation, transformation and visualisation}
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\CommentTok{# Nice tables}
+\KeywordTok{library}\NormalTok{(kableExtra)}
+\CommentTok{# Simple features (a standardised way to encode vector data ie. points, lines, polygons)}
+\KeywordTok{library}\NormalTok{(sf) }
+\CommentTok{# Spatial objects conversion}
+\KeywordTok{library}\NormalTok{(sp) }
+\CommentTok{# Thematic maps}
+\KeywordTok{library}\NormalTok{(tmap) }
+\CommentTok{# Nice colour schemes}
+\KeywordTok{library}\NormalTok{(viridis) }
+\CommentTok{# Obtain correlation coefficients}
+\KeywordTok{library}\NormalTok{(corrplot)}
+\CommentTok{# Highlight data on plots}
+\KeywordTok{library}\NormalTok{(gghighlight)}
+\CommentTok{# Analysing spatio-temporal data}
+\CommentTok{#library(STRbook)}
+\KeywordTok{library}\NormalTok{(spacetime)}
+\CommentTok{# Date parsing and manipulation}
+\KeywordTok{library}\NormalTok{(lubridate)}
+\CommentTok{# Applied statistics}
+\KeywordTok{library}\NormalTok{(MASS)}
+\CommentTok{# Statistical tests for linear regression models}
+\KeywordTok{library}\NormalTok{(lmtest)}
+\CommentTok{# Fit spatial random effects models}
+\KeywordTok{library}\NormalTok{(FRK)}
+\CommentTok{# Exportable regression tables}
+\KeywordTok{library}\NormalTok{(jtools)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Data}\label{data-6}
+
+For this chapter, we will data on:
+
+\begin{itemize}
+\item
+  COVID-19 confirmed cases from 30th January, 2020 to 21st April, 2020
+  from Public Health England via the
+  \href{https://coronavirus.data.gov.uk}{GOV.UK dashboard};
+\item
+  resident population characteristics from the 2011 census, available
+  from the \href{https://www.nomisweb.co.uk/home/census2001.asp}{Office
+  of National Statistics}; and,
+\item
+  2019 Index of Multiple Deprivation (IMD) data from
+  \href{https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019}{GOV.UK}
+  and published by the Ministry of Housing, Communities \& Local
+  Government. The data are at the ONS Upper Tier Local Authority (UTLA)
+  level - also known as
+  \href{https://ago-item-storage.s3.us-east-1.amazonaws.com/7bb8db84e0f54e83aa05204f7bd674b8/EN37152_CTY_UA_DEC_2018_UK.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEI7\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2FwEaCXVzLWVhc3QtMSJHMEUCIHGIIjyriwWRx5QXeakP\%2BhJr39uh7b7jP1dr4q\%2FbEgC3AiEA0ohlaSFkwlCKLMy3vFhZDcQvDgzEVEP0kS17VN2ZnxMqvQMIpv\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2FARAAGgw2MDQ3NTgxMDI2NjUiDD2XGTMX5p\%2BWiurX2iqRA\%2FHRJfiW8YaOjNi65RC8AFZ5shx\%2Fn3Upl\%2B9YP5xhX4YzsRqkYkx\%2FYkwbMZ\%2FlDDqWpBHcZzoRdFDz1IGLueQJvDhFignjzIBmExSJ0UdMvuU56tXbnZQ\%2BI8lTjP9JRtLpZELENSjVeoi5qJpphGzoBo9O9cCJkQvWC3NNxqV6eFez00ld5qlRMpJ4KTOl7\%2FxJBBfua\%2F8WYdrcZ4H0KA47l\%2FIJnp2AklUv\%2Fw0cBoU0LZq3djjuVlE\%2FseJKOnm1Z8KMFItEanYUpOrMfROJ5C\%2FTwqqJ2GQMSvr30W\%2F4\%2FY\%2F2BKNTiyCvbEJnD03SWrB20bBlN0Gr13YYvcSBBjgwmhe4EKIrrLSKo8SOZNOg02nq\%2Bmrc0\%2FsPo\%2BYyLgA0MXASt9kDPL4N5IF9yG3lS7vd7E7\%2FpesIlC\%2FW3g3TVOBA92bKMtU6QA\%2B93URcqkrXyrvN6LGAt2C83HjvuAmtbSmlJOD5enC7abdOEqJMyJdUH\%2BwbBKXN8TK\%2F\%2BbRMzgshl1dJElvSnPAYZEuNwaso8bVXwSK\%2F31m6MP\%2Bv4fQFOusBk4G2Dlca6chTsAlFjXomtOeu6Kxm0MRAgdhF4mSRnKggkWu8mBYY68\%2BeGt3egIOtssrEVcWYr1nseCriPHpsA\%2BGi3IFnyPVIKZpStdv\%2F\%2FNoOip3YGsb\%2BSxgkIdxjVJdnkTsEvEf7AZtu6BFTKfTtTAII\%2Boh46F\%2BH\%2FDztv9kHuQMMXQsJozbphriOJDxP8TMSe16v8Tc1yULmRuenrfX1CMGTPrTcoUYPEu82qwDWlcMWwRRTMAv3xcupkZXVOQhMzkcyOOxQdOLWyIH5\%2FZ\%2BuIkNMQzndBya5nNjpGJ6UniQp22CkZ5n52KK\%2Fnw\%3D\%3D\&X-Amz-Algorithm=AWS4-HMAC-SHA256\&X-Amz-Date=20200416T135331Z\&X-Amz-SignedHeaders=host\&X-Amz-Expires=300\&X-Amz-Credential=ASIAYZTTEKKEUJMS7TPU\%2F20200416\%2Fus-east-1\%2Fs3\%2Faws4_request\&X-Amz-Signature=02022ae0228c2fc1d09a90a389d7fd00b9de38ff2df002159d3ad84666c213e8}{Counties
+  and Unitary Authorities}.
+\end{itemize}
+
+For a full list of the variables included in the data set we will use in
+this chapter, see the readme file in the sta data folder.\footnote{Read
+  the file in R by executing \texttt{read\_tsv("data/sta/readme.txt")}}.
+Before we get our hands on the data, there are some important concepts
+that we need to understand. These concepts provide a useful framework to
+understand the complex structure of spatio-temporal data. Let's start by
+first highlighling the importance of spatio-temporal analysis.
+
+\section{Why Spatio-Temporal
+Analysis?}\label{why-spatio-temporal-analysis}
+
+Investigating the spatial patterns of human processes as we have done so
+far in this book only offers a partial incomplete representation of
+these processes. It does not allow understanding of the temporal
+evolution of these processes. Human processes evolve in space and time.
+Human mobility is a inherent geographical process which changes over the
+course of the day, with peaks at rush hours and high concentration
+towards employment, education and retail centres. Exposure to air
+pollution changes with local climatic conditions, and emission and
+concentration of atmospheric pollutants which fluctuate over time. The
+rate of disease spread varies over space and may significantly change
+over time as we have seen during the current outbreak, with flattened or
+rapid declining trends in Australia, New Zealand and South Korea but
+fast proliferation in the United Kingdom and the United States. Only by
+considering time and space together we can address how geographic
+entities change over time and why they change. A large part of how and
+why of such change occurs is due to interactions across space and time,
+and multiple processes. It is essential to understand the past to inform
+our understanding of the present and make predictions about the future.
+
+\subsection{Spatio-temporal Data
+Structures}\label{spatio-temporal-data-structures}
+
+A first key element is to understand the structure of spatio-temporal
+data. Spatio-temporal data incorporate two dimensions. At one end, we
+have the temporal dimension. In quantitative analysis, time-series data
+are used to capture geographical processes at regular or irregular
+intervals; that is, in a continuous (daily) or discrete (only when a
+event occurs) temporal scale. At another end, we have the spatial
+dimension. We often use spatial data as temporal aggregations or
+temporally frozen states (or `snapshots') of a geographical process -
+this is what we have done so far. Recall that spatial data can be
+capture in different geographical units, such as areal or lattice,
+points, flows or trajectories - refer to the introductory lecture in
+Week 1. Relatively few ways exist to formally integrate temporal and
+spatial data in consistent analytical framework. Two notable exceptions
+in R are the packages \texttt{TraMiner} \citep{gabadinho2009mining} and
+\texttt{spacetime} \citep{pebesma2012spacetime}. We use the class
+definitions defined in the R package \texttt{spacetime}. These classes
+extend those used for spatial data in \texttt{sp} and time-series data
+in \texttt{xts}. Next a brief introduction to concepts that facilitate
+thinking about spatio-temporal data structures.
+
+\subsubsection{Type of Table}\label{type-of-table}
+
+Spatio-temporal data can be conceptualised as three main different types
+of tables:
+
+\begin{itemize}
+\item
+  time-wide: a table in which columns correspond to different time
+  points
+\item
+  space-wide: a table in which columns correspond to different spatial
+  location
+\item
+  long formats: a table in which each row-column pair corresponds to a
+  specific time and spatial location (or space coordinate)
+\end{itemize}
+
+\begin{quote}
+Note that data in long format are space inefficient because spatial
+coordinates and time attributes are required for each data point. Yet,
+data in this format are relatively easy to manipulate via packages such
+as \texttt{dplyr} and \texttt{tidyr}, and visualise using
+\texttt{ggplot2}. These packages are designed to work with data in long
+format.
+\end{quote}
+
+\subsubsection{Type of Spatio-Temporal
+Object}\label{type-of-spatio-temporal-object}
+
+To integrate spatio-temporal data, spatio-temporal objects are needed.
+We consider four different spatio-temporal frames (STFs) or objects
+which can be defined via the package \texttt{spacetime}:
+
+\begin{itemize}
+\item
+  Full grid (STF): an object containing data on all possible locations
+  in all time points in a sequence of data;
+\item
+  Sparse grid (STS): an object similar to STF but only containing
+  non-missing space-time data combinations;
+\item
+  Irregular (STI): an object with an irregular space-time data
+  structure, where each point is allocated a spatial coordinate and a
+  time stamp;
+\item
+  Simple Trajectories (STT): an object containig a sequence of
+  space-time points that form trajectories.
+\end{itemize}
+
+More details on these spatio-temporal structures, construction and
+manipulation, see \citet{pebesma2012spacetime}. Enough theory, let's
+code!
+
+\section{Data Wrangling}\label{data-wrangling}
+
+This section illustrates the complexities of handling spatio-temporal
+data. It discusses good practices in data manipulation and construction
+of a Space Time Irregular Data Frame (STIDF) object. Three key
+requirements to define a STFDF object are:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Have a data frame in long format i.e.~a location-time pair data frame
+\item
+  Define a time stamp
+\item
+  Construct the spatio-temporal object of class STIDF by indicating the
+  spatial and temporal coordinates
+\end{enumerate}
+
+Let's now read all the required data. While we can have all data in a
+single data frame, you will find helpful to have separate data objects
+to identify:
+
+\begin{itemize}
+\item
+  spatial locations
+\item
+  temporal units
+\item
+  data
+\end{itemize}
+
+These data objects correspond to \texttt{locs}, \texttt{time}, and
+\texttt{covid19} and \texttt{censusimd} below. Throughout the chapter
+you will notice that we switch between the various data frames when
+convinient, depending on the operation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# clear workspace}
+\KeywordTok{rm}\NormalTok{(}\DataTypeTok{list=}\KeywordTok{ls}\NormalTok{())}
+
+\CommentTok{# read ONS UTLA shapefile}
+\NormalTok{utla_shp <-}\StringTok{ }\KeywordTok{st_read}\NormalTok{(}\StringTok{"data/sta/ons_utla.shp"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reading layer `ons_utla' from data source `/Users/Franciscorowe/Dropbox/Francisco/uol/teaching/envs453/201920/lectures/san/data/sta/ons_utla.shp' using driver `ESRI Shapefile'
+## Simple feature collection with 150 features and 11 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 134112.4 ymin: 11429.67 xmax: 655653.8 ymax: 657536
+## epsg (SRID):    NA
+## proj4string:    +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# create table of locations}
+\NormalTok{locs <-}\StringTok{ }\NormalTok{utla_shp }\OperatorTok{%>%}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{() }\OperatorTok{%>%}
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(objct, cty19c, ctyu19nm, long, lat, st_rs) }
+
+\CommentTok{# read time data frame}
+\NormalTok{time <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/sta/reporting_dates.csv"}\NormalTok{)}
+
+\CommentTok{# read COVID-19 data in long format}
+\NormalTok{covid19 <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/sta/covid19_cases.csv"}\NormalTok{)}
+
+\CommentTok{# read census and IMD data}
+\NormalTok{censusimd <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/sta/2011census_2019imd_utla.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+If we explore the structure of the data via \texttt{head} and
+\texttt{str}, we can see we have data on daily and cumulative new
+COVID-19 cases for 150 spatial units (i.e.~UTLAs) over 71 time points
+from January 30th to April 21st. We also have census and IMD data for a
+range of attributes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(covid19, }\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 6
+##   Area.name  Area.code Area.type   date       Daily.lab.confi~ Cumulative.lab.c~
+##   <chr>      <chr>     <chr>       <date>                <dbl>             <dbl>
+## 1 Barking a~ E09000002 Upper tier~ 2020-01-30                0                 0
+## 2 Barnet     E09000003 Upper tier~ 2020-01-30                0                 0
+## 3 Barnsley   E08000016 Upper tier~ 2020-01-30                0                 0
+\end{verbatim}
+
+Once we have understood the structure of the data, we first need to
+confirm if the \texttt{covid19} data are in wide or long format. Luckily
+they are in long format; otherwise, we would have needed to transform
+the data from wide to long format. Useful functions to achieve this
+include \texttt{pivot\_longer} (\texttt{pivot\_longer}) which has
+superseded \texttt{gather} (\texttt{spread}) in the \texttt{tidyr}
+package. Note that the \texttt{covid19} data frame has 10,650
+observations (i.e.~rows); that is, 150 UTLAs * 71 daily observations.
+
+We then define a regular time stamp for our temporal data. We use the
+\texttt{lubridate} package to do this. A key advantage of
+\texttt{lubridate} is that it automatically recognises the common
+separators used when recording dates (``-'', ``/'', ``.'', and ``''). As
+a result, you only need to focus on specifying the order of the date
+elements to determine the parsing function applied. Below we check the
+structure of our time data, define a time stamp and create separate
+variables for days, weeks, months and year.
+
+\begin{quote}
+Note that working with dates can be a complex task. A good discussion of
+these complexities is provided
+\href{http://uc-r.github.io/dates/\#convert_date}{here}.
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# check the time structure used for reporting covid cases}
+\KeywordTok{head}\NormalTok{(covid19}\OperatorTok{$}\NormalTok{date, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "2020-01-30" "2020-01-30" "2020-01-30" "2020-01-30" "2020-01-30"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# parsing data into a time stamp}
+\NormalTok{covid19}\OperatorTok{$}\NormalTok{date <-}\StringTok{ }\KeywordTok{ymd}\NormalTok{(covid19}\OperatorTok{$}\NormalTok{date)}
+\KeywordTok{class}\NormalTok{(covid19}\OperatorTok{$}\NormalTok{date)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Date"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# separate date variable into day,week, month and year variables}
+\NormalTok{covid19}\OperatorTok{$}\NormalTok{day <-}\StringTok{ }\KeywordTok{day}\NormalTok{(covid19}\OperatorTok{$}\NormalTok{date)}
+\NormalTok{covid19}\OperatorTok{$}\NormalTok{week <-}\StringTok{ }\KeywordTok{week}\NormalTok{(covid19}\OperatorTok{$}\NormalTok{date) }\CommentTok{# week of the year}
+\NormalTok{covid19}\OperatorTok{$}\NormalTok{month <-}\StringTok{ }\KeywordTok{month}\NormalTok{(covid19}\OperatorTok{$}\NormalTok{date)}
+\NormalTok{covid19}\OperatorTok{$}\NormalTok{year <-}\StringTok{ }\KeywordTok{year}\NormalTok{(covid19}\OperatorTok{$}\NormalTok{date)}
+\end{Highlighting}
+\end{Shaded}
+
+Once defined the time stamp, we need to add the spatial information
+contained in our shapefile to create a spatio-temporal data frame.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# join dfs}
+\NormalTok{covid19_spt <-}\StringTok{ }\KeywordTok{left_join}\NormalTok{(utla_shp, covid19, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"ctyu19nm"}\NormalTok{ =}\StringTok{ "Area.name"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+We now have all the components to build a spatio-temporal object of
+class STIDF using \texttt{STIDF} from the \texttt{spacetime} package:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# identifying spatial fields}
+\NormalTok{spat_part <-}\StringTok{ }\KeywordTok{as}\NormalTok{(dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(covid19_spt, }\OperatorTok{-}\KeywordTok{c}\NormalTok{(bng_e, bng_n, Area.code, Area.type, Daily.lab.confirmed.cases, Cumulative.lab.confirmed.cases, date, day, week, month, year)), }\DataTypeTok{Class =} \StringTok{"Spatial"}\NormalTok{)}
+
+\CommentTok{# identifying temporal fields}
+\NormalTok{temp_part <-}\StringTok{ }\NormalTok{covid19_spt}\OperatorTok{$}\NormalTok{date}
+
+\CommentTok{# identifying data}
+\NormalTok{covid19_data <-}\StringTok{ }\NormalTok{covid19_spt }\OperatorTok{%>%}\StringTok{ }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(}\KeywordTok{c}\NormalTok{(Area.code, Area.type, date, Daily.lab.confirmed.cases, Cumulative.lab.confirmed.cases, day, week, month, year)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{as.data.frame}\NormalTok{()}
+
+\CommentTok{# construct STIDF object}
+\NormalTok{covid19_stobj <-}\StringTok{ }\KeywordTok{STIDF}\NormalTok{(}\DataTypeTok{sp =}\NormalTok{ spat_part, }\CommentTok{# spatial fields}
+                \DataTypeTok{time =}\NormalTok{ temp_part, }\CommentTok{# time fields}
+                \DataTypeTok{data =}\NormalTok{ covid19_data) }\CommentTok{# data}
+                
+\KeywordTok{class}\NormalTok{(covid19_stobj)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "STIDF"
+## attr(,"package")
+## [1] "spacetime"
+\end{verbatim}
+
+We now add census and IMD variables. For the purposes of this Chapter,
+we only add total population and long-term sick or disabled population
+counts. You can add more variables by adding their names in the
+\texttt{select} function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# select pop data}
+\NormalTok{pop <-}\StringTok{ }\NormalTok{censusimd }\OperatorTok{%>%}\StringTok{ }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(}\StringTok{"UTLA19NM"}\NormalTok{, }\StringTok{"Residents"}\NormalTok{, }\StringTok{"Longterm_sick_or_disabled"}\NormalTok{)}
+\CommentTok{# join dfs}
+\NormalTok{covid19_spt <-}\StringTok{ }\KeywordTok{left_join}\NormalTok{(covid19_spt, pop,}
+                         \DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"ctyu19nm"}\NormalTok{ =}\StringTok{ "UTLA19NM"}\NormalTok{))}
+\NormalTok{covid19 <-}\StringTok{ }\KeywordTok{left_join}\NormalTok{(covid19, pop, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"Area.name"}\NormalTok{ =}\StringTok{ "UTLA19NM"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Exploring Spatio-Temporal
+Data}\label{exploring-spatio-temporal-data}
+
+We now have all the required data in place. In this section first
+various methods of data visualisation are illustrated and then key
+dimensions of the data are explored. Both of these types of exploration
+can be challenging as one or more dimensions in space and one in time
+need to be interrogated.
+
+\subsection{Visualisation}\label{visualisation}
+
+In the context spatio-temporal data, a first challenge is data
+visualization. Visualising more than two dimensions of spatio-temporal
+data, so it is helpful to slice or aggregate the data over a dimension,
+use color, or build animations through time. Before exploring the data,
+we need to define our key variable of interest; that is, the number of
+confirmed COVID-19 cases per 100,000 people. We also compute the
+cumulative number of confirmed COVID-19 cases per 100,000 people as it
+may be handy in some analyses.
+
+Fisrt create variable to be analysed:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# rate of new covid-19 infection}
+\NormalTok{covid19_spt}\OperatorTok{$}\NormalTok{n_covid19_r <-}\StringTok{ }\KeywordTok{round}\NormalTok{( (covid19_spt}\OperatorTok{$}\NormalTok{Daily.lab.confirmed.cases }\OperatorTok{/}\StringTok{ }\NormalTok{covid19_spt}\OperatorTok{$}\NormalTok{Residents) }\OperatorTok{*}\StringTok{ }\DecValTok{100000}\NormalTok{)}
+\NormalTok{covid19}\OperatorTok{$}\NormalTok{n_covid19_r <-}\StringTok{ }\KeywordTok{round}\NormalTok{( (covid19}\OperatorTok{$}\NormalTok{Daily.lab.confirmed.cases }\OperatorTok{/}\StringTok{ }\NormalTok{covid19}\OperatorTok{$}\NormalTok{Residents) }\OperatorTok{*}\StringTok{ }\DecValTok{100000}\NormalTok{ )}
+
+\CommentTok{# risk of cumulative covid-19 infection}
+\NormalTok{covid19_spt}\OperatorTok{$}\NormalTok{c_covid19_r <-}\StringTok{ }\KeywordTok{round}\NormalTok{( (covid19_spt}\OperatorTok{$}\NormalTok{Cumulative.lab.confirmed.cases }\OperatorTok{/}\StringTok{ }\NormalTok{covid19_spt}\OperatorTok{$}\NormalTok{Residents) }\OperatorTok{*}\StringTok{ }\DecValTok{100000}\NormalTok{)}
+\NormalTok{covid19}\OperatorTok{$}\NormalTok{c_covid19_r <-}\StringTok{ }\KeywordTok{round}\NormalTok{( (covid19}\OperatorTok{$}\NormalTok{Cumulative.lab.confirmed.cases }\OperatorTok{/}\StringTok{ }\NormalTok{covid19}\OperatorTok{$}\NormalTok{Residents) }\OperatorTok{*}\StringTok{ }\DecValTok{100000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Spatial Plots}\label{spatial-plots}
+
+One way to visualise the data is using spatial plots; that is, snapshots
+of a geographic process for a given time period. Data can be mapped in
+different ways using clorepleth, countour or surface plots. The key aim
+of these maps is to understand how the overall extent of spatial
+variation and local patterns of spatial concentration change over time.
+Below we visualise the weekly number of confirmed COVID-19 cases per
+100,000 people.
+
+\begin{quote}
+Note that Weeks range from 5 to 16 as they refer to calendar weeks.
+Calendar week 5 is when the first COVID-19 case in England was reported.
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# create data frame for new cases by week}
+\NormalTok{daycases_week <-}\StringTok{ }\NormalTok{covid19_spt }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(week, ctyu19nm, }\KeywordTok{as.character}\NormalTok{(cty19c), Residents) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n_daycases =} \KeywordTok{sum}\NormalTok{(Daily.lab.confirmed.cases)) }
+
+\CommentTok{# weekly rate of new covid-19 infection}
+\NormalTok{daycases_week}\OperatorTok{$}\NormalTok{wn_covid19_r <-}\StringTok{ }\NormalTok{(daycases_week}\OperatorTok{$}\NormalTok{n_daycases }\OperatorTok{/}\StringTok{ }\NormalTok{daycases_week}\OperatorTok{$}\NormalTok{Residents) }\OperatorTok{*}\StringTok{ }\DecValTok{100000}
+
+\CommentTok{# map}
+\NormalTok{legend_title =}\StringTok{ }\KeywordTok{expression}\NormalTok{(}\StringTok{"Cumulative Cases per 100,000 Population"}\NormalTok{)}
+\KeywordTok{tm_shape}\NormalTok{(daycases_week) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_fill}\NormalTok{(}\StringTok{"wn_covid19_r"}\NormalTok{, }\DataTypeTok{title =}\NormalTok{ legend_title, }\DataTypeTok{palette =} \KeywordTok{magma}\NormalTok{(}\DecValTok{256}\NormalTok{), }\DataTypeTok{style =}\StringTok{"cont"}\NormalTok{, }\DataTypeTok{legend.hist=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{legend.is.portrait=}\OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_facets}\NormalTok{(}\DataTypeTok{by =} \StringTok{"week"}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{4}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{lwd =}\NormalTok{ .}\DecValTok{1}\NormalTok{)  }\OperatorTok{+}\StringTok{ }\CommentTok{# add borders +}
+\StringTok{  }\KeywordTok{tm_layout}\NormalTok{(}\DataTypeTok{bg.color =} \StringTok{"white"}\NormalTok{, }\CommentTok{# change background colour}
+            \DataTypeTok{legend.outside =} \OtherTok{TRUE}\NormalTok{, }\CommentTok{# legend outside}
+            \DataTypeTok{legend.outside.position =} \StringTok{"bottom"}\NormalTok{,}
+            \DataTypeTok{legend.stack =} \StringTok{"horizontal"}\NormalTok{,}
+            \DataTypeTok{legend.title.size =} \DecValTok{2}\NormalTok{,}
+            \DataTypeTok{legend.width =} \DecValTok{1}\NormalTok{,}
+            \DataTypeTok{legend.height =} \DecValTok{1}\NormalTok{,}
+            \DataTypeTok{panel.label.size =} \DecValTok{3}\NormalTok{,}
+            \DataTypeTok{main.title =} \StringTok{"New COVID-19 Cases by Calendar Week, UTLA, England"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{08-st_analysis_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+The series of maps reveal a stable pattern of low reported cases from
+calendar weeks 5 to 11. From week 12 a number of hot spots emerged,
+notably in London, Birmingham, Cumbria and subsequently around
+Liverpool. The intensity of new cases seem to have started to decline
+from week 15; yet, it is important to note that week 16 display reported
+cases for only two days.
+
+\subsubsection{Time-Series Plots}\label{time-series-plots}
+
+Time-series plots can be used to capture a different dimension of the
+process in analysis. They can be used to better understand changes in an
+observation location, an aggregation of observations, or multiple
+locations simultaneously over time. We plot the cumulative number of
+COVID-19 cases per 100,000 people for UTLAs reporting over 310 cases.
+The plots identify the UTLAs in London, Newcastle and Sheffield
+reporting the largest numbers of COVID-19 cases. The plots also reveal
+that there has been a steady increase in the number of cases, with some
+differences. While cases have steadily increase in Brent and Southwark
+since mid March, the rise has been more sudden in Sunderland. The plots
+also reveal a possible case of misreporting in Sutton towards the end of
+the series.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tsp <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ covid19_spt,}
+            \DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ date, }\DataTypeTok{y =}\NormalTok{ c_covid19_r,}
+                          \DataTypeTok{group =}\NormalTok{ ctyu19nm))}
+\NormalTok{tsp }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_line}\NormalTok{(}\DataTypeTok{color =} \StringTok{"blue"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{    }\KeywordTok{gghighlight}\NormalTok{(}\KeywordTok{max}\NormalTok{(c_covid19_r) }\OperatorTok{>}\StringTok{ }\DecValTok{310}\NormalTok{, }\DataTypeTok{use_direct_label =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title=} \KeywordTok{paste}\NormalTok{(}\StringTok{" "}\NormalTok{), }\DataTypeTok{x=}\StringTok{"Date"}\NormalTok{, }\DataTypeTok{y=}\StringTok{"Cumulative Cases per 100,000"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme_classic}\NormalTok{() }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{plot.title=}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \DecValTok{20}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text=}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size=}\DecValTok{16}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \DecValTok{18}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \DecValTok{18}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{plot.subtitle=}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \DecValTok{16}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title=}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size=}\DecValTok{20}\NormalTok{, }\DataTypeTok{face=}\StringTok{"plain"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\StringTok{ }\NormalTok{ctyu19nm)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{08-st_analysis_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+\subsubsection{Hovmöller Plots}\label{hovmuxf6ller-plots}
+
+An alternative visualisation is a Hovmöller plot - sometimes known as
+heatmap. It is a two-dimensional space-time representation in which
+space is collapsed onto one dimension against time. Hovmöller plots can
+easily be generated if the data are arranged on a space-time grid;
+however, this is rarely the case. Luckily we have \texttt{ggplot}! which
+can do magic rearranging the data as needed. Below we produce a
+Hovmöller plot for UTLAs with resident populations over 260,000. The
+plot makes clear that the critical period of COVID-19 spread has been
+during April despite the implementation of a series of social distancing
+measures by the government.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(covid19_spt, Residents }\OperatorTok{>}\StringTok{ }\DecValTok{260000}\NormalTok{), }
+           \DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{ date, }\DataTypeTok{y=} \KeywordTok{reorder}\NormalTok{(ctyu19nm, c_covid19_r), }\DataTypeTok{fill=}\NormalTok{ c_covid19_r)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_tile}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_viridis}\NormalTok{(}\DataTypeTok{name=}\StringTok{"New Cases per 100,000"}\NormalTok{, }\DataTypeTok{option =}\StringTok{"plasma"}\NormalTok{, }\DataTypeTok{begin =} \DecValTok{0}\NormalTok{, }\DataTypeTok{end =} \DecValTok{1}\NormalTok{, }\DataTypeTok{direction =} \DecValTok{1}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_minimal}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title=} \KeywordTok{paste}\NormalTok{(}\StringTok{" "}\NormalTok{), }\DataTypeTok{x=}\StringTok{"Date"}\NormalTok{, }\DataTypeTok{y=}\StringTok{"Upper Tier Authority Area"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"bottom"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size=}\DecValTok{15}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size=}\DecValTok{10}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size=}\DecValTok{15}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title=}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size=}\DecValTok{20}\NormalTok{, }\DataTypeTok{face=}\StringTok{"plain"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.key.width =} \KeywordTok{unit}\NormalTok{(}\DecValTok{5}\NormalTok{, }\StringTok{"cm"}\NormalTok{), }\DataTypeTok{legend.key.height =} \KeywordTok{unit}\NormalTok{(}\DecValTok{2}\NormalTok{, }\StringTok{"cm"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{08-st_analysis_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+\subsubsection{Interactive Plots}\label{interactive-plots}
+
+Interactive visualisations comprise very effective ways to understand
+spatio-temporal data and they are now fairly accessible. Interactive
+visualisations allow for a more data-immersive experience, and enable
+exploration of the data without having to resort to scripting. Here is
+when the use of \texttt{tmap} shines as it does not only enables easily
+creating nice static maps but also interactive maps! Below an
+interactive map for a time snapshot of the data (i.e.
+\texttt{2020-04-14}) is produced, but with a bit of work layers can be
+added to display multiple temporal slices of the data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# map}
+\NormalTok{legend_title =}\StringTok{ }\KeywordTok{expression}\NormalTok{(}\StringTok{"Cumulative Cases per 100,000 Population"}\NormalTok{)}
+\NormalTok{imap =}\StringTok{ }\KeywordTok{tm_shape}\NormalTok{(dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(covid19_spt[,}\KeywordTok{c}\NormalTok{(}\StringTok{"ctyu19nm"}\NormalTok{, }\StringTok{"date"}\NormalTok{, }\StringTok{"c_covid19_r"}\NormalTok{)], }\KeywordTok{as.character}\NormalTok{(date) }\OperatorTok{==}\StringTok{ "2020-04-14"}\NormalTok{), }\DataTypeTok{labels =} \StringTok{"Area.name"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_fill}\NormalTok{(}\StringTok{"c_covid19_r"}\NormalTok{, }\DataTypeTok{title =}\NormalTok{ legend_title, }\DataTypeTok{palette =} \KeywordTok{magma}\NormalTok{(}\DecValTok{256}\NormalTok{), }\DataTypeTok{style =}\StringTok{"cont"}\NormalTok{, }\DataTypeTok{legend.is.portrait=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.7}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_borders}\NormalTok{(}\DataTypeTok{col =} \StringTok{"white"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\CommentTok{#tm_text("ctyu19nm", size = .4) +}
+\StringTok{  }\KeywordTok{tm_layout}\NormalTok{(}\DataTypeTok{bg.color =} \StringTok{"white"}\NormalTok{, }\CommentTok{# change background colour}
+            \DataTypeTok{legend.outside =} \OtherTok{TRUE}\NormalTok{, }\CommentTok{# legend outside}
+            \DataTypeTok{legend.title.size =} \DecValTok{1}\NormalTok{,}
+            \DataTypeTok{legend.width =} \DecValTok{1}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+To view the map on your local machines, execute the code chunk below
+removing the \texttt{\#} sign.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#tmap_mode("view")}
+\CommentTok{#imap}
+\end{Highlighting}
+\end{Shaded}
+
+Alternative data visualisation tools are animations, telliscope and
+shiny. Animations can be constructed by plotting spatial data
+frame-by-frame, and then stringing them together in sequence. A useful R
+packages \texttt{gganimate} and \texttt{tmap}! See
+\citet{Lovelace_et_al_2020_book}. Note that the creation of animations
+may require external dependencies; hence, they have been included here.
+Both \texttt{telliscope} and \texttt{shiny} are useful ways for
+visualising large spatio-temporal data sets in an interactive ways. Some
+effort is required to deploy these tools.
+
+\subsection{Exploratory Analysis}\label{exploratory-analysis-1}
+
+In addition to visualising data, we often want to obtain numerical
+summaries of the data. Again, innovative ways to reduce the inherent
+dimensionality of the data and examine dependence structures and
+potential relationships in time and space are needed. We consider
+visualisations of empirical spatial and temporal means, dependence
+structures and some basic time-series analysis.
+
+\subsubsection{Means}\label{means}
+
+\textbf{Empirical Spatial Mean}
+
+The empirical spatial mean for a data set can be obtained by averaging
+over time points for one location. In our case, we can compute the
+empirical spatial mean by averaging the daily rate of new COVID-19 cases
+for UTLAs between January 30th and April 21st. It reveals that Brent,
+Southwark and Sunderland report an average daily infection rate of over
+5 new cases per 100,000 people, whereas Rutland and Isle of Wight
+display an average of less than 1.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# compute empirical spatial mean}
+\NormalTok{sp_av <-}\StringTok{ }\NormalTok{covid19_spt }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(ctyu19nm) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# group by spatial unit}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{sp_mu_emp =} \KeywordTok{mean}\NormalTok{(n_covid19_r))}
+
+\CommentTok{# plot empirical spatial mean}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data=}\NormalTok{sp_av) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_col}\NormalTok{( }\KeywordTok{aes}\NormalTok{( }\DataTypeTok{y =} \KeywordTok{reorder}\NormalTok{(ctyu19nm, sp_mu_emp), }\DataTypeTok{x =}\NormalTok{ sp_mu_emp) , }\DataTypeTok{fill =} \StringTok{"grey50"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_classic}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title=} \KeywordTok{paste}\NormalTok{(}\StringTok{" "}\NormalTok{), }\DataTypeTok{x=}\StringTok{"Average New Cases per 100,000"}\NormalTok{, }\DataTypeTok{y=}\StringTok{"Upper Tier Authority Area"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"bottom"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size=}\DecValTok{7}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size=}\DecValTok{12}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title=}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size=}\DecValTok{20}\NormalTok{, }\DataTypeTok{face=}\StringTok{"plain"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{08-st_analysis_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+\textbf{Empirical Temporal Mean}
+
+The empirical temporal mean for a data set can be obtained by averaging
+across spatial locations for a time point. In our case, we can compute
+the empirical temporal mean by averaging the rate of new COVID-19 cases
+over UTLAs by day. The empirical temporal mean is plotted below
+revealing a peak of 8.32 number of new cases per 100,000 people the 7th
+of April, steadily decreasing to 0.35 for the last reporting observation
+in our data; that is, April 21st.
+
+\begin{quote}
+Note the empirical temporal mean is smoothed via local polynomial
+regression fitting; hence below zero values are reported between
+February and March.
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# compute temporal mean}
+\NormalTok{tm_av <-}\StringTok{ }\NormalTok{covid19 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(date) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{tm_mu_emp =} \KeywordTok{mean}\NormalTok{(n_covid19_r))}
+
+\CommentTok{# plot temporal mean + trends for all spatial units}
+\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ covid19, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{date, }\DataTypeTok{y =}\NormalTok{ n_covid19_r,}
+                          \DataTypeTok{group =}\NormalTok{ Area.name), }\DataTypeTok{color =} \StringTok{"gray80"}\NormalTok{) }\OperatorTok{+}
+\StringTok{   }\KeywordTok{theme_classic}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ tm_av, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{date, }\DataTypeTok{y =}\NormalTok{ tm_mu_emp), }
+              \DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{,}
+              \DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title=} \KeywordTok{paste}\NormalTok{(}\StringTok{" "}\NormalTok{), }\DataTypeTok{x=}\StringTok{"Date"}\NormalTok{, }\DataTypeTok{y=}\StringTok{"Cumulative Cases per 100,000"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme_classic}\NormalTok{() }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{plot.title=}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \DecValTok{18}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text=}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size=}\DecValTok{14}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \DecValTok{16}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \DecValTok{16}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{plot.subtitle=}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \DecValTok{16}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title=}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size=}\DecValTok{18}\NormalTok{, }\DataTypeTok{face=}\StringTok{"plain"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{08-st_analysis_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+\subsubsection{Dependence}\label{dependence}
+
+\textbf{Spatial Dependence}
+
+As we know spatial dependence refers to the spatial relationship of a
+variable's values for a pairs of locations at a certain distance apart,
+so that are more similar (or less similar) than expected for randomly
+associated pairs of observations. Patterns of spatial dependence may
+change over time. In the case of a disease outbreak patterns of spatial
+dependence can change very quickly as new cases emerge and social
+distancing measures are implemented. Chapter 6 illustrates how to
+measure spatial dependence in the context of spatial data.
+
+\begin{quote}
+Challenge 1: Measure how spatial dependence change over time. Hint:
+compute the Moran's I on the rate of new COVID-19 cases (i.e.
+\texttt{n\_covid19\_r} in the \texttt{covid19} data frame) at multiple
+time points.
+\end{quote}
+
+\begin{quote}
+Note: recall that the problem of ignoring the dependence in the errors
+when doing OLS regression is that the resulting standard errors and
+prediction standard errors are inappropriate. In the case of positive
+dependence, which is the most common case in spatio-temporal data
+(recall Tobler's law), the standard errors and prediction standard
+errors are underestimated. This is if dependence is ignored, resulting
+in a false sense of how good the estimates and predictions really are.
+\end{quote}
+
+\textbf{Temporal Dependence}
+
+As for spatial data, dependence can also exists in temporal data.
+Temporal dependence or temporal autocorrelation exists when a variable's
+value at time \(t\) is dependent on its value(s) at \(t-1\). More recent
+observations are often expected to have a greater influence on present
+observations. A key difference between temporal and spatial dependence
+is that temporal dependence is unidirectional (i.e.~past observations
+can only affect present or future observations but not inversely), while
+spatial dependence is multidirectional (i.e.~an observation in a spatial
+unit can influence and be influenced by observations in multiple spatial
+units).
+
+Before measuring the temporal dependence is our time-series, a
+time-series object needs to be created with a time stamp and given cycle
+frequency. A cycle frequency refers to when a seasonal pattern is
+repeated. We consider a time series of the total number of new COVID-19
+cases per 100,000 (i.e.~we sum cases over UTLAs by day) and the
+frequency set to 7 to reflect weekly cycles. So we end up with a data
+frame of length 71.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# create a time series object}
+\NormalTok{total_cnt <-}\StringTok{ }\NormalTok{covid19 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(date) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{new_cases =} \KeywordTok{sum}\NormalTok{(n_covid19_r)) }
+\NormalTok{total_cases_ts <-}\StringTok{ }\KeywordTok{ts}\NormalTok{(total_cnt}\OperatorTok{$}\NormalTok{new_cases, }
+                     \DataTypeTok{start =} \DecValTok{1}\NormalTok{,}
+                     \DataTypeTok{frequency =}\DecValTok{7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+There are various ways to test for temporal autocorrelation. An easy way
+is to compute the correlation coefficient between a time series measured
+at time \(t\) and its lag measured at time \(t-1\). Below we measure the
+temporal autocorrelation in the rate of new COVID-19 cases per 100,000
+people. A correlation of 0.97 is returned indicating high positive
+autocorrelation; that is, high (low) past numbers of new COVID-19 cases
+per 100,000 people tend to correlate with higher (lower) present numbers
+of new COVID-19 cases. The Durbin-Watson test is often used to test for
+autocorrelation in regression models.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# create lag term t-1}
+\NormalTok{lag_new_cases <-}\StringTok{ }\NormalTok{total_cnt}\OperatorTok{$}\NormalTok{new_cases[}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
+\NormalTok{total_cnt <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(total_cnt[}\DecValTok{1}\OperatorTok{:}\DecValTok{70}\NormalTok{,], lag_new_cases)}
+\KeywordTok{cor}\NormalTok{(total_cnt[,}\DecValTok{2}\OperatorTok{:}\DecValTok{3}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               new_cases lag_new_cases
+## new_cases      1.000000      0.974284
+## lag_new_cases  0.974284      1.000000
+\end{verbatim}
+
+\textbf{Time Series Components}
+
+In addition to temporal autocorrelation, critical to the analysis of
+time-series are its constituent components. A time-series is generally
+defined by three key components:
+
+\begin{itemize}
+\item
+  Trend: A trend exists when there is a long-term increase or decrease
+  in the data.
+\item
+  Seasonal: A seasonal pattern exists when a time series is affected by
+  seasonal factors and is of a fixed and known frequency. Seasonal
+  cycles can occur at various time intervals such as the time of the day
+  or the time of the year.
+\item
+  Cyclic (random): A cycle exists when the data exhibit rises and falls
+  that are not of a fixed frequency.
+\end{itemize}
+
+To understand and model a time series, these components need to be
+identified and appropriately incorporated into a regression model. We
+illustrate these components by decomposing our time series for total
+COVID-19 cases below. The top plot shows the observed data. Subsequent
+plots display the trend, seasonal and random components of the total
+number of COVID-19 cases on a weekly periodicity. They reveal a clear
+inverted U-shape trend and seasonal pattern. This idea that we can
+decompose data to extract information and understand temporal processes
+is key to understand the concept of basis functions to model
+spatio-temporal data, which will be introduced in the next section.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# decompose time series}
+\NormalTok{dec_ts <-}\StringTok{ }\KeywordTok{decompose}\NormalTok{(total_cases_ts)}
+\CommentTok{# plot time series components}
+\KeywordTok{plot}\NormalTok{(dec_ts)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{08-st_analysis_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+For a good introduction to time-series analysis in R, refer to
+\citet{hyndman2018forecasting} and
+\href{https://www.datacamp.com/courses/forecasting-using-r}{DataCamp}.
+
+\section{Spatio-Temporal Data
+Modelling}\label{spatio-temporal-data-modelling}
+
+Having some understanding of the spatio-temporal patterns of COVID-19
+spread through data exploration, we are ready to start further examining
+structural relationships between the rate of new infections and local
+contextual factors via regression modelling across UTLAs. Specifically
+we consider the number of new cases per 100,000 people to capture the
+rate of new infections and only one contextual factor; that is, the
+share of population suffering from long-term sickness or disabled. We
+will consider some basic statistical models, of the form of linear
+regression and generalized linear models, to account for spatio-temporal
+dependencies in the data. Note that we do not consider more complex
+structures based on hierarchical models or spatio-temporal weighted
+regression models which would be the natural step moving forward.
+
+As any modelling approach, spatio-temporal statistical modelling has
+three principal goals:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  predicting values of a given outcome variable at some location in
+  space within the time span of the observations and offering
+  information about the uncertainty of those predictions;
+\item
+  performing statistical inference about the influence of predictors on
+  an outcome variable in the presence of spatio-temporal dependence;
+  and,
+\item
+  forecasting future values of an outcome variable at some location,
+  offering information about the uncertainty of the forecast.
+\end{enumerate}
+
+\subsection{Intuition}\label{intuition}
+
+The key idea on what follows is to use a basic statistical regression
+model to understand the relationship between the share of new COVID-19
+infections and the share of population suffering from long-term illness,
+accounting for spatio-temporal dependencies. We will consider what is
+known as a trend-surface regression model which assumes that
+spatio-temporal dependencies can be accounted for by ``trend''
+components and incorporate as predictors in the model. Formally we
+consider the regression model below which seeks to account for spatial
+and temporal trends.
+
+\[y(s_{i}, t_{j}) = \beta_{0} + \beta_{k}x(s_{i}, t_{j}) + e(s_{i}, t_{j})\]
+
+where \(\beta_{0}\) is the intercept and \(\beta_{k}\) represents a set
+of regression coefficients associated with \(x(s_{i}, t_{j})\); the
+\(k\) indicates the number of covariates at spatial location \(s_{i}\)
+and time \(t_{j}\); \(e\) represents the regression errors which are
+assumed to follow a normal distribution. The key difference to aproaches
+considered in previous chapters is the incorporation of space and time
+together. As we learnt from the previous section, this has implications
+are we now have two sources of dependence: spatial and temporal
+autocorrelation, as well as seasonal and trend components. This has
+implications for modelling as we now need to account for all of these
+components if we are to establish any relationship between \(y\) and
+\(x\).
+
+A key implication is how we consider the set of covariates represented
+by \(x\). Three key types can be identified:
+
+\begin{itemize}
+\item
+  spatial-variant, temporal-invariant covariates: these are attributes
+  which may vary across space but be temporally invariant, such as
+  geographical distances;
+\item
+  spatial-invariant, temporal-variant covariates: these are attributes
+  which do not vary across space but change over time; and,
+\item
+  spatial-variant, temporal-variant covariates: these are attributes
+  which vary over both space and time;
+\end{itemize}
+
+\begin{quote}
+Note that what is variant or invariant will depend on the spatial and
+temporal scale of the analysis.
+\end{quote}
+
+We can also consider spatio-temporal ``basis functions''. Note that this
+is an important concept for the rest of the Chapter. What are basis
+functions then? If you think that spatio-temporal data represent a
+complex set of curves or surfaces in space, basis functions represent
+the components into which this set of curves can be decomposed. In this
+sense, basis functions operate in a similar fashion as the decomposition
+of time series considered above i.e.~time series data can be decomposed
+into a trend, seasonal and random components and their sum can be used
+to represent the observed temporal trajectory. Basis functions offer an
+effective way to incorporate spatio-temporal dependencies. Thus, basis
+functions have the key goal of accounting for spatio-temporal
+dependencies as spatial weight matrices or temporal lags help accounting
+spatial autocorrelation in spatial models and temporal autocorrelation
+in time series analysis.
+
+As standard regression coefficientes, basis functions are related to
+\(y\) via coefficients (or weights). The difference is that we typically
+assume that basis functions are known while coefficients are random.
+Examples of basis functions include polynomials, splines, wavelets,
+sines and cosines so various linear combinations that can be used to
+infer potential spatio-temporal dependencies in the data. This is
+similar to deep learning models in which cases you provide, for example,
+an image and the model provides a classification of pixels. But you
+normally do not know what the classification represents (hence they are
+known as black boxes!) so further analysis on the classification is
+needed to understand what the model has attempted to capture. Basically
+basis functions are smoother functions to represent the observed data,
+and their objective to capture the spatial and temporal variability in
+the data as well as their dependence.
+
+For our application, we start by considering a basic OLS regression
+model with the following basis functions to account spatial-temporal
+structures:
+
+\begin{itemize}
+\tightlist
+\item
+  overall mean;
+\item
+  linear in lon-coordinate;
+\item
+  linear in lat-coordinate;
+\item
+  linear time daily trend;
+\item
+  additional spatio-temporal basis functions which are presented below;
+  and,
+\end{itemize}
+
+These basis functions are incorporated as independent variables in the
+regression model. Additionally, we also include the share of population
+suffering long-term illness as we know it is highly correlated to the
+cumulative number of COVID-19 cases. The share of population suffering
+long-term illness is incorporated as a spatial-variant,
+temporal-invariant covariates given that rely in 2011 census data.
+
+\subsection{Fitting Spatio-Temporal
+Models}\label{fitting-spatio-temporal-models}
+
+As indicated at the start of this Chapter, we use the FRK framework
+developed by \citet{cressie2008fixed}. It provides a scalable, relies on
+the use a spatial random effects model (with which we have some
+familiarity) and can be easily implemented in R by the use of the
+\texttt{FRK} package \citep{zammit2017frk}. In this framework, a
+spatially correlated errors can be decomposed using a linear combination
+of spatial basis functions, effectively addressing issues of
+spatial-temporal dependence and nonstationarity. The specification of
+spatio-temporal basis functions is a key component of the model and they
+can be generated automatically or by the user via the \texttt{FRK}
+package. We will use the automatically generated functions. While as we
+will notice they are difficult to interpret, user generated functions
+require greater understanding of the spatio-temporal structure of
+COVID-19 which is beyond the scope of this Chapter.
+
+\textbf{Prepare Data}
+
+The first step to create a data frame with the variables that we will
+consider for the analysis. We first remove the geometries to convert
+\texttt{covid19\_spt} from a simple feature object to a data frame and
+then compute the share of long-term illness population.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# remove geometries}
+\KeywordTok{st_geometry}\NormalTok{(covid19_spt) <-}\StringTok{ }\OtherTok{NULL}
+
+\CommentTok{# share of population in long-term illness }
+\NormalTok{covid19_spt <-}\StringTok{ }\NormalTok{covid19_spt }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}
+ \DataTypeTok{lt_illness =}\NormalTok{ Longterm_sick_or_disabled }\OperatorTok{/}\StringTok{ }\NormalTok{Residents}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Construct Basis Functions}
+
+We now build the set of basis functions. The can be constructed by using
+the function \texttt{auto\_basis} from the \texttt{FRK} package. The
+function takes as arguments: data, nres (which is the number of
+``resolutions'' or aggregation to construct); and type of basis function
+to use. We consider a single resolution of the default Gaussian radial
+basis function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# build basis functions}
+\NormalTok{G <-}\StringTok{ }\KeywordTok{auto_basis}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ covid19_spt[,}\KeywordTok{c}\NormalTok{(}\StringTok{"long"}\NormalTok{,}\StringTok{"lat"}\NormalTok{)] }\OperatorTok{%>%}
+\StringTok{                       }\KeywordTok{SpatialPoints}\NormalTok{(),           }\CommentTok{# To sp obj}
+                \DataTypeTok{nres =} \DecValTok{1}\NormalTok{,                         }\CommentTok{# One resolution}
+                \DataTypeTok{type =} \StringTok{"Gaussian"}\NormalTok{)                }\CommentTok{# Gaussian BFs}
+\CommentTok{# basis functions evaluated at data locations are then the covariates}
+\NormalTok{S <-}\StringTok{ }\KeywordTok{eval_basis}\NormalTok{(}\DataTypeTok{basis =}\NormalTok{ G,                       }\CommentTok{# basis functions}
+                \DataTypeTok{s =}\NormalTok{ covid19_spt[,}\KeywordTok{c}\NormalTok{(}\StringTok{"long"}\NormalTok{,}\StringTok{"lat"}\NormalTok{)] }\OperatorTok{%>%}
+\StringTok{                     }\KeywordTok{as.matrix}\NormalTok{()) }\OperatorTok{%>%}\StringTok{            }\CommentTok{# conv. to matrix}
+\StringTok{     }\KeywordTok{as.matrix}\NormalTok{()                                 }\CommentTok{# conv. to matrix}
+\KeywordTok{colnames}\NormalTok{(S) <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\StringTok{"B"}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\KeywordTok{ncol}\NormalTok{(S)) }\CommentTok{# assign column names}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Add Basis Functions to Data Frame}
+
+We then prepare a data frame for the regression model, adding the
+weights extracted from the basis functions. These weights enter as
+covariates in our model. Note that the resulting number of basis
+functions is 9. Explore by executing \texttt{colnames(S)}. Below we
+select only relevant variables for our model.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# selecting variables}
+\NormalTok{reg_df <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(covid19_spt, S) }\OperatorTok{%>%}
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(ctyu19nm, c_covid19_r, long, lat, day, lt_illness, B1}\OperatorTok{:}\NormalTok{B9)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Fit Linear Regression}
+
+We now fit a linear model using \texttt{lm} including as covariates
+longitude, latitude, day, share of long-term ill population and the nine
+basis functions.
+
+\begin{quote}
+Recall that latitude refers to north/south from the equator and
+longitude refers to west/east from Greenwich. Further up north means a
+higher latitude score. Further west means higher longitude score. Scores
+for Liverpool (53.4084° N, 2.9916° W) are thus higher than for London
+(51.5074° N, 0.1278° W). This will be helpful for interpretation.
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eq1 <-}\StringTok{ }\NormalTok{c_covid19_r }\OperatorTok{~}\StringTok{ }\NormalTok{long }\OperatorTok{+}\StringTok{ }\NormalTok{lat }\OperatorTok{+}\StringTok{ }\NormalTok{day }\OperatorTok{+}\StringTok{ }\NormalTok{lt_illness }\OperatorTok{+}\StringTok{ }\NormalTok{.}
+\NormalTok{lm_m <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(}\DataTypeTok{formula =}\NormalTok{ eq1, }
+           \DataTypeTok{data =}\NormalTok{ dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(reg_df, }\OperatorTok{-}\NormalTok{ctyu19nm))}
+\NormalTok{lm_m }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summary}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = eq1, data = dplyr::select(reg_df, -ctyu19nm))
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -87.55 -48.31 -27.51  27.68 338.54 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -3.772e+03  4.218e+02  -8.943  < 2e-16 ***
+## long        -3.738e+01  9.054e+00  -4.128 3.68e-05 ***
+## lat          6.652e+01  8.169e+00   8.144 4.27e-16 ***
+## day         -6.662e-01  7.993e-02  -8.335  < 2e-16 ***
+## lt_illness   7.094e+02  8.857e+01   8.009 1.28e-15 ***
+## B1           2.367e+02  7.896e+01   2.997  0.00273 ** 
+## B2           4.438e+01  3.525e+01   1.259  0.20802    
+## B3           4.002e+02  4.947e+01   8.090 6.61e-16 ***
+## B4          -6.687e+01  6.858e+01  -0.975  0.32960    
+## B5           6.585e+01  5.585e+01   1.179  0.23835    
+## B6           8.324e+00  6.249e+01   0.133  0.89403    
+## B7           4.503e+01  9.222e+01   0.488  0.62534    
+## B8          -6.151e+00  7.006e+01  -0.088  0.93005    
+## B9           3.862e+01  6.359e+01   0.607  0.54368    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 71.08 on 10636 degrees of freedom
+## Multiple R-squared:  0.05544,    Adjusted R-squared:  0.05429 
+## F-statistic: 48.02 on 13 and 10636 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+Coefficients for explicitly specified spatial and temporal variables and
+the share of long-term ill population are all statistically significant.
+The interpretation of the regression coefficients is as usual; that is,
+one unit increase in a covariate relates to one unit increase in the
+dependent variable. For instance, the coefficient for long-term illness
+population indicates that UTLAs with a larger share of long-term ill
+population in one percentage point tend to have 709 more new COVID-19
+cases per 100,000 people! on average. The coefficient for day reveals a
+strong negative temporal dependence with smaller number of new cases per
+100,000 people as we move over time. The coefficient for latutide
+indicates as we move north the number of new COVID-19 cases per 100,000
+people tends to be higher but lower if we move west.
+
+While overall the model provides some understanding of the
+spatio-temporal structure of the spread of COVID-19, the overall fit of
+the model is relatively poor. The \(R^{2}\) reveals that the model
+explains only 5\% of the variability of the spread of COVID-19 cases.
+Also, except for one, the coefficients associated to the basis functions
+are statistically insignificant. A key issue that we have ignored so far
+is the fact that our dependent variable is a count and is highly skewed
+- refer back to Section {[}8.4 Exploratory Analysis{]}.
+
+\begin{quote}
+Challenge 2: Explore a model with only spatial components (i.e.
+\texttt{long} and \texttt{lat}) or only temporal components
+(\texttt{day}). What model returns the largest \(R^{2}\)?
+\end{quote}
+
+\textbf{Poisson Regression}
+
+A Poisson regression model provides a more appropriate framework to
+address these issues. We do this fitting a general linear model (or GLM)
+specifying the family function to be a Poisson.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# estimate a poisson model}
+\NormalTok{poisson_m1 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(eq1,}
+                \DataTypeTok{family =} \KeywordTok{poisson}\NormalTok{(}\StringTok{"log"}\NormalTok{), }\CommentTok{# Poisson + log link}
+                \DataTypeTok{data =}\NormalTok{ dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(reg_df, }\OperatorTok{-}\NormalTok{ctyu19nm))}
+\NormalTok{poisson_m1 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summary}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = eq1, family = poisson("log"), data = dplyr::select(reg_df, 
+##     -ctyu19nm))
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -14.457   -9.386   -6.380    3.995   29.573  
+## 
+## Coefficients:
+##               Estimate Std. Error z value Pr(>|z|)    
+## (Intercept) -9.726e+01  1.010e+00 -96.313  < 2e-16 ***
+## long        -9.789e-01  2.242e-02 -43.666  < 2e-16 ***
+## lat          1.767e+00  1.902e-02  92.869  < 2e-16 ***
+## day         -1.441e-02  1.664e-04 -86.581  < 2e-16 ***
+## lt_illness   1.442e+01  1.851e-01  77.923  < 2e-16 ***
+## B1           6.198e+00  2.017e-01  30.719  < 2e-16 ***
+## B2           3.616e-01  7.889e-02   4.583 4.59e-06 ***
+## B3           1.136e+01  1.418e-01  80.147  < 2e-16 ***
+## B4          -1.976e+00  1.450e-01 -13.627  < 2e-16 ***
+## B5           2.813e+00  1.255e-01  22.414  < 2e-16 ***
+## B6          -1.334e+00  1.380e-01  -9.662  < 2e-16 ***
+## B7           7.696e-01  2.117e-01   3.635 0.000278 ***
+## B8          -7.094e-01  1.546e-01  -4.589 4.46e-06 ***
+## B9           1.809e+00  1.616e-01  11.196  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 1032743  on 10649  degrees of freedom
+## Residual deviance:  959940  on 10636  degrees of freedom
+## AIC: 993314
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+The model seems to provide a better fit to the data as the median of
+deviance residuals (-6.3) is smaller than for the linear regression
+model (-27.51). And, all coefficients are positive and statistically
+significant. Yet, the Poisson model assumes that the mean and variance
+of the COVID-19 cases is the same. But, given the distribution of our
+dependent variable, its variance is likely to be greater than the mean.
+That means the data exhibit ``overdispersion''. How do we know this? An
+estimate of the dispersion is given by the ratio of the deviance to the
+total degrees of freedom (the number of data points minus the number of
+covariates). In this case the dispersion estimate is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{poisson_m1}\OperatorTok{$}\NormalTok{deviance }\OperatorTok{/}\StringTok{ }\NormalTok{poisson_m1}\OperatorTok{$}\NormalTok{df.residual}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 90.25383
+\end{verbatim}
+
+which is clearly greater than 1! i.e.~the data are overdispersed.
+
+\textbf{Quasipoisson Regression}
+
+An approach to account for overdispersion is to use quasipoisson when
+calling \texttt{glm}. The quasi-Poisson model assumes that the variance
+is proportional to the mean, and that the constant of the
+proportionality is the over-dispersion parameter.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# estimate a quasipoisson model}
+\NormalTok{qpoisson_m1 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(eq1,}
+                \DataTypeTok{family =} \KeywordTok{quasipoisson}\NormalTok{(}\StringTok{"log"}\NormalTok{), }\CommentTok{# QuasiPoisson + log link}
+                \DataTypeTok{data =}\NormalTok{ dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(reg_df, }\OperatorTok{-}\NormalTok{ctyu19nm))}
+\NormalTok{qpoisson_m1 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summary}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = eq1, family = quasipoisson("log"), data = dplyr::select(reg_df, 
+##     -ctyu19nm))
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -14.457   -9.386   -6.380    3.995   29.573  
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -97.261261  10.069209  -9.659  < 2e-16 ***
+## long         -0.978924   0.223534  -4.379 1.20e-05 ***
+## lat           1.766675   0.189682   9.314  < 2e-16 ***
+## day          -0.014405   0.001659  -8.683  < 2e-16 ***
+## lt_illness   14.420396   1.845247   7.815 6.02e-15 ***
+## B1            6.197505   2.011637   3.081  0.00207 ** 
+## B2            0.361556   0.786651   0.460  0.64580    
+## B3           11.363202   1.413688   8.038 1.01e-15 ***
+## B4           -1.975530   1.445504  -1.367  0.17176    
+## B5            2.813267   1.251510   2.248  0.02460 *  
+## B6           -1.333746   1.376430  -0.969  0.33257    
+## B7            0.769599   2.110944   0.365  0.71544    
+## B8           -0.709375   1.541475  -0.460  0.64539    
+## B9            1.809393   1.611435   1.123  0.26153    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for quasipoisson family taken to be 99.42153)
+## 
+##     Null deviance: 1032743  on 10649  degrees of freedom
+## Residual deviance:  959940  on 10636  degrees of freedom
+## AIC: NA
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\textbf{Negative Binomial Regression}
+
+The model output indicates major improvement in terms of model fit as
+the residual deviance (959940) and median of deviance residuals (-6.380)
+remain unchanged. An alternative approach is a Negative Binomial Model
+(NBM). This models relaxes the assumption of equality between the mean
+and variance. We estimate a NBM by using the function \texttt{glm.nb}
+from the \texttt{MASS} package.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# estimate a negative binomial model}
+\NormalTok{nb_m1 <-}\StringTok{ }\KeywordTok{glm.nb}\NormalTok{(eq1, }
+       \DataTypeTok{data =}\NormalTok{ dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(reg_df, }\OperatorTok{-}\NormalTok{ctyu19nm))}
+\NormalTok{nb_m1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:  glm.nb(formula = eq1, data = dplyr::select(reg_df, -ctyu19nm), 
+##     init.theta = 10953883.12, link = log)
+## 
+## Coefficients:
+## (Intercept)         long          lat          day   lt_illness           B1  
+##   -97.26121     -0.97892      1.76667     -0.01441     14.42040      6.19749  
+##          B2           B3           B4           B5           B6           B7  
+##     0.36155     11.36319     -1.97553      2.81326     -1.33374      0.76959  
+##          B8           B9  
+##    -0.70938      1.80938  
+## 
+## Degrees of Freedom: 10649 Total (i.e. Null);  10636 Residual
+## Null Deviance:       1033000 
+## Residual Deviance: 959900    AIC: 993300
+\end{verbatim}
+
+\textbf{Including Interactions}
+
+Similarly the model output does not suggest any major improvement in
+explaining the spatio-temporal variability in the spread of COVID-19. We
+may need a different strategy then. Let's try running a NBM including
+interaction terms between spatial and temporal terms (i.e.~longitude,
+latitude and day). We can do this by estimating the following model
+\texttt{c\_covid19\_r\ \textasciitilde{}\ (long\ +\ lat\ +\ day)\^{}2\ +\ lt\_illness\ +\ .}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# new model specification}
+\NormalTok{eq2 <-}\StringTok{ }\NormalTok{c_covid19_r }\OperatorTok{~}\StringTok{ }\NormalTok{(long }\OperatorTok{+}\StringTok{ }\NormalTok{lat }\OperatorTok{+}\StringTok{ }\NormalTok{day)}\OperatorTok{^}\DecValTok{2} \OperatorTok{+}\StringTok{ }\NormalTok{lt_illness }\OperatorTok{+}\StringTok{ }\NormalTok{.}
+\CommentTok{# estimate a negative binomial model}
+\NormalTok{nb_m2 <-}\StringTok{ }\KeywordTok{glm.nb}\NormalTok{(eq2, }
+       \DataTypeTok{data =}\NormalTok{ dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(reg_df, }\OperatorTok{-}\NormalTok{ctyu19nm))}
+\NormalTok{nb_m2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:  glm.nb(formula = eq2, data = dplyr::select(reg_df, -ctyu19nm), 
+##     init.theta = 300465.7447, link = log)
+## 
+## Coefficients:
+## (Intercept)         long          lat          day   lt_illness           B1  
+##  -2.642e+02   -7.873e+01    4.936e+00    6.423e-02    1.335e+01    1.145e+01  
+##          B2           B3           B4           B5           B6           B7  
+##  -7.235e-01    2.132e+01   -6.598e+00    9.543e+00   -1.075e+01    2.157e+01  
+##          B8           B9     long:lat     long:day      lat:day  
+##  -5.503e+00    9.127e-01    1.533e+00    8.504e-05   -1.499e-03  
+## 
+## Degrees of Freedom: 10649 Total (i.e. Null);  10633 Residual
+## Null Deviance:       1033000 
+## Residual Deviance: 953600    AIC: 987000
+\end{verbatim}
+
+This model leads to a better model by returning a slight reduction in
+the residual deviance and AIC score. Interestingly it also returns
+highly statisticaly significant coeficients for the interaction terms
+between longitude and latitude (\texttt{long:lat}) and latitude and day
+(\texttt{lat:day}). The former indicates that as we move one degree
+north and west, the number of new cases tend to increase in 2 cases. The
+latter indicates UTLAs on the west of England tend to report a lower
+number of cases as time passes.
+
+You can report the output for all models estimated above by executing
+(after removing \texttt{\#}):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# export_summs(lm_m, poisson_m, qpoisson_m1, nb_m1, nb_m2)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Model Comparision}\label{model-comparision}
+
+To compare regression models based on different specifications and
+assumptions, like those reported above, you may want to consider the
+cross-validation approach used in Chapter 4
+\protect\hyperlink{flows}{Flows}. An easy approach if you would like to
+get a quick sense of model fit, you can look at the correlation between
+observed and predicted values of the dependent variable. For our models,
+we can achieve this by executing:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# computing predictions for all models}
+\NormalTok{lm_cnt <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(lm_m)}
+\NormalTok{poisson_cnt <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(poisson_m1)}
+\NormalTok{nb1_cnt <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(nb_m1)}
+\NormalTok{nb2_cnt <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(nb_m2)}
+\NormalTok{reg_df <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(reg_df, lm_cnt, poisson_cnt, nb1_cnt, nb2_cnt)}
+
+\CommentTok{# computing correlation coefficients}
+\NormalTok{cormat <-}\StringTok{ }\KeywordTok{cor}\NormalTok{(reg_df[, }\KeywordTok{c}\NormalTok{(}\StringTok{"c_covid19_r"}\NormalTok{, }\StringTok{"lm_cnt"}\NormalTok{, }\StringTok{"poisson_cnt"}\NormalTok{, }\StringTok{"nb1_cnt"}\NormalTok{, }\StringTok{"nb2_cnt"}\NormalTok{)], }
+              \DataTypeTok{use=}\StringTok{"complete.obs"}\NormalTok{, }
+              \DataTypeTok{method=}\StringTok{"pearson"}\NormalTok{)}
+
+\CommentTok{# significance test}
+\NormalTok{sig1 <-}\StringTok{ }\NormalTok{corrplot}\OperatorTok{::}\KeywordTok{cor.mtest}\NormalTok{(reg_df[, }\KeywordTok{c}\NormalTok{(}\StringTok{"c_covid19_r"}\NormalTok{, }\StringTok{"lm_cnt"}\NormalTok{, }\StringTok{"poisson_cnt"}\NormalTok{, }\StringTok{"nb1_cnt"}\NormalTok{, }\StringTok{"nb2_cnt"}\NormalTok{)],}
+                            \DataTypeTok{conf.level =}\NormalTok{ .}\DecValTok{95}\NormalTok{)}
+
+\CommentTok{# create a correlogram}
+\NormalTok{corrplot}\OperatorTok{::}\KeywordTok{corrplot.mixed}\NormalTok{(cormat,}
+                         \DataTypeTok{number.cex =} \DecValTok{1}\NormalTok{,}
+                         \DataTypeTok{tl.pos =} \StringTok{"d"}\NormalTok{,}
+                         \DataTypeTok{tl.cex =} \FloatTok{0.9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{08-st_analysis_files/figure-latex/unnamed-chunk-29-1.pdf}
+
+None of the models does a great job at predicting the observed count of
+new COVID-19 cases. They display correlation coefficients between 0.23
+and 0.24 and high degree of correlation between them. Part of the
+assignment will be finding ways to improve this initial models. They
+should just be considered as a starting point.
+
+\begin{quote}
+Challenge 3: Find ways to achive better model fit. Hint: There are a
+potentially few easy ways to make some considerable improvement.
+\emph{One option} is to remove all zeros from the dependent variable
+\texttt{c\_covid19\_r}. They are likely to be affecting the ability of
+the model to predict positive values which are of main interest if we
+want to understand the spatio-temporal patterns of the outbreak. \emph{A
+second idea} is to remove all zeros from the dependent variable and
+additionally use its log for the regression model. \emph{A third idea}
+is to include more explanatory variables. Look for factors which can
+explain the spatial-temporal variability of the current COVID-19
+outbreak. Look for hypotheses / anecdotal evidence from the newspapers
+and social media. \emph{A fourth idea} is to check for collinearity.
+Collinearity is likely to be an issue given the way basis functions are
+created. Checking for collinearity of course will not improve the fit of
+the existing model but it is important to remove collinear terms if
+statistical inference is a key goal - which in this case is. Over to you
+now!
+\end{quote}
 
 \bibliography{book.bib,packages.bib}
 
