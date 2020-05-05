@@ -187,7 +187,7 @@ example(sqrt)
 ```
 
 <div class="figure">
-<img src="01-intro_files/figure-epub3/unnamed-chunk-7-1.png" alt="Example sqrt"  />
+<img src="01-intro_files/figure-html/unnamed-chunk-7-1.png" alt="Example sqrt" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-7)Example sqrt</p>
 </div>
 
@@ -865,7 +865,7 @@ plot(st_geometry(oa_shp))
 ```
 
 <div class="figure">
-<img src="01-intro_files/figure-epub3/unnamed-chunk-40-1.png" alt="OAs of Livepool"  />
+<img src="01-intro_files/figure-html/unnamed-chunk-40-1.png" alt="OAs of Livepool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-40)OAs of Livepool</p>
 </div>
 
@@ -879,7 +879,7 @@ plot(oa_shp["Ethnic"], key.pos = 4, axes = TRUE, key.width = lcm(1.3), key.lengt
 ```
 
 <div class="figure">
-<img src="01-intro_files/figure-epub3/unnamed-chunk-41-1.png" alt="Spatial distribution of ethnic groups, Liverpool"  />
+<img src="01-intro_files/figure-html/unnamed-chunk-41-1.png" alt="Spatial distribution of ethnic groups, Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-41)Spatial distribution of ethnic groups, Liverpool</p>
 </div>
 
@@ -906,7 +906,7 @@ map_oa = tm_shape(oa_shp) +
 map_oa
 ```
 
-![](01-intro_files/figure-epub3/unnamed-chunk-42-1.png)<!-- -->
+<img src="01-intro_files/figure-html/unnamed-chunk-42-1.png" width="672" />
 
 Note that the operation `+` is used to add new layers. You can set style themes by `tm_style`. To visualise the existing styles use `tmap_style_catalogue()`, and you can also evaluate the code chunk below if you would like to create an interactive map.
 
@@ -955,7 +955,7 @@ map_msoa = tm_shape(msoa_shp) +
 tmap_arrange(map_msoa, map_oa) 
 ```
 
-![](01-intro_files/figure-epub3/unnamed-chunk-44-1.png)<!-- -->
+<img src="01-intro_files/figure-html/unnamed-chunk-44-1.png" width="672" />
 
 **TASK:**
 

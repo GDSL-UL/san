@@ -172,7 +172,7 @@ lsoa_cd %>% table() %>%
   plot()
 ```
 
-![](05-multilevel_01_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
+<img src="05-multilevel_01_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 ```r
 msoa_cd %>% table() %>%
@@ -180,7 +180,7 @@ msoa_cd %>% table() %>%
   plot()
 ```
 
-![](05-multilevel_01_files/figure-epub3/unnamed-chunk-4-2.png)<!-- -->
+<img src="05-multilevel_01_files/figure-html/unnamed-chunk-4-2.png" width="672" />
 
 ## Modelling 
 
@@ -195,7 +195,7 @@ geom_density(alpha=0.8, colour="black", fill="lightblue", aes(x = unemp)) +
    theme_classic()
 ```
 
-![](05-multilevel_01_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+<img src="05-multilevel_01_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 
 ```r
@@ -224,7 +224,7 @@ map_oa = tm_shape(oa_shp) +
 map_oa
 ```
 
-![](05-multilevel_01_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
+<img src="05-multilevel_01_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 Let us look at those areas:
 
@@ -544,17 +544,17 @@ REsim(model3) %>% head(10)
 ```
 
 ```
-##    groupFctr   groupID        term         mean       median         sd
-## 1    lsoa_cd E01006512 (Intercept) -0.016787651 -0.016874353 0.01927421
-## 2    lsoa_cd E01006513 (Intercept) -0.018621001 -0.018707246 0.01864878
-## 3    lsoa_cd E01006514 (Intercept) -0.020641402 -0.018986222 0.02015440
-## 4    lsoa_cd E01006515 (Intercept) -0.019077695 -0.020251632 0.02021174
-## 5    lsoa_cd E01006518 (Intercept) -0.020359855 -0.020551898 0.01817896
-## 6    lsoa_cd E01006519 (Intercept) -0.014351032 -0.014967805 0.01010096
-## 7    lsoa_cd E01006520 (Intercept) -0.022944822 -0.022091727 0.01957504
-## 8    lsoa_cd E01006521 (Intercept)  0.005307456  0.004208986 0.01913756
-## 9    lsoa_cd E01006522 (Intercept)  0.017355878  0.016146309 0.01886095
-## 10   lsoa_cd E01006523 (Intercept)  0.002793454  0.003236383 0.01874333
+##    groupFctr   groupID        term         mean       median          sd
+## 1    lsoa_cd E01006512 (Intercept) -0.014600893 -0.016399311 0.020680730
+## 2    lsoa_cd E01006513 (Intercept) -0.015785610 -0.016127725 0.019005971
+## 3    lsoa_cd E01006514 (Intercept) -0.020699948 -0.021303325 0.021776933
+## 4    lsoa_cd E01006515 (Intercept) -0.015694583 -0.014932604 0.018816227
+## 5    lsoa_cd E01006518 (Intercept) -0.018717346 -0.018529833 0.018557681
+## 6    lsoa_cd E01006519 (Intercept) -0.016457571 -0.015756490 0.009286312
+## 7    lsoa_cd E01006520 (Intercept) -0.024519668 -0.025944854 0.019729453
+## 8    lsoa_cd E01006521 (Intercept)  0.008589195  0.010078313 0.018215007
+## 9    lsoa_cd E01006522 (Intercept)  0.020688051  0.021333227 0.020054654
+## 10   lsoa_cd E01006523 (Intercept)  0.003454220  0.002900766 0.018728127
 ```
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from `ranef` with some small differences due to rounding.
@@ -567,7 +567,7 @@ To gain an undertanding of the general pattern of the *random effects*, we can u
 plotREsim(REsim(model3)) 
 ```
 
-![](05-multilevel_01_files/figure-epub3/unnamed-chunk-20-1.png)<!-- -->
+<img src="05-multilevel_01_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 Focusing on the plot on the right, we see MSOAs whose mean proportion of unemployed population, assuming no explanatory variables, is lower than average. On the right-hand side of the plot, you will see MSOAs whose mean proportion is higher than average. The MSOAs with the smallest residuals include the districts of Allerton and Hunt Cross, Church, Childwall, Wavertree and Woolton. What districts do we have at the other extreme?
 
@@ -628,9 +628,9 @@ str(re_msoa)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.01139 -0.02549 -0.03306 0.00486 0.02338 ...
-##  $ median   : num  -0.0138 -0.0266 -0.0324 0.0046 0.0242 ...
-##  $ sd       : num  0.0338 0.0325 0.0303 0.0285 0.0155 ...
+##  $ mean     : num  -0.01183 -0.02373 -0.02948 0.00537 0.02162 ...
+##  $ median   : num  -0.01324 -0.02449 -0.03172 0.00597 0.02195 ...
+##  $ sd       : num  0.0334 0.0333 0.0328 0.0316 0.0171 ...
 ```
 
 ```r
@@ -655,7 +655,7 @@ map_msoa = tm_shape(msoa_shp) +
 map_msoa
 ```
 
-![](05-multilevel_01_files/figure-epub3/unnamed-chunk-23-1.png)<!-- -->
+<img src="05-multilevel_01_files/figure-html/unnamed-chunk-23-1.png" width="672" />
  
 ### Adding Individual-level Predictors
 

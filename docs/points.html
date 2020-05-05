@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-04-30" />
+<meta name="date" content="2020-05-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -558,21 +558,21 @@ Figure 3.7: KDE of house transactions in Liverpool
 <p>The object we get from <code>idw</code> is another spatial table, just as <code>db</code>, containing the interpolated values. As such, we can inspect it just as with any other of its kind. For example, to check out the top of the estimated table:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(idw.hp<span class="op">@</span>data)</code></pre></div>
 <pre><code>##   var1.pred var1.var
-## 1  158106.0       NA
-## 2  158217.0       NA
-## 3  158330.9       NA
-## 4  158447.7       NA
-## 5  158567.5       NA
-## 6  158690.5       NA</code></pre>
+## 1  158048.1       NA
+## 2  158157.7       NA
+## 3  158270.0       NA
+## 4  158385.3       NA
+## 5  158503.6       NA
+## 6  158625.1       NA</code></pre>
 <p>The column we will pay attention to is <code>var1.pred</code>. And to see the locations for which those correspond:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(idw.hp<span class="op">@</span>coords)</code></pre></div>
-<pre><code>##            x1       x2
-## [1,] 333604.3 382705.5
-## [2,] 333689.3 382705.5
-## [3,] 333774.2 382705.5
-## [4,] 333859.2 382705.5
-## [5,] 333944.2 382705.5
-## [6,] 334029.1 382705.5</code></pre>
+<pre><code>##            x1     x2
+## [1,] 333548.2 382767
+## [2,] 333633.2 382767
+## [3,] 333718.2 382767
+## [4,] 333803.1 382767
+## [5,] 333888.1 382767
+## [6,] 333973.1 382767</code></pre>
 <p>So, for a hypothetical house sold at the location in the first row of <code>idw.hp@coords</code> (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column <code>var1.pred</code> in <code>idw.hp@data</code>.</p>
 </div>
 <div id="a-surface-of-housing-prices" class="section level3">

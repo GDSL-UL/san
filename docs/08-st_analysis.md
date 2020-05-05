@@ -255,7 +255,7 @@ covid19 <- left_join(covid19, pop, by = c("Area.name" = "UTLA19NM"))
 
 ## Exploring Spatio-Temporal Data
 
-We now have all the required data in place. In this section first various methods of data visualisation are illustrated and then key dimensions of the data are explored. Both of these types of exploration can be challenging as one or more dimensions in space and one in time need to be interrogated.
+We now have all the required data in place. In this section various methods of data visualisation are illustrated before key dimensions of the data are explored. Both of these types of exploration can be challenging as one or more dimensions in space and one in time need to be interrogated.
 
 ### Visualisation
 
@@ -306,7 +306,7 @@ tm_shape(daycases_week) +
             main.title = "New COVID-19 Cases by Calendar Week, UTLA, England") 
 ```
 
-![](08-st_analysis_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+<img src="08-st_analysis_files/figure-html/unnamed-chunk-9-1.png" width="1152" />
 
 The series of maps reveal a stable pattern of low reported cases from calendar weeks 5 to 11. From week 12 a number of hot spots emerged, notably in London, Birmingham, Cumbria and subsequently around Liverpool. The intensity of new cases seem to have started to decline from week 15; yet, it is important to note that week 16 display reported cases for only two days. 
 
@@ -332,7 +332,7 @@ tsp + geom_line(color = "blue") +
     facet_wrap(~ ctyu19nm)
 ```
 
-![](08-st_analysis_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
+<img src="08-st_analysis_files/figure-html/unnamed-chunk-10-1.png" width="1152" />
     
 #### Hovmöller Plots
 
@@ -354,7 +354,7 @@ ggplot(data = dplyr::filter(covid19_spt, Residents > 260000),
   theme(legend.key.width = unit(5, "cm"), legend.key.height = unit(2, "cm"))
 ```
 
-![](08-st_analysis_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
+<img src="08-st_analysis_files/figure-html/unnamed-chunk-11-1.png" width="1152" />
     
     
 #### Interactive Plots
@@ -412,7 +412,7 @@ ggplot(data=sp_av) +
   theme(axis.title=element_text(size=20, face="plain"))
 ```
 
-![](08-st_analysis_files/figure-epub3/unnamed-chunk-14-1.png)<!-- -->
+<img src="08-st_analysis_files/figure-html/unnamed-chunk-14-1.png" width="1152" />
       
 **Empirical Temporal Mean**
 
@@ -444,7 +444,7 @@ ggplot() +
     theme(axis.title=element_text(size=18, face="plain"))
 ```
 
-![](08-st_analysis_files/figure-epub3/unnamed-chunk-15-1.png)<!-- -->
+<img src="08-st_analysis_files/figure-html/unnamed-chunk-15-1.png" width="1152" />
       
 #### Dependence
 
@@ -508,7 +508,7 @@ dec_ts <- decompose(total_cases_ts)
 plot(dec_ts)
 ```
 
-![](08-st_analysis_files/figure-epub3/unnamed-chunk-18-1.png)<!-- -->
+<img src="08-st_analysis_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
 For a good introduction to time-series analysis in R, refer to @hyndman2018forecasting and [DataCamp](https://www.datacamp.com/courses/forecasting-using-r).
 
@@ -872,7 +872,7 @@ corrplot::corrplot.mixed(cormat,
                          tl.cex = 0.9)
 ```
 
-![](08-st_analysis_files/figure-epub3/unnamed-chunk-29-1.png)<!-- -->
+<img src="08-st_analysis_files/figure-html/unnamed-chunk-29-1.png" width="672" />
 
 None of the models does a great job at predicting the observed count of new COVID-19 cases. They display correlation coefficients between 0.23 and 0.24 and high degree of correlation between them. Part of the assignment will be finding ways to improve this initial models. They should just be considered as a starting point.
 

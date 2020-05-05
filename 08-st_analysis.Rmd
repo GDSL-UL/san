@@ -209,7 +209,7 @@ covid19 <- left_join(covid19, pop, by = c("Area.name" = "UTLA19NM"))
 
 ## Exploring Spatio-Temporal Data
 
-We now have all the required data in place. In this section first various methods of data visualisation are illustrated and then key dimensions of the data are explored. Both of these types of exploration can be challenging as one or more dimensions in space and one in time need to be interrogated.
+We now have all the required data in place. In this section various methods of data visualisation are illustrated before key dimensions of the data are explored. Both of these types of exploration can be challenging as one or more dimensions in space and one in time need to be interrogated.
 
 ### Visualisation
 
