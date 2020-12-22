@@ -1,0 +1,50 @@
+# Overview {#overview}
+
+## Computational Environment
+
+Dependencies + Landing page for guides
+
+### Dependency list
+
+List of libraries used in this book:
+
+```{r, message = FALSE, warning = FALSE}
+deps <- list(
+    "arm",
+    "car",
+    "corrplot",
+    "FRK",
+    "gghighlight",
+    "ggplot2",
+    "ggmap",
+    "GISTools",
+    "gstat",
+    "jtools",
+    "kableExtra",
+    "knitr",
+    "lme4",
+    "lmtest",
+    "lubridate",
+    "MASS",
+    "merTools",
+    "plyr",
+    "RColorBrewer",
+    "rgdal",
+    "sf",
+    "sjPlot",
+    "sp",
+    "spgwr",
+    "spatialreg",
+    "spacetime",
+    "stargazer",
+    "tidyverse",
+    "tmap",
+    "viridis"
+)
+```
+
+And we can load them all to make sure they are installed:
+
+```{r}
+for(lib in deps){library(lib, character.only = TRUE)}
+```
