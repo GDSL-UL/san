@@ -1,4 +1,4 @@
-# Introduction {#intro}
+# Data Wrangling {#data_wrangling}
 
 This chapter^[This chapter is part of [Spatial Analysis Notes](index.html) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Introduction -- R Notebooks + Basic Functions + Data Types</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.] introduces R Notebooks, basic functions and data types. These are all important concepts that we will use during the module.
 
@@ -115,7 +115,8 @@ Rstudio also offers a *Preview* option on the toolbar which can be used to creat
 ## Getting Help
 
 You can use `help` or `?` to ask for details for a specific function:
-```{r}
+
+```{r, eval=FALSE}
 help(sqrt) #or ?sqrt
 ```
 
@@ -513,7 +514,7 @@ Similar to `ggplot2`, `tmap` is based on the idea of a ‘grammar of graphics’
 
 ```{r}
 # ensure geometry is valid
-oa_shp = lwgeom::st_make_valid(oa_shp)
+oa_shp = sf::st_make_valid(oa_shp)
 
 # map
 legend_title = expression("% ethnic pop.")
@@ -545,7 +546,7 @@ If you recall, one of the key issues of working with spatial data is the modifia
 msoa_shp <- st_read("data/census/Liverpool_MSOA.shp")
 
 # ensure geometry is valid
-msoa_shp = lwgeom::st_make_valid(msoa_shp)
+msoa_shp = sf::st_make_valid(msoa_shp)
 
 # create a map
 map_msoa = tm_shape(msoa_shp) +

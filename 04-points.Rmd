@@ -20,8 +20,6 @@ This chapter is part of [Spatial Analysis Notes](index.html), a compilation host
 This tutorial relies on the following libraries that you will need to have installed on your machine to be able to interactively follow along^[You can install package `mypackage` by running the command `install.packages("mypackage")` on the R prompt or through the `Tools --> Install Packages...` menu in RStudio.]. Once installed, load them up with the following commands:
 
 ```{r}
-# Layout
-library(tufte)
 # For pretty table
 library(knitr)
 # Spatial Data management
@@ -43,7 +41,6 @@ library(plyr)
 Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with `setwd()`. Please replace in the following line the path to the folder where you have placed this file -and where the `house_transactions` folder with the data lives.
 
 ```{r}
-#setwd('/media/dani/baul/AAA/Documents/teaching/u-lvl/2016/envs453/code')
 setwd('.')
 ```
 
@@ -229,7 +226,7 @@ That's it, we're done! The function `spsample` hugely simplifies the task by tak
 
 On to the IDW. Again, this is hugely simplified by `gstat`:
 
-```{r}
+```{r, eval=FALSE}
 idw.hp <- idw(price ~ 1, locations=db, newdata=liv.grid)
 ```
 
@@ -237,13 +234,13 @@ Boom! We've got it. Let us pause for a second to see how we just did it. First, 
 
 The object we get from `idw` is another spatial table, just as `db`, containing the interpolated values. As such, we can inspect it just as with any other of its kind. For example, to check out the top of the estimated table:
 
-```{r}
+```{r, eval=FALSE}
 head(idw.hp@data)
 ```
 
 The column we will pay attention to is `var1.pred`. And to see the locations for which those correspond:
 
-```{r}
+```{r, eval=FALSE}
 head(idw.hp@coords)
 ```
 
@@ -253,26 +250,26 @@ So, for a hypothetical house sold at the location in the first row of `idw.hp@co
 
 Once we have the IDW object computed, we can plot it to explore the distribution, not of house transactions in this case, but of house price over the geography of Liverpool. The easiest way to do this is by quickly calling the command `spplot`:
 
-```{r, fig.margin=TRUE}
+```{r, fig.margin=TRUE, eval=FALSE}
 spplot(idw.hp['var1.pred'])
 ```
 
 However, this is not entirely satisfactory for a number of reasons. Let us get an equivalen plot with the package `tmap`, which streamlines some of this and makes more aesthetically pleasant maps easier to build as it follows a "ggplot-y" approach.
 
-```{r}
+```{r, eval=FALSE}
 # Load up the layer
 liv.otl <- readOGR('data/house_transactions', 'liv_outline')
 ```
 
 The shape we will overlay looks like this:
 
-```{r, fig.margin=TRUE}
+```{r, fig.margin=TRUE, eval=FALSE}
 qtm(liv.otl)
 ```
 
 Now let's give it a first go!
 
-```{r}
+```{r, eval=FALSE}
 # 
 p = tm_shape(liv.otl) + tm_fill(col='black', alpha=1) +
   tm_shape(idw.hp) + 
@@ -284,7 +281,7 @@ p
 
 The last two plots, however, are not really a surface, but a representation of the points we have just estimated. To create a surface, we need to do an interim transformation to convert the spatial object `idw.hp` into a table that a "surface plotter" can understand.
 
-```{r}
+```{r, eval=FALSE}
 xyz <- data.frame(x=coordinates(idw.hp)[, 1], 
                   y=coordinates(idw.hp)[, 2], 
                   z=idw.hp$var1.pred)
@@ -292,7 +289,7 @@ xyz <- data.frame(x=coordinates(idw.hp)[, 1],
 
 Now we are ready to plot the surface as a contour:
 
-```{r, fig.margin=TRUE, fig.cap = 'Contour of prices in Liverpool'}
+```{r, fig.margin=TRUE, fig.cap = 'Contour of prices in Liverpool', eval=FALSE}
 base <- ggplot(data=xyz, aes(x=x, y=y))
 surface <- base + geom_contour(aes(z=z))
 surface
@@ -300,7 +297,7 @@ surface
 
 Which can also be shown as a filled contour:
 
-```{r}
+```{r, eval=FALSE}
 base <- ggplot(data=xyz, aes(x=x, y=y))
 surface <- base + geom_raster(aes(fill=z))
 surface
@@ -308,13 +305,13 @@ surface
 
 The problem here, when compared to the KDE above for example, is that a few values are extremely large:
 
-```{r, fig.margin=TRUE, fig.cap = 'Skewness of prices in Liverpool'}
+```{r, fig.margin=TRUE, fig.cap = 'Skewness of prices in Liverpool', eval=FALSE}
 qplot(data=xyz, x=z, geom='density')
 ```
 
 Let us then take the logarithm before we plot the surface:
 
-```{r, fig.fullwidth=TRUE, fig.cap = 'Surface of log-prices in Liverpool'}
+```{r, fig.fullwidth=TRUE, fig.cap = 'Surface of log-prices in Liverpool', eval=FALSE}
 xyz['lz'] <- log(xyz$z)
 base <- ggplot(data=xyz, aes(x=x, y=y))
 surface <- base +
@@ -331,7 +328,7 @@ The last bit we will explore in this session relates to prediction for new value
 
 Let us say, the house is located on the coordinates `x=340000, y=390000` as expressed in the GB National Grid coordinate system. In that case, we can do as follows:
 
-```{r}
+```{r, eval=FALSE}
 pt <- SpatialPoints(cbind(x=340000, y=390000),
                     proj4string = db@proj4string)
 idw.one <- idw(price ~ 1, locations=db, newdata=pt)
@@ -342,7 +339,7 @@ And, as show above, the estimated value is GBP157,099^[**PRO QUESTION** Is that 
 
 Using this predictive logic, and taking advantage of Google Maps and its geocoding capabilities, it is possible to devise a function that takes an arbitrary address in Liverpool and, based on the transactions occurred throughout 2014, provides an estimate of what the price for a property in that location could be.
 
-```{r}
+```{r, eval=FALSE}
 how.much.is <- function(address, print.message=TRUE){
   # Convert the address into Lon/Lat coordinates
   # NOTE: this now requires an API key
@@ -369,7 +366,7 @@ how.much.is <- function(address, print.message=TRUE){
 
 Ready to test!
 
-```{r}
+```{r, eval=FALSE}
 address <- "74 Bedford St S, Liverpool, L69 7ZT, UK"
 #p <- how.much.is(address)
 ```

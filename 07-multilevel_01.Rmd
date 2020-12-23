@@ -57,7 +57,7 @@ Let us read the data:
 # clean workspace
 rm(list=ls())
 # read data
-oa_shp <- st_read("data/mlm/oa.shp")
+oa_shp <- st_read("data/mlm/OA.shp")
 ```
 
 
@@ -136,7 +136,7 @@ and, its spatial distribution:
 
 ```{r}
 # ensure geometry is valid
-oa_shp = lwgeom::st_make_valid(oa_shp)
+oa_shp = sf::st_make_valid(oa_shp)
 
 # create a map
 legend_title = expression("% unemployment")
@@ -342,7 +342,7 @@ Now we can create our map:
 
 ```{r}
 # ensure geometry is valid
-msoa_shp = lwgeom::st_make_valid(msoa_shp)
+msoa_shp = sf::st_make_valid(msoa_shp)
 
 # create a map
 legend_title = expression("MSOA-level residuals")

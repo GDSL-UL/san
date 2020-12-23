@@ -56,7 +56,7 @@ Let us read the data:
 # clean workspace
 rm(list=ls())
 # read data
-oa_shp <- st_read("data/mlm/oa.shp")
+oa_shp <- st_read("data/mlm/OA.shp")
 ```
 
 ## Conceptual Overview
@@ -188,7 +188,7 @@ msoa_shp <- merge(x = msoa_shp, y = re_msoa_m6, by.x = "MSOA_CD", by.y = "groupI
 
 ```{r}
 # ensure geometry is valid
-msoa_shp = lwgeom::st_make_valid(msoa_shp)
+msoa_shp = sf::st_make_valid(msoa_shp)
 
 # create a map
 legend_title = expression("MSOA-level residuals")

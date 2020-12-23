@@ -115,8 +115,8 @@ The results indicate a wide variation in the risk of infection across UTLAs in E
 reg_shp <- st_read("data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp")
 
 # ensure geometry is valid
-utla_shp = lwgeom::st_make_valid(utla_shp)
-reg_shp = lwgeom::st_make_valid(reg_shp)
+utla_shp = sf::st_make_valid(utla_shp)
+reg_shp = sf::st_make_valid(reg_shp)
 
 # map
 legend_title = expression("Cumulative cases per 100,000")

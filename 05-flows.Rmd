@@ -22,8 +22,6 @@ This tutorial is part of [Spatial Analysis Notes](index.html), a compilation hos
 This tutorial relies on the following libraries that you will need to have installed on your machine to be able to interactively follow along^[You can install package `mypackage` by running the command `install.packages("mypackage")` on the R prompt or through the `Tools --> Install Packages...` menu in RStudio.]. Once installed, load them up with the following commands:
 
 ```{r}
-# Layout
-library(tufte)
 # Spatial Data management
 library(rgdal)
 # Pretty graphics
