@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Spatial Data | Spatial Analysis Notes</title>
+  <meta name="description" content="Materials for a Spatial Analysis course in R." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Spatial Data | Spatial Analysis Notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Materials for a Spatial Analysis course in R." />
+  <meta name="github-repo" content="gdsl-ul/san" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Spatial Data | Spatial Analysis Notes" />
+  
+  <meta name="twitter:description" content="Materials for a Spatial Analysis course in R." />
+  
+
+<meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
+
+
+<meta name="date" content="2020-12-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="overview.html"/>
+<link rel="next" href="data-wrangling.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Spatial Analysis Notes</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Spatial Analysis Notes</a></li>
+<li class="chapter" data-level="2" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>2</b> Overview</a><ul>
+<li class="chapter" data-level="2.1" data-path="overview.html"><a href="overview.html#computational-environment"><i class="fa fa-check"></i><b>2.1</b> Computational Environment</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="overview.html"><a href="overview.html#dependency-list"><i class="fa fa-check"></i><b>2.1.1</b> Dependency list</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>3</b> Spatial Data</a></li>
+<li class="chapter" data-level="4" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-wrangling.html"><a href="data-wrangling.html#dependencies"><i class="fa fa-check"></i><b>4.1</b> Dependencies</a></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling.html"><a href="data-wrangling.html#introducing-r"><i class="fa fa-check"></i><b>4.2</b> Introducing R</a></li>
+<li class="chapter" data-level="4.3" data-path="data-wrangling.html"><a href="data-wrangling.html#setting-the-working-directory"><i class="fa fa-check"></i><b>4.3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="4.4" data-path="data-wrangling.html"><a href="data-wrangling.html#r-scripts-and-notebooks"><i class="fa fa-check"></i><b>4.4</b> R Scripts and Notebooks</a></li>
+<li class="chapter" data-level="4.5" data-path="data-wrangling.html"><a href="data-wrangling.html#getting-help"><i class="fa fa-check"></i><b>4.5</b> Getting Help</a></li>
+<li class="chapter" data-level="4.6" data-path="data-wrangling.html"><a href="data-wrangling.html#variables-and-objects"><i class="fa fa-check"></i><b>4.6</b> Variables and objects</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="data-wrangling.html"><a href="data-wrangling.html#basic-data-types"><i class="fa fa-check"></i><b>4.6.1</b> Basic Data Types</a></li>
+<li class="chapter" data-level="4.6.2" data-path="data-wrangling.html"><a href="data-wrangling.html#random-variables"><i class="fa fa-check"></i><b>4.6.2</b> Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="data-wrangling.html"><a href="data-wrangling.html#data-frames"><i class="fa fa-check"></i><b>4.7</b> Data Frames</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="data-wrangling.html"><a href="data-wrangling.html#creating-a-data-frame"><i class="fa fa-check"></i><b>4.7.1</b> Creating A Data Frame</a></li>
+<li class="chapter" data-level="4.7.2" data-path="data-wrangling.html"><a href="data-wrangling.html#referencing-data-frames"><i class="fa fa-check"></i><b>4.7.2</b> Referencing Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="data-wrangling.html"><a href="data-wrangling.html#sec_readdata"><i class="fa fa-check"></i><b>4.8</b> Read Data</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="data-wrangling.html"><a href="data-wrangling.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>4.8.1</b> Quickly inspect the data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="data-wrangling.html"><a href="data-wrangling.html#manipulation-data"><i class="fa fa-check"></i><b>4.9</b> Manipulation Data</a><ul>
+<li class="chapter" data-level="4.9.1" data-path="data-wrangling.html"><a href="data-wrangling.html#adding-new-variables"><i class="fa fa-check"></i><b>4.9.1</b> Adding New Variables</a></li>
+<li class="chapter" data-level="4.9.2" data-path="data-wrangling.html"><a href="data-wrangling.html#selecting-variables"><i class="fa fa-check"></i><b>4.9.2</b> Selecting Variables</a></li>
+<li class="chapter" data-level="4.9.3" data-path="data-wrangling.html"><a href="data-wrangling.html#filtering-data"><i class="fa fa-check"></i><b>4.9.3</b> Filtering Data</a></li>
+<li class="chapter" data-level="4.9.4" data-path="data-wrangling.html"><a href="data-wrangling.html#joining-data-drames"><i class="fa fa-check"></i><b>4.9.4</b> Joining Data Drames</a></li>
+<li class="chapter" data-level="4.9.5" data-path="data-wrangling.html"><a href="data-wrangling.html#saving-data"><i class="fa fa-check"></i><b>4.9.5</b> Saving Data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.10" data-path="data-wrangling.html"><a href="data-wrangling.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>4.10</b> Using Spatial Data Frames</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="data-wrangling.html"><a href="data-wrangling.html#read-spatial-data"><i class="fa fa-check"></i><b>4.10.1</b> Read Spatial Data</a></li>
+<li class="chapter" data-level="4.10.2" data-path="data-wrangling.html"><a href="data-wrangling.html#basic-mapping"><i class="fa fa-check"></i><b>4.10.2</b> Basic Mapping</a></li>
+<li class="chapter" data-level="4.10.3" data-path="data-wrangling.html"><a href="data-wrangling.html#comparing-geographies"><i class="fa fa-check"></i><b>4.10.3</b> Comparing geographies</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="data-wrangling.html"><a href="data-wrangling.html#useful-functions"><i class="fa fa-check"></i><b>4.11</b> Useful Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>5</b> Points</a><ul>
+<li class="chapter" data-level="5.1" data-path="points.html"><a href="points.html#dependencies-1"><i class="fa fa-check"></i><b>5.1</b> Dependencies</a></li>
+<li class="chapter" data-level="5.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>5.2</b> Data</a></li>
+<li class="chapter" data-level="5.3" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>5.3</b> KDE</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>5.3.1</b> One-dimensional KDE</a></li>
+<li class="chapter" data-level="5.3.2" data-path="points.html"><a href="points.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>5.3.2</b> Two-dimensional (spatial) KDE</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>5.4</b> Spatial Interpolation</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="points.html"><a href="points.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>5.4.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
+<li class="chapter" data-level="5.4.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>5.4.2</b> A surface of housing prices</a></li>
+<li class="chapter" data-level="5.4.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>5.4.3</b> <em>“What should the next house’s price be?”</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>6</b> Flows</a><ul>
+<li class="chapter" data-level="6.1" data-path="flows.html"><a href="flows.html#dependencies-2"><i class="fa fa-check"></i><b>6.1</b> Dependencies</a></li>
+<li class="chapter" data-level="6.2" data-path="flows.html"><a href="flows.html#data-1"><i class="fa fa-check"></i><b>6.2</b> Data</a></li>
+<li class="chapter" data-level="6.3" data-path="flows.html"><a href="flows.html#seeing-flows"><i class="fa fa-check"></i><b>6.3</b> “<em>Seeing</em>” flows</a></li>
+<li class="chapter" data-level="6.4" data-path="flows.html"><a href="flows.html#modelling-flows"><i class="fa fa-check"></i><b>6.4</b> Modelling flows</a></li>
+<li class="chapter" data-level="6.5" data-path="flows.html"><a href="flows.html#predicting-flows"><i class="fa fa-check"></i><b>6.5</b> Predicting flows</a></li>
+<li class="chapter" data-level="6.6" data-path="flows.html"><a href="flows.html#references"><i class="fa fa-check"></i><b>6.6</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html"><i class="fa fa-check"></i><b>7</b> Spatial Econometrics</a><ul>
+<li class="chapter" data-level="7.1" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#dependencies-3"><i class="fa fa-check"></i><b>7.1</b> Dependencies</a></li>
+<li class="chapter" data-level="7.2" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#data-2"><i class="fa fa-check"></i><b>7.2</b> Data</a></li>
+<li class="chapter" data-level="7.3" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#non-spatial-regression-a-refresh"><i class="fa fa-check"></i><b>7.3</b> Non-spatial regression, a refresh</a></li>
+<li class="chapter" data-level="7.4" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#spatial-regression-a-very-first-dip"><i class="fa fa-check"></i><b>7.4</b> Spatial regression: a (very) first dip</a></li>
+<li class="chapter" data-level="7.5" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#spatial-heterogeneity"><i class="fa fa-check"></i><b>7.5</b> Spatial heterogeneity</a></li>
+<li class="chapter" data-level="7.6" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#spatial-dependence"><i class="fa fa-check"></i><b>7.6</b> Spatial dependence</a></li>
+<li class="chapter" data-level="7.7" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#predicting-house-prices"><i class="fa fa-check"></i><b>7.7</b> Predicting house prices</a></li>
+<li class="chapter" data-level="7.8" data-path="spatial-econometrics.html"><a href="spatial-econometrics.html#references-1"><i class="fa fa-check"></i><b>7.8</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html"><i class="fa fa-check"></i><b>8</b> Multilevel Modelling - Part 1</a><ul>
+<li class="chapter" data-level="8.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#dependencies-4"><i class="fa fa-check"></i><b>8.1</b> Dependencies</a></li>
+<li class="chapter" data-level="8.2" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#data-3"><i class="fa fa-check"></i><b>8.2</b> Data</a></li>
+<li class="chapter" data-level="8.3" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#modelling"><i class="fa fa-check"></i><b>8.3</b> Modelling</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#baseline-linear-regression-model"><i class="fa fa-check"></i><b>8.3.1</b> Baseline Linear Regression Model</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#multilevel-modelling-random-intercept-model"><i class="fa fa-check"></i><b>8.4</b> Multilevel Modelling: Random Intercept Model</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#interpretation"><i class="fa fa-check"></i><b>8.4.1</b> Interpretation</a></li>
+<li class="chapter" data-level="8.4.2" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#variance-partition-coefficient-vpc"><i class="fa fa-check"></i><b>8.4.2</b> Variance Partition Coefficient (VPC)</a></li>
+<li class="chapter" data-level="8.4.3" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#uncertainty-of-estimates"><i class="fa fa-check"></i><b>8.4.3</b> Uncertainty of Estimates</a></li>
+<li class="chapter" data-level="8.4.4" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#assessing-group-level-variation"><i class="fa fa-check"></i><b>8.4.4</b> Assessing Group-level Variation</a></li>
+<li class="chapter" data-level="8.4.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#adding-individual-level-predictors"><i class="fa fa-check"></i><b>8.4.5</b> Adding Individual-level Predictors</a></li>
+<li class="chapter" data-level="8.4.6" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#adding-group-level-predictors"><i class="fa fa-check"></i><b>8.4.6</b> Adding Group-level Predictors</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="multilevel-modelling-part-1.html"><a href="multilevel-modelling-part-1.html#useful-functions-1"><i class="fa fa-check"></i><b>8.5</b> Useful Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html"><i class="fa fa-check"></i><b>9</b> Multilevel Modelling - Part 2</a><ul>
+<li class="chapter" data-level="9.1" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#dependencies-5"><i class="fa fa-check"></i><b>9.1</b> Dependencies</a></li>
+<li class="chapter" data-level="9.2" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#data-4"><i class="fa fa-check"></i><b>9.2</b> Data</a></li>
+<li class="chapter" data-level="9.3" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#conceptual-overview"><i class="fa fa-check"></i><b>9.3</b> Conceptual Overview</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#exploratory-analysis-varying-slopes"><i class="fa fa-check"></i><b>9.3.1</b> Exploratory Analysis: Varying Slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#estimating-varying-intercept-and-slopes-models"><i class="fa fa-check"></i><b>9.4</b> Estimating Varying Intercept and Slopes Models</a></li>
+<li class="chapter" data-level="9.5" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#interpreting-correlations-between-group-level-intercepts-and-slopes"><i class="fa fa-check"></i><b>9.5</b> Interpreting Correlations Between Group-level Intercepts and Slopes</a></li>
+<li class="chapter" data-level="9.6" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#model-building"><i class="fa fa-check"></i><b>9.6</b> Model building</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="multilevel-modelling-part-2.html"><a href="multilevel-modelling-part-2.html#model-comparison"><i class="fa fa-check"></i><b>9.6.1</b> Model Comparison</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html"><i class="fa fa-check"></i><b>10</b> Geographically Weighted Regression</a><ul>
+<li class="chapter" data-level="10.1" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#dependencies-6"><i class="fa fa-check"></i><b>10.1</b> Dependencies</a></li>
+<li class="chapter" data-level="10.2" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#data-5"><i class="fa fa-check"></i><b>10.2</b> Data</a></li>
+<li class="chapter" data-level="10.3" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#recap-spatial-effects"><i class="fa fa-check"></i><b>10.3</b> Recap: Spatial Effects</a></li>
+<li class="chapter" data-level="10.4" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#exploratory-analysis"><i class="fa fa-check"></i><b>10.4</b> Exploratory Analysis</a></li>
+<li class="chapter" data-level="10.5" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#global-regression"><i class="fa fa-check"></i><b>10.5</b> Global Regression</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#global-regression-results"><i class="fa fa-check"></i><b>10.5.1</b> Global Regression Results</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#fitting-a-geographically-weighted-regression"><i class="fa fa-check"></i><b>10.6</b> Fitting a Geographically Weighted Regression</a><ul>
+<li class="chapter" data-level="10.6.1" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#fixed-or-adaptive-kernel"><i class="fa fa-check"></i><b>10.6.1</b> Fixed or Adaptive Kernel</a></li>
+<li class="chapter" data-level="10.6.2" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#optimal-bandwidth"><i class="fa fa-check"></i><b>10.6.2</b> Optimal Bandwidth</a></li>
+<li class="chapter" data-level="10.6.3" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#shape-of-spatial-kernel"><i class="fa fa-check"></i><b>10.6.3</b> Shape of Spatial Kernel</a></li>
+<li class="chapter" data-level="10.6.4" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#selecting-a-bandwidth"><i class="fa fa-check"></i><b>10.6.4</b> Selecting a Bandwidth</a></li>
+<li class="chapter" data-level="10.6.5" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#model-fit"><i class="fa fa-check"></i><b>10.6.5</b> Model fit</a></li>
+<li class="chapter" data-level="10.6.6" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#interpretation-1"><i class="fa fa-check"></i><b>10.6.6</b> Interpretation</a></li>
+<li class="chapter" data-level="10.6.7" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#assessing-statistical-significance"><i class="fa fa-check"></i><b>10.6.7</b> Assessing statistical significance</a></li>
+<li class="chapter" data-level="10.6.8" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#collinearity-in-gwr"><i class="fa fa-check"></i><b>10.6.8</b> Collinearity in GWR</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="11" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html"><i class="fa fa-check"></i><b>11</b> Spatio-Temporal Analysis</a><ul>
+<li class="chapter" data-level="11.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#dependencies-7"><i class="fa fa-check"></i><b>11.1</b> Dependencies</a></li>
+<li class="chapter" data-level="11.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-6"><i class="fa fa-check"></i><b>11.2</b> Data</a></li>
+<li class="chapter" data-level="11.3" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#why-spatio-temporal-analysis"><i class="fa fa-check"></i><b>11.3</b> Why Spatio-Temporal Analysis?</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#spatio-temporal-data-structures"><i class="fa fa-check"></i><b>11.3.1</b> Spatio-temporal Data Structures</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-wrangling"><i class="fa fa-check"></i><b>11.4</b> Data Wrangling</a></li>
+<li class="chapter" data-level="11.5" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>11.5</b> Exploring Spatio-Temporal Data</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#visualisation"><i class="fa fa-check"></i><b>11.5.1</b> Visualisation</a></li>
+<li class="chapter" data-level="11.5.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#exploratory-analysis-1"><i class="fa fa-check"></i><b>11.5.2</b> Exploratory Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>11.6</b> Spatio-Temporal Data Modelling</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#intuition"><i class="fa fa-check"></i><b>11.6.1</b> Intuition</a></li>
+<li class="chapter" data-level="11.6.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#fitting-spatio-temporal-models"><i class="fa fa-check"></i><b>11.6.2</b> Fitting Spatio-Temporal Models</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Spatial Analysis Notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="spatial_data" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Spatial Data</h1>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="overview.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-wrangling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-spatial_data.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["spatial_analysis_notes.pdf", "spatial_analysis_notes.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
