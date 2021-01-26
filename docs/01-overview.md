@@ -224,6 +224,10 @@ for(lib in deps){library(lib, character.only = TRUE)}
 ```
 
 ```
+## #refugeeswelcome
+```
+
+```
 ## Loading required package: spData
 ```
 
