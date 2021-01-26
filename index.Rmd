@@ -14,7 +14,7 @@ description: "Teaching resources for a course on Spatial Modeling using R."
 
 # Spatial Modelling for Data Scientists
 
-Welcome to Spatial Modeling for Data Scientists, a course taught by Dr. Francisco Rowe and Dr. Dani Arribas-Bel in the Second Semester of 2020/21.
+Welcome to Spatial Modeling for Data Scientists (*ENVS453*), a course taught by Dr. Francisco Rowe and Dr. Dani Arribas-Bel in the Second Semester of 2020/21.
 
 A compilation of this course is hosted as a GitHub repository that you can access:
 
@@ -25,16 +25,16 @@ A compilation of this course is hosted as a GitHub repository that you can acces
 
 ## Contact
 
-> Francisco Rowe - F.Rowe-Gonzalez [at] liverpool.ac.uk
-Senior Lecturer in Quantitative Human Geography
-Office 507, Roxby Building,
-University of Liverpool - 74 Bedford St S,
-Liverpool, L69 7ZT,
+> Francisco Rowe - `F.Rowe-Gonzalez [at] liverpool.ac.uk`   
+Senior Lecturer in Quantitative Human Geography   
+Office 507, Roxby Building,  
+University of Liverpool - 74 Bedford St S,  
+Liverpool, L69 7ZT,  
 United Kingdom.
 
-> Dani Arribas-Bel - D.Arribas-Bel [at] liverpool.ac.uk
-Senior Lecturer in Geographic Data Science
-Office 508, Roxby Building,
-University of Liverpool - 74 Bedford St S,
-Liverpool, L69 7ZT,
+> Dani Arribas-Bel - `D.Arribas-Bel [at] liverpool.ac.uk`  
+Senior Lecturer in Geographic Data Science  
+Office 508, Roxby Building,  
+University of Liverpool - 74 Bedford St S,  
+Liverpool, L69 7ZT,  
 United Kingdom.
