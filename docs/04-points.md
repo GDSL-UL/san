@@ -34,11 +34,11 @@ library(rgdal)
 ```
 ## rgdal: version: 1.5-18, (SVN revision 1082)
 ## Geospatial Data Abstraction Library extensions to R successfully loaded
-## Loaded GDAL runtime: GDAL 3.0.4, released 2020/01/28
-## Path to GDAL shared files: /usr/share/gdal
+## Loaded GDAL runtime: GDAL 3.1.1, released 2020/06/22
+## Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/gdal
 ## GDAL binary built with GEOS: TRUE 
 ## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
-## Path to PROJ shared files: /usr/share/proj
+## Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj
 ## Linking to sp version:1.4-4
 ## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
 ## use options("rgdal_show_exportToProj4_warnings"="none") before loading rgdal.
@@ -88,8 +88,8 @@ library(GISTools)
 
 ```
 ## rgeos version: 0.5-5, (SVN revision 640)
-##  GEOS runtime version: 3.8.0-CAPI-1.13.1 
-##  Linking to sp version: 1.4-4 
+##  GEOS runtime version: 3.8.1-CAPI-1.13.3 
+##  Linking to sp version: 1.4-2 
 ##  Polygon checking: TRUE
 ```
 
@@ -126,7 +126,7 @@ db <- readOGR(dsn = 'data/house_transactions', layer = 'liv_house_trans')
 
 ```
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "/home/rstudio/Documents/data/house_transactions", layer: "liv_house_trans"
+## Source: "/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/house_transactions", layer: "liv_house_trans"
 ## with 6324 features
 ## It has 18 fields
 ## Integer64 fields read as strings:  price
@@ -239,7 +239,7 @@ hist
 ```
 
 <div class="figure">
-<img src="04-points_files/figure-epub3/unnamed-chunk-8-1.png" alt="Raw house prices in Liverpool"  />
+<img src="04-points_files/figure-html/unnamed-chunk-8-1.png" alt="Raw house prices in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-8)Raw house prices in Liverpool</p>
 </div>
 
@@ -260,7 +260,7 @@ hist
 ```
 
 <div class="figure">
-<img src="04-points_files/figure-epub3/unnamed-chunk-9-1.png" alt="Log of house price in Liverpool"  />
+<img src="04-points_files/figure-html/unnamed-chunk-9-1.png" alt="Log of house price in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-9)Log of house price in Liverpool</p>
 </div>
 
@@ -272,7 +272,7 @@ plot(db)
 ```
 
 <div class="figure">
-<img src="04-points_files/figure-epub3/unnamed-chunk-10-1.png" alt="Spatial distribution of house transactions in Liverpool"  />
+<img src="04-points_files/figure-html/unnamed-chunk-10-1.png" alt="Spatial distribution of house transactions in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-10)Spatial distribution of house transactions in Liverpool</p>
 </div>
 
@@ -298,7 +298,7 @@ kde
 ```
 
 <div class="figure">
-<img src="04-points_files/figure-epub3/unnamed-chunk-11-1.png" alt="Histogram and KDE of the log of house prices in Liverpool"  />
+<img src="04-points_files/figure-html/unnamed-chunk-11-1.png" alt="Histogram and KDE of the log of house prices in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-11)Histogram and KDE of the log of house prices in Liverpool</p>
 </div>
 
@@ -325,7 +325,7 @@ kde
 ```
 
 <div class="figure">
-<img src="04-points_files/figure-epub3/unnamed-chunk-12-1.png" alt="KDE of house transactions in Liverpool"  />
+<img src="04-points_files/figure-html/unnamed-chunk-12-1.png" alt="KDE of house transactions in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-12)KDE of house transactions in Liverpool</p>
 </div>
 
@@ -353,7 +353,7 @@ level.plot(kde)
 ```
 
 <div class="figure">
-<img src="04-points_files/figure-epub3/unnamed-chunk-13-1.png" alt="KDE of house transactions in Liverpool"  />
+<img src="04-points_files/figure-html/unnamed-chunk-13-1.png" alt="KDE of house transactions in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-13)KDE of house transactions in Liverpool</p>
 </div>
 
@@ -429,7 +429,7 @@ final
 ```
 
 <div class="figure">
-<img src="04-points_files/figure-epub3/unnamed-chunk-14-1.png" alt="KDE of house transactions in Liverpool"  />
+<img src="04-points_files/figure-html/unnamed-chunk-14-1.png" alt="KDE of house transactions in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-14)KDE of house transactions in Liverpool</p>
 </div>
 

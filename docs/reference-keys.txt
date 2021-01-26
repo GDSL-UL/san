@@ -10,7 +10,8 @@ fig:unnamed-chunk-13
 fig:unnamed-chunk-14
 fig:unnamed-chunk-5
 fig:unnamed-chunk-6
-spatial-analysis-notes
+spatial-modelling-for-data-scientists
+contact
 overview
 computational-environment
 dependency-list

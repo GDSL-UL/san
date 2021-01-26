@@ -4,27 +4,27 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Spatial Analysis Notes</title>
-  <meta name="description" content="Materials for a Spatial Analysis course in R." />
+  <title>Spatial Modelling for Data Scientists</title>
+  <meta name="description" content="Teaching resources for a course on Spatial Modeling using R." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Spatial Analysis Notes" />
+  <meta property="og:title" content="Spatial Modelling for Data Scientists" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Materials for a Spatial Analysis course in R." />
+  <meta property="og:description" content="Teaching resources for a course on Spatial Modeling using R." />
   <meta name="github-repo" content="gdsl-ul/san" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Spatial Analysis Notes" />
+  <meta name="twitter:title" content="Spatial Modelling for Data Scientists" />
   
-  <meta name="twitter:description" content="Materials for a Spatial Analysis course in R." />
+  <meta name="twitter:description" content="Teaching resources for a course on Spatial Modeling using R." />
   
 
 <meta name="author" content="Francisco Rowe &amp; Dani Arribas-Bel" />
 
 
-<meta name="date" content="2020-12-23" />
+<meta name="date" content="2021-01-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -134,7 +134,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Spatial Analysis Notes</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Spatial Analysis Notes</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Spatial Modelling for Data Scientists</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.1</b> Contact</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>2</b> Overview</a><ul>
 <li class="chapter" data-level="2.1" data-path="overview.html"><a href="overview.html#computational-environment"><i class="fa fa-check"></i><b>2.1</b> Computational Environment</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="overview.html"><a href="overview.html#dependency-list"><i class="fa fa-check"></i><b>2.1.1</b> Dependency list</a></li>
@@ -250,7 +252,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.6.8" data-path="geographically-weighted-regression.html"><a href="geographically-weighted-regression.html#collinearity-in-gwr"><i class="fa fa-check"></i><b>10.6.8</b> Collinearity in GWR</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
 <li class="chapter" data-level="11" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html"><i class="fa fa-check"></i><b>11</b> Spatio-Temporal Analysis</a><ul>
 <li class="chapter" data-level="11.1" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#dependencies-7"><i class="fa fa-check"></i><b>11.1</b> Dependencies</a></li>
 <li class="chapter" data-level="11.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#data-6"><i class="fa fa-check"></i><b>11.2</b> Data</a></li>
@@ -267,6 +268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.6.2" data-path="spatio-temporal-analysis.html"><a href="spatio-temporal-analysis.html#fitting-spatio-temporal-models"><i class="fa fa-check"></i><b>11.6.2</b> Fitting Spatio-Temporal Models</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -279,7 +281,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Spatial Analysis Notes</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Spatial Modelling for Data Scientists</a>
           </h1>
         </div>
 
@@ -288,14 +290,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Spatial Analysis Notes</h1>
+<h1 class="title">Spatial Modelling for Data Scientists</h1>
 <p class="author"><em>Francisco Rowe &amp; Dani Arribas-Bel</em></p>
-<p class="date"><em>2020-12-23</em></p>
+<p class="date"><em>2021-01-26</em></p>
 </div>
-<div id="spatial-analysis-notes" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Spatial Analysis Notes</h1>
-<p>This book contains computational illustrations on spatial analytical approaches using R.</p>
+<div id="spatial-modelling-for-data-scientists" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Spatial Modelling for Data Scientists</h1>
+<p>Welcome to Spatial Modeling for Data Scientists, a course taught by Dr. Francisco Rowe and Dani Arribas-Bel in the Second Semester of 2020/21.</p>
+<pre class="note"><code>A PDF version of this course is available for download {download}`here &lt;./gds_course.pdf&gt;`</code></pre>
+<div id="contact" class="section level2">
+<h2><span class="header-section-number">1.1</span> Contact</h2>
+<blockquote>
+<p>Francisco Rowe - F.Rowe-Gonzalez [at] liverpool.ac.uk
+Senior Lecturer in Quantitative Human Geography
+Office 507, Roxby Building,
+University of Liverpool - 74 Bedford St S,
+Liverpool, L69 7ZT,
+United Kingdom.</p>
+</blockquote>
+<blockquote>
+<p>Dani Arribas-Bel - D.Arribas-Bel [at] liverpool.ac.uk
+Senior Lecturer in Geographic Data Science
+Office 508, Roxby Building,
+University of Liverpool - 74 Bedford St S,
+Liverpool, L69 7ZT,
+United Kingdom.</p>
+</blockquote>
 
+</div>
 </div>
             </section>
 

@@ -41,11 +41,11 @@ library(rgdal)
 ```
 ## rgdal: version: 1.5-18, (SVN revision 1082)
 ## Geospatial Data Abstraction Library extensions to R successfully loaded
-## Loaded GDAL runtime: GDAL 3.0.4, released 2020/01/28
-## Path to GDAL shared files: /usr/share/gdal
+## Loaded GDAL runtime: GDAL 3.1.1, released 2020/06/22
+## Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/gdal
 ## GDAL binary built with GEOS: TRUE 
 ## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
-## Path to PROJ shared files: /usr/share/proj
+## Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj
 ## Linking to sp version:1.4-4
 ## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
 ## use options("rgdal_show_exportToProj4_warnings"="none") before loading rgdal.
@@ -93,8 +93,8 @@ library(GISTools)
 
 ```
 ## rgeos version: 0.5-5, (SVN revision 640)
-##  GEOS runtime version: 3.8.0-CAPI-1.13.1 
-##  Linking to sp version: 1.4-4 
+##  GEOS runtime version: 3.8.1-CAPI-1.13.3 
+##  Linking to sp version: 1.4-2 
 ##  Polygon checking: TRUE
 ```
 
@@ -112,11 +112,17 @@ library(spdep)
 ```
 
 ```
+## To access larger datasets in this package, install the spDataLarge
+## package with: `install.packages('spDataLarge',
+## repos='https://nowosad.github.io/drat/', type='source')`
+```
+
+```
 ## Loading required package: sf
 ```
 
 ```
-## Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1
+## Linking to GEOS 3.8.1, GDAL 3.1.1, PROJ 6.3.1
 ```
 
 Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with `setwd()`. Please replace in the following line the path to the folder where you have placed this file -and where the `house_transactions` folder with the data lives.
@@ -146,7 +152,7 @@ hst <- readOGR(dsn = 'data/house_transactions', layer = 'liv_house_trans')
 
 ```
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "/home/rstudio/Documents/data/house_transactions", layer: "liv_house_trans"
+## Source: "/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/house_transactions", layer: "liv_house_trans"
 ## with 6324 features
 ## It has 18 fields
 ## Integer64 fields read as strings:  price
@@ -265,7 +271,7 @@ plot(db)
 ```
 
 <div class="figure">
-<img src="06-spatial_econometrics_files/figure-epub3/unnamed-chunk-13-1.png" alt="Spatial distribution of house transactions in Liverpool"  />
+<img src="06-spatial_econometrics_files/figure-html/unnamed-chunk-13-1.png" alt="Spatial distribution of house transactions in Liverpool" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-13)Spatial distribution of house transactions in Liverpool</p>
 </div>
 
@@ -735,8 +741,8 @@ hknn
 ## 
 ## Weights style: W 
 ## Weights constants summary:
-##      n       nn   S0       S1       S2
-## W 6324 39992976 6324 230.5048 25812.46
+##      n       nn   S0       S1      S2
+## W 6324 39992976 6324 230.5064 25811.4
 ```
 
 **Exogenous spatial effects**
@@ -772,19 +778,19 @@ summary(m6)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2907 -0.3016 -0.0151  0.2821  5.2631 
+## -4.2906 -0.3013 -0.0153  0.2824  5.2605 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) 12.2812117  0.0145292 845.280  < 2e-16 ***
-## newY         0.2475025  0.0195191  12.680  < 2e-16 ***
-## imd_score   -0.0042254  0.0008919  -4.737 2.21e-06 ***
-## w_imd_score -0.0147954  0.0009689 -15.271  < 2e-16 ***
+## (Intercept) 12.2811591  0.0145293 845.266  < 2e-16 ***
+## newY         0.2474982  0.0195196  12.679  < 2e-16 ***
+## imd_score   -0.0042345  0.0008919  -4.748  2.1e-06 ***
+## w_imd_score -0.0147858  0.0009688 -15.261  < 2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## Residual standard error: 0.5201 on 6320 degrees of freedom
-## Multiple R-squared:  0.3347,	Adjusted R-squared:  0.3344 
+## Multiple R-squared:  0.3347,	Adjusted R-squared:  0.3343 
 ## F-statistic:  1060 on 3 and 6320 DF,  p-value: < 2.2e-16
 ```
 
@@ -847,7 +853,7 @@ new.price
 
 ```
 ##        1 
-## 11.47203
+## 11.47178
 ```
 
 Now remember we were using the log of the price as dependent variable. If we want to recover the actual price of the house, we need to take its exponent:
@@ -859,7 +865,7 @@ exp(new.price)
 
 ```
 ##        1 
-## 95993.36
+## 95968.81
 ```
 
 According to our model, the house would be worth GBP96,060.29^[**EXERCISE** *How would the price change if the surrounding houses did not have an average of 50 but of 80?* Obtain a new prediction and compare it with the original one.].

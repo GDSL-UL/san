@@ -69,7 +69,7 @@ for(lib in deps){library(lib, character.only = TRUE)}
 ```
 
 ```
-## Working directory is /home/rstudio/Documents
+## Working directory is /Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san
 ```
 
 ```
@@ -145,8 +145,8 @@ for(lib in deps){library(lib, character.only = TRUE)}
 
 ```
 ## rgeos version: 0.5-5, (SVN revision 640)
-##  GEOS runtime version: 3.8.0-CAPI-1.13.1 
-##  Linking to sp version: 1.4-4 
+##  GEOS runtime version: 3.8.1-CAPI-1.13.3 
+##  Linking to sp version: 1.4-2 
 ##  Polygon checking: TRUE
 ```
 
@@ -209,26 +209,32 @@ for(lib in deps){library(lib, character.only = TRUE)}
 ```
 ## rgdal: version: 1.5-18, (SVN revision 1082)
 ## Geospatial Data Abstraction Library extensions to R successfully loaded
-## Loaded GDAL runtime: GDAL 3.0.4, released 2020/01/28
-## Path to GDAL shared files: /usr/share/gdal
+## Loaded GDAL runtime: GDAL 3.1.1, released 2020/06/22
+## Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/gdal
 ## GDAL binary built with GEOS: TRUE 
 ## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
-## Path to PROJ shared files: /usr/share/proj
+## Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj
 ## Linking to sp version:1.4-4
 ## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
 ## use options("rgdal_show_exportToProj4_warnings"="none") before loading rgdal.
 ```
 
 ```
-## Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1
+## Linking to GEOS 3.8.1, GDAL 3.1.1, PROJ 6.3.1
 ```
 
 ```
-## Install package "strengejacke" from GitHub (`devtools::install_github("strengejacke/strengejacke")`) to load all sj-packages at once!
+## Learn more about sjPlot with 'browseVignettes("sjPlot")'.
 ```
 
 ```
 ## Loading required package: spData
+```
+
+```
+## To access larger datasets in this package, install the spDataLarge
+## package with: `install.packages('spDataLarge',
+## repos='https://nowosad.github.io/drat/', type='source')`
 ```
 
 ```
@@ -310,7 +316,7 @@ for(lib in deps){library(lib, character.only = TRUE)}
 ```
 
 ```
-## ── Attaching packages ──────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
+## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──
 ```
 
 ```
@@ -321,7 +327,7 @@ for(lib in deps){library(lib, character.only = TRUE)}
 ```
 
 ```
-## ── Conflicts ─────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::arrange()         masks plyr::arrange()
 ## x lubridate::as.difftime() masks base::as.difftime()
 ## x purrr::compact()         masks plyr::compact()

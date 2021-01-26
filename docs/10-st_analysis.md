@@ -131,7 +131,7 @@ utla_shp <- st_read("data/sta/ons_utla.shp")
 ```
 
 ```
-## Reading layer `ons_utla' from data source `/home/rstudio/Documents/data/sta/ons_utla.shp' using driver `ESRI Shapefile'
+## Reading layer `ons_utla' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sta/ons_utla.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 150 features and 11 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -330,7 +330,7 @@ tm_shape(daycases_week) +
 ## Please use legend.outside.size to control the width of the outside legend
 ```
 
-![](10-st_analysis_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+<img src="10-st_analysis_files/figure-html/unnamed-chunk-9-1.png" width="1152" />
 
 The series of maps reveal a stable pattern of low reported cases from calendar weeks 5 to 11. From week 12 a number of hot spots emerged, notably in London, Birmingham, Cumbria and subsequently around Liverpool. The intensity of new cases seem to have started to decline from week 15; yet, it is important to note that week 16 display reported cases for only two days. 
 
@@ -356,7 +356,7 @@ tsp + geom_line(color = "blue") +
     facet_wrap(~ ctyu19nm)
 ```
 
-![](10-st_analysis_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
+<img src="10-st_analysis_files/figure-html/unnamed-chunk-10-1.png" width="1152" />
     
 #### Hovmöller Plots
 
@@ -378,7 +378,7 @@ ggplot(data = dplyr::filter(covid19_spt, Residents > 260000),
   theme(legend.key.width = unit(5, "cm"), legend.key.height = unit(2, "cm"))
 ```
 
-![](10-st_analysis_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
+<img src="10-st_analysis_files/figure-html/unnamed-chunk-11-1.png" width="1152" />
     
     
 #### Interactive Plots
@@ -442,7 +442,7 @@ ggplot(data=sp_av) +
   theme(axis.title=element_text(size=20, face="plain"))
 ```
 
-![](10-st_analysis_files/figure-epub3/unnamed-chunk-14-1.png)<!-- -->
+<img src="10-st_analysis_files/figure-html/unnamed-chunk-14-1.png" width="1152" />
       
 **Empirical Temporal Mean**
 
@@ -474,7 +474,7 @@ ggplot() +
     theme(axis.title=element_text(size=18, face="plain"))
 ```
 
-![](10-st_analysis_files/figure-epub3/unnamed-chunk-15-1.png)<!-- -->
+<img src="10-st_analysis_files/figure-html/unnamed-chunk-15-1.png" width="1152" />
       
 #### Dependence
 
@@ -545,7 +545,7 @@ dec_ts <- decompose(total_cases_ts)
 plot(dec_ts)
 ```
 
-![](10-st_analysis_files/figure-epub3/unnamed-chunk-18-1.png)<!-- -->
+<img src="10-st_analysis_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
 For a good introduction to time-series analysis in R, refer to @hyndman2018forecasting and [DataCamp](https://www.datacamp.com/courses/forecasting-using-r).
 
@@ -824,11 +824,11 @@ nb_m1
 ```
 ## 
 ## Call:  glm.nb(formula = eq1, data = dplyr::select(reg_df, -ctyu19nm), 
-##     init.theta = 11051670.9, link = log)
+##     init.theta = 10953883.12, link = log)
 ## 
 ## Coefficients:
 ## (Intercept)         long          lat          day   lt_illness           B1  
-##   -97.26122     -0.97892      1.76667     -0.01441     14.42040      6.19749  
+##   -97.26121     -0.97892      1.76667     -0.01441     14.42040      6.19749  
 ##          B2           B3           B4           B5           B6           B7  
 ##     0.36155     11.36319     -1.97553      2.81326     -1.33374      0.76959  
 ##          B8           B9  
@@ -856,7 +856,7 @@ nb_m2
 ```
 ## 
 ## Call:  glm.nb(formula = eq2, data = dplyr::select(reg_df, -ctyu19nm), 
-##     init.theta = 300465.7453, link = log)
+##     init.theta = 300465.7447, link = log)
 ## 
 ## Coefficients:
 ## (Intercept)         long          lat          day   lt_illness           B1  
@@ -909,7 +909,7 @@ corrplot::corrplot.mixed(cormat,
                          tl.cex = 0.9)
 ```
 
-![](10-st_analysis_files/figure-epub3/unnamed-chunk-29-1.png)<!-- -->
+<img src="10-st_analysis_files/figure-html/unnamed-chunk-29-1.png" width="672" />
 
 None of the models does a great job at predicting the observed count of new COVID-19 cases. They display correlation coefficients between 0.23 and 0.24 and high degree of correlation between them. Part of the assignment will be finding ways to improve this initial models. They should just be considered as a starting point.
 
