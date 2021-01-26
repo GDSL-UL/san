@@ -309,10 +309,10 @@ document</a></li>
 <div id="dependencies-1" class="section level2">
 <h2><span class="header-section-number">5.1</span> Dependencies</h2>
 <p>This tutorial relies on the following libraries that you will need to have installed on your machine to be able to interactively follow along<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. Once installed, load them up with the following commands:</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="points.html#cb132-1"></a><span class="co"># For pretty table</span></span>
-<span id="cb132-2"><a href="points.html#cb132-2"></a><span class="kw">library</span>(knitr)</span>
-<span id="cb132-3"><a href="points.html#cb132-3"></a><span class="co"># Spatial Data management</span></span>
-<span id="cb132-4"><a href="points.html#cb132-4"></a><span class="kw">library</span>(rgdal)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="points.html#cb130-1"></a><span class="co"># For pretty table</span></span>
+<span id="cb130-2"><a href="points.html#cb130-2"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb130-3"><a href="points.html#cb130-3"></a><span class="co"># Spatial Data management</span></span>
+<span id="cb130-4"><a href="points.html#cb130-4"></a><span class="kw">library</span>(rgdal)</span></code></pre></div>
 <pre><code>## Loading required package: sp</code></pre>
 <pre><code>## rgdal: version: 1.5-18, (SVN revision 1082)
 ## Geospatial Data Abstraction Library extensions to R successfully loaded
@@ -324,16 +324,16 @@ document</a></li>
 ## Linking to sp version:1.4-4
 ## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
 ## use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) before loading rgdal.</code></pre>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="points.html#cb135-1"></a><span class="co"># Pretty graphics</span></span>
-<span id="cb135-2"><a href="points.html#cb135-2"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb135-3"><a href="points.html#cb135-3"></a><span class="co"># Thematic maps</span></span>
-<span id="cb135-4"><a href="points.html#cb135-4"></a><span class="kw">library</span>(tmap)</span>
-<span id="cb135-5"><a href="points.html#cb135-5"></a><span class="co"># Pretty maps</span></span>
-<span id="cb135-6"><a href="points.html#cb135-6"></a><span class="kw">library</span>(ggmap)</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="points.html#cb133-1"></a><span class="co"># Pretty graphics</span></span>
+<span id="cb133-2"><a href="points.html#cb133-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb133-3"><a href="points.html#cb133-3"></a><span class="co"># Thematic maps</span></span>
+<span id="cb133-4"><a href="points.html#cb133-4"></a><span class="kw">library</span>(tmap)</span>
+<span id="cb133-5"><a href="points.html#cb133-5"></a><span class="co"># Pretty maps</span></span>
+<span id="cb133-6"><a href="points.html#cb133-6"></a><span class="kw">library</span>(ggmap)</span></code></pre></div>
 <pre><code>## Google&#39;s Terms of Service: https://cloud.google.com/maps-platform/terms/.</code></pre>
 <pre><code>## Please cite ggmap if you use it! See citation(&quot;ggmap&quot;) for details.</code></pre>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="points.html#cb138-1"></a><span class="co"># Various GIS utilities</span></span>
-<span id="cb138-2"><a href="points.html#cb138-2"></a><span class="kw">library</span>(GISTools)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="points.html#cb136-1"></a><span class="co"># Various GIS utilities</span></span>
+<span id="cb136-2"><a href="points.html#cb136-2"></a><span class="kw">library</span>(GISTools)</span></code></pre></div>
 <pre><code>## Loading required package: maptools</code></pre>
 <pre><code>## Checking rgeos availability: TRUE</code></pre>
 <pre><code>## Loading required package: RColorBrewer</code></pre>
@@ -343,18 +343,18 @@ document</a></li>
 ##  GEOS runtime version: 3.8.1-CAPI-1.13.3 
 ##  Linking to sp version: 1.4-2 
 ##  Polygon checking: TRUE</code></pre>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="points.html#cb145-1"></a><span class="co"># For all your interpolation needs</span></span>
-<span id="cb145-2"><a href="points.html#cb145-2"></a><span class="kw">library</span>(gstat)</span>
-<span id="cb145-3"><a href="points.html#cb145-3"></a><span class="co"># For data manipulation</span></span>
-<span id="cb145-4"><a href="points.html#cb145-4"></a><span class="kw">library</span>(plyr)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="points.html#cb143-1"></a><span class="co"># For all your interpolation needs</span></span>
+<span id="cb143-2"><a href="points.html#cb143-2"></a><span class="kw">library</span>(gstat)</span>
+<span id="cb143-3"><a href="points.html#cb143-3"></a><span class="co"># For data manipulation</span></span>
+<span id="cb143-4"><a href="points.html#cb143-4"></a><span class="kw">library</span>(plyr)</span></code></pre></div>
 <p>Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with <code>setwd()</code>. Please replace in the following line the path to the folder where you have placed this file -and where the <code>house_transactions</code> folder with the data lives.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="points.html#cb146-1"></a><span class="kw">setwd</span>(<span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="points.html#cb144-1"></a><span class="kw">setwd</span>(<span class="st">&#39;.&#39;</span>)</span></code></pre></div>
 </div>
 <div id="data" class="section level2">
 <h2><span class="header-section-number">5.2</span> Data</h2>
 <p>For this session, we will use a subset of residential property transaction data for the city of Liverpool. These are provided by the Land Registry (as part of their <a href="https://www.gov.uk/government/collections/price-paid-data">Price Paid Data</a>) but have been cleaned and re-packaged by Dani Arribas-Bel.</p>
 <p>Let us start by reading the data, which comes in a shapefile:</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="points.html#cb147-1"></a>db &lt;-<span class="st"> </span><span class="kw">readOGR</span>(<span class="dt">dsn =</span> <span class="st">&#39;data/house_transactions&#39;</span>, <span class="dt">layer =</span> <span class="st">&#39;liv_house_trans&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="points.html#cb145-1"></a>db &lt;-<span class="st"> </span><span class="kw">readOGR</span>(<span class="dt">dsn =</span> <span class="st">&#39;data/house_transactions&#39;</span>, <span class="dt">layer =</span> <span class="st">&#39;liv_house_trans&#39;</span>)</span></code></pre></div>
 <pre><code>## Warning in OGRSpatialRef(dsn, layer, morphFromESRI = morphFromESRI, dumpSRS =
 ## dumpSRS, : Discarded datum OSGB_1936 in CRS definition: +proj=tmerc +lat_0=49
 ## +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs</code></pre>
@@ -364,17 +364,17 @@ document</a></li>
 ## It has 18 fields
 ## Integer64 fields read as strings:  price</code></pre>
 <p>Before we forget, let us make sure <code>price</code> is considered a number, not a factor:</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="points.html#cb150-1"></a>db<span class="op">@</span>data<span class="op">$</span>price &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>((db<span class="op">@</span>data<span class="op">$</span>price)))</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="points.html#cb148-1"></a>db<span class="op">@</span>data<span class="op">$</span>price &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>((db<span class="op">@</span>data<span class="op">$</span>price)))</span></code></pre></div>
 <p>The dataset spans the year 2014:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="points.html#cb151-1"></a><span class="co"># Format dates</span></span>
-<span id="cb151-2"><a href="points.html#cb151-2"></a>dts &lt;-<span class="st"> </span><span class="kw">as.Date</span>(db<span class="op">@</span>data<span class="op">$</span>trans_date)</span>
-<span id="cb151-3"><a href="points.html#cb151-3"></a><span class="co"># Set up summary table</span></span>
-<span id="cb151-4"><a href="points.html#cb151-4"></a>tab &lt;-<span class="st"> </span><span class="kw">summary</span>(dts)</span>
-<span id="cb151-5"><a href="points.html#cb151-5"></a>tab</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="points.html#cb149-1"></a><span class="co"># Format dates</span></span>
+<span id="cb149-2"><a href="points.html#cb149-2"></a>dts &lt;-<span class="st"> </span><span class="kw">as.Date</span>(db<span class="op">@</span>data<span class="op">$</span>trans_date)</span>
+<span id="cb149-3"><a href="points.html#cb149-3"></a><span class="co"># Set up summary table</span></span>
+<span id="cb149-4"><a href="points.html#cb149-4"></a>tab &lt;-<span class="st"> </span><span class="kw">summary</span>(dts)</span>
+<span id="cb149-5"><a href="points.html#cb149-5"></a>tab</span></code></pre></div>
 <pre><code>##         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
 ## &quot;2014-01-02&quot; &quot;2014-04-11&quot; &quot;2014-07-09&quot; &quot;2014-07-08&quot; &quot;2014-10-03&quot; &quot;2014-12-30&quot;</code></pre>
 <p>We can then examine the elements of the object with the <code>summary</code> method:</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="points.html#cb153-1"></a><span class="kw">summary</span>(db)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="points.html#cb151-1"></a><span class="kw">summary</span>(db)</span></code></pre></div>
 <pre><code>## Object of class SpatialPointsDataFrame
 ## Coordinates:
 ##              min    max
@@ -422,15 +422,15 @@ document</a></li>
 ##                                       
 ## </code></pre>
 <p>See how it contains several pieces, some relating to the spatial information, some relating to the tabular data attached to it. We can access each of the separately if we need it. For example, to pull out the names of the columns in the <code>data.frame</code>, we can use the <code>@data</code> appendix:</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="points.html#cb155-1"></a><span class="kw">colnames</span>(db<span class="op">@</span>data)</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="points.html#cb153-1"></a><span class="kw">colnames</span>(db<span class="op">@</span>data)</span></code></pre></div>
 <pre><code>##  [1] &quot;pcds&quot;       &quot;id&quot;         &quot;price&quot;      &quot;trans_date&quot; &quot;type&quot;      
 ##  [6] &quot;new&quot;        &quot;duration&quot;   &quot;paon&quot;       &quot;saon&quot;       &quot;street&quot;    
 ## [11] &quot;locality&quot;   &quot;town&quot;       &quot;district&quot;   &quot;county&quot;     &quot;ppd_cat&quot;   
 ## [16] &quot;status&quot;     &quot;lsoa11&quot;     &quot;LSOA11CD&quot;</code></pre>
 <p>The rest of this session will focus on two main elements of the shapefile: the spatial dimension (as stored in the point coordinates), and the house price values contained in the <code>price</code> column. To get a sense of what they look like first, let us plot both. We can get a quick look at the non-spatial distribution of house values with the following commands:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="points.html#cb157-1"></a><span class="co"># Create the histogram</span></span>
-<span id="cb157-2"><a href="points.html#cb157-2"></a>hist &lt;-<span class="st"> </span><span class="kw">qplot</span>(<span class="dt">data=</span>db<span class="op">@</span>data,<span class="dt">x=</span>price)</span>
-<span id="cb157-3"><a href="points.html#cb157-3"></a>hist</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="points.html#cb155-1"></a><span class="co"># Create the histogram</span></span>
+<span id="cb155-2"><a href="points.html#cb155-2"></a>hist &lt;-<span class="st"> </span><span class="kw">qplot</span>(<span class="dt">data=</span>db<span class="op">@</span>data,<span class="dt">x=</span>price)</span>
+<span id="cb155-3"><a href="points.html#cb155-3"></a>hist</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <div class="figure"><span id="fig:unnamed-chunk-8"></span>
 <img src="04-points_files/figure-html/unnamed-chunk-8-1.png" alt="Raw house prices in Liverpool" width="672" />
@@ -439,12 +439,12 @@ Figure 5.1: Raw house prices in Liverpool
 </p>
 </div>
 <p>This basically shows there is a lot of values concentrated around the lower end of the distribution but a few very large ones. A usual transformation to <em>shrink</em> these differences is to take logarithms:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="points.html#cb159-1"></a><span class="co"># Create log and add it to the table</span></span>
-<span id="cb159-2"><a href="points.html#cb159-2"></a>logpr &lt;-<span class="st"> </span><span class="kw">log</span>(<span class="kw">as.numeric</span>(db<span class="op">@</span>data<span class="op">$</span>price))</span>
-<span id="cb159-3"><a href="points.html#cb159-3"></a>db<span class="op">@</span>data[<span class="st">&#39;logpr&#39;</span>] &lt;-<span class="st"> </span>logpr</span>
-<span id="cb159-4"><a href="points.html#cb159-4"></a><span class="co"># Create the histogram</span></span>
-<span id="cb159-5"><a href="points.html#cb159-5"></a>hist &lt;-<span class="st"> </span><span class="kw">qplot</span>(<span class="dt">x=</span>logpr)</span>
-<span id="cb159-6"><a href="points.html#cb159-6"></a>hist</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="points.html#cb157-1"></a><span class="co"># Create log and add it to the table</span></span>
+<span id="cb157-2"><a href="points.html#cb157-2"></a>logpr &lt;-<span class="st"> </span><span class="kw">log</span>(<span class="kw">as.numeric</span>(db<span class="op">@</span>data<span class="op">$</span>price))</span>
+<span id="cb157-3"><a href="points.html#cb157-3"></a>db<span class="op">@</span>data[<span class="st">&#39;logpr&#39;</span>] &lt;-<span class="st"> </span>logpr</span>
+<span id="cb157-4"><a href="points.html#cb157-4"></a><span class="co"># Create the histogram</span></span>
+<span id="cb157-5"><a href="points.html#cb157-5"></a>hist &lt;-<span class="st"> </span><span class="kw">qplot</span>(<span class="dt">x=</span>logpr)</span>
+<span id="cb157-6"><a href="points.html#cb157-6"></a>hist</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <div class="figure"><span id="fig:unnamed-chunk-9"></span>
 <img src="04-points_files/figure-html/unnamed-chunk-9-1.png" alt="Log of house price in Liverpool" width="672" />
@@ -453,7 +453,7 @@ Figure 5.2: Log of house price in Liverpool
 </p>
 </div>
 <p>To obtain the spatial distribution of these houses, we need to turn away from the <code>@data</code> component of <code>db</code>. The easiest, quickest (and also dirtiest) way to get a sense of what the data look like over space is using <code>plot</code>:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="points.html#cb161-1"></a><span class="kw">plot</span>(db)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="points.html#cb159-1"></a><span class="kw">plot</span>(db)</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-10"></span>
 <img src="04-points_files/figure-html/unnamed-chunk-10-1.png" alt="Spatial distribution of house transactions in Liverpool" width="672" />
 <p class="caption">
@@ -467,15 +467,15 @@ Figure 5.3: Spatial distribution of house transactions in Liverpool
 <div id="one-dimensional-kde" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> One-dimensional KDE</h3>
 <p>KDE over a single dimension is essentially a contiguous version of a histogram. We can see that by overlaying a KDE on top of the histogram of logs that we have created before:</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="points.html#cb162-1"></a><span class="co"># Create the base</span></span>
-<span id="cb162-2"><a href="points.html#cb162-2"></a>base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(db<span class="op">@</span>data, <span class="kw">aes</span>(<span class="dt">x=</span>logpr))</span>
-<span id="cb162-3"><a href="points.html#cb162-3"></a><span class="co"># Histogram</span></span>
-<span id="cb162-4"><a href="points.html#cb162-4"></a>hist &lt;-<span class="st"> </span>base <span class="op">+</span><span class="st"> </span></span>
-<span id="cb162-5"><a href="points.html#cb162-5"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins=</span><span class="dv">50</span>, <span class="kw">aes</span>(<span class="dt">y=</span>..density..))</span>
-<span id="cb162-6"><a href="points.html#cb162-6"></a><span class="co"># Overlay density plot</span></span>
-<span id="cb162-7"><a href="points.html#cb162-7"></a>kde &lt;-<span class="st"> </span>hist <span class="op">+</span><span class="st"> </span></span>
-<span id="cb162-8"><a href="points.html#cb162-8"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">fill=</span><span class="st">&quot;#FF6666&quot;</span>, <span class="dt">alpha=</span><span class="fl">0.5</span>, <span class="dt">colour=</span><span class="st">&quot;#FF6666&quot;</span>)</span>
-<span id="cb162-9"><a href="points.html#cb162-9"></a>kde</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="points.html#cb160-1"></a><span class="co"># Create the base</span></span>
+<span id="cb160-2"><a href="points.html#cb160-2"></a>base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(db<span class="op">@</span>data, <span class="kw">aes</span>(<span class="dt">x=</span>logpr))</span>
+<span id="cb160-3"><a href="points.html#cb160-3"></a><span class="co"># Histogram</span></span>
+<span id="cb160-4"><a href="points.html#cb160-4"></a>hist &lt;-<span class="st"> </span>base <span class="op">+</span><span class="st"> </span></span>
+<span id="cb160-5"><a href="points.html#cb160-5"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins=</span><span class="dv">50</span>, <span class="kw">aes</span>(<span class="dt">y=</span>..density..))</span>
+<span id="cb160-6"><a href="points.html#cb160-6"></a><span class="co"># Overlay density plot</span></span>
+<span id="cb160-7"><a href="points.html#cb160-7"></a>kde &lt;-<span class="st"> </span>hist <span class="op">+</span><span class="st"> </span></span>
+<span id="cb160-8"><a href="points.html#cb160-8"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">fill=</span><span class="st">&quot;#FF6666&quot;</span>, <span class="dt">alpha=</span><span class="fl">0.5</span>, <span class="dt">colour=</span><span class="st">&quot;#FF6666&quot;</span>)</span>
+<span id="cb160-9"><a href="points.html#cb160-9"></a>kde</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-11"></span>
 <img src="04-points_files/figure-html/unnamed-chunk-11-1.png" alt="Histogram and KDE of the log of house prices in Liverpool" width="672" />
 <p class="caption">
@@ -488,16 +488,16 @@ Figure 5.4: Histogram and KDE of the log of house prices in Liverpool
 <h3><span class="header-section-number">5.3.2</span> Two-dimensional (spatial) KDE</h3>
 <p>Geography, at the end of the day, is usually represented as a two-dimensional space where we locate objects using a system of dual coordinates, <code>X</code> and <code>Y</code> (or latitude and longitude). Thanks to that, we can use the same technique as above to obtain a smooth representation of the distribution of a two-dimensional variable. The crucial difference is that, instead of obtaining a curve as the output, we will create a <em>surface</em>, where intensity will be represented with a color gradient, rather than with the second dimension, as it is the case in the figure above.</p>
 <p>To create a spatial KDE in R, there are several ways. If you do not want to necessarily acknowledge the spatial nature of your data, or you they are not stored in a spatial format, you can plot them using <code>ggplot2</code>. Note we first need to convert the coordinates (stored in the spatial part of <code>db</code>) into columns of X and Y coordinates, then we can plot them:</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="points.html#cb163-1"></a><span class="co"># Attach XY coordinates</span></span>
-<span id="cb163-2"><a href="points.html#cb163-2"></a>db<span class="op">@</span>data[<span class="st">&#39;X&#39;</span>] &lt;-<span class="st"> </span>db<span class="op">@</span>coords[, <span class="dv">1</span>]</span>
-<span id="cb163-3"><a href="points.html#cb163-3"></a>db<span class="op">@</span>data[<span class="st">&#39;Y&#39;</span>] &lt;-<span class="st"> </span>db<span class="op">@</span>coords[, <span class="dv">2</span>]</span>
-<span id="cb163-4"><a href="points.html#cb163-4"></a><span class="co"># Set up base layer</span></span>
-<span id="cb163-5"><a href="points.html#cb163-5"></a>base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>db<span class="op">@</span>data, <span class="kw">aes</span>(<span class="dt">x=</span>X, <span class="dt">y=</span>Y))</span>
-<span id="cb163-6"><a href="points.html#cb163-6"></a><span class="co"># Create the KDE surface</span></span>
-<span id="cb163-7"><a href="points.html#cb163-7"></a>kde &lt;-<span class="st"> </span>base <span class="op">+</span><span class="st"> </span><span class="kw">stat_density2d</span>(<span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">alpha =</span> ..level..), </span>
-<span id="cb163-8"><a href="points.html#cb163-8"></a>               <span class="dt">size =</span> <span class="fl">0.01</span>, <span class="dt">bins =</span> <span class="dv">16</span>, <span class="dt">geom =</span> <span class="st">&#39;polygon&#39;</span>) <span class="op">+</span></span>
-<span id="cb163-9"><a href="points.html#cb163-9"></a><span class="st">            </span><span class="kw">scale_fill_gradient</span>()</span>
-<span id="cb163-10"><a href="points.html#cb163-10"></a>kde</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="points.html#cb161-1"></a><span class="co"># Attach XY coordinates</span></span>
+<span id="cb161-2"><a href="points.html#cb161-2"></a>db<span class="op">@</span>data[<span class="st">&#39;X&#39;</span>] &lt;-<span class="st"> </span>db<span class="op">@</span>coords[, <span class="dv">1</span>]</span>
+<span id="cb161-3"><a href="points.html#cb161-3"></a>db<span class="op">@</span>data[<span class="st">&#39;Y&#39;</span>] &lt;-<span class="st"> </span>db<span class="op">@</span>coords[, <span class="dv">2</span>]</span>
+<span id="cb161-4"><a href="points.html#cb161-4"></a><span class="co"># Set up base layer</span></span>
+<span id="cb161-5"><a href="points.html#cb161-5"></a>base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>db<span class="op">@</span>data, <span class="kw">aes</span>(<span class="dt">x=</span>X, <span class="dt">y=</span>Y))</span>
+<span id="cb161-6"><a href="points.html#cb161-6"></a><span class="co"># Create the KDE surface</span></span>
+<span id="cb161-7"><a href="points.html#cb161-7"></a>kde &lt;-<span class="st"> </span>base <span class="op">+</span><span class="st"> </span><span class="kw">stat_density2d</span>(<span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">alpha =</span> ..level..), </span>
+<span id="cb161-8"><a href="points.html#cb161-8"></a>               <span class="dt">size =</span> <span class="fl">0.01</span>, <span class="dt">bins =</span> <span class="dv">16</span>, <span class="dt">geom =</span> <span class="st">&#39;polygon&#39;</span>) <span class="op">+</span></span>
+<span id="cb161-9"><a href="points.html#cb161-9"></a><span class="st">            </span><span class="kw">scale_fill_gradient</span>()</span>
+<span id="cb161-10"><a href="points.html#cb161-10"></a>kde</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-12"></span>
 <img src="04-points_files/figure-html/unnamed-chunk-12-1.png" alt="KDE of house transactions in Liverpool" width="672" />
 <p class="caption">
@@ -505,14 +505,14 @@ Figure 5.5: KDE of house transactions in Liverpool
 </p>
 </div>
 <p>Or, we can use a package such as the <code>GISTools</code>, which allows to pass a spatial object directly:</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="points.html#cb164-1"></a><span class="co"># Compute the KDE</span></span>
-<span id="cb164-2"><a href="points.html#cb164-2"></a>kde &lt;-<span class="st"> </span><span class="kw">kde.points</span>(db)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="points.html#cb162-1"></a><span class="co"># Compute the KDE</span></span>
+<span id="cb162-2"><a href="points.html#cb162-2"></a>kde &lt;-<span class="st"> </span><span class="kw">kde.points</span>(db)</span></code></pre></div>
 <pre><code>## Warning in proj4string(pts): CRS object has comment, which is lost in output</code></pre>
 <pre><code>## Warning in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;, prefer_proj
 ## = prefer_proj): Discarded datum Unknown based on Airy 1830 ellipsoid in CRS
 ## definition</code></pre>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="points.html#cb167-1"></a><span class="co"># Plot the KDE</span></span>
-<span id="cb167-2"><a href="points.html#cb167-2"></a><span class="kw">level.plot</span>(kde)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="points.html#cb165-1"></a><span class="co"># Plot the KDE</span></span>
+<span id="cb165-2"><a href="points.html#cb165-2"></a><span class="kw">level.plot</span>(kde)</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-13"></span>
 <img src="04-points_files/figure-html/unnamed-chunk-13-1.png" alt="KDE of house transactions in Liverpool" width="672" />
 <p class="caption">
@@ -520,18 +520,18 @@ Figure 5.6: KDE of house transactions in Liverpool
 </p>
 </div>
 <p>Either of these approaches generate a surface that represents the density of dots, that is an estimation of the probability of finding a house transaction at a given coordinate. However, without any further information, they are hard to interpret and link with previous knowledge of the area. To bring such context to the figure, we can plot an underlying basemap, using a cloud provider such as Google Maps or, as in this case, OpenStreetMap. To do it, we will leverage the library <code>ggmap</code>, which is designed to play nicely with the <code>ggplot2</code> family (hence the seemingly counterintuitive example above). Before we can plot them with the online map, we need to reproject them though.</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="points.html#cb168-1"></a><span class="co"># Reproject coordinates</span></span>
-<span id="cb168-2"><a href="points.html#cb168-2"></a>wgs84 &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0&quot;</span>)</span>
-<span id="cb168-3"><a href="points.html#cb168-3"></a>db_wgs84 &lt;-<span class="st"> </span><span class="kw">spTransform</span>(db, wgs84)</span>
-<span id="cb168-4"><a href="points.html#cb168-4"></a>db_wgs84<span class="op">@</span>data[<span class="st">&#39;lon&#39;</span>] &lt;-<span class="st"> </span>db_wgs84<span class="op">@</span>coords[, <span class="dv">1</span>]</span>
-<span id="cb168-5"><a href="points.html#cb168-5"></a>db_wgs84<span class="op">@</span>data[<span class="st">&#39;lat&#39;</span>] &lt;-<span class="st"> </span>db_wgs84<span class="op">@</span>coords[, <span class="dv">2</span>]</span>
-<span id="cb168-6"><a href="points.html#cb168-6"></a>xys &lt;-<span class="st"> </span>db_wgs84<span class="op">@</span>data[<span class="kw">c</span>(<span class="st">&#39;lon&#39;</span>, <span class="st">&#39;lat&#39;</span>)]</span>
-<span id="cb168-7"><a href="points.html#cb168-7"></a><span class="co"># Bounding box</span></span>
-<span id="cb168-8"><a href="points.html#cb168-8"></a>liv &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">left =</span> <span class="kw">min</span>(xys<span class="op">$</span>lon), <span class="dt">bottom =</span> <span class="kw">min</span>(xys<span class="op">$</span>lat), </span>
-<span id="cb168-9"><a href="points.html#cb168-9"></a>         <span class="dt">right =</span> <span class="kw">max</span>(xys<span class="op">$</span>lon), <span class="dt">top =</span> <span class="kw">max</span>(xys<span class="op">$</span>lat))</span>
-<span id="cb168-10"><a href="points.html#cb168-10"></a><span class="co"># Download map tiles</span></span>
-<span id="cb168-11"><a href="points.html#cb168-11"></a>basemap &lt;-<span class="st"> </span><span class="kw">get_stamenmap</span>(liv, <span class="dt">zoom =</span> <span class="dv">12</span>, </span>
-<span id="cb168-12"><a href="points.html#cb168-12"></a>                         <span class="dt">maptype =</span> <span class="st">&quot;toner-lite&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="points.html#cb166-1"></a><span class="co"># Reproject coordinates</span></span>
+<span id="cb166-2"><a href="points.html#cb166-2"></a>wgs84 &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0&quot;</span>)</span>
+<span id="cb166-3"><a href="points.html#cb166-3"></a>db_wgs84 &lt;-<span class="st"> </span><span class="kw">spTransform</span>(db, wgs84)</span>
+<span id="cb166-4"><a href="points.html#cb166-4"></a>db_wgs84<span class="op">@</span>data[<span class="st">&#39;lon&#39;</span>] &lt;-<span class="st"> </span>db_wgs84<span class="op">@</span>coords[, <span class="dv">1</span>]</span>
+<span id="cb166-5"><a href="points.html#cb166-5"></a>db_wgs84<span class="op">@</span>data[<span class="st">&#39;lat&#39;</span>] &lt;-<span class="st"> </span>db_wgs84<span class="op">@</span>coords[, <span class="dv">2</span>]</span>
+<span id="cb166-6"><a href="points.html#cb166-6"></a>xys &lt;-<span class="st"> </span>db_wgs84<span class="op">@</span>data[<span class="kw">c</span>(<span class="st">&#39;lon&#39;</span>, <span class="st">&#39;lat&#39;</span>)]</span>
+<span id="cb166-7"><a href="points.html#cb166-7"></a><span class="co"># Bounding box</span></span>
+<span id="cb166-8"><a href="points.html#cb166-8"></a>liv &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">left =</span> <span class="kw">min</span>(xys<span class="op">$</span>lon), <span class="dt">bottom =</span> <span class="kw">min</span>(xys<span class="op">$</span>lat), </span>
+<span id="cb166-9"><a href="points.html#cb166-9"></a>         <span class="dt">right =</span> <span class="kw">max</span>(xys<span class="op">$</span>lon), <span class="dt">top =</span> <span class="kw">max</span>(xys<span class="op">$</span>lat))</span>
+<span id="cb166-10"><a href="points.html#cb166-10"></a><span class="co"># Download map tiles</span></span>
+<span id="cb166-11"><a href="points.html#cb166-11"></a>basemap &lt;-<span class="st"> </span><span class="kw">get_stamenmap</span>(liv, <span class="dt">zoom =</span> <span class="dv">12</span>, </span>
+<span id="cb166-12"><a href="points.html#cb166-12"></a>                         <span class="dt">maptype =</span> <span class="st">&quot;toner-lite&quot;</span>)</span></code></pre></div>
 <pre><code>## Source : http://tile.stamen.com/toner-lite/12/2013/1325.png</code></pre>
 <pre><code>## Source : http://tile.stamen.com/toner-lite/12/2014/1325.png</code></pre>
 <pre><code>## Source : http://tile.stamen.com/toner-lite/12/2015/1325.png</code></pre>
@@ -541,20 +541,20 @@ Figure 5.6: KDE of house transactions in Liverpool
 <pre><code>## Source : http://tile.stamen.com/toner-lite/12/2013/1327.png</code></pre>
 <pre><code>## Source : http://tile.stamen.com/toner-lite/12/2014/1327.png</code></pre>
 <pre><code>## Source : http://tile.stamen.com/toner-lite/12/2015/1327.png</code></pre>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="points.html#cb178-1"></a><span class="co"># Overlay KDE</span></span>
-<span id="cb178-2"><a href="points.html#cb178-2"></a>final &lt;-<span class="st"> </span><span class="kw">ggmap</span>(basemap, <span class="dt">extent =</span> <span class="st">&quot;device&quot;</span>, </span>
-<span id="cb178-3"><a href="points.html#cb178-3"></a>               <span class="dt">maprange=</span><span class="ot">FALSE</span>) <span class="op">+</span></span>
-<span id="cb178-4"><a href="points.html#cb178-4"></a><span class="st">  </span><span class="kw">stat_density2d</span>(<span class="dt">data =</span> db_wgs84<span class="op">@</span>data, </span>
-<span id="cb178-5"><a href="points.html#cb178-5"></a>                <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, </span>
-<span id="cb178-6"><a href="points.html#cb178-6"></a>                    <span class="dt">alpha=</span>..level.., </span>
-<span id="cb178-7"><a href="points.html#cb178-7"></a>                    <span class="dt">fill =</span> ..level..), </span>
-<span id="cb178-8"><a href="points.html#cb178-8"></a>                <span class="dt">size =</span> <span class="fl">0.01</span>, <span class="dt">bins =</span> <span class="dv">16</span>, </span>
-<span id="cb178-9"><a href="points.html#cb178-9"></a>                <span class="dt">geom =</span> <span class="st">&#39;polygon&#39;</span>, </span>
-<span id="cb178-10"><a href="points.html#cb178-10"></a>                <span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span></span>
-<span id="cb178-11"><a href="points.html#cb178-11"></a><span class="st">  </span><span class="kw">scale_fill_gradient2</span>(<span class="st">&quot;Transaction</span><span class="ch">\n</span><span class="st">Density&quot;</span>, </span>
-<span id="cb178-12"><a href="points.html#cb178-12"></a>                       <span class="dt">low =</span> <span class="st">&quot;#fffff8&quot;</span>, </span>
-<span id="cb178-13"><a href="points.html#cb178-13"></a>                       <span class="dt">high =</span> <span class="st">&quot;#8da0cb&quot;</span>)</span>
-<span id="cb178-14"><a href="points.html#cb178-14"></a>final</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="points.html#cb176-1"></a><span class="co"># Overlay KDE</span></span>
+<span id="cb176-2"><a href="points.html#cb176-2"></a>final &lt;-<span class="st"> </span><span class="kw">ggmap</span>(basemap, <span class="dt">extent =</span> <span class="st">&quot;device&quot;</span>, </span>
+<span id="cb176-3"><a href="points.html#cb176-3"></a>               <span class="dt">maprange=</span><span class="ot">FALSE</span>) <span class="op">+</span></span>
+<span id="cb176-4"><a href="points.html#cb176-4"></a><span class="st">  </span><span class="kw">stat_density2d</span>(<span class="dt">data =</span> db_wgs84<span class="op">@</span>data, </span>
+<span id="cb176-5"><a href="points.html#cb176-5"></a>                <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat, </span>
+<span id="cb176-6"><a href="points.html#cb176-6"></a>                    <span class="dt">alpha=</span>..level.., </span>
+<span id="cb176-7"><a href="points.html#cb176-7"></a>                    <span class="dt">fill =</span> ..level..), </span>
+<span id="cb176-8"><a href="points.html#cb176-8"></a>                <span class="dt">size =</span> <span class="fl">0.01</span>, <span class="dt">bins =</span> <span class="dv">16</span>, </span>
+<span id="cb176-9"><a href="points.html#cb176-9"></a>                <span class="dt">geom =</span> <span class="st">&#39;polygon&#39;</span>, </span>
+<span id="cb176-10"><a href="points.html#cb176-10"></a>                <span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span></span>
+<span id="cb176-11"><a href="points.html#cb176-11"></a><span class="st">  </span><span class="kw">scale_fill_gradient2</span>(<span class="st">&quot;Transaction</span><span class="ch">\n</span><span class="st">Density&quot;</span>, </span>
+<span id="cb176-12"><a href="points.html#cb176-12"></a>                       <span class="dt">low =</span> <span class="st">&quot;#fffff8&quot;</span>, </span>
+<span id="cb176-13"><a href="points.html#cb176-13"></a>                       <span class="dt">high =</span> <span class="st">&quot;#8da0cb&quot;</span>)</span>
+<span id="cb176-14"><a href="points.html#cb176-14"></a>final</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-14"></span>
 <img src="04-points_files/figure-html/unnamed-chunk-14-1.png" alt="KDE of house transactions in Liverpool" width="672" />
 <p class="caption">
@@ -585,91 +585,91 @@ Figure 5.7: KDE of house transactions in Liverpool
 <li>Plot a smoothed version of the grid, effectively representing the surface of house prices.</li>
 </ol>
 <p>Let us go in detail into each of them<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>. First, let us set up a grid:</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="points.html#cb179-1"></a>liv.grid &lt;-<span class="st"> </span><span class="kw">spsample</span>(db, <span class="dt">type=</span><span class="st">&#39;regular&#39;</span>, <span class="dt">n=</span><span class="dv">25000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="points.html#cb177-1"></a>liv.grid &lt;-<span class="st"> </span><span class="kw">spsample</span>(db, <span class="dt">type=</span><span class="st">&#39;regular&#39;</span>, <span class="dt">n=</span><span class="dv">25000</span>)</span></code></pre></div>
 <p>That’s it, we’re done! The function <code>spsample</code> hugely simplifies the task by taking a spatial object and returning the grid we need. Not a couple of additional arguments we pass: <code>type</code> allows us to get a set of points that are <em>uniformly</em> distributed over space, which is handy for the later smoothing; <code>n</code> controls how many points we want to create in that grid.</p>
 <p>On to the IDW. Again, this is hugely simplified by <code>gstat</code>:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="points.html#cb180-1"></a>idw.hp &lt;-<span class="st"> </span><span class="kw">idw</span>(price <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">locations=</span>db, <span class="dt">newdata=</span>liv.grid)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="points.html#cb178-1"></a>idw.hp &lt;-<span class="st"> </span><span class="kw">idw</span>(price <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">locations=</span>db, <span class="dt">newdata=</span>liv.grid)</span></code></pre></div>
 <p>Boom! We’ve got it. Let us pause for a second to see how we just did it. First, we pass <code>price ~ 1</code>. This specifies the formula we are using to model house prices. The name on the left of <code>~</code> represents the variable we want to explain, while everything to its right captures the <em>explanatory</em> variables. Since we are considering the simplest possible case, we do not have further variables to add, so we simply write <code>1</code>. Then we specify the original locations for which we do have house prices (our original <code>db</code> object), and the points where we want to interpolate the house prices (the <code>liv.grid</code> object we just created above). One more note: by default, <code>idw.hp</code> uses all the available observations, weighted by distance, to provide an estimate for a given point. If you want to modify that and restrict the maximum number of neighbors to consider, you need to tweak the argument <code>nmax</code>, as we do above by using the 150 neares observations to each point<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>.</p>
 <p>The object we get from <code>idw</code> is another spatial table, just as <code>db</code>, containing the interpolated values. As such, we can inspect it just as with any other of its kind. For example, to check out the top of the estimated table:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="points.html#cb181-1"></a><span class="kw">head</span>(idw.hp<span class="op">@</span>data)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="points.html#cb179-1"></a><span class="kw">head</span>(idw.hp<span class="op">@</span>data)</span></code></pre></div>
 <p>The column we will pay attention to is <code>var1.pred</code>. And to see the locations for which those correspond:</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="points.html#cb182-1"></a><span class="kw">head</span>(idw.hp<span class="op">@</span>coords)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="points.html#cb180-1"></a><span class="kw">head</span>(idw.hp<span class="op">@</span>coords)</span></code></pre></div>
 <p>So, for a hypothetical house sold at the location in the first row of <code>idw.hp@coords</code> (expressed in the OSGB coordinate system), the price we would guess it would cost, based on the price of houses sold nearby, is the first element of column <code>var1.pred</code> in <code>idw.hp@data</code>.</p>
 </div>
 <div id="a-surface-of-housing-prices" class="section level3">
 <h3><span class="header-section-number">5.4.2</span> A surface of housing prices</h3>
 <p>Once we have the IDW object computed, we can plot it to explore the distribution, not of house transactions in this case, but of house price over the geography of Liverpool. The easiest way to do this is by quickly calling the command <code>spplot</code>:</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="points.html#cb183-1"></a><span class="kw">spplot</span>(idw.hp[<span class="st">&#39;var1.pred&#39;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="points.html#cb181-1"></a><span class="kw">spplot</span>(idw.hp[<span class="st">&#39;var1.pred&#39;</span>])</span></code></pre></div>
 <p>However, this is not entirely satisfactory for a number of reasons. Let us get an equivalen plot with the package <code>tmap</code>, which streamlines some of this and makes more aesthetically pleasant maps easier to build as it follows a “ggplot-y” approach.</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="points.html#cb184-1"></a><span class="co"># Load up the layer</span></span>
-<span id="cb184-2"><a href="points.html#cb184-2"></a>liv.otl &lt;-<span class="st"> </span><span class="kw">readOGR</span>(<span class="st">&#39;data/house_transactions&#39;</span>, <span class="st">&#39;liv_outline&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="points.html#cb182-1"></a><span class="co"># Load up the layer</span></span>
+<span id="cb182-2"><a href="points.html#cb182-2"></a>liv.otl &lt;-<span class="st"> </span><span class="kw">readOGR</span>(<span class="st">&#39;data/house_transactions&#39;</span>, <span class="st">&#39;liv_outline&#39;</span>)</span></code></pre></div>
 <p>The shape we will overlay looks like this:</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="points.html#cb185-1"></a><span class="kw">qtm</span>(liv.otl)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="points.html#cb183-1"></a><span class="kw">qtm</span>(liv.otl)</span></code></pre></div>
 <p>Now let’s give it a first go!</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="points.html#cb186-1"></a><span class="co"># </span></span>
-<span id="cb186-2"><a href="points.html#cb186-2"></a>p =<span class="st"> </span><span class="kw">tm_shape</span>(liv.otl) <span class="op">+</span><span class="st"> </span><span class="kw">tm_fill</span>(<span class="dt">col=</span><span class="st">&#39;black&#39;</span>, <span class="dt">alpha=</span><span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb186-3"><a href="points.html#cb186-3"></a><span class="st">  </span><span class="kw">tm_shape</span>(idw.hp) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb186-4"><a href="points.html#cb186-4"></a><span class="st">  </span><span class="kw">tm_symbols</span>(<span class="dt">col=</span><span class="st">&#39;var1.pred&#39;</span>, <span class="dt">size=</span><span class="fl">0.1</span>, <span class="dt">alpha=</span><span class="fl">0.25</span>, </span>
-<span id="cb186-5"><a href="points.html#cb186-5"></a>             <span class="dt">border.lwd=</span><span class="fl">0.</span>, <span class="dt">palette=</span><span class="st">&#39;YlGn&#39;</span>)</span>
-<span id="cb186-6"><a href="points.html#cb186-6"></a>p</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="points.html#cb184-1"></a><span class="co"># </span></span>
+<span id="cb184-2"><a href="points.html#cb184-2"></a>p =<span class="st"> </span><span class="kw">tm_shape</span>(liv.otl) <span class="op">+</span><span class="st"> </span><span class="kw">tm_fill</span>(<span class="dt">col=</span><span class="st">&#39;black&#39;</span>, <span class="dt">alpha=</span><span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb184-3"><a href="points.html#cb184-3"></a><span class="st">  </span><span class="kw">tm_shape</span>(idw.hp) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb184-4"><a href="points.html#cb184-4"></a><span class="st">  </span><span class="kw">tm_symbols</span>(<span class="dt">col=</span><span class="st">&#39;var1.pred&#39;</span>, <span class="dt">size=</span><span class="fl">0.1</span>, <span class="dt">alpha=</span><span class="fl">0.25</span>, </span>
+<span id="cb184-5"><a href="points.html#cb184-5"></a>             <span class="dt">border.lwd=</span><span class="fl">0.</span>, <span class="dt">palette=</span><span class="st">&#39;YlGn&#39;</span>)</span>
+<span id="cb184-6"><a href="points.html#cb184-6"></a>p</span></code></pre></div>
 <p>The last two plots, however, are not really a surface, but a representation of the points we have just estimated. To create a surface, we need to do an interim transformation to convert the spatial object <code>idw.hp</code> into a table that a “surface plotter” can understand.</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="points.html#cb187-1"></a>xyz &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">coordinates</span>(idw.hp)[, <span class="dv">1</span>], </span>
-<span id="cb187-2"><a href="points.html#cb187-2"></a>                  <span class="dt">y=</span><span class="kw">coordinates</span>(idw.hp)[, <span class="dv">2</span>], </span>
-<span id="cb187-3"><a href="points.html#cb187-3"></a>                  <span class="dt">z=</span>idw.hp<span class="op">$</span>var1.pred)</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="points.html#cb185-1"></a>xyz &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">coordinates</span>(idw.hp)[, <span class="dv">1</span>], </span>
+<span id="cb185-2"><a href="points.html#cb185-2"></a>                  <span class="dt">y=</span><span class="kw">coordinates</span>(idw.hp)[, <span class="dv">2</span>], </span>
+<span id="cb185-3"><a href="points.html#cb185-3"></a>                  <span class="dt">z=</span>idw.hp<span class="op">$</span>var1.pred)</span></code></pre></div>
 <p>Now we are ready to plot the surface as a contour:</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="points.html#cb188-1"></a>base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>xyz, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y))</span>
-<span id="cb188-2"><a href="points.html#cb188-2"></a>surface &lt;-<span class="st"> </span>base <span class="op">+</span><span class="st"> </span><span class="kw">geom_contour</span>(<span class="kw">aes</span>(<span class="dt">z=</span>z))</span>
-<span id="cb188-3"><a href="points.html#cb188-3"></a>surface</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="points.html#cb186-1"></a>base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>xyz, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y))</span>
+<span id="cb186-2"><a href="points.html#cb186-2"></a>surface &lt;-<span class="st"> </span>base <span class="op">+</span><span class="st"> </span><span class="kw">geom_contour</span>(<span class="kw">aes</span>(<span class="dt">z=</span>z))</span>
+<span id="cb186-3"><a href="points.html#cb186-3"></a>surface</span></code></pre></div>
 <p>Which can also be shown as a filled contour:</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="points.html#cb189-1"></a>base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>xyz, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y))</span>
-<span id="cb189-2"><a href="points.html#cb189-2"></a>surface &lt;-<span class="st"> </span>base <span class="op">+</span><span class="st"> </span><span class="kw">geom_raster</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>z))</span>
-<span id="cb189-3"><a href="points.html#cb189-3"></a>surface</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="points.html#cb187-1"></a>base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>xyz, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y))</span>
+<span id="cb187-2"><a href="points.html#cb187-2"></a>surface &lt;-<span class="st"> </span>base <span class="op">+</span><span class="st"> </span><span class="kw">geom_raster</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>z))</span>
+<span id="cb187-3"><a href="points.html#cb187-3"></a>surface</span></code></pre></div>
 <p>The problem here, when compared to the KDE above for example, is that a few values are extremely large:</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="points.html#cb190-1"></a><span class="kw">qplot</span>(<span class="dt">data=</span>xyz, <span class="dt">x=</span>z, <span class="dt">geom=</span><span class="st">&#39;density&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="points.html#cb188-1"></a><span class="kw">qplot</span>(<span class="dt">data=</span>xyz, <span class="dt">x=</span>z, <span class="dt">geom=</span><span class="st">&#39;density&#39;</span>)</span></code></pre></div>
 <p>Let us then take the logarithm before we plot the surface:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="points.html#cb191-1"></a>xyz[<span class="st">&#39;lz&#39;</span>] &lt;-<span class="st"> </span><span class="kw">log</span>(xyz<span class="op">$</span>z)</span>
-<span id="cb191-2"><a href="points.html#cb191-2"></a>base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>xyz, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y))</span>
-<span id="cb191-3"><a href="points.html#cb191-3"></a>surface &lt;-<span class="st"> </span>base <span class="op">+</span></span>
-<span id="cb191-4"><a href="points.html#cb191-4"></a><span class="st">           </span><span class="kw">geom_raster</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>lz),</span>
-<span id="cb191-5"><a href="points.html#cb191-5"></a>                       <span class="dt">show.legend =</span> F)</span>
-<span id="cb191-6"><a href="points.html#cb191-6"></a>surface</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="points.html#cb189-1"></a>xyz[<span class="st">&#39;lz&#39;</span>] &lt;-<span class="st"> </span><span class="kw">log</span>(xyz<span class="op">$</span>z)</span>
+<span id="cb189-2"><a href="points.html#cb189-2"></a>base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>xyz, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y))</span>
+<span id="cb189-3"><a href="points.html#cb189-3"></a>surface &lt;-<span class="st"> </span>base <span class="op">+</span></span>
+<span id="cb189-4"><a href="points.html#cb189-4"></a><span class="st">           </span><span class="kw">geom_raster</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>lz),</span>
+<span id="cb189-5"><a href="points.html#cb189-5"></a>                       <span class="dt">show.legend =</span> F)</span>
+<span id="cb189-6"><a href="points.html#cb189-6"></a>surface</span></code></pre></div>
 <p>Now this looks better. We can start to tell some patterns. To bring in context, it would be great to be able to add a basemap layer, as we did for the KDE. This is conceptually very similar to what we did above, starting by reprojecting the points and continuing by overlaying them on top of the basemap. However, technically speaking it is not possible because <code>ggmap</code> –the library we have been using to display tiles from cloud providers– does not play well with our own rasters (i.e. the price surface). At the moment, it is surprisingly tricky to get this to work, so we will park it for now. However, developments such as the <a href="https://github.com/edzer/sfr"><code>sf</code></a> project promise to make this easier in the future<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>.</p>
 </div>
 <div id="what-should-the-next-houses-price-be" class="section level3">
 <h3><span class="header-section-number">5.4.3</span> <em>“What should the next house’s price be?”</em></h3>
 <p>The last bit we will explore in this session relates to prediction for new values. Imagine you are a real state data scientist and your boss asks you to give an estimate of how much a new house going into the market should cost. The only information you have to make such a guess is the location of the house. In this case, the IDW model we have just fitted can help you. The trick is realizing that, instead of creating an entire grid, all we need is to obtain an estimate of a single location.</p>
 <p>Let us say, the house is located on the coordinates <code>x=340000, y=390000</code> as expressed in the GB National Grid coordinate system. In that case, we can do as follows:</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="points.html#cb192-1"></a>pt &lt;-<span class="st"> </span><span class="kw">SpatialPoints</span>(<span class="kw">cbind</span>(<span class="dt">x=</span><span class="dv">340000</span>, <span class="dt">y=</span><span class="dv">390000</span>),</span>
-<span id="cb192-2"><a href="points.html#cb192-2"></a>                    <span class="dt">proj4string =</span> db<span class="op">@</span>proj4string)</span>
-<span id="cb192-3"><a href="points.html#cb192-3"></a>idw.one &lt;-<span class="st"> </span><span class="kw">idw</span>(price <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">locations=</span>db, <span class="dt">newdata=</span>pt)</span>
-<span id="cb192-4"><a href="points.html#cb192-4"></a>idw.one</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="points.html#cb190-1"></a>pt &lt;-<span class="st"> </span><span class="kw">SpatialPoints</span>(<span class="kw">cbind</span>(<span class="dt">x=</span><span class="dv">340000</span>, <span class="dt">y=</span><span class="dv">390000</span>),</span>
+<span id="cb190-2"><a href="points.html#cb190-2"></a>                    <span class="dt">proj4string =</span> db<span class="op">@</span>proj4string)</span>
+<span id="cb190-3"><a href="points.html#cb190-3"></a>idw.one &lt;-<span class="st"> </span><span class="kw">idw</span>(price <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">locations=</span>db, <span class="dt">newdata=</span>pt)</span>
+<span id="cb190-4"><a href="points.html#cb190-4"></a>idw.one</span></code></pre></div>
 <p>And, as show above, the estimated value is GBP157,099<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>.</p>
 <p>Using this predictive logic, and taking advantage of Google Maps and its geocoding capabilities, it is possible to devise a function that takes an arbitrary address in Liverpool and, based on the transactions occurred throughout 2014, provides an estimate of what the price for a property in that location could be.</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="points.html#cb193-1"></a>how.much.is &lt;-<span class="st"> </span><span class="cf">function</span>(address, <span class="dt">print.message=</span><span class="ot">TRUE</span>){</span>
-<span id="cb193-2"><a href="points.html#cb193-2"></a>  <span class="co"># Convert the address into Lon/Lat coordinates</span></span>
-<span id="cb193-3"><a href="points.html#cb193-3"></a>  <span class="co"># </span><span class="al">NOTE</span><span class="co">: this now requires an API key</span></span>
-<span id="cb193-4"><a href="points.html#cb193-4"></a>  <span class="co"># https://github.com/dkahle/ggmap#google-maps-and-credentials</span></span>
-<span id="cb193-5"><a href="points.html#cb193-5"></a>  ll.pt &lt;-<span class="st"> </span><span class="kw">geocode</span>(address)</span>
-<span id="cb193-6"><a href="points.html#cb193-6"></a>  <span class="co"># Process as spatial table</span></span>
-<span id="cb193-7"><a href="points.html#cb193-7"></a>  wgs84 &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0&quot;</span>)</span>
-<span id="cb193-8"><a href="points.html#cb193-8"></a>  ll.pt &lt;-<span class="st"> </span><span class="kw">SpatialPoints</span>(<span class="kw">cbind</span>(<span class="dt">x=</span>ll.pt<span class="op">$</span>lon, <span class="dt">y=</span>ll.pt<span class="op">$</span>lat),</span>
-<span id="cb193-9"><a href="points.html#cb193-9"></a>                      <span class="dt">proj4string =</span> wgs84)</span>
-<span id="cb193-10"><a href="points.html#cb193-10"></a>  <span class="co"># Transform Lon/Lat into OSGB</span></span>
-<span id="cb193-11"><a href="points.html#cb193-11"></a>  pt &lt;-<span class="st"> </span><span class="kw">spTransform</span>(ll.pt, db<span class="op">@</span>proj4string)</span>
-<span id="cb193-12"><a href="points.html#cb193-12"></a>  <span class="co"># Obtain prediction</span></span>
-<span id="cb193-13"><a href="points.html#cb193-13"></a>  idw.one &lt;-<span class="st"> </span><span class="kw">idw</span>(price <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">locations=</span>db, <span class="dt">newdata=</span>pt)</span>
-<span id="cb193-14"><a href="points.html#cb193-14"></a>  price &lt;-<span class="st"> </span>idw.one<span class="op">@</span>data<span class="op">$</span>var1.pred</span>
-<span id="cb193-15"><a href="points.html#cb193-15"></a>  <span class="co"># Return predicted price</span></span>
-<span id="cb193-16"><a href="points.html#cb193-16"></a>  <span class="cf">if</span>(print.message<span class="op">==</span>T){</span>
-<span id="cb193-17"><a href="points.html#cb193-17"></a>    <span class="kw">writeLines</span>(<span class="kw">paste</span>(<span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">Based on what surrounding properties were sold&quot;</span>,</span>
-<span id="cb193-18"><a href="points.html#cb193-18"></a>                    <span class="st">&quot;for in 2014 a house located at&quot;</span>, address, <span class="st">&quot;would&quot;</span>, </span>
-<span id="cb193-19"><a href="points.html#cb193-19"></a>                    <span class="st">&quot;cost&quot;</span>,  <span class="kw">paste</span>(<span class="st">&quot;GBP&quot;</span>, <span class="kw">round</span>(price), <span class="st">&quot;.&quot;</span>, <span class="dt">sep=</span><span class="st">&#39;&#39;</span>), <span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">&quot;</span>))</span>
-<span id="cb193-20"><a href="points.html#cb193-20"></a>  }</span>
-<span id="cb193-21"><a href="points.html#cb193-21"></a>  <span class="kw">return</span>(price)</span>
-<span id="cb193-22"><a href="points.html#cb193-22"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="points.html#cb191-1"></a>how.much.is &lt;-<span class="st"> </span><span class="cf">function</span>(address, <span class="dt">print.message=</span><span class="ot">TRUE</span>){</span>
+<span id="cb191-2"><a href="points.html#cb191-2"></a>  <span class="co"># Convert the address into Lon/Lat coordinates</span></span>
+<span id="cb191-3"><a href="points.html#cb191-3"></a>  <span class="co"># </span><span class="al">NOTE</span><span class="co">: this now requires an API key</span></span>
+<span id="cb191-4"><a href="points.html#cb191-4"></a>  <span class="co"># https://github.com/dkahle/ggmap#google-maps-and-credentials</span></span>
+<span id="cb191-5"><a href="points.html#cb191-5"></a>  ll.pt &lt;-<span class="st"> </span><span class="kw">geocode</span>(address)</span>
+<span id="cb191-6"><a href="points.html#cb191-6"></a>  <span class="co"># Process as spatial table</span></span>
+<span id="cb191-7"><a href="points.html#cb191-7"></a>  wgs84 &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0&quot;</span>)</span>
+<span id="cb191-8"><a href="points.html#cb191-8"></a>  ll.pt &lt;-<span class="st"> </span><span class="kw">SpatialPoints</span>(<span class="kw">cbind</span>(<span class="dt">x=</span>ll.pt<span class="op">$</span>lon, <span class="dt">y=</span>ll.pt<span class="op">$</span>lat),</span>
+<span id="cb191-9"><a href="points.html#cb191-9"></a>                      <span class="dt">proj4string =</span> wgs84)</span>
+<span id="cb191-10"><a href="points.html#cb191-10"></a>  <span class="co"># Transform Lon/Lat into OSGB</span></span>
+<span id="cb191-11"><a href="points.html#cb191-11"></a>  pt &lt;-<span class="st"> </span><span class="kw">spTransform</span>(ll.pt, db<span class="op">@</span>proj4string)</span>
+<span id="cb191-12"><a href="points.html#cb191-12"></a>  <span class="co"># Obtain prediction</span></span>
+<span id="cb191-13"><a href="points.html#cb191-13"></a>  idw.one &lt;-<span class="st"> </span><span class="kw">idw</span>(price <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">locations=</span>db, <span class="dt">newdata=</span>pt)</span>
+<span id="cb191-14"><a href="points.html#cb191-14"></a>  price &lt;-<span class="st"> </span>idw.one<span class="op">@</span>data<span class="op">$</span>var1.pred</span>
+<span id="cb191-15"><a href="points.html#cb191-15"></a>  <span class="co"># Return predicted price</span></span>
+<span id="cb191-16"><a href="points.html#cb191-16"></a>  <span class="cf">if</span>(print.message<span class="op">==</span>T){</span>
+<span id="cb191-17"><a href="points.html#cb191-17"></a>    <span class="kw">writeLines</span>(<span class="kw">paste</span>(<span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">Based on what surrounding properties were sold&quot;</span>,</span>
+<span id="cb191-18"><a href="points.html#cb191-18"></a>                    <span class="st">&quot;for in 2014 a house located at&quot;</span>, address, <span class="st">&quot;would&quot;</span>, </span>
+<span id="cb191-19"><a href="points.html#cb191-19"></a>                    <span class="st">&quot;cost&quot;</span>,  <span class="kw">paste</span>(<span class="st">&quot;GBP&quot;</span>, <span class="kw">round</span>(price), <span class="st">&quot;.&quot;</span>, <span class="dt">sep=</span><span class="st">&#39;&#39;</span>), <span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">&quot;</span>))</span>
+<span id="cb191-20"><a href="points.html#cb191-20"></a>  }</span>
+<span id="cb191-21"><a href="points.html#cb191-21"></a>  <span class="kw">return</span>(price)</span>
+<span id="cb191-22"><a href="points.html#cb191-22"></a>}</span></code></pre></div>
 <p>Ready to test!</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="points.html#cb194-1"></a>address &lt;-<span class="st"> &quot;74 Bedford St S, Liverpool, L69 7ZT, UK&quot;</span></span>
-<span id="cb194-2"><a href="points.html#cb194-2"></a><span class="co">#p &lt;- how.much.is(address)</span></span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="points.html#cb192-1"></a>address &lt;-<span class="st"> &quot;74 Bedford St S, Liverpool, L69 7ZT, UK&quot;</span></span>
+<span id="cb192-2"><a href="points.html#cb192-2"></a><span class="co">#p &lt;- how.much.is(address)</span></span></code></pre></div>
 
 </div>
 </div>

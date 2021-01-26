@@ -14,12 +14,14 @@ description: "Teaching resources for a course on Spatial Modeling using R."
 
 # Spatial Modelling for Data Scientists
 
-Welcome to Spatial Modeling for Data Scientists, a course taught by Dr. Francisco Rowe and Dani Arribas-Bel in the Second Semester of 2020/21.
+Welcome to Spatial Modeling for Data Scientists, a course taught by Dr. Francisco Rowe and Dr. Dani Arribas-Bel in the Second Semester of 2020/21.
 
+A compilation of this course is hosted as a GitHub repository that you can access:
 
-```note
-A PDF version of this course is available for download {download}`here <./gds_course.pdf>`
-```
+* As a [download](https://github.com/GDSL-UL/san/archive/master.zip) of a `.zip` file that contains all the materials.
+* As an [html website](https://gdsl-ul.github.io/san/).
+* As a [pdf document](https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf)
+* As a [GitHub repository](https://github.com/GDSL-UL/san).
 
 ## Contact
 

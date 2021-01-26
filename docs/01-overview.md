@@ -224,10 +224,6 @@ for(lib in deps){library(lib, character.only = TRUE)}
 ```
 
 ```
-## Learn more about sjPlot with 'browseVignettes("sjPlot")'.
-```
-
-```
 ## Loading required package: spData
 ```
 
