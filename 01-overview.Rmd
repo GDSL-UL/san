@@ -87,15 +87,20 @@ for(lib in deps){library(lib, character.only = TRUE)}
 
 ## Assessment
 
-The final module mark is composed of the **two** computational essays. Together they are designed to cover the materials introduced in the entirety of content covered during the semester.
+The final module mark is composed of the **two computational essays**. Together they are designed to cover the materials introduced in the entirety of content covered during the semester.
 
-* Assignment 1 (50%) - see relevant Chapters for details i.e. Chapters\@ref(#points)
+* Assignment 1 (50%) - see relevant Chapters for details i.e. Chapters \@ref(#points)
 * Assignment 2 (50%)
 
-Both assignments will be similar in format. Each teaching week, you will be required to address a set of questions relating to the module content covered in that week. You should use roughly the same number of words to document your answers each week. For assignment 1, for example, you will be required to address questions in Weeks 2, 3 and 4 so we should roughly document your answers in 666 words (= 2,000 / 3) each week; that is max. as noted below.
+Maximum word count: 2,000 words, excluding figures and references. Both assignments will be similar in format. Each teaching week, you will be required to address a set of questions relating to the module content covered in that week. You should use roughly the same number of words to document your answers each week. For assignment 1, for example, you will be required to address questions in Weeks 2, 3 and 4 so we should roughly document your answers in 666 words (= 2,000 / 3) each week; that is max. as noted below.
 
-Assignments need to be prepared in R Notebook format and then converted into
-a self-contained HTML file that will then be submitted on Turnitin.
+Assignments need to be prepared in *R Notebook* format and then converted into
+a self-contained HTML file that will then be submitted via Turnitin.
 A R Notebook template is available via the [*module Canvas site*](https://liverpool.instructure.com).
+
+*Submission* is electronic only via Turnitin on *Canvas*.
+
+**Marking criteria**: Standard Environmental Sciences School marking criteria apply, with a stronger emphasis on evidencing the use of regression models, critical analysis of results and presentation standards.
+As per School Assessment Guidelines, *over-length submission will be capped at 40%*. The assignment deadline is specified below. Assignments submitted after this deadline will be penalised 5% per working day late. Assignments submitted more than five working days late will be awarded a mark of zero. *Mitigating Circumstances* for late submission must be submitted for consideration via the Student Support Office (Ground Floor, Roxby Building; email: soessouth@liverpool.ac.uk).
 
 
