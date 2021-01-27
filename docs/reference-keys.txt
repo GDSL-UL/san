@@ -10,9 +10,9 @@ fig:unnamed-chunk-13
 fig:unnamed-chunk-14
 fig:unnamed-chunk-5
 fig:unnamed-chunk-6
-spatial-modelling-for-data-scientists
-contact
 overview
+aims
+learning-outcomes
 computational-environment
 dependency-list
 spatial_data

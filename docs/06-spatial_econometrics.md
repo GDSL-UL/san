@@ -742,7 +742,7 @@ hknn
 ## Weights style: W 
 ## Weights constants summary:
 ##      n       nn   S0      S1       S2
-## W 6324 39992976 6324 230.456 25814.12
+## W 6324 39992976 6324 230.464 25814.56
 ```
 
 **Exogenous spatial effects**
@@ -778,20 +778,20 @@ summary(m6)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2905 -0.3014 -0.0155  0.2822  5.2605 
+## -4.2906 -0.3016 -0.0151  0.2820  5.2631 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) 12.2814531  0.0145268  845.43  < 2e-16 ***
-## newY         0.2475299  0.0195167   12.68  < 2e-16 ***
-## imd_score   -0.0041827  0.0008918   -4.69 2.79e-06 ***
-## w_imd_score -0.0148460  0.0009688  -15.32  < 2e-16 ***
+## (Intercept) 12.2813200  0.0145269 845.421  < 2e-16 ***
+## newY         0.2476061  0.0195177  12.686  < 2e-16 ***
+## imd_score   -0.0042110  0.0008911  -4.725 2.35e-06 ***
+## w_imd_score -0.0148135  0.0009680 -15.304  < 2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## Residual standard error: 0.52 on 6320 degrees of freedom
-## Multiple R-squared:  0.3349,	Adjusted R-squared:  0.3345 
-## F-statistic:  1061 on 3 and 6320 DF,  p-value: < 2.2e-16
+## Multiple R-squared:  0.3348,	Adjusted R-squared:  0.3345 
+## F-statistic:  1060 on 3 and 6320 DF,  p-value: < 2.2e-16
 ```
 
 As we can see, the lag is not only significative and negative (as expected), but its effect seems to be even larger that that of the house itself. Taken literally, this would imply that prospective owners value more the area of the surrounding houses than that of the actual house they buy. However, it is important to remember how these variables have been constructed and what they really represent. Because the IMD score is not exactly calculated at the house level, but at the area level, many of the surrounding houses will share that so, to some extent, the IMD of neighboring houses is that of the house itself^[**EXERCISE** *How do results change if you modify the number of neighbors included to compute the $K$-nn spatial weight matrix?* Replace the originak $k$ used and re-run the regressions. Try to interpret the results and the (potential) differences with the original ones.]. This is likely to be affecting the final parameter, and it is a reminder and an illustration that we cannot take model results as universal truth but we need to use them as tools to inform analysis, couple with theory and what we know about the particular question of analysis. Nevertheless, the example does illustrate how to introduce spatial dependence in a regression framework in a fairly straight forward way.
@@ -853,7 +853,7 @@ new.price
 
 ```
 ##        1 
-## 11.47298
+## 11.47243
 ```
 
 Now remember we were using the log of the price as dependent variable. If we want to recover the actual price of the house, we need to take its exponent:
@@ -865,7 +865,7 @@ exp(new.price)
 
 ```
 ##        1 
-## 96084.16
+## 96030.88
 ```
 
 According to our model, the house would be worth GBP96,060.29^[**EXERCISE** *How would the price change if the surrounding houses did not have an average of 50 but of 80?* Obtain a new prediction and compare it with the original one.].

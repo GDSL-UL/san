@@ -2,6 +2,23 @@
 
 ## Aims
 
+This module aims to provides students with a range of techniques for analysing and modelling spatial data:
+
+* build upon the more general research training delivered via companion modules on *Data Collection and Data Analysis*, both of which have an aspatial focus;
+* highlight a number of key social issues that have a spatial dimension;
+* explain the specific challenges faced when attempting to analyse spatial data;
+* introduce a range of analytical techniques and approaches suitable for the analysis of spatial data; and,
+* enhance practical skills in using *R* software packages to implement a wide range of spatial analytical tools.
+
+## Learning Outcomes
+
+By the end of the module, students should be able to:
+
+* identify some key sources of spatial data and resources of spatial analysis and modelling tools;
+* explain the advantages of taking spatial structure into account when analysing spatial data;
+* apply a range of computer-based techniques for the analysis of spatial data, including mapping, correlation, kernel density estimation, regression, multi-level models, geographically-weighted regression, spatial interaction models and spatial econometrics;
+* apply appropriate analytical strategies to tackle the key methodological challenges facing spatial analysis – spatial autocorrelation, heterogeneity, and ecological fallacy; and, 
+* select appropriate analytical tools for analysing specific spatial data sets to address emerging social issues facing the society.
 
 
 
