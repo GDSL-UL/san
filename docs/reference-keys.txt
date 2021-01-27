@@ -19,6 +19,10 @@ dependency-list
 assessment
 marking-criteria
 spatial_data
+area-or-lattice-data
+point-data
+flow-data
+trajectory-data
 data_wrangling
 dependencies
 introducing-r

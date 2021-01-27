@@ -1,3 +1,13 @@
 # Spatial Data {#spatial_data}
 
-This Chapter 
+This Chapter seeks to present and describe distinctive attributes of spatial data, and discuss some of the main challenges in analysing and modelling these data. Spatial data is a term used to describe any data associating a given variable attribute to a specific location on the Earth's surface. 
+
+Different classifications of spatial data types exist. A common classification involves four data types: area or lattice data, point data, flow data and trajectory data (@wikle2019spatio). Knowing the structure of the data at hand is important as specific analytical methods would be more appropriate for particular data types.
+
+## Area or Lattice Data
+
+## Point Data
+
+## Flow Data
+
+## Trajectory data

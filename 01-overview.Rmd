@@ -99,8 +99,11 @@ a self-contained HTML file that will then be submitted via Turnitin.
 The notebook should only display content that will be assessed. 
 Intermediate steps do not need to be displayed. 
 Messages resulting from loading packages, attaching data frames, or similar messages do not need to be included as output code.
-Useful resources to customise your *R notebook* can be found on the [R Markdown website](https://rmarkdown.rstudio.com) from RStudio: [A Guide](https://rmarkdown.rstudio.com/lesson-1.html),
-[R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) by @xie2018r, [R Markdown Reference Guide](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.199646894.1496049738.1611760832-141828105.1610798362)
+Useful resources to customise your *R notebook* can be found on the [R Markdown website](https://rmarkdown.rstudio.com) from RStudio: 
+* [A Guide](https://rmarkdown.rstudio.com/lesson-1.html); 
+* [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) by @xie2018r; 
+* [R Markdown Reference Guide](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.199646894.1496049738.1611760832-141828105.1610798362)
+
 A R Notebook template is available via the [*module Canvas site*](https://liverpool.instructure.com).
 
 *Submission* is electronic only via Turnitin on *Canvas*.

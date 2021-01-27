@@ -148,7 +148,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5.1" data-path="overview.html"><a href="overview.html#marking-criteria"><i class="fa fa-check"></i><b>1.5.1</b> Marking criteria</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>2</b> Spatial Data</a></li>
+<li class="chapter" data-level="2" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>2</b> Spatial Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="spatial-data.html"><a href="spatial-data.html#area-or-lattice-data"><i class="fa fa-check"></i><b>2.1</b> Area or Lattice Data</a></li>
+<li class="chapter" data-level="2.2" data-path="spatial-data.html"><a href="spatial-data.html#point-data"><i class="fa fa-check"></i><b>2.2</b> Point Data</a></li>
+<li class="chapter" data-level="2.3" data-path="spatial-data.html"><a href="spatial-data.html#flow-data"><i class="fa fa-check"></i><b>2.3</b> Flow Data</a></li>
+<li class="chapter" data-level="2.4" data-path="spatial-data.html"><a href="spatial-data.html#trajectory-data"><i class="fa fa-check"></i><b>2.4</b> Trajectory data</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a><ul>
 <li class="chapter" data-level="3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#dependencies"><i class="fa fa-check"></i><b>3.1</b> Dependencies</a></li>
 <li class="chapter" data-level="3.2" data-path="data-wrangling.html"><a href="data-wrangling.html#introducing-r"><i class="fa fa-check"></i><b>3.2</b> Introducing R</a></li>
@@ -490,9 +495,9 @@ where, as in the previous Chapter, <span class="math inline">\(y\)</span> the pr
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; ...
-##  $ mean     : num  0.0262 -0.1194 0.0591 -0.1432 -0.2837 ...
-##  $ median   : num  0.0261 -0.1181 0.0576 -0.1425 -0.2865 ...
-##  $ sd       : num  0.0462 0.0742 0.0817 0.0382 0.0389 ...</code></pre>
+##  $ mean     : num  0.0298 -0.122 0.0597 -0.1462 -0.2838 ...
+##  $ median   : num  0.0351 -0.1276 0.0611 -0.1435 -0.2808 ...
+##  $ sd       : num  0.0491 0.074 0.0836 0.0435 0.0401 ...</code></pre>
 <div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="mlm2.html#cb357-1"></a><span class="co"># merge data</span></span>
 <span id="cb357-2"><a href="mlm2.html#cb357-2"></a>msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa_m6, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="mlm2.html#cb358-1"></a><span class="co"># ensure geometry is valid</span></span>
