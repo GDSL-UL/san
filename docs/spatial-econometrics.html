@@ -140,9 +140,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview</a><ul>
 <li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html#aims"><i class="fa fa-check"></i><b>1.1</b> Aims</a></li>
 <li class="chapter" data-level="1.2" data-path="overview.html"><a href="overview.html#learning-outcomes"><i class="fa fa-check"></i><b>1.2</b> Learning Outcomes</a></li>
-<li class="chapter" data-level="1.3" data-path="overview.html"><a href="overview.html#computational-environment"><i class="fa fa-check"></i><b>1.3</b> Computational Environment</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="overview.html"><a href="overview.html#dependency-list"><i class="fa fa-check"></i><b>1.3.1</b> Dependency list</a></li>
+<li class="chapter" data-level="1.3" data-path="overview.html"><a href="overview.html#feedback"><i class="fa fa-check"></i><b>1.3</b> Feedback</a></li>
+<li class="chapter" data-level="1.4" data-path="overview.html"><a href="overview.html#computational-environment"><i class="fa fa-check"></i><b>1.4</b> Computational Environment</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="overview.html"><a href="overview.html#dependency-list"><i class="fa fa-check"></i><b>1.4.1</b> Dependency list</a></li>
 </ul></li>
+<li class="chapter" data-level="1.5" data-path="overview.html"><a href="overview.html#assessment"><i class="fa fa-check"></i><b>1.5</b> Assessment</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>2</b> Spatial Data</a></li>
 <li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a><ul>
@@ -312,12 +314,12 @@ document</a></li>
 <div id="dependencies-3" class="section level2">
 <h2><span class="header-section-number">6.1</span> Dependencies</h2>
 <p>The illustration below relies on the following libraries that you will need to have installed on your machine to be able to interactively follow along<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a>. Once installed, load them up with the following commands:</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="spatial-econometrics.html#cb257-1"></a><span class="co"># Layout</span></span>
-<span id="cb257-2"><a href="spatial-econometrics.html#cb257-2"></a><span class="kw">library</span>(tufte)</span>
-<span id="cb257-3"><a href="spatial-econometrics.html#cb257-3"></a><span class="co"># For pretty table</span></span>
-<span id="cb257-4"><a href="spatial-econometrics.html#cb257-4"></a><span class="kw">library</span>(knitr)</span>
-<span id="cb257-5"><a href="spatial-econometrics.html#cb257-5"></a><span class="co"># Spatial Data management</span></span>
-<span id="cb257-6"><a href="spatial-econometrics.html#cb257-6"></a><span class="kw">library</span>(rgdal)</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="spatial-econometrics.html#cb213-1"></a><span class="co"># Layout</span></span>
+<span id="cb213-2"><a href="spatial-econometrics.html#cb213-2"></a><span class="kw">library</span>(tufte)</span>
+<span id="cb213-3"><a href="spatial-econometrics.html#cb213-3"></a><span class="co"># For pretty table</span></span>
+<span id="cb213-4"><a href="spatial-econometrics.html#cb213-4"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb213-5"><a href="spatial-econometrics.html#cb213-5"></a><span class="co"># Spatial Data management</span></span>
+<span id="cb213-6"><a href="spatial-econometrics.html#cb213-6"></a><span class="kw">library</span>(rgdal)</span></code></pre></div>
 <pre><code>## Loading required package: sp</code></pre>
 <pre><code>## rgdal: version: 1.5-18, (SVN revision 1082)
 ## Geospatial Data Abstraction Library extensions to R successfully loaded
@@ -329,14 +331,14 @@ document</a></li>
 ## Linking to sp version:1.4-4
 ## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
 ## use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) before loading rgdal.</code></pre>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="spatial-econometrics.html#cb260-1"></a><span class="co"># Pretty graphics</span></span>
-<span id="cb260-2"><a href="spatial-econometrics.html#cb260-2"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb260-3"><a href="spatial-econometrics.html#cb260-3"></a><span class="co"># Pretty maps</span></span>
-<span id="cb260-4"><a href="spatial-econometrics.html#cb260-4"></a><span class="kw">library</span>(ggmap)</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="spatial-econometrics.html#cb216-1"></a><span class="co"># Pretty graphics</span></span>
+<span id="cb216-2"><a href="spatial-econometrics.html#cb216-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb216-3"><a href="spatial-econometrics.html#cb216-3"></a><span class="co"># Pretty maps</span></span>
+<span id="cb216-4"><a href="spatial-econometrics.html#cb216-4"></a><span class="kw">library</span>(ggmap)</span></code></pre></div>
 <pre><code>## Google&#39;s Terms of Service: https://cloud.google.com/maps-platform/terms/.</code></pre>
 <pre><code>## Please cite ggmap if you use it! See citation(&quot;ggmap&quot;) for details.</code></pre>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="spatial-econometrics.html#cb263-1"></a><span class="co"># Various GIS utilities</span></span>
-<span id="cb263-2"><a href="spatial-econometrics.html#cb263-2"></a><span class="kw">library</span>(GISTools)</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="spatial-econometrics.html#cb219-1"></a><span class="co"># Various GIS utilities</span></span>
+<span id="cb219-2"><a href="spatial-econometrics.html#cb219-2"></a><span class="kw">library</span>(GISTools)</span></code></pre></div>
 <pre><code>## Loading required package: maptools</code></pre>
 <pre><code>## Checking rgeos availability: TRUE</code></pre>
 <pre><code>## Loading required package: RColorBrewer</code></pre>
@@ -346,12 +348,12 @@ document</a></li>
 ##  GEOS runtime version: 3.8.1-CAPI-1.13.3 
 ##  Linking to sp version: 1.4-2 
 ##  Polygon checking: TRUE</code></pre>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="spatial-econometrics.html#cb270-1"></a><span class="co"># For all your interpolation needs</span></span>
-<span id="cb270-2"><a href="spatial-econometrics.html#cb270-2"></a><span class="kw">library</span>(gstat)</span>
-<span id="cb270-3"><a href="spatial-econometrics.html#cb270-3"></a><span class="co"># For data manipulation</span></span>
-<span id="cb270-4"><a href="spatial-econometrics.html#cb270-4"></a><span class="kw">library</span>(plyr)</span>
-<span id="cb270-5"><a href="spatial-econometrics.html#cb270-5"></a><span class="co"># Spatial regression</span></span>
-<span id="cb270-6"><a href="spatial-econometrics.html#cb270-6"></a><span class="kw">library</span>(spdep)</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="spatial-econometrics.html#cb226-1"></a><span class="co"># For all your interpolation needs</span></span>
+<span id="cb226-2"><a href="spatial-econometrics.html#cb226-2"></a><span class="kw">library</span>(gstat)</span>
+<span id="cb226-3"><a href="spatial-econometrics.html#cb226-3"></a><span class="co"># For data manipulation</span></span>
+<span id="cb226-4"><a href="spatial-econometrics.html#cb226-4"></a><span class="kw">library</span>(plyr)</span>
+<span id="cb226-5"><a href="spatial-econometrics.html#cb226-5"></a><span class="co"># Spatial regression</span></span>
+<span id="cb226-6"><a href="spatial-econometrics.html#cb226-6"></a><span class="kw">library</span>(spdep)</span></code></pre></div>
 <pre><code>## Loading required package: spData</code></pre>
 <pre><code>## To access larger datasets in this package, install the spDataLarge
 ## package with: `install.packages(&#39;spDataLarge&#39;,
@@ -359,14 +361,14 @@ document</a></li>
 <pre><code>## Loading required package: sf</code></pre>
 <pre><code>## Linking to GEOS 3.8.1, GDAL 3.1.1, PROJ 6.3.1</code></pre>
 <p>Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with <code>setwd()</code>. Please replace in the following line the path to the folder where you have placed this file -and where the <code>house_transactions</code> folder with the data lives.</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="spatial-econometrics.html#cb275-1"></a><span class="co">#setwd(&#39;/media/dani/baul/AAA/Documents/teaching/u-lvl/2016/envs453/code/GIT/kde_idw_r/&#39;)</span></span>
-<span id="cb275-2"><a href="spatial-econometrics.html#cb275-2"></a><span class="kw">setwd</span>(<span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="spatial-econometrics.html#cb231-1"></a><span class="co">#setwd(&#39;/media/dani/baul/AAA/Documents/teaching/u-lvl/2016/envs453/code/GIT/kde_idw_r/&#39;)</span></span>
+<span id="cb231-2"><a href="spatial-econometrics.html#cb231-2"></a><span class="kw">setwd</span>(<span class="st">&#39;.&#39;</span>)</span></code></pre></div>
 </div>
 <div id="data-2" class="section level2">
 <h2><span class="header-section-number">6.2</span> Data</h2>
 <p>To explore ideas in spatial regression, we will be using house price data for the municipality of Liverpool. Our main dataset is provided by the Land Registry (as part of their <a href="https://www.gov.uk/government/collections/price-paid-data">Price Paid Data</a>) but has been cleaned and re-packaged into a shapefile by Dani Arribas-Bel.</p>
 <p>Let us load it up first of all:</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="spatial-econometrics.html#cb276-1"></a>hst &lt;-<span class="st"> </span><span class="kw">readOGR</span>(<span class="dt">dsn =</span> <span class="st">&#39;data/house_transactions&#39;</span>, <span class="dt">layer =</span> <span class="st">&#39;liv_house_trans&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="spatial-econometrics.html#cb232-1"></a>hst &lt;-<span class="st"> </span><span class="kw">readOGR</span>(<span class="dt">dsn =</span> <span class="st">&#39;data/house_transactions&#39;</span>, <span class="dt">layer =</span> <span class="st">&#39;liv_house_trans&#39;</span>)</span></code></pre></div>
 <pre><code>## Warning in OGRSpatialRef(dsn, layer, morphFromESRI = morphFromESRI, dumpSRS =
 ## dumpSRS, : Discarded datum OSGB_1936 in CRS definition: +proj=tmerc +lat_0=49
 ## +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs</code></pre>
@@ -376,31 +378,31 @@ document</a></li>
 ## It has 18 fields
 ## Integer64 fields read as strings:  price</code></pre>
 <p>The tabular component of the spatial frame contains the followig variables:</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="spatial-econometrics.html#cb279-1"></a><span class="kw">names</span>(hst)</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="spatial-econometrics.html#cb235-1"></a><span class="kw">names</span>(hst)</span></code></pre></div>
 <pre><code>##  [1] &quot;pcds&quot;       &quot;id&quot;         &quot;price&quot;      &quot;trans_date&quot; &quot;type&quot;      
 ##  [6] &quot;new&quot;        &quot;duration&quot;   &quot;paon&quot;       &quot;saon&quot;       &quot;street&quot;    
 ## [11] &quot;locality&quot;   &quot;town&quot;       &quot;district&quot;   &quot;county&quot;     &quot;ppd_cat&quot;   
 ## [16] &quot;status&quot;     &quot;lsoa11&quot;     &quot;LSOA11CD&quot;</code></pre>
 <p>The meaning for most of the variables can be found in the original <a href="https://www.gov.uk/guidance/about-the-price-paid-data#explanations-of-column-headers-in-the-ppd">Land Registry documentation</a>. The dataset contains transactions that took place during 2,014:</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="spatial-econometrics.html#cb281-1"></a><span class="co"># Format dates</span></span>
-<span id="cb281-2"><a href="spatial-econometrics.html#cb281-2"></a>dts &lt;-<span class="st"> </span><span class="kw">as.Date</span>(hst<span class="op">@</span>data<span class="op">$</span>trans_date)</span>
-<span id="cb281-3"><a href="spatial-econometrics.html#cb281-3"></a><span class="co"># Set up summary table</span></span>
-<span id="cb281-4"><a href="spatial-econometrics.html#cb281-4"></a>tab &lt;-<span class="st"> </span><span class="kw">summary</span>(dts)</span>
-<span id="cb281-5"><a href="spatial-econometrics.html#cb281-5"></a>tab</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="spatial-econometrics.html#cb237-1"></a><span class="co"># Format dates</span></span>
+<span id="cb237-2"><a href="spatial-econometrics.html#cb237-2"></a>dts &lt;-<span class="st"> </span><span class="kw">as.Date</span>(hst<span class="op">@</span>data<span class="op">$</span>trans_date)</span>
+<span id="cb237-3"><a href="spatial-econometrics.html#cb237-3"></a><span class="co"># Set up summary table</span></span>
+<span id="cb237-4"><a href="spatial-econometrics.html#cb237-4"></a>tab &lt;-<span class="st"> </span><span class="kw">summary</span>(dts)</span>
+<span id="cb237-5"><a href="spatial-econometrics.html#cb237-5"></a>tab</span></code></pre></div>
 <pre><code>##         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
 ## &quot;2014-01-02&quot; &quot;2014-04-11&quot; &quot;2014-07-09&quot; &quot;2014-07-08&quot; &quot;2014-10-03&quot; &quot;2014-12-30&quot;</code></pre>
 <p>Although the original Land Registry data contain some characteristics of the house, all of them are categorical: <em>is the house newly built? What type of property is it?</em> To bring in a richer picture and illustrate how continuous variables can also be included in a spatial setting, we will augment the original transaction data with Deprivation indices from the <a href="https://data.cdrc.ac.uk/dataset/cdrc-english-indices-of-deprivation-2015-geodata-pack-liverpool-e08000012">CDRC</a> at the <a href="http://neighbourhood.statistics.gov.uk/HTMLDocs/nessgeography/superoutputareasexplained/output-areas-explained.htm">Lower Layer Super Output Area</a> (LSOA) level.</p>
 <p>Let us read the <code>csv</code> in:</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="spatial-econometrics.html#cb283-1"></a>imd &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;data/house_transactions/E08000012.csv&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="spatial-econometrics.html#cb239-1"></a>imd &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;data/house_transactions/E08000012.csv&#39;</span>)</span></code></pre></div>
 <p>The table contains not only the overall IMD score and rank, but some of the component scores, as well as the <code>LSOA</code> code:</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="spatial-econometrics.html#cb284-1"></a><span class="kw">names</span>(imd)</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="spatial-econometrics.html#cb240-1"></a><span class="kw">names</span>(imd)</span></code></pre></div>
 <pre><code>##  [1] &quot;LSOA11CD&quot;   &quot;imd_rank&quot;   &quot;imd_score&quot;  &quot;income&quot;     &quot;employment&quot;
 ##  [6] &quot;education&quot;  &quot;health&quot;     &quot;crime&quot;      &quot;housing&quot;    &quot;living_env&quot;
 ## [11] &quot;idaci&quot;      &quot;idaopi&quot;</code></pre>
 <p>That bit of information, <code>LSOA11CD</code>, is crucial to be able to connect it to each house transaction. To “join” both tables, we can use the base command <code>merge</code>, which will assign values from <code>imd</code> into <code>hst</code> making sure that each house transaction get the IMD data for the LSOA where it is located:</p>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="spatial-econometrics.html#cb286-1"></a>db &lt;-<span class="st"> </span><span class="kw">merge</span>(hst, imd)</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="spatial-econometrics.html#cb242-1"></a>db &lt;-<span class="st"> </span><span class="kw">merge</span>(hst, imd)</span></code></pre></div>
 <p>The resulting table, <code>db</code>, contains variables from both original tables:</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="spatial-econometrics.html#cb287-1"></a><span class="kw">names</span>(db)</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="spatial-econometrics.html#cb243-1"></a><span class="kw">names</span>(db)</span></code></pre></div>
 <pre><code>##  [1] &quot;LSOA11CD&quot;   &quot;pcds&quot;       &quot;id&quot;         &quot;price&quot;      &quot;trans_date&quot;
 ##  [6] &quot;type&quot;       &quot;new&quot;        &quot;duration&quot;   &quot;paon&quot;       &quot;saon&quot;      
 ## [11] &quot;street&quot;     &quot;locality&quot;   &quot;town&quot;       &quot;district&quot;   &quot;county&quot;    
@@ -408,9 +410,9 @@ document</a></li>
 ## [21] &quot;income&quot;     &quot;employment&quot; &quot;education&quot;  &quot;health&quot;     &quot;crime&quot;     
 ## [26] &quot;housing&quot;    &quot;living_env&quot; &quot;idaci&quot;      &quot;idaopi&quot;</code></pre>
 <p>Since we will heavily rely on <code>price</code>, we need to turn it into a numeric column, rather than as a factor, which is how it is picked up:</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="spatial-econometrics.html#cb289-1"></a>db<span class="op">@</span>data<span class="op">$</span>price &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(db<span class="op">@</span>data<span class="op">$</span>price))</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="spatial-econometrics.html#cb245-1"></a>db<span class="op">@</span>data<span class="op">$</span>price &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(db<span class="op">@</span>data<span class="op">$</span>price))</span></code></pre></div>
 <p>For some of our analysis, we will need the coarse postcode of each house, rather than the finely specified one in the original data. This means using the available one</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="spatial-econometrics.html#cb290-1"></a><span class="kw">head</span>(db<span class="op">@</span>data[<span class="st">&#39;pcds&#39;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="spatial-econometrics.html#cb246-1"></a><span class="kw">head</span>(db<span class="op">@</span>data[<span class="st">&#39;pcds&#39;</span>])</span></code></pre></div>
 <pre><code>##      pcds
 ## 62 L1 0AB
 ## 63 L1 0AB
@@ -419,9 +421,9 @@ document</a></li>
 ## 66 L1 0AB
 ## 67 L1 0AB</code></pre>
 <p>to create a new column that only contains the first bit of the postcode (<code>L1</code> in the examples above). The following lines of code will do that for us:</p>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="spatial-econometrics.html#cb292-1"></a>db<span class="op">$</span>pc &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">lapply</span>(<span class="kw">strsplit</span>(<span class="kw">as.character</span>(db<span class="op">$</span>pcds), <span class="dt">split=</span><span class="st">&quot; &quot;</span>), <span class="st">&quot;[&quot;</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="spatial-econometrics.html#cb248-1"></a>db<span class="op">$</span>pc &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">lapply</span>(<span class="kw">strsplit</span>(<span class="kw">as.character</span>(db<span class="op">$</span>pcds), <span class="dt">split=</span><span class="st">&quot; &quot;</span>), <span class="st">&quot;[&quot;</span>, <span class="dv">1</span>))</span></code></pre></div>
 <p>Given there are 6,324 transactions in the dataset, a simple plot of the point coordinates implicitly draws the shape of the Liverpool municipality:</p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="spatial-econometrics.html#cb293-1"></a><span class="kw">plot</span>(db)</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="spatial-econometrics.html#cb249-1"></a><span class="kw">plot</span>(db)</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-13"></span>
 <img src="06-spatial_econometrics_files/figure-html/unnamed-chunk-13-1.png" alt="Spatial distribution of house transactions in Liverpool" width="672" />
 <p class="caption">
@@ -439,10 +441,10 @@ P_i = \alpha + \beta_1 NEW_i + \beta_2 IMD_i + \epsilon_i
 <p>where <span class="math inline">\(P_i\)</span> is the price of house <span class="math inline">\(i\)</span>, <span class="math inline">\(NEW_i\)</span> is a binary variable that takes one if the house is newly built or zero otherwise and <span class="math inline">\(IMD_i\)</span> is the IMD score of the LSOA where <span class="math inline">\(i\)</span> is located. The parameters <span class="math inline">\(\beta_1\)</span>, <span class="math inline">\(\beta_2\)</span>, and <span class="math inline">\(\beta_3\)</span> give us information about in which way and to what extent each variable is related to the price, and <span class="math inline">\(\alpha\)</span>, the constant term, is the average house price when all the other variables are zero. The term <span class="math inline">\(\epsilon_i\)</span> is usually referred to as “error” and captures elements that influence the price of a house but are not whether the house is new or the IMD score of its area. We can also express this relation in matrix form, excluding subindices for <span class="math inline">\(i\)</span><a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a>.</p>
 <p>Essentially, a regression can be seen as a multivariate extension of simple bivariate correlations. Indeed, one way to interpret the <span class="math inline">\(\beta_k\)</span> coefficients in the equation above is as the degree of correlation between the explanatory variable <span class="math inline">\(k\)</span> and the dependent variable, <em>keeping all the other explanatory variables constant</em>. When you calculate simple bivariate correlations, the coefficient of a variable is picking up the correlation between the variables, but it is also subsuming into it variation associated with other correlated variables –also called confounding factors<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a>. Regression allows you to isolate the distinct effect that a single variable has on the dependent one, once we <em>control</em> for those other variables.</p>
 <p>Practically speaking, running linear regressions in <code>R</code> is straightforward. For example, to fit the model specified in the equation above, we only need one line of code:</p>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="spatial-econometrics.html#cb294-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;price ~ new + imd_score&#39;</span>, db)</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="spatial-econometrics.html#cb250-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;price ~ new + imd_score&#39;</span>, db)</span></code></pre></div>
 <p>We use the command <code>lm</code>, for linear model, and specify the equation we want to fit using a string that relates the dependent variable (<code>price</code>) with a set of explanatory ones (<code>new</code> and <code>price</code>) by using a tilde <code>~</code> that is akin the <span class="math inline">\(=\)</span> symbol in the mathematical equation. Since we are using names of variables that are stored in a table, we need to pass the table object (<code>db</code>) as well.</p>
 <p>In order to inspect the results of the model, the quickest way is to call <code>summary</code>:</p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="spatial-econometrics.html#cb295-1"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="spatial-econometrics.html#cb251-1"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;price ~ new + imd_score&quot;, data = db)
@@ -468,8 +470,8 @@ P_i = \alpha + \beta_1 NEW_i + \beta_2 IMD_i + \epsilon_i
 \log{P_i} = \alpha + \beta_1 NEW_i + \beta_2 IMD_i + \epsilon_i
 \]</span></p>
 <p>This allows to interpret the coefficients more directly: as the percentual change induced by a unit increase in the explanatory variable of the estimate. To fit such a model, we can specify the logarithm of a given variable directly in the formula.</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="spatial-econometrics.html#cb297-1"></a>m2 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;log(price) ~ new + imd_score&#39;</span>, db)</span>
-<span id="cb297-2"><a href="spatial-econometrics.html#cb297-2"></a><span class="kw">summary</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="spatial-econometrics.html#cb253-1"></a>m2 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;log(price) ~ new + imd_score&#39;</span>, db)</span>
+<span id="cb253-2"><a href="spatial-econometrics.html#cb253-2"></a><span class="kw">summary</span>(m2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;log(price) ~ new + imd_score&quot;, data = db)
@@ -507,9 +509,9 @@ P_i = \alpha + \beta_1 NEW_i + \beta_2 IMD_i + \epsilon_i
 \]</span></p>
 <p>where the main difference is that we are now allowing the constant term, <span class="math inline">\(\alpha\)</span>, to vary by postcode <span class="math inline">\(r\)</span>, <span class="math inline">\(\alpha_r\)</span>.</p>
 <p>Programmatically, this is straightforward to estimate:</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="spatial-econometrics.html#cb299-1"></a><span class="co"># Include `-1` to eliminate the constant term and include a dummy for every area</span></span>
-<span id="cb299-2"><a href="spatial-econometrics.html#cb299-2"></a>m3 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;log(price) ~ pc + new + imd_score - 1&#39;</span>, db)</span>
-<span id="cb299-3"><a href="spatial-econometrics.html#cb299-3"></a><span class="kw">summary</span>(m3)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="spatial-econometrics.html#cb255-1"></a><span class="co"># Include `-1` to eliminate the constant term and include a dummy for every area</span></span>
+<span id="cb255-2"><a href="spatial-econometrics.html#cb255-2"></a>m3 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;log(price) ~ pc + new + imd_score - 1&#39;</span>, db)</span>
+<span id="cb255-3"><a href="spatial-econometrics.html#cb255-3"></a><span class="kw">summary</span>(m3)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;log(price) ~ pc + new + imd_score - 1&quot;, data = db)
@@ -560,15 +562,15 @@ P_i = \alpha + \beta_1 NEW_i + \beta_2 IMD_i + \epsilon_i
 \]</span></p>
 <p>where we are not only allowing the constant term to vary by region (<span class="math inline">\(\alpha_r\)</span>), but also every other parameter (<span class="math inline">\(\beta_{kr}\)</span>).</p>
 <p>In R terms, this is more straightforward to estimate if <code>new</code> is expressed as <code>0</code> and <code>1</code>, rather than as factors:</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="spatial-econometrics.html#cb301-1"></a><span class="co"># Create a new variable `newB` to store the binary form of `new`</span></span>
-<span id="cb301-2"><a href="spatial-econometrics.html#cb301-2"></a>db<span class="op">@</span>data<span class="op">$</span>newB &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb301-3"><a href="spatial-econometrics.html#cb301-3"></a>db[db<span class="op">@</span>data<span class="op">$</span>new<span class="op">==</span><span class="st">&#39;N&#39;</span>, <span class="st">&#39;newB&#39;</span>] &lt;-<span class="st"> </span><span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="spatial-econometrics.html#cb257-1"></a><span class="co"># Create a new variable `newB` to store the binary form of `new`</span></span>
+<span id="cb257-2"><a href="spatial-econometrics.html#cb257-2"></a>db<span class="op">@</span>data<span class="op">$</span>newB &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb257-3"><a href="spatial-econometrics.html#cb257-3"></a>db[db<span class="op">@</span>data<span class="op">$</span>new<span class="op">==</span><span class="st">&#39;N&#39;</span>, <span class="st">&#39;newB&#39;</span>] &lt;-<span class="st"> </span><span class="dv">0</span></span></code></pre></div>
 <p>Also, given we are going to allow <em>every</em> coefficient to vary by regime, we will need to explicitly set a constant term that we can allow to vary:</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="spatial-econometrics.html#cb302-1"></a>db<span class="op">$</span>one &lt;-<span class="st"> </span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="spatial-econometrics.html#cb258-1"></a>db<span class="op">$</span>one &lt;-<span class="st"> </span><span class="dv">1</span></span></code></pre></div>
 <p>Then, the estimation leverages the capabilities in model description of R formulas:</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="spatial-econometrics.html#cb303-1"></a><span class="co"># `:` notation implies interaction variables</span></span>
-<span id="cb303-2"><a href="spatial-econometrics.html#cb303-2"></a>m4 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;log(price) ~ 0 +(one + newB + imd_score):(pc)&#39;</span>, db)</span>
-<span id="cb303-3"><a href="spatial-econometrics.html#cb303-3"></a><span class="kw">summary</span>(m4)</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="spatial-econometrics.html#cb259-1"></a><span class="co"># `:` notation implies interaction variables</span></span>
+<span id="cb259-2"><a href="spatial-econometrics.html#cb259-2"></a>m4 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;log(price) ~ 0 +(one + newB + imd_score):(pc)&#39;</span>, db)</span>
+<span id="cb259-3"><a href="spatial-econometrics.html#cb259-3"></a><span class="kw">summary</span>(m4)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;log(price) ~ 0 +(one + newB + imd_score):(pc)&quot;, 
@@ -659,7 +661,7 @@ P_i = \alpha + \beta_1 NEW_i + \beta_2 IMD_i + \epsilon_i
 ## Multiple R-squared:  0.9984, Adjusted R-squared:  0.9983 
 ## F-statistic: 5.966e+04 on 64 and 6260 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>As we can see, there are a few <code>NA</code> values (e.g. <code>pcL10</code>). This has to do with the fact that there are not that many new houses, so some of the buckets in which the regimes split the data to estimate each parameter are empty. This can be readily seen by obtaining a quick cross tabulation of <code>pc</code> and <code>new</code>:</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="spatial-econometrics.html#cb305-1"></a><span class="kw">table</span>(db<span class="op">$</span>pc, db<span class="op">$</span>new)</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="spatial-econometrics.html#cb261-1"></a><span class="kw">table</span>(db<span class="op">$</span>pc, db<span class="op">$</span>new)</span></code></pre></div>
 <pre><code>##      
 ##         N   Y
 ##   L1  161 189
@@ -687,9 +689,9 @@ P_i = \alpha + \beta_1 NEW_i + \beta_2 IMD_i + \epsilon_i
 ##   L8  227 110
 ##   L9  329   0</code></pre>
 <p>To illustrate a correct regime estimation, we can focus only on <code>imd_score</code><a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a>:</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="spatial-econometrics.html#cb307-1"></a><span class="co"># `:` notation implies interaction variables</span></span>
-<span id="cb307-2"><a href="spatial-econometrics.html#cb307-2"></a>m5 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;log(price) ~ 0 + (one + imd_score):pc&#39;</span>, db)</span>
-<span id="cb307-3"><a href="spatial-econometrics.html#cb307-3"></a><span class="kw">summary</span>(m5)</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="spatial-econometrics.html#cb263-1"></a><span class="co"># `:` notation implies interaction variables</span></span>
+<span id="cb263-2"><a href="spatial-econometrics.html#cb263-2"></a>m5 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;log(price) ~ 0 + (one + imd_score):pc&#39;</span>, db)</span>
+<span id="cb263-3"><a href="spatial-econometrics.html#cb263-3"></a><span class="kw">summary</span>(m5)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;log(price) ~ 0 + (one + imd_score):pc&quot;, data = db)
@@ -771,17 +773,17 @@ y_{lag-i} = \displaystyle \sum_j w_{ij} y_j
 \]</span></p>
 <p>where <span class="math inline">\(y_{lag-i}\)</span> is the spatial lag of variable <span class="math inline">\(y\)</span> at location <span class="math inline">\(i\)</span>, and <span class="math inline">\(j\)</span> sums over the entire dataset. If <span class="math inline">\(W\)</span> is row-standardized, <span class="math inline">\(y_{lag-i}\)</span> becomes an average of <span class="math inline">\(y\)</span> weighted by the spatial criterium defined in <span class="math inline">\(W\)</span>.</p>
 <p>Given that spatial weights matrices are not the focus of this tutorial, we will stick to a very simple case. Since we are dealing with points, we will use <span class="math inline">\(K\)</span>-nn weights, which take the <span class="math inline">\(k\)</span> nearest neighbors of each observation as neighbors and assign a value of one, assigning everyone else a zero. We will use <span class="math inline">\(k=150\)</span> to get a good degree of variation and sensible results. If your computer is struggles to compute the following lines of code, you can replace 50 by a lowed number. Technically speaking is the same thing, but the probability that you will pick up only houses in the same LSOA (and hence with exactly the same IMD score) will be higher.</p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="spatial-econometrics.html#cb309-1"></a><span class="co"># Because some rows are different units on the same house, slightly</span></span>
-<span id="cb309-2"><a href="spatial-econometrics.html#cb309-2"></a><span class="co"># jitter the locations to break ties</span></span>
-<span id="cb309-3"><a href="spatial-econometrics.html#cb309-3"></a>xy.jit &lt;-<span class="st"> </span><span class="kw">jitter</span>(db<span class="op">@</span>coords)</span>
-<span id="cb309-4"><a href="spatial-econometrics.html#cb309-4"></a><span class="co"># Create knn list of each house</span></span>
-<span id="cb309-5"><a href="spatial-econometrics.html#cb309-5"></a>hnn &lt;-<span class="st"> </span><span class="kw">knearneigh</span>(xy.jit, <span class="dt">k=</span><span class="dv">50</span>)</span>
-<span id="cb309-6"><a href="spatial-econometrics.html#cb309-6"></a><span class="co"># Create nb object</span></span>
-<span id="cb309-7"><a href="spatial-econometrics.html#cb309-7"></a>hnb &lt;-<span class="st"> </span><span class="kw">knn2nb</span>(hnn)</span>
-<span id="cb309-8"><a href="spatial-econometrics.html#cb309-8"></a><span class="co"># Create spatial weights matrix (note it row-standardizes by default)</span></span>
-<span id="cb309-9"><a href="spatial-econometrics.html#cb309-9"></a>hknn &lt;-<span class="st"> </span><span class="kw">nb2listw</span>(hnb)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="spatial-econometrics.html#cb265-1"></a><span class="co"># Because some rows are different units on the same house, slightly</span></span>
+<span id="cb265-2"><a href="spatial-econometrics.html#cb265-2"></a><span class="co"># jitter the locations to break ties</span></span>
+<span id="cb265-3"><a href="spatial-econometrics.html#cb265-3"></a>xy.jit &lt;-<span class="st"> </span><span class="kw">jitter</span>(db<span class="op">@</span>coords)</span>
+<span id="cb265-4"><a href="spatial-econometrics.html#cb265-4"></a><span class="co"># Create knn list of each house</span></span>
+<span id="cb265-5"><a href="spatial-econometrics.html#cb265-5"></a>hnn &lt;-<span class="st"> </span><span class="kw">knearneigh</span>(xy.jit, <span class="dt">k=</span><span class="dv">50</span>)</span>
+<span id="cb265-6"><a href="spatial-econometrics.html#cb265-6"></a><span class="co"># Create nb object</span></span>
+<span id="cb265-7"><a href="spatial-econometrics.html#cb265-7"></a>hnb &lt;-<span class="st"> </span><span class="kw">knn2nb</span>(hnn)</span>
+<span id="cb265-8"><a href="spatial-econometrics.html#cb265-8"></a><span class="co"># Create spatial weights matrix (note it row-standardizes by default)</span></span>
+<span id="cb265-9"><a href="spatial-econometrics.html#cb265-9"></a>hknn &lt;-<span class="st"> </span><span class="kw">nb2listw</span>(hnb)</span></code></pre></div>
 <p>We can inspect the weights created by simply typing the name of the object:</p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="spatial-econometrics.html#cb310-1"></a>hknn</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="spatial-econometrics.html#cb266-1"></a>hknn</span></code></pre></div>
 <pre><code>## Characteristics of weights list object:
 ## Neighbour list object:
 ## Number of regions: 6324 
@@ -792,8 +794,8 @@ y_{lag-i} = \displaystyle \sum_j w_{ij} y_j
 ## 
 ## Weights style: W 
 ## Weights constants summary:
-##      n       nn   S0      S1       S2
-## W 6324 39992976 6324 230.464 25814.56</code></pre>
+##      n       nn   S0       S1       S2
+## W 6324 39992976 6324 230.5064 25811.95</code></pre>
 <p><strong>Exogenous spatial effects</strong></p>
 <p>Let us come back to the house price example we have been working with. So far, we have hypothesized that the price of a house sold in Liverpool can be explained using information about whether it is newly built, the level of deprivation of the area where it is located, and its postcode. However, it is also reasonable to think that prospective house owners care about the larger area around a house, not only about its immediate surroundings, and would be willing to pay more for a house that was close to nicer areas, everything else being equal. How could we test this idea?</p>
 <p>The most straightforward way to introduce spatial dependence in a regression is by considering not only a given explanatory variable, but also its spatial lag. In our example case, in addition to including the level of deprivation in the area of the house, we will include its spatial lag. In other words, we will be saying that it is not only the level of deprivation of the area where a house is located but also that of the surrounding locations that helps explain the final price at which a house is sold. Mathematically, this implies estimating the following model:</p>
@@ -801,30 +803,30 @@ y_{lag-i} = \displaystyle \sum_j w_{ij} y_j
 \log{P_i} = \alpha + \beta_{1} NEW_i + \beta_{2} IMD_i + \beta_{3} IMD_{lag-i} + \epsilon_i
 \]</span></p>
 <p>Let us first compute the spatial lag of imd_score:</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="spatial-econometrics.html#cb312-1"></a>db<span class="op">@</span>data<span class="op">$</span>w_imd_score &lt;-<span class="st"> </span><span class="kw">lag.listw</span>(hknn, db<span class="op">@</span>data<span class="op">$</span>imd_score)</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="spatial-econometrics.html#cb268-1"></a>db<span class="op">@</span>data<span class="op">$</span>w_imd_score &lt;-<span class="st"> </span><span class="kw">lag.listw</span>(hknn, db<span class="op">@</span>data<span class="op">$</span>imd_score)</span></code></pre></div>
 <p>And then we can include it in our previous specification. Note that we apply the log to the lag, not the reverse:</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="spatial-econometrics.html#cb313-1"></a><span class="co"># `:` notation implies interaction variables</span></span>
-<span id="cb313-2"><a href="spatial-econometrics.html#cb313-2"></a>m6 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;log(price) ~ new + imd_score + w_imd_score&#39;</span>, db)</span>
-<span id="cb313-3"><a href="spatial-econometrics.html#cb313-3"></a><span class="kw">summary</span>(m6)</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="spatial-econometrics.html#cb269-1"></a><span class="co"># `:` notation implies interaction variables</span></span>
+<span id="cb269-2"><a href="spatial-econometrics.html#cb269-2"></a>m6 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;log(price) ~ new + imd_score + w_imd_score&#39;</span>, db)</span>
+<span id="cb269-3"><a href="spatial-econometrics.html#cb269-3"></a><span class="kw">summary</span>(m6)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;log(price) ~ new + imd_score + w_imd_score&quot;, data = db)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2906 -0.3016 -0.0151  0.2820  5.2631 
+## -4.2906 -0.3015 -0.0153  0.2819  5.2606 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 12.2813200  0.0145269 845.421  &lt; 2e-16 ***
-## newY         0.2476061  0.0195177  12.686  &lt; 2e-16 ***
-## imd_score   -0.0042110  0.0008911  -4.725 2.35e-06 ***
-## w_imd_score -0.0148135  0.0009680 -15.304  &lt; 2e-16 ***
+## (Intercept) 12.2811455  0.0145296 845.251   &lt;2e-16 ***
+## newY         0.2475616  0.0195198  12.683   &lt;2e-16 ***
+## imd_score   -0.0042419  0.0008916  -4.758    2e-06 ***
+## w_imd_score -0.0147792  0.0009686 -15.258   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.52 on 6320 degrees of freedom
-## Multiple R-squared:  0.3348, Adjusted R-squared:  0.3345 
+## Residual standard error: 0.5201 on 6320 degrees of freedom
+## Multiple R-squared:  0.3347, Adjusted R-squared:  0.3343 
 ## F-statistic:  1060 on 3 and 6320 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>As we can see, the lag is not only significative and negative (as expected), but its effect seems to be even larger that that of the house itself. Taken literally, this would imply that prospective owners value more the area of the surrounding houses than that of the actual house they buy. However, it is important to remember how these variables have been constructed and what they really represent. Because the IMD score is not exactly calculated at the house level, but at the area level, many of the surrounding houses will share that so, to some extent, the IMD of neighboring houses is that of the house itself<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a>. This is likely to be affecting the final parameter, and it is a reminder and an illustration that we cannot take model results as universal truth but we need to use them as tools to inform analysis, couple with theory and what we know about the particular question of analysis. Nevertheless, the example does illustrate how to introduce spatial dependence in a regression framework in a fairly straight forward way.</p>
 <p><strong>A note on more advanced spatial regression</strong></p>
@@ -854,16 +856,16 @@ u_i = u_{lag-i} + \epsilon_i
 \]</span></p>
 <p>where <span class="math inline">\(\bar{\log{P_i}}\)</span> is our predicted value, and we include the <span class="math inline">\(\bar{}\)</span> sign to note that it is our estimate obtained from fitting the model. We use the <span class="math inline">\(^*\)</span> sign to note that those can be new values for the explanatory variables, not necessarily those used to fit the model.</p>
 <p>Technically speaking, prediction in linear models is fairly streamlined in R. Suppose we are given data for a new house which is to be put in the market. We know it is been newly built on an area with an IMD score of 75, but surrounded by areas that, on average, have a score of 50. Let us record the data first:</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="spatial-econometrics.html#cb315-1"></a>new.house &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">new=</span><span class="st">&#39;Y&#39;</span>, <span class="dt">imd_score=</span><span class="dv">75</span>, <span class="dt">w_imd_score=</span><span class="dv">50</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="spatial-econometrics.html#cb271-1"></a>new.house &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">new=</span><span class="st">&#39;Y&#39;</span>, <span class="dt">imd_score=</span><span class="dv">75</span>, <span class="dt">w_imd_score=</span><span class="dv">50</span>)</span></code></pre></div>
 <p>To obtain the prediction for its price, we can use the <code>predict</code> method:</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="spatial-econometrics.html#cb316-1"></a>new.price &lt;-<span class="st"> </span><span class="kw">predict</span>(m6, new.house)</span>
-<span id="cb316-2"><a href="spatial-econometrics.html#cb316-2"></a>new.price</span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="spatial-econometrics.html#cb272-1"></a>new.price &lt;-<span class="st"> </span><span class="kw">predict</span>(m6, new.house)</span>
+<span id="cb272-2"><a href="spatial-econometrics.html#cb272-2"></a>new.price</span></code></pre></div>
 <pre><code>##        1 
-## 11.47243</code></pre>
+## 11.47161</code></pre>
 <p>Now remember we were using the log of the price as dependent variable. If we want to recover the actual price of the house, we need to take its exponent:</p>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="spatial-econometrics.html#cb318-1"></a><span class="kw">exp</span>(new.price)</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="spatial-econometrics.html#cb274-1"></a><span class="kw">exp</span>(new.price)</span></code></pre></div>
 <pre><code>##        1 
-## 96030.88</code></pre>
+## 95952.36</code></pre>
 <p>According to our model, the house would be worth GBP96,060.29<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a>.</p>
 </div>
 <div id="references-1" class="section level2">

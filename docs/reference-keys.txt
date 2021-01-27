@@ -13,8 +13,10 @@ fig:unnamed-chunk-6
 overview
 aims
 learning-outcomes
+feedback
 computational-environment
 dependency-list
+assessment
 spatial_data
 data_wrangling
 dependencies

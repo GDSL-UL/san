@@ -140,9 +140,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview</a><ul>
 <li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html#aims"><i class="fa fa-check"></i><b>1.1</b> Aims</a></li>
 <li class="chapter" data-level="1.2" data-path="overview.html"><a href="overview.html#learning-outcomes"><i class="fa fa-check"></i><b>1.2</b> Learning Outcomes</a></li>
-<li class="chapter" data-level="1.3" data-path="overview.html"><a href="overview.html#computational-environment"><i class="fa fa-check"></i><b>1.3</b> Computational Environment</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="overview.html"><a href="overview.html#dependency-list"><i class="fa fa-check"></i><b>1.3.1</b> Dependency list</a></li>
+<li class="chapter" data-level="1.3" data-path="overview.html"><a href="overview.html#feedback"><i class="fa fa-check"></i><b>1.3</b> Feedback</a></li>
+<li class="chapter" data-level="1.4" data-path="overview.html"><a href="overview.html#computational-environment"><i class="fa fa-check"></i><b>1.4</b> Computational Environment</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="overview.html"><a href="overview.html#dependency-list"><i class="fa fa-check"></i><b>1.4.1</b> Dependency list</a></li>
 </ul></li>
+<li class="chapter" data-level="1.5" data-path="overview.html"><a href="overview.html#assessment"><i class="fa fa-check"></i><b>1.5</b> Assessment</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>2</b> Spatial Data</a></li>
 <li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a><ul>
@@ -293,6 +295,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="overview" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Overview</h1>
+<p>Access to all materials, including lecture notes, computational notebooks and datasets, is centralised through the use of the course website available in the following url:</p>
+<blockquote>
+<p><a href="https://gdsl-ul.github.io/san/">https://gdsl-ul.github.io/san/</a></p>
+</blockquote>
+<p>The module handbook, including the assessment description, criteria and module programme, and videos for each teaching week can be accessed via the module Canvas site:</p>
+<blockquote>
+<p><a href="https://liverpool.instructure.com">ENS453 Spatial Modelling for Data Scientists</a></p>
+</blockquote>
 <div id="aims" class="section level2">
 <h2><span class="header-section-number">1.1</span> Aims</h2>
 <p>This module aims to provides students with a range of techniques for analysing and modelling spatial data:</p>
@@ -315,11 +325,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>select appropriate analytical tools for analysing specific spatial data sets to address emerging social issues facing the society.</li>
 </ul>
 </div>
+<div id="feedback" class="section level2">
+<h2><span class="header-section-number">1.3</span> Feedback</h2>
+<ul>
+<li><p><em>Formal assessment of two computational essays</em>. Written assignment-specific feedback will be provided within three working weeks of the submission deadline. Comments will offer an understanding of the mark awarded and identify areas which can be considered for improvement in future assignments.</p></li>
+<li><p><em>Verbal face-to-face feedback</em>. Immediate face-to-face feedback will be provided during lecture, discussion and clinic sessions in interaction with staff. This will take place in all live sessions during the semester.</p></li>
+<li><p><em>Online forum</em>. Asynchronous written feedback will be provided via an online forum maintained by the module lead. Students are encouraged to contribute by asking and answering questions relating to the module content. Staff will monitor the forum Monday to Friday 9am-5pm, but it will be open to students to make contributions at all times.</p></li>
+</ul>
+</div>
 <div id="computational-environment" class="section level2">
-<h2><span class="header-section-number">1.3</span> Computational Environment</h2>
+<h2><span class="header-section-number">1.4</span> Computational Environment</h2>
 <p>Dependencies + Landing page for guides</p>
 <div id="dependency-list" class="section level3">
-<h3><span class="header-section-number">1.3.1</span> Dependency list</h3>
+<h3><span class="header-section-number">1.4.1</span> Dependency list</h3>
 <p>List of libraries used in this book:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="overview.html#cb1-1"></a>deps &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
 <span id="cb1-2"><a href="overview.html#cb1-2"></a>    <span class="st">&quot;arm&quot;</span>,</span>
@@ -355,178 +373,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-32"><a href="overview.html#cb1-32"></a>)</span></code></pre></div>
 <p>And we can load them all to make sure they are installed:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="overview.html#cb2-1"></a><span class="cf">for</span>(lib <span class="cf">in</span> deps){<span class="kw">library</span>(lib, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)}</span></code></pre></div>
-<pre><code>## Loading required package: MASS</code></pre>
-<pre><code>## Loading required package: Matrix</code></pre>
-<pre><code>## Loading required package: lme4</code></pre>
-<pre><code>## 
-## arm (Version 1.11-2, built: 2020-7-27)</code></pre>
-<pre><code>## Working directory is /Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san</code></pre>
-<pre><code>## Loading required package: carData</code></pre>
-<pre><code>## Registered S3 methods overwritten by &#39;car&#39;:
-##   method                          from
-##   influence.merMod                lme4
-##   cooks.distance.influence.merMod lme4
-##   dfbeta.influence.merMod         lme4
-##   dfbetas.influence.merMod        lme4</code></pre>
-<pre><code>## 
-## Attaching package: &#39;car&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:arm&#39;:
-## 
-##     logit</code></pre>
-<pre><code>## corrplot 0.84 loaded</code></pre>
-<pre><code>## 
-## Attaching package: &#39;corrplot&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:arm&#39;:
-## 
-##     corrplot</code></pre>
-<pre><code>## Loading required package: ggplot2</code></pre>
-<pre><code>## Google&#39;s Terms of Service: https://cloud.google.com/maps-platform/terms/.</code></pre>
-<pre><code>## Please cite ggmap if you use it! See citation(&quot;ggmap&quot;) for details.</code></pre>
-<pre><code>## Loading required package: maptools</code></pre>
-<pre><code>## Loading required package: sp</code></pre>
-<pre><code>## Checking rgeos availability: TRUE</code></pre>
-<pre><code>## Loading required package: RColorBrewer</code></pre>
-<pre><code>## Loading required package: rgeos</code></pre>
-<pre><code>## rgeos version: 0.5-5, (SVN revision 640)
-##  GEOS runtime version: 3.8.1-CAPI-1.13.3 
-##  Linking to sp version: 1.4-2 
-##  Polygon checking: TRUE</code></pre>
-<pre><code>## 
-## Attaching package: &#39;jtools&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:arm&#39;:
-## 
-##     standardize</code></pre>
-<pre><code>## Loading required package: zoo</code></pre>
-<pre><code>## 
-## Attaching package: &#39;zoo&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     as.Date, as.Date.numeric</code></pre>
-<pre><code>## 
-## Attaching package: &#39;lubridate&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:rgeos&#39;:
-## 
-##     intersect, setdiff, union</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     date, intersect, setdiff, union</code></pre>
-<pre><code>## Registered S3 methods overwritten by &#39;broom&#39;:
-##   method            from  
-##   tidy.glht         jtools
-##   tidy.summary.glht jtools</code></pre>
-<pre><code>## Registered S3 method overwritten by &#39;broom.mixed&#39;:
-##   method      from 
-##   tidy.gamlss broom</code></pre>
-<pre><code>## rgdal: version: 1.5-18, (SVN revision 1082)
-## Geospatial Data Abstraction Library extensions to R successfully loaded
-## Loaded GDAL runtime: GDAL 3.1.1, released 2020/06/22
-## Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/gdal
-## GDAL binary built with GEOS: TRUE 
-## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
-## Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj
-## Linking to sp version:1.4-4
-## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
-## use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) before loading rgdal.</code></pre>
-<pre><code>## Linking to GEOS 3.8.1, GDAL 3.1.1, PROJ 6.3.1</code></pre>
-<pre><code>## Loading required package: spData</code></pre>
-<pre><code>## To access larger datasets in this package, install the spDataLarge
-## package with: `install.packages(&#39;spDataLarge&#39;,
-## repos=&#39;https://nowosad.github.io/drat/&#39;, type=&#39;source&#39;)`</code></pre>
-<pre><code>## NOTE: This package does not constitute approval of GWR
-## as a method of spatial analysis; see example(gwr)</code></pre>
-<pre><code>## Registered S3 methods overwritten by &#39;spatialreg&#39;:
-##   method                   from 
-##   residuals.stsls          spdep
-##   deviance.stsls           spdep
-##   coef.stsls               spdep
-##   print.stsls              spdep
-##   summary.stsls            spdep
-##   print.summary.stsls      spdep
-##   residuals.gmsar          spdep
-##   deviance.gmsar           spdep
-##   coef.gmsar               spdep
-##   fitted.gmsar             spdep
-##   print.gmsar              spdep
-##   summary.gmsar            spdep
-##   print.summary.gmsar      spdep
-##   print.lagmess            spdep
-##   summary.lagmess          spdep
-##   print.summary.lagmess    spdep
-##   residuals.lagmess        spdep
-##   deviance.lagmess         spdep
-##   coef.lagmess             spdep
-##   fitted.lagmess           spdep
-##   logLik.lagmess           spdep
-##   fitted.SFResult          spdep
-##   print.SFResult           spdep
-##   fitted.ME_res            spdep
-##   print.ME_res             spdep
-##   print.lagImpact          spdep
-##   plot.lagImpact           spdep
-##   summary.lagImpact        spdep
-##   HPDinterval.lagImpact    spdep
-##   print.summary.lagImpact  spdep
-##   print.sarlm              spdep
-##   summary.sarlm            spdep
-##   residuals.sarlm          spdep
-##   deviance.sarlm           spdep
-##   coef.sarlm               spdep
-##   vcov.sarlm               spdep
-##   fitted.sarlm             spdep
-##   logLik.sarlm             spdep
-##   anova.sarlm              spdep
-##   predict.sarlm            spdep
-##   print.summary.sarlm      spdep
-##   print.sarlm.pred         spdep
-##   as.data.frame.sarlm.pred spdep
-##   residuals.spautolm       spdep
-##   deviance.spautolm        spdep
-##   coef.spautolm            spdep
-##   fitted.spautolm          spdep
-##   print.spautolm           spdep
-##   summary.spautolm         spdep
-##   logLik.spautolm          spdep
-##   print.summary.spautolm   spdep
-##   print.WXImpact           spdep
-##   summary.WXImpact         spdep
-##   print.summary.WXImpact   spdep
-##   predict.SLX              spdep</code></pre>
-<pre><code>## 
-## Please cite as:</code></pre>
-<pre><code>##  Hlavac, Marek (2018). stargazer: Well-Formatted Regression and Summary Statistics Tables.</code></pre>
-<pre><code>##  R package version 5.2.2. https://CRAN.R-project.org/package=stargazer</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
-<pre><code>## ✓ tibble  3.0.4     ✓ dplyr   1.0.2
-## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
-## ✓ readr   1.4.0     ✓ forcats 0.5.0
-## ✓ purrr   0.3.4</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::arrange()         masks plyr::arrange()
-## x lubridate::as.difftime() masks base::as.difftime()
-## x purrr::compact()         masks plyr::compact()
-## x dplyr::count()           masks plyr::count()
-## x lubridate::date()        masks base::date()
-## x tidyr::expand()          masks Matrix::expand()
-## x dplyr::failwith()        masks plyr::failwith()
-## x dplyr::filter()          masks stats::filter()
-## x dplyr::group_rows()      masks kableExtra::group_rows()
-## x dplyr::id()              masks plyr::id()
-## x lubridate::intersect()   masks rgeos::intersect(), base::intersect()
-## x dplyr::lag()             masks stats::lag()
-## x dplyr::mutate()          masks plyr::mutate()
-## x tidyr::pack()            masks Matrix::pack()
-## x dplyr::recode()          masks car::recode()
-## x dplyr::rename()          masks plyr::rename()
-## x dplyr::select()          masks MASS::select()
-## x lubridate::setdiff()     masks rgeos::setdiff(), base::setdiff()
-## x purrr::some()            masks car::some()
-## x dplyr::summarise()       masks plyr::summarise()
-## x dplyr::summarize()       masks plyr::summarize()
-## x lubridate::union()       masks rgeos::union(), base::union()
-## x tidyr::unpack()          masks Matrix::unpack()</code></pre>
-<pre><code>## Loading required package: viridisLite</code></pre>
-
 </div>
+</div>
+<div id="assessment" class="section level2">
+<h2><span class="header-section-number">1.5</span> Assessment</h2>
+<p>The final module mark is composed of the <strong>two</strong> computational essays. Together they are designed to cover the materials introduced in the entirety of content covered during the semester.</p>
+<ul>
+<li>Assignment 1 (50%) - see relevant Chapters for details i.e. Chapters@ref(#points)</li>
+<li>Assignment 2 (50%)</li>
+</ul>
+<p>Both assignments will be similar in format. Each teaching week, you will be required to address a set of questions relating to the module content covered in that week. You should use roughly the same number of words to document your answers each week. For assignment 1, for example, you will be required to address questions in Weeks 2, 3 and 4 so we should roughly document your answers in 666 words (= 2,000 / 3) each week; that is max. as noted below.</p>
+<p>Assignments need to be prepared in R Notebook format and then converted into
+a self-contained HTML file that will then be submitted on Turnitin.
+A R Notebook template is available via the <a href="https://liverpool.instructure.com"><em>module Canvas site</em></a>.</p>
+
 </div>
 </div>
             </section>
