@@ -94,7 +94,7 @@ The final module mark is composed of the **two computational essays**. Together 
 * Assignment 1 (50%) - see relevant Chapters for details i.e. Chapters \@ref(points)
 * Assignment 2 (50%)
 
-Maximum word count: 2,000 words, excluding figures and references. Both assignments will be similar in format. Each teaching week, you will be required to address a set of questions relating to the module content covered in that week. You should use roughly the same number of words to document your answers each week. For assignment 1, for example, you will be required to address questions in Weeks 2, 3 and 4 so we should roughly document your answers in 666 words (= 2,000 / 3) each week; that is max. as noted below.
+*Maximum word count: 2,000 words*, excluding figures and references. Both assignments will be similar in format. Each teaching week, you will be required to address a set of questions relating to the module content covered in that week. You should use roughly the same number of words to document your answers each week. For assignment 1, for example, you will be required to address questions in Weeks 2, 3 and 4 so we should roughly document your answers in 666 words (= 2,000 / 3) each week.
 
 Assignments need to be prepared in *R Notebook* format and then converted into
 a self-contained HTML file that will then be submitted via Turnitin.
@@ -104,19 +104,14 @@ A R Notebook template is available via the [*module Canvas site*](https://liverp
 
 ### Marking criteria
 
-The Standard Environmental Sciences School marking criteria apply, with a stronger emphasis on evidencing the use of regression models, critical analysis of results and presentation standards. In addition to these general criteria, the code and outputs (i.e. tables, maps and plots) contained within the notebook submitted for assessment will be assessed according to the extent of documentation and evidence of expertise in changing and extending the code options illustrated in each chapter. Soecifically, the following criteria will be applied:
+The Standard Environmental Sciences School marking criteria apply, with a stronger emphasis on evidencing the use of regression models, critical analysis of results and presentation standards. In addition to these general criteria, the code and outputs (i.e. tables, maps and plots) contained within the notebook submitted for assessment will be assessed according to the extent of documentation and evidence of expertise in changing and extending the code options illustrated in each chapter. Specifically, the following criteria will be applied:
 
 * 0-15: no documentation and use of default options.
-* 16-39: some documentation explaining its logic.
-* 40-49: the code runs and produces the expected output. There is some documentation explaining its logic.
-* 50-59: the code runs and produces the expected output. There is extensive documentation explaining its logic.
-* 60-69: the code runs and produces the expected output. There is extensive documentation, properly formatted, explaining its logic.
-* 70-79: all as above, plus the code design includes clear evidence of skills presented in advanced sections of the course (e.g. custom methods, list comprehensions, etc.).
-* 80-100: all as above, plus the code contains novel contributions that extend/improve the functionality the student was provided with (e.g. algorithm optimizations, novel methods to perform the task, etc.).
-
-
-
-
-
+* 16-39: little documentation and use of default options.
+* 40-49: some documentation, and use of default options.
+* 50-59: extensive documentation, and edit of some of the options provided in the notebook (e.g. change north arrow location).
+* 60-69: extensive well organised and easy to read documentation, and evidence of understanding of options provided in the code (e.g. tweaking existing options).
+* 70-79: all above, plus clear evidence of code design skills (e.g. customising graphics, combining plots (or tables) into a single output, adding clear axis labels and variable names on graphic outputs, etc.).
+* 80-100: all as above, plus code containing novel contributions that extend/improve the functionality the code was provided with (e.g. comparative model assessments, novel methods to perform the task, etc.).
 
 
