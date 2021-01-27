@@ -64,7 +64,7 @@ seeing-flows
 modelling-flows
 predicting-flows
 references
-spatial-econometrics
+spatialecon
 dependencies-3
 data-2
 non-spatial-regression-a-refresh
@@ -73,7 +73,7 @@ spatial-heterogeneity
 spatial-dependence
 predicting-house-prices
 references-1
-multilevel-modelling---part-1
+mlm1
 dependencies-4
 data-3
 modelling
@@ -88,7 +88,7 @@ assessing-group-level-variation
 adding-individual-level-predictors
 adding-group-level-predictors
 useful-functions-1
-multilevel-modelling---part-2
+mlm2
 dependencies-5
 data-4
 conceptual-overview
@@ -97,7 +97,7 @@ estimating-varying-intercept-and-slopes-models
 interpreting-correlations-between-group-level-intercepts-and-slopes
 model-building
 model-comparison
-geographically-weighted-regression
+gwr
 dependencies-6
 data-5
 recap-spatial-effects
@@ -115,7 +115,7 @@ model-fit
 interpretation-1
 assessing-statistical-significance
 collinearity-in-gwr
-spatio-temporal-analysis
+sta
 dependencies-7
 data-6
 why-spatio-temporal-analysis

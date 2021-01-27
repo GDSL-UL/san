@@ -1,4 +1,4 @@
-# Multilevel Modelling - Part 1
+# Multilevel Modelling - Part 1 {#mlm1}
 
 This chapter^[This note is part of [Spatial Analysis Notes](index.html) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Multilevel Modelling -- Random Intercept Multilevel Model</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.] provides an introduction to multi-level data structures and multi-level modelling.
 
@@ -529,16 +529,16 @@ REsim(model3) %>% head(10)
 
 ```
 ##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.016096729 -0.015040096 0.018875390
-## 2    lsoa_cd E01006513 (Intercept) -0.014691383 -0.014770994 0.021265453
-## 3    lsoa_cd E01006514 (Intercept) -0.021348195 -0.020717605 0.020357257
-## 4    lsoa_cd E01006515 (Intercept) -0.016859958 -0.016866227 0.019077604
-## 5    lsoa_cd E01006518 (Intercept) -0.018477766 -0.019517376 0.018865202
-## 6    lsoa_cd E01006519 (Intercept) -0.015711091 -0.015895122 0.009791778
-## 7    lsoa_cd E01006520 (Intercept) -0.024123449 -0.023270191 0.019703556
-## 8    lsoa_cd E01006521 (Intercept)  0.006559320  0.005492488 0.018744788
-## 9    lsoa_cd E01006522 (Intercept)  0.019458101  0.018790365 0.019108235
-## 10   lsoa_cd E01006523 (Intercept)  0.004510472  0.005771944 0.019377334
+## 1    lsoa_cd E01006512 (Intercept) -0.017890390 -0.018317822 0.019953371
+## 2    lsoa_cd E01006513 (Intercept) -0.016219065 -0.015084850 0.020674169
+## 3    lsoa_cd E01006514 (Intercept) -0.021224749 -0.021968603 0.018404794
+## 4    lsoa_cd E01006515 (Intercept) -0.014205429 -0.013545448 0.018664186
+## 5    lsoa_cd E01006518 (Intercept) -0.018947510 -0.019521178 0.020160927
+## 6    lsoa_cd E01006519 (Intercept) -0.016220750 -0.016454536 0.009262691
+## 7    lsoa_cd E01006520 (Intercept) -0.022176898 -0.022263243 0.021219715
+## 8    lsoa_cd E01006521 (Intercept)  0.007245263  0.006719103 0.019193519
+## 9    lsoa_cd E01006522 (Intercept)  0.018673346  0.016754999 0.019195058
+## 10   lsoa_cd E01006523 (Intercept)  0.004183668  0.002148703 0.018772203
 ```
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from `ranef` with some small differences due to rounding.
@@ -610,9 +610,9 @@ str(re_msoa)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.01308 -0.02139 -0.03292 0.00876 0.02156 ...
-##  $ median   : num  -0.0114 -0.0228 -0.0315 0.009 0.0214 ...
-##  $ sd       : num  0.0336 0.0314 0.0331 0.0302 0.016 ...
+##  $ mean     : num  -0.01593 -0.02615 -0.03088 0.00578 0.02178 ...
+##  $ median   : num  -0.01453 -0.02803 -0.03295 0.00511 0.02232 ...
+##  $ sd       : num  0.0295 0.0304 0.0346 0.0297 0.015 ...
 ```
 
 ```r

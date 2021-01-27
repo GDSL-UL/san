@@ -1,4 +1,4 @@
-# Spatial Econometrics
+# Spatial Econometrics {#spatialecon}
 
 
 ```{r setup, include=FALSE}

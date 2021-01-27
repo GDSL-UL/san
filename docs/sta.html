@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 Spatio-Temporal Analysis | Spatial Modelling for Data Scientists</title>
+  <meta name="description" content="This course will teach you how to analyse and model spatial data using R." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 Spatio-Temporal Analysis | Spatial Modelling for Data Scientists" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This course will teach you how to analyse and model spatial data using R." />
+  <meta name="github-repo" content="gdsl-ul/san" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 Spatio-Temporal Analysis | Spatial Modelling for Data Scientists" />
+  
+  <meta name="twitter:description" content="This course will teach you how to analyse and model spatial data using R." />
+  
+
+<meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
+
+
+<meta name="date" content="2021-01-27" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="gwr.html"/>
+<link rel="next" href="references-2.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Spatial Modelling for Data Scientists</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview</a><ul>
+<li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html#aims"><i class="fa fa-check"></i><b>1.1</b> Aims</a></li>
+<li class="chapter" data-level="1.2" data-path="overview.html"><a href="overview.html#learning-outcomes"><i class="fa fa-check"></i><b>1.2</b> Learning Outcomes</a></li>
+<li class="chapter" data-level="1.3" data-path="overview.html"><a href="overview.html#feedback"><i class="fa fa-check"></i><b>1.3</b> Feedback</a></li>
+<li class="chapter" data-level="1.4" data-path="overview.html"><a href="overview.html#computational-environment"><i class="fa fa-check"></i><b>1.4</b> Computational Environment</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="overview.html"><a href="overview.html#dependency-list"><i class="fa fa-check"></i><b>1.4.1</b> Dependency list</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="overview.html"><a href="overview.html#assessment"><i class="fa fa-check"></i><b>1.5</b> Assessment</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="overview.html"><a href="overview.html#marking-criteria"><i class="fa fa-check"></i><b>1.5.1</b> Marking criteria</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>2</b> Spatial Data</a></li>
+<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#dependencies"><i class="fa fa-check"></i><b>3.1</b> Dependencies</a></li>
+<li class="chapter" data-level="3.2" data-path="data-wrangling.html"><a href="data-wrangling.html#introducing-r"><i class="fa fa-check"></i><b>3.2</b> Introducing R</a></li>
+<li class="chapter" data-level="3.3" data-path="data-wrangling.html"><a href="data-wrangling.html#setting-the-working-directory"><i class="fa fa-check"></i><b>3.3</b> Setting the working directory</a></li>
+<li class="chapter" data-level="3.4" data-path="data-wrangling.html"><a href="data-wrangling.html#r-scripts-and-notebooks"><i class="fa fa-check"></i><b>3.4</b> R Scripts and Notebooks</a></li>
+<li class="chapter" data-level="3.5" data-path="data-wrangling.html"><a href="data-wrangling.html#getting-help"><i class="fa fa-check"></i><b>3.5</b> Getting Help</a></li>
+<li class="chapter" data-level="3.6" data-path="data-wrangling.html"><a href="data-wrangling.html#variables-and-objects"><i class="fa fa-check"></i><b>3.6</b> Variables and objects</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="data-wrangling.html"><a href="data-wrangling.html#basic-data-types"><i class="fa fa-check"></i><b>3.6.1</b> Basic Data Types</a></li>
+<li class="chapter" data-level="3.6.2" data-path="data-wrangling.html"><a href="data-wrangling.html#random-variables"><i class="fa fa-check"></i><b>3.6.2</b> Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="data-wrangling.html"><a href="data-wrangling.html#data-frames"><i class="fa fa-check"></i><b>3.7</b> Data Frames</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="data-wrangling.html"><a href="data-wrangling.html#creating-a-data-frame"><i class="fa fa-check"></i><b>3.7.1</b> Creating A Data Frame</a></li>
+<li class="chapter" data-level="3.7.2" data-path="data-wrangling.html"><a href="data-wrangling.html#referencing-data-frames"><i class="fa fa-check"></i><b>3.7.2</b> Referencing Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="data-wrangling.html"><a href="data-wrangling.html#sec_readdata"><i class="fa fa-check"></i><b>3.8</b> Read Data</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="data-wrangling.html"><a href="data-wrangling.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>3.8.1</b> Quickly inspect the data</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="data-wrangling.html"><a href="data-wrangling.html#manipulation-data"><i class="fa fa-check"></i><b>3.9</b> Manipulation Data</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="data-wrangling.html"><a href="data-wrangling.html#adding-new-variables"><i class="fa fa-check"></i><b>3.9.1</b> Adding New Variables</a></li>
+<li class="chapter" data-level="3.9.2" data-path="data-wrangling.html"><a href="data-wrangling.html#selecting-variables"><i class="fa fa-check"></i><b>3.9.2</b> Selecting Variables</a></li>
+<li class="chapter" data-level="3.9.3" data-path="data-wrangling.html"><a href="data-wrangling.html#filtering-data"><i class="fa fa-check"></i><b>3.9.3</b> Filtering Data</a></li>
+<li class="chapter" data-level="3.9.4" data-path="data-wrangling.html"><a href="data-wrangling.html#joining-data-drames"><i class="fa fa-check"></i><b>3.9.4</b> Joining Data Drames</a></li>
+<li class="chapter" data-level="3.9.5" data-path="data-wrangling.html"><a href="data-wrangling.html#saving-data"><i class="fa fa-check"></i><b>3.9.5</b> Saving Data</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="data-wrangling.html"><a href="data-wrangling.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>3.10</b> Using Spatial Data Frames</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="data-wrangling.html"><a href="data-wrangling.html#read-spatial-data"><i class="fa fa-check"></i><b>3.10.1</b> Read Spatial Data</a></li>
+<li class="chapter" data-level="3.10.2" data-path="data-wrangling.html"><a href="data-wrangling.html#basic-mapping"><i class="fa fa-check"></i><b>3.10.2</b> Basic Mapping</a></li>
+<li class="chapter" data-level="3.10.3" data-path="data-wrangling.html"><a href="data-wrangling.html#comparing-geographies"><i class="fa fa-check"></i><b>3.10.3</b> Comparing geographies</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="data-wrangling.html"><a href="data-wrangling.html#useful-functions"><i class="fa fa-check"></i><b>3.11</b> Useful Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>4</b> Points</a><ul>
+<li class="chapter" data-level="4.1" data-path="points.html"><a href="points.html#dependencies-1"><i class="fa fa-check"></i><b>4.1</b> Dependencies</a></li>
+<li class="chapter" data-level="4.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>4.2</b> Data</a></li>
+<li class="chapter" data-level="4.3" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>4.3</b> KDE</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>4.3.1</b> One-dimensional KDE</a></li>
+<li class="chapter" data-level="4.3.2" data-path="points.html"><a href="points.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>4.3.2</b> Two-dimensional (spatial) KDE</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>4.4</b> Spatial Interpolation</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="points.html"><a href="points.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>4.4.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
+<li class="chapter" data-level="4.4.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>4.4.2</b> A surface of housing prices</a></li>
+<li class="chapter" data-level="4.4.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>4.4.3</b> <em>“What should the next house’s price be?”</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>5</b> Flows</a><ul>
+<li class="chapter" data-level="5.1" data-path="flows.html"><a href="flows.html#dependencies-2"><i class="fa fa-check"></i><b>5.1</b> Dependencies</a></li>
+<li class="chapter" data-level="5.2" data-path="flows.html"><a href="flows.html#data-1"><i class="fa fa-check"></i><b>5.2</b> Data</a></li>
+<li class="chapter" data-level="5.3" data-path="flows.html"><a href="flows.html#seeing-flows"><i class="fa fa-check"></i><b>5.3</b> “<em>Seeing</em>” flows</a></li>
+<li class="chapter" data-level="5.4" data-path="flows.html"><a href="flows.html#modelling-flows"><i class="fa fa-check"></i><b>5.4</b> Modelling flows</a></li>
+<li class="chapter" data-level="5.5" data-path="flows.html"><a href="flows.html#predicting-flows"><i class="fa fa-check"></i><b>5.5</b> Predicting flows</a></li>
+<li class="chapter" data-level="5.6" data-path="flows.html"><a href="flows.html#references"><i class="fa fa-check"></i><b>5.6</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="spatialecon.html"><a href="spatialecon.html"><i class="fa fa-check"></i><b>6</b> Spatial Econometrics</a><ul>
+<li class="chapter" data-level="6.1" data-path="spatialecon.html"><a href="spatialecon.html#dependencies-3"><i class="fa fa-check"></i><b>6.1</b> Dependencies</a></li>
+<li class="chapter" data-level="6.2" data-path="spatialecon.html"><a href="spatialecon.html#data-2"><i class="fa fa-check"></i><b>6.2</b> Data</a></li>
+<li class="chapter" data-level="6.3" data-path="spatialecon.html"><a href="spatialecon.html#non-spatial-regression-a-refresh"><i class="fa fa-check"></i><b>6.3</b> Non-spatial regression, a refresh</a></li>
+<li class="chapter" data-level="6.4" data-path="spatialecon.html"><a href="spatialecon.html#spatial-regression-a-very-first-dip"><i class="fa fa-check"></i><b>6.4</b> Spatial regression: a (very) first dip</a></li>
+<li class="chapter" data-level="6.5" data-path="spatialecon.html"><a href="spatialecon.html#spatial-heterogeneity"><i class="fa fa-check"></i><b>6.5</b> Spatial heterogeneity</a></li>
+<li class="chapter" data-level="6.6" data-path="spatialecon.html"><a href="spatialecon.html#spatial-dependence"><i class="fa fa-check"></i><b>6.6</b> Spatial dependence</a></li>
+<li class="chapter" data-level="6.7" data-path="spatialecon.html"><a href="spatialecon.html#predicting-house-prices"><i class="fa fa-check"></i><b>6.7</b> Predicting house prices</a></li>
+<li class="chapter" data-level="6.8" data-path="spatialecon.html"><a href="spatialecon.html#references-1"><i class="fa fa-check"></i><b>6.8</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="mlm1.html"><a href="mlm1.html"><i class="fa fa-check"></i><b>7</b> Multilevel Modelling - Part 1</a><ul>
+<li class="chapter" data-level="7.1" data-path="mlm1.html"><a href="mlm1.html#dependencies-4"><i class="fa fa-check"></i><b>7.1</b> Dependencies</a></li>
+<li class="chapter" data-level="7.2" data-path="mlm1.html"><a href="mlm1.html#data-3"><i class="fa fa-check"></i><b>7.2</b> Data</a></li>
+<li class="chapter" data-level="7.3" data-path="mlm1.html"><a href="mlm1.html#modelling"><i class="fa fa-check"></i><b>7.3</b> Modelling</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="mlm1.html"><a href="mlm1.html#baseline-linear-regression-model"><i class="fa fa-check"></i><b>7.3.1</b> Baseline Linear Regression Model</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="mlm1.html"><a href="mlm1.html#multilevel-modelling-random-intercept-model"><i class="fa fa-check"></i><b>7.4</b> Multilevel Modelling: Random Intercept Model</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="mlm1.html"><a href="mlm1.html#interpretation"><i class="fa fa-check"></i><b>7.4.1</b> Interpretation</a></li>
+<li class="chapter" data-level="7.4.2" data-path="mlm1.html"><a href="mlm1.html#variance-partition-coefficient-vpc"><i class="fa fa-check"></i><b>7.4.2</b> Variance Partition Coefficient (VPC)</a></li>
+<li class="chapter" data-level="7.4.3" data-path="mlm1.html"><a href="mlm1.html#uncertainty-of-estimates"><i class="fa fa-check"></i><b>7.4.3</b> Uncertainty of Estimates</a></li>
+<li class="chapter" data-level="7.4.4" data-path="mlm1.html"><a href="mlm1.html#assessing-group-level-variation"><i class="fa fa-check"></i><b>7.4.4</b> Assessing Group-level Variation</a></li>
+<li class="chapter" data-level="7.4.5" data-path="mlm1.html"><a href="mlm1.html#adding-individual-level-predictors"><i class="fa fa-check"></i><b>7.4.5</b> Adding Individual-level Predictors</a></li>
+<li class="chapter" data-level="7.4.6" data-path="mlm1.html"><a href="mlm1.html#adding-group-level-predictors"><i class="fa fa-check"></i><b>7.4.6</b> Adding Group-level Predictors</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="mlm1.html"><a href="mlm1.html#useful-functions-1"><i class="fa fa-check"></i><b>7.5</b> Useful Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="mlm2.html"><a href="mlm2.html"><i class="fa fa-check"></i><b>8</b> Multilevel Modelling - Part 2</a><ul>
+<li class="chapter" data-level="8.1" data-path="mlm2.html"><a href="mlm2.html#dependencies-5"><i class="fa fa-check"></i><b>8.1</b> Dependencies</a></li>
+<li class="chapter" data-level="8.2" data-path="mlm2.html"><a href="mlm2.html#data-4"><i class="fa fa-check"></i><b>8.2</b> Data</a></li>
+<li class="chapter" data-level="8.3" data-path="mlm2.html"><a href="mlm2.html#conceptual-overview"><i class="fa fa-check"></i><b>8.3</b> Conceptual Overview</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="mlm2.html"><a href="mlm2.html#exploratory-analysis-varying-slopes"><i class="fa fa-check"></i><b>8.3.1</b> Exploratory Analysis: Varying Slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="mlm2.html"><a href="mlm2.html#estimating-varying-intercept-and-slopes-models"><i class="fa fa-check"></i><b>8.4</b> Estimating Varying Intercept and Slopes Models</a></li>
+<li class="chapter" data-level="8.5" data-path="mlm2.html"><a href="mlm2.html#interpreting-correlations-between-group-level-intercepts-and-slopes"><i class="fa fa-check"></i><b>8.5</b> Interpreting Correlations Between Group-level Intercepts and Slopes</a></li>
+<li class="chapter" data-level="8.6" data-path="mlm2.html"><a href="mlm2.html#model-building"><i class="fa fa-check"></i><b>8.6</b> Model building</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="mlm2.html"><a href="mlm2.html#model-comparison"><i class="fa fa-check"></i><b>8.6.1</b> Model Comparison</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>9</b> Geographically Weighted Regression</a><ul>
+<li class="chapter" data-level="9.1" data-path="gwr.html"><a href="gwr.html#dependencies-6"><i class="fa fa-check"></i><b>9.1</b> Dependencies</a></li>
+<li class="chapter" data-level="9.2" data-path="gwr.html"><a href="gwr.html#data-5"><i class="fa fa-check"></i><b>9.2</b> Data</a></li>
+<li class="chapter" data-level="9.3" data-path="gwr.html"><a href="gwr.html#recap-spatial-effects"><i class="fa fa-check"></i><b>9.3</b> Recap: Spatial Effects</a></li>
+<li class="chapter" data-level="9.4" data-path="gwr.html"><a href="gwr.html#exploratory-analysis"><i class="fa fa-check"></i><b>9.4</b> Exploratory Analysis</a></li>
+<li class="chapter" data-level="9.5" data-path="gwr.html"><a href="gwr.html#global-regression"><i class="fa fa-check"></i><b>9.5</b> Global Regression</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="gwr.html"><a href="gwr.html#global-regression-results"><i class="fa fa-check"></i><b>9.5.1</b> Global Regression Results</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="gwr.html"><a href="gwr.html#fitting-a-geographically-weighted-regression"><i class="fa fa-check"></i><b>9.6</b> Fitting a Geographically Weighted Regression</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="gwr.html"><a href="gwr.html#fixed-or-adaptive-kernel"><i class="fa fa-check"></i><b>9.6.1</b> Fixed or Adaptive Kernel</a></li>
+<li class="chapter" data-level="9.6.2" data-path="gwr.html"><a href="gwr.html#optimal-bandwidth"><i class="fa fa-check"></i><b>9.6.2</b> Optimal Bandwidth</a></li>
+<li class="chapter" data-level="9.6.3" data-path="gwr.html"><a href="gwr.html#shape-of-spatial-kernel"><i class="fa fa-check"></i><b>9.6.3</b> Shape of Spatial Kernel</a></li>
+<li class="chapter" data-level="9.6.4" data-path="gwr.html"><a href="gwr.html#selecting-a-bandwidth"><i class="fa fa-check"></i><b>9.6.4</b> Selecting a Bandwidth</a></li>
+<li class="chapter" data-level="9.6.5" data-path="gwr.html"><a href="gwr.html#model-fit"><i class="fa fa-check"></i><b>9.6.5</b> Model fit</a></li>
+<li class="chapter" data-level="9.6.6" data-path="gwr.html"><a href="gwr.html#interpretation-1"><i class="fa fa-check"></i><b>9.6.6</b> Interpretation</a></li>
+<li class="chapter" data-level="9.6.7" data-path="gwr.html"><a href="gwr.html#assessing-statistical-significance"><i class="fa fa-check"></i><b>9.6.7</b> Assessing statistical significance</a></li>
+<li class="chapter" data-level="9.6.8" data-path="gwr.html"><a href="gwr.html#collinearity-in-gwr"><i class="fa fa-check"></i><b>9.6.8</b> Collinearity in GWR</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="sta.html"><a href="sta.html"><i class="fa fa-check"></i><b>10</b> Spatio-Temporal Analysis</a><ul>
+<li class="chapter" data-level="10.1" data-path="sta.html"><a href="sta.html#dependencies-7"><i class="fa fa-check"></i><b>10.1</b> Dependencies</a></li>
+<li class="chapter" data-level="10.2" data-path="sta.html"><a href="sta.html#data-6"><i class="fa fa-check"></i><b>10.2</b> Data</a></li>
+<li class="chapter" data-level="10.3" data-path="sta.html"><a href="sta.html#why-spatio-temporal-analysis"><i class="fa fa-check"></i><b>10.3</b> Why Spatio-Temporal Analysis?</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="sta.html"><a href="sta.html#spatio-temporal-data-structures"><i class="fa fa-check"></i><b>10.3.1</b> Spatio-temporal Data Structures</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="sta.html"><a href="sta.html#data-wrangling"><i class="fa fa-check"></i><b>10.4</b> Data Wrangling</a></li>
+<li class="chapter" data-level="10.5" data-path="sta.html"><a href="sta.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>10.5</b> Exploring Spatio-Temporal Data</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="sta.html"><a href="sta.html#visualisation"><i class="fa fa-check"></i><b>10.5.1</b> Visualisation</a></li>
+<li class="chapter" data-level="10.5.2" data-path="sta.html"><a href="sta.html#exploratory-analysis-1"><i class="fa fa-check"></i><b>10.5.2</b> Exploratory Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="sta.html"><a href="sta.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>10.6</b> Spatio-Temporal Data Modelling</a><ul>
+<li class="chapter" data-level="10.6.1" data-path="sta.html"><a href="sta.html#intuition"><i class="fa fa-check"></i><b>10.6.1</b> Intuition</a></li>
+<li class="chapter" data-level="10.6.2" data-path="sta.html"><a href="sta.html#fitting-spatio-temporal-models"><i class="fa fa-check"></i><b>10.6.2</b> Fitting Spatio-Temporal Models</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Spatial Modelling for Data Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sta" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Spatio-Temporal Analysis</h1>
+<p>This chapter<a href="#fn48" class="footnote-ref" id="fnref48"><sup>48</sup></a> provides an introduction to the complexities of spatio-temporal data and modelling. For modelling, we consider the Fixed Rank Kriging (FRK) framework developed by <span class="citation">Cressie and Johannesson (<a href="#ref-cressie2008fixed" role="doc-biblioref">2008</a>)</span>. It enables constructing a spatial random effects model on a discretised spatial domain. Key advantages of this approach comprise the capacity to: (1) work with large data sets, (2) be scaled up; (3) generate predictions based on sparse linear algebraic techniques, and (4) produce fine-scale resolution uncertainty estimates.</p>
+<p>The content of this chapter is based on:</p>
+<ul>
+<li><p><span class="citation">Wikle, Zammit-Mangion, and Cressie (<a href="#ref-wikle2019spatio" role="doc-biblioref">2019</a>)</span>, a recently published book which provides a good overview of existing statistical approaches to spatio-temporal modelling and R packages.</p></li>
+<li><p><span class="citation">Zammit-Mangion and Cressie (<a href="#ref-zammit2017frk" role="doc-biblioref">2017</a>)</span>, who introduce the statistical framework and R package for modelling spatio-temporal used in this Chapter.</p></li>
+</ul>
+<p>This Chapter is part of <a href="index.html">Spatial Analysis Notes</a>, a compilation hosted as a GitHub repository that you can access in a few ways:</p>
+<ul>
+<li>As a <a href="https://github.com/GDSL-UL/san/archive/master.zip">download</a> of a <code>.zip</code> file that contains all the materials.</li>
+<li>As an <a href="https://gdsl-ul.github.io/san/spatio-temporal-analysis.html">html
+website</a>.</li>
+<li>As a <a href="https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf">pdf
+document</a></li>
+<li>As a <a href="https://github.com/GDSL-UL/san">GitHub repository</a>.</li>
+</ul>
+<div id="dependencies-7" class="section level2">
+<h2><span class="header-section-number">10.1</span> Dependencies</h2>
+<p>This chapter uses the following libraries: Ensure they are installed on your machine<a href="#fn49" class="footnote-ref" id="fnref49"><sup>49</sup></a> before loading them executing the following code chunk:</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="sta.html#cb397-1"></a><span class="co"># Data manipulation, transformation and visualisation</span></span>
+<span id="cb397-2"><a href="sta.html#cb397-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb397-3"><a href="sta.html#cb397-3"></a><span class="co"># Nice tables</span></span>
+<span id="cb397-4"><a href="sta.html#cb397-4"></a><span class="kw">library</span>(kableExtra)</span>
+<span id="cb397-5"><a href="sta.html#cb397-5"></a><span class="co"># Simple features (a standardised way to encode vector data ie. points, lines, polygons)</span></span>
+<span id="cb397-6"><a href="sta.html#cb397-6"></a><span class="kw">library</span>(sf) </span>
+<span id="cb397-7"><a href="sta.html#cb397-7"></a><span class="co"># Spatial objects conversion</span></span>
+<span id="cb397-8"><a href="sta.html#cb397-8"></a><span class="kw">library</span>(sp) </span>
+<span id="cb397-9"><a href="sta.html#cb397-9"></a><span class="co"># Thematic maps</span></span>
+<span id="cb397-10"><a href="sta.html#cb397-10"></a><span class="kw">library</span>(tmap) </span>
+<span id="cb397-11"><a href="sta.html#cb397-11"></a><span class="co"># Nice colour schemes</span></span>
+<span id="cb397-12"><a href="sta.html#cb397-12"></a><span class="kw">library</span>(viridis) </span>
+<span id="cb397-13"><a href="sta.html#cb397-13"></a><span class="co"># Obtain correlation coefficients</span></span>
+<span id="cb397-14"><a href="sta.html#cb397-14"></a><span class="kw">library</span>(corrplot)</span>
+<span id="cb397-15"><a href="sta.html#cb397-15"></a><span class="co"># Highlight data on plots</span></span>
+<span id="cb397-16"><a href="sta.html#cb397-16"></a><span class="kw">library</span>(gghighlight)</span>
+<span id="cb397-17"><a href="sta.html#cb397-17"></a><span class="co"># Analysing spatio-temporal data</span></span>
+<span id="cb397-18"><a href="sta.html#cb397-18"></a><span class="co">#library(STRbook)</span></span>
+<span id="cb397-19"><a href="sta.html#cb397-19"></a><span class="kw">library</span>(spacetime)</span>
+<span id="cb397-20"><a href="sta.html#cb397-20"></a><span class="co"># Date parsing and manipulation</span></span>
+<span id="cb397-21"><a href="sta.html#cb397-21"></a><span class="kw">library</span>(lubridate)</span>
+<span id="cb397-22"><a href="sta.html#cb397-22"></a><span class="co"># Applied statistics</span></span>
+<span id="cb397-23"><a href="sta.html#cb397-23"></a><span class="kw">library</span>(MASS)</span>
+<span id="cb397-24"><a href="sta.html#cb397-24"></a><span class="co"># Statistical tests for linear regression models</span></span>
+<span id="cb397-25"><a href="sta.html#cb397-25"></a><span class="kw">library</span>(lmtest)</span>
+<span id="cb397-26"><a href="sta.html#cb397-26"></a><span class="co"># Fit spatial random effects models</span></span>
+<span id="cb397-27"><a href="sta.html#cb397-27"></a><span class="kw">library</span>(FRK)</span>
+<span id="cb397-28"><a href="sta.html#cb397-28"></a><span class="co"># Exportable regression tables</span></span>
+<span id="cb397-29"><a href="sta.html#cb397-29"></a><span class="kw">library</span>(jtools)</span></code></pre></div>
+</div>
+<div id="data-6" class="section level2">
+<h2><span class="header-section-number">10.2</span> Data</h2>
+<p>For this chapter, we will use data on:</p>
+<ul>
+<li><p>COVID-19 confirmed cases from 30th January, 2020 to 21st April, 2020 from Public Health England via the <a href="https://coronavirus.data.gov.uk">GOV.UK dashboard</a>;</p></li>
+<li><p>resident population characteristics from the 2011 census, available from the <a href="https://www.nomisweb.co.uk/home/census2001.asp">Office of National Statistics</a>; and,</p></li>
+<li><p>2019 Index of Multiple Deprivation (IMD) data from <a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019">GOV.UK</a> and published by the Ministry of Housing, Communities &amp; Local Government. The data are at the ONS Upper Tier Local Authority
+(UTLA) level - also known as <a href="https://ago-item-storage.s3.us-east-1.amazonaws.com/7bb8db84e0f54e83aa05204f7bd674b8/EN37152_CTY_UA_DEC_2018_UK.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEI7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIHGIIjyriwWRx5QXeakP%2BhJr39uh7b7jP1dr4q%2FbEgC3AiEA0ohlaSFkwlCKLMy3vFhZDcQvDgzEVEP0kS17VN2ZnxMqvQMIpv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2MDQ3NTgxMDI2NjUiDD2XGTMX5p%2BWiurX2iqRA%2FHRJfiW8YaOjNi65RC8AFZ5shx%2Fn3Upl%2B9YP5xhX4YzsRqkYkx%2FYkwbMZ%2FlDDqWpBHcZzoRdFDz1IGLueQJvDhFignjzIBmExSJ0UdMvuU56tXbnZQ%2BI8lTjP9JRtLpZELENSjVeoi5qJpphGzoBo9O9cCJkQvWC3NNxqV6eFez00ld5qlRMpJ4KTOl7%2FxJBBfua%2F8WYdrcZ4H0KA47l%2FIJnp2AklUv%2Fw0cBoU0LZq3djjuVlE%2FseJKOnm1Z8KMFItEanYUpOrMfROJ5C%2FTwqqJ2GQMSvr30W%2F4%2FY%2F2BKNTiyCvbEJnD03SWrB20bBlN0Gr13YYvcSBBjgwmhe4EKIrrLSKo8SOZNOg02nq%2Bmrc0%2FsPo%2BYyLgA0MXASt9kDPL4N5IF9yG3lS7vd7E7%2FpesIlC%2FW3g3TVOBA92bKMtU6QA%2B93URcqkrXyrvN6LGAt2C83HjvuAmtbSmlJOD5enC7abdOEqJMyJdUH%2BwbBKXN8TK%2F%2BbRMzgshl1dJElvSnPAYZEuNwaso8bVXwSK%2F31m6MP%2Bv4fQFOusBk4G2Dlca6chTsAlFjXomtOeu6Kxm0MRAgdhF4mSRnKggkWu8mBYY68%2BeGt3egIOtssrEVcWYr1nseCriPHpsA%2BGi3IFnyPVIKZpStdv%2F%2FNoOip3YGsb%2BSxgkIdxjVJdnkTsEvEf7AZtu6BFTKfTtTAII%2Boh46F%2BH%2FDztv9kHuQMMXQsJozbphriOJDxP8TMSe16v8Tc1yULmRuenrfX1CMGTPrTcoUYPEu82qwDWlcMWwRRTMAv3xcupkZXVOQhMzkcyOOxQdOLWyIH5%2FZ%2BuIkNMQzndBya5nNjpGJ6UniQp22CkZ5n52KK%2Fnw%3D%3D&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20200416T135331Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=300&amp;X-Amz-Credential=ASIAYZTTEKKEUJMS7TPU%2F20200416%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=02022ae0228c2fc1d09a90a389d7fd00b9de38ff2df002159d3ad84666c213e8">Counties and Unitary Authorities</a>.</p></li>
+</ul>
+<p>For a full list of the variables included in the data sets used in this chapter, see the readme file in the sta data folder.<a href="#fn50" class="footnote-ref" id="fnref50"><sup>50</sup></a>. Before we get our hands on the data, there are some important concepts that need to be introduced. They provide a useful framework to understand the complex structure of spatio-temporal data. Let’s start by first highlighling the importance of spatio-temporal analysis.</p>
+</div>
+<div id="why-spatio-temporal-analysis" class="section level2">
+<h2><span class="header-section-number">10.3</span> Why Spatio-Temporal Analysis?</h2>
+<p>Investigating the spatial patterns of human processes as we have done so far in this book only offers a partial incomplete representation of these processes. It does not allow understanding of the temporal evolution of these processes. Human processes evolve in space and time. Human mobility is a inherent geographical process which changes over the course of the day, with peaks at rush hours and high concentration towards employment, education and retail centres. Exposure to air pollution changes with local climatic conditions, and emission and concentration of atmospheric pollutants which fluctuate over time. The rate of disease spread varies over space and may significantly change over time as we have seen during the current outbreak, with flattened or rapid declining trends in Australia, New Zealand and South Korea but fast proliferation in the United Kingdom and the United States. Only by considering time and space together we can address how geographic entities change over time and why they change. A large part of how and why of such change occurs is due to interactions across space and time, and multiple processes. It is essential to understand the past to inform our understanding of the present and make predictions about the future.</p>
+<div id="spatio-temporal-data-structures" class="section level3">
+<h3><span class="header-section-number">10.3.1</span> Spatio-temporal Data Structures</h3>
+<p>A first key element is to understand the structure of spatio-temporal data. Spatio-temporal data incorporate two dimensions. At one end, we have the temporal dimension. In quantitative analysis, time-series data are used to capture geographical processes at regular or irregular intervals; that is, in a continuous (daily) or discrete (only when a event occurs) temporal scale. At another end, we have the spatial dimension. We often use spatial data as temporal aggregations or temporally frozen states (or ‘snapshots’) of a geographical process - this is what we have done so far. Recall that spatial data can be capture in different geographical units, such as areal or lattice, points, flows or trajectories - refer to the introductory lecture in Week 1. Relatively few ways exist to formally integrate temporal and spatial data in consistent analytical framework. Two notable exceptions in R are the packages <code>TraMiner</code> <span class="citation">(Gabadinho et al. <a href="#ref-gabadinho2009mining" role="doc-biblioref">2009</a>)</span> and <code>spacetime</code> <span class="citation">(Pebesma and others <a href="#ref-pebesma2012spacetime" role="doc-biblioref">2012</a>)</span>. We use the class definitions defined in the R package <code>spacetime</code>. These classes extend those used for spatial data in <code>sp</code> and time-series data in <code>xts</code>. Next a brief introduction to concepts that facilitate thinking about spatio-temporal data structures.</p>
+<div id="type-of-table" class="section level4">
+<h4><span class="header-section-number">10.3.1.1</span> Type of Table</h4>
+<p>Spatio-temporal data can be conceptualised as three main different types of tables:</p>
+<ul>
+<li><p>time-wide: a table in which columns correspond to different time points</p></li>
+<li><p>space-wide: a table in which columns correspond to different spatial location</p></li>
+<li><p>long formats: a table in which each row-column pair corresponds to a specific time and spatial location (or space coordinate)</p></li>
+</ul>
+<blockquote>
+<p>Note that data in long format are space inefficient because spatial coordinates and time attributes are required for each data point. Yet, data in this format are relatively easy to manipulate via packages such as <code>dplyr</code> and <code>tidyr</code>, and visualise using <code>ggplot2</code>. These packages are designed to work with data in long format.</p>
+</blockquote>
+</div>
+<div id="type-of-spatio-temporal-object" class="section level4">
+<h4><span class="header-section-number">10.3.1.2</span> Type of Spatio-Temporal Object</h4>
+<p>To integrate spatio-temporal data, spatio-temporal objects are needed. We consider four different spatio-temporal frames (STFs) or objects which can be defined via the package <code>spacetime</code>:</p>
+<ul>
+<li><p>Full grid (STF): an object containing data on all possible locations in all time points in a sequence of data;</p></li>
+<li><p>Sparse grid (STS): an object similar to STF but only containing non-missing space-time data combinations;</p></li>
+<li><p>Irregular (STI): an object with an irregular space-time data structure, where each point is allocated a spatial coordinate and a time stamp;</p></li>
+<li><p>Simple Trajectories (STT): an object containig a sequence of space-time points that form trajectories.</p></li>
+</ul>
+<p>More details on these spatio-temporal structures, construction and manipulation, see <span class="citation">Pebesma and others (<a href="#ref-pebesma2012spacetime" role="doc-biblioref">2012</a>)</span>. Enough theory, let’s code!</p>
+</div>
+</div>
+</div>
+<div id="data-wrangling" class="section level2">
+<h2><span class="header-section-number">10.4</span> Data Wrangling</h2>
+<p>This section illustrates the complexities of handling spatio-temporal data. It discusses good practices in data manipulation and construction of a Space Time Irregular Data Frame (STIDF) object. Three key requirements to define a STFDF object are:</p>
+<ol style="list-style-type: decimal">
+<li><p>Have a data frame in long format i.e. a location-time pair data frame</p></li>
+<li><p>Define a time stamp</p></li>
+<li><p>Construct the spatio-temporal object of class STIDF by indicating the spatial and temporal coordinates</p></li>
+</ol>
+<p>Let’s now read all the required data. While we can have all data in a single data frame, you will find helpful to have separate data objects to identify:</p>
+<ul>
+<li><p>spatial locations</p></li>
+<li><p>temporal units</p></li>
+<li><p>data</p></li>
+</ul>
+<p>These data objects correspond to <code>locs</code>, <code>time</code>, and <code>covid19</code> and <code>censusimd</code> below. Throughout the chapter you will notice that we switch between the various data frames when convinient, depending on the operation.</p>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="sta.html#cb398-1"></a><span class="co"># clear workspace</span></span>
+<span id="cb398-2"><a href="sta.html#cb398-2"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
+<span id="cb398-3"><a href="sta.html#cb398-3"></a></span>
+<span id="cb398-4"><a href="sta.html#cb398-4"></a><span class="co"># read ONS UTLA shapefile</span></span>
+<span id="cb398-5"><a href="sta.html#cb398-5"></a>utla_shp &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/sta/ons_utla.shp&quot;</span>) </span></code></pre></div>
+<pre><code>## Reading layer `ons_utla&#39; from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sta/ons_utla.shp&#39; using driver `ESRI Shapefile&#39;
+## Simple feature collection with 150 features and 11 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 134112.4 ymin: 11429.67 xmax: 655653.8 ymax: 657536
+## projected CRS:  Transverse_Mercator</code></pre>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="sta.html#cb400-1"></a><span class="co"># create table of locations</span></span>
+<span id="cb400-2"><a href="sta.html#cb400-2"></a>locs &lt;-<span class="st"> </span>utla_shp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span></span>
+<span id="cb400-3"><a href="sta.html#cb400-3"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(objct, cty19c, ctyu19nm, long, lat, st_rs) </span>
+<span id="cb400-4"><a href="sta.html#cb400-4"></a></span>
+<span id="cb400-5"><a href="sta.html#cb400-5"></a><span class="co"># read time data frame</span></span>
+<span id="cb400-6"><a href="sta.html#cb400-6"></a>time &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/sta/reporting_dates.csv&quot;</span>)</span>
+<span id="cb400-7"><a href="sta.html#cb400-7"></a></span>
+<span id="cb400-8"><a href="sta.html#cb400-8"></a><span class="co"># read COVID-19 data in long format</span></span>
+<span id="cb400-9"><a href="sta.html#cb400-9"></a>covid19 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/sta/covid19_cases.csv&quot;</span>)</span>
+<span id="cb400-10"><a href="sta.html#cb400-10"></a></span>
+<span id="cb400-11"><a href="sta.html#cb400-11"></a><span class="co"># read census and IMD data</span></span>
+<span id="cb400-12"><a href="sta.html#cb400-12"></a>censusimd &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/sta/2011census_2019imd_utla.csv&quot;</span>)</span></code></pre></div>
+<p>If we explore the structure of the data via <code>head</code> and <code>str</code>, we can see we have data on daily and cumulative new COVID-19 cases for 150 spatial units (i.e. UTLAs) over 71 time points from January 30th to April 21st. We also have census and IMD data for a range of attributes.</p>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="sta.html#cb401-1"></a><span class="kw">head</span>(covid19, <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 6
+##   Area.name  Area.code Area.type   date       Daily.lab.confi… Cumulative.lab.c…
+##   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;       &lt;date&gt;                &lt;dbl&gt;             &lt;dbl&gt;
+## 1 Barking a… E09000002 Upper tier… 2020-01-30                0                 0
+## 2 Barnet     E09000003 Upper tier… 2020-01-30                0                 0
+## 3 Barnsley   E08000016 Upper tier… 2020-01-30                0                 0</code></pre>
+<p>Once we have understood the structure of the data, we first need to confirm if the <code>covid19</code> data are in wide or long format. Luckily they are in long format; otherwise, we would have needed to transform the data from wide to long format. Useful functions to achieve this include <code>pivot_longer</code> (<code>pivot_longer</code>) which has superseded <code>gather</code> (<code>spread</code>) in the <code>tidyr</code> package. Note that the <code>covid19</code> data frame has 10,650 observations (i.e. rows); that is, 150 UTLAs * 71 daily observations.</p>
+<p>We then define a regular time stamp for our temporal data. We use the <code>lubridate</code> package to do this. A key advantage of <code>lubridate</code> is that it automatically recognises the common separators used when recording dates (“-”, “/”, “.”, and ""). As a result, you only need to focus on specifying the order of the date elements to determine the parsing function applied. Below we check the structure of our time data, define a time stamp and create separate variables for days, weeks, months and year.</p>
+<blockquote>
+<p>Note that working with dates can be a complex task. A good discussion of these complexities is provided <a href="http://uc-r.github.io/dates/#convert_date">here</a>.</p>
+</blockquote>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="sta.html#cb403-1"></a><span class="co"># check the time structure used for reporting covid cases</span></span>
+<span id="cb403-2"><a href="sta.html#cb403-2"></a><span class="kw">head</span>(covid19<span class="op">$</span>date, <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2020-01-30&quot; &quot;2020-01-30&quot; &quot;2020-01-30&quot; &quot;2020-01-30&quot; &quot;2020-01-30&quot;</code></pre>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="sta.html#cb405-1"></a><span class="co"># parsing data into a time stamp</span></span>
+<span id="cb405-2"><a href="sta.html#cb405-2"></a>covid19<span class="op">$</span>date &lt;-<span class="st"> </span><span class="kw">ymd</span>(covid19<span class="op">$</span>date)</span>
+<span id="cb405-3"><a href="sta.html#cb405-3"></a><span class="kw">class</span>(covid19<span class="op">$</span>date)</span></code></pre></div>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="sta.html#cb407-1"></a><span class="co"># separate date variable into day,week, month and year variables</span></span>
+<span id="cb407-2"><a href="sta.html#cb407-2"></a>covid19<span class="op">$</span>day &lt;-<span class="st"> </span><span class="kw">day</span>(covid19<span class="op">$</span>date)</span>
+<span id="cb407-3"><a href="sta.html#cb407-3"></a>covid19<span class="op">$</span>week &lt;-<span class="st"> </span><span class="kw">week</span>(covid19<span class="op">$</span>date) <span class="co"># week of the year</span></span>
+<span id="cb407-4"><a href="sta.html#cb407-4"></a>covid19<span class="op">$</span>month &lt;-<span class="st"> </span><span class="kw">month</span>(covid19<span class="op">$</span>date)</span>
+<span id="cb407-5"><a href="sta.html#cb407-5"></a>covid19<span class="op">$</span>year &lt;-<span class="st"> </span><span class="kw">year</span>(covid19<span class="op">$</span>date)</span></code></pre></div>
+<p>Once defined the time stamp, we need to add the spatial information contained in our shapefile to create a spatio-temporal data frame.</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="sta.html#cb408-1"></a><span class="co"># join dfs</span></span>
+<span id="cb408-2"><a href="sta.html#cb408-2"></a>covid19_spt &lt;-<span class="st"> </span><span class="kw">left_join</span>(utla_shp, covid19, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;ctyu19nm&quot;</span> =<span class="st"> &quot;Area.name&quot;</span>))</span></code></pre></div>
+<p>We now have all the components to build a spatio-temporal object of class STIDF using <code>STIDF</code> from the <code>spacetime</code> package:</p>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="sta.html#cb409-1"></a><span class="co"># identifying spatial fields</span></span>
+<span id="cb409-2"><a href="sta.html#cb409-2"></a>spat_part &lt;-<span class="st"> </span><span class="kw">as</span>(dplyr<span class="op">::</span><span class="kw">select</span>(covid19_spt, <span class="op">-</span><span class="kw">c</span>(bng_e, bng_n, Area.code, Area.type, Daily.lab.confirmed.cases, Cumulative.lab.confirmed.cases, date, day, week, month, year)), <span class="dt">Class =</span> <span class="st">&quot;Spatial&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;, prefer_proj
+## = prefer_proj): Discarded datum Unknown based on Airy 1830 ellipsoid in CRS
+## definition</code></pre>
+<pre><code>## Warning in showSRID(SRS_string, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;, prefer_proj =
+## prefer_proj): Discarded datum D_unknown in CRS definition</code></pre>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="sta.html#cb412-1"></a><span class="co"># identifying temporal fields</span></span>
+<span id="cb412-2"><a href="sta.html#cb412-2"></a>temp_part &lt;-<span class="st"> </span>covid19_spt<span class="op">$</span>date</span>
+<span id="cb412-3"><a href="sta.html#cb412-3"></a></span>
+<span id="cb412-4"><a href="sta.html#cb412-4"></a><span class="co"># identifying data</span></span>
+<span id="cb412-5"><a href="sta.html#cb412-5"></a>covid19_data &lt;-<span class="st"> </span>covid19_spt <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="kw">c</span>(Area.code, Area.type, date, Daily.lab.confirmed.cases, Cumulative.lab.confirmed.cases, day, week, month, year)) <span class="op">%&gt;%</span></span>
+<span id="cb412-6"><a href="sta.html#cb412-6"></a><span class="st">  </span><span class="kw">as.data.frame</span>()</span>
+<span id="cb412-7"><a href="sta.html#cb412-7"></a></span>
+<span id="cb412-8"><a href="sta.html#cb412-8"></a><span class="co"># construct STIDF object</span></span>
+<span id="cb412-9"><a href="sta.html#cb412-9"></a>covid19_stobj &lt;-<span class="st"> </span><span class="kw">STIDF</span>(<span class="dt">sp =</span> spat_part, <span class="co"># spatial fields</span></span>
+<span id="cb412-10"><a href="sta.html#cb412-10"></a>                <span class="dt">time =</span> temp_part, <span class="co"># time fields</span></span>
+<span id="cb412-11"><a href="sta.html#cb412-11"></a>                <span class="dt">data =</span> covid19_data) <span class="co"># data</span></span>
+<span id="cb412-12"><a href="sta.html#cb412-12"></a>                </span>
+<span id="cb412-13"><a href="sta.html#cb412-13"></a><span class="kw">class</span>(covid19_stobj)</span></code></pre></div>
+<pre><code>## [1] &quot;STIDF&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;spacetime&quot;</code></pre>
+<p>We now add census and IMD variables. For the purposes of this Chapter, we only add total population and long-term sick or disabled population counts. You can add more variables by adding their names in the <code>select</code> function.</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="sta.html#cb414-1"></a><span class="co"># select pop data</span></span>
+<span id="cb414-2"><a href="sta.html#cb414-2"></a>pop &lt;-<span class="st"> </span>censusimd <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="st">&quot;UTLA19NM&quot;</span>, <span class="st">&quot;Residents&quot;</span>, <span class="st">&quot;Longterm_sick_or_disabled&quot;</span>)</span>
+<span id="cb414-3"><a href="sta.html#cb414-3"></a><span class="co"># join dfs</span></span>
+<span id="cb414-4"><a href="sta.html#cb414-4"></a>covid19_spt &lt;-<span class="st"> </span><span class="kw">left_join</span>(covid19_spt, pop,</span>
+<span id="cb414-5"><a href="sta.html#cb414-5"></a>                         <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;ctyu19nm&quot;</span> =<span class="st"> &quot;UTLA19NM&quot;</span>))</span>
+<span id="cb414-6"><a href="sta.html#cb414-6"></a>covid19 &lt;-<span class="st"> </span><span class="kw">left_join</span>(covid19, pop, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;Area.name&quot;</span> =<span class="st"> &quot;UTLA19NM&quot;</span>))</span></code></pre></div>
+</div>
+<div id="exploring-spatio-temporal-data" class="section level2">
+<h2><span class="header-section-number">10.5</span> Exploring Spatio-Temporal Data</h2>
+<p>We now have all the required data in place. In this section various methods of data visualisation are illustrated before key dimensions of the data are explored. Both of these types of exploration can be challenging as one or more dimensions in space and one in time need to be interrogated.</p>
+<div id="visualisation" class="section level3">
+<h3><span class="header-section-number">10.5.1</span> Visualisation</h3>
+<p>In the context spatio-temporal data, a first challenge is data visualization. Visualising more than two dimensions of spatio-temporal data, so it is helpful to slice or aggregate the data over a dimension, use color, or build animations through time. Before exploring the data, we need to define our key variable of interest; that is, the number of confirmed COVID-19 cases per 100,000 people. We also compute the cumulative number of confirmed COVID-19 cases per 100,000 people as it may be handy in some analyses.</p>
+<p>Fisrt create variable to be analysed:</p>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="sta.html#cb415-1"></a><span class="co"># rate of new covid-19 infection</span></span>
+<span id="cb415-2"><a href="sta.html#cb415-2"></a>covid19_spt<span class="op">$</span>n_covid19_r &lt;-<span class="st"> </span><span class="kw">round</span>( (covid19_spt<span class="op">$</span>Daily.lab.confirmed.cases <span class="op">/</span><span class="st"> </span>covid19_spt<span class="op">$</span>Residents) <span class="op">*</span><span class="st"> </span><span class="dv">100000</span>)</span>
+<span id="cb415-3"><a href="sta.html#cb415-3"></a>covid19<span class="op">$</span>n_covid19_r &lt;-<span class="st"> </span><span class="kw">round</span>( (covid19<span class="op">$</span>Daily.lab.confirmed.cases <span class="op">/</span><span class="st"> </span>covid19<span class="op">$</span>Residents) <span class="op">*</span><span class="st"> </span><span class="dv">100000</span> )</span>
+<span id="cb415-4"><a href="sta.html#cb415-4"></a></span>
+<span id="cb415-5"><a href="sta.html#cb415-5"></a><span class="co"># risk of cumulative covid-19 infection</span></span>
+<span id="cb415-6"><a href="sta.html#cb415-6"></a>covid19_spt<span class="op">$</span>c_covid19_r &lt;-<span class="st"> </span><span class="kw">round</span>( (covid19_spt<span class="op">$</span>Cumulative.lab.confirmed.cases <span class="op">/</span><span class="st"> </span>covid19_spt<span class="op">$</span>Residents) <span class="op">*</span><span class="st"> </span><span class="dv">100000</span>)</span>
+<span id="cb415-7"><a href="sta.html#cb415-7"></a>covid19<span class="op">$</span>c_covid19_r &lt;-<span class="st"> </span><span class="kw">round</span>( (covid19<span class="op">$</span>Cumulative.lab.confirmed.cases <span class="op">/</span><span class="st"> </span>covid19<span class="op">$</span>Residents) <span class="op">*</span><span class="st"> </span><span class="dv">100000</span>)</span></code></pre></div>
+<div id="spatial-plots" class="section level4">
+<h4><span class="header-section-number">10.5.1.1</span> Spatial Plots</h4>
+<p>One way to visualise the data is using spatial plots; that is, snapshots of a geographic process for a given time period. Data can be mapped in different ways using clorepleth, countour or surface plots. The key aim of these maps is to understand how the overall extent of spatial variation and local patterns of spatial concentration change over time. Below we visualise the weekly number of confirmed COVID-19 cases per 100,000 people.</p>
+<blockquote>
+<p>Note that Weeks range from 5 to 16 as they refer to calendar weeks. Calendar week 5 is when the first COVID-19 case in England was reported.</p>
+</blockquote>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="sta.html#cb416-1"></a><span class="co"># create data frame for new cases by week</span></span>
+<span id="cb416-2"><a href="sta.html#cb416-2"></a>daycases_week &lt;-<span class="st"> </span>covid19_spt <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(week, ctyu19nm, <span class="kw">as.character</span>(cty19c), Residents) <span class="op">%&gt;%</span></span>
+<span id="cb416-3"><a href="sta.html#cb416-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n_daycases =</span> <span class="kw">sum</span>(Daily.lab.confirmed.cases)) </span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by &#39;week&#39;, &#39;ctyu19nm&#39;, &#39;as.character(cty19c)&#39; (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="sta.html#cb418-1"></a><span class="co"># weekly rate of new covid-19 infection</span></span>
+<span id="cb418-2"><a href="sta.html#cb418-2"></a>daycases_week<span class="op">$</span>wn_covid19_r &lt;-<span class="st"> </span>(daycases_week<span class="op">$</span>n_daycases <span class="op">/</span><span class="st"> </span>daycases_week<span class="op">$</span>Residents) <span class="op">*</span><span class="st"> </span><span class="dv">100000</span></span>
+<span id="cb418-3"><a href="sta.html#cb418-3"></a></span>
+<span id="cb418-4"><a href="sta.html#cb418-4"></a><span class="co"># map</span></span>
+<span id="cb418-5"><a href="sta.html#cb418-5"></a>legend_title =<span class="st"> </span><span class="kw">expression</span>(<span class="st">&quot;Cumulative Cases per 100,000 Population&quot;</span>)</span>
+<span id="cb418-6"><a href="sta.html#cb418-6"></a><span class="kw">tm_shape</span>(daycases_week) <span class="op">+</span></span>
+<span id="cb418-7"><a href="sta.html#cb418-7"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&quot;wn_covid19_r&quot;</span>, <span class="dt">title =</span> legend_title, <span class="dt">palette =</span> <span class="kw">magma</span>(<span class="dv">256</span>), <span class="dt">style =</span><span class="st">&quot;cont&quot;</span>, <span class="dt">legend.hist=</span><span class="ot">FALSE</span>, <span class="dt">legend.is.portrait=</span><span class="ot">FALSE</span>) <span class="op">+</span></span>
+<span id="cb418-8"><a href="sta.html#cb418-8"></a><span class="st">  </span><span class="kw">tm_facets</span>(<span class="dt">by =</span> <span class="st">&quot;week&quot;</span>, <span class="dt">ncol =</span> <span class="dv">4</span>) <span class="op">+</span></span>
+<span id="cb418-9"><a href="sta.html#cb418-9"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">lwd =</span> <span class="fl">.1</span>)  <span class="op">+</span><span class="st"> </span><span class="co"># add borders +</span></span>
+<span id="cb418-10"><a href="sta.html#cb418-10"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">bg.color =</span> <span class="st">&quot;white&quot;</span>, <span class="co"># change background colour</span></span>
+<span id="cb418-11"><a href="sta.html#cb418-11"></a>            <span class="dt">legend.outside =</span> <span class="ot">TRUE</span>, <span class="co"># legend outside</span></span>
+<span id="cb418-12"><a href="sta.html#cb418-12"></a>            <span class="dt">legend.outside.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb418-13"><a href="sta.html#cb418-13"></a>            <span class="dt">legend.stack =</span> <span class="st">&quot;horizontal&quot;</span>,</span>
+<span id="cb418-14"><a href="sta.html#cb418-14"></a>            <span class="dt">legend.title.size =</span> <span class="dv">2</span>,</span>
+<span id="cb418-15"><a href="sta.html#cb418-15"></a>            <span class="dt">legend.width =</span> <span class="dv">1</span>,</span>
+<span id="cb418-16"><a href="sta.html#cb418-16"></a>            <span class="dt">legend.height =</span> <span class="dv">1</span>,</span>
+<span id="cb418-17"><a href="sta.html#cb418-17"></a>            <span class="dt">panel.label.size =</span> <span class="dv">3</span>,</span>
+<span id="cb418-18"><a href="sta.html#cb418-18"></a>            <span class="dt">main.title =</span> <span class="st">&quot;New COVID-19 Cases by Calendar Week, UTLA, England&quot;</span>) </span></code></pre></div>
+<pre><code>## Warning in pre_process_gt(x, interactive = interactive, orig_crs =
+## gm$shape.orig_crs): legend.width controls the width of the legend within a map.
+## Please use legend.outside.size to control the width of the outside legend</code></pre>
+<p><img src="10-st_analysis_files/figure-html/unnamed-chunk-9-1.png" width="1152" /></p>
+<p>The series of maps reveal a stable pattern of low reported cases from calendar weeks 5 to 11. From week 12 a number of hot spots emerged, notably in London, Birmingham, Cumbria and subsequently around Liverpool. The intensity of new cases seem to have started to decline from week 15; yet, it is important to note that week 16 display reported cases for only two days.</p>
+</div>
+<div id="time-series-plots" class="section level4">
+<h4><span class="header-section-number">10.5.1.2</span> Time-Series Plots</h4>
+<p>Time-series plots can be used to capture a different dimension of the process in analysis. They can be used to better understand changes in an observation location, an aggregation of observations, or multiple locations simultaneously over time. We plot the cumulative number of COVID-19 cases per 100,000 people for UTLAs reporting over 310 cases. The plots identify the UTLAs in London, Newcastle and Sheffield reporting the largest numbers of COVID-19 cases. The plots also reveal that there has been a steady increase in the number of cases, with some differences. While cases have steadily increase in Brent and Southwark since mid March, the rise has been more sudden in Sunderland. The plots also reveal a possible case of misreporting in Sutton towards the end of the series.</p>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="sta.html#cb420-1"></a>tsp &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> covid19_spt,</span>
+<span id="cb420-2"><a href="sta.html#cb420-2"></a>            <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> c_covid19_r,</span>
+<span id="cb420-3"><a href="sta.html#cb420-3"></a>                          <span class="dt">group =</span> ctyu19nm))</span>
+<span id="cb420-4"><a href="sta.html#cb420-4"></a>tsp <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb420-5"><a href="sta.html#cb420-5"></a><span class="st">    </span><span class="kw">gghighlight</span>(<span class="kw">max</span>(c_covid19_r) <span class="op">&gt;</span><span class="st"> </span><span class="dv">310</span>, <span class="dt">use_direct_label =</span> <span class="ot">FALSE</span>) <span class="op">+</span></span>
+<span id="cb420-6"><a href="sta.html#cb420-6"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title=</span> <span class="kw">paste</span>(<span class="st">&quot; &quot;</span>), <span class="dt">x=</span><span class="st">&quot;Date&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Cumulative Cases per 100,000&quot;</span>) <span class="op">+</span></span>
+<span id="cb420-7"><a href="sta.html#cb420-7"></a><span class="st">    </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb420-8"><a href="sta.html#cb420-8"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">plot.title=</span><span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>)) <span class="op">+</span></span>
+<span id="cb420-9"><a href="sta.html#cb420-9"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">16</span>)) <span class="op">+</span></span>
+<span id="cb420-10"><a href="sta.html#cb420-10"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">18</span>)) <span class="op">+</span></span>
+<span id="cb420-11"><a href="sta.html#cb420-11"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">18</span>)) <span class="op">+</span></span>
+<span id="cb420-12"><a href="sta.html#cb420-12"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">plot.subtitle=</span><span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>)) <span class="op">+</span></span>
+<span id="cb420-13"><a href="sta.html#cb420-13"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>, <span class="dt">face=</span><span class="st">&quot;plain&quot;</span>)) <span class="op">+</span></span>
+<span id="cb420-14"><a href="sta.html#cb420-14"></a><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>ctyu19nm)</span></code></pre></div>
+<p><img src="10-st_analysis_files/figure-html/unnamed-chunk-10-1.png" width="1152" /></p>
+</div>
+<div id="hovmöller-plots" class="section level4">
+<h4><span class="header-section-number">10.5.1.3</span> Hovmöller Plots</h4>
+<p>An alternative visualisation is a Hovmöller plot - sometimes known as heatmap. It is a two-dimensional space-time representation in which space is collapsed onto one dimension against time. Hovmöller plots can easily be generated if the data are arranged on a space-time grid; however, this is rarely the case. Luckily we have <code>ggplot</code>! which can do magic rearranging the data as needed. Below we produce a Hovmöller plot for UTLAs with resident populations over 260,000. The plot makes clear that the critical period of COVID-19 spread has been during April despite the implementation of a series of social distancing measures by the government.</p>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="sta.html#cb421-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> dplyr<span class="op">::</span><span class="kw">filter</span>(covid19_spt, Residents <span class="op">&gt;</span><span class="st"> </span><span class="dv">260000</span>), </span>
+<span id="cb421-2"><a href="sta.html#cb421-2"></a>           <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span> date, <span class="dt">y=</span> <span class="kw">reorder</span>(ctyu19nm, c_covid19_r), <span class="dt">fill=</span> c_covid19_r)) <span class="op">+</span></span>
+<span id="cb421-3"><a href="sta.html#cb421-3"></a><span class="st">  </span><span class="kw">geom_tile</span>() <span class="op">+</span></span>
+<span id="cb421-4"><a href="sta.html#cb421-4"></a><span class="st">  </span><span class="kw">scale_fill_viridis</span>(<span class="dt">name=</span><span class="st">&quot;New Cases per 100,000&quot;</span>, <span class="dt">option =</span><span class="st">&quot;plasma&quot;</span>, <span class="dt">begin =</span> <span class="dv">0</span>, <span class="dt">end =</span> <span class="dv">1</span>, <span class="dt">direction =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb421-5"><a href="sta.html#cb421-5"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb421-6"><a href="sta.html#cb421-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span> <span class="kw">paste</span>(<span class="st">&quot; &quot;</span>), <span class="dt">x=</span><span class="st">&quot;Date&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Upper Tier Authority Area&quot;</span>) <span class="op">+</span></span>
+<span id="cb421-7"><a href="sta.html#cb421-7"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span></span>
+<span id="cb421-8"><a href="sta.html#cb421-8"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb421-9"><a href="sta.html#cb421-9"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">10</span>)) <span class="op">+</span></span>
+<span id="cb421-10"><a href="sta.html#cb421-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb421-11"><a href="sta.html#cb421-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>, <span class="dt">face=</span><span class="st">&quot;plain&quot;</span>)) <span class="op">+</span></span>
+<span id="cb421-12"><a href="sta.html#cb421-12"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.key.width =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">legend.key.height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>))</span></code></pre></div>
+<p><img src="10-st_analysis_files/figure-html/unnamed-chunk-11-1.png" width="1152" /></p>
+</div>
+<div id="interactive-plots" class="section level4">
+<h4><span class="header-section-number">10.5.1.4</span> Interactive Plots</h4>
+<p>Interactive visualisations comprise very effective ways to understand spatio-temporal data and they are now fairly accessible. Interactive visualisations allow for a more data-immersive experience, and enable exploration of the data without having to resort to scripting. Here is when the use of <code>tmap</code> shines as it does not only enables easily creating nice static maps but also interactive maps! Below an interactive map for a time snapshot of the data (i.e. <code>2020-04-14</code>) is produced, but with a bit of work layers can be added to display multiple temporal slices of the data.</p>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="sta.html#cb422-1"></a><span class="co"># map</span></span>
+<span id="cb422-2"><a href="sta.html#cb422-2"></a>legend_title =<span class="st"> </span><span class="kw">expression</span>(<span class="st">&quot;Cumulative Cases per 100,000 Population&quot;</span>)</span>
+<span id="cb422-3"><a href="sta.html#cb422-3"></a>imap =<span class="st"> </span><span class="kw">tm_shape</span>(dplyr<span class="op">::</span><span class="kw">filter</span>(covid19_spt[,<span class="kw">c</span>(<span class="st">&quot;ctyu19nm&quot;</span>, <span class="st">&quot;date&quot;</span>, <span class="st">&quot;c_covid19_r&quot;</span>)], <span class="kw">as.character</span>(date) <span class="op">==</span><span class="st"> &quot;2020-04-14&quot;</span>), <span class="dt">labels =</span> <span class="st">&quot;Area.name&quot;</span>) <span class="op">+</span></span>
+<span id="cb422-4"><a href="sta.html#cb422-4"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&quot;c_covid19_r&quot;</span>, <span class="dt">title =</span> legend_title, <span class="dt">palette =</span> <span class="kw">magma</span>(<span class="dv">256</span>), <span class="dt">style =</span><span class="st">&quot;cont&quot;</span>, <span class="dt">legend.is.portrait=</span><span class="ot">FALSE</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>) <span class="op">+</span></span>
+<span id="cb422-5"><a href="sta.html#cb422-5"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">col =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></span>
+<span id="cb422-6"><a href="sta.html#cb422-6"></a><span class="st">  </span><span class="co">#tm_text(&quot;ctyu19nm&quot;, size = .4) +</span></span>
+<span id="cb422-7"><a href="sta.html#cb422-7"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">bg.color =</span> <span class="st">&quot;white&quot;</span>, <span class="co"># change background colour</span></span>
+<span id="cb422-8"><a href="sta.html#cb422-8"></a>            <span class="dt">legend.outside =</span> <span class="ot">TRUE</span>, <span class="co"># legend outside</span></span>
+<span id="cb422-9"><a href="sta.html#cb422-9"></a>            <span class="dt">legend.title.size =</span> <span class="dv">1</span>,</span>
+<span id="cb422-10"><a href="sta.html#cb422-10"></a>            <span class="dt">legend.width =</span> <span class="dv">1</span>) </span></code></pre></div>
+<p>To view the map on your local machines, execute the code chunk below removing the <code>#</code> sign.</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="sta.html#cb423-1"></a><span class="co">#tmap_mode(&quot;view&quot;)</span></span>
+<span id="cb423-2"><a href="sta.html#cb423-2"></a><span class="co">#imap</span></span></code></pre></div>
+<p>Alternative data visualisation tools are animations, telliscope and shiny. Animations can be constructed by plotting spatial data frame-by-frame, and then stringing them together in sequence. A useful R packages <code>gganimate</code> and <code>tmap</code>! See <span class="citation">Lovelace, Nowosad, and Muenchow (<a href="#ref-Lovelace_et_al_2020_book" role="doc-biblioref">2020</a>)</span>. Note that the creation of animations may require external dependencies; hence, they have been included here. Both <code>telliscope</code> and <code>shiny</code> are useful ways for visualising large spatio-temporal data sets in an interactive ways. Some effort is required to deploy these tools.</p>
+</div>
+</div>
+<div id="exploratory-analysis-1" class="section level3">
+<h3><span class="header-section-number">10.5.2</span> Exploratory Analysis</h3>
+<p>In addition to visualising data, we often want to obtain numerical summaries of the data. Again, innovative ways to reduce the inherent dimensionality of the data and examine dependence structures and potential relationships in time and space are needed. We consider visualisations of empirical spatial and temporal means, dependence structures and some basic time-series analysis.</p>
+<div id="means" class="section level4">
+<h4><span class="header-section-number">10.5.2.1</span> Means</h4>
+<p><strong>Empirical Spatial Mean</strong></p>
+<p>The empirical spatial mean for a data set can be obtained by averaging over time points for one location. In our case, we can compute the empirical spatial mean by averaging the daily rate of new COVID-19 cases for UTLAs between January 30th and April 21st. It reveals that Brent, Southwark and Sunderland report an average daily infection rate of over 5 new cases per 100,000 people, whereas Rutland and Isle of Wight display an average of less than 1.</p>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="sta.html#cb424-1"></a><span class="co"># compute empirical spatial mean</span></span>
+<span id="cb424-2"><a href="sta.html#cb424-2"></a>sp_av &lt;-<span class="st"> </span>covid19_spt <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(ctyu19nm) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># group by spatial unit</span></span>
+<span id="cb424-3"><a href="sta.html#cb424-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sp_mu_emp =</span> <span class="kw">mean</span>(n_covid19_r))</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="sta.html#cb426-1"></a><span class="co"># plot empirical spatial mean</span></span>
+<span id="cb426-2"><a href="sta.html#cb426-2"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>sp_av) <span class="op">+</span></span>
+<span id="cb426-3"><a href="sta.html#cb426-3"></a><span class="st">  </span><span class="kw">geom_col</span>( <span class="kw">aes</span>( <span class="dt">y =</span> <span class="kw">reorder</span>(ctyu19nm, sp_mu_emp), <span class="dt">x =</span> sp_mu_emp) , <span class="dt">fill =</span> <span class="st">&quot;grey50&quot;</span>) <span class="op">+</span></span>
+<span id="cb426-4"><a href="sta.html#cb426-4"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb426-5"><a href="sta.html#cb426-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span> <span class="kw">paste</span>(<span class="st">&quot; &quot;</span>), <span class="dt">x=</span><span class="st">&quot;Average New Cases per 100,000&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Upper Tier Authority Area&quot;</span>) <span class="op">+</span></span>
+<span id="cb426-6"><a href="sta.html#cb426-6"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span></span>
+<span id="cb426-7"><a href="sta.html#cb426-7"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">7</span>)) <span class="op">+</span></span>
+<span id="cb426-8"><a href="sta.html#cb426-8"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span></span>
+<span id="cb426-9"><a href="sta.html#cb426-9"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>, <span class="dt">face=</span><span class="st">&quot;plain&quot;</span>))</span></code></pre></div>
+<p><img src="10-st_analysis_files/figure-html/unnamed-chunk-14-1.png" width="1152" /></p>
+<p><strong>Empirical Temporal Mean</strong></p>
+<p>The empirical temporal mean for a data set can be obtained by averaging across spatial locations for a time point. In our case, we can compute the empirical temporal mean by averaging the rate of new COVID-19 cases over UTLAs by day. The empirical temporal mean is plotted below revealing a peak of 8.32 number of new cases per 100,000 people the 7th of April, steadily decreasing to 0.35 for the last reporting observation in our data; that is, April 21st.</p>
+<blockquote>
+<p>Note the empirical temporal mean is smoothed via local polynomial regression fitting; hence below zero values are reported between February and March.</p>
+</blockquote>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="sta.html#cb427-1"></a><span class="co"># compute temporal mean</span></span>
+<span id="cb427-2"><a href="sta.html#cb427-2"></a>tm_av &lt;-<span class="st"> </span>covid19 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(date) <span class="op">%&gt;%</span></span>
+<span id="cb427-3"><a href="sta.html#cb427-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">tm_mu_emp =</span> <span class="kw">mean</span>(n_covid19_r))</span>
+<span id="cb427-4"><a href="sta.html#cb427-4"></a></span>
+<span id="cb427-5"><a href="sta.html#cb427-5"></a><span class="co"># plot temporal mean + trends for all spatial units</span></span>
+<span id="cb427-6"><a href="sta.html#cb427-6"></a><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb427-7"><a href="sta.html#cb427-7"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data =</span> covid19, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span>date, <span class="dt">y =</span> n_covid19_r,</span>
+<span id="cb427-8"><a href="sta.html#cb427-8"></a>                          <span class="dt">group =</span> Area.name), <span class="dt">color =</span> <span class="st">&quot;gray80&quot;</span>) <span class="op">+</span></span>
+<span id="cb427-9"><a href="sta.html#cb427-9"></a><span class="st">   </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb427-10"><a href="sta.html#cb427-10"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">data =</span> tm_av, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span>date, <span class="dt">y =</span> tm_mu_emp), </span>
+<span id="cb427-11"><a href="sta.html#cb427-11"></a>              <span class="dt">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb427-12"><a href="sta.html#cb427-12"></a>              <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></span>
+<span id="cb427-13"><a href="sta.html#cb427-13"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title=</span> <span class="kw">paste</span>(<span class="st">&quot; &quot;</span>), <span class="dt">x=</span><span class="st">&quot;Date&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Cumulative Cases per 100,000&quot;</span>) <span class="op">+</span></span>
+<span id="cb427-14"><a href="sta.html#cb427-14"></a><span class="st">    </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb427-15"><a href="sta.html#cb427-15"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">plot.title=</span><span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">18</span>)) <span class="op">+</span></span>
+<span id="cb427-16"><a href="sta.html#cb427-16"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>)) <span class="op">+</span></span>
+<span id="cb427-17"><a href="sta.html#cb427-17"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>)) <span class="op">+</span></span>
+<span id="cb427-18"><a href="sta.html#cb427-18"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>)) <span class="op">+</span></span>
+<span id="cb427-19"><a href="sta.html#cb427-19"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">plot.subtitle=</span><span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>)) <span class="op">+</span></span>
+<span id="cb427-20"><a href="sta.html#cb427-20"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">18</span>, <span class="dt">face=</span><span class="st">&quot;plain&quot;</span>))</span></code></pre></div>
+<p><img src="10-st_analysis_files/figure-html/unnamed-chunk-15-1.png" width="1152" /></p>
+</div>
+<div id="dependence" class="section level4">
+<h4><span class="header-section-number">10.5.2.2</span> Dependence</h4>
+<p><strong>Spatial Dependence</strong></p>
+<p>As we know spatial dependence refers to the spatial relationship of a variable’s values for a pairs of locations at a certain distance apart, so that are more similar (or less similar) than expected for randomly associated pairs of observations. Patterns of spatial dependence may change over time. In the case of a disease outbreak patterns of spatial dependence can change very quickly as new cases emerge and social distancing measures are implemented. Chapter 6 illustrates how to measure spatial dependence in the context of spatial data.</p>
+<blockquote>
+<p>Challenge 1: Measure how spatial dependence change over time. Hint: compute the Moran’s I on the rate of new COVID-19 cases (i.e. <code>n_covid19_r</code> in the <code>covid19</code> data frame) at multiple time points.</p>
+</blockquote>
+<blockquote>
+<p>Note: recall that the problem of ignoring the dependence in the errors when doing OLS regression is that the resulting standard errors and prediction standard errors are inappropriate. In the case of positive dependence, which is the most common case in spatio-temporal data (recall Tobler’s law), the standard errors and prediction standard errors are underestimated. This is if dependence is ignored, resulting in a false sense of how good the estimates and predictions really are.</p>
+</blockquote>
+<p><strong>Temporal Dependence</strong></p>
+<p>As for spatial data, dependence can also exists in temporal data. Temporal dependence or temporal autocorrelation exists when a variable’s value at time <span class="math inline">\(t\)</span> is dependent on its value(s) at <span class="math inline">\(t-1\)</span>. More recent observations are often expected to have a greater influence on present observations. A key difference between temporal and spatial dependence is that temporal dependence is unidirectional (i.e. past observations can only affect present or future observations but not inversely), while spatial dependence is multidirectional (i.e. an observation in a spatial unit can influence and be influenced by observations in multiple spatial units).</p>
+<p>Before measuring the temporal dependence is our time-series, a time-series object needs to be created with a time stamp and given cycle frequency. A cycle frequency refers to when a seasonal pattern is repeated. We consider a time series of the total number of new COVID-19 cases per 100,000 (i.e. we sum cases over UTLAs by day) and the frequency set to 7 to reflect weekly cycles. So we end up with a data frame of length 71.</p>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="sta.html#cb428-1"></a><span class="co"># create a time series object</span></span>
+<span id="cb428-2"><a href="sta.html#cb428-2"></a>total_cnt &lt;-<span class="st"> </span>covid19 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(date) <span class="op">%&gt;%</span></span>
+<span id="cb428-3"><a href="sta.html#cb428-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">new_cases =</span> <span class="kw">sum</span>(n_covid19_r)) </span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="sta.html#cb430-1"></a>total_cases_ts &lt;-<span class="st"> </span><span class="kw">ts</span>(total_cnt<span class="op">$</span>new_cases, </span>
+<span id="cb430-2"><a href="sta.html#cb430-2"></a>                     <span class="dt">start =</span> <span class="dv">1</span>,</span>
+<span id="cb430-3"><a href="sta.html#cb430-3"></a>                     <span class="dt">frequency =</span><span class="dv">7</span>)</span></code></pre></div>
+<p>There are various ways to test for temporal autocorrelation. An easy way is to compute the correlation coefficient between a time series measured at time <span class="math inline">\(t\)</span> and its lag measured at time <span class="math inline">\(t-1\)</span>. Below we measure the temporal autocorrelation in the rate of new COVID-19 cases per 100,000 people. A correlation of 0.97 is returned indicating high positive autocorrelation; that is, high (low) past numbers of new COVID-19 cases per 100,000 people tend to correlate with higher (lower) present numbers of new COVID-19 cases. The Durbin-Watson test is often used to test for autocorrelation in regression models.</p>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="sta.html#cb431-1"></a><span class="co"># create lag term t-1</span></span>
+<span id="cb431-2"><a href="sta.html#cb431-2"></a>lag_new_cases &lt;-<span class="st"> </span>total_cnt<span class="op">$</span>new_cases[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb431-3"><a href="sta.html#cb431-3"></a>total_cnt &lt;-<span class="st"> </span><span class="kw">cbind</span>(total_cnt[<span class="dv">1</span><span class="op">:</span><span class="dv">70</span>,], lag_new_cases)</span>
+<span id="cb431-4"><a href="sta.html#cb431-4"></a><span class="kw">cor</span>(total_cnt[,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>])</span></code></pre></div>
+<pre><code>##               new_cases lag_new_cases
+## new_cases      1.000000      0.974284
+## lag_new_cases  0.974284      1.000000</code></pre>
+<p><strong>Time Series Components</strong></p>
+<p>In addition to temporal autocorrelation, critical to the analysis of time-series are its constituent components. A time-series is generally defined by three key components:</p>
+<ul>
+<li><p>Trend: A trend exists when there is a long-term increase or decrease in the data.</p></li>
+<li><p>Seasonal: A seasonal pattern exists when a time series is affected by seasonal factors and is of a fixed and known frequency. Seasonal cycles can occur at various time intervals such as the time of the day or the time of the year.</p></li>
+<li><p>Cyclic (random): A cycle exists when the data exhibit rises and falls that are not of a fixed frequency.</p></li>
+</ul>
+<p>To understand and model a time series, these components need to be identified and appropriately incorporated into a regression model. We illustrate these components by decomposing our time series for total COVID-19 cases below. The top plot shows the observed data. Subsequent plots display the trend, seasonal and random components of the total number of COVID-19 cases on a weekly periodicity. They reveal a clear inverted U-shape trend and seasonal pattern. This idea that we can decompose data to extract information and understand temporal processes is key to understand the concept of basis functions to model spatio-temporal data, which will be introduced in the next section.</p>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="sta.html#cb433-1"></a><span class="co"># decompose time series</span></span>
+<span id="cb433-2"><a href="sta.html#cb433-2"></a>dec_ts &lt;-<span class="st"> </span><span class="kw">decompose</span>(total_cases_ts)</span>
+<span id="cb433-3"><a href="sta.html#cb433-3"></a><span class="co"># plot time series components</span></span>
+<span id="cb433-4"><a href="sta.html#cb433-4"></a><span class="kw">plot</span>(dec_ts)</span></code></pre></div>
+<p><img src="10-st_analysis_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>For a good introduction to time-series analysis in R, refer to <span class="citation">Hyndman and Athanasopoulos (<a href="#ref-hyndman2018forecasting" role="doc-biblioref">2018</a>)</span> and <a href="https://www.datacamp.com/courses/forecasting-using-r">DataCamp</a>.</p>
+</div>
+</div>
+</div>
+<div id="spatio-temporal-data-modelling" class="section level2">
+<h2><span class="header-section-number">10.6</span> Spatio-Temporal Data Modelling</h2>
+<p>Having some understanding of the spatio-temporal patterns of COVID-19 spread through data exploration, we are ready to start further examining structural relationships between the rate of new infections and local contextual factors via regression modelling across UTLAs. Specifically we consider the number of new cases per 100,000 people to capture the rate of new infections and only one contextual factor; that is, the share of population suffering from long-term sickness or disabled. We will consider some basic statistical models, of the form of linear regression and generalized linear models, to account for spatio-temporal dependencies in the data. Note that we do not consider more complex structures based on hierarchical models or spatio-temporal weighted regression models which would be the natural step moving forward.</p>
+<p>As any modelling approach, spatio-temporal statistical modelling has three principal goals:</p>
+<ol style="list-style-type: decimal">
+<li><p>predicting values of a given outcome variable at some location in space within the time span of the observations and offering information about the uncertainty of those predictions;</p></li>
+<li><p>performing statistical inference about the influence of predictors on an outcome variable in the presence of spatio-temporal dependence; and,</p></li>
+<li><p>forecasting future values of an outcome variable at some location, offering information about the uncertainty of the forecast.</p></li>
+</ol>
+<div id="intuition" class="section level3">
+<h3><span class="header-section-number">10.6.1</span> Intuition</h3>
+<p>The key idea on what follows is to use a basic statistical regression model to understand the relationship between the share of new COVID-19 infections and the share of population suffering from long-term illness, accounting for spatio-temporal dependencies. We will consider what is known as a trend-surface regression model which assumes that spatio-temporal dependencies can be accounted for by “trend” components and incorporate as predictors in the model. Formally we consider the regression model below which seeks to account for spatial and temporal trends.</p>
+<p><span class="math display">\[y(s_{i}, t_{j}) = \beta_{0} + \beta_{k}x(s_{i}, t_{j}) + e(s_{i}, t_{j})\]</span></p>
+<p>where <span class="math inline">\(\beta_{0}\)</span> is the intercept and <span class="math inline">\(\beta_{k}\)</span> represents a set of regression coefficients associated with <span class="math inline">\(x(s_{i}, t_{j})\)</span>; the <span class="math inline">\(k\)</span> indicates the number of covariates at spatial location <span class="math inline">\(s_{i}\)</span> and time <span class="math inline">\(t_{j}\)</span>; <span class="math inline">\(e\)</span> represents the regression errors which are assumed to follow a normal distribution. The key difference to aproaches considered in previous chapters is the incorporation of space and time together. As we learnt from the previous section, this has implications are we now have two sources of dependence: spatial and temporal autocorrelation, as well as seasonal and trend components. This has implications for modelling as we now need to account for all of these components if we are to establish any relationship between <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span>.</p>
+<p>A key implication is how we consider the set of covariates represented by <span class="math inline">\(x\)</span>. Three key types can be identified:</p>
+<ul>
+<li><p>spatial-variant, temporal-invariant covariates: these are attributes which may vary across space but be temporally invariant, such as geographical distances;</p></li>
+<li><p>spatial-invariant, temporal-variant covariates: these are attributes which do not vary across space but change over time; and,</p></li>
+<li><p>spatial-variant, temporal-variant covariates: these are attributes which vary over both space and time;</p></li>
+</ul>
+<blockquote>
+<p>Note that what is variant or invariant will depend on the spatial and temporal scale of the analysis.</p>
+</blockquote>
+<p>We can also consider spatio-temporal “basis functions”. Note that this is an important concept for the rest of the Chapter. What are basis functions then? If you think that spatio-temporal data represent a complex set of curves or surfaces in space, basis functions represent the components into which this set of curves can be decomposed. In this sense, basis functions operate in a similar fashion as the decomposition of time series considered above i.e. time series data can be decomposed into a trend, seasonal and random components and their sum can be used to represent the observed temporal trajectory. Basis functions offer an effective way to incorporate spatio-temporal dependencies. Thus, basis functions have the key goal of accounting for spatio-temporal dependencies as spatial weight matrices or temporal lags help accounting spatial autocorrelation in spatial models and temporal autocorrelation in time series analysis.</p>
+<p>As standard regression coefficients, basis functions are related to <span class="math inline">\(y\)</span> via coefficients (or weights). The difference is that we typically assume that basis functions are known while coefficients are random. Examples of basis functions include polynomials, splines, wavelets, sines and cosines so various linear combinations that can be used to infer potential spatio-temporal dependencies in the data. This is similar to deep learning models in which cases you provide, for example, an image and the model provides a classification of pixels. But you normally do not know what the classification represents (hence they are known as black boxes!) so further analysis on the classification is needed to understand what the model has attempted to capture. Basically basis functions are smoother functions to represent the observed data, and their objective to capture the spatial and temporal variability in the data as well as their dependence.</p>
+<p>For our application, we start by considering a basic OLS regression model with the following basis functions to account spatial-temporal structures:</p>
+<ul>
+<li>overall mean;</li>
+<li>linear in lon-coordinate;</li>
+<li>linear in lat-coordinate;</li>
+<li>linear time daily trend;</li>
+<li>additional spatio-temporal basis functions which are presented below; and,</li>
+</ul>
+<p>These basis functions are incorporated as independent variables in the regression model. Additionally, we also include the share of population suffering from long-term illness as we know it is highly correlated to the cumulative number of COVID-19 cases. The share of population suffering long-term illness is incorporated as a spatial-variant, temporal-invariant covariates given that rely in 2011 census data.</p>
+</div>
+<div id="fitting-spatio-temporal-models" class="section level3">
+<h3><span class="header-section-number">10.6.2</span> Fitting Spatio-Temporal Models</h3>
+<p>As indicated at the start of this Chapter, we use the FRK framework developed by <span class="citation">Cressie and Johannesson (<a href="#ref-cressie2008fixed" role="doc-biblioref">2008</a>)</span>. It provides a scalable, relies on the use a spatial random effects model (with which we have some familiarity) and can be easily implemented in R by the use of the <code>FRK</code> package <span class="citation">(Zammit-Mangion and Cressie <a href="#ref-zammit2017frk" role="doc-biblioref">2017</a>)</span>. In this framework, a spatially correlated errors can be decomposed using a linear combination of spatial basis functions, effectively addressing issues of spatial-temporal dependence and nonstationarity. The specification of spatio-temporal basis functions is a key component of the model and they can be generated automatically or by the user via the <code>FRK</code> package. We will use the automatically generated functions. While as we will notice they are difficult to interpret, user generated functions require greater understanding of the spatio-temporal structure of COVID-19 which is beyond the scope of this Chapter.</p>
+<p><strong>Prepare Data</strong></p>
+<p>The first step to create a data frame with the variables that we will consider for the analysis. We first remove the geometries to convert <code>covid19_spt</code> from a simple feature object to a data frame and then compute the share of long-term illness population.</p>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="sta.html#cb434-1"></a><span class="co"># remove geometries</span></span>
+<span id="cb434-2"><a href="sta.html#cb434-2"></a><span class="kw">st_geometry</span>(covid19_spt) &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb434-3"><a href="sta.html#cb434-3"></a></span>
+<span id="cb434-4"><a href="sta.html#cb434-4"></a><span class="co"># share of population in long-term illness </span></span>
+<span id="cb434-5"><a href="sta.html#cb434-5"></a>covid19_spt &lt;-<span class="st"> </span>covid19_spt <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
+<span id="cb434-6"><a href="sta.html#cb434-6"></a> <span class="dt">lt_illness =</span> Longterm_sick_or_disabled <span class="op">/</span><span class="st"> </span>Residents</span>
+<span id="cb434-7"><a href="sta.html#cb434-7"></a>)</span></code></pre></div>
+<p><strong>Construct Basis Functions</strong></p>
+<p>We now build the set of basis functions. The can be constructed by using the function <code>auto_basis</code> from the <code>FRK</code> package. The function takes as arguments: data, nres (which is the number of “resolutions” or aggregation to construct); and type of basis function to use. We consider a single resolution of the default Gaussian radial basis function.</p>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="sta.html#cb435-1"></a><span class="co"># build basis functions</span></span>
+<span id="cb435-2"><a href="sta.html#cb435-2"></a>G &lt;-<span class="st"> </span><span class="kw">auto_basis</span>(<span class="dt">data =</span> covid19_spt[,<span class="kw">c</span>(<span class="st">&quot;long&quot;</span>,<span class="st">&quot;lat&quot;</span>)] <span class="op">%&gt;%</span></span>
+<span id="cb435-3"><a href="sta.html#cb435-3"></a><span class="st">                       </span><span class="kw">SpatialPoints</span>(),           <span class="co"># To sp obj</span></span>
+<span id="cb435-4"><a href="sta.html#cb435-4"></a>                <span class="dt">nres =</span> <span class="dv">1</span>,                         <span class="co"># One resolution</span></span>
+<span id="cb435-5"><a href="sta.html#cb435-5"></a>                <span class="dt">type =</span> <span class="st">&quot;Gaussian&quot;</span>)                <span class="co"># Gaussian BFs</span></span>
+<span id="cb435-6"><a href="sta.html#cb435-6"></a><span class="co"># basis functions evaluated at data locations are then the covariates</span></span>
+<span id="cb435-7"><a href="sta.html#cb435-7"></a>S &lt;-<span class="st"> </span><span class="kw">eval_basis</span>(<span class="dt">basis =</span> G,                       <span class="co"># basis functions</span></span>
+<span id="cb435-8"><a href="sta.html#cb435-8"></a>                <span class="dt">s =</span> covid19_spt[,<span class="kw">c</span>(<span class="st">&quot;long&quot;</span>,<span class="st">&quot;lat&quot;</span>)] <span class="op">%&gt;%</span></span>
+<span id="cb435-9"><a href="sta.html#cb435-9"></a><span class="st">                     </span><span class="kw">as.matrix</span>()) <span class="op">%&gt;%</span><span class="st">            </span><span class="co"># conv. to matrix</span></span>
+<span id="cb435-10"><a href="sta.html#cb435-10"></a><span class="st">     </span><span class="kw">as.matrix</span>()                                 <span class="co"># conv. to matrix</span></span>
+<span id="cb435-11"><a href="sta.html#cb435-11"></a><span class="kw">colnames</span>(S) &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;B&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(S)) <span class="co"># assign column names</span></span></code></pre></div>
+<p><strong>Add Basis Functions to Data Frame</strong></p>
+<p>We then prepare a data frame for the regression model, adding the weights extracted from the basis functions. These weights enter as covariates in our model. Note that the resulting number of basis functions is nine. Explore by executing <code>colnames(S)</code>. Below we select only relevant variables for our model.</p>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="sta.html#cb436-1"></a><span class="co"># selecting variables</span></span>
+<span id="cb436-2"><a href="sta.html#cb436-2"></a>reg_df &lt;-<span class="st"> </span><span class="kw">cbind</span>(covid19_spt, S) <span class="op">%&gt;%</span></span>
+<span id="cb436-3"><a href="sta.html#cb436-3"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(ctyu19nm, c_covid19_r, long, lat, day, lt_illness, B1<span class="op">:</span>B9)</span></code></pre></div>
+<p><strong>Fit Linear Regression</strong></p>
+<p>We now fit a linear model using <code>lm</code> including as covariates longitude, latitude, day, share of long-term ill population and the nine basis functions.</p>
+<blockquote>
+<p>Recall that latitude refers to north/south from the equator and longitude refers to west/east from Greenwich. Further up north means a higher latitude score. Further west means higher longitude score. Scores for Liverpool (53.4084° N, 2.9916° W) are thus higher than for London (51.5074° N, 0.1278° W). This will be helpful for interpretation.</p>
+</blockquote>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="sta.html#cb437-1"></a>eq1 &lt;-<span class="st"> </span>c_covid19_r <span class="op">~</span><span class="st"> </span>long <span class="op">+</span><span class="st"> </span>lat <span class="op">+</span><span class="st"> </span>day <span class="op">+</span><span class="st"> </span>lt_illness <span class="op">+</span><span class="st"> </span>.</span>
+<span id="cb437-2"><a href="sta.html#cb437-2"></a>lm_m &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> eq1, </span>
+<span id="cb437-3"><a href="sta.html#cb437-3"></a>           <span class="dt">data =</span> dplyr<span class="op">::</span><span class="kw">select</span>(reg_df, <span class="op">-</span>ctyu19nm))</span>
+<span id="cb437-4"><a href="sta.html#cb437-4"></a>lm_m <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summary</span>()</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = eq1, data = dplyr::select(reg_df, -ctyu19nm))
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -87.55 -48.31 -27.51  27.68 338.54 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -3.772e+03  4.218e+02  -8.943  &lt; 2e-16 ***
+## long        -3.738e+01  9.054e+00  -4.128 3.68e-05 ***
+## lat          6.652e+01  8.169e+00   8.144 4.27e-16 ***
+## day         -6.662e-01  7.993e-02  -8.335  &lt; 2e-16 ***
+## lt_illness   7.094e+02  8.857e+01   8.009 1.28e-15 ***
+## B1           2.367e+02  7.896e+01   2.997  0.00273 ** 
+## B2           4.438e+01  3.525e+01   1.259  0.20802    
+## B3           4.002e+02  4.947e+01   8.090 6.61e-16 ***
+## B4          -6.687e+01  6.858e+01  -0.975  0.32960    
+## B5           6.585e+01  5.585e+01   1.179  0.23835    
+## B6           8.324e+00  6.249e+01   0.133  0.89403    
+## B7           4.503e+01  9.222e+01   0.488  0.62534    
+## B8          -6.151e+00  7.006e+01  -0.088  0.93005    
+## B9           3.862e+01  6.359e+01   0.607  0.54368    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 71.08 on 10636 degrees of freedom
+## Multiple R-squared:  0.05544,    Adjusted R-squared:  0.05429 
+## F-statistic: 48.02 on 13 and 10636 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Coefficients for explicitly specified spatial and temporal variables and the share of long-term ill population are all statistically significant. The interpretation of the regression coefficients is as usual; that is, one unit increase in a covariate relates to one unit increase in the dependent variable. For instance, the coefficient for long-term illness population indicates that UTLAs with a larger share of long-term ill population in one percentage point tend to have 709 more new COVID-19 cases per 100,000 people! on average. The coefficient for day reveals a strong negative temporal dependence with smaller number of new cases per 100,000 people as we move over time. The coefficient for latutide indicates as we move north the number of new COVID-19 cases per 100,000 people tends to be higher but lower if we move west.</p>
+<p>While overall the model provides some understanding of the spatio-temporal structure of the spread of COVID-19, the overall fit of the model is relatively poor. The <span class="math inline">\(R^{2}\)</span> reveals that the model explains only 5% of the variability of the spread of COVID-19 cases. Also, except for one, the coefficients associated to the basis functions are statistically insignificant. A key issue that we have ignored so far is the fact that our dependent variable is a count and is highly skewed - refer back to Section [8.4 Exploratory Analysis].</p>
+<blockquote>
+<p>Challenge 2: Explore a model with only spatial components (i.e. <code>long</code> and <code>lat</code>) or only temporal components (<code>day</code>). What model returns the largest <span class="math inline">\(R^{2}\)</span>?</p>
+</blockquote>
+<p><strong>Poisson Regression</strong></p>
+<p>A Poisson regression model provides a more appropriate framework to address these issues. We do this fitting a general linear model (or GLM) specifying the family function to be a Poisson.</p>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="sta.html#cb439-1"></a><span class="co"># estimate a poisson model</span></span>
+<span id="cb439-2"><a href="sta.html#cb439-2"></a>poisson_m1 &lt;-<span class="st"> </span><span class="kw">glm</span>(eq1,</span>
+<span id="cb439-3"><a href="sta.html#cb439-3"></a>                <span class="dt">family =</span> <span class="kw">poisson</span>(<span class="st">&quot;log&quot;</span>), <span class="co"># Poisson + log link</span></span>
+<span id="cb439-4"><a href="sta.html#cb439-4"></a>                <span class="dt">data =</span> dplyr<span class="op">::</span><span class="kw">select</span>(reg_df, <span class="op">-</span>ctyu19nm))</span>
+<span id="cb439-5"><a href="sta.html#cb439-5"></a>poisson_m1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summary</span>()</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = eq1, family = poisson(&quot;log&quot;), data = dplyr::select(reg_df, 
+##     -ctyu19nm))
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -14.457   -9.386   -6.380    3.995   29.573  
+## 
+## Coefficients:
+##               Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -9.726e+01  1.010e+00 -96.313  &lt; 2e-16 ***
+## long        -9.789e-01  2.242e-02 -43.666  &lt; 2e-16 ***
+## lat          1.767e+00  1.902e-02  92.869  &lt; 2e-16 ***
+## day         -1.441e-02  1.664e-04 -86.581  &lt; 2e-16 ***
+## lt_illness   1.442e+01  1.851e-01  77.923  &lt; 2e-16 ***
+## B1           6.198e+00  2.017e-01  30.719  &lt; 2e-16 ***
+## B2           3.616e-01  7.889e-02   4.583 4.59e-06 ***
+## B3           1.136e+01  1.418e-01  80.147  &lt; 2e-16 ***
+## B4          -1.976e+00  1.450e-01 -13.627  &lt; 2e-16 ***
+## B5           2.813e+00  1.255e-01  22.414  &lt; 2e-16 ***
+## B6          -1.334e+00  1.380e-01  -9.662  &lt; 2e-16 ***
+## B7           7.696e-01  2.117e-01   3.635 0.000278 ***
+## B8          -7.094e-01  1.546e-01  -4.589 4.46e-06 ***
+## B9           1.809e+00  1.616e-01  11.196  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 1032743  on 10649  degrees of freedom
+## Residual deviance:  959940  on 10636  degrees of freedom
+## AIC: 993314
+## 
+## Number of Fisher Scoring iterations: 6</code></pre>
+<p>The model seems to provide a better fit to the data as the median of deviance residuals (-6.3) is smaller than for the linear regression model (-27.51). And, all coefficients are positive and statistically significant. Yet, the Poisson model assumes that the mean and variance of the COVID-19 cases is the same. But, given the distribution of our dependent variable, its variance is likely to be greater than the mean. That means the data exhibit “overdispersion”. How do we know this? An estimate of the dispersion is given by the ratio of the deviance to the total degrees of freedom (the number of data points minus the number of covariates). In this case the dispersion estimate is:</p>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="sta.html#cb441-1"></a>poisson_m1<span class="op">$</span>deviance <span class="op">/</span><span class="st"> </span>poisson_m1<span class="op">$</span>df.residual</span></code></pre></div>
+<pre><code>## [1] 90.25383</code></pre>
+<p>which is clearly greater than 1! i.e. the data are overdispersed.</p>
+<p><strong>Quasipoisson Regression</strong></p>
+<p>An approach to account for overdispersion is to use quasipoisson when calling <code>glm</code>. The quasi-Poisson model assumes that the variance is proportional to the mean, and that the constant of the proportionality is the over-dispersion parameter.</p>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="sta.html#cb443-1"></a><span class="co"># estimate a quasipoisson model</span></span>
+<span id="cb443-2"><a href="sta.html#cb443-2"></a>qpoisson_m1 &lt;-<span class="st"> </span><span class="kw">glm</span>(eq1,</span>
+<span id="cb443-3"><a href="sta.html#cb443-3"></a>                <span class="dt">family =</span> <span class="kw">quasipoisson</span>(<span class="st">&quot;log&quot;</span>), <span class="co"># QuasiPoisson + log link</span></span>
+<span id="cb443-4"><a href="sta.html#cb443-4"></a>                <span class="dt">data =</span> dplyr<span class="op">::</span><span class="kw">select</span>(reg_df, <span class="op">-</span>ctyu19nm))</span>
+<span id="cb443-5"><a href="sta.html#cb443-5"></a>qpoisson_m1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summary</span>()</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = eq1, family = quasipoisson(&quot;log&quot;), data = dplyr::select(reg_df, 
+##     -ctyu19nm))
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -14.457   -9.386   -6.380    3.995   29.573  
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -97.261261  10.069209  -9.659  &lt; 2e-16 ***
+## long         -0.978924   0.223534  -4.379 1.20e-05 ***
+## lat           1.766675   0.189682   9.314  &lt; 2e-16 ***
+## day          -0.014405   0.001659  -8.683  &lt; 2e-16 ***
+## lt_illness   14.420396   1.845247   7.815 6.02e-15 ***
+## B1            6.197505   2.011637   3.081  0.00207 ** 
+## B2            0.361556   0.786651   0.460  0.64580    
+## B3           11.363202   1.413688   8.038 1.01e-15 ***
+## B4           -1.975530   1.445504  -1.367  0.17176    
+## B5            2.813267   1.251510   2.248  0.02460 *  
+## B6           -1.333746   1.376430  -0.969  0.33257    
+## B7            0.769599   2.110944   0.365  0.71544    
+## B8           -0.709375   1.541475  -0.460  0.64539    
+## B9            1.809393   1.611435   1.123  0.26153    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for quasipoisson family taken to be 99.42153)
+## 
+##     Null deviance: 1032743  on 10649  degrees of freedom
+## Residual deviance:  959940  on 10636  degrees of freedom
+## AIC: NA
+## 
+## Number of Fisher Scoring iterations: 6</code></pre>
+<p><strong>Negative Binomial Regression</strong></p>
+<p>The model output indicates major improvement in terms of model fit as the residual deviance (959940) and median of deviance residuals (-6.380) remain unchanged. An alternative approach is a Negative Binomial Model (NBM). This models relaxes the assumption of equality between the mean and variance. We estimate a NBM by using the function <code>glm.nb</code> from the <code>MASS</code> package.</p>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="sta.html#cb445-1"></a><span class="co"># estimate a negative binomial model</span></span>
+<span id="cb445-2"><a href="sta.html#cb445-2"></a>nb_m1 &lt;-<span class="st"> </span><span class="kw">glm.nb</span>(eq1, </span>
+<span id="cb445-3"><a href="sta.html#cb445-3"></a>       <span class="dt">data =</span> dplyr<span class="op">::</span><span class="kw">select</span>(reg_df, <span class="op">-</span>ctyu19nm))</span>
+<span id="cb445-4"><a href="sta.html#cb445-4"></a>nb_m1</span></code></pre></div>
+<pre><code>## 
+## Call:  glm.nb(formula = eq1, data = dplyr::select(reg_df, -ctyu19nm), 
+##     init.theta = 10953883.12, link = log)
+## 
+## Coefficients:
+## (Intercept)         long          lat          day   lt_illness           B1  
+##   -97.26121     -0.97892      1.76667     -0.01441     14.42040      6.19749  
+##          B2           B3           B4           B5           B6           B7  
+##     0.36155     11.36319     -1.97553      2.81326     -1.33374      0.76959  
+##          B8           B9  
+##    -0.70938      1.80938  
+## 
+## Degrees of Freedom: 10649 Total (i.e. Null);  10636 Residual
+## Null Deviance:       1033000 
+## Residual Deviance: 959900    AIC: 993300</code></pre>
+<p><strong>Including Interactions</strong></p>
+<p>Similarly the model output does not suggest any major improvement in explaining the spatio-temporal variability in the spread of COVID-19. We may need a different strategy then. Let’s try running a NBM including interaction terms between spatial and temporal terms (i.e. longitude, latitude and day). We can do this by estimating the following model <code>c_covid19_r ~ (long + lat + day)^2 + lt_illness + .</code></p>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="sta.html#cb447-1"></a><span class="co"># new model specification</span></span>
+<span id="cb447-2"><a href="sta.html#cb447-2"></a>eq2 &lt;-<span class="st"> </span>c_covid19_r <span class="op">~</span><span class="st"> </span>(long <span class="op">+</span><span class="st"> </span>lat <span class="op">+</span><span class="st"> </span>day)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>lt_illness <span class="op">+</span><span class="st"> </span>.</span>
+<span id="cb447-3"><a href="sta.html#cb447-3"></a><span class="co"># estimate a negative binomial model</span></span>
+<span id="cb447-4"><a href="sta.html#cb447-4"></a>nb_m2 &lt;-<span class="st"> </span><span class="kw">glm.nb</span>(eq2, </span>
+<span id="cb447-5"><a href="sta.html#cb447-5"></a>       <span class="dt">data =</span> dplyr<span class="op">::</span><span class="kw">select</span>(reg_df, <span class="op">-</span>ctyu19nm))</span>
+<span id="cb447-6"><a href="sta.html#cb447-6"></a>nb_m2</span></code></pre></div>
+<pre><code>## 
+## Call:  glm.nb(formula = eq2, data = dplyr::select(reg_df, -ctyu19nm), 
+##     init.theta = 300465.7447, link = log)
+## 
+## Coefficients:
+## (Intercept)         long          lat          day   lt_illness           B1  
+##  -2.642e+02   -7.873e+01    4.936e+00    6.423e-02    1.335e+01    1.145e+01  
+##          B2           B3           B4           B5           B6           B7  
+##  -7.235e-01    2.132e+01   -6.598e+00    9.543e+00   -1.075e+01    2.157e+01  
+##          B8           B9     long:lat     long:day      lat:day  
+##  -5.503e+00    9.127e-01    1.533e+00    8.504e-05   -1.499e-03  
+## 
+## Degrees of Freedom: 10649 Total (i.e. Null);  10633 Residual
+## Null Deviance:       1033000 
+## Residual Deviance: 953600    AIC: 987000</code></pre>
+<p>This model leads to a better model by returning a slight reduction in the residual deviance and AIC score. Interestingly it also returns highly statisticaly significant coeficients for the interaction terms between longitude and latitude (<code>long:lat</code>) and latitude and day (<code>lat:day</code>). The former indicates that as we move one degree north and west, the number of new cases tend to increase in 2 cases. The latter indicates UTLAs on the west of England tend to report a lower number of cases as time passes.</p>
+<p>You can report the output for all models estimated above by executing (after removing <code>#</code>):</p>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="sta.html#cb449-1"></a><span class="co"># export_summs(lm_m, poisson_m, qpoisson_m1, nb_m1, nb_m2)</span></span></code></pre></div>
+<div id="model-comparision" class="section level4">
+<h4><span class="header-section-number">10.6.2.1</span> Model Comparision</h4>
+<p>To compare regression models based on different specifications and assumptions, like those reported above, you may want to consider the cross-validation approach used in Chapter 4 <a href="flows.html#flows">Flows</a>. An easy approach if you would like to get a quick sense of model fit, you can look at the correlation between observed and predicted values of the dependent variable. For our models, we can achieve this by executing:</p>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="sta.html#cb450-1"></a><span class="co"># computing predictions for all models</span></span>
+<span id="cb450-2"><a href="sta.html#cb450-2"></a>lm_cnt &lt;-<span class="st"> </span><span class="kw">predict</span>(lm_m)</span>
+<span id="cb450-3"><a href="sta.html#cb450-3"></a>poisson_cnt &lt;-<span class="st"> </span><span class="kw">predict</span>(poisson_m1)</span>
+<span id="cb450-4"><a href="sta.html#cb450-4"></a>nb1_cnt &lt;-<span class="st"> </span><span class="kw">predict</span>(nb_m1)</span>
+<span id="cb450-5"><a href="sta.html#cb450-5"></a>nb2_cnt &lt;-<span class="st"> </span><span class="kw">predict</span>(nb_m2)</span>
+<span id="cb450-6"><a href="sta.html#cb450-6"></a>reg_df &lt;-<span class="st"> </span><span class="kw">cbind</span>(reg_df, lm_cnt, poisson_cnt, nb1_cnt, nb2_cnt)</span>
+<span id="cb450-7"><a href="sta.html#cb450-7"></a></span>
+<span id="cb450-8"><a href="sta.html#cb450-8"></a><span class="co"># computing correlation coefficients</span></span>
+<span id="cb450-9"><a href="sta.html#cb450-9"></a>cormat &lt;-<span class="st"> </span><span class="kw">cor</span>(reg_df[, <span class="kw">c</span>(<span class="st">&quot;c_covid19_r&quot;</span>, <span class="st">&quot;lm_cnt&quot;</span>, <span class="st">&quot;poisson_cnt&quot;</span>, <span class="st">&quot;nb1_cnt&quot;</span>, <span class="st">&quot;nb2_cnt&quot;</span>)], </span>
+<span id="cb450-10"><a href="sta.html#cb450-10"></a>              <span class="dt">use=</span><span class="st">&quot;complete.obs&quot;</span>, </span>
+<span id="cb450-11"><a href="sta.html#cb450-11"></a>              <span class="dt">method=</span><span class="st">&quot;pearson&quot;</span>)</span>
+<span id="cb450-12"><a href="sta.html#cb450-12"></a></span>
+<span id="cb450-13"><a href="sta.html#cb450-13"></a><span class="co"># significance test</span></span>
+<span id="cb450-14"><a href="sta.html#cb450-14"></a>sig1 &lt;-<span class="st"> </span>corrplot<span class="op">::</span><span class="kw">cor.mtest</span>(reg_df[, <span class="kw">c</span>(<span class="st">&quot;c_covid19_r&quot;</span>, <span class="st">&quot;lm_cnt&quot;</span>, <span class="st">&quot;poisson_cnt&quot;</span>, <span class="st">&quot;nb1_cnt&quot;</span>, <span class="st">&quot;nb2_cnt&quot;</span>)],</span>
+<span id="cb450-15"><a href="sta.html#cb450-15"></a>                            <span class="dt">conf.level =</span> <span class="fl">.95</span>)</span>
+<span id="cb450-16"><a href="sta.html#cb450-16"></a></span>
+<span id="cb450-17"><a href="sta.html#cb450-17"></a><span class="co"># create a correlogram</span></span>
+<span id="cb450-18"><a href="sta.html#cb450-18"></a>corrplot<span class="op">::</span><span class="kw">corrplot.mixed</span>(cormat,</span>
+<span id="cb450-19"><a href="sta.html#cb450-19"></a>                         <span class="dt">number.cex =</span> <span class="dv">1</span>,</span>
+<span id="cb450-20"><a href="sta.html#cb450-20"></a>                         <span class="dt">tl.pos =</span> <span class="st">&quot;d&quot;</span>,</span>
+<span id="cb450-21"><a href="sta.html#cb450-21"></a>                         <span class="dt">tl.cex =</span> <span class="fl">0.9</span>)</span></code></pre></div>
+<p><img src="10-st_analysis_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p>None of the models does a great job at predicting the observed count of new COVID-19 cases. They display correlation coefficients between 0.23 and 0.24 and high degree of correlation between them. Part of the assignment will be finding ways to improve this initial models. They should just be considered as a starting point.</p>
+<blockquote>
+<p>Challenge 3: Find ways to achive better model fit. Hint: There are a potentially few easy ways to make some considerable improvement.
+<em>One option</em> is to remove all zeros from the dependent variable <code>c_covid19_r</code>. They are likely to be affecting the ability of the model to predict positive values which are of main interest if we want to understand the spatio-temporal patterns of the outbreak.
+<em>A second idea</em> is to remove all zeros from the dependent variable and additionally use its log for the regression model.
+<em>A third idea</em> is to include more explanatory variables. Look for factors which can explain the spatial-temporal variability of the current COVID-19 outbreak. Look for hypotheses / anecdotal evidence from the newspapers and social media.
+<em>A fourth idea</em> is to check for collinearity. Collinearity is likely to be an issue given the way basis functions are created. Checking for collinearity of course will not improve the fit of the existing model but it is important to remove collinear terms if statistical inference is a key goal - which in this case is. Over to you now!</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-cressie2008fixed">
+<p>Cressie, Noel, and Gardar Johannesson. 2008. “Fixed Rank Kriging for Very Large Spatial Data Sets.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 70 (1): 209–26.</p>
+</div>
+<div id="ref-gabadinho2009mining">
+<p>Gabadinho, Alexis, Gilbert Ritschard, Matthias Studer, and Nicolas S Müller. 2009. “Mining Sequence Data in R with the Traminer Package: A User’s Guide.” <em>Geneva: Department of Econometrics and Laboratory of Demography, University of Geneva</em>.</p>
+</div>
+<div id="ref-hyndman2018forecasting">
+<p>Hyndman, Rob J, and George Athanasopoulos. 2018. <em>Forecasting: Principles and Practice</em>. OTexts.</p>
+</div>
+<div id="ref-Lovelace_et_al_2020_book">
+<p>Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2020. <em>An Introduction to Statistical Learning</em>. Vol. 112. CRC Press, R Series. <a href="https://geocompr.robinlovelace.net">https://geocompr.robinlovelace.net</a>.</p>
+</div>
+<div id="ref-pebesma2012spacetime">
+<p>Pebesma, Edzer, and others. 2012. “Spacetime: Spatio-Temporal Data in R.” <em>Journal of Statistical Software</em> 51 (7): 1–30.</p>
+</div>
+<div id="ref-wikle2019spatio">
+<p>Wikle, Christopher K, Andrew Zammit-Mangion, and Noel Cressie. 2019. <em>Spatio-Temporal Statistics with R</em>. CRC Press.</p>
+</div>
+<div id="ref-zammit2017frk">
+<p>Zammit-Mangion, Andrew, and Noel Cressie. 2017. “FRK: An R Package for Spatial and Spatio-Temporal Prediction with Large Datasets.” <em>arXiv Preprint arXiv:1705.08105</em>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="48">
+<li id="fn48"><p>This note is part of <a href="index.html">Spatial Analysis Notes</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Space-Time Analysis – Spatio-temporal modelling</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<a href="sta.html#fnref48" class="footnote-back">↩︎</a></p></li>
+<li id="fn49"><p>You can install package <code>mypackage</code> by running the command <code>install.packages("mypackage")</code> on the R prompt or through the <code>Tools --&gt; Install Packages...</code> menu in RStudio.<a href="sta.html#fnref49" class="footnote-back">↩︎</a></p></li>
+<li id="fn50"><p>Read the file in R by executing <code>read_tsv("data/sta/readme.txt")</code><a href="sta.html#fnref50" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="gwr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["spatial_analysis_notes.pdf", "spatial_analysis_notes.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

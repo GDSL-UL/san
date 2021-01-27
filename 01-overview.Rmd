@@ -87,15 +87,20 @@ for(lib in deps){library(lib, character.only = TRUE)}
 
 ## Assessment
 
-The final module mark is composed of the **two computational essays**. Together they are designed to cover the materials introduced in the entirety of content covered during the semester.
+The final module mark is composed of the *two computational essays*. Together they are designed to cover the materials introduced in the entirety of content covered during the semester.
 
-* Assignment 1 (50%) - see relevant Chapters for details i.e. Chapters \@ref(points)
-* Assignment 2 (50%)
+* Assignment 1 (50%) - for details see Chapters \@ref(points), \@ref(flows) and \@ref(spatialecon)
+* Assignment 2 (50%) - for details see Chapters \@ref(mlm1), \@ref(mlm2), \@ref(gwr) and \@ref(sta)
 
 *Maximum word count: 2,000 words*, excluding figures and references. Both assignments will be similar in format. Each teaching week, you will be required to address a set of questions relating to the module content covered in that week. You should use roughly the same number of words to document your answers each week. For assignment 1, for example, you will be required to address questions in Weeks 2, 3 and 4 so we should roughly document your answers in 666 words (= 2,000 / 3) each week.
 
 Assignments need to be prepared in *R Notebook* format and then converted into
 a self-contained HTML file that will then be submitted via Turnitin.
+The notebook should only display content that will be assessed. 
+Intermediate steps do not need to be displayed. 
+Messages resulting from loading packages, attaching data frames, or similar messages do not need to be included as output code.
+Useful resources to customise your *R notebook* can be found on the [R Markdown website](https://rmarkdown.rstudio.com) from RStudio: [A Guide](https://rmarkdown.rstudio.com/lesson-1.html),
+[R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) by @xie2018r, [R Markdown Reference Guide](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.199646894.1496049738.1611760832-141828105.1610798362)
 A R Notebook template is available via the [*module Canvas site*](https://liverpool.instructure.com).
 
 *Submission* is electronic only via Turnitin on *Canvas*.
