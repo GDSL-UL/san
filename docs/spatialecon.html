@@ -806,7 +806,7 @@ y_{lag-i} = \displaystyle \sum_j w_{ij} y_j
 ## Weights style: W 
 ## Weights constants summary:
 ##      n       nn   S0       S1       S2
-## W 6324 39992976 6324 230.4832 25813.03</code></pre>
+## W 6324 39992976 6324 230.5096 25811.03</code></pre>
 <p><strong>Exogenous spatial effects</strong></p>
 <p>Let us come back to the house price example we have been working with. So far, we have hypothesized that the price of a house sold in Liverpool can be explained using information about whether it is newly built, the level of deprivation of the area where it is located, and its postcode. However, it is also reasonable to think that prospective house owners care about the larger area around a house, not only about its immediate surroundings, and would be willing to pay more for a house that was close to nicer areas, everything else being equal. How could we test this idea?</p>
 <p>The most straightforward way to introduce spatial dependence in a regression is by considering not only a given explanatory variable, but also its spatial lag. In our example case, in addition to including the level of deprivation in the area of the house, we will include its spatial lag. In other words, we will be saying that it is not only the level of deprivation of the area where a house is located but also that of the surrounding locations that helps explain the final price at which a house is sold. Mathematically, this implies estimating the following model:</p>
@@ -825,19 +825,19 @@ y_{lag-i} = \displaystyle \sum_j w_{ij} y_j
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2906 -0.3015 -0.0152  0.2819  5.2631 
+## -4.2906 -0.3018 -0.0153  0.2817  5.2631 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 12.2811889  0.0145276 845.368  &lt; 2e-16 ***
-## newY         0.2476167  0.0195189  12.686  &lt; 2e-16 ***
-## imd_score   -0.0042238  0.0008917  -4.737 2.22e-06 ***
-## w_imd_score -0.0147977  0.0009686 -15.278  &lt; 2e-16 ***
+## (Intercept) 12.2811487  0.0145296 845.248  &lt; 2e-16 ***
+## newY         0.2474789  0.0195197  12.678  &lt; 2e-16 ***
+## imd_score   -0.0042398  0.0008917  -4.755 2.03e-06 ***
+## w_imd_score -0.0147803  0.0009687 -15.258  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 0.5201 on 6320 degrees of freedom
-## Multiple R-squared:  0.3347, Adjusted R-squared:  0.3344 
+## Multiple R-squared:  0.3347, Adjusted R-squared:  0.3343 
 ## F-statistic:  1060 on 3 and 6320 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>As we can see, the lag is not only significative and negative (as expected), but its effect seems to be even larger that that of the house itself. Taken literally, this would imply that prospective owners value more the area of the surrounding houses than that of the actual house they buy. However, it is important to remember how these variables have been constructed and what they really represent. Because the IMD score is not exactly calculated at the house level, but at the area level, many of the surrounding houses will share that so, to some extent, the IMD of neighboring houses is that of the house itself<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a>. This is likely to be affecting the final parameter, and it is a reminder and an illustration that we cannot take model results as universal truth but we need to use them as tools to inform analysis, couple with theory and what we know about the particular question of analysis. Nevertheless, the example does illustrate how to introduce spatial dependence in a regression framework in a fairly straight forward way.</p>
 <p><strong>A note on more advanced spatial regression</strong></p>
@@ -872,11 +872,11 @@ u_i = u_{lag-i} + \epsilon_i
 <div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="spatialecon.html#cb272-1"></a>new.price &lt;-<span class="st"> </span><span class="kw">predict</span>(m6, new.house)</span>
 <span id="cb272-2"><a href="spatialecon.html#cb272-2"></a>new.price</span></code></pre></div>
 <pre><code>##        1 
-## 11.47214</code></pre>
+## 11.47163</code></pre>
 <p>Now remember we were using the log of the price as dependent variable. If we want to recover the actual price of the house, we need to take its exponent:</p>
 <div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="spatialecon.html#cb274-1"></a><span class="kw">exp</span>(new.price)</span></code></pre></div>
 <pre><code>##        1 
-## 96003.07</code></pre>
+## 95954.57</code></pre>
 <p>According to our model, the house would be worth GBP96,060.29<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a>.</p>
 </div>
 <div id="references-1" class="section level2">
