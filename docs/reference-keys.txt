@@ -19,8 +19,8 @@ dependency-list
 assessment
 marking-criteria
 spatial_data
-area-or-lattice-data
-point-data
+point-data.-these-data-refer-to-records-of-the-geographic-location-of-an-discrete-event-or-the-number-of-occurrences-of-geographical-process-at-a-given-location.-as-displayed-in-examples-include-the-geographic-location-of-bus-stops-in-a-city-or-the-number-of-passengers-broading-at-each-bus-stop-.
+latticeareal-data.-these-data-correspond-to-attribute-values-such-as-population-counts-which-have-been-recorded-for-a-fixed-geographical-area.-they-may-comprise-regular-shapes-such-as-grids-or-pixels-or-irregular-shapes-such-as-states-counties-or-travel-to-work-areas.-raster-data-are-a-common-source-of-regular-latticeareal-area-while-censuses-are-probably-the-most-common-form-of-irregular-latticeareal-area.
 flow-data
 trajectory-data
 data_wrangling

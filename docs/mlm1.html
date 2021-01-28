@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
 
 
-<meta name="date" content="2021-01-27" />
+<meta name="date" content="2021-01-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -149,8 +149,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>2</b> Spatial Data</a><ul>
-<li class="chapter" data-level="2.1" data-path="spatial-data.html"><a href="spatial-data.html#area-or-lattice-data"><i class="fa fa-check"></i><b>2.1</b> Area or Lattice Data</a></li>
-<li class="chapter" data-level="2.2" data-path="spatial-data.html"><a href="spatial-data.html#point-data"><i class="fa fa-check"></i><b>2.2</b> Point Data</a></li>
+<li class="chapter" data-level="2.1" data-path="spatial-data.html"><a href="spatial-data.html#point-data.-these-data-refer-to-records-of-the-geographic-location-of-an-discrete-event-or-the-number-of-occurrences-of-geographical-process-at-a-given-location.-as-displayed-in-examples-include-the-geographic-location-of-bus-stops-in-a-city-or-the-number-of-passengers-broading-at-each-bus-stop-."><i class="fa fa-check"></i><b>2.1</b> Point Data. These data refer to records of the geographic location of an discrete event, or the number of occurrences of geographical process at a given location. As displayed in , examples include the geographic location of bus stops in a city, or the number of passengers broading at each bus stop ().</a></li>
+<li class="chapter" data-level="2.2" data-path="spatial-data.html"><a href="spatial-data.html#latticeareal-data.-these-data-correspond-to-attribute-values-such-as-population-counts-which-have-been-recorded-for-a-fixed-geographical-area.-they-may-comprise-regular-shapes-such-as-grids-or-pixels-or-irregular-shapes-such-as-states-counties-or-travel-to-work-areas.-raster-data-are-a-common-source-of-regular-latticeareal-area-while-censuses-are-probably-the-most-common-form-of-irregular-latticeareal-area."><i class="fa fa-check"></i><b>2.2</b> Lattice/Areal Data. These data correspond to attribute values (such as population counts) which have been recorded for a fixed geographical area. They may comprise regular shapes (such as grids or pixels) or irregular shapes (such as states, counties or travel-to-work areas). Raster data are a common source of regular lattice/areal area, while censuses are probably the most common form of irregular lattice/areal area.</a></li>
 <li class="chapter" data-level="2.3" data-path="spatial-data.html"><a href="spatial-data.html#flow-data"><i class="fa fa-check"></i><b>2.3</b> Flow Data</a></li>
 <li class="chapter" data-level="2.4" data-path="spatial-data.html"><a href="spatial-data.html#trajectory-data"><i class="fa fa-check"></i><b>2.4</b> Trajectory data</a></li>
 </ul></li>
@@ -665,17 +665,17 @@ and then we made the <em>random</em> part of the model (<span class="math inline
 <p>We can also obtain group-level errors (<em>random effects</em>) by using a simulation approach, labelled “Empirical Bayes” and discussed <a href="https://stat.ethz.ch/pipermail/r-sig-mixed-models/2009q4/002984.html">here</a>. To this end, we run:</p>
 <div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="mlm1.html#cb312-1"></a><span class="co"># obtain estimates</span></span>
 <span id="cb312-2"><a href="mlm1.html#cb312-2"></a><span class="kw">REsim</span>(model3) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">10</span>)</span></code></pre></div>
-<pre><code>##    groupFctr   groupID        term         mean       median         sd
-## 1    lsoa_cd E01006512 (Intercept) -0.016294145 -0.015972457 0.01888082
-## 2    lsoa_cd E01006513 (Intercept) -0.015634757 -0.014298351 0.01906754
-## 3    lsoa_cd E01006514 (Intercept) -0.023682070 -0.024604510 0.02147931
-## 4    lsoa_cd E01006515 (Intercept) -0.016883239 -0.016206317 0.02011139
-## 5    lsoa_cd E01006518 (Intercept) -0.018755303 -0.020641460 0.01998164
-## 6    lsoa_cd E01006519 (Intercept) -0.014985715 -0.015543218 0.01037442
-## 7    lsoa_cd E01006520 (Intercept) -0.024819964 -0.025203691 0.01896277
-## 8    lsoa_cd E01006521 (Intercept)  0.006959574  0.006731903 0.01887051
-## 9    lsoa_cd E01006522 (Intercept)  0.015881596  0.015846448 0.02000515
-## 10   lsoa_cd E01006523 (Intercept)  0.004229060  0.003567305 0.02058756</code></pre>
+<pre><code>##    groupFctr   groupID        term         mean       median          sd
+## 1    lsoa_cd E01006512 (Intercept) -0.015145908 -0.014268381 0.019798222
+## 2    lsoa_cd E01006513 (Intercept) -0.016887011 -0.017270090 0.019101524
+## 3    lsoa_cd E01006514 (Intercept) -0.021671022 -0.021765301 0.020533699
+## 4    lsoa_cd E01006515 (Intercept) -0.016332966 -0.016914030 0.021071975
+## 5    lsoa_cd E01006518 (Intercept) -0.016761286 -0.016079542 0.019681140
+## 6    lsoa_cd E01006519 (Intercept) -0.017208134 -0.016626761 0.009548091
+## 7    lsoa_cd E01006520 (Intercept) -0.022524207 -0.024151311 0.018957483
+## 8    lsoa_cd E01006521 (Intercept)  0.006244769  0.006077130 0.018848412
+## 9    lsoa_cd E01006522 (Intercept)  0.018282351  0.018457180 0.019803821
+## 10   lsoa_cd E01006523 (Intercept)  0.005114122  0.006372846 0.018766651</code></pre>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
 <p>To gain an undertanding of the general pattern of the <em>random effects</em>, we can use caterpillar plots via <code>plotREsim</code> - reported below. The plot on the right shows the estimated random effects for each MSOA and their respective interval estimate. Note that random effects are on average zero, represented by the red horizontal line. Intervals that do not include zero are in bold. Also note that the width of the confidence interval depends on the standard error of the respective residual estimate, which is inversely related to the size of the sample. The residuals represent an observation departures from the grand mean, so an observation whose confidence interval does not overlap the line at zero (representing the mean proportion of unemployed population across all areas) is said to differ significantly from the average at the 5% level.</p>
 <div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="mlm1.html#cb314-1"></a><span class="co"># plot</span></span>
@@ -718,9 +718,9 @@ and then we made the <em>random</em> part of the model (<span class="math inline
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; ...
-##  $ mean     : num  -0.01156 -0.0221 -0.02858 0.00998 0.02036 ...
-##  $ median   : num  -0.0118 -0.022 -0.0304 0.0109 0.0214 ...
-##  $ sd       : num  0.0323 0.0328 0.0288 0.0309 0.0164 ...</code></pre>
+##  $ mean     : num  -0.01589 -0.02483 -0.03111 0.00681 0.02223 ...
+##  $ median   : num  -0.01446 -0.02514 -0.02919 0.00659 0.0223 ...
+##  $ sd       : num  0.0357 0.0301 0.0314 0.0344 0.0159 ...</code></pre>
 <div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="mlm1.html#cb321-1"></a><span class="co"># merge data</span></span>
 <span id="cb321-2"><a href="mlm1.html#cb321-2"></a>msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</span></code></pre></div>
 <p>Now we can create our map:</p>

@@ -1,12 +1,17 @@
 # Spatial Data {#spatial_data}
 
+\definecolor{hightlightColor}{HTML}{FFFF66}
+
 This Chapter seeks to present and describe distinctive attributes of spatial data, and discuss some of the main challenges in analysing and modelling these data. Spatial data is a term used to describe any data associating a given variable attribute to a specific location on the Earth's surface. 
 
-Different classifications of spatial data types exist. A common classification involves four data types: area or lattice data, point data, flow data and trajectory data (@wikle2019spatio). Knowing the structure of the data at hand is important as specific analytical methods would be more appropriate for particular data types.
+Different classifications of spatial data types exist. Knowing the structure of the data at hand is important as specific analytical methods would be more appropriate for particular data types. We will use a particular classification involving four data types: lattice/areal data, point data, flow data and trajectory data. This is not a exhaustive list but it is helpful to motivate the analytical and modelling methods that we cover in this book.
 
-## Area or Lattice Data
 
-## Point Data
+## Point Data. These data refer to records of the geographic location of an discrete event, or the number of occurrences of geographical process at a given location. As displayed in \colorbox{hightlightColor}{Figure 1}, examples include the geographic location of bus stops in a city, or the number of passengers broading at each bus stop (). 
+
+## Lattice/Areal Data. These data correspond to attribute values (such as population counts) which have been recorded for a fixed geographical area. They may comprise regular shapes (such as grids or pixels) or irregular shapes (such as states, counties or travel-to-work areas). Raster data are a common source of regular lattice/areal area, while censuses are probably the most common form of irregular lattice/areal area.
+
+
 
 ## Flow Data
 

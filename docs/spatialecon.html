@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
 
 
-<meta name="date" content="2021-01-27" />
+<meta name="date" content="2021-01-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -149,8 +149,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>2</b> Spatial Data</a><ul>
-<li class="chapter" data-level="2.1" data-path="spatial-data.html"><a href="spatial-data.html#area-or-lattice-data"><i class="fa fa-check"></i><b>2.1</b> Area or Lattice Data</a></li>
-<li class="chapter" data-level="2.2" data-path="spatial-data.html"><a href="spatial-data.html#point-data"><i class="fa fa-check"></i><b>2.2</b> Point Data</a></li>
+<li class="chapter" data-level="2.1" data-path="spatial-data.html"><a href="spatial-data.html#point-data.-these-data-refer-to-records-of-the-geographic-location-of-an-discrete-event-or-the-number-of-occurrences-of-geographical-process-at-a-given-location.-as-displayed-in-examples-include-the-geographic-location-of-bus-stops-in-a-city-or-the-number-of-passengers-broading-at-each-bus-stop-."><i class="fa fa-check"></i><b>2.1</b> Point Data. These data refer to records of the geographic location of an discrete event, or the number of occurrences of geographical process at a given location. As displayed in , examples include the geographic location of bus stops in a city, or the number of passengers broading at each bus stop ().</a></li>
+<li class="chapter" data-level="2.2" data-path="spatial-data.html"><a href="spatial-data.html#latticeareal-data.-these-data-correspond-to-attribute-values-such-as-population-counts-which-have-been-recorded-for-a-fixed-geographical-area.-they-may-comprise-regular-shapes-such-as-grids-or-pixels-or-irregular-shapes-such-as-states-counties-or-travel-to-work-areas.-raster-data-are-a-common-source-of-regular-latticeareal-area-while-censuses-are-probably-the-most-common-form-of-irregular-latticeareal-area."><i class="fa fa-check"></i><b>2.2</b> Lattice/Areal Data. These data correspond to attribute values (such as population counts) which have been recorded for a fixed geographical area. They may comprise regular shapes (such as grids or pixels) or irregular shapes (such as states, counties or travel-to-work areas). Raster data are a common source of regular lattice/areal area, while censuses are probably the most common form of irregular lattice/areal area.</a></li>
 <li class="chapter" data-level="2.3" data-path="spatial-data.html"><a href="spatial-data.html#flow-data"><i class="fa fa-check"></i><b>2.3</b> Flow Data</a></li>
 <li class="chapter" data-level="2.4" data-path="spatial-data.html"><a href="spatial-data.html#trajectory-data"><i class="fa fa-check"></i><b>2.4</b> Trajectory data</a></li>
 </ul></li>
@@ -801,8 +801,8 @@ y_{lag-i} = \displaystyle \sum_j w_{ij} y_j
 ## 
 ## Weights style: W 
 ## Weights constants summary:
-##      n       nn   S0      S1       S2
-## W 6324 39992976 6324 230.552 25810.83</code></pre>
+##      n       nn   S0       S1       S2
+## W 6324 39992976 6324 230.5448 25809.89</code></pre>
 <p><strong>Exogenous spatial effects</strong></p>
 <p>Let us come back to the house price example we have been working with. So far, we have hypothesized that the price of a house sold in Liverpool can be explained using information about whether it is newly built, the level of deprivation of the area where it is located, and its postcode. However, it is also reasonable to think that prospective house owners care about the larger area around a house, not only about its immediate surroundings, and would be willing to pay more for a house that was close to nicer areas, everything else being equal. How could we test this idea?</p>
 <p>The most straightforward way to introduce spatial dependence in a regression is by considering not only a given explanatory variable, but also its spatial lag. In our example case, in addition to including the level of deprivation in the area of the house, we will include its spatial lag. In other words, we will be saying that it is not only the level of deprivation of the area where a house is located but also that of the surrounding locations that helps explain the final price at which a house is sold. Mathematically, this implies estimating the following model:</p>
@@ -821,14 +821,14 @@ y_{lag-i} = \displaystyle \sum_j w_{ij} y_j
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2906 -0.3013 -0.0152  0.2819  5.2631 
+## -4.2906 -0.3015 -0.0154  0.2824  5.2631 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 12.2812603  0.0145287 845.308  &lt; 2e-16 ***
-## newY         0.2475984  0.0195187  12.685  &lt; 2e-16 ***
-## imd_score   -0.0042191  0.0008918  -4.731 2.28e-06 ***
-## w_imd_score -0.0148040  0.0009688 -15.281  &lt; 2e-16 ***
+## (Intercept) 12.2812124  0.0145279 845.351  &lt; 2e-16 ***
+## newY         0.2475865  0.0195188  12.685  &lt; 2e-16 ***
+## imd_score   -0.0042201  0.0008918  -4.732 2.27e-06 ***
+## w_imd_score -0.0148010  0.0009687 -15.279  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
@@ -868,11 +868,11 @@ u_i = u_{lag-i} + \epsilon_i
 <div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="spatialecon.html#cb272-1"></a>new.price &lt;-<span class="st"> </span><span class="kw">predict</span>(m6, new.house)</span>
 <span id="cb272-2"><a href="spatialecon.html#cb272-2"></a>new.price</span></code></pre></div>
 <pre><code>##        1 
-## 11.47223</code></pre>
+## 11.47224</code></pre>
 <p>Now remember we were using the log of the price as dependent variable. If we want to recover the actual price of the house, we need to take its exponent:</p>
 <div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="spatialecon.html#cb274-1"></a><span class="kw">exp</span>(new.price)</span></code></pre></div>
-<pre><code>##     1 
-## 96012</code></pre>
+<pre><code>##        1 
+## 96013.05</code></pre>
 <p>According to our model, the house would be worth GBP96,060.29<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a>.</p>
 </div>
 <div id="references-1" class="section level2">
