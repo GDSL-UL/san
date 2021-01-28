@@ -19,10 +19,13 @@ dependency-list
 assessment
 marking-criteria
 spatial_data
-point-data.-these-data-refer-to-records-of-the-geographic-location-of-an-discrete-event-or-the-number-of-occurrences-of-geographical-process-at-a-given-location.-as-displayed-in-examples-include-the-geographic-location-of-bus-stops-in-a-city-or-the-number-of-passengers-broading-at-each-bus-stop-.
-latticeareal-data.-these-data-correspond-to-attribute-values-such-as-population-counts-which-have-been-recorded-for-a-fixed-geographical-area.-they-may-comprise-regular-shapes-such-as-grids-or-pixels-or-irregular-shapes-such-as-states-counties-or-travel-to-work-areas.-raster-data-are-a-common-source-of-regular-latticeareal-area-while-censuses-are-probably-the-most-common-form-of-irregular-latticeareal-area.
-flow-data
-trajectory-data
+spatial-data-types
+hierarchical-structure-of-data
+key-challenges
+modifible-area-unit-problem-maup
+ecological-fallacy
+spatial-autocorrelation
+spatial-heterogeneity
 data_wrangling
 dependencies
 introducing-r
@@ -73,7 +76,7 @@ dependencies-3
 data-2
 non-spatial-regression-a-refresh
 spatial-regression-a-very-first-dip
-spatial-heterogeneity
+spatial-heterogeneity-1
 spatial-dependence
 predicting-house-prices
 references-1
