@@ -8,6 +8,12 @@ knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
 options(htmltools.dir.version = FALSE)
 ```
 
+---
+
+**IMPORTANT** - Reference and text to be updated
+
+---
+
 This chapter is based on the following references, which are good follow-up's on the topic:
 
 * [Session III](http://darribas.org/sdar_mini/notes/Class_03.html) of @arribas2014spatial. Check the "Related readings" section on the session page for more in-depth discussions.
