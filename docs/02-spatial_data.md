@@ -1,6 +1,5 @@
 # Spatial Data {#spatial_data}
 
-
 This Chapter seeks to present and describe distinctive attributes of spatial data, and discuss some of the main challenges in analysing and modelling these data. Spatial data is a term used to describe any data associating a given variable attribute to a specific location on the Earth's surface. 
 
 
@@ -23,6 +22,9 @@ In this course, we cover analytical and modelling approaches for point, lattice/
 ## Hierarchical Structure of Data
 
 Spatial data 
+
+
+
 
 
 ## Key Challenges
