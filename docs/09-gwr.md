@@ -108,7 +108,7 @@ geom_density(alpha=0.8, colour="black", fill="lightblue", aes(x = covid19_r)) +
    theme_classic()
 ```
 
-<img src="09-gwr_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](09-gwr_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
 
 ```r
 # distribution in numbers
@@ -129,7 +129,7 @@ reg_shp <- st_read("data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp")
 ```
 
 ```
-## Reading layer `Regions_December_2019_Boundaries_EN_BGC' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp' using driver `ESRI Shapefile'
+## Reading layer `Regions_December_2019_Boundaries_EN_BGC' from data source `/home/jovyan/work/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 9 features and 9 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -154,7 +154,7 @@ map_utla + tm_shape(reg_shp) + # add region boundaries
   tm_borders(col = "white", lwd = .5) # add borders
 ```
 
-<img src="09-gwr_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](09-gwr_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
 
 The map shows that concentrations of high incidence of infections in the metropolitan areas of London, Liverpool,  Newcastle, Sheffield, Middlesbrough and Birmingham. Below we list the UTLAs in these areas in descending order.
 
@@ -231,7 +231,7 @@ corrplot::corrplot(cormat, type="lower",
                    diag = FALSE)
 ```
 
-<img src="09-gwr_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+![](09-gwr_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
 
 The correlogram shows the strength and significance of the linear relationship between our set of variables. The size of the circle reflects the strength of the relationships as captured by the Pearson correlation coefficient, and crosses indicate statistically insignificant relationships at the 95% level of confidence. The colour indicate the direction of the relationship with dark (light) colours indicating a negative (positive) association.
 
@@ -315,7 +315,7 @@ map_utla + tm_shape(reg_shp) + # add region boundaries
   tm_borders(col = "white", lwd = .5) # add borders
 ```
 
-<img src="09-gwr_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](09-gwr_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
 
 ## Fitting a Geographically Weighted Regression
 
@@ -437,7 +437,7 @@ map_fbgwr1 + tm_shape(reg_shp) + # add region boundaries
   tm_borders(col = "white", lwd = .5) # add borders
 ```
 
-<img src="09-gwr_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+![](09-gwr_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
 
 The map shows very high in-sample model predictions of up to 80% in relatively large UTLAs (i.e. Cornwall, Devon and Cumbria) but poor predictions in Linconshire and small UTLAs in the North West and Yorkshire & The Humber Regions and the Greater London. The spatial distribution of this pattern may reflect a potential problem that arise in the application of GWR with fixed spatial kernels. The use of fixed kernels implies that local regressions for small spatial units may be calibrated on a large number of dissimilar areas, while local regressions for large areas may be calibrated on very few data points, giving rise to estimates with large standard errors. In extreme cases, generating estimates might not be possible due to insufficient variation in small samples. In practice, this issue is relatively common if the number of geographical areas in the dataset is small.
 
@@ -533,7 +533,7 @@ map_abgwr1 + tm_shape(reg_shp) + # add region boundaries
   tm_borders(col = "white", lwd = .5) # add borders
 ```
 
-<img src="09-gwr_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+![](09-gwr_files/figure-epub3/unnamed-chunk-16-1.png)<!-- -->
 
 The map reveals notable improvements in local estimates for UTLAs within West and East Midlands, the South East, South West and East of England. Estimates are still poor in hot spot UTLAs concentrating confirmed cases of COVID-19, such as the Greater London, Liverpool and Newcastle areas. 
 
@@ -567,7 +567,7 @@ map_abgwr3 = map_abgwr3 + tm_shape(reg_shp) + # add region boundaries
 tmap_arrange(map_abgwr2, map_abgwr3)
 ```
 
-<img src="09-gwr_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+![](09-gwr_files/figure-epub3/unnamed-chunk-17-1.png)<!-- -->
 
 Analysing the map for long-term illness, a clear North-South divide can be identified. In the North we observed the expected positive relationship between COVID-19 and long-term illness i.e. as the share of the local population suffering from long-term illness rises, the cumulative number of positive COVID-19 cases is expected to increase. In the South, we observe the inverse pattern i.e. as the share of local population suffering from long-term illness rises, the cumulative number of positive COVID-19 cases is expected to drop. This pattern is counterintuitive but may be explained by the wider socio-economic disadvantages between the North and the South of England. The North is usually characterised by a persistent concentration of more disadvantaged neighbourhoods than the South where affluent households have tended to cluster for the last 40 years [@rowe2020policy].
 
@@ -598,7 +598,7 @@ map_sig + tm_shape(reg_shp) + # add region boundaries
   tm_borders(col = "white", lwd = .5) # add borders
 ```
 
-<img src="09-gwr_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+![](09-gwr_files/figure-epub3/unnamed-chunk-18-1.png)<!-- -->
 
 ```r
 # utla count

@@ -1,25 +1,16 @@
 # Flows {#flows}
 
 
-This chapter^[This chapter is part of [Spatial Analysis Notes](index.html) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Flows -- Exploring flows visually and through spatial interaction</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.] covers spatial interaction flows. Using open data from the city of San Francisco about trips on its bikeshare system, we will estimate spatial interaction models that try to capture and explain the variation in the amount of trips on each given route. After visualizing the dataset, we begin with a very simple model and then build complexity progressively by augmenting it with more information, refined measurements, and better modeling approaches. Throughout the chapter, we explore different ways to grasp the predictive performance of each model. We finish with a prediction example that illustrates how these models can be deployed in a real-world application.
+This chapter covers spatial interaction flows. Using open data from the city of San Francisco about trips on its bikeshare system, we will estimate spatial interaction models that try to capture and explain the variation in the amount of trips on each given route. After visualizing the dataset, we begin with a very simple model and then build complexity progressively by augmenting it with more information, refined measurements, and better modeling approaches. Throughout the chapter, we explore different ways to grasp the predictive performance of each model. We finish with a prediction example that illustrates how these models can be deployed in a real-world application.
 
 Content is based on the following references, which are great follow-up's on the topic:
 
 * @gds_ua17, an online short course on R for Geographic Data Science and Urban Analytics. In particular, the section on [mapping flows](https://github.com/alexsingleton/GDS_UA_2017/tree/master/Mapping_Flows) is specially relevant here.
 * The predictive checks section draws heavily from @gelman2006data, in particular Chapters 6 and 7.
 
-This tutorial is part of [Spatial Analysis Notes](index.html), a compilation hosted as a GitHub repository that you can access in a few ways:
-
-* As a [download](https://github.com/GDSL-UL/san/archive/master.zip) of a `.zip` file that contains all the materials.
-* As an [html
-  website](https://gdsl-ul.github.io/san/flows.html).
-* As a [pdf
-  document](https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf)
-* As a [GitHub repository](https://github.com/GDSL-UL/san).
-
 ## Dependencies
 
-This tutorial relies on the following libraries that you will need to have installed on your machine to be able to interactively follow along^[You can install package `mypackage` by running the command `install.packages("mypackage")` on the R prompt or through the `Tools --> Install Packages...` menu in RStudio.]. Once installed, load them up with the following commands:
+We will rely on the following libraries in this section, all of them included in the [book list](#Dependency-list):
 
 
 ```r
@@ -34,11 +25,11 @@ library(rgdal)
 ```
 ## rgdal: version: 1.5-18, (SVN revision 1082)
 ## Geospatial Data Abstraction Library extensions to R successfully loaded
-## Loaded GDAL runtime: GDAL 3.1.1, released 2020/06/22
-## Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/gdal
+## Loaded GDAL runtime: GDAL 3.0.4, released 2020/01/28
+## Path to GDAL shared files: /opt/conda/share/gdal
 ## GDAL binary built with GEOS: TRUE 
 ## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
-## Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj
+## Path to PROJ shared files: /opt/conda/share/proj
 ## Linking to sp version:1.4-4
 ## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
 ## use options("rgdal_show_exportToProj4_warnings"="none") before loading rgdal.
@@ -84,8 +75,10 @@ library(arm)
 ```
 
 ```
-## Working directory is /Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san
+## Working directory is /home/jovyan/work
 ```
+
+In this chapter we will show a slightly different way of managing spatial data in R. Although most of the functionality will be similar to that seen in previous chapters, we will not rely on the "`sf` stack" and we will instead show how to read and manipulate data using the more traditional `sp` stack. Although this approach is being slowly phased out, it is still important to be aware of its existence and its differences with more modern approaches.
 
 Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with `setwd()`. Please replace in the following line the path to the folder where you have placed this file -and where the `sf_bikes` folder with the data lives.
 
@@ -107,7 +100,7 @@ db <- readOGR('./data/sf_bikes/flows.geojson')
 
 ```
 ## OGR data source with driver: GeoJSON 
-## Source: "/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sf_bikes/flows.geojson", layer: "flows"
+## Source: "/home/jovyan/work/data/sf_bikes/flows.geojson", layer: "flows"
 ## with 1722 features
 ## It has 9 fields
 ```
@@ -148,7 +141,7 @@ plot(db)
 ```
 
 <div class="figure">
-<img src="05-flows_files/figure-html/unnamed-chunk-5-1.png" alt="Potential routes" width="672" />
+<img src="05-flows_files/figure-epub3/unnamed-chunk-5-1.png" alt="Potential routes"  />
 <p class="caption">(\#fig:unnamed-chunk-5)Potential routes</p>
 </div>
 
@@ -163,7 +156,7 @@ plot(one39to48)
 ```
 
 <div class="figure">
-<img src="05-flows_files/figure-html/unnamed-chunk-6-1.png" alt="Trip from station 39 to 48" width="672" />
+<img src="05-flows_files/figure-epub3/unnamed-chunk-6-1.png" alt="Trip from station 39 to 48"  />
 <p class="caption">(\#fig:unnamed-chunk-6)Trip from station 39 to 48</p>
 </div>
 
@@ -178,7 +171,7 @@ plot(most_pop)
 ```
 
 <div class="figure">
-<img src="05-flows_files/figure-html/unnamed-chunk-7-1.png" alt="Most popular trip" width="672" />
+<img src="05-flows_files/figure-epub3/unnamed-chunk-7-1.png" alt="Most popular trip"  />
 <p class="caption">(\#fig:unnamed-chunk-7)Most popular trip</p>
 </div>
 
@@ -188,13 +181,17 @@ The easiest way to bring in geographical context is by overlaying the routes on 
 
 
 ```r
-sf_bb <- c(left=db@bbox['x', 'min'],
-           right=db@bbox['x', 'max'],
-           bottom=db@bbox['y', 'min'],
-           top=db@bbox['y', 'max'])
-SanFran <- get_stamenmap(sf_bb, 
-                         zoom = 14, 
-                         maptype = "toner-lite")
+sf_bb <- c(
+  left=db@bbox['x', 'min'],
+  right=db@bbox['x', 'max'],
+  bottom=db@bbox['y', 'min'],
+  top=db@bbox['y', 'max']
+  )
+SanFran <- get_stamenmap(
+  sf_bb, 
+  zoom = 14, 
+  maptype = "toner-lite"
+  )
 ```
 
 ```
@@ -252,7 +249,7 @@ and make sure it looks like we intend it to look:
 ggmap(SanFran)
 ```
 
-<img src="05-flows_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](05-flows_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
 
 Now to combine tiles and routes, we need to pull out the coordinates that make up each line. For the route example above, this would be:
 
@@ -266,25 +263,28 @@ Now we can plot the route^[**EXERCISE**: *can you plot the route for the largest
 
 ```r
 ggmap(SanFran, darken=0.5) + 
-  geom_path(aes(x=X1, y=X2), 
-            data=xys1,
-            size=1,
-            color=rgb(0.996078431372549, 0.7019607843137254, 0.03137254901960784),
-            lineend='round')
+  geom_path(
+    aes(x=X1, y=X2), 
+    data=xys1,
+    size=1,
+    color=rgb(0.996078431372549, 0.7019607843137254, 0.03137254901960784),
+    lineend='round'
+    )
 ```
 
-<img src="05-flows_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+![](05-flows_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
 
 Now we can plot all of the lines by using a short `for` loop to build up the table:
 
 
 ```r
 # Set up shell data.frame
-lines <- data.frame(lat = numeric(0), 
-                    lon = numeric(0), 
-                    trips = numeric(0),
-                    id = numeric(0)
-                    )
+lines <- data.frame(
+  lat = numeric(0), 
+  lon = numeric(0), 
+  trips = numeric(0),
+  id = numeric(0)
+)
 # Run loop
 for(x in 1:nrow(db)){
   # Pull out row
@@ -305,42 +305,39 @@ Now we can go on and plot all of them:
 
 ```r
 ggmap(SanFran, darken=0.75) + 
-  geom_path(aes(
-                x=lon, 
-                y=lat,
-                group=id
-                ),
-            data=lines,
-            size=0.1,
-            color=rgb(0.996078431372549, 0.7019607843137254, 0.03137254901960784),
-            lineend='round')
+  geom_path(
+    aes(x=lon, y=lat, group=id),
+    data=lines,
+    size=0.1,
+    color=rgb(0.996078431372549, 0.7019607843137254, 0.03137254901960784),
+    lineend='round'
+  )
 ```
 
-<img src="05-flows_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+![](05-flows_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
 
 Finally, we can get a sense of the distribution of the flows by associating a color gradient to each flow based on its number of trips:
 
 
 ```r
 ggmap(SanFran, darken=0.75) + 
-  geom_path(aes(
-                x=lon, 
-                y=lat,
-                group=id,
-                colour=trips
-                ),
-            data=lines,
-            size=log1p(lines$trips / max(lines$trips)),
-            lineend='round') +
-  scale_colour_gradient(low='grey',
-                        high='#07eda0') +
-  theme(axis.text.x = element_blank(),
-      axis.text.y = element_blank(),
-      axis.ticks = element_blank()
-      )
+  geom_path(
+    aes(x=lon, y=lat, group=id, colour=trips),
+    data=lines,
+    size=log1p(lines$trips / max(lines$trips)),
+    lineend='round'
+  ) +
+  scale_colour_gradient(
+    low='grey', high='#07eda0'
+  ) +
+  theme(
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank()
+  )
 ```
 
-<img src="05-flows_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+![](05-flows_files/figure-epub3/unnamed-chunk-14-1.png)<!-- -->
 
 Note how we transform the size so it's a proportion of the largest trip and then it is compressed with a logarithm.
 
@@ -400,20 +397,26 @@ To explore how good this model is, we will be comparing the predictions the mode
 
 
 ```r
-plot(density(m1$fitted.values), 
-     xlim=c(-100, max(db_std$trips15)),
-     main='')
-lines(density(db_std$trips15), 
-      col='red',
-      main='')
-legend('topright', 
-       c('Predicted', 'Actual'),
-       col=c('black', 'red'),
-       lwd=1)
+plot(
+  density(m1$fitted.values), 
+  xlim=c(-100, max(db_std$trips15)),
+  main=''
+)
+lines(
+  density(db_std$trips15), 
+  col='red',
+  main=''
+)
+legend(
+  'topright', 
+  c('Predicted', 'Actual'),
+  col=c('black', 'red'),
+  lwd=1
+)
 title(main="Predictive check, point estimates - Baseline model")
 ```
 
-<img src="05-flows_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+![](05-flows_files/figure-epub3/unnamed-chunk-17-1.png)<!-- -->
 
 The plot makes pretty obvious that our initial model captures very few aspects of the distribution we want to explain. However, we should not get too attached to this plot just yet. What it is showing is the distribution of predicted *point* estimates from our model. Since our model is not deterministic but inferential, there is a certain degree of uncertainty attached to its predictions, and that is completely absent from this plot. 
 
@@ -450,44 +453,54 @@ This function takes a model `m` and the set of covariates `x` used and returns a
 ```r
 new_y <- generate_draw(m1)
 
-plot(density(m1$fitted.values), 
-     xlim=c(-100, max(db_std$trips15)),
-     ylim=c(0, max(c(
-                      max(density(m1$fitted.values)$y), 
-                      max(density(db_std$trips15)$y)
-                      )
+plot(
+  density(m1$fitted.values), 
+  xlim=c(-100, max(db_std$trips15)),
+  ylim=c(0, max(c(
+                   max(density(m1$fitted.values)$y), 
+                   max(density(db_std$trips15)$y)
                    )
-            ),
-     col='black',
-     main='')
-lines(density(db_std$trips15), 
-      col='red',
-      main='')
-lines(density(new_y), 
-      col='green',
-      main='')
-legend('topright', 
-       c('Predicted', 'Actual', 'Simulated'),
-       col=c('black', 'red', 'green'),
-       lwd=1)
+                )
+         ),
+  col='black',
+  main=''
+)
+lines(
+  density(db_std$trips15), 
+  col='red',
+  main=''
+)
+lines(
+  density(new_y), 
+  col='green',
+  main=''
+)
+legend(
+  'topright', 
+  c('Predicted', 'Actual', 'Simulated'),
+  col=c('black', 'red', 'green'),
+  lwd=1
+)
 ```
 
-<img src="05-flows_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+![](05-flows_files/figure-epub3/unnamed-chunk-19-1.png)<!-- -->
 
 Once we have this "draw engine", we can set it to work as many times as we want using a simple `for` loop. In fact, we can directly plot these lines as compared to the expected one and the trip count:
 
 
 ```r
-plot(density(m1$fitted.values), 
-     xlim=c(-100, max(db_std$trips15)),
-     ylim=c(0, max(c(
-                  max(density(m1$fitted.values)$y), 
-                  max(density(db_std$trips15)$y)
-                  )
+plot(
+  density(m1$fitted.values), 
+  xlim=c(-100, max(db_std$trips15)),
+  ylim=c(0, max(c(
+               max(density(m1$fitted.values)$y), 
+               max(density(db_std$trips15)$y)
                )
-        ),
-     col='white',
-     main='')
+            )
+     ),
+  col='white',
+  main=''
+)
 # Loop for realizations
 for(i in 1:250){
   tmp_y <- generate_draw(m1)
@@ -497,20 +510,26 @@ for(i in 1:250){
         )
 }
 #
-lines(density(m1$fitted.values), 
-      col='black',
-      main='')
-lines(density(db_std$trips15), 
-      col='red',
-      main='')
-legend('topright', 
-       c('Actual', 'Predicted', 'Simulated (n=250)'),
-       col=c('red', 'black', 'grey'),
-       lwd=1)
+lines(
+  density(m1$fitted.values), 
+  col='black',
+  main=''
+)
+lines(
+  density(db_std$trips15), 
+  col='red',
+  main=''
+)
+legend(
+  'topright', 
+  c('Actual', 'Predicted', 'Simulated (n=250)'),
+  col=c('red', 'black', 'grey'),
+  lwd=1
+)
 title(main="Predictive check - Baseline model")
 ```
 
-<img src="05-flows_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+![](05-flows_files/figure-epub3/unnamed-chunk-20-1.png)<!-- -->
 
 The plot shows there is a significant mismatch between the fitted values, which are much more concentrated around small positive values, and the realizations of our "inferential engine", which depict a much less concentrated distribution of values. This is likely due to the combination of two different reasons: on the one hand, the accuracy of our estimates may be poor, causing them to jump around a wide range of potential values and hence resulting in very diverse predictions (inferential uncertainty); on the other hand, it may be that the amount of variation we are not able to account for in the model^[The $R^2$ of our model is around 2%] is so large that the degree of uncertainty contained in the error term of the model is very large, hence resulting in such a flat predictive distribution.
 
@@ -538,37 +557,44 @@ As usual, such a model is easy to run in R:
 
 
 ```r
-m2 <- glm('trips15 ~ straight_dist + total_up + total_down', 
-          data=db_std,
-          family=poisson,
-          )
+m2 <- glm(
+  'trips15 ~ straight_dist + total_up + total_down', 
+  data=db_std,
+  family=poisson,
+)
 ```
 
 Now let's see how much better, if any, this approach is. To get a quick overview, we can simply plot the point predictions:
 
 
 ```r
-plot(density(m2$fitted.values), 
-     xlim=c(-100, max(db_std$trips15)),
-     ylim=c(0, max(c(
-                  max(density(m2$fitted.values)$y), 
-                  max(density(db_std$trips15)$y)
-                  )
+plot(
+  density(m2$fitted.values), 
+  xlim=c(-100, max(db_std$trips15)),
+  ylim=c(0, max(c(
+               max(density(m2$fitted.values)$y), 
+               max(density(db_std$trips15)$y)
                )
-      ),
-     col='black',
-     main='')
-lines(density(db_std$trips15), 
-      col='red',
-      main='')
-legend('topright', 
-       c('Predicted', 'Actual'),
-       col=c('black', 'red'),
-       lwd=1)
+            )
+   ),
+  col='black',
+  main=''
+)
+lines(
+  density(db_std$trips15), 
+  col='red',
+  main=''
+)
+legend(
+  'topright', 
+  c('Predicted', 'Actual'),
+  col=c('black', 'red'),
+  lwd=1
+)
 title(main="Predictive check, point estimates - Poisson model")
 ```
 
-<img src="05-flows_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+![](05-flows_files/figure-epub3/unnamed-chunk-22-1.png)<!-- -->
 
 To incorporate uncertainty to these predictions, we need to tweak our `generate_draw`  function so it accommodates the fact that our model is not linear anymore.
 
@@ -594,39 +620,48 @@ And then we can examine both point predictions an uncertainty around them:
 
 
 ```r
-plot(density(m2$fitted.values), 
-     xlim=c(-100, max(db_std$trips15)),
-     ylim=c(0, max(c(
-                  max(density(m2$fitted.values)$y), 
-                  max(density(db_std$trips15)$y)
-                  )
+plot(
+  density(m2$fitted.values), 
+  xlim=c(-100, max(db_std$trips15)),
+  ylim=c(0, max(c(
+               max(density(m2$fitted.values)$y), 
+               max(density(db_std$trips15)$y)
                )
-      ),
-     col='white',
-     main='')
+            )
+   ),
+  col='white',
+  main=''
+)
 # Loop for realizations
 for(i in 1:250){
   tmp_y <- generate_draw_poi(m2)
-  lines(density(tmp_y),
-        col='grey',
-        lwd=0.1
-        )
+  lines(
+    density(tmp_y),
+    col='grey',
+    lwd=0.1
+  )
 }
 #
-lines(density(m2$fitted.values), 
-      col='black',
-      main='')
-lines(density(db_std$trips15), 
-      col='red',
-      main='')
-legend('topright', 
-       c('Predicted', 'Actual', 'Simulated (n=250)'),
-       col=c('black', 'red', 'grey'),
-       lwd=1)
+lines(
+  density(m2$fitted.values), 
+  col='black',
+  main=''
+)
+lines(
+  density(db_std$trips15), 
+  col='red',
+  main=''
+)
+legend(
+  'topright', 
+  c('Predicted', 'Actual', 'Simulated (n=250)'),
+  col=c('black', 'red', 'grey'),
+  lwd=1
+)
 title(main="Predictive check - Poisson model")
 ```
 
-<img src="05-flows_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+![](05-flows_files/figure-epub3/unnamed-chunk-24-1.png)<!-- -->
 
 Voila! Although the curve is still a bit off, centered too much to the right of the actual data, our predictive simulation leaves the fitted values right in the middle. This speaks to a better fit of the model to the actual distribution othe original data follow.  
 
@@ -644,9 +679,11 @@ where $\delta_i$ and $\delta_j$ are origin and destination station fixed effects
 
 
 ```r
-m3 <- glm('trips15 ~ straight_dist + total_up + total_down + orig + dest', 
-          data=db_std,
-          family=poisson)
+m3 <- glm(
+  'trips15 ~ straight_dist + total_up + total_down + orig + dest', 
+  data=db_std,
+  family=poisson
+)
 ```
 
 And with our new model, we can have a look at how well it does at predicting the overall number of trips^[Although, theoretically, we could also include simulations of the model in the plot to get a better sense of the uncertainty behind our model, in practice this seems troublesome. The problems most likely arise from the fact that many of the origin and destination binary variable coefficients are estimated with a great deal of uncertainty. This causes some of the simulation to generate extreme values that, when passed through the exponential term of the Poisson link function, cause problems. If anything, this is testimony of how a simple fixed effect model can sometimes lack accuracy and generate very uncertain estimates. A potential extension to work around these problems could be to fit a multilevel model with two specific levels beyond the trip-level: one for origin and another one for destination stations.]:
@@ -654,27 +691,33 @@ And with our new model, we can have a look at how well it does at predicting the
 
 
 ```r
-plot(density(m3$fitted.values), 
-     xlim=c(-100, max(db_std$trips15)),
-     ylim=c(0, max(c(
-                  max(density(m3$fitted.values)$y), 
-                  max(density(db_std$trips15)$y)
-                  )
+plot(
+  density(m3$fitted.values), 
+  xlim=c(-100, max(db_std$trips15)),
+  ylim=c(0, max(c(
+               max(density(m3$fitted.values)$y), 
+               max(density(db_std$trips15)$y)
                )
-      ),
-     col='black',
-     main='')
-lines(density(db_std$trips15), 
-      col='red',
-      main='')
-legend('topright', 
-       c('Predicted', 'Actual'),
-       col=c('black', 'red'),
-       lwd=1)
+            )
+   ),
+  col='black',
+  main=''
+)
+lines(
+  density(db_std$trips15), 
+  col='red',
+  main=''
+)
+legend(
+  'topright', 
+  c('Predicted', 'Actual'),
+  col=c('black', 'red'),
+  lwd=1
+)
 title(main="Predictive check - Orig/dest FE Poisson model")
 ```
 
-<img src="05-flows_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+![](05-flows_files/figure-epub3/unnamed-chunk-26-1.png)<!-- -->
 
 That looks significantly better, doesn't it? In fact, our model now better accounts for the long tail where a few routes take a lot of trips. This is likely because the distribution of trips is far from random across stations and our origin and destination fixed effects do a decent job at accounting for that structure. However our model is still notably underpredicting less popular routes and overpredicting routes with above average number of trips. Maybe we should think about moving beyond a simple linear model.
 
@@ -686,36 +729,44 @@ As an exampe of this approach, we can replace the straight distance measurements
 
 
 ```r
-m4 <- glm('trips15 ~ street_dist + total_up + total_down + orig + dest', 
-          data=db_std,
-          family=poisson)
+m4 <- glm(
+  'trips15 ~ street_dist + total_up + total_down + orig + dest', 
+  data=db_std,
+  family=poisson
+)
 ```
 
 And we can similarly get a sense of our predictive fitting with:
 
 
 ```r
-plot(density(m4$fitted.values), 
-     xlim=c(-100, max(db_std$trips15)),
-     ylim=c(0, max(c(
-                  max(density(m4$fitted.values)$y), 
-                  max(density(db_std$trips15)$y)
-                  )
+plot(
+  density(m4$fitted.values), 
+  xlim=c(-100, max(db_std$trips15)),
+  ylim=c(0, max(c(
+               max(density(m4$fitted.values)$y), 
+               max(density(db_std$trips15)$y)
                )
-      ),
-     col='black',
-     main='')
-lines(density(db_std$trips15), 
-      col='red',
-      main='')
-legend('topright', 
-       c('Predicted', 'Actual'),
-       col=c('black', 'red'),
-       lwd=1)
+            )
+   ),
+  col='black',
+  main=''
+)
+lines(
+  density(db_std$trips15), 
+  col='red',
+  main=''
+)
+legend(
+  'topright', 
+  c('Predicted', 'Actual'),
+  col=c('black', 'red'),
+  lwd=1
+)
 title(main="Predictive check - Orig/dest FE Poisson model")
 ```
 
-<img src="05-flows_files/figure-html/unnamed-chunk-28-1.png" width="672" />
+![](05-flows_files/figure-epub3/unnamed-chunk-28-1.png)<!-- -->
 
 Hard to tell any noticeable difference, right? To see if there is any, we can have a look at the estimates obtained:
 
@@ -791,22 +842,22 @@ That means that, on average, predictions in our best model `m4` are 256 trips of
 
 
 ```r
-rmses <- data.frame(model=c('OLS', 'Poisson', 'Poisson + FE', 
-                            'Poisson + FE + street dist.',
-                            'Trips-2015'
-                            ),
-                    RMSE=c(rmse(db_std$trips16, 
-                              m1$fitted.values),
-                           rmse(db_std$trips16, 
-                              m2$fitted.values),
-                           rmse(db_std$trips16, 
-                              m3$fitted.values),
-                           rmse(db_std$trips16, 
-                              m4$fitted.values),
-                           rmse(db_std$trips16, 
-                                db_std$trips15)
-                           )
-                      )
+rmses <- data.frame(
+  model=c(
+    'OLS', 
+    'Poisson', 
+    'Poisson + FE', 
+    'Poisson + FE + street dist.',
+    'Trips-2015'
+  ),
+  RMSE=c(
+  rmse(db_std$trips16, m1$fitted.values),
+  rmse(db_std$trips16, m2$fitted.values),
+  rmse(db_std$trips16, m3$fitted.values),
+  rmse(db_std$trips16, m4$fitted.values),
+  rmse(db_std$trips16, db_std$trips15)
+  )
+)
 rmses
 ```
 
@@ -820,6 +871,3 @@ rmses
 ```
 
 The table is both encouraging and disheartning at the same time. On the one hand, all the modeling techniques covered above behave as we would expect: the baseline model displays the worst predicting power of all, and every improvement (except the street distances!) results in notable decreases of the RMSE. This is good news. However, on the other hand, all of our modelling efforts fall short of given a better guess than simply using the previous year's counts. *Why? Does this mean that we should not pay attention to modeling and inference?* Not really. Generally speaking, a model is as good at predicting as it is able to mimic the underlying process that gave rise to the data in the first place. The results above point to a case where our model is not picking up all the factors that determine the amount of trips undertaken in a give route. This could be improved by enriching the model with more/better predictors, as we have seen above. Also, the example above seems to point to a case where those idiosyncracies in 2015 that the model does not pick up seem to be at work in 2016 as well. This is great news for our prediction efforts this time, but we have no idea why this is the case and, for all that matters, it could change the coming year. Besides the elegant quantification of uncertainty, the true advantage of a modeling approach in this context is that, if well fit, it is able to pick up the fundamentals that apply over and over. This means that, if next year we're not as lucky as this one and previous counts are not good predictors but the variables we used in our model continue to have a role in determining the outcome, the data scientist should be luckier and hit a better prediction.
-
-## References
-

@@ -3,26 +3,22 @@
 
 
 
-This chapter^[<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Spatial Econometrics</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.] is based on the following references, which are good follow-up's on the topic:
+---
 
+**IMPORTANT** - Reference and text to be updated
+
+---
+
+This chapter is based on the following references, which are good follow-up's on the topic:
+
+* [Chapter 11](https://geographicdata.science/book/notebooks/11_regression.html) of the GDS Book, by @reyABwolf.
 * [Session III](http://darribas.org/sdar_mini/notes/Class_03.html) of @arribas2014spatial. Check the "Related readings" section on the session page for more in-depth discussions.
 * @anselin2005spatial, freely available to download [[`pdf`](http://csiss.org/GISPopSci/workshops/2011/PSU/readings/W15_Anselin2007.pdf)].
-* The second part of this tutorial assumes you have reviewed Lecture 5 of @darribas_gds19. [[html](http://darribas.org/gds19/notes/Class_05.html)]
-* A similar coverage of topics is presented in Chapter 11 of the upcoming book "Geographic Data Science with Python", which is currently in progress. [[`url`](https://geographicdata.science/book/notebooks/11_regression.html)]
-
-This tutorial is part of [Spatial Analysis Notes](index.html), a compilation hosted as a GitHub repository that you can access it in a few ways:
-
-* As a [download](https://github.com/GDSL-UL/san/archive/master.zip) of a `.zip` file that contains all the materials.
-* As an [html
-  website](https://gdsl-ul.github.io/san/spatial-econometrics.html).
-* As a [pdf
-  document](https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf)
-* As a [GitHub repository](https://github.com/GDSL-UL/san).
-
+* The second part of this tutorial assumes you have reviewed [Block E](https://darribas.org/gds_course/content/bE/concepts_E.html) of @darribas_gds_course. [[html](https://darribas.org/gds_course/content/bE/concepts_E.html)]
 
 ## Dependencies
 
-The illustration below relies on the following libraries that you will need to have installed on your machine to be able to interactively follow along^[You can install package `mypackage` by running the command `install.packages("mypackage")` on the R prompt or through the `Tools --> Install Packages...` menu in RStudio.]. Once installed, load them up with the following commands:
+We will rely on the following libraries in this section, all of them included in the [book list](#Dependency-list):
 
 
 ```r
@@ -41,11 +37,11 @@ library(rgdal)
 ```
 ## rgdal: version: 1.5-18, (SVN revision 1082)
 ## Geospatial Data Abstraction Library extensions to R successfully loaded
-## Loaded GDAL runtime: GDAL 3.1.1, released 2020/06/22
-## Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/gdal
+## Loaded GDAL runtime: GDAL 3.0.4, released 2020/01/28
+## Path to GDAL shared files: /opt/conda/share/gdal
 ## GDAL binary built with GEOS: TRUE 
 ## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
-## Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj
+## Path to PROJ shared files: /opt/conda/share/proj
 ## Linking to sp version:1.4-4
 ## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
 ## use options("rgdal_show_exportToProj4_warnings"="none") before loading rgdal.
@@ -93,8 +89,8 @@ library(GISTools)
 
 ```
 ## rgeos version: 0.5-5, (SVN revision 640)
-##  GEOS runtime version: 3.8.1-CAPI-1.13.3 
-##  Linking to sp version: 1.4-2 
+##  GEOS runtime version: 3.8.0-CAPI-1.13.1 
+##  Linking to sp version: 1.4-4 
 ##  Polygon checking: TRUE
 ```
 
@@ -112,17 +108,11 @@ library(spdep)
 ```
 
 ```
-## To access larger datasets in this package, install the spDataLarge
-## package with: `install.packages('spDataLarge',
-## repos='https://nowosad.github.io/drat/', type='source')`
-```
-
-```
 ## Loading required package: sf
 ```
 
 ```
-## Linking to GEOS 3.8.1, GDAL 3.1.1, PROJ 6.3.1
+## Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1
 ```
 
 Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with `setwd()`. Please replace in the following line the path to the folder where you have placed this file -and where the `house_transactions` folder with the data lives.
@@ -135,88 +125,25 @@ setwd('.')
 
 ## Data
 
-To explore ideas in spatial regression, we will be using house price data for the municipality of Liverpool. Our main dataset is provided by the Land Registry (as part of their [Price Paid Data](https://www.gov.uk/government/collections/price-paid-data)) but has been cleaned and re-packaged into a shapefile by Dani Arribas-Bel.
+To explore ideas in spatial regression, we will the set of Airbnb properties for San Diego (US), borrowed from the "Geographic Data Science with Python" book (see [here](https://geographicdata.science/book/data/airbnb/regression_cleaning.html) for more info on the dataset source). This covers the point location of properties advertised on the Airbnb website in the San Diego region.
 
 Let us load it up first of all:
 
 
 ```r
-hst <- readOGR(dsn = 'data/house_transactions', layer = 'liv_house_trans')
+db <- st_read('data/abb_sd/regression_db.geojson')
 ```
 
 ```
-## Warning in OGRSpatialRef(dsn, layer, morphFromESRI = morphFromESRI, dumpSRS =
-## dumpSRS, : Discarded datum OSGB_1936 in CRS definition: +proj=tmerc +lat_0=49
-## +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs
+## Reading layer `regression_db' from data source `/home/jovyan/work/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
+## Simple feature collection with 6110 features and 19 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: -117.2812 ymin: 32.57349 xmax: -116.9553 ymax: 33.08311
+## geographic CRS: WGS 84
 ```
 
-```
-## OGR data source with driver: ESRI Shapefile 
-## Source: "/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/house_transactions", layer: "liv_house_trans"
-## with 6324 features
-## It has 18 fields
-## Integer64 fields read as strings:  price
-```
-
-The tabular component of the spatial frame contains the followig variables:
-
-
-```r
-names(hst)
-```
-
-```
-##  [1] "pcds"       "id"         "price"      "trans_date" "type"      
-##  [6] "new"        "duration"   "paon"       "saon"       "street"    
-## [11] "locality"   "town"       "district"   "county"     "ppd_cat"   
-## [16] "status"     "lsoa11"     "LSOA11CD"
-```
-
-The meaning for most of the variables can be found in the original [Land Registry documentation](https://www.gov.uk/guidance/about-the-price-paid-data#explanations-of-column-headers-in-the-ppd). The dataset contains transactions that took place during 2,014:
-
-
-```r
-# Format dates
-dts <- as.Date(hst@data$trans_date)
-# Set up summary table
-tab <- summary(dts)
-tab
-```
-
-```
-##         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
-## "2014-01-02" "2014-04-11" "2014-07-09" "2014-07-08" "2014-10-03" "2014-12-30"
-```
-
-Although the original Land Registry data contain some characteristics of the house, all of them are categorical: *is the house newly built? What type of property is it?* To bring in a richer picture and illustrate how continuous variables can also be included in a spatial setting, we will augment the original transaction data with Deprivation indices from the [CDRC](https://data.cdrc.ac.uk/dataset/cdrc-english-indices-of-deprivation-2015-geodata-pack-liverpool-e08000012) at the [Lower Layer Super Output Area](http://neighbourhood.statistics.gov.uk/HTMLDocs/nessgeography/superoutputareasexplained/output-areas-explained.htm) (LSOA) level.
-
-Let us read the `csv` in:
-
-
-```r
-imd <- read.csv('data/house_transactions/E08000012.csv')
-```
-The table contains not only the overall IMD score and rank, but some of the component scores, as well as the `LSOA` code:
-
-
-```r
-names(imd)
-```
-
-```
-##  [1] "LSOA11CD"   "imd_rank"   "imd_score"  "income"     "employment"
-##  [6] "education"  "health"     "crime"      "housing"    "living_env"
-## [11] "idaci"      "idaopi"
-```
-
-That bit of information, `LSOA11CD`, is crucial to be able to connect it to each house transaction. To "join" both tables, we can use the base command `merge`, which will assign values from `imd` into `hst` making sure that each house transaction get the IMD data for the LSOA where it is located:
-
-
-```r
-db <- merge(hst, imd)
-```
-
-The resulting table, `db`, contains variables from both original tables:
+The table contains the followig variables:
 
 
 ```r
@@ -224,56 +151,27 @@ names(db)
 ```
 
 ```
-##  [1] "LSOA11CD"   "pcds"       "id"         "price"      "trans_date"
-##  [6] "type"       "new"        "duration"   "paon"       "saon"      
-## [11] "street"     "locality"   "town"       "district"   "county"    
-## [16] "ppd_cat"    "status"     "lsoa11"     "imd_rank"   "imd_score" 
-## [21] "income"     "employment" "education"  "health"     "crime"     
-## [26] "housing"    "living_env" "idaci"      "idaopi"
+##  [1] "accommodates"       "bathrooms"          "bedrooms"          
+##  [4] "beds"               "neighborhood"       "pool"              
+##  [7] "d2balboa"           "coastal"            "price"             
+## [10] "log_price"          "id"                 "pg_Apartment"      
+## [13] "pg_Condominium"     "pg_House"           "pg_Other"          
+## [16] "pg_Townhouse"       "rt_Entire_home.apt" "rt_Private_room"   
+## [19] "rt_Shared_room"     "geometry"
 ```
 
-Since we will heavily rely on `price`, we need to turn it into a numeric column, rather than as a factor, which is how it is picked up:
+For most of this chapter, we will be exploring determinants and strategies for modelling the price of a property advertised in AirBnb. To get a first taste of what this means, we can create a plot of prices within the area of San Diego:
 
 
 ```r
-db@data$price <- as.numeric(as.character(db@data$price))
+db %>%
+  ggplot(aes(color = price)) +
+  geom_sf() + 
+  scale_color_viridis_c() +
+  theme_void()
 ```
 
-For some of our analysis, we will need the coarse postcode of each house, rather than the finely specified one in the original data. This means using the available one
-
-
-```r
-head(db@data['pcds'])
-```
-
-```
-##      pcds
-## 62 L1 0AB
-## 63 L1 0AB
-## 64 L1 0AB
-## 65 L1 0AB
-## 66 L1 0AB
-## 67 L1 0AB
-```
-
-to create a new column that only contains the first bit of the postcode (`L1` in the examples above). The following lines of code will do that for us:
-
-
-```r
-db$pc <- as.character(lapply(strsplit(as.character(db$pcds), split=" "), "[", 1))
-```
-
-Given there are 6,324 transactions in the dataset, a simple plot of the point coordinates implicitly draws the shape of the Liverpool municipality:
-
-
-```r
-plot(db)
-```
-
-<div class="figure">
-<img src="06-spatial_econometrics_files/figure-html/unnamed-chunk-13-1.png" alt="Spatial distribution of house transactions in Liverpool" width="672" />
-<p class="caption">(\#fig:unnamed-chunk-13)Spatial distribution of house transactions in Liverpool</p>
-</div>
+![](06-spatial_econometrics_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
 
 ## Non-spatial regression, a refresh
 
@@ -293,7 +191,7 @@ Practically speaking, running linear regressions in `R` is straightforward. For 
 
 
 ```r
-m1 <- lm('price ~ new + imd_score', db)
+m1 <- lm('log_price ~ accommodates + bathrooms + bedrooms + beds', db)
 ```
 
 We use the command `lm`, for linear model, and specify the equation we want to fit using a string that relates the dependent variable (`price`) with a set of explanatory ones (`new` and `price`) by using a tilde `~` that is akin the $=$ symbol in the mathematical equation. Since we are using names of variables that are stored in a table, we need to pass the table object (`db`) as well.
@@ -308,23 +206,26 @@ summary(m1)
 ```
 ## 
 ## Call:
-## lm(formula = "price ~ new + imd_score", data = db)
+## lm(formula = "log_price ~ accommodates + bathrooms + bedrooms + beds", 
+##     data = db)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-##  -184254   -59948   -29032    11430 26434741 
+##     Min      1Q  Median      3Q     Max 
+## -2.8486 -0.3234 -0.0095  0.3023  3.3975 
 ## 
 ## Coefficients:
-##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)   235596      13326  17.679  < 2e-16 ***
-## newY            4926      19104   0.258    0.797    
-## imd_score      -2416        308  -7.843 5.12e-15 ***
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)   4.018133   0.013947  288.10   <2e-16 ***
+## accommodates  0.176851   0.005323   33.23   <2e-16 ***
+## bathrooms     0.150981   0.012526   12.05   <2e-16 ***
+## bedrooms      0.111700   0.012537    8.91   <2e-16 ***
+## beds         -0.076974   0.007927   -9.71   <2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 509000 on 6321 degrees of freedom
-## Multiple R-squared:  0.009712,	Adjusted R-squared:  0.009398 
-## F-statistic: 30.99 on 2 and 6321 DF,  p-value: 4.027e-14
+## Residual standard error: 0.5366 on 6105 degrees of freedom
+## Multiple R-squared:  0.5583,	Adjusted R-squared:  0.558 
+## F-statistic:  1929 on 4 and 6105 DF,  p-value: < 2.2e-16
 ```
 
 A full detailed explanation of the output is beyond the scope of this note, so we will focus on the relevant bits for our main purpose. This is concentrated on the `Coefficients` section, which gives us the estimates for the $\beta_k$ coefficients in our model. Or, in other words, the coefficients are the raw equivalent of the correlation coefficient between each explanatory variable and the dependent one, once the polluting effect of confounding factors has been accounted for^[Keep in mind that regression is no magic. We are only discounting the effect of other confounding factors that we include in the model, not of *all* potentially confounding factors.]. Results are as expected for the most part: houses tend to be significantly more expensive in areas with lower deprivation (an average of GBP2,416 for every additional score); and a newly built house is on average GBP4,926 more expensive, although this association cannot be ruled out to be random (probably due to the small relative number of new houses).
@@ -339,30 +240,33 @@ This allows to interpret the coefficients more directly: as the percentual chang
 
 
 ```r
-m2 <- lm('log(price) ~ new + imd_score', db)
+m2 <- lm('log_price ~ accommodates + bathrooms + bedrooms + beds', db)
 summary(m2)
 ```
 
 ```
 ## 
 ## Call:
-## lm(formula = "log(price) ~ new + imd_score", data = db)
+## lm(formula = "log_price ~ accommodates + bathrooms + bedrooms + beds", 
+##     data = db)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.3172 -0.3231 -0.0149  0.3063  5.2769 
+## -2.8486 -0.3234 -0.0095  0.3023  3.3975 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) 12.2037784  0.0138634  880.28   <2e-16 ***
-## newY         0.2456446  0.0198740   12.36   <2e-16 ***
-## imd_score   -0.0169702  0.0003204  -52.96   <2e-16 ***
+## (Intercept)   4.018133   0.013947  288.10   <2e-16 ***
+## accommodates  0.176851   0.005323   33.23   <2e-16 ***
+## bathrooms     0.150981   0.012526   12.05   <2e-16 ***
+## bedrooms      0.111700   0.012537    8.91   <2e-16 ***
+## beds         -0.076974   0.007927   -9.71   <2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.5295 on 6321 degrees of freedom
-## Multiple R-squared:  0.3101,	Adjusted R-squared:  0.3099 
-## F-statistic:  1421 on 2 and 6321 DF,  p-value: < 2.2e-16
+## Residual standard error: 0.5366 on 6105 degrees of freedom
+## Multiple R-squared:  0.5583,	Adjusted R-squared:  0.558 
+## F-statistic:  1929 on 4 and 6105 DF,  p-value: < 2.2e-16
 ```
 
 Looking at the results we can see a couple of differences with respect to the original specification. First, the estimates are substantially different numbers. This is because, although they consider the same variable, the look at it from different angles, and provide different interpretations. For example, the coefficient for the IMD, instead of being interpretable in terms of GBP, the unit of the dependent variable, it represents a percentage: a unit increase in the degree of deprivation is associated with a 0.2% decrease in the price of a house.^[**EXERCISE** *How does the type of a house affect the price at which it is sold, given whether it is new and the level of deprivation of the area where it is located?* To answer this, fit a model as we have done but including additionally the variable `type`. In order to interpret the codes, check the reference at the [Land Registry documentation](https://www.gov.uk/guidance/about-the-price-paid-data#explanations-of-column-headers-in-the-ppd).] Second, the variable `new` is significant in this case. This is probably related to the fact that, by taking logs, we are also making the dependent variable look more normal (Gaussian) and that allows the linear model to provide a better fit and, hence, more accurate estimates. In this case, a house being newly built, as compared to an old house, is overall 25% more expensive.
@@ -394,53 +298,80 @@ Programmatically, this is straightforward to estimate:
 
 ```r
 # Include `-1` to eliminate the constant term and include a dummy for every area
-m3 <- lm('log(price) ~ pc + new + imd_score - 1', db)
+m3 <- lm(
+  'log_price ~ neighborhood + accommodates + bathrooms + bedrooms + beds - 1', 
+  db
+)
 summary(m3)
 ```
 
 ```
 ## 
 ## Call:
-## lm(formula = "log(price) ~ pc + new + imd_score - 1", data = db)
+## lm(formula = "log_price ~ neighborhood + accommodates + bathrooms + bedrooms + beds - 1", 
+##     data = db)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2680 -0.2833 -0.0235  0.2599  5.6714 
+## -2.4549 -0.2920 -0.0203  0.2741  3.5323 
 ## 
 ## Coefficients:
-##            Estimate Std. Error t value Pr(>|t|)    
-## pcL1      11.697166   0.032137  363.98   <2e-16 ***
-## pcL10     11.893524   0.076471  155.53   <2e-16 ***
-## pcL11     11.902319   0.043194  275.55   <2e-16 ***
-## pcL12     12.065776   0.029692  406.37   <2e-16 ***
-## pcL13     11.865523   0.034893  340.06   <2e-16 ***
-## pcL14     11.920922   0.044480  268.01   <2e-16 ***
-## pcL15     12.039916   0.028555  421.64   <2e-16 ***
-## pcL16     12.295535   0.034950  351.81   <2e-16 ***
-## pcL17     12.275339   0.027978  438.75   <2e-16 ***
-## pcL18     12.396475   0.024534  505.27   <2e-16 ***
-## pcL19     12.162630   0.029697  409.56   <2e-16 ***
-## pcL2      12.061443   0.100805  119.65   <2e-16 ***
-## pcL20     11.928142   0.226932   52.56   <2e-16 ***
-## pcL24     11.868363   0.045785  259.22   <2e-16 ***
-## pcL25     12.234462   0.028557  428.42   <2e-16 ***
-## pcL27     12.035241   0.092832  129.65   <2e-16 ***
-## pcL28     11.438267   0.206323   55.44   <2e-16 ***
-## pcL3      11.954453   0.029561  404.40   <2e-16 ***
-## pcL4      11.718609   0.039575  296.11   <2e-16 ***
-## pcL5      12.037267   0.055952  215.14   <2e-16 ***
-## pcL6      11.898506   0.042918  277.24   <2e-16 ***
-## pcL7      11.855374   0.044681  265.33   <2e-16 ***
-## pcL8      12.034093   0.039801  302.36   <2e-16 ***
-## pcL9      11.759056   0.033610  349.87   <2e-16 ***
-## newY       0.310829   0.020947   14.84   <2e-16 ***
-## imd_score -0.012008   0.000517  -23.23   <2e-16 ***
+##                                      Estimate Std. Error t value Pr(>|t|)    
+## neighborhoodBalboa Park              3.994775   0.036539  109.33   <2e-16 ***
+## neighborhoodBay Ho                   3.780025   0.086081   43.91   <2e-16 ***
+## neighborhoodBay Park                 3.941847   0.055788   70.66   <2e-16 ***
+## neighborhoodCarmel Valley            4.034052   0.062811   64.23   <2e-16 ***
+## neighborhoodCity Heights West        3.698788   0.065502   56.47   <2e-16 ***
+## neighborhoodClairemont Mesa          3.658339   0.051438   71.12   <2e-16 ***
+## neighborhoodCollege Area             3.649859   0.064979   56.17   <2e-16 ***
+## neighborhoodCore                     4.433447   0.058864   75.32   <2e-16 ***
+## neighborhoodCortez Hill              4.294790   0.057648   74.50   <2e-16 ***
+## neighborhoodDel Mar Heights          4.300659   0.060912   70.61   <2e-16 ***
+## neighborhoodEast Village             4.241146   0.032019  132.46   <2e-16 ***
+## neighborhoodGaslamp Quarter          4.473863   0.052493   85.23   <2e-16 ***
+## neighborhoodGrant Hill               4.001481   0.058825   68.02   <2e-16 ***
+## neighborhoodGrantville               3.664989   0.080168   45.72   <2e-16 ***
+## neighborhoodKensington               4.073520   0.087322   46.65   <2e-16 ***
+## neighborhoodLa Jolla                 4.400145   0.026772  164.36   <2e-16 ***
+## neighborhoodLa Jolla Village         4.066151   0.087263   46.60   <2e-16 ***
+## neighborhoodLinda Vista              3.817940   0.063128   60.48   <2e-16 ***
+## neighborhoodLittle Italy             4.390651   0.052433   83.74   <2e-16 ***
+## neighborhoodLoma Portal              4.034473   0.036173  111.53   <2e-16 ***
+## neighborhoodMarina                   4.046133   0.052178   77.55   <2e-16 ***
+## neighborhoodMidtown                  4.032038   0.030280  133.16   <2e-16 ***
+## neighborhoodMidtown District         4.356943   0.071756   60.72   <2e-16 ***
+## neighborhoodMira Mesa                3.570523   0.061543   58.02   <2e-16 ***
+## neighborhoodMission Bay              4.251309   0.023318  182.32   <2e-16 ***
+## neighborhoodMission Valley           4.012410   0.083766   47.90   <2e-16 ***
+## neighborhoodMoreno Mission           4.028288   0.063342   63.59   <2e-16 ***
+## neighborhoodNormal Heights           3.791895   0.054730   69.28   <2e-16 ***
+## neighborhoodNorth Clairemont         3.498107   0.076432   45.77   <2e-16 ***
+## neighborhoodNorth Hills              3.959403   0.026823  147.61   <2e-16 ***
+## neighborhoodNorthwest                3.810201   0.078158   48.75   <2e-16 ***
+## neighborhoodOcean Beach              4.152695   0.032352  128.36   <2e-16 ***
+## neighborhoodOld Town                 4.127737   0.046523   88.72   <2e-16 ***
+## neighborhoodOtay Ranch               3.722902   0.091633   40.63   <2e-16 ***
+## neighborhoodPacific Beach            4.116749   0.022711  181.27   <2e-16 ***
+## neighborhoodPark West                4.216829   0.050370   83.72   <2e-16 ***
+## neighborhoodRancho Bernadino         3.873962   0.080780   47.96   <2e-16 ***
+## neighborhoodRancho Penasquitos       3.772037   0.068808   54.82   <2e-16 ***
+## neighborhoodRoseville                4.070468   0.065299   62.34   <2e-16 ***
+## neighborhoodSan Carlos               3.935042   0.093205   42.22   <2e-16 ***
+## neighborhoodScripps Ranch            3.641239   0.085190   42.74   <2e-16 ***
+## neighborhoodSerra Mesa               3.912127   0.066630   58.71   <2e-16 ***
+## neighborhoodSouth Park               3.987019   0.060141   66.30   <2e-16 ***
+## neighborhoodUniversity City          3.772504   0.039638   95.17   <2e-16 ***
+## neighborhoodWest University Heights  4.043161   0.048238   83.82   <2e-16 ***
+## accommodates                         0.150283   0.005086   29.55   <2e-16 ***
+## bathrooms                            0.132287   0.011886   11.13   <2e-16 ***
+## bedrooms                             0.147631   0.011960   12.34   <2e-16 ***
+## beds                                -0.074622   0.007405  -10.08   <2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.5007 on 6298 degrees of freedom
-## Multiple R-squared:  0.9981,	Adjusted R-squared:  0.9981 
-## F-statistic: 1.305e+05 on 26 and 6298 DF,  p-value: < 2.2e-16
+## Residual standard error: 0.4971 on 6061 degrees of freedom
+## Multiple R-squared:  0.9904,	Adjusted R-squared:  0.9904 
+## F-statistic: 1.28e+04 on 49 and 6061 DF,  p-value: < 2.2e-16
 ```
 
 Econometrically speaking, what the postcode FE we have introduced imply is that, instead of comparing all house prices across Liverpool as equal, we only derive variation from within each postcode^[Additionally, estimating spatial FE in our particular example also gives you an indirect measure of area *desirability*: since they are simple dummies in a regression explaining the price of a house, their estimate tells us about how much people are willing to pay to live in a given area. However, this interpretation does not necessarily apply in other contexts where introducing spatial FEs does make sense. **EXERCISE** *What is the most desired area to live in Liverpool?*]. Remember that the interpretation of a $\beta_k$ coefficient is the effect of variable $k$, *given all the other explanatory variables included remain constant*. By including a single variable for each area, we are effectively forcing the model to compare as equal only house prices that share the same value for each variable; in other words, only houses located within the same area. Introducing FE affords you a higher degree of isolation of the effects of the variables you introduce in your model because you can control for unobserved effects that align spatially with the distribution of the FE you introduce (by postcode, in our case).
@@ -455,15 +386,6 @@ $$
 
 where we are not only allowing the constant term to vary by region ($\alpha_r$), but also every other parameter ($\beta_{kr}$).
 
-In R terms, this is more straightforward to estimate if `new` is expressed as `0` and `1`, rather than as factors:
-
-
-```r
-# Create a new variable `newB` to store the binary form of `new`
-db@data$newB <- 1
-db[db@data$new=='N', 'newB'] <- 0
-```
-
 Also, given we are going to allow *every* coefficient to vary by regime, we will need to explicitly set a constant term that we can allow to vary:
 
 
@@ -476,212 +398,392 @@ Then, the estimation leverages the capabilities in model description of R formul
 
 ```r
 # `:` notation implies interaction variables
-m4 <- lm('log(price) ~ 0 +(one + newB + imd_score):(pc)', db)
+m4 <- lm(
+  'log_price ~ 0 + (accommodates + bathrooms + bedrooms + beds):(neighborhood)', 
+  db
+)
 summary(m4)
 ```
 
 ```
 ## 
 ## Call:
-## lm(formula = "log(price) ~ 0 +(one + newB + imd_score):(pc)", 
+## lm(formula = "log_price ~ 0 + (accommodates + bathrooms + bedrooms + beds):(neighborhood)", 
 ##     data = db)
 ## 
 ## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -4.2051 -0.2506 -0.0182  0.2198  5.3507 
+##      Min       1Q   Median       3Q      Max 
+## -10.4790  -0.0096   1.0931   1.7599   6.1073 
 ## 
-## Coefficients: (8 not defined because of singularities)
-##                  Estimate Std. Error t value Pr(>|t|)    
-## one:pcL1        11.983460   0.098675 121.444  < 2e-16 ***
-## one:pcL10       11.911281   0.504210  23.624  < 2e-16 ***
-## one:pcL11       11.774865   0.160864  73.198  < 2e-16 ***
-## one:pcL12       12.157627   0.068165 178.356  < 2e-16 ***
-## one:pcL13       11.821576   0.103946 113.728  < 2e-16 ***
-## one:pcL14       11.821895   0.115040 102.763  < 2e-16 ***
-## one:pcL15       12.317524   0.052051 236.645  < 2e-16 ***
-## one:pcL16       12.761711   0.098709 129.287  < 2e-16 ***
-## one:pcL17       12.240652   0.065074 188.103  < 2e-16 ***
-## one:pcL18       12.695103   0.056510 224.654  < 2e-16 ***
-## one:pcL19       12.489604   0.054177 230.533  < 2e-16 ***
-## one:pcL2        12.164848   0.321558  37.831  < 2e-16 ***
-## one:pcL20       11.069199   0.211083  52.440  < 2e-16 ***
-## one:pcL24       10.876938   0.135326  80.376  < 2e-16 ***
-## one:pcL25       12.427878   0.051147 242.982  < 2e-16 ***
-## one:pcL27       11.022835   0.435730  25.297  < 2e-16 ***
-## one:pcL28       11.300143   1.126387  10.032  < 2e-16 ***
-## one:pcL3        11.977708   0.054781 218.647  < 2e-16 ***
-## one:pcL4        11.653464   0.109113 106.802  < 2e-16 ***
-## one:pcL5        11.544085   0.277000  41.675  < 2e-16 ***
-## one:pcL6        11.574617   0.158022  73.247  < 2e-16 ***
-## one:pcL7        11.617544   0.128402  90.478  < 2e-16 ***
-## one:pcL8        11.586224   0.085036 136.251  < 2e-16 ***
-## one:pcL9        11.837544   0.080452 147.139  < 2e-16 ***
-## newB:pcL1       -0.298430   0.051078  -5.843 5.40e-09 ***
-## newB:pcL10             NA         NA      NA       NA    
-## newB:pcL11       0.672479   0.089894   7.481 8.40e-14 ***
-## newB:pcL12       0.977903   0.114281   8.557  < 2e-16 ***
-## newB:pcL13      -0.659910   0.473773  -1.393 0.163705    
-## newB:pcL14       0.610482   0.132911   4.593 4.45e-06 ***
-## newB:pcL15       0.744844   0.139732   5.331 1.01e-07 ***
-## newB:pcL16             NA         NA      NA       NA    
-## newB:pcL17      -0.094580   0.095188  -0.994 0.320449    
-## newB:pcL18      -0.197115   0.122109  -1.614 0.106521    
-## newB:pcL19       0.393901   0.089607   4.396 1.12e-05 ***
-## newB:pcL2              NA         NA      NA       NA    
-## newB:pcL20             NA         NA      NA       NA    
-## newB:pcL24       0.735316   0.072739  10.109  < 2e-16 ***
-## newB:pcL25       0.196018   0.144527   1.356 0.175063    
-## newB:pcL27       0.356678   0.189946   1.878 0.060457 .  
-## newB:pcL28             NA         NA      NA       NA    
-## newB:pcL3       -0.261461   0.055228  -4.734 2.25e-06 ***
-## newB:pcL4        1.087380   0.079152  13.738  < 2e-16 ***
-## newB:pcL5        0.519945   0.094850   5.482 4.38e-08 ***
-## newB:pcL6        0.695856   0.062461  11.141  < 2e-16 ***
-## newB:pcL7              NA         NA      NA       NA    
-## newB:pcL8        0.334517   0.059368   5.635 1.83e-08 ***
-## newB:pcL9              NA         NA      NA       NA    
-## imd_score:pcL1  -0.010489   0.003383  -3.101 0.001938 ** 
-## imd_score:pcL10 -0.012413   0.011381  -1.091 0.275485    
-## imd_score:pcL11 -0.010637   0.003005  -3.540 0.000404 ***
-## imd_score:pcL12 -0.017296   0.002625  -6.588 4.81e-11 ***
-## imd_score:pcL13 -0.011004   0.002185  -5.036 4.89e-07 ***
-## imd_score:pcL14 -0.010432   0.002469  -4.225 2.42e-05 ***
-## imd_score:pcL15 -0.020737   0.001413 -14.681  < 2e-16 ***
-## imd_score:pcL16 -0.050522   0.007703  -6.559 5.85e-11 ***
-## imd_score:pcL17 -0.009763   0.002214  -4.410 1.05e-05 ***
-## imd_score:pcL18 -0.032289   0.003799  -8.499  < 2e-16 ***
-## imd_score:pcL19 -0.024629   0.001860 -13.242  < 2e-16 ***
-## imd_score:pcL2  -0.016601   0.013654  -1.216 0.224084    
-## imd_score:pcL20        NA         NA      NA       NA    
-## imd_score:pcL24  0.004090   0.002391   1.711 0.087139 .  
-## imd_score:pcL25 -0.020461   0.001981 -10.327  < 2e-16 ***
-## imd_score:pcL27  0.006626   0.007561   0.876 0.380911    
-## imd_score:pcL28 -0.009473   0.020367  -0.465 0.641850    
-## imd_score:pcL3  -0.006935   0.001747  -3.970 7.28e-05 ***
-## imd_score:pcL4  -0.012032   0.001731  -6.952 3.96e-12 ***
-## imd_score:pcL5  -0.006051   0.004009  -1.509 0.131280    
-## imd_score:pcL6  -0.008324   0.002367  -3.517 0.000440 ***
-## imd_score:pcL7  -0.007517   0.002342  -3.209 0.001337 ** 
-## imd_score:pcL8  -0.004064   0.001561  -2.603 0.009255 ** 
-## imd_score:pcL9  -0.014124   0.002052  -6.882 6.47e-12 ***
+## Coefficients:
+##                                                   Estimate Std. Error t value
+## accommodates:neighborhoodBalboa Park              0.063528   0.093237   0.681
+## accommodates:neighborhoodBay Ho                  -0.259615   0.335007  -0.775
+## accommodates:neighborhoodBay Park                -0.355401   0.232720  -1.527
+## accommodates:neighborhoodCarmel Valley            0.129786   0.187193   0.693
+## accommodates:neighborhoodCity Heights West        0.447371   0.231998   1.928
+## accommodates:neighborhoodClairemont Mesa          0.711353   0.177821   4.000
+## accommodates:neighborhoodCollege Area            -0.346152   0.188071  -1.841
+## accommodates:neighborhoodCore                     0.125864   0.148417   0.848
+## accommodates:neighborhoodCortez Hill              0.715958   0.126562   5.657
+## accommodates:neighborhoodDel Mar Heights          0.829195   0.214067   3.874
+## accommodates:neighborhoodEast Village             0.214642   0.077394   2.773
+## accommodates:neighborhoodGaslamp Quarter          0.451443   0.197637   2.284
+## accommodates:neighborhoodGrant Hill               1.135176   0.167771   6.766
+## accommodates:neighborhoodGrantville               0.300907   0.280369   1.073
+## accommodates:neighborhoodKensington               0.668742   0.450243   1.485
+## accommodates:neighborhoodLa Jolla                 0.520882   0.055887   9.320
+## accommodates:neighborhoodLa Jolla Village         0.566452   0.413185   1.371
+## accommodates:neighborhoodLinda Vista              0.523975   0.282219   1.857
+## accommodates:neighborhoodLittle Italy             0.603908   0.121899   4.954
+## accommodates:neighborhoodLoma Portal              0.487743   0.127870   3.814
+## accommodates:neighborhoodMarina                   0.431384   0.172628   2.499
+## accommodates:neighborhoodMidtown                  0.618058   0.087992   7.024
+## accommodates:neighborhoodMidtown District         0.430398   0.191682   2.245
+## accommodates:neighborhoodMira Mesa               -0.018199   0.310167  -0.059
+## accommodates:neighborhoodMission Bay              0.440951   0.049454   8.916
+## accommodates:neighborhoodMission Valley           0.144530   0.507925   0.285
+## accommodates:neighborhoodMoreno Mission           0.100471   0.229460   0.438
+## accommodates:neighborhoodNormal Heights           0.413682   0.198584   2.083
+## accommodates:neighborhoodNorth Clairemont        -0.242723   0.307090  -0.790
+## accommodates:neighborhoodNorth Hills              0.262840   0.083258   3.157
+## accommodates:neighborhoodNorthwest               -0.229157   0.255656  -0.896
+## accommodates:neighborhoodOcean Beach              0.754771   0.079097   9.542
+## accommodates:neighborhoodOld Town                 0.177176   0.159714   1.109
+## accommodates:neighborhoodOtay Ranch              -0.333536   0.309545  -1.078
+## accommodates:neighborhoodPacific Beach            0.345475   0.057599   5.998
+## accommodates:neighborhoodPark West                0.909020   0.156013   5.827
+## accommodates:neighborhoodRancho Bernadino        -0.118939   0.256750  -0.463
+## accommodates:neighborhoodRancho Penasquitos       0.121845   0.228456   0.533
+## accommodates:neighborhoodRoseville                0.316929   0.226110   1.402
+## accommodates:neighborhoodSan Carlos               0.191248   0.318706   0.600
+## accommodates:neighborhoodScripps Ranch            0.347638   0.127239   2.732
+## accommodates:neighborhoodSerra Mesa               0.495491   0.282281   1.755
+## accommodates:neighborhoodSouth Park               0.334378   0.256708   1.303
+## accommodates:neighborhoodUniversity City          0.107605   0.113883   0.945
+## accommodates:neighborhoodWest University Heights  0.190215   0.212040   0.897
+## bathrooms:neighborhoodBalboa Park                 2.275321   0.225032  10.111
+## bathrooms:neighborhoodBay Ho                      3.312231   0.530568   6.243
+## bathrooms:neighborhoodBay Park                    2.231649   0.365655   6.103
+## bathrooms:neighborhoodCarmel Valley               1.191058   0.224138   5.314
+## bathrooms:neighborhoodCity Heights West           2.517235   0.550272   4.575
+## bathrooms:neighborhoodClairemont Mesa             3.737297   0.427366   8.745
+## bathrooms:neighborhoodCollege Area                3.370263   0.413479   8.151
+## bathrooms:neighborhoodCore                        3.635188   0.490640   7.409
+## bathrooms:neighborhoodCortez Hill                 1.631032   0.299654   5.443
+## bathrooms:neighborhoodDel Mar Heights             1.346206   0.342828   3.927
+## bathrooms:neighborhoodEast Village                2.600489   0.190932  13.620
+## bathrooms:neighborhoodGaslamp Quarter             3.183092   0.527615   6.033
+## bathrooms:neighborhoodGrant Hill                  2.770976   0.416838   6.648
+## bathrooms:neighborhoodGrantville                  2.177175   0.693599   3.139
+## bathrooms:neighborhoodKensington                  1.284044   0.671482   1.912
+## bathrooms:neighborhoodLa Jolla                    0.852667   0.099413   8.577
+## bathrooms:neighborhoodLa Jolla Village            0.984426   1.193870   0.825
+## bathrooms:neighborhoodLinda Vista                 2.359895   0.393392   5.999
+## bathrooms:neighborhoodLittle Italy                2.600567   0.275834   9.428
+## bathrooms:neighborhoodLoma Portal                 2.575164   0.249679  10.314
+## bathrooms:neighborhoodMarina                      3.317139   0.656533   5.053
+## bathrooms:neighborhoodMidtown                     0.899736   0.112205   8.019
+## bathrooms:neighborhoodMidtown District            3.143440   0.594875   5.284
+## bathrooms:neighborhoodMira Mesa                   2.858280   0.512511   5.577
+## bathrooms:neighborhoodMission Bay                 1.764929   0.122421  14.417
+## bathrooms:neighborhoodMission Valley              2.666000   1.365483   1.952
+## bathrooms:neighborhoodMoreno Mission              3.234512   0.557898   5.798
+## bathrooms:neighborhoodNormal Heights              3.505139   0.467965   7.490
+## bathrooms:neighborhoodNorth Clairemont            2.574847   0.613471   4.197
+## bathrooms:neighborhoodNorth Hills                 2.584724   0.191541  13.494
+## bathrooms:neighborhoodNorthwest                   2.877519   0.569924   5.049
+## bathrooms:neighborhoodOcean Beach                 1.702208   0.207508   8.203
+## bathrooms:neighborhoodOld Town                    2.249120   0.302755   7.429
+## bathrooms:neighborhoodOtay Ranch                  2.818736   1.132794   2.488
+## bathrooms:neighborhoodPacific Beach               2.272803   0.130607  17.402
+## bathrooms:neighborhoodPark West                   2.676739   0.308257   8.683
+## bathrooms:neighborhoodRancho Bernadino            0.856723   0.555198   1.543
+## bathrooms:neighborhoodRancho Penasquitos          0.677767   0.414569   1.635
+## bathrooms:neighborhoodRoseville                   1.109625   0.360103   3.081
+## bathrooms:neighborhoodSan Carlos                  2.489815   0.511232   4.870
+## bathrooms:neighborhoodScripps Ranch               2.459862   0.469601   5.238
+## bathrooms:neighborhoodSerra Mesa                  2.968934   0.602807   4.925
+## bathrooms:neighborhoodSouth Park                  2.895471   0.521793   5.549
+## bathrooms:neighborhoodUniversity City             3.125387   0.347825   8.986
+## bathrooms:neighborhoodWest University Heights     2.188257   0.390408   5.605
+## bedrooms:neighborhoodBalboa Park                  0.605655   0.245384   2.468
+## bedrooms:neighborhoodBay Ho                       0.836163   0.631871   1.323
+## bedrooms:neighborhoodBay Park                     1.060944   0.430737   2.463
+## bedrooms:neighborhoodCarmel Valley                0.521954   0.480497   1.086
+## bedrooms:neighborhoodCity Heights West           -0.272600   0.663983  -0.411
+## bedrooms:neighborhoodClairemont Mesa             -0.742539   0.450344  -1.649
+## bedrooms:neighborhoodCollege Area                -0.306621   0.410476  -0.747
+## bedrooms:neighborhoodCore                        -0.786470   0.395991  -1.986
+## bedrooms:neighborhoodCortez Hill                  0.793039   0.380195   2.086
+## bedrooms:neighborhoodDel Mar Heights             -0.071069   0.369070  -0.193
+## bedrooms:neighborhoodEast Village                -0.186076   0.213572  -0.871
+## bedrooms:neighborhoodGaslamp Quarter             -0.294024   0.342057  -0.860
+## bedrooms:neighborhoodGrant Hill                  -0.456825   0.425374  -1.074
+## bedrooms:neighborhoodGrantville                   0.907259   0.770945   1.177
+## bedrooms:neighborhoodKensington                  -0.257195   1.009326  -0.255
+## bedrooms:neighborhoodLa Jolla                    -0.152098   0.133726  -1.137
+## bedrooms:neighborhoodLa Jolla Village             4.291700   1.882046   2.280
+## bedrooms:neighborhoodLinda Vista                 -0.485372   0.642684  -0.755
+## bedrooms:neighborhoodLittle Italy                 0.057475   0.306357   0.188
+## bedrooms:neighborhoodLoma Portal                 -0.406484   0.250607  -1.622
+## bedrooms:neighborhoodMarina                      -0.831114   0.511626  -1.624
+## bedrooms:neighborhoodMidtown                      0.696852   0.167900   4.150
+## bedrooms:neighborhoodMidtown District             0.010614   0.509151   0.021
+## bedrooms:neighborhoodMira Mesa                   -0.197692   0.780959  -0.253
+## bedrooms:neighborhoodMission Bay                 -0.330540   0.121602  -2.718
+## bedrooms:neighborhoodMission Valley               0.514998   1.295767   0.397
+## bedrooms:neighborhoodMoreno Mission              -0.584689   0.596044  -0.981
+## bedrooms:neighborhoodNormal Heights              -0.127744   0.391691  -0.326
+## bedrooms:neighborhoodNorth Clairemont             0.281306   0.695297   0.405
+## bedrooms:neighborhoodNorth Hills                  0.380444   0.178477   2.132
+## bedrooms:neighborhoodNorthwest                    0.288603   0.607295   0.475
+## bedrooms:neighborhoodOcean Beach                 -0.038069   0.207927  -0.183
+## bedrooms:neighborhoodOld Town                    -0.319724   0.375203  -0.852
+## bedrooms:neighborhoodOtay Ranch                   0.015564   1.332279   0.012
+## bedrooms:neighborhoodPacific Beach               -0.037912   0.139026  -0.273
+## bedrooms:neighborhoodPark West                   -0.696514   0.413881  -1.683
+## bedrooms:neighborhoodRancho Bernadino             1.034776   0.579798   1.785
+## bedrooms:neighborhoodRancho Penasquitos           0.674520   0.519260   1.299
+## bedrooms:neighborhoodRoseville                    0.881011   0.592962   1.486
+## bedrooms:neighborhoodSan Carlos                  -0.394191   0.540343  -0.730
+## bedrooms:neighborhoodScripps Ranch                1.107455   0.336101   3.295
+## bedrooms:neighborhoodSerra Mesa                   0.253001   0.620774   0.408
+## bedrooms:neighborhoodSouth Park                  -0.595844   0.407811  -1.461
+## bedrooms:neighborhoodUniversity City              0.203783   0.455767   0.447
+## bedrooms:neighborhoodWest University Heights      0.242873   0.359245   0.676
+## beds:neighborhoodBalboa Park                      0.041556   0.173183   0.240
+## beds:neighborhoodBay Ho                          -0.402544   0.495241  -0.813
+## beds:neighborhoodBay Park                         0.283958   0.410776   0.691
+## beds:neighborhoodCarmel Valley                    0.150416   0.288268   0.522
+## beds:neighborhoodCity Heights West               -0.217526   0.497878  -0.437
+## beds:neighborhoodClairemont Mesa                 -1.109581   0.308998  -3.591
+## beds:neighborhoodCollege Area                     0.594892   0.312780   1.902
+## beds:neighborhoodCore                             0.602559   0.277027   2.175
+## beds:neighborhoodCortez Hill                     -0.609996   0.143559  -4.249
+## beds:neighborhoodDel Mar Heights                 -0.708476   0.257299  -2.754
+## beds:neighborhoodEast Village                     0.399909   0.148641   2.690
+## beds:neighborhoodGaslamp Quarter                  0.240245   0.319910   0.751
+## beds:neighborhoodGrant Hill                      -1.315807   0.186724  -7.047
+## beds:neighborhoodGrantville                      -0.382590   0.469011  -0.816
+## beds:neighborhoodKensington                       0.133474   0.664698   0.201
+## beds:neighborhoodLa Jolla                         0.001347   0.085013   0.016
+## beds:neighborhoodLa Jolla Village                -2.878676   1.020652  -2.820
+## beds:neighborhoodLinda Vista                     -0.142372   0.278211  -0.512
+## beds:neighborhoodLittle Italy                    -0.569868   0.099961  -5.701
+## beds:neighborhoodLoma Portal                     -0.255510   0.222956  -1.146
+## beds:neighborhoodMarina                           0.024175   0.429466   0.056
+## beds:neighborhoodMidtown                         -0.346866   0.137915  -2.515
+## beds:neighborhoodMidtown District                -0.464781   0.337775  -1.376
+## beds:neighborhoodMira Mesa                        0.319934   0.426799   0.750
+## beds:neighborhoodMission Bay                     -0.108936   0.067105  -1.623
+## beds:neighborhoodMission Valley                  -0.502441   0.879795  -0.571
+## beds:neighborhoodMoreno Mission                   0.492514   0.439355   1.121
+## beds:neighborhoodNormal Heights                  -0.532907   0.227211  -2.345
+## beds:neighborhoodNorth Clairemont                 0.562363   0.704213   0.799
+## beds:neighborhoodNorth Hills                     -0.279430   0.123678  -2.259
+## beds:neighborhoodNorthwest                        0.742017   0.474903   1.562
+## beds:neighborhoodOcean Beach                     -0.667651   0.137647  -4.850
+## beds:neighborhoodOld Town                         0.459210   0.287008   1.600
+## beds:neighborhoodOtay Ranch                       0.235723   0.983870   0.240
+## beds:neighborhoodPacific Beach                   -0.179242   0.087511  -2.048
+## beds:neighborhoodPark West                       -0.873297   0.225334  -3.876
+## beds:neighborhoodRancho Bernadino                 0.378088   0.348640   1.084
+## beds:neighborhoodRancho Penasquitos               0.147457   0.344820   0.428
+## beds:neighborhoodRoseville                       -0.391529   0.328609  -1.191
+## beds:neighborhoodSan Carlos                       0.115338   0.621666   0.186
+## beds:neighborhoodScripps Ranch                   -1.654484   0.338331  -4.890
+## beds:neighborhoodSerra Mesa                      -1.018812   0.705888  -1.443
+## beds:neighborhoodSouth Park                       0.452815   0.406052   1.115
+## beds:neighborhoodUniversity City                 -0.345822   0.232779  -1.486
+## beds:neighborhoodWest University Heights          0.146128   0.364075   0.401
+##                                                  Pr(>|t|)    
+## accommodates:neighborhoodBalboa Park             0.495668    
+## accommodates:neighborhoodBay Ho                  0.438397    
+## accommodates:neighborhoodBay Park                0.126774    
+## accommodates:neighborhoodCarmel Valley           0.488131    
+## accommodates:neighborhoodCity Heights West       0.053861 .  
+## accommodates:neighborhoodClairemont Mesa         6.40e-05 ***
+## accommodates:neighborhoodCollege Area            0.065740 .  
+## accommodates:neighborhoodCore                    0.396446    
+## accommodates:neighborhoodCortez Hill             1.61e-08 ***
+## accommodates:neighborhoodDel Mar Heights         0.000108 ***
+## accommodates:neighborhoodEast Village            0.005565 ** 
+## accommodates:neighborhoodGaslamp Quarter         0.022395 *  
+## accommodates:neighborhoodGrant Hill              1.45e-11 ***
+## accommodates:neighborhoodGrantville              0.283202    
+## accommodates:neighborhoodKensington              0.137520    
+## accommodates:neighborhoodLa Jolla                 < 2e-16 ***
+## accommodates:neighborhoodLa Jolla Village        0.170446    
+## accommodates:neighborhoodLinda Vista             0.063414 .  
+## accommodates:neighborhoodLittle Italy            7.47e-07 ***
+## accommodates:neighborhoodLoma Portal             0.000138 ***
+## accommodates:neighborhoodMarina                  0.012484 *  
+## accommodates:neighborhoodMidtown                 2.40e-12 ***
+## accommodates:neighborhoodMidtown District        0.024780 *  
+## accommodates:neighborhoodMira Mesa               0.953213    
+## accommodates:neighborhoodMission Bay              < 2e-16 ***
+## accommodates:neighborhoodMission Valley          0.776000    
+## accommodates:neighborhoodMoreno Mission          0.661505    
+## accommodates:neighborhoodNormal Heights          0.037279 *  
+## accommodates:neighborhoodNorth Clairemont        0.429327    
+## accommodates:neighborhoodNorth Hills             0.001602 ** 
+## accommodates:neighborhoodNorthwest               0.370103    
+## accommodates:neighborhoodOcean Beach              < 2e-16 ***
+## accommodates:neighborhoodOld Town                0.267333    
+## accommodates:neighborhoodOtay Ranch              0.281298    
+## accommodates:neighborhoodPacific Beach           2.12e-09 ***
+## accommodates:neighborhoodPark West               5.96e-09 ***
+## accommodates:neighborhoodRancho Bernadino        0.643202    
+## accommodates:neighborhoodRancho Penasquitos      0.593817    
+## accommodates:neighborhoodRoseville               0.161071    
+## accommodates:neighborhoodSan Carlos              0.548479    
+## accommodates:neighborhoodScripps Ranch           0.006311 ** 
+## accommodates:neighborhoodSerra Mesa              0.079258 .  
+## accommodates:neighborhoodSouth Park              0.192775    
+## accommodates:neighborhoodUniversity City         0.344762    
+## accommodates:neighborhoodWest University Heights 0.369719    
+## bathrooms:neighborhoodBalboa Park                 < 2e-16 ***
+## bathrooms:neighborhoodBay Ho                     4.60e-10 ***
+## bathrooms:neighborhoodBay Park                   1.11e-09 ***
+## bathrooms:neighborhoodCarmel Valley              1.11e-07 ***
+## bathrooms:neighborhoodCity Heights West          4.87e-06 ***
+## bathrooms:neighborhoodClairemont Mesa             < 2e-16 ***
+## bathrooms:neighborhoodCollege Area               4.37e-16 ***
+## bathrooms:neighborhoodCore                       1.45e-13 ***
+## bathrooms:neighborhoodCortez Hill                5.45e-08 ***
+## bathrooms:neighborhoodDel Mar Heights            8.71e-05 ***
+## bathrooms:neighborhoodEast Village                < 2e-16 ***
+## bathrooms:neighborhoodGaslamp Quarter            1.71e-09 ***
+## bathrooms:neighborhoodGrant Hill                 3.25e-11 ***
+## bathrooms:neighborhoodGrantville                 0.001704 ** 
+## bathrooms:neighborhoodKensington                 0.055892 .  
+## bathrooms:neighborhoodLa Jolla                    < 2e-16 ***
+## bathrooms:neighborhoodLa Jolla Village           0.409651    
+## bathrooms:neighborhoodLinda Vista                2.10e-09 ***
+## bathrooms:neighborhoodLittle Italy                < 2e-16 ***
+## bathrooms:neighborhoodLoma Portal                 < 2e-16 ***
+## bathrooms:neighborhoodMarina                     4.49e-07 ***
+## bathrooms:neighborhoodMidtown                    1.28e-15 ***
+## bathrooms:neighborhoodMidtown District           1.31e-07 ***
+## bathrooms:neighborhoodMira Mesa                  2.55e-08 ***
+## bathrooms:neighborhoodMission Bay                 < 2e-16 ***
+## bathrooms:neighborhoodMission Valley             0.050935 .  
+## bathrooms:neighborhoodMoreno Mission             7.07e-09 ***
+## bathrooms:neighborhoodNormal Heights             7.88e-14 ***
+## bathrooms:neighborhoodNorth Clairemont           2.74e-05 ***
+## bathrooms:neighborhoodNorth Hills                 < 2e-16 ***
+## bathrooms:neighborhoodNorthwest                  4.58e-07 ***
+## bathrooms:neighborhoodOcean Beach                2.85e-16 ***
+## bathrooms:neighborhoodOld Town                   1.25e-13 ***
+## bathrooms:neighborhoodOtay Ranch                 0.012863 *  
+## bathrooms:neighborhoodPacific Beach               < 2e-16 ***
+## bathrooms:neighborhoodPark West                   < 2e-16 ***
+## bathrooms:neighborhoodRancho Bernadino           0.122861    
+## bathrooms:neighborhoodRancho Penasquitos         0.102129    
+## bathrooms:neighborhoodRoseville                  0.002070 ** 
+## bathrooms:neighborhoodSan Carlos                 1.14e-06 ***
+## bathrooms:neighborhoodScripps Ranch              1.68e-07 ***
+## bathrooms:neighborhoodSerra Mesa                 8.66e-07 ***
+## bathrooms:neighborhoodSouth Park                 3.00e-08 ***
+## bathrooms:neighborhoodUniversity City             < 2e-16 ***
+## bathrooms:neighborhoodWest University Heights    2.18e-08 ***
+## bedrooms:neighborhoodBalboa Park                 0.013608 *  
+## bedrooms:neighborhoodBay Ho                      0.185782    
+## bedrooms:neighborhoodBay Park                    0.013803 *  
+## bedrooms:neighborhoodCarmel Valley               0.277400    
+## bedrooms:neighborhoodCity Heights West           0.681416    
+## bedrooms:neighborhoodClairemont Mesa             0.099236 .  
+## bedrooms:neighborhoodCollege Area                0.455100    
+## bedrooms:neighborhoodCore                        0.047070 *  
+## bedrooms:neighborhoodCortez Hill                 0.037033 *  
+## bedrooms:neighborhoodDel Mar Heights             0.847309    
+## bedrooms:neighborhoodEast Village                0.383650    
+## bedrooms:neighborhoodGaslamp Quarter             0.390058    
+## bedrooms:neighborhoodGrant Hill                  0.282895    
+## bedrooms:neighborhoodGrantville                  0.239317    
+## bedrooms:neighborhoodKensington                  0.798872    
+## bedrooms:neighborhoodLa Jolla                    0.255422    
+## bedrooms:neighborhoodLa Jolla Village            0.022623 *  
+## bedrooms:neighborhoodLinda Vista                 0.450143    
+## bedrooms:neighborhoodLittle Italy                0.851191    
+## bedrooms:neighborhoodLoma Portal                 0.104857    
+## bedrooms:neighborhoodMarina                      0.104332    
+## bedrooms:neighborhoodMidtown                     3.37e-05 ***
+## bedrooms:neighborhoodMidtown District            0.983369    
+## bedrooms:neighborhoodMira Mesa                   0.800169    
+## bedrooms:neighborhoodMission Bay                 0.006583 ** 
+## bedrooms:neighborhoodMission Valley              0.691053    
+## bedrooms:neighborhoodMoreno Mission              0.326658    
+## bedrooms:neighborhoodNormal Heights              0.744334    
+## bedrooms:neighborhoodNorth Clairemont            0.685798    
+## bedrooms:neighborhoodNorth Hills                 0.033080 *  
+## bedrooms:neighborhoodNorthwest                   0.634643    
+## bedrooms:neighborhoodOcean Beach                 0.854736    
+## bedrooms:neighborhoodOld Town                    0.394173    
+## bedrooms:neighborhoodOtay Ranch                  0.990680    
+## bedrooms:neighborhoodPacific Beach               0.785097    
+## bedrooms:neighborhoodPark West                   0.092450 .  
+## bedrooms:neighborhoodRancho Bernadino            0.074358 .  
+## bedrooms:neighborhoodRancho Penasquitos          0.193994    
+## bedrooms:neighborhoodRoseville                   0.137390    
+## bedrooms:neighborhoodSan Carlos                  0.465713    
+## bedrooms:neighborhoodScripps Ranch               0.000990 ***
+## bedrooms:neighborhoodSerra Mesa                  0.683614    
+## bedrooms:neighborhoodSouth Park                  0.144046    
+## bedrooms:neighborhoodUniversity City             0.654804    
+## bedrooms:neighborhoodWest University Heights     0.499025    
+## beds:neighborhoodBalboa Park                     0.810374    
+## beds:neighborhoodBay Ho                          0.416352    
+## beds:neighborhoodBay Park                        0.489423    
+## beds:neighborhoodCarmel Valley                   0.601836    
+## beds:neighborhoodCity Heights West               0.662195    
+## beds:neighborhoodClairemont Mesa                 0.000332 ***
+## beds:neighborhoodCollege Area                    0.057226 .  
+## beds:neighborhoodCore                            0.029663 *  
+## beds:neighborhoodCortez Hill                     2.18e-05 ***
+## beds:neighborhoodDel Mar Heights                 0.005914 ** 
+## beds:neighborhoodEast Village                    0.007156 ** 
+## beds:neighborhoodGaslamp Quarter                 0.452696    
+## beds:neighborhoodGrant Hill                      2.04e-12 ***
+## beds:neighborhoodGrantville                      0.414683    
+## beds:neighborhoodKensington                      0.840859    
+## beds:neighborhoodLa Jolla                        0.987357    
+## beds:neighborhoodLa Jolla Village                0.004812 ** 
+## beds:neighborhoodLinda Vista                     0.608851    
+## beds:neighborhoodLittle Italy                    1.25e-08 ***
+## beds:neighborhoodLoma Portal                     0.251837    
+## beds:neighborhoodMarina                          0.955112    
+## beds:neighborhoodMidtown                         0.011927 *  
+## beds:neighborhoodMidtown District                0.168872    
+## beds:neighborhoodMira Mesa                       0.453518    
+## beds:neighborhoodMission Bay                     0.104565    
+## beds:neighborhoodMission Valley                  0.567962    
+## beds:neighborhoodMoreno Mission                  0.262337    
+## beds:neighborhoodNormal Heights                  0.019038 *  
+## beds:neighborhoodNorth Clairemont                0.424572    
+## beds:neighborhoodNorth Hills                     0.023899 *  
+## beds:neighborhoodNorthwest                       0.118233    
+## beds:neighborhoodOcean Beach                     1.26e-06 ***
+## beds:neighborhoodOld Town                        0.109654    
+## beds:neighborhoodOtay Ranch                      0.810658    
+## beds:neighborhoodPacific Beach                   0.040583 *  
+## beds:neighborhoodPark West                       0.000108 ***
+## beds:neighborhoodRancho Bernadino                0.278202    
+## beds:neighborhoodRancho Penasquitos              0.668932    
+## beds:neighborhoodRoseville                       0.233515    
+## beds:neighborhoodSan Carlos                      0.852819    
+## beds:neighborhoodScripps Ranch                   1.03e-06 ***
+## beds:neighborhoodSerra Mesa                      0.148987    
+## beds:neighborhoodSouth Park                      0.264826    
+## beds:neighborhoodUniversity City                 0.137433    
+## beds:neighborhoodWest University Heights         0.688164    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.472 on 6260 degrees of freedom
-## Multiple R-squared:  0.9984,	Adjusted R-squared:  0.9983 
-## F-statistic: 5.966e+04 on 64 and 6260 DF,  p-value: < 2.2e-16
-```
-
-As we can see, there are a few `NA` values (e.g. `pcL10`). This has to do with the fact that there are not that many new houses, so some of the buckets in which the regimes split the data to estimate each parameter are empty. This can be readily seen by obtaining a quick cross tabulation of `pc` and `new`:
-
-
-```r
-table(db$pc, db$new)
-```
-
-```
-##      
-##         N   Y
-##   L1  161 189
-##   L10  47   0
-##   L11 192  34
-##   L12 326  18
-##   L13 387   1
-##   L14 144  19
-##   L15 466  12
-##   L16 212   0
-##   L17 398  27
-##   L18 439  16
-##   L19 329  32
-##   L2   25   0
-##   L20   5   0
-##   L24  97  84
-##   L25 357  11
-##   L27  22  10
-##   L28   6   0
-##   L3  272 101
-##   L4  437  41
-##   L5   97  46
-##   L6  319  78
-##   L7  201   0
-##   L8  227 110
-##   L9  329   0
-```
-
-To illustrate a correct regime estimation, we can focus only on `imd_score`^[Note this still returns a `NA` for the IMD estimate in `L20`. This is most likely due to the little amount of houses (five) sold in that area. The regression nevertheless serves the illustration]:
-
-
-```r
-# `:` notation implies interaction variables
-m5 <- lm('log(price) ~ 0 + (one + imd_score):pc', db)
-summary(m5)
-```
-
-```
-## 
-## Call:
-## lm(formula = "log(price) ~ 0 + (one + imd_score):pc", data = db)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -4.4952 -0.2779 -0.0221  0.2477  5.4973 
-## 
-## Coefficients: (1 not defined because of singularities)
-##                   Estimate Std. Error t value Pr(>|t|)    
-## one:pcL1        11.8965065  0.1030279 115.469  < 2e-16 ***
-## one:pcL10       11.9112807  0.5325447  22.367  < 2e-16 ***
-## one:pcL11       11.6203268  0.1684973  68.964  < 2e-16 ***
-## one:pcL12       12.2106579  0.0716973 170.309  < 2e-16 ***
-## one:pcL13       11.8099973  0.1094358 107.917  < 2e-16 ***
-## one:pcL14       12.1229804  0.0998496 121.412  < 2e-16 ***
-## one:pcL15       12.3753226  0.0537697 230.154  < 2e-16 ***
-## one:pcL16       12.7617106  0.1042555 122.408  < 2e-16 ***
-## one:pcL17       12.2248054  0.0666348 183.460  < 2e-16 ***
-## one:pcL18       12.7033951  0.0594382 213.724  < 2e-16 ***
-## one:pcL19       12.4767606  0.0571384 218.360  < 2e-16 ***
-## one:pcL2        12.1648479  0.3396283  35.818  < 2e-16 ***
-## one:pcL20       11.0691989  0.2229447  49.650  < 2e-16 ***
-## one:pcL24       11.5214275  0.1260747  91.386  < 2e-16 ***
-## one:pcL25       12.4351502  0.0537240 231.464  < 2e-16 ***
-## one:pcL27       11.3770205  0.4148632  27.424  < 2e-16 ***
-## one:pcL28       11.3001428  1.1896847   9.498  < 2e-16 ***
-## one:pcL3        11.8873513  0.0542344 219.185  < 2e-16 ***
-## one:pcL4        11.4097020  0.1137109 100.340  < 2e-16 ***
-## one:pcL5        10.9973874  0.2729459  40.291  < 2e-16 ***
-## one:pcL6        11.1816689  0.1626918  68.729  < 2e-16 ***
-## one:pcL7        11.6175445  0.1356173  85.664  < 2e-16 ***
-## one:pcL8        11.5086161  0.0886286 129.852  < 2e-16 ***
-## one:pcL9        11.8375435  0.0849726 139.310  < 2e-16 ***
-## imd_score:pcL1  -0.0131286  0.0035407  -3.708 0.000211 ***
-## imd_score:pcL10 -0.0124128  0.0120210  -1.033 0.301837    
-## imd_score:pcL11 -0.0058373  0.0031009  -1.882 0.059824 .  
-## imd_score:pcL12 -0.0173734  0.0027727  -6.266 3.95e-10 ***
-## imd_score:pcL13 -0.0107902  0.0023022  -4.687 2.83e-06 ***
-## imd_score:pcL14 -0.0160870  0.0022604  -7.117 1.23e-12 ***
-## imd_score:pcL15 -0.0219205  0.0014734 -14.878  < 2e-16 ***
-## imd_score:pcL16 -0.0505217  0.0081354  -6.210 5.63e-10 ***
-## imd_score:pcL17 -0.0093980  0.0023061  -4.075 4.65e-05 ***
-## imd_score:pcL18 -0.0333885  0.0039476  -8.458  < 2e-16 ***
-## imd_score:pcL19 -0.0228257  0.0019160 -11.913  < 2e-16 ***
-## imd_score:pcL2  -0.0166013  0.0144213  -1.151 0.249707    
-## imd_score:pcL20         NA         NA      NA       NA    
-## imd_score:pcL24 -0.0020546  0.0024420  -0.841 0.400163    
-## imd_score:pcL25 -0.0205241  0.0020921  -9.810  < 2e-16 ***
-## imd_score:pcL27  0.0020943  0.0075687   0.277 0.782014    
-## imd_score:pcL28 -0.0094733  0.0215112  -0.440 0.659671    
-## imd_score:pcL3  -0.0061811  0.0018374  -3.364 0.000773 ***
-## imd_score:pcL4  -0.0066455  0.0017803  -3.733 0.000191 ***
-## imd_score:pcL5   0.0039338  0.0037726   1.043 0.297115    
-## imd_score:pcL6  -0.0004620  0.0023860  -0.194 0.846480    
-## imd_score:pcL7  -0.0075165  0.0024737  -3.039 0.002387 ** 
-## imd_score:pcL8  -0.0006921  0.0015228  -0.455 0.649469    
-## imd_score:pcL9  -0.0141241  0.0021676  -6.516 7.79e-11 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 0.4985 on 6277 degrees of freedom
-## Multiple R-squared:  0.9982,	Adjusted R-squared:  0.9982 
-## F-statistic: 7.282e+04 on 47 and 6277 DF,  p-value: < 2.2e-16
+## Residual standard error: 1.81 on 5930 degrees of freedom
+## Multiple R-squared:  0.8759,	Adjusted R-squared:  0.8721 
+## F-statistic: 232.4 on 180 and 5930 DF,  p-value: < 2.2e-16
 ```
 
 This allows us to get a separate constant term and estimate of the impact of IMD on the price of a house *for every postcode*^[**PRO EXERCISE** *How does the effect of IMD vary over space?* You can answer this by looking at the coefficients of `imd_score` over postcodes, but it would be much clearer if you could create a choropleth of the house locations where each dot is colored based on the value of the `imd_score` estimated for that postcode.].
@@ -708,15 +810,15 @@ $$
 
 where $y_{lag-i}$ is the spatial lag of variable $y$ at location $i$, and $j$ sums over the entire dataset. If $W$ is row-standardized, $y_{lag-i}$ becomes an average of $y$ weighted by the spatial criterium defined in $W$.
 
-Given that spatial weights matrices are not the focus of this tutorial, we will stick to a very simple case. Since we are dealing with points, we will use $K$-nn weights, which take the $k$ nearest neighbors of each observation as neighbors and assign a value of one, assigning everyone else a zero. We will use $k=150$ to get a good degree of variation and sensible results. If your computer is struggles to compute the following lines of code, you can replace 50 by a lowed number. Technically speaking is the same thing, but the probability that you will pick up only houses in the same LSOA (and hence with exactly the same IMD score) will be higher.
+Given that spatial weights matrices are not the focus of this tutorial, we will stick to a very simple case. Since we are dealing with points, we will use $K$-nn weights, which take the $k$ nearest neighbors of each observation as neighbors and assign a value of one, assigning everyone else a zero. We will use $k=50$ to get a good degree of variation and sensible results.
 
 
 ```r
-# Because some rows are different units on the same house, slightly
-# jitter the locations to break ties
-xy.jit <- jitter(db@coords)
 # Create knn list of each house
-hnn <- knearneigh(xy.jit, k=50)
+hnn <- db %>%
+  st_coordinates() %>%
+  as.matrix() %>%
+  knearneigh(k = 50)
 # Create nb object
 hnb <- knn2nb(hnn)
 # Create spatial weights matrix (note it row-standardizes by default)
@@ -733,16 +835,16 @@ hknn
 ```
 ## Characteristics of weights list object:
 ## Neighbour list object:
-## Number of regions: 6324 
-## Number of nonzero links: 316200 
-## Percentage nonzero weights: 0.7906388 
+## Number of regions: 6110 
+## Number of nonzero links: 305500 
+## Percentage nonzero weights: 0.8183306 
 ## Average number of links: 50 
 ## Non-symmetric neighbours list
 ## 
 ## Weights style: W 
 ## Weights constants summary:
 ##      n       nn   S0       S1       S2
-## W 6324 39992976 6324 230.4496 25817.04
+## W 6110 37332100 6110 220.5032 24924.44
 ```
 
 **Exogenous spatial effects**
@@ -759,39 +861,45 @@ Let us first compute the spatial lag of imd_score:
 
 
 ```r
-db@data$w_imd_score <- lag.listw(hknn, db@data$imd_score)
+db$w_bathrooms <- lag.listw(hknn, db$bathrooms)
 ```
 
 And then we can include it in our previous specification. Note that we apply the log to the lag, not the reverse:
 
 
 ```r
-# `:` notation implies interaction variables
-m6 <- lm('log(price) ~ new + imd_score + w_imd_score', db)
+m6 <- lm(
+  'log_price ~ accommodates + bedrooms + beds + bathrooms + w_bathrooms',
+  db
+)
+
 summary(m6)
 ```
 
 ```
 ## 
 ## Call:
-## lm(formula = "log(price) ~ new + imd_score + w_imd_score", data = db)
+## lm(formula = "log_price ~ accommodates + bedrooms + beds + bathrooms + w_bathrooms", 
+##     data = db)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2906 -0.3016 -0.0155  0.2829  5.2632 
+## -2.8869 -0.3243 -0.0206  0.2931  3.5132 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) 12.2811493  0.0145267 845.419  < 2e-16 ***
-## newY         0.2475565  0.0195188  12.683  < 2e-16 ***
-## imd_score   -0.0042280  0.0008914  -4.743 2.15e-06 ***
-## w_imd_score -0.0147927  0.0009682 -15.278  < 2e-16 ***
+## (Intercept)   3.579448   0.032337 110.692   <2e-16 ***
+## accommodates  0.173226   0.005233  33.100   <2e-16 ***
+## bedrooms      0.103116   0.012327   8.365   <2e-16 ***
+## beds         -0.075071   0.007787  -9.641   <2e-16 ***
+## bathrooms     0.117268   0.012507   9.376   <2e-16 ***
+## w_bathrooms   0.353021   0.023572  14.976   <2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.5201 on 6320 degrees of freedom
-## Multiple R-squared:  0.3347,	Adjusted R-squared:  0.3344 
-## F-statistic:  1060 on 3 and 6320 DF,  p-value: < 2.2e-16
+## Residual standard error: 0.5271 on 6104 degrees of freedom
+## Multiple R-squared:  0.574,	Adjusted R-squared:  0.5736 
+## F-statistic:  1645 on 5 and 6104 DF,  p-value: < 2.2e-16
 ```
 
 As we can see, the lag is not only significative and negative (as expected), but its effect seems to be even larger that that of the house itself. Taken literally, this would imply that prospective owners value more the area of the surrounding houses than that of the actual house they buy. However, it is important to remember how these variables have been constructed and what they really represent. Because the IMD score is not exactly calculated at the house level, but at the area level, many of the surrounding houses will share that so, to some extent, the IMD of neighboring houses is that of the house itself^[**EXERCISE** *How do results change if you modify the number of neighbors included to compute the $K$-nn spatial weight matrix?* Replace the originak $k$ used and re-run the regressions. Try to interpret the results and the (potential) differences with the original ones.]. This is likely to be affecting the final parameter, and it is a reminder and an illustration that we cannot take model results as universal truth but we need to use them as tools to inform analysis, couple with theory and what we know about the particular question of analysis. Nevertheless, the example does illustrate how to introduce spatial dependence in a regression framework in a fairly straight forward way.
@@ -840,7 +948,13 @@ Technically speaking, prediction in linear models is fairly streamlined in R. Su
 
 
 ```r
-new.house <- data.frame(new='Y', imd_score=75, w_imd_score=50)
+new.house <- data.frame(
+  accommodates = 4, 
+  bedrooms = 2,
+  beds = 3,
+  bathrooms = 1,
+  w_bathrooms = 1.5
+)
 ```
 
 To obtain the prediction for its price, we can use the `predict` method:
@@ -853,7 +967,7 @@ new.price
 
 ```
 ##        1 
-## 11.47197
+## 4.900168
 ```
 
 Now remember we were using the log of the price as dependent variable. If we want to recover the actual price of the house, we need to take its exponent:
@@ -864,10 +978,8 @@ exp(new.price)
 ```
 
 ```
-##       1 
-## 95987.4
+##        1 
+## 134.3123
 ```
 
-According to our model, the house would be worth GBP96,060.29^[**EXERCISE** *How would the price change if the surrounding houses did not have an average of 50 but of 80?* Obtain a new prediction and compare it with the original one.].
-
-## References
+According to our model, the house would be worth $134.3123448^[**EXERCISE** *How would the price change if the surrounding houses did not have an average of 50 but of 80?* Obtain a new prediction and compare it with the original one.].

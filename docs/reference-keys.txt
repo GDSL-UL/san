@@ -1,15 +1,11 @@
 fig:unnamed-chunk-7
 fig:unnamed-chunk-40
 fig:unnamed-chunk-41
-fig:unnamed-chunk-8
+fig:unnamed-chunk-5
+fig:unnamed-chunk-6
 fig:unnamed-chunk-9
 fig:unnamed-chunk-10
 fig:unnamed-chunk-11
-fig:unnamed-chunk-12
-fig:unnamed-chunk-13
-fig:unnamed-chunk-14
-fig:unnamed-chunk-5
-fig:unnamed-chunk-6
 overview
 aims
 learning-outcomes
@@ -57,6 +53,7 @@ useful-functions
 points
 dependencies-1
 data
+binning
 kde
 one-dimensional-kde
 two-dimensional-spatial-kde
@@ -70,7 +67,6 @@ data-1
 seeing-flows
 modelling-flows
 predicting-flows
-references
 spatialecon
 dependencies-3
 data-2
@@ -79,7 +75,6 @@ spatial-regression-a-very-first-dip
 spatial-heterogeneity-1
 spatial-dependence
 predicting-house-prices
-references-1
 mlm1
 dependencies-4
 data-3

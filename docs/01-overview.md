@@ -55,6 +55,7 @@ deps <- list(
     "ggplot2",
     "ggmap",
     "GISTools",
+    "gridExtra",
     "gstat",
     "jtools",
     "kableExtra",
