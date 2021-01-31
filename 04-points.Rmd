@@ -212,7 +212,7 @@ sd.grid <- db %>%
   cbind(., st_coordinates(.))
 ```
 
-The object `sd.grid` is a regular grid with 10,000 ($100 \by 100$) equally spaced cells:
+The object `sd.grid` is a regular grid with 10,000 ($100 \times 100$) equally spaced cells:
 
 ```{r, fig.margin = TRUE}
 sd.grid
