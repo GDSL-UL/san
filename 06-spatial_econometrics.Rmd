@@ -199,11 +199,11 @@ Then, the estimation leverages the capabilities in model description of R formul
 
 ```{r}
 # `:` notation implies interaction variables
-m4 <- lm(
+m3 <- lm(
   'log_price ~ 0 + (accommodates + bathrooms + bedrooms + beds):(neighborhood)', 
   db
 )
-summary(m4)
+summary(m3)
 ```
 
 This allows us to get a separate constant term and estimate of the impact of each variable *for every neighborhood*
@@ -252,12 +252,12 @@ hknn
 
 **Exogenous spatial effects**
 
-Let us come back to the house price example we have been working with. So far, we have hypothesized that the price of a house sold in Liverpool can be explained using information about whether it is newly built, the level of deprivation of the area where it is located, and its postcode. However, it is also reasonable to think that prospective house owners care about the larger area around a house, not only about its immediate surroundings, and would be willing to pay more for a house that was close to nicer areas, everything else being equal. How could we test this idea?
+Let us come back to the house price example we have been working with. So far, we have hypothesized that the price of an AirBnb property in San Diego can be explained using information about its own characteristics, and the neighbourhood it belongs to. However, we can hypothesise that the price of a house is also affected by the characteristics of the houses surrounding it. Considering it as a proxy for larger and more luxurious houses, we will use the number of bathrooms of neighboring houses as an additional explanatory variable. This represents the most straightforward way to introduce spatial dependence in a regression, by considering not only a given explanatory variable, but also its spatial lag.
 
-The most straightforward way to introduce spatial dependence in a regression is by considering not only a given explanatory variable, but also its spatial lag. In our example case, in addition to including the level of deprivation in the area of the house, we will include its spatial lag. In other words, we will be saying that it is not only the level of deprivation of the area where a house is located but also that of the surrounding locations that helps explain the final price at which a house is sold. Mathematically, this implies estimating the following model:
+In our example case, in addition to including the number of bathrooms of the property, we will include its spatial lag. In other words, we will be saying that it is not only the number of bathrooms in a house but also that of the surrounding properties that helps explain the final price at which a house is advertised for. Mathematically, this implies estimating the following model:
 
 $$
-\log{P_i} = \alpha + \beta_{1} NEW_i + \beta_{2} IMD_i + \beta_{3} IMD_{lag-i} + \epsilon_i
+\log(P_i) = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i+ \beta_5 Bath_{lag-i} + \epsilon_i
 $$
 
 Let us first compute the spatial lag of imd_score:
@@ -269,15 +269,15 @@ db$w_bathrooms <- lag.listw(hknn, db$bathrooms)
 And then we can include it in our previous specification. Note that we apply the log to the lag, not the reverse:
 
 ```{r}
-m6 <- lm(
+m5 <- lm(
   'log_price ~ accommodates + bedrooms + beds + bathrooms + w_bathrooms',
   db
 )
 
-summary(m6)
+summary(m5)
 ```
 
-As we can see, the lag is not only significative and negative (as expected), but its effect seems to be even larger that that of the house itself. Taken literally, this would imply that prospective owners value more the area of the surrounding houses than that of the actual house they buy. However, it is important to remember how these variables have been constructed and what they really represent. Because the IMD score is not exactly calculated at the house level, but at the area level, many of the surrounding houses will share that so, to some extent, the IMD of neighboring houses is that of the house itself^[**EXERCISE** *How do results change if you modify the number of neighbors included to compute the $K$-nn spatial weight matrix?* Replace the originak $k$ used and re-run the regressions. Try to interpret the results and the (potential) differences with the original ones.]. This is likely to be affecting the final parameter, and it is a reminder and an illustration that we cannot take model results as universal truth but we need to use them as tools to inform analysis, couple with theory and what we know about the particular question of analysis. Nevertheless, the example does illustrate how to introduce spatial dependence in a regression framework in a fairly straight forward way.
+As we can see, the lag is not only significative and positive, but its effect seems to be even larger that that of the property itself. Taken literally, this implies that the average number of bathrooms in AirBnb's nearby has a larger effect on the final price of a given AirBnb than its own number of bathrooms. There are several ways to interpret this. One is that, if we take the spatial lag of bathrooms, as we said above, to be a proxy for the types of houses surrounding a property, this is probably a better predictor of how wealthy an area is than the number of bathrooms of a single property, which is more variable. If we also assume that the area where an AirBnb is located has a bigger effect on price than the number of bathrooms, we can start seeing an answer to the apparent puzzle.
 
 **A note on more advanced spatial regression**
 
@@ -286,7 +286,7 @@ Introducing a spatial lag of an explanatory variable, as we have just seen, is t
 The spatial lag model introduces a spatial lag of the *dependent* variable. In the example we have covered, this would translate into:
 
 $$
-\log{P_i} = \alpha + \rho \log{P_{lag-i}} + \beta_{1} NEW_i + \beta_{2} IMD_i + \epsilon_i
+\log(P_i) = \alpha + \rho \log(P_i) + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
 $$
 
 Although it might not seem very different from the previous equation, this model violates the exogeneity assumption, crucial for OLS to work.
@@ -294,7 +294,7 @@ Although it might not seem very different from the previous equation, this model
 Equally, the spatial error model includes a spatial lag in the *error* term of the equation:
 
 $$
-\log{P_i} = \alpha + \beta_{1r} NEW_i + \beta_{2r} IMD_i + u_i
+\log(P_i) = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + u_i
 $$
 
 $$
@@ -307,19 +307,18 @@ Both the spatial lag and error model violate some of the assumptions on which OL
 
 ## Predicting house prices
 
-So far, we have seen how exploit the output of a regression model to evaluate the role different variables play in explaining another one of interest. However, once fit, a model can also be used to obtain predictions of the dependent variable given a new set of values for the explanatory variables. We will finish this session by dipping our toes in predicting with linear models.
+So far, we have seen how to exploit the output of a regression model to evaluate the role different variables play in explaining another one of interest. However, once fit, a model can also be used to obtain predictions of the dependent variable given a new set of values for the explanatory variables. We will finish this session by dipping our toes in predicting with linear models.
 
-The core idea is that once you have estimates for the way in which the explanatory variables can be combined to explain the dependent one, you can plug new values on the explanatory side of the model and combine them following the model estimates to obtain predictions. In the example we have worked with, you can imagine this application would be useful to obtain valuations of a house, given we know the IMD of the area where the house is located and whether it is a newly built house or not.
+The core idea is that once you have estimates for the way in which the explanatory variables can be combined to explain the dependent one, you can plug new values on the explanatory side of the model and combine them following the model estimates to obtain predictions. In the example we have worked with, you can imagine this application would be useful to obtain valuations of a house, given we know its characteristics.
 
 Conceptually, predicting in linear regression models involves using the estimates of the parameters to obtain a value for the dependent variable:
 
 $$
-\bar{\log{P_i}} = \bar{\alpha} + \bar{\beta_{1r}} NEW_i^* + \bar{\beta_{2r}} IMD_i^*
+\bar{\log(P_i)} = \bar{\alpha} + \bar{\beta_1} Acc_i^* + \bar{\beta_2 Bath_i^*} + \bar{\beta_3} Bedr_i^* + \bar{\beta_4} Beds_i^*
 $$
-
 where $\bar{\log{P_i}}$ is our predicted value, and we include the $\bar{}$ sign to note that it is our estimate obtained from fitting the model. We use the $^*$ sign to note that those can be new values for the explanatory variables, not necessarily those used to fit the model.
 
-Technically speaking, prediction in linear models is fairly streamlined in R. Suppose we are given data for a new house which is to be put in the market. We know it is been newly built on an area with an IMD score of 75, but surrounded by areas that, on average, have a score of 50. Let us record the data first:
+Technically speaking, prediction in linear models is relatively streamlined in R. Suppose we are given data for a new house which is to be put on the AirBnb platform. We know it accommodates four people, and has two bedrooms, three beds, and one bathroom. We also know that the surrounding properties have, on average, 1.5 bathrooms. Let us record the data first:
 
 ```{r}
 new.house <- data.frame(
@@ -344,4 +343,4 @@ Now remember we were using the log of the price as dependent variable. If we wan
 exp(new.price)
 ```
 
-According to our model, the house would be worth $`r exp(new.price)`^[**EXERCISE** *How would the price change if the surrounding houses did not have an average of 50 but of 80?* Obtain a new prediction and compare it with the original one.].
+According to our model, the house would be worth $`r exp(new.price)`.
