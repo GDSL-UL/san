@@ -19,7 +19,7 @@ library(sf)
 ```
 
 ```
-## Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1
+## Linking to GEOS 3.8.1, GDAL 3.1.1, PROJ 6.3.1
 ```
 
 ```r
@@ -67,7 +67,7 @@ db <- st_read("data/abb_sd/regression_db.geojson")
 ```
 
 ```
-## Reading layer `regression_db' from data source `/home/jovyan/work/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
+## Reading layer `regression_db' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -106,7 +106,7 @@ hist
 ```
 
 <div class="figure">
-<img src="04-points_files/figure-epub3/unnamed-chunk-5-1.png" alt="Raw AirBnb prices in San Diego"  />
+<img src="04-points_files/figure-html/unnamed-chunk-5-1.png" alt="Raw AirBnb prices in San Diego" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-5)Raw AirBnb prices in San Diego</p>
 </div>
 
@@ -124,7 +124,7 @@ hist
 ```
 
 <div class="figure">
-<img src="04-points_files/figure-epub3/unnamed-chunk-6-1.png" alt="Log of AirBnb price in San Diego"  />
+<img src="04-points_files/figure-html/unnamed-chunk-6-1.png" alt="Log of AirBnb price in San Diego" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-6)Log of AirBnb price in San Diego</p>
 </div>
 
@@ -136,7 +136,7 @@ plot(st_geometry(db))
 ```
 
 <div class="figure">
-<img src="04-points_files/figure-epub3/unnamed-chunk-7-1.png" alt="Spatial distribution of AirBnb in San Diego"  />
+<img src="04-points_files/figure-html/unnamed-chunk-7-1.png" alt="Spatial distribution of AirBnb in San Diego" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-7)Spatial distribution of AirBnb in San Diego</p>
 </div>
 
@@ -172,7 +172,7 @@ hexbin <- ggplot() +
 grid.arrange(sqbin, hexbin, ncol=2)
 ```
 
-![](04-points_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
+<img src="04-points_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 ## KDE
 
@@ -196,7 +196,7 @@ kde
 ```
 
 <div class="figure">
-<img src="04-points_files/figure-epub3/unnamed-chunk-9-1.png" alt="Histogram and KDE of the log of AirBnb prices in San Diego"  />
+<img src="04-points_files/figure-html/unnamed-chunk-9-1.png" alt="Histogram and KDE of the log of AirBnb prices in San Diego" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-9)Histogram and KDE of the log of AirBnb prices in San Diego</p>
 </div>
 
@@ -226,7 +226,7 @@ kde + geom_sf(alpha=0)
 ```
 
 <div class="figure">
-<img src="04-points_files/figure-epub3/unnamed-chunk-10-1.png" alt="KDE of AirBnb properties in San Diego"  />
+<img src="04-points_files/figure-html/unnamed-chunk-10-1.png" alt="KDE of AirBnb properties in San Diego" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-10)KDE of AirBnb properties in San Diego</p>
 </div>
 
@@ -308,7 +308,7 @@ qmplot(
 ```
 
 <div class="figure">
-<img src="04-points_files/figure-epub3/unnamed-chunk-11-1.png" alt="KDE of AirBnb properties in San Diego"  />
+<img src="04-points_files/figure-html/unnamed-chunk-11-1.png" alt="KDE of AirBnb properties in San Diego" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-11)KDE of AirBnb properties in San Diego</p>
 </div>
 
@@ -450,7 +450,7 @@ ggplot(idw.hp, aes(x = X, y = Y, fill = var1.pred)) +
   geom_raster()
 ```
 
-![](04-points_files/figure-epub3/unnamed-chunk-17-1.png)<!-- -->
+<img src="04-points_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 And we can "dress it up" a bit further:
 
 
@@ -462,7 +462,7 @@ ggplot(idw.hp, aes(x = X, y = Y, fill = var1.pred)) +
   geom_sf(alpha=0)
 ```
 
-![](04-points_files/figure-epub3/unnamed-chunk-18-1.png)<!-- -->
+<img src="04-points_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
 Looking at this, we can start to tell some patterns. To bring in context, it would be great to be able to add a basemap layer, as we did for the KDE. This is conceptually very similar to what we did above, starting by reprojecting the points and continuing by overlaying them on top of the basemap. However, technically speaking it is not possible because `ggmap` --the library we have been using to display tiles from cloud providers-- does not play well with our own rasters (i.e. the price surface). At the moment, it is surprisingly tricky to get this to work, so we will park it for now^[**BONUS** if you can figure out a way to do it yourself!]. 
 

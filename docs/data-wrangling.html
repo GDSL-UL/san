@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
 
 
-<meta name="date" content="2021-01-31" />
+<meta name="date" content="2021-02-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,6 @@
   
 <link rel="prev" href="spatial-data.html"/>
 <link rel="next" href="points.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,20 +50,22 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +85,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -133,118 +134,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Spatial Modelling for Data Scientists</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
-<ul>
+<li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview</a><ul>
 <li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html#aims"><i class="fa fa-check"></i><b>1.1</b> Aims</a></li>
 <li class="chapter" data-level="1.2" data-path="overview.html"><a href="overview.html#learning-outcomes"><i class="fa fa-check"></i><b>1.2</b> Learning Outcomes</a></li>
 <li class="chapter" data-level="1.3" data-path="overview.html"><a href="overview.html#feedback"><i class="fa fa-check"></i><b>1.3</b> Feedback</a></li>
-<li class="chapter" data-level="1.4" data-path="overview.html"><a href="overview.html#computational-environment"><i class="fa fa-check"></i><b>1.4</b> Computational Environment</a>
-<ul>
+<li class="chapter" data-level="1.4" data-path="overview.html"><a href="overview.html#computational-environment"><i class="fa fa-check"></i><b>1.4</b> Computational Environment</a><ul>
 <li class="chapter" data-level="1.4.1" data-path="overview.html"><a href="overview.html#dependency-list"><i class="fa fa-check"></i><b>1.4.1</b> Dependency list</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="overview.html"><a href="overview.html#assessment"><i class="fa fa-check"></i><b>1.5</b> Assessment</a>
-<ul>
+<li class="chapter" data-level="1.5" data-path="overview.html"><a href="overview.html#assessment"><i class="fa fa-check"></i><b>1.5</b> Assessment</a><ul>
 <li class="chapter" data-level="1.5.1" data-path="overview.html"><a href="overview.html#marking-criteria"><i class="fa fa-check"></i><b>1.5.1</b> Marking criteria</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>2</b> Spatial Data</a>
-<ul>
+<li class="chapter" data-level="2" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>2</b> Spatial Data</a><ul>
 <li class="chapter" data-level="2.1" data-path="spatial-data.html"><a href="spatial-data.html#spatial-data-types"><i class="fa fa-check"></i><b>2.1</b> Spatial Data types</a></li>
 <li class="chapter" data-level="2.2" data-path="spatial-data.html"><a href="spatial-data.html#hierarchical-structure-of-data"><i class="fa fa-check"></i><b>2.2</b> Hierarchical Structure of Data</a></li>
-<li class="chapter" data-level="2.3" data-path="spatial-data.html"><a href="spatial-data.html#key-challenges"><i class="fa fa-check"></i><b>2.3</b> Key Challenges</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="spatial-data.html"><a href="spatial-data.html#key-challenges"><i class="fa fa-check"></i><b>2.3</b> Key Challenges</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="spatial-data.html"><a href="spatial-data.html#modifible-area-unit-problem-maup"><i class="fa fa-check"></i><b>2.3.1</b> Modifible Area Unit Problem (MAUP)</a></li>
 <li class="chapter" data-level="2.3.2" data-path="spatial-data.html"><a href="spatial-data.html#ecological-fallacy"><i class="fa fa-check"></i><b>2.3.2</b> Ecological Fallacy</a></li>
-<li class="chapter" data-level="2.3.3" data-path="spatial-data.html"><a href="spatial-data.html#spatial-autocorrelation"><i class="fa fa-check"></i><b>2.3.3</b> Spatial Autocorrelation</a></li>
+<li class="chapter" data-level="2.3.3" data-path="spatial-data.html"><a href="spatial-data.html#spatial-dependence"><i class="fa fa-check"></i><b>2.3.3</b> Spatial Dependence</a></li>
 <li class="chapter" data-level="2.3.4" data-path="spatial-data.html"><a href="spatial-data.html#spatial-heterogeneity"><i class="fa fa-check"></i><b>2.3.4</b> Spatial Heterogeneity</a></li>
+<li class="chapter" data-level="2.3.5" data-path="spatial-data.html"><a href="spatial-data.html#spatial-nonstationarity"><i class="fa fa-check"></i><b>2.3.5</b> Spatial nonstationarity</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a>
-<ul>
+<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a><ul>
 <li class="chapter" data-level="3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#dependencies"><i class="fa fa-check"></i><b>3.1</b> Dependencies</a></li>
 <li class="chapter" data-level="3.2" data-path="data-wrangling.html"><a href="data-wrangling.html#introducing-r"><i class="fa fa-check"></i><b>3.2</b> Introducing R</a></li>
 <li class="chapter" data-level="3.3" data-path="data-wrangling.html"><a href="data-wrangling.html#setting-the-working-directory"><i class="fa fa-check"></i><b>3.3</b> Setting the working directory</a></li>
 <li class="chapter" data-level="3.4" data-path="data-wrangling.html"><a href="data-wrangling.html#r-scripts-and-notebooks"><i class="fa fa-check"></i><b>3.4</b> R Scripts and Notebooks</a></li>
 <li class="chapter" data-level="3.5" data-path="data-wrangling.html"><a href="data-wrangling.html#getting-help"><i class="fa fa-check"></i><b>3.5</b> Getting Help</a></li>
-<li class="chapter" data-level="3.6" data-path="data-wrangling.html"><a href="data-wrangling.html#variables-and-objects"><i class="fa fa-check"></i><b>3.6</b> Variables and objects</a>
-<ul>
+<li class="chapter" data-level="3.6" data-path="data-wrangling.html"><a href="data-wrangling.html#variables-and-objects"><i class="fa fa-check"></i><b>3.6</b> Variables and objects</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="data-wrangling.html"><a href="data-wrangling.html#basic-data-types"><i class="fa fa-check"></i><b>3.6.1</b> Basic Data Types</a></li>
 <li class="chapter" data-level="3.6.2" data-path="data-wrangling.html"><a href="data-wrangling.html#random-variables"><i class="fa fa-check"></i><b>3.6.2</b> Random Variables</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="data-wrangling.html"><a href="data-wrangling.html#data-frames"><i class="fa fa-check"></i><b>3.7</b> Data Frames</a>
-<ul>
+<li class="chapter" data-level="3.7" data-path="data-wrangling.html"><a href="data-wrangling.html#data-frames"><i class="fa fa-check"></i><b>3.7</b> Data Frames</a><ul>
 <li class="chapter" data-level="3.7.1" data-path="data-wrangling.html"><a href="data-wrangling.html#creating-a-data-frame"><i class="fa fa-check"></i><b>3.7.1</b> Creating A Data Frame</a></li>
 <li class="chapter" data-level="3.7.2" data-path="data-wrangling.html"><a href="data-wrangling.html#referencing-data-frames"><i class="fa fa-check"></i><b>3.7.2</b> Referencing Data Frames</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="data-wrangling.html"><a href="data-wrangling.html#sec_readdata"><i class="fa fa-check"></i><b>3.8</b> Read Data</a>
-<ul>
+<li class="chapter" data-level="3.8" data-path="data-wrangling.html"><a href="data-wrangling.html#sec_readdata"><i class="fa fa-check"></i><b>3.8</b> Read Data</a><ul>
 <li class="chapter" data-level="3.8.1" data-path="data-wrangling.html"><a href="data-wrangling.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>3.8.1</b> Quickly inspect the data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="data-wrangling.html"><a href="data-wrangling.html#manipulation-data"><i class="fa fa-check"></i><b>3.9</b> Manipulation Data</a>
-<ul>
+<li class="chapter" data-level="3.9" data-path="data-wrangling.html"><a href="data-wrangling.html#manipulation-data"><i class="fa fa-check"></i><b>3.9</b> Manipulation Data</a><ul>
 <li class="chapter" data-level="3.9.1" data-path="data-wrangling.html"><a href="data-wrangling.html#adding-new-variables"><i class="fa fa-check"></i><b>3.9.1</b> Adding New Variables</a></li>
 <li class="chapter" data-level="3.9.2" data-path="data-wrangling.html"><a href="data-wrangling.html#selecting-variables"><i class="fa fa-check"></i><b>3.9.2</b> Selecting Variables</a></li>
 <li class="chapter" data-level="3.9.3" data-path="data-wrangling.html"><a href="data-wrangling.html#filtering-data"><i class="fa fa-check"></i><b>3.9.3</b> Filtering Data</a></li>
 <li class="chapter" data-level="3.9.4" data-path="data-wrangling.html"><a href="data-wrangling.html#joining-data-drames"><i class="fa fa-check"></i><b>3.9.4</b> Joining Data Drames</a></li>
 <li class="chapter" data-level="3.9.5" data-path="data-wrangling.html"><a href="data-wrangling.html#saving-data"><i class="fa fa-check"></i><b>3.9.5</b> Saving Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="data-wrangling.html"><a href="data-wrangling.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>3.10</b> Using Spatial Data Frames</a>
-<ul>
+<li class="chapter" data-level="3.10" data-path="data-wrangling.html"><a href="data-wrangling.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>3.10</b> Using Spatial Data Frames</a><ul>
 <li class="chapter" data-level="3.10.1" data-path="data-wrangling.html"><a href="data-wrangling.html#read-spatial-data"><i class="fa fa-check"></i><b>3.10.1</b> Read Spatial Data</a></li>
 <li class="chapter" data-level="3.10.2" data-path="data-wrangling.html"><a href="data-wrangling.html#basic-mapping"><i class="fa fa-check"></i><b>3.10.2</b> Basic Mapping</a></li>
 <li class="chapter" data-level="3.10.3" data-path="data-wrangling.html"><a href="data-wrangling.html#comparing-geographies"><i class="fa fa-check"></i><b>3.10.3</b> Comparing geographies</a></li>
 </ul></li>
 <li class="chapter" data-level="3.11" data-path="data-wrangling.html"><a href="data-wrangling.html#useful-functions"><i class="fa fa-check"></i><b>3.11</b> Useful Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>4</b> Points</a>
-<ul>
+<li class="chapter" data-level="4" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>4</b> Points</a><ul>
 <li class="chapter" data-level="4.1" data-path="points.html"><a href="points.html#dependencies-1"><i class="fa fa-check"></i><b>4.1</b> Dependencies</a></li>
 <li class="chapter" data-level="4.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>4.2</b> Data</a></li>
 <li class="chapter" data-level="4.3" data-path="points.html"><a href="points.html#binning"><i class="fa fa-check"></i><b>4.3</b> Binning</a></li>
-<li class="chapter" data-level="4.4" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>4.4</b> KDE</a>
-<ul>
+<li class="chapter" data-level="4.4" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>4.4</b> KDE</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>4.4.1</b> One-dimensional KDE</a></li>
 <li class="chapter" data-level="4.4.2" data-path="points.html"><a href="points.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>4.4.2</b> Two-dimensional (spatial) KDE</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>4.5</b> Spatial Interpolation</a>
-<ul>
+<li class="chapter" data-level="4.5" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>4.5</b> Spatial Interpolation</a><ul>
 <li class="chapter" data-level="4.5.1" data-path="points.html"><a href="points.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>4.5.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
 <li class="chapter" data-level="4.5.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>4.5.2</b> A surface of housing prices</a></li>
 <li class="chapter" data-level="4.5.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>4.5.3</b> <em>“What should the next house’s price be?”</em></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>5</b> Flows</a>
-<ul>
+<li class="chapter" data-level="5" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>5</b> Flows</a><ul>
 <li class="chapter" data-level="5.1" data-path="flows.html"><a href="flows.html#dependencies-2"><i class="fa fa-check"></i><b>5.1</b> Dependencies</a></li>
 <li class="chapter" data-level="5.2" data-path="flows.html"><a href="flows.html#data-1"><i class="fa fa-check"></i><b>5.2</b> Data</a></li>
 <li class="chapter" data-level="5.3" data-path="flows.html"><a href="flows.html#seeing-flows"><i class="fa fa-check"></i><b>5.3</b> “<em>Seeing</em>” flows</a></li>
 <li class="chapter" data-level="5.4" data-path="flows.html"><a href="flows.html#modelling-flows"><i class="fa fa-check"></i><b>5.4</b> Modelling flows</a></li>
 <li class="chapter" data-level="5.5" data-path="flows.html"><a href="flows.html#predicting-flows"><i class="fa fa-check"></i><b>5.5</b> Predicting flows</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="spatialecon.html"><a href="spatialecon.html"><i class="fa fa-check"></i><b>6</b> Spatial Econometrics</a>
-<ul>
+<li class="chapter" data-level="6" data-path="spatialecon.html"><a href="spatialecon.html"><i class="fa fa-check"></i><b>6</b> Spatial Econometrics</a><ul>
 <li class="chapter" data-level="6.1" data-path="spatialecon.html"><a href="spatialecon.html#dependencies-3"><i class="fa fa-check"></i><b>6.1</b> Dependencies</a></li>
 <li class="chapter" data-level="6.2" data-path="spatialecon.html"><a href="spatialecon.html#data-2"><i class="fa fa-check"></i><b>6.2</b> Data</a></li>
 <li class="chapter" data-level="6.3" data-path="spatialecon.html"><a href="spatialecon.html#non-spatial-regression-a-refresh"><i class="fa fa-check"></i><b>6.3</b> Non-spatial regression, a refresh</a></li>
 <li class="chapter" data-level="6.4" data-path="spatialecon.html"><a href="spatialecon.html#spatial-regression-a-very-first-dip"><i class="fa fa-check"></i><b>6.4</b> Spatial regression: a (very) first dip</a></li>
 <li class="chapter" data-level="6.5" data-path="spatialecon.html"><a href="spatialecon.html#spatial-heterogeneity-1"><i class="fa fa-check"></i><b>6.5</b> Spatial heterogeneity</a></li>
-<li class="chapter" data-level="6.6" data-path="spatialecon.html"><a href="spatialecon.html#spatial-dependence"><i class="fa fa-check"></i><b>6.6</b> Spatial dependence</a></li>
+<li class="chapter" data-level="6.6" data-path="spatialecon.html"><a href="spatialecon.html#spatial-dependence-1"><i class="fa fa-check"></i><b>6.6</b> Spatial dependence</a></li>
 <li class="chapter" data-level="6.7" data-path="spatialecon.html"><a href="spatialecon.html#predicting-house-prices"><i class="fa fa-check"></i><b>6.7</b> Predicting house prices</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="mlm1.html"><a href="mlm1.html"><i class="fa fa-check"></i><b>7</b> Multilevel Modelling - Part 1</a>
-<ul>
+<li class="chapter" data-level="7" data-path="mlm1.html"><a href="mlm1.html"><i class="fa fa-check"></i><b>7</b> Multilevel Modelling - Part 1</a><ul>
 <li class="chapter" data-level="7.1" data-path="mlm1.html"><a href="mlm1.html#dependencies-4"><i class="fa fa-check"></i><b>7.1</b> Dependencies</a></li>
 <li class="chapter" data-level="7.2" data-path="mlm1.html"><a href="mlm1.html#data-3"><i class="fa fa-check"></i><b>7.2</b> Data</a></li>
-<li class="chapter" data-level="7.3" data-path="mlm1.html"><a href="mlm1.html#modelling"><i class="fa fa-check"></i><b>7.3</b> Modelling</a>
-<ul>
+<li class="chapter" data-level="7.3" data-path="mlm1.html"><a href="mlm1.html#modelling"><i class="fa fa-check"></i><b>7.3</b> Modelling</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="mlm1.html"><a href="mlm1.html#baseline-linear-regression-model"><i class="fa fa-check"></i><b>7.3.1</b> Baseline Linear Regression Model</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="mlm1.html"><a href="mlm1.html#multilevel-modelling-random-intercept-model"><i class="fa fa-check"></i><b>7.4</b> Multilevel Modelling: Random Intercept Model</a>
-<ul>
+<li class="chapter" data-level="7.4" data-path="mlm1.html"><a href="mlm1.html#multilevel-modelling-random-intercept-model"><i class="fa fa-check"></i><b>7.4</b> Multilevel Modelling: Random Intercept Model</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="mlm1.html"><a href="mlm1.html#interpretation"><i class="fa fa-check"></i><b>7.4.1</b> Interpretation</a></li>
 <li class="chapter" data-level="7.4.2" data-path="mlm1.html"><a href="mlm1.html#variance-partition-coefficient-vpc"><i class="fa fa-check"></i><b>7.4.2</b> Variance Partition Coefficient (VPC)</a></li>
 <li class="chapter" data-level="7.4.3" data-path="mlm1.html"><a href="mlm1.html#uncertainty-of-estimates"><i class="fa fa-check"></i><b>7.4.3</b> Uncertainty of Estimates</a></li>
@@ -254,33 +236,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="mlm1.html"><a href="mlm1.html#useful-functions-1"><i class="fa fa-check"></i><b>7.5</b> Useful Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="mlm2.html"><a href="mlm2.html"><i class="fa fa-check"></i><b>8</b> Multilevel Modelling - Part 2</a>
-<ul>
+<li class="chapter" data-level="8" data-path="mlm2.html"><a href="mlm2.html"><i class="fa fa-check"></i><b>8</b> Multilevel Modelling - Part 2</a><ul>
 <li class="chapter" data-level="8.1" data-path="mlm2.html"><a href="mlm2.html#dependencies-5"><i class="fa fa-check"></i><b>8.1</b> Dependencies</a></li>
 <li class="chapter" data-level="8.2" data-path="mlm2.html"><a href="mlm2.html#data-4"><i class="fa fa-check"></i><b>8.2</b> Data</a></li>
-<li class="chapter" data-level="8.3" data-path="mlm2.html"><a href="mlm2.html#conceptual-overview"><i class="fa fa-check"></i><b>8.3</b> Conceptual Overview</a>
-<ul>
+<li class="chapter" data-level="8.3" data-path="mlm2.html"><a href="mlm2.html#conceptual-overview"><i class="fa fa-check"></i><b>8.3</b> Conceptual Overview</a><ul>
 <li class="chapter" data-level="8.3.1" data-path="mlm2.html"><a href="mlm2.html#exploratory-analysis-varying-slopes"><i class="fa fa-check"></i><b>8.3.1</b> Exploratory Analysis: Varying Slopes</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="mlm2.html"><a href="mlm2.html#estimating-varying-intercept-and-slopes-models"><i class="fa fa-check"></i><b>8.4</b> Estimating Varying Intercept and Slopes Models</a></li>
 <li class="chapter" data-level="8.5" data-path="mlm2.html"><a href="mlm2.html#interpreting-correlations-between-group-level-intercepts-and-slopes"><i class="fa fa-check"></i><b>8.5</b> Interpreting Correlations Between Group-level Intercepts and Slopes</a></li>
-<li class="chapter" data-level="8.6" data-path="mlm2.html"><a href="mlm2.html#model-building"><i class="fa fa-check"></i><b>8.6</b> Model building</a>
-<ul>
+<li class="chapter" data-level="8.6" data-path="mlm2.html"><a href="mlm2.html#model-building"><i class="fa fa-check"></i><b>8.6</b> Model building</a><ul>
 <li class="chapter" data-level="8.6.1" data-path="mlm2.html"><a href="mlm2.html#model-comparison"><i class="fa fa-check"></i><b>8.6.1</b> Model Comparison</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>9</b> Geographically Weighted Regression</a>
-<ul>
+<li class="chapter" data-level="9" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>9</b> Geographically Weighted Regression</a><ul>
 <li class="chapter" data-level="9.1" data-path="gwr.html"><a href="gwr.html#dependencies-6"><i class="fa fa-check"></i><b>9.1</b> Dependencies</a></li>
 <li class="chapter" data-level="9.2" data-path="gwr.html"><a href="gwr.html#data-5"><i class="fa fa-check"></i><b>9.2</b> Data</a></li>
 <li class="chapter" data-level="9.3" data-path="gwr.html"><a href="gwr.html#recap-spatial-effects"><i class="fa fa-check"></i><b>9.3</b> Recap: Spatial Effects</a></li>
 <li class="chapter" data-level="9.4" data-path="gwr.html"><a href="gwr.html#exploratory-analysis"><i class="fa fa-check"></i><b>9.4</b> Exploratory Analysis</a></li>
-<li class="chapter" data-level="9.5" data-path="gwr.html"><a href="gwr.html#global-regression"><i class="fa fa-check"></i><b>9.5</b> Global Regression</a>
-<ul>
+<li class="chapter" data-level="9.5" data-path="gwr.html"><a href="gwr.html#global-regression"><i class="fa fa-check"></i><b>9.5</b> Global Regression</a><ul>
 <li class="chapter" data-level="9.5.1" data-path="gwr.html"><a href="gwr.html#global-regression-results"><i class="fa fa-check"></i><b>9.5.1</b> Global Regression Results</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="gwr.html"><a href="gwr.html#fitting-a-geographically-weighted-regression"><i class="fa fa-check"></i><b>9.6</b> Fitting a Geographically Weighted Regression</a>
-<ul>
+<li class="chapter" data-level="9.6" data-path="gwr.html"><a href="gwr.html#fitting-a-geographically-weighted-regression"><i class="fa fa-check"></i><b>9.6</b> Fitting a Geographically Weighted Regression</a><ul>
 <li class="chapter" data-level="9.6.1" data-path="gwr.html"><a href="gwr.html#fixed-or-adaptive-kernel"><i class="fa fa-check"></i><b>9.6.1</b> Fixed or Adaptive Kernel</a></li>
 <li class="chapter" data-level="9.6.2" data-path="gwr.html"><a href="gwr.html#optimal-bandwidth"><i class="fa fa-check"></i><b>9.6.2</b> Optimal Bandwidth</a></li>
 <li class="chapter" data-level="9.6.3" data-path="gwr.html"><a href="gwr.html#shape-of-spatial-kernel"><i class="fa fa-check"></i><b>9.6.3</b> Shape of Spatial Kernel</a></li>
@@ -291,26 +267,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.6.8" data-path="gwr.html"><a href="gwr.html#collinearity-in-gwr"><i class="fa fa-check"></i><b>9.6.8</b> Collinearity in GWR</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="sta.html"><a href="sta.html"><i class="fa fa-check"></i><b>10</b> Spatio-Temporal Analysis</a>
-<ul>
+<li class="chapter" data-level="10" data-path="sta.html"><a href="sta.html"><i class="fa fa-check"></i><b>10</b> Spatio-Temporal Analysis</a><ul>
 <li class="chapter" data-level="10.1" data-path="sta.html"><a href="sta.html#dependencies-7"><i class="fa fa-check"></i><b>10.1</b> Dependencies</a></li>
 <li class="chapter" data-level="10.2" data-path="sta.html"><a href="sta.html#data-6"><i class="fa fa-check"></i><b>10.2</b> Data</a></li>
-<li class="chapter" data-level="10.3" data-path="sta.html"><a href="sta.html#why-spatio-temporal-analysis"><i class="fa fa-check"></i><b>10.3</b> Why Spatio-Temporal Analysis?</a>
-<ul>
+<li class="chapter" data-level="10.3" data-path="sta.html"><a href="sta.html#why-spatio-temporal-analysis"><i class="fa fa-check"></i><b>10.3</b> Why Spatio-Temporal Analysis?</a><ul>
 <li class="chapter" data-level="10.3.1" data-path="sta.html"><a href="sta.html#spatio-temporal-data-structures"><i class="fa fa-check"></i><b>10.3.1</b> Spatio-temporal Data Structures</a></li>
 </ul></li>
 <li class="chapter" data-level="10.4" data-path="sta.html"><a href="sta.html#data-wrangling"><i class="fa fa-check"></i><b>10.4</b> Data Wrangling</a></li>
-<li class="chapter" data-level="10.5" data-path="sta.html"><a href="sta.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>10.5</b> Exploring Spatio-Temporal Data</a>
-<ul>
+<li class="chapter" data-level="10.5" data-path="sta.html"><a href="sta.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>10.5</b> Exploring Spatio-Temporal Data</a><ul>
 <li class="chapter" data-level="10.5.1" data-path="sta.html"><a href="sta.html#visualisation"><i class="fa fa-check"></i><b>10.5.1</b> Visualisation</a></li>
 <li class="chapter" data-level="10.5.2" data-path="sta.html"><a href="sta.html#exploratory-analysis-1"><i class="fa fa-check"></i><b>10.5.2</b> Exploratory Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="sta.html"><a href="sta.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>10.6</b> Spatio-Temporal Data Modelling</a>
-<ul>
+<li class="chapter" data-level="10.6" data-path="sta.html"><a href="sta.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>10.6</b> Spatio-Temporal Data Modelling</a><ul>
 <li class="chapter" data-level="10.6.1" data-path="sta.html"><a href="sta.html#intuition"><i class="fa fa-check"></i><b>10.6.1</b> Intuition</a></li>
 <li class="chapter" data-level="10.6.2" data-path="sta.html"><a href="sta.html#fitting-spatio-temporal-models"><i class="fa fa-check"></i><b>10.6.2</b> Fitting Spatio-Temporal Models</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>11</b> Data Sets</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -332,36 +305,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data_wrangling" class="section level1" number="3">
+<div id="data_wrangling" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Data Wrangling</h1>
 <p>This chapter<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> introduces R Notebooks, basic functions and data types. These are all important concepts that we will use during the module.</p>
 <p>If you are already familiar with R, R notebooks and data types, you may want to jump to Section <a href="data-wrangling.html#sec_readdata">Read Data</a> and start from there. This section describes how to read and manipulate data using <code>sf</code> and <code>tidyverse</code> functions, including <code>mutate()</code>, <code>%&gt;%</code> (known as pipe operator), <code>select()</code>, <code>filter()</code> and specific packages and functions how to manipulate spatial data.</p>
 <p>The chapter is based on:</p>
 <ul>
-<li><p><span class="citation"><a href="references.html#ref-grolemund_wickham_2019_book" role="doc-biblioref">Grolemund and Wickham</a> (<a href="references.html#ref-grolemund_wickham_2019_book" role="doc-biblioref">2019</a>)</span>, this book illustrates key libraries, including tidyverse, and functions for data manipulation in R</p></li>
-<li><p><span class="citation"><a href="references.html#ref-Xie_et_al_2019_book" role="doc-biblioref">Xie, Allaire, and Grolemund</a> (<a href="references.html#ref-Xie_et_al_2019_book" role="doc-biblioref">2019</a>)</span>, excellent introduction to R markdown!</p></li>
-<li><p><span class="citation"><a href="references.html#ref-envs450_2018" role="doc-biblioref">Williamson</a> (<a href="references.html#ref-envs450_2018" role="doc-biblioref">2018</a>)</span>, some examples from the first lecture of ENVS450 are used to explain the various types of random variables.</p></li>
-<li><p><span class="citation"><a href="references.html#ref-Lovelace_et_al_2020_book" role="doc-biblioref">Lovelace, Nowosad, and Muenchow</a> (<a href="references.html#ref-Lovelace_et_al_2020_book" role="doc-biblioref">2020</a>)</span>, a really good book on handling spatial data and historical background of the evolution of R packages for spatial data analysis.</p></li>
+<li><p><span class="citation">Grolemund and Wickham (<a href="#ref-grolemund_wickham_2019_book" role="doc-biblioref">2019</a>)</span>, this book illustrates key libraries, including tidyverse, and functions for data manipulation in R</p></li>
+<li><p><span class="citation">Xie, Allaire, and Grolemund (<a href="#ref-Xie_et_al_2019_book" role="doc-biblioref">2019</a>)</span>, excellent introduction to R markdown!</p></li>
+<li><p><span class="citation">Williamson (<a href="#ref-envs450_2018" role="doc-biblioref">2018</a>)</span>, some examples from the first lecture of ENVS450 are used to explain the various types of random variables.</p></li>
+<li><p><span class="citation">Lovelace, Nowosad, and Muenchow (<a href="#ref-Lovelace_et_al_2020_book" role="doc-biblioref">2020</a>)</span>, a really good book on handling spatial data and historical background of the evolution of R packages for spatial data analysis.</p></li>
 </ul>
-<div id="dependencies" class="section level2" number="3.1">
+<div id="dependencies" class="section level2">
 <h2><span class="header-section-number">3.1</span> Dependencies</h2>
 <p>This tutorial uses the libraries below. Ensure they are installed on your machine<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> before loading them executing the following code chunk:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="data-wrangling.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data manipulation, transformation and visualisation</span></span>
-<span id="cb3-2"><a href="data-wrangling.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-3"><a href="data-wrangling.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Nice tables</span></span>
-<span id="cb3-4"><a href="data-wrangling.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb3-5"><a href="data-wrangling.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple features (a standardised way to encode vector data ie. points, lines, polygons)</span></span>
-<span id="cb3-6"><a href="data-wrangling.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf) </span>
-<span id="cb3-7"><a href="data-wrangling.html#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial objects conversion</span></span>
-<span id="cb3-8"><a href="data-wrangling.html#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sp) </span>
-<span id="cb3-9"><a href="data-wrangling.html#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Thematic maps</span></span>
-<span id="cb3-10"><a href="data-wrangling.html#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap) </span>
-<span id="cb3-11"><a href="data-wrangling.html#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Colour palettes</span></span>
-<span id="cb3-12"><a href="data-wrangling.html#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) </span>
-<span id="cb3-13"><a href="data-wrangling.html#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># More colour palettes</span></span>
-<span id="cb3-14"><a href="data-wrangling.html#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="data-wrangling.html#cb4-1"></a><span class="co"># Data manipulation, transformation and visualisation</span></span>
+<span id="cb4-2"><a href="data-wrangling.html#cb4-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb4-3"><a href="data-wrangling.html#cb4-3"></a><span class="co"># Nice tables</span></span>
+<span id="cb4-4"><a href="data-wrangling.html#cb4-4"></a><span class="kw">library</span>(kableExtra)</span>
+<span id="cb4-5"><a href="data-wrangling.html#cb4-5"></a><span class="co"># Simple features (a standardised way to encode vector data ie. points, lines, polygons)</span></span>
+<span id="cb4-6"><a href="data-wrangling.html#cb4-6"></a><span class="kw">library</span>(sf) </span>
+<span id="cb4-7"><a href="data-wrangling.html#cb4-7"></a><span class="co"># Spatial objects conversion</span></span>
+<span id="cb4-8"><a href="data-wrangling.html#cb4-8"></a><span class="kw">library</span>(sp) </span>
+<span id="cb4-9"><a href="data-wrangling.html#cb4-9"></a><span class="co"># Thematic maps</span></span>
+<span id="cb4-10"><a href="data-wrangling.html#cb4-10"></a><span class="kw">library</span>(tmap) </span>
+<span id="cb4-11"><a href="data-wrangling.html#cb4-11"></a><span class="co"># Colour palettes</span></span>
+<span id="cb4-12"><a href="data-wrangling.html#cb4-12"></a><span class="kw">library</span>(RColorBrewer) </span>
+<span id="cb4-13"><a href="data-wrangling.html#cb4-13"></a><span class="co"># More colour palettes</span></span>
+<span id="cb4-14"><a href="data-wrangling.html#cb4-14"></a><span class="kw">library</span>(viridis)</span></code></pre></div>
 </div>
-<div id="introducing-r" class="section level2" number="3.2">
+<div id="introducing-r" class="section level2">
 <h2><span class="header-section-number">3.2</span> Introducing R</h2>
 <p>R is a freely available language and environment for statistical computing and graphics which provides a wide variety of statistical and graphical techniques. It has gained widespread use in academia and industry. R offers a wider array of functionality than a traditional statistics package, such as SPSS and is composed of core (base) functionality, and is expandable through libraries hosted on <a href="https://cran.r-project.org">CRAN</a>. CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R.</p>
 <p>Commands are sent to R using either the terminal / command line or the R Console which is installed with R on either Windows or OS X. On Linux, there is no equivalent of the console, however, third party solutions exist. On your own machine, R can be installed from <a href="https://www.r-project.org/">here</a>.</p>
@@ -373,17 +346,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>If you would like to know more about the various features of RStudio, watch this <a href="https://rstudio.com/products/rstudio/">video</a></p>
 </div>
-<div id="setting-the-working-directory" class="section level2" number="3.3">
+<div id="setting-the-working-directory" class="section level2">
 <h2><span class="header-section-number">3.3</span> Setting the working directory</h2>
 <p>Before we start any analysis, ensure to set the path to the directory where we are working. We can easily do that with <code>setwd()</code>. Please replace in the following line the path to the folder where you have placed this file -and where the <code>data</code> folder lives.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="data-wrangling.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#setwd(&#39;../data/sar.csv&#39;)</span></span>
-<span id="cb4-2"><a href="data-wrangling.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#setwd(&#39;.&#39;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data-wrangling.html#cb5-1"></a><span class="co">#setwd(&#39;../data/sar.csv&#39;)</span></span>
+<span id="cb5-2"><a href="data-wrangling.html#cb5-2"></a><span class="co">#setwd(&#39;.&#39;)</span></span></code></pre></div>
 <p>Note: It is good practice to not include spaces when naming folders and files. Use <em>underscores</em> or <em>dots</em>.</p>
 <p>You can check your current working directory by typing:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data-wrangling.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;/home/jovyan/work&quot;</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="data-wrangling.html#cb6-1"></a><span class="kw">getwd</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san&quot;</code></pre>
 </div>
-<div id="r-scripts-and-notebooks" class="section level2" number="3.4">
+<div id="r-scripts-and-notebooks" class="section level2">
 <h2><span class="header-section-number">3.4</span> R Scripts and Notebooks</h2>
 <p>An <em>R script</em> is a series of commands that you can execute at one time and help you save time. So you don’t repeat the same steps every time you want to execute the same process with different datasets. An R script is just a plain text file with R commands in it.</p>
 <p>To create an R script in RStudio, you need to</p>
@@ -392,7 +365,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Write some code on your new script window by typing eg. <code>mtcars</code></p></li>
 <li><p>Run the script. Click anywhere on the line of code, then hit <em>Ctrl + Enter</em> (Windows) or <em>Cmd + Enter</em> (Mac) to run the command or select the code chunk and click <em>run</em> on the right-top corner of your script window. If do that, you should get:</p></li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="data-wrangling.html#cb7-1" aria-hidden="true" tabindex="-1"></a>mtcars</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="data-wrangling.html#cb8-1"></a>mtcars</span></code></pre></div>
 <pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
 ## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
@@ -429,7 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Save the script: <em>File</em> &gt; <em>Save As</em>, select your required destination folder, and enter any filename that you like, provided that it ends with the file extension <em>.R</em></li>
 </ul>
-<p>An <em>R Notebook</em> is an R Markdown document with descriptive text and code chunks that can be executed independently and interactively, with output visible immediately beneath a code chunk - see <span class="citation"><a href="references.html#ref-Xie_et_al_2019_book" role="doc-biblioref">Xie, Allaire, and Grolemund</a> (<a href="references.html#ref-Xie_et_al_2019_book" role="doc-biblioref">2019</a>)</span>.</p>
+<p>An <em>R Notebook</em> is an R Markdown document with descriptive text and code chunks that can be executed independently and interactively, with output visible immediately beneath a code chunk - see <span class="citation">Xie, Allaire, and Grolemund (<a href="#ref-Xie_et_al_2019_book" role="doc-biblioref">2019</a>)</span>.</p>
 <p>To create an R Notebook, you need to:</p>
 <ul>
 <li>Open a new script file: <em>File</em> &gt; <em>New File</em> &gt; <em>R Notebook</em></li>
@@ -457,12 +430,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Rstudio also offers a <em>Preview</em> option on the toolbar which can be used to create pdf, html and word versions of the notebook. To do this, choose from the drop-down list menu <code>knit to ...</code></p>
 </div>
-<div id="getting-help" class="section level2" number="3.5">
+<div id="getting-help" class="section level2">
 <h2><span class="header-section-number">3.5</span> Getting Help</h2>
 <p>You can use <code>help</code> or <code>?</code> to ask for details for a specific function:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data-wrangling.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(sqrt) <span class="co">#or ?sqrt</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data-wrangling.html#cb10-1"></a><span class="kw">help</span>(sqrt) <span class="co">#or ?sqrt</span></span></code></pre></div>
 <p>And using <code>example</code> provides examples for said function:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data-wrangling.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">example</span>(sqrt)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data-wrangling.html#cb11-1"></a><span class="kw">example</span>(sqrt)</span></code></pre></div>
 <pre><code>## 
 ## sqrt&gt; require(stats) # for spline
 ## 
@@ -480,7 +453,7 @@ Figure 3.1: Example sqrt
 <pre><code>## 
 ## sqrt&gt; lines(spline(xx, sqrt(abs(xx)), n=101), col = &quot;pink&quot;)</code></pre>
 </div>
-<div id="variables-and-objects" class="section level2" number="3.6">
+<div id="variables-and-objects" class="section level2">
 <h2><span class="header-section-number">3.6</span> Variables and objects</h2>
 <p>An <em>object</em> is a data structure having attributes and methods. In fact, everything in R is an object!</p>
 <p>A <em>variable</em> is a type of data object. Data objects also include list, vector, matrices and text.</p>
@@ -489,62 +462,62 @@ Figure 3.1: Example sqrt
 </ul>
 <p>In R a variable can be created by using the symbol <code>&lt;-</code> to assign a value to a variable name. The variable name is entered on the left <code>&lt;-</code> and the value on the right. Note: Data objects can be given any name, provided that they start with a letter of the alphabet, and include only letters of the alphabet, numbers and the characters <code>.</code> and <code>_</code>. Hence AgeGroup, Age_Group and Age.Group are all valid names for an R data object. Note also that R is case-sensitive, to agegroup and AgeGroup would be treated as different data objects.</p>
 <p>To save the value <em>28</em> to a variable (data object) labelled <em>age</em>, run the code:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-wrangling.html#cb13-1" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="dv">28</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="data-wrangling.html#cb14-1"></a>age &lt;-<span class="st"> </span><span class="dv">28</span></span></code></pre></div>
 <ul>
 <li>Inspecting a data object</li>
 </ul>
 <p>To inspect the contents of the data object <em>age</em> run the following line of code:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="data-wrangling.html#cb14-1" aria-hidden="true" tabindex="-1"></a>age</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-wrangling.html#cb15-1"></a>age</span></code></pre></div>
 <pre><code>## [1] 28</code></pre>
 <p>Find out what kind (class) of data object <em>age</em> is using:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="data-wrangling.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(age) </span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-wrangling.html#cb17-1"></a><span class="kw">class</span>(age) </span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <p>Inspect the structure of the <em>age</em> data object:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="data-wrangling.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(age) </span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-wrangling.html#cb19-1"></a><span class="kw">str</span>(age) </span></code></pre></div>
 <pre><code>##  num 28</code></pre>
 <ul>
 <li>The <em>vector</em> data object</li>
 </ul>
 <p>What if we have more than one response? We can use the <code>c( )</code> function to combine multiple values into one data vector object:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="data-wrangling.html#cb20-1" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">28</span>, <span class="dv">36</span>, <span class="dv">25</span>, <span class="dv">24</span>, <span class="dv">32</span>)</span>
-<span id="cb20-2"><a href="data-wrangling.html#cb20-2" aria-hidden="true" tabindex="-1"></a>age</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-wrangling.html#cb21-1"></a>age &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">28</span>, <span class="dv">36</span>, <span class="dv">25</span>, <span class="dv">24</span>, <span class="dv">32</span>)</span>
+<span id="cb21-2"><a href="data-wrangling.html#cb21-2"></a>age</span></code></pre></div>
 <pre><code>## [1] 28 36 25 24 32</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="data-wrangling.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(age) <span class="co">#Still numeric..</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="data-wrangling.html#cb23-1"></a><span class="kw">class</span>(age) <span class="co">#Still numeric..</span></span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="data-wrangling.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(age) <span class="co">#..but now a vector (set) of 5 separate values</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="data-wrangling.html#cb25-1"></a><span class="kw">str</span>(age) <span class="co">#..but now a vector (set) of 5 separate values</span></span></code></pre></div>
 <pre><code>##  num [1:5] 28 36 25 24 32</code></pre>
 <p>Note that on each line in the code above any text following the <code>#</code> character is ignored by R when executing the code. Instead, text following a <code>#</code> can be used to add comments to the code to make clear what the code is doing. Two marks of good code are a clear layout and clear commentary on the code.</p>
-<div id="basic-data-types" class="section level3" number="3.6.1">
+<div id="basic-data-types" class="section level3">
 <h3><span class="header-section-number">3.6.1</span> Basic Data Types</h3>
 <p>There are a number of data types. Four are the most common. In R, <strong>numeric</strong> is the default type for numbers. It stores all numbers as floating-point numbers (numbers with decimals). This is because most statistical calculations deal with numbers with up to two decimals.</p>
 <ul>
 <li>Numeric</li>
 </ul>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="data-wrangling.html#cb26-1" aria-hidden="true" tabindex="-1"></a>num <span class="ot">&lt;-</span> <span class="fl">4.5</span> <span class="co"># Decimal values</span></span>
-<span id="cb26-2"><a href="data-wrangling.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(num)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data-wrangling.html#cb27-1"></a>num &lt;-<span class="st"> </span><span class="fl">4.5</span> <span class="co"># Decimal values</span></span>
+<span id="cb27-2"><a href="data-wrangling.html#cb27-2"></a><span class="kw">class</span>(num)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <ul>
 <li>Integer</li>
 </ul>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="data-wrangling.html#cb28-1" aria-hidden="true" tabindex="-1"></a>int <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="dv">4</span>) <span class="co"># Natural numbers. Note integers are also numerics.</span></span>
-<span id="cb28-2"><a href="data-wrangling.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(int)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="data-wrangling.html#cb29-1"></a>int &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="dv">4</span>) <span class="co"># Natural numbers. Note integers are also numerics.</span></span>
+<span id="cb29-2"><a href="data-wrangling.html#cb29-2"></a><span class="kw">class</span>(int)</span></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
 <ul>
 <li>Character</li>
 </ul>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="data-wrangling.html#cb30-1" aria-hidden="true" tabindex="-1"></a>cha <span class="ot">&lt;-</span> <span class="st">&quot;are you enjoying this?&quot;</span> <span class="co"># text or string. You can also type `as.character(&quot;are you enjoying this?&quot;)`</span></span>
-<span id="cb30-2"><a href="data-wrangling.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(cha)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="data-wrangling.html#cb31-1"></a>cha &lt;-<span class="st"> &quot;are you enjoying this?&quot;</span> <span class="co"># text or string. You can also type `as.character(&quot;are you enjoying this?&quot;)`</span></span>
+<span id="cb31-2"><a href="data-wrangling.html#cb31-2"></a><span class="kw">class</span>(cha)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <ul>
 <li>Logical</li>
 </ul>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="data-wrangling.html#cb32-1" aria-hidden="true" tabindex="-1"></a>log <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">1</span> <span class="co"># assigns TRUE or FALSE. In this case, FALSE as 2 is greater than 1</span></span>
-<span id="cb32-2"><a href="data-wrangling.html#cb32-2" aria-hidden="true" tabindex="-1"></a>log</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="data-wrangling.html#cb33-1"></a>log &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span> <span class="co"># assigns TRUE or FALSE. In this case, FALSE as 2 is greater than 1</span></span>
+<span id="cb33-2"><a href="data-wrangling.html#cb33-2"></a>log</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="data-wrangling.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(log)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="data-wrangling.html#cb35-1"></a><span class="kw">class</span>(log)</span></code></pre></div>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 </div>
-<div id="random-variables" class="section level3" number="3.6.2">
+<div id="random-variables" class="section level3">
 <h3><span class="header-section-number">3.6.2</span> Random Variables</h3>
 <p>In statistics, we differentiate between data to capture:</p>
 <ul>
@@ -607,49 +580,49 @@ numeric
 </tbody>
 </table>
 <p>We have already encountered the R data type <em>numeric</em>. The next section introduces the <em>factor</em> data type.</p>
-<div id="factor" class="section level4" number="3.6.2.1">
+<div id="factor" class="section level4">
 <h4><span class="header-section-number">3.6.2.1</span> Factor</h4>
 <p><strong>What is a factor?</strong></p>
 <p>A factor variable assigns a numeric code to each possible category (<em>level</em>) in a variable. Behind the scenes, R stores the variable using these numeric codes to save space and speed up computing. For example, compare the size of a list of <code>10,000</code> <em>males</em> and <em>females</em> to a list of <code>10,000</code> <code>1s</code> and <code>0s</code>. At the same time R also saves the category names associated with each numeric code (level). These are used for display purposes.</p>
 <p>For example, the variable <em>gender</em>, converted to a factor, would be stored as a series of <code>1s</code> and <code>2s</code>, where <code>1 = female</code> and <code>2 = male</code>; but would be displayed in all outputs using their category labels of <em>female</em> and <em>male</em>.</p>
 <p><strong>Creating a factor</strong></p>
 <p>To convert a numeric or character vector into a factor use the <code>factor( )</code> function. For instance:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="data-wrangling.html#cb36-1" aria-hidden="true" tabindex="-1"></a>gender <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;female&quot;</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;female&quot;</span>) <span class="co"># create a gender variable</span></span>
-<span id="cb36-2"><a href="data-wrangling.html#cb36-2" aria-hidden="true" tabindex="-1"></a>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(gender) <span class="co"># replace character vector with a factor version</span></span>
-<span id="cb36-3"><a href="data-wrangling.html#cb36-3" aria-hidden="true" tabindex="-1"></a>gender</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="data-wrangling.html#cb37-1"></a>gender &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;female&quot;</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;female&quot;</span>) <span class="co"># create a gender variable</span></span>
+<span id="cb37-2"><a href="data-wrangling.html#cb37-2"></a>gender &lt;-<span class="st"> </span><span class="kw">factor</span>(gender) <span class="co"># replace character vector with a factor version</span></span>
+<span id="cb37-3"><a href="data-wrangling.html#cb37-3"></a>gender</span></code></pre></div>
 <pre><code>## [1] female male   male   female female
 ## Levels: female male</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="data-wrangling.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(gender)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="data-wrangling.html#cb39-1"></a><span class="kw">class</span>(gender)</span></code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-wrangling.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(gender)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-wrangling.html#cb41-1"></a><span class="kw">str</span>(gender)</span></code></pre></div>
 <pre><code>##  Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 1 2 2 1 1</code></pre>
 <p>Now <em>gender</em> is a factor and is stored as a series of <code>1s</code> and <code>2s</code>, with <code>1s</code> representing <code>females</code> and <code>2s</code> representing <code>males</code>. The function <code>levels( )</code> lists the levels (categories) associated with a given factor variable:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-wrangling.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(gender)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-wrangling.html#cb43-1"></a><span class="kw">levels</span>(gender)</span></code></pre></div>
 <pre><code>## [1] &quot;female&quot; &quot;male&quot;</code></pre>
 <p>The categories are reported in the order that they have been numbered (starting from <code>1</code>). Hence from the output we can infer that <code>females</code> are coded as <code>1</code>, and <code>males</code> as <code>2</code>.</p>
 </div>
 </div>
 </div>
-<div id="data-frames" class="section level2" number="3.7">
+<div id="data-frames" class="section level2">
 <h2><span class="header-section-number">3.7</span> Data Frames</h2>
 <p>R stores different types of data using different types of data structure. Data are normally stored as a <em>data.frame</em>. A data frames contain one row per observation (e.g. wards) and one column per attribute (eg. population and health).</p>
 <p>We create three variables wards, population (<code>pop</code>) and people with good health (<code>ghealth</code>). We use 2011 census data counts for total population and good health for wards in Liverpool.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-wrangling.html#cb44-1" aria-hidden="true" tabindex="-1"></a>wards <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Allerton and Hunts Cross&quot;</span>,<span class="st">&quot;Anfield&quot;</span>,<span class="st">&quot;Belle Vale&quot;</span>,<span class="st">&quot;Central&quot;</span>,<span class="st">&quot;Childwall&quot;</span>,<span class="st">&quot;Church&quot;</span>,<span class="st">&quot;Clubmoor&quot;</span>,<span class="st">&quot;County&quot;</span>,<span class="st">&quot;Cressington&quot;</span>,<span class="st">&quot;Croxteth&quot;</span>,<span class="st">&quot;Everton&quot;</span>,<span class="st">&quot;Fazakerley&quot;</span>,<span class="st">&quot;Greenbank&quot;</span>,<span class="st">&quot;Kensington and Fairfield&quot;</span>,<span class="st">&quot;Kirkdale&quot;</span>,<span class="st">&quot;Knotty Ash&quot;</span>,<span class="st">&quot;Mossley Hill&quot;</span>,<span class="st">&quot;Norris Green&quot;</span>,<span class="st">&quot;Old Swan&quot;</span>,<span class="st">&quot;Picton&quot;</span>,<span class="st">&quot;Princes Park&quot;</span>,<span class="st">&quot;Riverside&quot;</span>,<span class="st">&quot;St Michael&#39;s&quot;</span>,<span class="st">&quot;Speke-Garston&quot;</span>,<span class="st">&quot;Tuebrook and Stoneycroft&quot;</span>,<span class="st">&quot;Warbreck&quot;</span>,<span class="st">&quot;Wavertree&quot;</span>,<span class="st">&quot;West Derby&quot;</span>,<span class="st">&quot;Woolton&quot;</span>,<span class="st">&quot;Yew Tree&quot;</span>)</span>
-<span id="cb44-2"><a href="data-wrangling.html#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-3"><a href="data-wrangling.html#cb44-3" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">14853</span>,<span class="dv">14510</span>,<span class="dv">15004</span>,<span class="dv">20340</span>,<span class="dv">13908</span>,<span class="dv">13974</span>,<span class="dv">15272</span>,<span class="dv">14045</span>,<span class="dv">14503</span>,</span>
-<span id="cb44-4"><a href="data-wrangling.html#cb44-4" aria-hidden="true" tabindex="-1"></a>                <span class="dv">14561</span>,<span class="dv">14782</span>,<span class="dv">16786</span>,<span class="dv">16132</span>,<span class="dv">15377</span>,<span class="dv">16115</span>,<span class="dv">13312</span>,<span class="dv">13816</span>,<span class="dv">15047</span>,</span>
-<span id="cb44-5"><a href="data-wrangling.html#cb44-5" aria-hidden="true" tabindex="-1"></a>                <span class="dv">16461</span>,<span class="dv">17009</span>,<span class="dv">17104</span>,<span class="dv">18422</span>,<span class="dv">12991</span>,<span class="dv">20300</span>,<span class="dv">16489</span>,<span class="dv">16481</span>,<span class="dv">14772</span>,</span>
-<span id="cb44-6"><a href="data-wrangling.html#cb44-6" aria-hidden="true" tabindex="-1"></a>                <span class="dv">14382</span>,<span class="dv">12921</span>,<span class="dv">16746</span>)</span>
-<span id="cb44-7"><a href="data-wrangling.html#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-8"><a href="data-wrangling.html#cb44-8" aria-hidden="true" tabindex="-1"></a>ghealth <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7274</span>,<span class="dv">6124</span>,<span class="dv">6129</span>,<span class="dv">11925</span>,<span class="dv">7219</span>,<span class="dv">7461</span>,<span class="dv">6403</span>,<span class="dv">5930</span>,<span class="dv">7094</span>,<span class="dv">6992</span>,</span>
-<span id="cb44-9"><a href="data-wrangling.html#cb44-9" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">5517</span>,<span class="dv">7879</span>,<span class="dv">8990</span>,<span class="dv">6495</span>,<span class="dv">6662</span>,<span class="dv">5981</span>,<span class="dv">7322</span>,<span class="dv">6529</span>,<span class="dv">7192</span>,<span class="dv">7953</span>,</span>
-<span id="cb44-10"><a href="data-wrangling.html#cb44-10" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">7636</span>,<span class="dv">9001</span>,<span class="dv">6450</span>,<span class="dv">8973</span>,<span class="dv">7302</span>,<span class="dv">7521</span>,<span class="dv">7268</span>,<span class="dv">7013</span>,<span class="dv">6025</span>,<span class="dv">7717</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-wrangling.html#cb45-1"></a>wards &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Allerton and Hunts Cross&quot;</span>,<span class="st">&quot;Anfield&quot;</span>,<span class="st">&quot;Belle Vale&quot;</span>,<span class="st">&quot;Central&quot;</span>,<span class="st">&quot;Childwall&quot;</span>,<span class="st">&quot;Church&quot;</span>,<span class="st">&quot;Clubmoor&quot;</span>,<span class="st">&quot;County&quot;</span>,<span class="st">&quot;Cressington&quot;</span>,<span class="st">&quot;Croxteth&quot;</span>,<span class="st">&quot;Everton&quot;</span>,<span class="st">&quot;Fazakerley&quot;</span>,<span class="st">&quot;Greenbank&quot;</span>,<span class="st">&quot;Kensington and Fairfield&quot;</span>,<span class="st">&quot;Kirkdale&quot;</span>,<span class="st">&quot;Knotty Ash&quot;</span>,<span class="st">&quot;Mossley Hill&quot;</span>,<span class="st">&quot;Norris Green&quot;</span>,<span class="st">&quot;Old Swan&quot;</span>,<span class="st">&quot;Picton&quot;</span>,<span class="st">&quot;Princes Park&quot;</span>,<span class="st">&quot;Riverside&quot;</span>,<span class="st">&quot;St Michael&#39;s&quot;</span>,<span class="st">&quot;Speke-Garston&quot;</span>,<span class="st">&quot;Tuebrook and Stoneycroft&quot;</span>,<span class="st">&quot;Warbreck&quot;</span>,<span class="st">&quot;Wavertree&quot;</span>,<span class="st">&quot;West Derby&quot;</span>,<span class="st">&quot;Woolton&quot;</span>,<span class="st">&quot;Yew Tree&quot;</span>)</span>
+<span id="cb45-2"><a href="data-wrangling.html#cb45-2"></a></span>
+<span id="cb45-3"><a href="data-wrangling.html#cb45-3"></a>pop &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">14853</span>,<span class="dv">14510</span>,<span class="dv">15004</span>,<span class="dv">20340</span>,<span class="dv">13908</span>,<span class="dv">13974</span>,<span class="dv">15272</span>,<span class="dv">14045</span>,<span class="dv">14503</span>,</span>
+<span id="cb45-4"><a href="data-wrangling.html#cb45-4"></a>                <span class="dv">14561</span>,<span class="dv">14782</span>,<span class="dv">16786</span>,<span class="dv">16132</span>,<span class="dv">15377</span>,<span class="dv">16115</span>,<span class="dv">13312</span>,<span class="dv">13816</span>,<span class="dv">15047</span>,</span>
+<span id="cb45-5"><a href="data-wrangling.html#cb45-5"></a>                <span class="dv">16461</span>,<span class="dv">17009</span>,<span class="dv">17104</span>,<span class="dv">18422</span>,<span class="dv">12991</span>,<span class="dv">20300</span>,<span class="dv">16489</span>,<span class="dv">16481</span>,<span class="dv">14772</span>,</span>
+<span id="cb45-6"><a href="data-wrangling.html#cb45-6"></a>                <span class="dv">14382</span>,<span class="dv">12921</span>,<span class="dv">16746</span>)</span>
+<span id="cb45-7"><a href="data-wrangling.html#cb45-7"></a></span>
+<span id="cb45-8"><a href="data-wrangling.html#cb45-8"></a>ghealth &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">7274</span>,<span class="dv">6124</span>,<span class="dv">6129</span>,<span class="dv">11925</span>,<span class="dv">7219</span>,<span class="dv">7461</span>,<span class="dv">6403</span>,<span class="dv">5930</span>,<span class="dv">7094</span>,<span class="dv">6992</span>,</span>
+<span id="cb45-9"><a href="data-wrangling.html#cb45-9"></a>                 <span class="dv">5517</span>,<span class="dv">7879</span>,<span class="dv">8990</span>,<span class="dv">6495</span>,<span class="dv">6662</span>,<span class="dv">5981</span>,<span class="dv">7322</span>,<span class="dv">6529</span>,<span class="dv">7192</span>,<span class="dv">7953</span>,</span>
+<span id="cb45-10"><a href="data-wrangling.html#cb45-10"></a>                 <span class="dv">7636</span>,<span class="dv">9001</span>,<span class="dv">6450</span>,<span class="dv">8973</span>,<span class="dv">7302</span>,<span class="dv">7521</span>,<span class="dv">7268</span>,<span class="dv">7013</span>,<span class="dv">6025</span>,<span class="dv">7717</span>)</span></code></pre></div>
 <p>Note that <code>pop</code> and <code>ghealth</code> and <code>wards</code> contains characters.</p>
-<div id="creating-a-data-frame" class="section level3" number="3.7.1">
+<div id="creating-a-data-frame" class="section level3">
 <h3><span class="header-section-number">3.7.1</span> Creating A Data Frame</h3>
 <p>We can create a data frame and examine its structure:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-wrangling.html#cb45-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(wards, pop, ghealth)</span>
-<span id="cb45-2"><a href="data-wrangling.html#cb45-2" aria-hidden="true" tabindex="-1"></a>df <span class="co"># or use view(data)</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-wrangling.html#cb46-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(wards, pop, ghealth)</span>
+<span id="cb46-2"><a href="data-wrangling.html#cb46-2"></a>df <span class="co"># or use view(data)</span></span></code></pre></div>
 <pre><code>##                       wards   pop ghealth
 ## 1  Allerton and Hunts Cross 14853    7274
 ## 2                   Anfield 14510    6124
@@ -681,26 +654,26 @@ numeric
 ## 28               West Derby 14382    7013
 ## 29                  Woolton 12921    6025
 ## 30                 Yew Tree 16746    7717</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-wrangling.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df) <span class="co"># or use glimpse(data) </span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-wrangling.html#cb48-1"></a><span class="kw">str</span>(df) <span class="co"># or use glimpse(data) </span></span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    30 obs. of  3 variables:
 ##  $ wards  : chr  &quot;Allerton and Hunts Cross&quot; &quot;Anfield&quot; &quot;Belle Vale&quot; &quot;Central&quot; ...
 ##  $ pop    : num  14853 14510 15004 20340 13908 ...
 ##  $ ghealth: num  7274 6124 6129 11925 7219 ...</code></pre>
 </div>
-<div id="referencing-data-frames" class="section level3" number="3.7.2">
+<div id="referencing-data-frames" class="section level3">
 <h3><span class="header-section-number">3.7.2</span> Referencing Data Frames</h3>
 <p>Throughout this module, you will need to refer to particular parts of a dataframe - perhaps a particular column (an area attribute); or a particular subset of respondents. Hence it is worth spending some time now mastering this particular skill.</p>
 <p>The relevant R function, <code>[ ]</code>, has the format <code>[row,col]</code> or, more generally, <code>[set of rows, set of cols]</code>.</p>
 <p>Run the following commands to get a feel of how to extract different slices of the data:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-wrangling.html#cb49-1" aria-hidden="true" tabindex="-1"></a>df <span class="co"># whole data.frame</span></span>
-<span id="cb49-2"><a href="data-wrangling.html#cb49-2" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span>, <span class="dv">1</span>] <span class="co"># contents of first row and column</span></span>
-<span id="cb49-3"><a href="data-wrangling.html#cb49-3" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">2</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>] <span class="co"># contents of the second row, second and third columns</span></span>
-<span id="cb49-4"><a href="data-wrangling.html#cb49-4" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span>, ] <span class="co"># first row, ALL columns [the default if no columns specified]</span></span>
-<span id="cb49-5"><a href="data-wrangling.html#cb49-5" aria-hidden="true" tabindex="-1"></a>df[ ,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="co"># ALL rows; first and second columns</span></span>
-<span id="cb49-6"><a href="data-wrangling.html#cb49-6" aria-hidden="true" tabindex="-1"></a>df[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>), ] <span class="co"># rows 1,3,5; ALL columns</span></span>
-<span id="cb49-7"><a href="data-wrangling.html#cb49-7" aria-hidden="true" tabindex="-1"></a>df[ , <span class="dv">2</span>] <span class="co"># ALL rows; second column (by default results containing only </span></span>
-<span id="cb49-8"><a href="data-wrangling.html#cb49-8" aria-hidden="true" tabindex="-1"></a>             <span class="co">#one column are converted back into a vector)</span></span>
-<span id="cb49-9"><a href="data-wrangling.html#cb49-9" aria-hidden="true" tabindex="-1"></a>df[ , <span class="dv">2</span>, drop<span class="ot">=</span><span class="cn">FALSE</span>] <span class="co"># ALL rows; second column (returned as a data.frame)</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-wrangling.html#cb50-1"></a>df <span class="co"># whole data.frame</span></span>
+<span id="cb50-2"><a href="data-wrangling.html#cb50-2"></a>df[<span class="dv">1</span>, <span class="dv">1</span>] <span class="co"># contents of first row and column</span></span>
+<span id="cb50-3"><a href="data-wrangling.html#cb50-3"></a>df[<span class="dv">2</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] <span class="co"># contents of the second row, second and third columns</span></span>
+<span id="cb50-4"><a href="data-wrangling.html#cb50-4"></a>df[<span class="dv">1</span>, ] <span class="co"># first row, ALL columns [the default if no columns specified]</span></span>
+<span id="cb50-5"><a href="data-wrangling.html#cb50-5"></a>df[ ,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] <span class="co"># ALL rows; first and second columns</span></span>
+<span id="cb50-6"><a href="data-wrangling.html#cb50-6"></a>df[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>), ] <span class="co"># rows 1,3,5; ALL columns</span></span>
+<span id="cb50-7"><a href="data-wrangling.html#cb50-7"></a>df[ , <span class="dv">2</span>] <span class="co"># ALL rows; second column (by default results containing only </span></span>
+<span id="cb50-8"><a href="data-wrangling.html#cb50-8"></a>             <span class="co">#one column are converted back into a vector)</span></span>
+<span id="cb50-9"><a href="data-wrangling.html#cb50-9"></a>df[ , <span class="dv">2</span>, drop=<span class="ot">FALSE</span>] <span class="co"># ALL rows; second column (returned as a data.frame)</span></span></code></pre></div>
 <p>In the above, note that we have used two other R functions:</p>
 <ul>
 <li><p><code>1:3</code> The colon operator tells R to produce a list of numbers including the named start and end points.</p></li>
@@ -708,20 +681,20 @@ numeric
 </ul>
 <p>Run both of these fuctions on their own to get a better understanding of what they do.</p>
 <p>Three other methods for referencing the contents of a data.frame make direct use of the variable names within the data.frame, which tends to make for easier to read/understand code:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-wrangling.html#cb50-1" aria-hidden="true" tabindex="-1"></a>df[,<span class="st">&quot;pop&quot;</span>] <span class="co"># variable name in quotes inside the square brackets</span></span>
-<span id="cb50-2"><a href="data-wrangling.html#cb50-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>pop <span class="co"># variable name prefixed with $ and appended to the data.frame name</span></span>
-<span id="cb50-3"><a href="data-wrangling.html#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co"># or you can use attach</span></span>
-<span id="cb50-4"><a href="data-wrangling.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(df)</span>
-<span id="cb50-5"><a href="data-wrangling.html#cb50-5" aria-hidden="true" tabindex="-1"></a>pop <span class="co"># but be careful if you already have an age variable in your local workspace</span></span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-wrangling.html#cb51-1"></a>df[,<span class="st">&quot;pop&quot;</span>] <span class="co"># variable name in quotes inside the square brackets</span></span>
+<span id="cb51-2"><a href="data-wrangling.html#cb51-2"></a>df<span class="op">$</span>pop <span class="co"># variable name prefixed with $ and appended to the data.frame name</span></span>
+<span id="cb51-3"><a href="data-wrangling.html#cb51-3"></a><span class="co"># or you can use attach</span></span>
+<span id="cb51-4"><a href="data-wrangling.html#cb51-4"></a><span class="kw">attach</span>(df)</span>
+<span id="cb51-5"><a href="data-wrangling.html#cb51-5"></a>pop <span class="co"># but be careful if you already have an age variable in your local workspace</span></span></code></pre></div>
 <p>Want to check the variables available, use the <code>names( )</code>:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-wrangling.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-wrangling.html#cb52-1"></a><span class="kw">names</span>(df)</span></code></pre></div>
 <pre><code>## [1] &quot;wards&quot;   &quot;pop&quot;     &quot;ghealth&quot;</code></pre>
 </div>
 </div>
-<div id="sec_readdata" class="section level2" number="3.8">
+<div id="sec_readdata" class="section level2">
 <h2><span class="header-section-number">3.8</span> Read Data</h2>
 <p>Ensure your memory is clear</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-wrangling.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># rm for targeted deletion / ls for listing all existing objects</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-wrangling.html#cb54-1"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>()) <span class="co"># rm for targeted deletion / ls for listing all existing objects</span></span></code></pre></div>
 <p>There are many commands to read / load data onto R. The command to use will depend upon the format they have been saved. Normally they are saved in <em>csv</em> format from Excel or other software packages. So we use either:</p>
 <ul>
 <li><code>df &lt;- read.table("path/file_name.csv", header = FALSE, sep =",")</code></li>
@@ -729,8 +702,8 @@ numeric
 <li><code>df &lt;- read.csv2("path/file_name.csv", header = FALSE)</code></li>
 </ul>
 <p>To read files in other formats, refer to this useful <a href="https://www.datacamp.com/community/tutorials/r-data-import-tutorial?utm_source=adwords_ppc&amp;utm_campaignid=1655852085&amp;utm_adgroupid=61045434382&amp;utm_device=c&amp;utm_keyword=%2Bread%20%2Bdata%20%2Br&amp;utm_matchtype=b&amp;utm_network=g&amp;utm_adpostion=1t1&amp;utm_creative=318880582308&amp;utm_targetid=kwd-309793905111&amp;utm_loc_interest_ms=&amp;utm_loc_physical_ms=9046551&amp;gclid=CjwKCAiA3uDwBRBFEiwA1VsajJO0QK0Jg7VipIt8_t82qQrnUliI0syAlh8CIxnE76Rb0kh3FbiehxoCzCgQAvD_BwE#csv">DataCamp tutorial</a></p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-wrangling.html#cb54-1" aria-hidden="true" tabindex="-1"></a>census <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/census/census_data.csv&quot;</span>)</span>
-<span id="cb54-2"><a href="data-wrangling.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(census)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data-wrangling.html#cb55-1"></a>census &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/census/census_data.csv&quot;</span>)</span>
+<span id="cb55-2"><a href="data-wrangling.html#cb55-2"></a><span class="kw">head</span>(census)</span></code></pre></div>
 <pre><code>##        code                     ward pop16_74 higher_managerial   pop ghealth
 ## 1 E05000886 Allerton and Hunts Cross    10930              1103 14853    7274
 ## 2 E05000887                  Anfield    10712               312 14510    6124
@@ -738,64 +711,64 @@ numeric
 ## 4 E05000889                  Central    19174              1346 20340   11925
 ## 5 E05000890                Childwall    10410              1123 13908    7219
 ## 6 E05000891                   Church    10569              1843 13974    7461</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-wrangling.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: always ensure your are setting the correct directory leading to the data. </span></span>
-<span id="cb56-2"><a href="data-wrangling.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="co"># It may differ from your existing working directory</span></span></code></pre></div>
-<div id="quickly-inspect-the-data" class="section level3" number="3.8.1">
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-wrangling.html#cb57-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: always ensure your are setting the correct directory leading to the data. </span></span>
+<span id="cb57-2"><a href="data-wrangling.html#cb57-2"></a><span class="co"># It may differ from your existing working directory</span></span></code></pre></div>
+<div id="quickly-inspect-the-data" class="section level3">
 <h3><span class="header-section-number">3.8.1</span> Quickly inspect the data</h3>
 <ol style="list-style-type: decimal">
 <li><p>What class?</p></li>
 <li><p>What R data types?</p></li>
 <li><p>What data types?</p></li>
 </ol>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-wrangling.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1</span></span>
-<span id="cb57-2"><a href="data-wrangling.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(census)</span>
-<span id="cb57-3"><a href="data-wrangling.html#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 &amp; 3</span></span>
-<span id="cb57-4"><a href="data-wrangling.html#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(census)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-wrangling.html#cb58-1"></a><span class="co"># 1</span></span>
+<span id="cb58-2"><a href="data-wrangling.html#cb58-2"></a><span class="kw">class</span>(census)</span>
+<span id="cb58-3"><a href="data-wrangling.html#cb58-3"></a><span class="co"># 2 &amp; 3</span></span>
+<span id="cb58-4"><a href="data-wrangling.html#cb58-4"></a><span class="kw">str</span>(census)</span></code></pre></div>
 <p>Just interested in the variable names:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-wrangling.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(census)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-wrangling.html#cb59-1"></a><span class="kw">names</span>(census)</span></code></pre></div>
 <pre><code>## [1] &quot;code&quot;              &quot;ward&quot;              &quot;pop16_74&quot;         
 ## [4] &quot;higher_managerial&quot; &quot;pop&quot;               &quot;ghealth&quot;</code></pre>
 <p>or want to view the data:</p>
 <p><code>View(census)</code></p>
 </div>
 </div>
-<div id="manipulation-data" class="section level2" number="3.9">
+<div id="manipulation-data" class="section level2">
 <h2><span class="header-section-number">3.9</span> Manipulation Data</h2>
-<div id="adding-new-variables" class="section level3" number="3.9.1">
+<div id="adding-new-variables" class="section level3">
 <h3><span class="header-section-number">3.9.1</span> Adding New Variables</h3>
 <p>Usually you want to add / create new variables to your data frame using existing variables eg. computing percentages by dividing two variables. There are many ways in which you can do this i.e. referecing a data frame as we have done above, or using <code>$</code> (e.g. <code>census$pop</code>). For this module, we’ll use <code>tidyverse</code>:</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-wrangling.html#cb60-1" aria-hidden="true" tabindex="-1"></a>census <span class="ot">&lt;-</span> census <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">per_ghealth =</span> ghealth <span class="sc">/</span> pop)</span></code></pre></div>
-<p>Note we used a <em>pipe operator</em> <code>%&gt;%</code>, which helps make the code more efficient and readable - more details, see <span class="citation"><a href="references.html#ref-grolemund_wickham_2019_book" role="doc-biblioref">Grolemund and Wickham</a> (<a href="references.html#ref-grolemund_wickham_2019_book" role="doc-biblioref">2019</a>)</span>. When using the pipe operator, recall to first indicate the data frame before <code>%&gt;%</code>.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-wrangling.html#cb61-1"></a>census &lt;-<span class="st"> </span>census <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">per_ghealth =</span> ghealth <span class="op">/</span><span class="st"> </span>pop)</span></code></pre></div>
+<p>Note we used a <em>pipe operator</em> <code>%&gt;%</code>, which helps make the code more efficient and readable - more details, see <span class="citation">Grolemund and Wickham (<a href="#ref-grolemund_wickham_2019_book" role="doc-biblioref">2019</a>)</span>. When using the pipe operator, recall to first indicate the data frame before <code>%&gt;%</code>.</p>
 <p>Note also the use a variable name before the <code>=</code> sign in brackets to indicate the name of the new variable after <code>mutate</code>.</p>
 </div>
-<div id="selecting-variables" class="section level3" number="3.9.2">
+<div id="selecting-variables" class="section level3">
 <h3><span class="header-section-number">3.9.2</span> Selecting Variables</h3>
 <p>Usually you want to select a subset of variables for your analysis as storing to large data sets in your R memory can reduce the processing speed of your machine. A selection of data can be achieved by using the <code>select</code> function:</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-wrangling.html#cb61-1" aria-hidden="true" tabindex="-1"></a>ndf <span class="ot">&lt;-</span> census <span class="sc">%&gt;%</span> <span class="fu">select</span>(ward, pop16_74, per_ghealth)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-wrangling.html#cb62-1"></a>ndf &lt;-<span class="st"> </span>census <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ward, pop16_<span class="dv">74</span>, per_ghealth)</span></code></pre></div>
 <p>Again first indicate the data frame and then the variable you want to select to build a new data frame. Note the code chunk above has created a new data frame called <code>ndf</code>. Explore it.</p>
 </div>
-<div id="filtering-data" class="section level3" number="3.9.3">
+<div id="filtering-data" class="section level3">
 <h3><span class="header-section-number">3.9.3</span> Filtering Data</h3>
 <p>You may also want to filter values based on defined conditions. You may want to filter observations greater than a certain threshold or only areas within a certain region. For example, you may want to select areas with a percentage of good health population over 50%:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-wrangling.html#cb62-1" aria-hidden="true" tabindex="-1"></a>ndf2 <span class="ot">&lt;-</span> census <span class="sc">%&gt;%</span> <span class="fu">filter</span>(per_ghealth <span class="sc">&lt;</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-wrangling.html#cb63-1"></a>ndf2 &lt;-<span class="st"> </span>census <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(per_ghealth <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.5</span>)</span></code></pre></div>
 <p>You can use more than one variables to set conditions. Use “<code>,</code>” to add a condition.</p>
 </div>
-<div id="joining-data-drames" class="section level3" number="3.9.4">
+<div id="joining-data-drames" class="section level3">
 <h3><span class="header-section-number">3.9.4</span> Joining Data Drames</h3>
 <p>When working with spatial data, we often need to join data. To this end, you need a common unique <code>id variable</code>. Let’s say, we want to add a data frame containing census data on households for Liverpool, and join the new attributes to one of the existing data frames in the workspace. First we will read the data frame we want to join (ie. <code>census_data2.csv</code>).</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-wrangling.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
-<span id="cb63-2"><a href="data-wrangling.html#cb63-2" aria-hidden="true" tabindex="-1"></a>census2 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/census/census_data2.csv&quot;</span>)</span>
-<span id="cb63-3"><a href="data-wrangling.html#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="co"># visualise data structure</span></span>
-<span id="cb63-4"><a href="data-wrangling.html#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(census2)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-wrangling.html#cb64-1"></a><span class="co"># read data</span></span>
+<span id="cb64-2"><a href="data-wrangling.html#cb64-2"></a>census2 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/census/census_data2.csv&quot;</span>)</span>
+<span id="cb64-3"><a href="data-wrangling.html#cb64-3"></a><span class="co"># visualise data structure</span></span>
+<span id="cb64-4"><a href="data-wrangling.html#cb64-4"></a><span class="kw">str</span>(census2)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    30 obs. of  3 variables:
 ##  $ geo_code               : chr  &quot;E05000886&quot; &quot;E05000887&quot; &quot;E05000888&quot; &quot;E05000889&quot; ...
 ##  $ households             : int  6359 6622 6622 7139 5391 5884 6576 6745 6317 6024 ...
 ##  $ socialrented_households: int  827 1508 2818 1311 374 178 2859 1564 1023 1558 ...</code></pre>
 <p>The variable <code>geo_code</code> in this data frame corresponds to the <code>code</code> in the existing data frame and they are unique so they can be automatically matched by using the <code>merge()</code> function. The <code>merge()</code> function uses two arguments: <code>x</code> and <code>y</code>. The former refers to data frame 1 and the latter to data frame 2. Both of these two data frames must have a <code>id</code> variable containing the same information. Note they can have different names. Another key argument to include is <code>all.x=TRUE</code> which tells the function to keep all the records in <code>x</code>, but only those in <code>y</code> that match in case there are discrepancies in the <code>id</code> variable.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-wrangling.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># join data frames</span></span>
-<span id="cb65-2"><a href="data-wrangling.html#cb65-2" aria-hidden="true" tabindex="-1"></a>join_dfs <span class="ot">&lt;-</span> <span class="fu">merge</span>(census, census2, <span class="at">by.x=</span><span class="st">&quot;code&quot;</span>, <span class="at">by.y=</span><span class="st">&quot;geo_code&quot;</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb65-3"><a href="data-wrangling.html#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="co"># check data</span></span>
-<span id="cb65-4"><a href="data-wrangling.html#cb65-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(join_dfs)</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="data-wrangling.html#cb66-1"></a><span class="co"># join data frames</span></span>
+<span id="cb66-2"><a href="data-wrangling.html#cb66-2"></a>join_dfs &lt;-<span class="st"> </span><span class="kw">merge</span>(census, census2, <span class="dt">by.x=</span><span class="st">&quot;code&quot;</span>, <span class="dt">by.y=</span><span class="st">&quot;geo_code&quot;</span>, <span class="dt">all.x =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb66-3"><a href="data-wrangling.html#cb66-3"></a><span class="co"># check data</span></span>
+<span id="cb66-4"><a href="data-wrangling.html#cb66-4"></a><span class="kw">head</span>(join_dfs)</span></code></pre></div>
 <pre><code>##        code                     ward pop16_74 higher_managerial   pop ghealth
 ## 1 E05000886 Allerton and Hunts Cross    10930              1103 14853    7274
 ## 2 E05000887                  Anfield    10712               312 14510    6124
@@ -811,41 +784,41 @@ numeric
 ## 5   0.5190538       5391                     374
 ## 6   0.5339201       5884                     178</code></pre>
 </div>
-<div id="saving-data" class="section level3" number="3.9.5">
+<div id="saving-data" class="section level3">
 <h3><span class="header-section-number">3.9.5</span> Saving Data</h3>
 <p>It may also be convinient to save your R projects. They contains all the objects that you have created in your workspace by using the <code>save.image( )</code> function:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-wrangling.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save.image</span>(<span class="st">&quot;week1_envs453.RData&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data-wrangling.html#cb68-1"></a><span class="kw">save.image</span>(<span class="st">&quot;week1_envs453.RData&quot;</span>)</span></code></pre></div>
 <p>This creates a file labelled “week1_envs453.RData” in your working directory. You can load this at a later stage using the <code>load( )</code> function.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data-wrangling.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;week1_envs453.RData&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-wrangling.html#cb69-1"></a><span class="kw">load</span>(<span class="st">&quot;week1_envs453.RData&quot;</span>)</span></code></pre></div>
 <p>Alternatively you can save / export your data into a <code>csv</code> file. The first argument in the function is the object name, and the second: the name of the csv we want to create.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-wrangling.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(join_dfs, <span class="st">&quot;join_censusdfs.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-wrangling.html#cb70-1"></a><span class="kw">write.csv</span>(join_dfs, <span class="st">&quot;join_censusdfs.csv&quot;</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="using-spatial-data-frames" class="section level2" number="3.10">
+<div id="using-spatial-data-frames" class="section level2">
 <h2><span class="header-section-number">3.10</span> Using Spatial Data Frames</h2>
-<p>A core area of this module is learning to work with spatial data in R. R has various purposedly designed <strong>packages</strong> for manipulation of spatial data and spatial analysis techniques. Various R packages exist in CRAN eg. <code>spatial</code>, <code>sgeostat</code>, <code>splancs</code>, <code>maptools</code>, <code>tmap</code>, <code>rgdal</code>, <code>spand</code> and more recent development of <code>sf</code> - see <span class="citation"><a href="references.html#ref-Lovelace_et_al_2020_book" role="doc-biblioref">Lovelace, Nowosad, and Muenchow</a> (<a href="references.html#ref-Lovelace_et_al_2020_book" role="doc-biblioref">2020</a>)</span> for a great description and historical context for some of these packages.</p>
+<p>A core area of this module is learning to work with spatial data in R. R has various purposedly designed <strong>packages</strong> for manipulation of spatial data and spatial analysis techniques. Various R packages exist in CRAN eg. <code>spatial</code>, <code>sgeostat</code>, <code>splancs</code>, <code>maptools</code>, <code>tmap</code>, <code>rgdal</code>, <code>spand</code> and more recent development of <code>sf</code> - see <span class="citation">Lovelace, Nowosad, and Muenchow (<a href="#ref-Lovelace_et_al_2020_book" role="doc-biblioref">2020</a>)</span> for a great description and historical context for some of these packages.</p>
 <p>During this session, we will use <code>sf</code>.</p>
 <p>We first need to import our spatial data. We will use a shapefile containing data at Output Area (OA) level for Liverpool. These data illustrates the hierarchical structure of spatial data.</p>
-<div id="read-spatial-data" class="section level3" number="3.10.1">
+<div id="read-spatial-data" class="section level3">
 <h3><span class="header-section-number">3.10.1</span> Read Spatial Data</h3>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-wrangling.html#cb70-1" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/census/Liverpool_OA.shp&quot;</span>)</span></code></pre></div>
-<pre><code>## Reading layer `Liverpool_OA&#39; from data source `/home/jovyan/work/data/census/Liverpool_OA.shp&#39; using driver `ESRI Shapefile&#39;
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-wrangling.html#cb71-1"></a>oa_shp &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/census/Liverpool_OA.shp&quot;</span>)</span></code></pre></div>
+<pre><code>## Reading layer `Liverpool_OA&#39; from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/census/Liverpool_OA.shp&#39; using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 1584 features and 18 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
 ## bbox:           xmin: 332390.2 ymin: 379748.5 xmax: 345636 ymax: 397980.1
 ## projected CRS:  Transverse_Mercator</code></pre>
 <p>Examine the input data. A spatial data frame stores a range of attributes derived from a shapefile including the <strong>geometry</strong> of features (e.g. polygon shape and location), <strong>attributes</strong> for each feature (stored in the .dbf), <a href="https://en.wikipedia.org/wiki/Map_projection">projection</a> and coordinates of the shapefile’s bounding box - for details, execute:</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="data-wrangling.html#cb72-1" aria-hidden="true" tabindex="-1"></a>?st_read</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-wrangling.html#cb73-1"></a>?st_read</span></code></pre></div>
 <p>You can employ the usual functions to visualise the content of the created data frame:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-wrangling.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualise variable names</span></span>
-<span id="cb73-2"><a href="data-wrangling.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(oa_shp)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="data-wrangling.html#cb74-1"></a><span class="co"># visualise variable names</span></span>
+<span id="cb74-2"><a href="data-wrangling.html#cb74-2"></a><span class="kw">names</span>(oa_shp)</span></code></pre></div>
 <pre><code>##  [1] &quot;OA_CD&quot;    &quot;LSOA_CD&quot;  &quot;MSOA_CD&quot;  &quot;LAD_CD&quot;   &quot;pop&quot;      &quot;H_Vbad&quot;  
 ##  [7] &quot;H_bad&quot;    &quot;H_fair&quot;   &quot;H_good&quot;   &quot;H_Vgood&quot;  &quot;age_men&quot;  &quot;age_med&quot; 
 ## [13] &quot;age_60&quot;   &quot;S_Rent&quot;   &quot;Ethnic&quot;   &quot;illness&quot;  &quot;unemp&quot;    &quot;males&quot;   
 ## [19] &quot;geometry&quot;</code></pre>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-wrangling.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data structure</span></span>
-<span id="cb75-2"><a href="data-wrangling.html#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(oa_shp)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="data-wrangling.html#cb76-1"></a><span class="co"># data structure</span></span>
+<span id="cb76-2"><a href="data-wrangling.html#cb76-2"></a><span class="kw">str</span>(oa_shp)</span></code></pre></div>
 <pre><code>## Classes &#39;sf&#39; and &#39;data.frame&#39;:   1584 obs. of  19 variables:
 ##  $ OA_CD   : chr  &quot;E00176737&quot; &quot;E00033515&quot; &quot;E00033141&quot; &quot;E00176757&quot; ...
 ##  $ LSOA_CD : chr  &quot;E01033761&quot; &quot;E01006614&quot; &quot;E01006546&quot; &quot;E01006646&quot; ...
@@ -872,8 +845,8 @@ numeric
 ##  - attr(*, &quot;sf_column&quot;)= chr &quot;geometry&quot;
 ##  - attr(*, &quot;agr&quot;)= Factor w/ 3 levels &quot;constant&quot;,&quot;aggregate&quot;,..: NA NA NA NA NA NA NA NA NA NA ...
 ##   ..- attr(*, &quot;names&quot;)= chr [1:18] &quot;OA_CD&quot; &quot;LSOA_CD&quot; &quot;MSOA_CD&quot; &quot;LAD_CD&quot; ...</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-wrangling.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># see first few observations</span></span>
-<span id="cb77-2"><a href="data-wrangling.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oa_shp)</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="data-wrangling.html#cb78-1"></a><span class="co"># see first few observations</span></span>
+<span id="cb78-2"><a href="data-wrangling.html#cb78-2"></a><span class="kw">head</span>(oa_shp)</span></code></pre></div>
 <pre><code>## Simple feature collection with 6 features and 18 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -907,7 +880,7 @@ numeric
 <li>What is the largest geography?</li>
 </ul>
 </div>
-<div id="basic-mapping" class="section level3" number="3.10.2">
+<div id="basic-mapping" class="section level3">
 <h3><span class="header-section-number">3.10.2</span> Basic Mapping</h3>
 <p>Again, many functions exist in CRAN for creating maps:</p>
 <ul>
@@ -919,10 +892,10 @@ numeric
 <li><code>shiny</code> to create web applications, including maps</li>
 </ul>
 <p>Here this notebook demonstrates the use of <code>plot</code> and <code>tmap</code>. First <code>plot</code> is used to map the spatial distribution of non-British-born population in Liverpool. First we only map the geometries on the right,</p>
-<div id="using-plot" class="section level4" number="3.10.2.1">
+<div id="using-plot" class="section level4">
 <h4><span class="header-section-number">3.10.2.1</span> Using <code>plot</code></h4>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-wrangling.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mapping geometry</span></span>
-<span id="cb79-2"><a href="data-wrangling.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(oa_shp))</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="data-wrangling.html#cb80-1"></a><span class="co"># mapping geometry</span></span>
+<span id="cb80-2"><a href="data-wrangling.html#cb80-2"></a><span class="kw">plot</span>(<span class="kw">st_geometry</span>(oa_shp))</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-40"></span>
 <img src="03-data_wrangling_files/figure-html/unnamed-chunk-40-1.png" alt="OAs of Livepool" width="672" />
 <p class="caption">
@@ -930,9 +903,9 @@ Figure 3.2: OAs of Livepool
 </p>
 </div>
 <p>and then:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="data-wrangling.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># map attributes, adding intervals</span></span>
-<span id="cb80-2"><a href="data-wrangling.html#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(oa_shp[<span class="st">&quot;Ethnic&quot;</span>], <span class="at">key.pos =</span> <span class="dv">4</span>, <span class="at">axes =</span> <span class="cn">TRUE</span>, <span class="at">key.width =</span> <span class="fu">lcm</span>(<span class="fl">1.3</span>), <span class="at">key.length =</span> <span class="fl">1.</span>,</span>
-<span id="cb80-3"><a href="data-wrangling.html#cb80-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="st">&quot;jenks&quot;</span>, <span class="at">lwd =</span> <span class="fl">0.1</span>, <span class="at">border =</span> <span class="st">&#39;grey&#39;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-wrangling.html#cb81-1"></a><span class="co"># map attributes, adding intervals</span></span>
+<span id="cb81-2"><a href="data-wrangling.html#cb81-2"></a><span class="kw">plot</span>(oa_shp[<span class="st">&quot;Ethnic&quot;</span>], <span class="dt">key.pos =</span> <span class="dv">4</span>, <span class="dt">axes =</span> <span class="ot">TRUE</span>, <span class="dt">key.width =</span> <span class="kw">lcm</span>(<span class="fl">1.3</span>), <span class="dt">key.length =</span> <span class="fl">1.</span>,</span>
+<span id="cb81-3"><a href="data-wrangling.html#cb81-3"></a>     <span class="dt">breaks =</span> <span class="st">&quot;jenks&quot;</span>, <span class="dt">lwd =</span> <span class="fl">0.1</span>, <span class="dt">border =</span> <span class="st">&#39;grey&#39;</span>) </span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-41"></span>
 <img src="03-data_wrangling_files/figure-html/unnamed-chunk-41-1.png" alt="Spatial distribution of ethnic groups, Liverpool" width="672" />
 <p class="caption">
@@ -944,53 +917,53 @@ Figure 3.3: Spatial distribution of ethnic groups, Liverpool
 <li>What is the key pattern emerging from this map?</li>
 </ul>
 </div>
-<div id="using-tmap" class="section level4" number="3.10.2.2">
+<div id="using-tmap" class="section level4">
 <h4><span class="header-section-number">3.10.2.2</span> Using <code>tmap</code></h4>
 <p>Similar to <code>ggplot2</code>, <code>tmap</code> is based on the idea of a ‘grammar of graphics’ which involves a separation between the input data and aesthetics (i.e. the way data are visualised). Each data set can be mapped in various different ways, including location as defined by its geometry, colour and other features. The basic building block is <code>tm_shape()</code> (which defines input data), followed by one or more layer elements such as <code>tm_fill()</code> and <code>tm_dots()</code>.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-wrangling.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ensure geometry is valid</span></span>
-<span id="cb81-2"><a href="data-wrangling.html#cb81-2" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_make_valid</span>(oa_shp)</span>
-<span id="cb81-3"><a href="data-wrangling.html#cb81-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-4"><a href="data-wrangling.html#cb81-4" aria-hidden="true" tabindex="-1"></a><span class="co"># map</span></span>
-<span id="cb81-5"><a href="data-wrangling.html#cb81-5" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">&quot;% ethnic pop.&quot;</span>)</span>
-<span id="cb81-6"><a href="data-wrangling.html#cb81-6" aria-hidden="true" tabindex="-1"></a>map_oa <span class="ot">=</span> <span class="fu">tm_shape</span>(oa_shp) <span class="sc">+</span></span>
-<span id="cb81-7"><a href="data-wrangling.html#cb81-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">&quot;Ethnic&quot;</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>), <span class="at">style =</span> <span class="st">&quot;cont&quot;</span>) <span class="sc">+</span> <span class="co"># add fill</span></span>
-<span id="cb81-8"><a href="data-wrangling.html#cb81-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> .<span class="dv">01</span>)  <span class="sc">+</span> <span class="co"># add borders</span></span>
-<span id="cb81-9"><a href="data-wrangling.html#cb81-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">&quot;arrow&quot;</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>) , <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> <span class="co"># add compass</span></span>
-<span id="cb81-10"><a href="data-wrangling.html#cb81-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">text.size =</span> <span class="fl">0.5</span>, <span class="at">position =</span>  <span class="fu">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;bottom&quot;</span>)) <span class="co"># add scale bar</span></span>
-<span id="cb81-11"><a href="data-wrangling.html#cb81-11" aria-hidden="true" tabindex="-1"></a>map_oa</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="data-wrangling.html#cb82-1"></a><span class="co"># ensure geometry is valid</span></span>
+<span id="cb82-2"><a href="data-wrangling.html#cb82-2"></a>oa_shp =<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_make_valid</span>(oa_shp)</span>
+<span id="cb82-3"><a href="data-wrangling.html#cb82-3"></a></span>
+<span id="cb82-4"><a href="data-wrangling.html#cb82-4"></a><span class="co"># map</span></span>
+<span id="cb82-5"><a href="data-wrangling.html#cb82-5"></a>legend_title =<span class="st"> </span><span class="kw">expression</span>(<span class="st">&quot;% ethnic pop.&quot;</span>)</span>
+<span id="cb82-6"><a href="data-wrangling.html#cb82-6"></a>map_oa =<span class="st"> </span><span class="kw">tm_shape</span>(oa_shp) <span class="op">+</span></span>
+<span id="cb82-7"><a href="data-wrangling.html#cb82-7"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="dt">col =</span> <span class="st">&quot;Ethnic&quot;</span>, <span class="dt">title =</span> legend_title, <span class="dt">palette =</span> <span class="kw">magma</span>(<span class="dv">256</span>), <span class="dt">style =</span> <span class="st">&quot;cont&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="co"># add fill</span></span>
+<span id="cb82-8"><a href="data-wrangling.html#cb82-8"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">lwd =</span> <span class="fl">.01</span>)  <span class="op">+</span><span class="st"> </span><span class="co"># add borders</span></span>
+<span id="cb82-9"><a href="data-wrangling.html#cb82-9"></a><span class="st">  </span><span class="kw">tm_compass</span>(<span class="dt">type =</span> <span class="st">&quot;arrow&quot;</span>, <span class="dt">position =</span> <span class="kw">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>) , <span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span><span class="co"># add compass</span></span>
+<span id="cb82-10"><a href="data-wrangling.html#cb82-10"></a><span class="st">  </span><span class="kw">tm_scale_bar</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">text.size =</span> <span class="fl">0.5</span>, <span class="dt">position =</span>  <span class="kw">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;bottom&quot;</span>)) <span class="co"># add scale bar</span></span>
+<span id="cb82-11"><a href="data-wrangling.html#cb82-11"></a>map_oa</span></code></pre></div>
 <p><img src="03-data_wrangling_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 <p>Note that the operation <code>+</code> is used to add new layers. You can set style themes by <code>tm_style</code>. To visualise the existing styles use <code>tmap_style_catalogue()</code>, and you can also evaluate the code chunk below if you would like to create an interactive map.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="data-wrangling.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">&quot;view&quot;</span>)</span>
-<span id="cb82-2"><a href="data-wrangling.html#cb82-2" aria-hidden="true" tabindex="-1"></a>map_oa</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-wrangling.html#cb83-1"></a><span class="kw">tmap_mode</span>(<span class="st">&quot;view&quot;</span>)</span>
+<span id="cb83-2"><a href="data-wrangling.html#cb83-2"></a>map_oa</span></code></pre></div>
 <p><strong>TASK:</strong></p>
 <ul>
 <li>Try mapping other variables in the spatial data frame. Where do population aged 60 and over concentrate?</li>
 </ul>
 </div>
 </div>
-<div id="comparing-geographies" class="section level3" number="3.10.3">
+<div id="comparing-geographies" class="section level3">
 <h3><span class="header-section-number">3.10.3</span> Comparing geographies</h3>
 <p>If you recall, one of the key issues of working with spatial data is the modifiable area unit problem (MAUP) - see lecture notes. To get a sense of the effects of MAUP, we analyse differences in the spatial patterns of the ethnic population in Liverpool between Middle Layer Super Output Areas (MSOAs) and OAs. So we map these geographies together.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-wrangling.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read data at the msoa level</span></span>
-<span id="cb83-2"><a href="data-wrangling.html#cb83-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/census/Liverpool_MSOA.shp&quot;</span>)</span></code></pre></div>
-<pre><code>## Reading layer `Liverpool_MSOA&#39; from data source `/home/jovyan/work/data/census/Liverpool_MSOA.shp&#39; using driver `ESRI Shapefile&#39;
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="data-wrangling.html#cb84-1"></a><span class="co"># read data at the msoa level</span></span>
+<span id="cb84-2"><a href="data-wrangling.html#cb84-2"></a>msoa_shp &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/census/Liverpool_MSOA.shp&quot;</span>)</span></code></pre></div>
+<pre><code>## Reading layer `Liverpool_MSOA&#39; from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/census/Liverpool_MSOA.shp&#39; using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 61 features and 16 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
 ## bbox:           xmin: 333086.1 ymin: 381426.3 xmax: 345636 ymax: 397980.1
 ## projected CRS:  Transverse_Mercator</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-wrangling.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ensure geometry is valid</span></span>
-<span id="cb85-2"><a href="data-wrangling.html#cb85-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_make_valid</span>(msoa_shp)</span>
-<span id="cb85-3"><a href="data-wrangling.html#cb85-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb85-4"><a href="data-wrangling.html#cb85-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create a map</span></span>
-<span id="cb85-5"><a href="data-wrangling.html#cb85-5" aria-hidden="true" tabindex="-1"></a>map_msoa <span class="ot">=</span> <span class="fu">tm_shape</span>(msoa_shp) <span class="sc">+</span></span>
-<span id="cb85-6"><a href="data-wrangling.html#cb85-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">&quot;Ethnic&quot;</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>), <span class="at">style =</span> <span class="st">&quot;cont&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb85-7"><a href="data-wrangling.html#cb85-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> .<span class="dv">01</span>)  <span class="sc">+</span> </span>
-<span id="cb85-8"><a href="data-wrangling.html#cb85-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">&quot;arrow&quot;</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>) , <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
-<span id="cb85-9"><a href="data-wrangling.html#cb85-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">text.size =</span> <span class="fl">0.5</span>, <span class="at">position =</span>  <span class="fu">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;bottom&quot;</span>)) </span>
-<span id="cb85-10"><a href="data-wrangling.html#cb85-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb85-11"><a href="data-wrangling.html#cb85-11" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange maps </span></span>
-<span id="cb85-12"><a href="data-wrangling.html#cb85-12" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_arrange</span>(map_msoa, map_oa) </span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="data-wrangling.html#cb86-1"></a><span class="co"># ensure geometry is valid</span></span>
+<span id="cb86-2"><a href="data-wrangling.html#cb86-2"></a>msoa_shp =<span class="st"> </span>sf<span class="op">::</span><span class="kw">st_make_valid</span>(msoa_shp)</span>
+<span id="cb86-3"><a href="data-wrangling.html#cb86-3"></a></span>
+<span id="cb86-4"><a href="data-wrangling.html#cb86-4"></a><span class="co"># create a map</span></span>
+<span id="cb86-5"><a href="data-wrangling.html#cb86-5"></a>map_msoa =<span class="st"> </span><span class="kw">tm_shape</span>(msoa_shp) <span class="op">+</span></span>
+<span id="cb86-6"><a href="data-wrangling.html#cb86-6"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="dt">col =</span> <span class="st">&quot;Ethnic&quot;</span>, <span class="dt">title =</span> legend_title, <span class="dt">palette =</span> <span class="kw">magma</span>(<span class="dv">256</span>), <span class="dt">style =</span> <span class="st">&quot;cont&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb86-7"><a href="data-wrangling.html#cb86-7"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">lwd =</span> <span class="fl">.01</span>)  <span class="op">+</span><span class="st"> </span></span>
+<span id="cb86-8"><a href="data-wrangling.html#cb86-8"></a><span class="st">  </span><span class="kw">tm_compass</span>(<span class="dt">type =</span> <span class="st">&quot;arrow&quot;</span>, <span class="dt">position =</span> <span class="kw">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>) , <span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb86-9"><a href="data-wrangling.html#cb86-9"></a><span class="st">  </span><span class="kw">tm_scale_bar</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">text.size =</span> <span class="fl">0.5</span>, <span class="dt">position =</span>  <span class="kw">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;bottom&quot;</span>)) </span>
+<span id="cb86-10"><a href="data-wrangling.html#cb86-10"></a></span>
+<span id="cb86-11"><a href="data-wrangling.html#cb86-11"></a><span class="co"># arrange maps </span></span>
+<span id="cb86-12"><a href="data-wrangling.html#cb86-12"></a><span class="kw">tmap_arrange</span>(map_msoa, map_oa) </span></code></pre></div>
 <p><img src="03-data_wrangling_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 <p><strong>TASK:</strong></p>
 <ul>
@@ -999,7 +972,7 @@ Figure 3.3: Spatial distribution of ethnic groups, Liverpool
 </ul>
 </div>
 </div>
-<div id="useful-functions" class="section level2" number="3.11">
+<div id="useful-functions" class="section level2">
 <h2><span class="header-section-number">3.11</span> Useful Functions</h2>
 <table>
 <thead>
@@ -1056,6 +1029,21 @@ Figure 3.3: Spatial distribution of ethnic groups, Liverpool
 </tbody>
 </table>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-grolemund_wickham_2019_book">
+<p>Grolemund, Garrett, and Hadley Wickham. 2019. <em>R for Data Science</em>. O’Reilly, US. <a href="https://r4ds.had.co.nz">https://r4ds.had.co.nz</a>.</p>
+</div>
+<div id="ref-Lovelace_et_al_2020_book">
+<p>Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2020. <em>An Introduction to Statistical Learning</em>. Vol. 112. CRC Press, R Series. <a href="https://geocompr.robinlovelace.net">https://geocompr.robinlovelace.net</a>.</p>
+</div>
+<div id="ref-envs450_2018">
+<p>Williamson, Paul. 2018. “Survey Analysis.”</p>
+</div>
+<div id="ref-Xie_et_al_2019_book">
+<p>Xie, Yihui, JJ Allaire, and Garrett Grolemund. 2019. <em>R Markdown: The Definitive Guide</em>. CRC Press, Taylor &amp; Francis, Chapman &amp; Hall Book. <a href="https://bookdown.org/yihui/rmarkdown/">https://bookdown.org/yihui/rmarkdown/</a>.</p>
 </div>
 </div>
 <div class="footnotes">
