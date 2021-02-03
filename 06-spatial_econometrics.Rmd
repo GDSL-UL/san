@@ -333,7 +333,7 @@ new.house <- data.frame(
 To obtain the prediction for its price, we can use the `predict` method:
 
 ```{r}
-new.price <- predict(m6, new.house)
+new.price <- predict(m5, new.house)
 new.price
 ```
 
