@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 Overview | Spatial Modelling for Data Scientists</title>
+  <title>Chapter 11 Data Sets | Spatial Modelling for Data Scientists</title>
   <meta name="description" content="This course will teach you how to analyse and model spatial data using R." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 Overview | Spatial Modelling for Data Scientists" />
+  <meta property="og:title" content="Chapter 11 Data Sets | Spatial Modelling for Data Scientists" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="gdsl-ul/san" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 Overview | Spatial Modelling for Data Scientists" />
+  <meta name="twitter:title" content="Chapter 11 Data Sets | Spatial Modelling for Data Scientists" />
   
   <meta name="twitter:description" content="This course will teach you how to analyse and model spatial data using R." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="spatial-data.html"/>
+<link rel="prev" href="sta.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -305,137 +305,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="overview" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Overview</h1>
-<p>Access to all materials, including lecture notes, computational notebooks and datasets, is centralised through the use of the course website available in the following url:</p>
-<blockquote>
-<p><a href="https://gdsl-ul.github.io/san/">https://gdsl-ul.github.io/san/</a></p>
-</blockquote>
-<p>The module handbook, including the assessment description, criteria and module programme, and videos for each teaching week can be accessed via the module Canvas site:</p>
-<blockquote>
-<p><a href="https://liverpool.instructure.com">ENS453 Spatial Modelling for Data Scientists</a></p>
-</blockquote>
-<div id="aims" class="section level2">
-<h2><span class="header-section-number">1.1</span> Aims</h2>
-<p>This module aims to provides students with a range of techniques for analysing and modelling spatial data:</p>
-<ul>
-<li>build upon the more general research training delivered via companion modules on <em>Data Collection and Data Analysis</em>, both of which have an aspatial focus;</li>
-<li>highlight a number of key social issues that have a spatial dimension;</li>
-<li>explain the specific challenges faced when attempting to analyse spatial data;</li>
-<li>introduce a range of analytical techniques and approaches suitable for the analysis of spatial data; and,</li>
-<li>enhance practical skills in using <em>R</em> software packages to implement a wide range of spatial analytical tools.</li>
-</ul>
-</div>
-<div id="learning-outcomes" class="section level2">
-<h2><span class="header-section-number">1.2</span> Learning Outcomes</h2>
-<p>By the end of the module, students should be able to:</p>
-<ul>
-<li>identify some key sources of spatial data and resources of spatial analysis and modelling tools;</li>
-<li>explain the advantages of taking spatial structure into account when analysing spatial data;</li>
-<li>apply a range of computer-based techniques for the analysis of spatial data, including mapping, correlation, kernel density estimation, regression, multi-level models, geographically-weighted regression, spatial interaction models and spatial econometrics;</li>
-<li>apply appropriate analytical strategies to tackle the key methodological challenges facing spatial analysis – spatial autocorrelation, heterogeneity, and ecological fallacy; and,</li>
-<li>select appropriate analytical tools for analysing specific spatial data sets to address emerging social issues facing the society.</li>
-</ul>
-</div>
-<div id="feedback" class="section level2">
-<h2><span class="header-section-number">1.3</span> Feedback</h2>
-<ul>
-<li><p><em>Formal assessment of two computational essays</em>. Written assignment-specific feedback will be provided within three working weeks of the submission deadline. Comments will offer an understanding of the mark awarded and identify areas which can be considered for improvement in future assignments.</p></li>
-<li><p><em>Verbal face-to-face feedback</em>. Immediate face-to-face feedback will be provided during lecture, discussion and clinic sessions in interaction with staff. This will take place in all live sessions during the semester.</p></li>
-<li><p><em>Online forum</em>. Asynchronous written feedback will be provided via an online forum maintained by the module lead. Students are encouraged to contribute by asking and answering questions relating to the module content. Staff will monitor the forum Monday to Friday 9am-5pm, but it will be open to students to make contributions at all times.</p></li>
-</ul>
-</div>
-<div id="computational-environment" class="section level2">
-<h2><span class="header-section-number">1.4</span> Computational Environment</h2>
-<p>Dependencies + Landing page for guides</p>
-<div id="dependency-list" class="section level3">
-<h3><span class="header-section-number">1.4.1</span> Dependency list</h3>
-<p>List of libraries used in this book:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="overview.html#cb1-1"></a>deps &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
-<span id="cb1-2"><a href="overview.html#cb1-2"></a>    <span class="st">&quot;arm&quot;</span>,</span>
-<span id="cb1-3"><a href="overview.html#cb1-3"></a>    <span class="st">&quot;car&quot;</span>,</span>
-<span id="cb1-4"><a href="overview.html#cb1-4"></a>    <span class="st">&quot;corrplot&quot;</span>,</span>
-<span id="cb1-5"><a href="overview.html#cb1-5"></a>    <span class="st">&quot;FRK&quot;</span>,</span>
-<span id="cb1-6"><a href="overview.html#cb1-6"></a>    <span class="st">&quot;gghighlight&quot;</span>,</span>
-<span id="cb1-7"><a href="overview.html#cb1-7"></a>    <span class="st">&quot;ggplot2&quot;</span>,</span>
-<span id="cb1-8"><a href="overview.html#cb1-8"></a>    <span class="st">&quot;ggmap&quot;</span>,</span>
-<span id="cb1-9"><a href="overview.html#cb1-9"></a>    <span class="st">&quot;GISTools&quot;</span>,</span>
-<span id="cb1-10"><a href="overview.html#cb1-10"></a>    <span class="st">&quot;gridExtra&quot;</span>,</span>
-<span id="cb1-11"><a href="overview.html#cb1-11"></a>    <span class="st">&quot;gstat&quot;</span>,</span>
-<span id="cb1-12"><a href="overview.html#cb1-12"></a>    <span class="st">&quot;jtools&quot;</span>,</span>
-<span id="cb1-13"><a href="overview.html#cb1-13"></a>    <span class="st">&quot;kableExtra&quot;</span>,</span>
-<span id="cb1-14"><a href="overview.html#cb1-14"></a>    <span class="st">&quot;knitr&quot;</span>,</span>
-<span id="cb1-15"><a href="overview.html#cb1-15"></a>    <span class="st">&quot;lme4&quot;</span>,</span>
-<span id="cb1-16"><a href="overview.html#cb1-16"></a>    <span class="st">&quot;lmtest&quot;</span>,</span>
-<span id="cb1-17"><a href="overview.html#cb1-17"></a>    <span class="st">&quot;lubridate&quot;</span>,</span>
-<span id="cb1-18"><a href="overview.html#cb1-18"></a>    <span class="st">&quot;MASS&quot;</span>,</span>
-<span id="cb1-19"><a href="overview.html#cb1-19"></a>    <span class="st">&quot;merTools&quot;</span>,</span>
-<span id="cb1-20"><a href="overview.html#cb1-20"></a>    <span class="st">&quot;plyr&quot;</span>,</span>
-<span id="cb1-21"><a href="overview.html#cb1-21"></a>    <span class="st">&quot;RColorBrewer&quot;</span>,</span>
-<span id="cb1-22"><a href="overview.html#cb1-22"></a>    <span class="st">&quot;rgdal&quot;</span>,</span>
-<span id="cb1-23"><a href="overview.html#cb1-23"></a>    <span class="st">&quot;sf&quot;</span>,</span>
-<span id="cb1-24"><a href="overview.html#cb1-24"></a>    <span class="st">&quot;sjPlot&quot;</span>,</span>
-<span id="cb1-25"><a href="overview.html#cb1-25"></a>    <span class="st">&quot;sp&quot;</span>,</span>
-<span id="cb1-26"><a href="overview.html#cb1-26"></a>    <span class="st">&quot;spgwr&quot;</span>,</span>
-<span id="cb1-27"><a href="overview.html#cb1-27"></a>    <span class="st">&quot;spatialreg&quot;</span>,</span>
-<span id="cb1-28"><a href="overview.html#cb1-28"></a>    <span class="st">&quot;spacetime&quot;</span>,</span>
-<span id="cb1-29"><a href="overview.html#cb1-29"></a>    <span class="st">&quot;stargazer&quot;</span>,</span>
-<span id="cb1-30"><a href="overview.html#cb1-30"></a>    <span class="st">&quot;tidyverse&quot;</span>,</span>
-<span id="cb1-31"><a href="overview.html#cb1-31"></a>    <span class="st">&quot;tmap&quot;</span>,</span>
-<span id="cb1-32"><a href="overview.html#cb1-32"></a>    <span class="st">&quot;viridis&quot;</span></span>
-<span id="cb1-33"><a href="overview.html#cb1-33"></a>)</span></code></pre></div>
-<p>And we can load them all to make sure they are installed:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="overview.html#cb2-1"></a><span class="cf">for</span>(lib <span class="cf">in</span> deps){<span class="kw">library</span>(lib, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)}</span></code></pre></div>
-</div>
-</div>
-<div id="assessment" class="section level2">
-<h2><span class="header-section-number">1.5</span> Assessment</h2>
-<p>The final module mark is composed of the <em>two computational essays</em>. Together they are designed to cover the materials introduced in the entirety of content covered during the semester.</p>
-<ul>
-<li>Assignment 1 (50%) - for details see Chapters <a href="points.html#points">4</a>, <a href="flows.html#flows">5</a> and <a href="spatialecon.html#spatialecon">6</a></li>
-<li>Assignment 2 (50%) - for details see Chapters <a href="mlm1.html#mlm1">7</a>, <a href="mlm2.html#mlm2">8</a>, <a href="gwr.html#gwr">9</a> and <a href="sta.html#sta">10</a></li>
-</ul>
-<p><em>Maximum word count: 2,000 words</em>, excluding figures and references. Both assignments will be similar in format. Each teaching week, you will be required to address a set of questions relating to the module content covered in that week. You should use roughly the same number of words to document your answers each week. For assignment 1, for example, you will be required to address questions in Weeks 2, 3 and 4 so we should roughly document your answers in 666 words (= 2,000 / 3) each week.</p>
-<p>Assignments need to be prepared in <em>R Notebook</em> format and then converted into
-a self-contained HTML file that will then be submitted via Turnitin.
-The notebook should only display content that will be assessed.
-Intermediate steps do not need to be displayed.
-Messages resulting from loading packages, attaching data frames, or similar messages do not need to be included as output code.
-Useful resources to customise your <em>R notebook</em> can be found on the <a href="https://rmarkdown.rstudio.com">R Markdown website</a> from RStudio:<br />
-* <a href="https://rmarkdown.rstudio.com/lesson-1.html">A Guide</a><br />
-* <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> by <span class="citation">Xie, Allaire, and Grolemund (<a href="#ref-xie2018r" role="doc-biblioref">2018</a>)</span><br />
-* <a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.199646894.1496049738.1611760832-141828105.1610798362">R Markdown Reference Guide</a></p>
-<p>A R Notebook template is available via the <a href="https://liverpool.instructure.com"><em>module Canvas site</em></a>.</p>
-<p><em>Submission</em> is electronic only via Turnitin on <em>Canvas</em>.</p>
-<div id="marking-criteria" class="section level3">
-<h3><span class="header-section-number">1.5.1</span> Marking criteria</h3>
-<p>The Standard Environmental Sciences School marking criteria apply, with a stronger emphasis on evidencing the use of regression models, critical analysis of results and presentation standards. In addition to these general criteria, the code and outputs (i.e. tables, maps and plots) contained within the notebook submitted for assessment will be assessed according to the extent of documentation and evidence of expertise in changing and extending the code options illustrated in each chapter. Specifically, the following criteria will be applied:</p>
-<ul>
-<li>0-15: no documentation and use of default options.</li>
-<li>16-39: little documentation and use of default options.</li>
-<li>40-49: some documentation, and use of default options.</li>
-<li>50-59: extensive documentation, and edit of some of the options provided in the notebook (e.g. change north arrow location).</li>
-<li>60-69: extensive well organised and easy to read documentation, and evidence of understanding of options provided in the code (e.g. tweaking existing options).</li>
-<li>70-79: all above, plus clear evidence of code design skills (e.g. customising graphics, combining plots (or tables) into a single output, adding clear axis labels and variable names on graphic outputs, etc.).</li>
-<li>80-100: all as above, plus code containing novel contributions that extend/improve the functionality the code was provided with (e.g. comparative model assessments, novel methods to perform the task, etc.).</li>
-</ul>
+<div id="datasets" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Data Sets</h1>
 
-</div>
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-xie2018r">
-<p>Xie, Yihui, Joseph J Allaire, and Garrett Grolemund. 2018. <em>R Markdown: The Definitive Guide</em>. CRC Press.</p>
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="spatial-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sta.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
 
 
-<meta name="date" content="2021-01-31" />
+<meta name="date" content="2021-02-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,6 @@
   
 <link rel="prev" href="flows.html"/>
 <link rel="next" href="mlm1.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,20 +50,22 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +85,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -133,118 +134,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Spatial Modelling for Data Scientists</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
-<ul>
+<li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview</a><ul>
 <li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html#aims"><i class="fa fa-check"></i><b>1.1</b> Aims</a></li>
 <li class="chapter" data-level="1.2" data-path="overview.html"><a href="overview.html#learning-outcomes"><i class="fa fa-check"></i><b>1.2</b> Learning Outcomes</a></li>
 <li class="chapter" data-level="1.3" data-path="overview.html"><a href="overview.html#feedback"><i class="fa fa-check"></i><b>1.3</b> Feedback</a></li>
-<li class="chapter" data-level="1.4" data-path="overview.html"><a href="overview.html#computational-environment"><i class="fa fa-check"></i><b>1.4</b> Computational Environment</a>
-<ul>
+<li class="chapter" data-level="1.4" data-path="overview.html"><a href="overview.html#computational-environment"><i class="fa fa-check"></i><b>1.4</b> Computational Environment</a><ul>
 <li class="chapter" data-level="1.4.1" data-path="overview.html"><a href="overview.html#dependency-list"><i class="fa fa-check"></i><b>1.4.1</b> Dependency list</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="overview.html"><a href="overview.html#assessment"><i class="fa fa-check"></i><b>1.5</b> Assessment</a>
-<ul>
+<li class="chapter" data-level="1.5" data-path="overview.html"><a href="overview.html#assessment"><i class="fa fa-check"></i><b>1.5</b> Assessment</a><ul>
 <li class="chapter" data-level="1.5.1" data-path="overview.html"><a href="overview.html#marking-criteria"><i class="fa fa-check"></i><b>1.5.1</b> Marking criteria</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>2</b> Spatial Data</a>
-<ul>
+<li class="chapter" data-level="2" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>2</b> Spatial Data</a><ul>
 <li class="chapter" data-level="2.1" data-path="spatial-data.html"><a href="spatial-data.html#spatial-data-types"><i class="fa fa-check"></i><b>2.1</b> Spatial Data types</a></li>
 <li class="chapter" data-level="2.2" data-path="spatial-data.html"><a href="spatial-data.html#hierarchical-structure-of-data"><i class="fa fa-check"></i><b>2.2</b> Hierarchical Structure of Data</a></li>
-<li class="chapter" data-level="2.3" data-path="spatial-data.html"><a href="spatial-data.html#key-challenges"><i class="fa fa-check"></i><b>2.3</b> Key Challenges</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="spatial-data.html"><a href="spatial-data.html#key-challenges"><i class="fa fa-check"></i><b>2.3</b> Key Challenges</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="spatial-data.html"><a href="spatial-data.html#modifible-area-unit-problem-maup"><i class="fa fa-check"></i><b>2.3.1</b> Modifible Area Unit Problem (MAUP)</a></li>
 <li class="chapter" data-level="2.3.2" data-path="spatial-data.html"><a href="spatial-data.html#ecological-fallacy"><i class="fa fa-check"></i><b>2.3.2</b> Ecological Fallacy</a></li>
-<li class="chapter" data-level="2.3.3" data-path="spatial-data.html"><a href="spatial-data.html#spatial-autocorrelation"><i class="fa fa-check"></i><b>2.3.3</b> Spatial Autocorrelation</a></li>
+<li class="chapter" data-level="2.3.3" data-path="spatial-data.html"><a href="spatial-data.html#spatial-dependence"><i class="fa fa-check"></i><b>2.3.3</b> Spatial Dependence</a></li>
 <li class="chapter" data-level="2.3.4" data-path="spatial-data.html"><a href="spatial-data.html#spatial-heterogeneity"><i class="fa fa-check"></i><b>2.3.4</b> Spatial Heterogeneity</a></li>
+<li class="chapter" data-level="2.3.5" data-path="spatial-data.html"><a href="spatial-data.html#spatial-nonstationarity"><i class="fa fa-check"></i><b>2.3.5</b> Spatial nonstationarity</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a>
-<ul>
+<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a><ul>
 <li class="chapter" data-level="3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#dependencies"><i class="fa fa-check"></i><b>3.1</b> Dependencies</a></li>
 <li class="chapter" data-level="3.2" data-path="data-wrangling.html"><a href="data-wrangling.html#introducing-r"><i class="fa fa-check"></i><b>3.2</b> Introducing R</a></li>
 <li class="chapter" data-level="3.3" data-path="data-wrangling.html"><a href="data-wrangling.html#setting-the-working-directory"><i class="fa fa-check"></i><b>3.3</b> Setting the working directory</a></li>
 <li class="chapter" data-level="3.4" data-path="data-wrangling.html"><a href="data-wrangling.html#r-scripts-and-notebooks"><i class="fa fa-check"></i><b>3.4</b> R Scripts and Notebooks</a></li>
 <li class="chapter" data-level="3.5" data-path="data-wrangling.html"><a href="data-wrangling.html#getting-help"><i class="fa fa-check"></i><b>3.5</b> Getting Help</a></li>
-<li class="chapter" data-level="3.6" data-path="data-wrangling.html"><a href="data-wrangling.html#variables-and-objects"><i class="fa fa-check"></i><b>3.6</b> Variables and objects</a>
-<ul>
+<li class="chapter" data-level="3.6" data-path="data-wrangling.html"><a href="data-wrangling.html#variables-and-objects"><i class="fa fa-check"></i><b>3.6</b> Variables and objects</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="data-wrangling.html"><a href="data-wrangling.html#basic-data-types"><i class="fa fa-check"></i><b>3.6.1</b> Basic Data Types</a></li>
 <li class="chapter" data-level="3.6.2" data-path="data-wrangling.html"><a href="data-wrangling.html#random-variables"><i class="fa fa-check"></i><b>3.6.2</b> Random Variables</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="data-wrangling.html"><a href="data-wrangling.html#data-frames"><i class="fa fa-check"></i><b>3.7</b> Data Frames</a>
-<ul>
+<li class="chapter" data-level="3.7" data-path="data-wrangling.html"><a href="data-wrangling.html#data-frames"><i class="fa fa-check"></i><b>3.7</b> Data Frames</a><ul>
 <li class="chapter" data-level="3.7.1" data-path="data-wrangling.html"><a href="data-wrangling.html#creating-a-data-frame"><i class="fa fa-check"></i><b>3.7.1</b> Creating A Data Frame</a></li>
 <li class="chapter" data-level="3.7.2" data-path="data-wrangling.html"><a href="data-wrangling.html#referencing-data-frames"><i class="fa fa-check"></i><b>3.7.2</b> Referencing Data Frames</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="data-wrangling.html"><a href="data-wrangling.html#sec_readdata"><i class="fa fa-check"></i><b>3.8</b> Read Data</a>
-<ul>
+<li class="chapter" data-level="3.8" data-path="data-wrangling.html"><a href="data-wrangling.html#sec_readdata"><i class="fa fa-check"></i><b>3.8</b> Read Data</a><ul>
 <li class="chapter" data-level="3.8.1" data-path="data-wrangling.html"><a href="data-wrangling.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>3.8.1</b> Quickly inspect the data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="data-wrangling.html"><a href="data-wrangling.html#manipulation-data"><i class="fa fa-check"></i><b>3.9</b> Manipulation Data</a>
-<ul>
+<li class="chapter" data-level="3.9" data-path="data-wrangling.html"><a href="data-wrangling.html#manipulation-data"><i class="fa fa-check"></i><b>3.9</b> Manipulation Data</a><ul>
 <li class="chapter" data-level="3.9.1" data-path="data-wrangling.html"><a href="data-wrangling.html#adding-new-variables"><i class="fa fa-check"></i><b>3.9.1</b> Adding New Variables</a></li>
 <li class="chapter" data-level="3.9.2" data-path="data-wrangling.html"><a href="data-wrangling.html#selecting-variables"><i class="fa fa-check"></i><b>3.9.2</b> Selecting Variables</a></li>
 <li class="chapter" data-level="3.9.3" data-path="data-wrangling.html"><a href="data-wrangling.html#filtering-data"><i class="fa fa-check"></i><b>3.9.3</b> Filtering Data</a></li>
 <li class="chapter" data-level="3.9.4" data-path="data-wrangling.html"><a href="data-wrangling.html#joining-data-drames"><i class="fa fa-check"></i><b>3.9.4</b> Joining Data Drames</a></li>
 <li class="chapter" data-level="3.9.5" data-path="data-wrangling.html"><a href="data-wrangling.html#saving-data"><i class="fa fa-check"></i><b>3.9.5</b> Saving Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="data-wrangling.html"><a href="data-wrangling.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>3.10</b> Using Spatial Data Frames</a>
-<ul>
+<li class="chapter" data-level="3.10" data-path="data-wrangling.html"><a href="data-wrangling.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>3.10</b> Using Spatial Data Frames</a><ul>
 <li class="chapter" data-level="3.10.1" data-path="data-wrangling.html"><a href="data-wrangling.html#read-spatial-data"><i class="fa fa-check"></i><b>3.10.1</b> Read Spatial Data</a></li>
 <li class="chapter" data-level="3.10.2" data-path="data-wrangling.html"><a href="data-wrangling.html#basic-mapping"><i class="fa fa-check"></i><b>3.10.2</b> Basic Mapping</a></li>
 <li class="chapter" data-level="3.10.3" data-path="data-wrangling.html"><a href="data-wrangling.html#comparing-geographies"><i class="fa fa-check"></i><b>3.10.3</b> Comparing geographies</a></li>
 </ul></li>
 <li class="chapter" data-level="3.11" data-path="data-wrangling.html"><a href="data-wrangling.html#useful-functions"><i class="fa fa-check"></i><b>3.11</b> Useful Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>4</b> Points</a>
-<ul>
+<li class="chapter" data-level="4" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>4</b> Points</a><ul>
 <li class="chapter" data-level="4.1" data-path="points.html"><a href="points.html#dependencies-1"><i class="fa fa-check"></i><b>4.1</b> Dependencies</a></li>
 <li class="chapter" data-level="4.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>4.2</b> Data</a></li>
 <li class="chapter" data-level="4.3" data-path="points.html"><a href="points.html#binning"><i class="fa fa-check"></i><b>4.3</b> Binning</a></li>
-<li class="chapter" data-level="4.4" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>4.4</b> KDE</a>
-<ul>
+<li class="chapter" data-level="4.4" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>4.4</b> KDE</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>4.4.1</b> One-dimensional KDE</a></li>
 <li class="chapter" data-level="4.4.2" data-path="points.html"><a href="points.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>4.4.2</b> Two-dimensional (spatial) KDE</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>4.5</b> Spatial Interpolation</a>
-<ul>
+<li class="chapter" data-level="4.5" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>4.5</b> Spatial Interpolation</a><ul>
 <li class="chapter" data-level="4.5.1" data-path="points.html"><a href="points.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>4.5.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
 <li class="chapter" data-level="4.5.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>4.5.2</b> A surface of housing prices</a></li>
 <li class="chapter" data-level="4.5.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>4.5.3</b> <em>“What should the next house’s price be?”</em></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>5</b> Flows</a>
-<ul>
+<li class="chapter" data-level="5" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>5</b> Flows</a><ul>
 <li class="chapter" data-level="5.1" data-path="flows.html"><a href="flows.html#dependencies-2"><i class="fa fa-check"></i><b>5.1</b> Dependencies</a></li>
 <li class="chapter" data-level="5.2" data-path="flows.html"><a href="flows.html#data-1"><i class="fa fa-check"></i><b>5.2</b> Data</a></li>
 <li class="chapter" data-level="5.3" data-path="flows.html"><a href="flows.html#seeing-flows"><i class="fa fa-check"></i><b>5.3</b> “<em>Seeing</em>” flows</a></li>
 <li class="chapter" data-level="5.4" data-path="flows.html"><a href="flows.html#modelling-flows"><i class="fa fa-check"></i><b>5.4</b> Modelling flows</a></li>
 <li class="chapter" data-level="5.5" data-path="flows.html"><a href="flows.html#predicting-flows"><i class="fa fa-check"></i><b>5.5</b> Predicting flows</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="spatialecon.html"><a href="spatialecon.html"><i class="fa fa-check"></i><b>6</b> Spatial Econometrics</a>
-<ul>
+<li class="chapter" data-level="6" data-path="spatialecon.html"><a href="spatialecon.html"><i class="fa fa-check"></i><b>6</b> Spatial Econometrics</a><ul>
 <li class="chapter" data-level="6.1" data-path="spatialecon.html"><a href="spatialecon.html#dependencies-3"><i class="fa fa-check"></i><b>6.1</b> Dependencies</a></li>
 <li class="chapter" data-level="6.2" data-path="spatialecon.html"><a href="spatialecon.html#data-2"><i class="fa fa-check"></i><b>6.2</b> Data</a></li>
 <li class="chapter" data-level="6.3" data-path="spatialecon.html"><a href="spatialecon.html#non-spatial-regression-a-refresh"><i class="fa fa-check"></i><b>6.3</b> Non-spatial regression, a refresh</a></li>
 <li class="chapter" data-level="6.4" data-path="spatialecon.html"><a href="spatialecon.html#spatial-regression-a-very-first-dip"><i class="fa fa-check"></i><b>6.4</b> Spatial regression: a (very) first dip</a></li>
 <li class="chapter" data-level="6.5" data-path="spatialecon.html"><a href="spatialecon.html#spatial-heterogeneity-1"><i class="fa fa-check"></i><b>6.5</b> Spatial heterogeneity</a></li>
-<li class="chapter" data-level="6.6" data-path="spatialecon.html"><a href="spatialecon.html#spatial-dependence"><i class="fa fa-check"></i><b>6.6</b> Spatial dependence</a></li>
+<li class="chapter" data-level="6.6" data-path="spatialecon.html"><a href="spatialecon.html#spatial-dependence-1"><i class="fa fa-check"></i><b>6.6</b> Spatial dependence</a></li>
 <li class="chapter" data-level="6.7" data-path="spatialecon.html"><a href="spatialecon.html#predicting-house-prices"><i class="fa fa-check"></i><b>6.7</b> Predicting house prices</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="mlm1.html"><a href="mlm1.html"><i class="fa fa-check"></i><b>7</b> Multilevel Modelling - Part 1</a>
-<ul>
+<li class="chapter" data-level="7" data-path="mlm1.html"><a href="mlm1.html"><i class="fa fa-check"></i><b>7</b> Multilevel Modelling - Part 1</a><ul>
 <li class="chapter" data-level="7.1" data-path="mlm1.html"><a href="mlm1.html#dependencies-4"><i class="fa fa-check"></i><b>7.1</b> Dependencies</a></li>
 <li class="chapter" data-level="7.2" data-path="mlm1.html"><a href="mlm1.html#data-3"><i class="fa fa-check"></i><b>7.2</b> Data</a></li>
-<li class="chapter" data-level="7.3" data-path="mlm1.html"><a href="mlm1.html#modelling"><i class="fa fa-check"></i><b>7.3</b> Modelling</a>
-<ul>
+<li class="chapter" data-level="7.3" data-path="mlm1.html"><a href="mlm1.html#modelling"><i class="fa fa-check"></i><b>7.3</b> Modelling</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="mlm1.html"><a href="mlm1.html#baseline-linear-regression-model"><i class="fa fa-check"></i><b>7.3.1</b> Baseline Linear Regression Model</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="mlm1.html"><a href="mlm1.html#multilevel-modelling-random-intercept-model"><i class="fa fa-check"></i><b>7.4</b> Multilevel Modelling: Random Intercept Model</a>
-<ul>
+<li class="chapter" data-level="7.4" data-path="mlm1.html"><a href="mlm1.html#multilevel-modelling-random-intercept-model"><i class="fa fa-check"></i><b>7.4</b> Multilevel Modelling: Random Intercept Model</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="mlm1.html"><a href="mlm1.html#interpretation"><i class="fa fa-check"></i><b>7.4.1</b> Interpretation</a></li>
 <li class="chapter" data-level="7.4.2" data-path="mlm1.html"><a href="mlm1.html#variance-partition-coefficient-vpc"><i class="fa fa-check"></i><b>7.4.2</b> Variance Partition Coefficient (VPC)</a></li>
 <li class="chapter" data-level="7.4.3" data-path="mlm1.html"><a href="mlm1.html#uncertainty-of-estimates"><i class="fa fa-check"></i><b>7.4.3</b> Uncertainty of Estimates</a></li>
@@ -254,33 +236,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="mlm1.html"><a href="mlm1.html#useful-functions-1"><i class="fa fa-check"></i><b>7.5</b> Useful Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="mlm2.html"><a href="mlm2.html"><i class="fa fa-check"></i><b>8</b> Multilevel Modelling - Part 2</a>
-<ul>
+<li class="chapter" data-level="8" data-path="mlm2.html"><a href="mlm2.html"><i class="fa fa-check"></i><b>8</b> Multilevel Modelling - Part 2</a><ul>
 <li class="chapter" data-level="8.1" data-path="mlm2.html"><a href="mlm2.html#dependencies-5"><i class="fa fa-check"></i><b>8.1</b> Dependencies</a></li>
 <li class="chapter" data-level="8.2" data-path="mlm2.html"><a href="mlm2.html#data-4"><i class="fa fa-check"></i><b>8.2</b> Data</a></li>
-<li class="chapter" data-level="8.3" data-path="mlm2.html"><a href="mlm2.html#conceptual-overview"><i class="fa fa-check"></i><b>8.3</b> Conceptual Overview</a>
-<ul>
+<li class="chapter" data-level="8.3" data-path="mlm2.html"><a href="mlm2.html#conceptual-overview"><i class="fa fa-check"></i><b>8.3</b> Conceptual Overview</a><ul>
 <li class="chapter" data-level="8.3.1" data-path="mlm2.html"><a href="mlm2.html#exploratory-analysis-varying-slopes"><i class="fa fa-check"></i><b>8.3.1</b> Exploratory Analysis: Varying Slopes</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="mlm2.html"><a href="mlm2.html#estimating-varying-intercept-and-slopes-models"><i class="fa fa-check"></i><b>8.4</b> Estimating Varying Intercept and Slopes Models</a></li>
 <li class="chapter" data-level="8.5" data-path="mlm2.html"><a href="mlm2.html#interpreting-correlations-between-group-level-intercepts-and-slopes"><i class="fa fa-check"></i><b>8.5</b> Interpreting Correlations Between Group-level Intercepts and Slopes</a></li>
-<li class="chapter" data-level="8.6" data-path="mlm2.html"><a href="mlm2.html#model-building"><i class="fa fa-check"></i><b>8.6</b> Model building</a>
-<ul>
+<li class="chapter" data-level="8.6" data-path="mlm2.html"><a href="mlm2.html#model-building"><i class="fa fa-check"></i><b>8.6</b> Model building</a><ul>
 <li class="chapter" data-level="8.6.1" data-path="mlm2.html"><a href="mlm2.html#model-comparison"><i class="fa fa-check"></i><b>8.6.1</b> Model Comparison</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>9</b> Geographically Weighted Regression</a>
-<ul>
+<li class="chapter" data-level="9" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>9</b> Geographically Weighted Regression</a><ul>
 <li class="chapter" data-level="9.1" data-path="gwr.html"><a href="gwr.html#dependencies-6"><i class="fa fa-check"></i><b>9.1</b> Dependencies</a></li>
 <li class="chapter" data-level="9.2" data-path="gwr.html"><a href="gwr.html#data-5"><i class="fa fa-check"></i><b>9.2</b> Data</a></li>
 <li class="chapter" data-level="9.3" data-path="gwr.html"><a href="gwr.html#recap-spatial-effects"><i class="fa fa-check"></i><b>9.3</b> Recap: Spatial Effects</a></li>
 <li class="chapter" data-level="9.4" data-path="gwr.html"><a href="gwr.html#exploratory-analysis"><i class="fa fa-check"></i><b>9.4</b> Exploratory Analysis</a></li>
-<li class="chapter" data-level="9.5" data-path="gwr.html"><a href="gwr.html#global-regression"><i class="fa fa-check"></i><b>9.5</b> Global Regression</a>
-<ul>
+<li class="chapter" data-level="9.5" data-path="gwr.html"><a href="gwr.html#global-regression"><i class="fa fa-check"></i><b>9.5</b> Global Regression</a><ul>
 <li class="chapter" data-level="9.5.1" data-path="gwr.html"><a href="gwr.html#global-regression-results"><i class="fa fa-check"></i><b>9.5.1</b> Global Regression Results</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="gwr.html"><a href="gwr.html#fitting-a-geographically-weighted-regression"><i class="fa fa-check"></i><b>9.6</b> Fitting a Geographically Weighted Regression</a>
-<ul>
+<li class="chapter" data-level="9.6" data-path="gwr.html"><a href="gwr.html#fitting-a-geographically-weighted-regression"><i class="fa fa-check"></i><b>9.6</b> Fitting a Geographically Weighted Regression</a><ul>
 <li class="chapter" data-level="9.6.1" data-path="gwr.html"><a href="gwr.html#fixed-or-adaptive-kernel"><i class="fa fa-check"></i><b>9.6.1</b> Fixed or Adaptive Kernel</a></li>
 <li class="chapter" data-level="9.6.2" data-path="gwr.html"><a href="gwr.html#optimal-bandwidth"><i class="fa fa-check"></i><b>9.6.2</b> Optimal Bandwidth</a></li>
 <li class="chapter" data-level="9.6.3" data-path="gwr.html"><a href="gwr.html#shape-of-spatial-kernel"><i class="fa fa-check"></i><b>9.6.3</b> Shape of Spatial Kernel</a></li>
@@ -291,26 +267,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.6.8" data-path="gwr.html"><a href="gwr.html#collinearity-in-gwr"><i class="fa fa-check"></i><b>9.6.8</b> Collinearity in GWR</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="sta.html"><a href="sta.html"><i class="fa fa-check"></i><b>10</b> Spatio-Temporal Analysis</a>
-<ul>
+<li class="chapter" data-level="10" data-path="sta.html"><a href="sta.html"><i class="fa fa-check"></i><b>10</b> Spatio-Temporal Analysis</a><ul>
 <li class="chapter" data-level="10.1" data-path="sta.html"><a href="sta.html#dependencies-7"><i class="fa fa-check"></i><b>10.1</b> Dependencies</a></li>
 <li class="chapter" data-level="10.2" data-path="sta.html"><a href="sta.html#data-6"><i class="fa fa-check"></i><b>10.2</b> Data</a></li>
-<li class="chapter" data-level="10.3" data-path="sta.html"><a href="sta.html#why-spatio-temporal-analysis"><i class="fa fa-check"></i><b>10.3</b> Why Spatio-Temporal Analysis?</a>
-<ul>
+<li class="chapter" data-level="10.3" data-path="sta.html"><a href="sta.html#why-spatio-temporal-analysis"><i class="fa fa-check"></i><b>10.3</b> Why Spatio-Temporal Analysis?</a><ul>
 <li class="chapter" data-level="10.3.1" data-path="sta.html"><a href="sta.html#spatio-temporal-data-structures"><i class="fa fa-check"></i><b>10.3.1</b> Spatio-temporal Data Structures</a></li>
 </ul></li>
 <li class="chapter" data-level="10.4" data-path="sta.html"><a href="sta.html#data-wrangling"><i class="fa fa-check"></i><b>10.4</b> Data Wrangling</a></li>
-<li class="chapter" data-level="10.5" data-path="sta.html"><a href="sta.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>10.5</b> Exploring Spatio-Temporal Data</a>
-<ul>
+<li class="chapter" data-level="10.5" data-path="sta.html"><a href="sta.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>10.5</b> Exploring Spatio-Temporal Data</a><ul>
 <li class="chapter" data-level="10.5.1" data-path="sta.html"><a href="sta.html#visualisation"><i class="fa fa-check"></i><b>10.5.1</b> Visualisation</a></li>
 <li class="chapter" data-level="10.5.2" data-path="sta.html"><a href="sta.html#exploratory-analysis-1"><i class="fa fa-check"></i><b>10.5.2</b> Exploratory Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="sta.html"><a href="sta.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>10.6</b> Spatio-Temporal Data Modelling</a>
-<ul>
+<li class="chapter" data-level="10.6" data-path="sta.html"><a href="sta.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>10.6</b> Spatio-Temporal Data Modelling</a><ul>
 <li class="chapter" data-level="10.6.1" data-path="sta.html"><a href="sta.html#intuition"><i class="fa fa-check"></i><b>10.6.1</b> Intuition</a></li>
 <li class="chapter" data-level="10.6.2" data-path="sta.html"><a href="sta.html#fitting-spatio-temporal-models"><i class="fa fa-check"></i><b>10.6.2</b> Fitting Spatio-Temporal Models</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>11</b> Data Sets</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -332,81 +305,84 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="spatialecon" class="section level1" number="6">
+<div id="spatialecon" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> Spatial Econometrics</h1>
 <hr />
 <p><strong>IMPORTANT</strong> - Reference and text to be updated</p>
 <hr />
 <p>This chapter is based on the following references, which are good follow-up’s on the topic:</p>
 <ul>
-<li><a href="https://geographicdata.science/book/notebooks/11_regression.html">Chapter 11</a> of the GDS Book, by <span class="citation"><a href="references.html#ref-reyABwolf" role="doc-biblioref">Rey, Arribas-Bel, and Wolf</a> (<a href="references.html#ref-reyABwolf" role="doc-biblioref">forthcoming</a>)</span>.</li>
-<li><a href="http://darribas.org/sdar_mini/notes/Class_03.html">Session III</a> of <span class="citation"><a href="references.html#ref-arribas2014spatial" role="doc-biblioref">Arribas-Bel</a> (<a href="references.html#ref-arribas2014spatial" role="doc-biblioref">2014</a>)</span>. Check the “Related readings” section on the session page for more in-depth discussions.</li>
-<li><span class="citation"><a href="references.html#ref-anselin2005spatial" role="doc-biblioref">Anselin</a> (<a href="references.html#ref-anselin2005spatial" role="doc-biblioref">2007</a>)</span>, freely available to download [<a href="http://csiss.org/GISPopSci/workshops/2011/PSU/readings/W15_Anselin2007.pdf"><code>pdf</code></a>].</li>
-<li>The second part of this tutorial assumes you have reviewed <a href="https://darribas.org/gds_course/content/bE/concepts_E.html">Block E</a> of <span class="citation"><a href="references.html#ref-darribas_gds_course" role="doc-biblioref">Arribas-Bel</a> (<a href="references.html#ref-darribas_gds_course" role="doc-biblioref">2019</a>)</span>. [<a href="https://darribas.org/gds_course/content/bE/concepts_E.html">html</a>]</li>
+<li><a href="https://geographicdata.science/book/notebooks/11_regression.html">Chapter 11</a> of the GDS Book, by <span class="citation">Rey, Arribas-Bel, and Wolf (<a href="#ref-reyABwolf" role="doc-biblioref">n.d.</a>)</span>.</li>
+<li><a href="http://darribas.org/sdar_mini/notes/Class_03.html">Session III</a> of <span class="citation">Arribas-Bel (<a href="#ref-arribas2014spatial" role="doc-biblioref">2014</a>)</span>. Check the “Related readings” section on the session page for more in-depth discussions.</li>
+<li><span class="citation">Anselin (<a href="#ref-anselin2005spatial" role="doc-biblioref">2007</a>)</span>, freely available to download [<a href="http://csiss.org/GISPopSci/workshops/2011/PSU/readings/W15_Anselin2007.pdf"><code>pdf</code></a>].</li>
+<li>The second part of this tutorial assumes you have reviewed <a href="https://darribas.org/gds_course/content/bE/concepts_E.html">Block E</a> of <span class="citation">Arribas-Bel (<a href="#ref-darribas_gds_course" role="doc-biblioref">2019</a>)</span>. [<a href="https://darribas.org/gds_course/content/bE/concepts_E.html">html</a>]</li>
 </ul>
-<div id="dependencies-3" class="section level2" number="6.1">
+<div id="dependencies-3" class="section level2">
 <h2><span class="header-section-number">6.1</span> Dependencies</h2>
 <p>We will rely on the following libraries in this section, all of them included in the <a href="#Dependency-list">book list</a>:</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="spatialecon.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Layout</span></span>
-<span id="cb203-2"><a href="spatialecon.html#cb203-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tufte)</span>
-<span id="cb203-3"><a href="spatialecon.html#cb203-3" aria-hidden="true" tabindex="-1"></a><span class="co"># For pretty table</span></span>
-<span id="cb203-4"><a href="spatialecon.html#cb203-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb203-5"><a href="spatialecon.html#cb203-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial Data management</span></span>
-<span id="cb203-6"><a href="spatialecon.html#cb203-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgdal)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="spatialecon.html#cb204-1"></a><span class="co"># Layout</span></span>
+<span id="cb204-2"><a href="spatialecon.html#cb204-2"></a><span class="kw">library</span>(tufte)</span>
+<span id="cb204-3"><a href="spatialecon.html#cb204-3"></a><span class="co"># For pretty table</span></span>
+<span id="cb204-4"><a href="spatialecon.html#cb204-4"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb204-5"><a href="spatialecon.html#cb204-5"></a><span class="co"># Spatial Data management</span></span>
+<span id="cb204-6"><a href="spatialecon.html#cb204-6"></a><span class="kw">library</span>(rgdal)</span></code></pre></div>
 <pre><code>## Loading required package: sp</code></pre>
 <pre><code>## rgdal: version: 1.5-18, (SVN revision 1082)
 ## Geospatial Data Abstraction Library extensions to R successfully loaded
-## Loaded GDAL runtime: GDAL 3.0.4, released 2020/01/28
-## Path to GDAL shared files: /opt/conda/share/gdal
+## Loaded GDAL runtime: GDAL 3.1.1, released 2020/06/22
+## Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/gdal
 ## GDAL binary built with GEOS: TRUE 
 ## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
-## Path to PROJ shared files: /opt/conda/share/proj
+## Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj
 ## Linking to sp version:1.4-4
 ## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
 ## use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) before loading rgdal.</code></pre>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="spatialecon.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty graphics</span></span>
-<span id="cb206-2"><a href="spatialecon.html#cb206-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb206-3"><a href="spatialecon.html#cb206-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty maps</span></span>
-<span id="cb206-4"><a href="spatialecon.html#cb206-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmap)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="spatialecon.html#cb207-1"></a><span class="co"># Pretty graphics</span></span>
+<span id="cb207-2"><a href="spatialecon.html#cb207-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb207-3"><a href="spatialecon.html#cb207-3"></a><span class="co"># Pretty maps</span></span>
+<span id="cb207-4"><a href="spatialecon.html#cb207-4"></a><span class="kw">library</span>(ggmap)</span></code></pre></div>
 <pre><code>## Google&#39;s Terms of Service: https://cloud.google.com/maps-platform/terms/.</code></pre>
 <pre><code>## Please cite ggmap if you use it! See citation(&quot;ggmap&quot;) for details.</code></pre>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="spatialecon.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Various GIS utilities</span></span>
-<span id="cb209-2"><a href="spatialecon.html#cb209-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GISTools)</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="spatialecon.html#cb210-1"></a><span class="co"># Various GIS utilities</span></span>
+<span id="cb210-2"><a href="spatialecon.html#cb210-2"></a><span class="kw">library</span>(GISTools)</span></code></pre></div>
 <pre><code>## Loading required package: maptools</code></pre>
 <pre><code>## Checking rgeos availability: TRUE</code></pre>
 <pre><code>## Loading required package: RColorBrewer</code></pre>
 <pre><code>## Loading required package: MASS</code></pre>
 <pre><code>## Loading required package: rgeos</code></pre>
 <pre><code>## rgeos version: 0.5-5, (SVN revision 640)
-##  GEOS runtime version: 3.8.0-CAPI-1.13.1 
-##  Linking to sp version: 1.4-4 
+##  GEOS runtime version: 3.8.1-CAPI-1.13.3 
+##  Linking to sp version: 1.4-2 
 ##  Polygon checking: TRUE</code></pre>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="spatialecon.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For all your interpolation needs</span></span>
-<span id="cb216-2"><a href="spatialecon.html#cb216-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gstat)</span>
-<span id="cb216-3"><a href="spatialecon.html#cb216-3" aria-hidden="true" tabindex="-1"></a><span class="co"># For data manipulation</span></span>
-<span id="cb216-4"><a href="spatialecon.html#cb216-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plyr)</span>
-<span id="cb216-5"><a href="spatialecon.html#cb216-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial regression</span></span>
-<span id="cb216-6"><a href="spatialecon.html#cb216-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spdep)</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="spatialecon.html#cb217-1"></a><span class="co"># For all your interpolation needs</span></span>
+<span id="cb217-2"><a href="spatialecon.html#cb217-2"></a><span class="kw">library</span>(gstat)</span>
+<span id="cb217-3"><a href="spatialecon.html#cb217-3"></a><span class="co"># For data manipulation</span></span>
+<span id="cb217-4"><a href="spatialecon.html#cb217-4"></a><span class="kw">library</span>(plyr)</span>
+<span id="cb217-5"><a href="spatialecon.html#cb217-5"></a><span class="co"># Spatial regression</span></span>
+<span id="cb217-6"><a href="spatialecon.html#cb217-6"></a><span class="kw">library</span>(spdep)</span></code></pre></div>
 <pre><code>## Loading required package: spData</code></pre>
+<pre><code>## To access larger datasets in this package, install the spDataLarge
+## package with: `install.packages(&#39;spDataLarge&#39;,
+## repos=&#39;https://nowosad.github.io/drat/&#39;, type=&#39;source&#39;)`</code></pre>
 <pre><code>## Loading required package: sf</code></pre>
-<pre><code>## Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1</code></pre>
+<pre><code>## Linking to GEOS 3.8.1, GDAL 3.1.1, PROJ 6.3.1</code></pre>
 <p>Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with <code>setwd()</code>. Please replace in the following line the path to the folder where you have placed this file -and where the <code>house_transactions</code> folder with the data lives.</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="spatialecon.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="co">#setwd(&#39;/media/dani/baul/AAA/Documents/teaching/u-lvl/2016/envs453/code/GIT/kde_idw_r/&#39;)</span></span>
-<span id="cb220-2"><a href="spatialecon.html#cb220-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="spatialecon.html#cb222-1"></a><span class="co">#setwd(&#39;/media/dani/baul/AAA/Documents/teaching/u-lvl/2016/envs453/code/GIT/kde_idw_r/&#39;)</span></span>
+<span id="cb222-2"><a href="spatialecon.html#cb222-2"></a><span class="kw">setwd</span>(<span class="st">&#39;.&#39;</span>)</span></code></pre></div>
 </div>
-<div id="data-2" class="section level2" number="6.2">
+<div id="data-2" class="section level2">
 <h2><span class="header-section-number">6.2</span> Data</h2>
 <p>To explore ideas in spatial regression, we will the set of Airbnb properties for San Diego (US), borrowed from the “Geographic Data Science with Python” book (see <a href="https://geographicdata.science/book/data/airbnb/regression_cleaning.html">here</a> for more info on the dataset source). This covers the point location of properties advertised on the Airbnb website in the San Diego region.</p>
 <p>Let us load it up first of all:</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="spatialecon.html#cb221-1" aria-hidden="true" tabindex="-1"></a>db <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&#39;data/abb_sd/regression_db.geojson&#39;</span>)</span></code></pre></div>
-<pre><code>## Reading layer `regression_db&#39; from data source `/home/jovyan/work/data/abb_sd/regression_db.geojson&#39; using driver `GeoJSON&#39;
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="spatialecon.html#cb223-1"></a>db &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;data/abb_sd/regression_db.geojson&#39;</span>)</span></code></pre></div>
+<pre><code>## Reading layer `regression_db&#39; from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/regression_db.geojson&#39; using driver `GeoJSON&#39;
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
 ## dimension:      XY
 ## bbox:           xmin: -117.2812 ymin: 32.57349 xmax: -116.9553 ymax: 33.08311
 ## geographic CRS: WGS 84</code></pre>
 <p>The table contains the followig variables:</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="spatialecon.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(db)</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="spatialecon.html#cb225-1"></a><span class="kw">names</span>(db)</span></code></pre></div>
 <pre><code>##  [1] &quot;accommodates&quot;       &quot;bathrooms&quot;          &quot;bedrooms&quot;          
 ##  [4] &quot;beds&quot;               &quot;neighborhood&quot;       &quot;pool&quot;              
 ##  [7] &quot;d2balboa&quot;           &quot;coastal&quot;            &quot;price&quot;             
@@ -415,16 +391,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [16] &quot;pg_Townhouse&quot;       &quot;rt_Entire_home.apt&quot; &quot;rt_Private_room&quot;   
 ## [19] &quot;rt_Shared_room&quot;     &quot;geometry&quot;</code></pre>
 <p>For most of this chapter, we will be exploring determinants and strategies for modelling the price of a property advertised in AirBnb. To get a first taste of what this means, we can create a plot of prices within the area of San Diego:</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="spatialecon.html#cb225-1" aria-hidden="true" tabindex="-1"></a>db <span class="sc">%&gt;%</span></span>
-<span id="cb225-2"><a href="spatialecon.html#cb225-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> price)) <span class="sc">+</span></span>
-<span id="cb225-3"><a href="spatialecon.html#cb225-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
-<span id="cb225-4"><a href="spatialecon.html#cb225-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb225-5"><a href="spatialecon.html#cb225-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="spatialecon.html#cb227-1"></a>db <span class="op">%&gt;%</span></span>
+<span id="cb227-2"><a href="spatialecon.html#cb227-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">color =</span> price)) <span class="op">+</span></span>
+<span id="cb227-3"><a href="spatialecon.html#cb227-3"></a><span class="st">  </span><span class="kw">geom_sf</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb227-4"><a href="spatialecon.html#cb227-4"></a><span class="st">  </span><span class="kw">scale_color_viridis_c</span>() <span class="op">+</span></span>
+<span id="cb227-5"><a href="spatialecon.html#cb227-5"></a><span class="st">  </span><span class="kw">theme_void</span>()</span></code></pre></div>
 <p><img src="06-spatial_econometrics_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
-<div id="non-spatial-regression-a-refresh" class="section level2" number="6.3">
+<div id="non-spatial-regression-a-refresh" class="section level2">
 <h2><span class="header-section-number">6.3</span> Non-spatial regression, a refresh</h2>
-<p>Before we discuss how to explicitly include space into the linear regression framework, let us show how basic regression can be carried out in R, and how you can begin to interpret the results. By no means is this a formal and complete introduction to regression so, if that is what you are looking for, I suggest the first part of <span class="citation"><a href="references.html#ref-gelman2006data" role="doc-biblioref">Gelman and Hill</a> (<a href="references.html#ref-gelman2006data" role="doc-biblioref">2006a</a>)</span>, in particular chapters 3 and 4.</p>
+<p>Before we discuss how to explicitly include space into the linear regression framework, let us show how basic regression can be carried out in R, and how you can begin to interpret the results. By no means is this a formal and complete introduction to regression so, if that is what you are looking for, I suggest the first part of <span class="citation">Gelman and Hill (<a href="#ref-gelman2006data" role="doc-biblioref">2006</a><a href="#ref-gelman2006data" role="doc-biblioref">a</a>)</span>, in particular chapters 3 and 4.</p>
 <p>The core idea of linear regression is to explain the variation in a given (<em>dependent</em>) variable as a linear function of a series of other (<em>explanatory</em>) variables. For example, in our case, we may want to express/explain the price of a house as a function of whether it is new and the degree of deprivation of the area where it is located. At the individual level, we can express this as:</p>
 <p><span class="math display">\[
 P_i = \alpha + \beta_1 NEW_i + \beta_2 IMD_i + \epsilon_i
@@ -432,10 +408,10 @@ P_i = \alpha + \beta_1 NEW_i + \beta_2 IMD_i + \epsilon_i
 <p>where <span class="math inline">\(P_i\)</span> is the price of house <span class="math inline">\(i\)</span>, <span class="math inline">\(NEW_i\)</span> is a binary variable that takes one if the house is newly built or zero otherwise and <span class="math inline">\(IMD_i\)</span> is the IMD score of the LSOA where <span class="math inline">\(i\)</span> is located. The parameters <span class="math inline">\(\beta_1\)</span>, <span class="math inline">\(\beta_2\)</span>, and <span class="math inline">\(\beta_3\)</span> give us information about in which way and to what extent each variable is related to the price, and <span class="math inline">\(\alpha\)</span>, the constant term, is the average house price when all the other variables are zero. The term <span class="math inline">\(\epsilon_i\)</span> is usually referred to as “error” and captures elements that influence the price of a house but are not whether the house is new or the IMD score of its area. We can also express this relation in matrix form, excluding subindices for <span class="math inline">\(i\)</span><a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>.</p>
 <p>Essentially, a regression can be seen as a multivariate extension of simple bivariate correlations. Indeed, one way to interpret the <span class="math inline">\(\beta_k\)</span> coefficients in the equation above is as the degree of correlation between the explanatory variable <span class="math inline">\(k\)</span> and the dependent variable, <em>keeping all the other explanatory variables constant</em>. When you calculate simple bivariate correlations, the coefficient of a variable is picking up the correlation between the variables, but it is also subsuming into it variation associated with other correlated variables –also called confounding factors<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a>. Regression allows you to isolate the distinct effect that a single variable has on the dependent one, once we <em>control</em> for those other variables.</p>
 <p>Practically speaking, running linear regressions in <code>R</code> is straightforward. For example, to fit the model specified in the equation above, we only need one line of code:</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="spatialecon.html#cb226-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="st">&#39;log_price ~ accommodates + bathrooms + bedrooms + beds&#39;</span>, db)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="spatialecon.html#cb228-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;log_price ~ accommodates + bathrooms + bedrooms + beds&#39;</span>, db)</span></code></pre></div>
 <p>We use the command <code>lm</code>, for linear model, and specify the equation we want to fit using a string that relates the dependent variable (<code>price</code>) with a set of explanatory ones (<code>new</code> and <code>price</code>) by using a tilde <code>~</code> that is akin the <span class="math inline">\(=\)</span> symbol in the mathematical equation. Since we are using names of variables that are stored in a table, we need to pass the table object (<code>db</code>) as well.</p>
 <p>In order to inspect the results of the model, the quickest way is to call <code>summary</code>:</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="spatialecon.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="spatialecon.html#cb229-1"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;log_price ~ accommodates + bathrooms + bedrooms + beds&quot;, 
@@ -464,8 +440,8 @@ P_i = \alpha + \beta_1 NEW_i + \beta_2 IMD_i + \epsilon_i
 \log{P_i} = \alpha + \beta_1 NEW_i + \beta_2 IMD_i + \epsilon_i
 \]</span></p>
 <p>This allows to interpret the coefficients more directly: as the percentual change induced by a unit increase in the explanatory variable of the estimate. To fit such a model, we can specify the logarithm of a given variable directly in the formula.</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="spatialecon.html#cb229-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="st">&#39;log_price ~ accommodates + bathrooms + bedrooms + beds&#39;</span>, db)</span>
-<span id="cb229-2"><a href="spatialecon.html#cb229-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="spatialecon.html#cb231-1"></a>m2 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">&#39;log_price ~ accommodates + bathrooms + bedrooms + beds&#39;</span>, db)</span>
+<span id="cb231-2"><a href="spatialecon.html#cb231-2"></a><span class="kw">summary</span>(m2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;log_price ~ accommodates + bathrooms + bedrooms + beds&quot;, 
@@ -490,12 +466,12 @@ P_i = \alpha + \beta_1 NEW_i + \beta_2 IMD_i + \epsilon_i
 ## F-statistic:  1929 on 4 and 6105 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Looking at the results we can see a couple of differences with respect to the original specification. First, the estimates are substantially different numbers. This is because, although they consider the same variable, the look at it from different angles, and provide different interpretations. For example, the coefficient for the IMD, instead of being interpretable in terms of GBP, the unit of the dependent variable, it represents a percentage: a unit increase in the degree of deprivation is associated with a 0.2% decrease in the price of a house.<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a> Second, the variable <code>new</code> is significant in this case. This is probably related to the fact that, by taking logs, we are also making the dependent variable look more normal (Gaussian) and that allows the linear model to provide a better fit and, hence, more accurate estimates. In this case, a house being newly built, as compared to an old house, is overall 25% more expensive.</p>
 </div>
-<div id="spatial-regression-a-very-first-dip" class="section level2" number="6.4">
+<div id="spatial-regression-a-very-first-dip" class="section level2">
 <h2><span class="header-section-number">6.4</span> Spatial regression: a (very) first dip</h2>
 <p>Spatial regression is about <em>explicitly</em> introducing space or geographical context into the statistical framework of a regression. Conceptually, we want to introduce space into our model whenever we think it plays an important role in the process we are interested in, or when space can act as a reasonable proxy for other factors we cannot but should include in our model. As an example of the former, we can imagine how houses at the seafront are probably more expensive than those in the second row, given their better views. To illustrate the latter, we can think of how the character of a neighborhood is important in determining the price of a house; however, it is very hard to identify and quantify “character” perse, although it might be easier to get at its spatial variation, hence a case of space as a proxy.</p>
-<p>Spatial regression is a large field of development in the econometrics and statistics literatures. In this brief introduction, we will consider two related but very different processes that give rise to spatial effects: spatial heterogeneity and spatial dependence. For more rigorous treatments of the topics introduced here, the reader is referred to <span class="citation"><a href="references.html#ref-anselin2003spatial" role="doc-biblioref">Anselin</a> (<a href="references.html#ref-anselin2003spatial" role="doc-biblioref">2003</a>)</span>, <span class="citation"><a href="references.html#ref-anselin2014modern" role="doc-biblioref">Anselin and Rey</a> (<a href="references.html#ref-anselin2014modern" role="doc-biblioref">2014</a>)</span>, and <span class="citation"><a href="references.html#ref-gibbons2014spatial" role="doc-biblioref">Gibbons, Overman, and Patacchini</a> (<a href="references.html#ref-gibbons2014spatial" role="doc-biblioref">2014</a>)</span>.</p>
+<p>Spatial regression is a large field of development in the econometrics and statistics literatures. In this brief introduction, we will consider two related but very different processes that give rise to spatial effects: spatial heterogeneity and spatial dependence. For more rigorous treatments of the topics introduced here, the reader is referred to <span class="citation">Anselin (<a href="#ref-anselin2003spatial" role="doc-biblioref">2003</a>)</span>, <span class="citation">Anselin and Rey (<a href="#ref-anselin2014modern" role="doc-biblioref">2014</a>)</span>, and <span class="citation">Gibbons, Overman, and Patacchini (<a href="#ref-gibbons2014spatial" role="doc-biblioref">2014</a>)</span>.</p>
 </div>
-<div id="spatial-heterogeneity-1" class="section level2" number="6.5">
+<div id="spatial-heterogeneity-1" class="section level2">
 <h2><span class="header-section-number">6.5</span> Spatial heterogeneity</h2>
 <p>Spatial heterogeneity (SH) arises when we cannot safely assume the process we are studying operates under the same “rules” throughout the geography of interest. In other words, we can observe SH when there are effects on the outcome variable that are intrinsically linked to specific locations. A good example of this is the case of seafront houses above: we are trying to model the price of a house and, the fact some houses are located under certain conditions (i.e. by the sea), makes their price behave differently<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a>.</p>
 <p>This somewhat abstract concept of SH can be made operational in a model in several ways. We will explore the following two: spatial fixed-effects (FE); and spatial regimes, which is a generalization of FE.</p>
@@ -506,12 +482,12 @@ P_i = \alpha + \beta_1 NEW_i + \beta_2 IMD_i + \epsilon_i
 \]</span></p>
 <p>where the main difference is that we are now allowing the constant term, <span class="math inline">\(\alpha\)</span>, to vary by postcode <span class="math inline">\(r\)</span>, <span class="math inline">\(\alpha_r\)</span>.</p>
 <p>Programmatically, this is straightforward to estimate:</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="spatialecon.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Include `-1` to eliminate the constant term and include a dummy for every area</span></span>
-<span id="cb231-2"><a href="spatialecon.html#cb231-2" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
-<span id="cb231-3"><a href="spatialecon.html#cb231-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;log_price ~ neighborhood + accommodates + bathrooms + bedrooms + beds - 1&#39;</span>, </span>
-<span id="cb231-4"><a href="spatialecon.html#cb231-4" aria-hidden="true" tabindex="-1"></a>  db</span>
-<span id="cb231-5"><a href="spatialecon.html#cb231-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb231-6"><a href="spatialecon.html#cb231-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="spatialecon.html#cb233-1"></a><span class="co"># Include `-1` to eliminate the constant term and include a dummy for every area</span></span>
+<span id="cb233-2"><a href="spatialecon.html#cb233-2"></a>m3 &lt;-<span class="st"> </span><span class="kw">lm</span>(</span>
+<span id="cb233-3"><a href="spatialecon.html#cb233-3"></a>  <span class="st">&#39;log_price ~ neighborhood + accommodates + bathrooms + bedrooms + beds - 1&#39;</span>, </span>
+<span id="cb233-4"><a href="spatialecon.html#cb233-4"></a>  db</span>
+<span id="cb233-5"><a href="spatialecon.html#cb233-5"></a>)</span>
+<span id="cb233-6"><a href="spatialecon.html#cb233-6"></a><span class="kw">summary</span>(m3)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;log_price ~ neighborhood + accommodates + bathrooms + bedrooms + beds - 1&quot;, 
@@ -586,14 +562,14 @@ P_i = \alpha + \beta_1 NEW_i + \beta_2 IMD_i + \epsilon_i
 \]</span></p>
 <p>where we are not only allowing the constant term to vary by region (<span class="math inline">\(\alpha_r\)</span>), but also every other parameter (<span class="math inline">\(\beta_{kr}\)</span>).</p>
 <p>Also, given we are going to allow <em>every</em> coefficient to vary by regime, we will need to explicitly set a constant term that we can allow to vary:</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="spatialecon.html#cb233-1" aria-hidden="true" tabindex="-1"></a>db<span class="sc">$</span>one <span class="ot">&lt;-</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="spatialecon.html#cb235-1"></a>db<span class="op">$</span>one &lt;-<span class="st"> </span><span class="dv">1</span></span></code></pre></div>
 <p>Then, the estimation leverages the capabilities in model description of R formulas:</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="spatialecon.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="co"># `:` notation implies interaction variables</span></span>
-<span id="cb234-2"><a href="spatialecon.html#cb234-2" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
-<span id="cb234-3"><a href="spatialecon.html#cb234-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;log_price ~ 0 + (accommodates + bathrooms + bedrooms + beds):(neighborhood)&#39;</span>, </span>
-<span id="cb234-4"><a href="spatialecon.html#cb234-4" aria-hidden="true" tabindex="-1"></a>  db</span>
-<span id="cb234-5"><a href="spatialecon.html#cb234-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb234-6"><a href="spatialecon.html#cb234-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m4)</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="spatialecon.html#cb236-1"></a><span class="co"># `:` notation implies interaction variables</span></span>
+<span id="cb236-2"><a href="spatialecon.html#cb236-2"></a>m4 &lt;-<span class="st"> </span><span class="kw">lm</span>(</span>
+<span id="cb236-3"><a href="spatialecon.html#cb236-3"></a>  <span class="st">&#39;log_price ~ 0 + (accommodates + bathrooms + bedrooms + beds):(neighborhood)&#39;</span>, </span>
+<span id="cb236-4"><a href="spatialecon.html#cb236-4"></a>  db</span>
+<span id="cb236-5"><a href="spatialecon.html#cb236-5"></a>)</span>
+<span id="cb236-6"><a href="spatialecon.html#cb236-6"></a><span class="kw">summary</span>(m4)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;log_price ~ 0 + (accommodates + bathrooms + bedrooms + beds):(neighborhood)&quot;, 
@@ -974,11 +950,11 @@ P_i = \alpha + \beta_1 NEW_i + \beta_2 IMD_i + \epsilon_i
 ## F-statistic: 232.4 on 180 and 5930 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>This allows us to get a separate constant term and estimate of the impact of IMD on the price of a house <em>for every postcode</em><a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a>.</p>
 </div>
-<div id="spatial-dependence" class="section level2" number="6.6">
+<div id="spatial-dependence-1" class="section level2">
 <h2><span class="header-section-number">6.6</span> Spatial dependence</h2>
-<p>As we have just discussed, SH is about effects of phenomena that are <em>explicitly linked</em> to geography and that hence cause spatial variation and clustering of values. This encompasses many of the kinds of spatial effects we may be interested in when we fit linear regressions. However, in other cases, our interest is on the effect of the <em>spatial configuration</em> of the observations, and the extent to which that has an effect on the outcome we are considering. For example, we might think that the price of a house not only depends on the level of deprivation where the house is located, but also whether is close to other highly deprived areas. This kind of spatial effect is fundamentally different from SH in that is it not related to inherent characteristics of the geography but relates to the characteristics of the observations in our dataset and, specially, to their spatial arrangement. We call this phenomenon by which the values of observations are related to each other through distance <em>spatial dependence</em> <span class="citation">(<a href="references.html#ref-anselin1988spatial" role="doc-biblioref">Anselin 1988</a>)</span>.</p>
+<p>As we have just discussed, SH is about effects of phenomena that are <em>explicitly linked</em> to geography and that hence cause spatial variation and clustering of values. This encompasses many of the kinds of spatial effects we may be interested in when we fit linear regressions. However, in other cases, our interest is on the effect of the <em>spatial configuration</em> of the observations, and the extent to which that has an effect on the outcome we are considering. For example, we might think that the price of a house not only depends on the level of deprivation where the house is located, but also whether is close to other highly deprived areas. This kind of spatial effect is fundamentally different from SH in that is it not related to inherent characteristics of the geography but relates to the characteristics of the observations in our dataset and, specially, to their spatial arrangement. We call this phenomenon by which the values of observations are related to each other through distance <em>spatial dependence</em> <span class="citation">(Anselin <a href="#ref-anselin1988spatial" role="doc-biblioref">1988</a>)</span>.</p>
 <p><strong>Spatial Weights</strong></p>
-<p>There are several ways to introduce spatial dependence in an econometric framework, with varying degrees of econometric sophistication <span class="citation">(see <a href="references.html#ref-anselin2003spatial" role="doc-biblioref">Anselin 2003</a> for a good overview)</span>. Common to all of them however is the way space is formally encapsulated: through <em>spatial weights matrices (<span class="math inline">\(W\)</span>)</em><a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a>. These are <span class="math inline">\(NxN\)</span> matrices with zero diagonals and every <span class="math inline">\(w_{ij}\)</span> cell with a value that represents the degree of spatial connectivity/interaction between observations <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>. If they are not connected at all, <span class="math inline">\(w_{ij}=0\)</span>, otherwise <span class="math inline">\(w_{ij}&gt;0\)</span> and we call <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> neighbors. The exact value in the latter case depends on the criterium we use to define neighborhood relations. These matrices also tend to be row-standardized so the sum of each row equals to one.</p>
+<p>There are several ways to introduce spatial dependence in an econometric framework, with varying degrees of econometric sophistication <span class="citation">(see Anselin <a href="#ref-anselin2003spatial" role="doc-biblioref">2003</a> for a good overview)</span>. Common to all of them however is the way space is formally encapsulated: through <em>spatial weights matrices (<span class="math inline">\(W\)</span>)</em><a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a>. These are <span class="math inline">\(NxN\)</span> matrices with zero diagonals and every <span class="math inline">\(w_{ij}\)</span> cell with a value that represents the degree of spatial connectivity/interaction between observations <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>. If they are not connected at all, <span class="math inline">\(w_{ij}=0\)</span>, otherwise <span class="math inline">\(w_{ij}&gt;0\)</span> and we call <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> neighbors. The exact value in the latter case depends on the criterium we use to define neighborhood relations. These matrices also tend to be row-standardized so the sum of each row equals to one.</p>
 <p>A related concept to spatial weight matrices is that of <em>spatial lag</em>. This is an operator that multiplies a given variable <span class="math inline">\(y\)</span> by a spatial weight matrix:</p>
 <p><span class="math display">\[
 y_{lag} = W y
@@ -989,17 +965,17 @@ y_{lag-i} = \displaystyle \sum_j w_{ij} y_j
 \]</span></p>
 <p>where <span class="math inline">\(y_{lag-i}\)</span> is the spatial lag of variable <span class="math inline">\(y\)</span> at location <span class="math inline">\(i\)</span>, and <span class="math inline">\(j\)</span> sums over the entire dataset. If <span class="math inline">\(W\)</span> is row-standardized, <span class="math inline">\(y_{lag-i}\)</span> becomes an average of <span class="math inline">\(y\)</span> weighted by the spatial criterium defined in <span class="math inline">\(W\)</span>.</p>
 <p>Given that spatial weights matrices are not the focus of this tutorial, we will stick to a very simple case. Since we are dealing with points, we will use <span class="math inline">\(K\)</span>-nn weights, which take the <span class="math inline">\(k\)</span> nearest neighbors of each observation as neighbors and assign a value of one, assigning everyone else a zero. We will use <span class="math inline">\(k=50\)</span> to get a good degree of variation and sensible results.</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="spatialecon.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create knn list of each house</span></span>
-<span id="cb236-2"><a href="spatialecon.html#cb236-2" aria-hidden="true" tabindex="-1"></a>hnn <span class="ot">&lt;-</span> db <span class="sc">%&gt;%</span></span>
-<span id="cb236-3"><a href="spatialecon.html#cb236-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_coordinates</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb236-4"><a href="spatialecon.html#cb236-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.matrix</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb236-5"><a href="spatialecon.html#cb236-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">knearneigh</span>(<span class="at">k =</span> <span class="dv">50</span>)</span>
-<span id="cb236-6"><a href="spatialecon.html#cb236-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create nb object</span></span>
-<span id="cb236-7"><a href="spatialecon.html#cb236-7" aria-hidden="true" tabindex="-1"></a>hnb <span class="ot">&lt;-</span> <span class="fu">knn2nb</span>(hnn)</span>
-<span id="cb236-8"><a href="spatialecon.html#cb236-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create spatial weights matrix (note it row-standardizes by default)</span></span>
-<span id="cb236-9"><a href="spatialecon.html#cb236-9" aria-hidden="true" tabindex="-1"></a>hknn <span class="ot">&lt;-</span> <span class="fu">nb2listw</span>(hnb)</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="spatialecon.html#cb238-1"></a><span class="co"># Create knn list of each house</span></span>
+<span id="cb238-2"><a href="spatialecon.html#cb238-2"></a>hnn &lt;-<span class="st"> </span>db <span class="op">%&gt;%</span></span>
+<span id="cb238-3"><a href="spatialecon.html#cb238-3"></a><span class="st">  </span><span class="kw">st_coordinates</span>() <span class="op">%&gt;%</span></span>
+<span id="cb238-4"><a href="spatialecon.html#cb238-4"></a><span class="st">  </span><span class="kw">as.matrix</span>() <span class="op">%&gt;%</span></span>
+<span id="cb238-5"><a href="spatialecon.html#cb238-5"></a><span class="st">  </span><span class="kw">knearneigh</span>(<span class="dt">k =</span> <span class="dv">50</span>)</span>
+<span id="cb238-6"><a href="spatialecon.html#cb238-6"></a><span class="co"># Create nb object</span></span>
+<span id="cb238-7"><a href="spatialecon.html#cb238-7"></a>hnb &lt;-<span class="st"> </span><span class="kw">knn2nb</span>(hnn)</span>
+<span id="cb238-8"><a href="spatialecon.html#cb238-8"></a><span class="co"># Create spatial weights matrix (note it row-standardizes by default)</span></span>
+<span id="cb238-9"><a href="spatialecon.html#cb238-9"></a>hknn &lt;-<span class="st"> </span><span class="kw">nb2listw</span>(hnb)</span></code></pre></div>
 <p>We can inspect the weights created by simply typing the name of the object:</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="spatialecon.html#cb237-1" aria-hidden="true" tabindex="-1"></a>hknn</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="spatialecon.html#cb239-1"></a>hknn</span></code></pre></div>
 <pre><code>## Characteristics of weights list object:
 ## Neighbour list object:
 ## Number of regions: 6110 
@@ -1019,14 +995,14 @@ y_{lag-i} = \displaystyle \sum_j w_{ij} y_j
 \log{P_i} = \alpha + \beta_{1} NEW_i + \beta_{2} IMD_i + \beta_{3} IMD_{lag-i} + \epsilon_i
 \]</span></p>
 <p>Let us first compute the spatial lag of imd_score:</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="spatialecon.html#cb239-1" aria-hidden="true" tabindex="-1"></a>db<span class="sc">$</span>w_bathrooms <span class="ot">&lt;-</span> <span class="fu">lag.listw</span>(hknn, db<span class="sc">$</span>bathrooms)</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="spatialecon.html#cb241-1"></a>db<span class="op">$</span>w_bathrooms &lt;-<span class="st"> </span><span class="kw">lag.listw</span>(hknn, db<span class="op">$</span>bathrooms)</span></code></pre></div>
 <p>And then we can include it in our previous specification. Note that we apply the log to the lag, not the reverse:</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="spatialecon.html#cb240-1" aria-hidden="true" tabindex="-1"></a>m6 <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
-<span id="cb240-2"><a href="spatialecon.html#cb240-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;log_price ~ accommodates + bedrooms + beds + bathrooms + w_bathrooms&#39;</span>,</span>
-<span id="cb240-3"><a href="spatialecon.html#cb240-3" aria-hidden="true" tabindex="-1"></a>  db</span>
-<span id="cb240-4"><a href="spatialecon.html#cb240-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb240-5"><a href="spatialecon.html#cb240-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb240-6"><a href="spatialecon.html#cb240-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m6)</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="spatialecon.html#cb242-1"></a>m6 &lt;-<span class="st"> </span><span class="kw">lm</span>(</span>
+<span id="cb242-2"><a href="spatialecon.html#cb242-2"></a>  <span class="st">&#39;log_price ~ accommodates + bedrooms + beds + bathrooms + w_bathrooms&#39;</span>,</span>
+<span id="cb242-3"><a href="spatialecon.html#cb242-3"></a>  db</span>
+<span id="cb242-4"><a href="spatialecon.html#cb242-4"></a>)</span>
+<span id="cb242-5"><a href="spatialecon.html#cb242-5"></a></span>
+<span id="cb242-6"><a href="spatialecon.html#cb242-6"></a><span class="kw">summary</span>(m6)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;log_price ~ accommodates + bedrooms + beds + bathrooms + w_bathrooms&quot;, 
@@ -1066,9 +1042,9 @@ y_{lag-i} = \displaystyle \sum_j w_{ij} y_j
 u_i = u_{lag-i} + \epsilon_i
 \]</span></p>
 <p>Again, although similar, one can show this specification violates the assumptions about the error term in a classical OLS model.</p>
-<p>Both the spatial lag and error model violate some of the assumptions on which OLS relies and thus render the technique unusable. Much of the efforts have thus focused on coming up with alternative methodologies that allow unbiased, robust, and efficient estimation of such models. A survey of those is beyond the scope of this note, but the interested reader is referred to <span class="citation"><a href="references.html#ref-anselin1988spatial" role="doc-biblioref">Anselin</a> (<a href="references.html#ref-anselin1988spatial" role="doc-biblioref">1988</a>)</span>, <span class="citation"><a href="references.html#ref-anselin2003spatial" role="doc-biblioref">Anselin</a> (<a href="references.html#ref-anselin2003spatial" role="doc-biblioref">2003</a>)</span>, and <span class="citation"><a href="references.html#ref-anselin2014modern" role="doc-biblioref">Anselin and Rey</a> (<a href="references.html#ref-anselin2014modern" role="doc-biblioref">2014</a>)</span> for further reference.</p>
+<p>Both the spatial lag and error model violate some of the assumptions on which OLS relies and thus render the technique unusable. Much of the efforts have thus focused on coming up with alternative methodologies that allow unbiased, robust, and efficient estimation of such models. A survey of those is beyond the scope of this note, but the interested reader is referred to <span class="citation">Anselin (<a href="#ref-anselin1988spatial" role="doc-biblioref">1988</a>)</span>, <span class="citation">Anselin (<a href="#ref-anselin2003spatial" role="doc-biblioref">2003</a>)</span>, and <span class="citation">Anselin and Rey (<a href="#ref-anselin2014modern" role="doc-biblioref">2014</a>)</span> for further reference.</p>
 </div>
-<div id="predicting-house-prices" class="section level2" number="6.7">
+<div id="predicting-house-prices" class="section level2">
 <h2><span class="header-section-number">6.7</span> Predicting house prices</h2>
 <p>So far, we have seen how exploit the output of a regression model to evaluate the role different variables play in explaining another one of interest. However, once fit, a model can also be used to obtain predictions of the dependent variable given a new set of values for the explanatory variables. We will finish this session by dipping our toes in predicting with linear models.</p>
 <p>The core idea is that once you have estimates for the way in which the explanatory variables can be combined to explain the dependent one, you can plug new values on the explanatory side of the model and combine them following the model estimates to obtain predictions. In the example we have worked with, you can imagine this application would be useful to obtain valuations of a house, given we know the IMD of the area where the house is located and whether it is a newly built house or not.</p>
@@ -1078,24 +1054,54 @@ u_i = u_{lag-i} + \epsilon_i
 \]</span></p>
 <p>where <span class="math inline">\(\bar{\log{P_i}}\)</span> is our predicted value, and we include the <span class="math inline">\(\bar{}\)</span> sign to note that it is our estimate obtained from fitting the model. We use the <span class="math inline">\(^*\)</span> sign to note that those can be new values for the explanatory variables, not necessarily those used to fit the model.</p>
 <p>Technically speaking, prediction in linear models is fairly streamlined in R. Suppose we are given data for a new house which is to be put in the market. We know it is been newly built on an area with an IMD score of 75, but surrounded by areas that, on average, have a score of 50. Let us record the data first:</p>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="spatialecon.html#cb242-1" aria-hidden="true" tabindex="-1"></a>new.house <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb242-2"><a href="spatialecon.html#cb242-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">accommodates =</span> <span class="dv">4</span>, </span>
-<span id="cb242-3"><a href="spatialecon.html#cb242-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">bedrooms =</span> <span class="dv">2</span>,</span>
-<span id="cb242-4"><a href="spatialecon.html#cb242-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">beds =</span> <span class="dv">3</span>,</span>
-<span id="cb242-5"><a href="spatialecon.html#cb242-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">bathrooms =</span> <span class="dv">1</span>,</span>
-<span id="cb242-6"><a href="spatialecon.html#cb242-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">w_bathrooms =</span> <span class="fl">1.5</span></span>
-<span id="cb242-7"><a href="spatialecon.html#cb242-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="spatialecon.html#cb244-1"></a>new.house &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb244-2"><a href="spatialecon.html#cb244-2"></a>  <span class="dt">accommodates =</span> <span class="dv">4</span>, </span>
+<span id="cb244-3"><a href="spatialecon.html#cb244-3"></a>  <span class="dt">bedrooms =</span> <span class="dv">2</span>,</span>
+<span id="cb244-4"><a href="spatialecon.html#cb244-4"></a>  <span class="dt">beds =</span> <span class="dv">3</span>,</span>
+<span id="cb244-5"><a href="spatialecon.html#cb244-5"></a>  <span class="dt">bathrooms =</span> <span class="dv">1</span>,</span>
+<span id="cb244-6"><a href="spatialecon.html#cb244-6"></a>  <span class="dt">w_bathrooms =</span> <span class="fl">1.5</span></span>
+<span id="cb244-7"><a href="spatialecon.html#cb244-7"></a>)</span></code></pre></div>
 <p>To obtain the prediction for its price, we can use the <code>predict</code> method:</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="spatialecon.html#cb243-1" aria-hidden="true" tabindex="-1"></a>new.price <span class="ot">&lt;-</span> <span class="fu">predict</span>(m6, new.house)</span>
-<span id="cb243-2"><a href="spatialecon.html#cb243-2" aria-hidden="true" tabindex="-1"></a>new.price</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="spatialecon.html#cb245-1"></a>new.price &lt;-<span class="st"> </span><span class="kw">predict</span>(m6, new.house)</span>
+<span id="cb245-2"><a href="spatialecon.html#cb245-2"></a>new.price</span></code></pre></div>
 <pre><code>##        1 
 ## 4.900168</code></pre>
 <p>Now remember we were using the log of the price as dependent variable. If we want to recover the actual price of the house, we need to take its exponent:</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="spatialecon.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(new.price)</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="spatialecon.html#cb247-1"></a><span class="kw">exp</span>(new.price)</span></code></pre></div>
 <pre><code>##        1 
 ## 134.3123</code></pre>
 <p>According to our model, the house would be worth $134.3123448<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a>.</p>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-anselin1988spatial">
+<p>Anselin, Luc. 1988. <em>Spatial Econometrics: Methods and Models</em>. Vol. 4. Springer Science &amp; Business Media.</p>
+</div>
+<div id="ref-anselin2003spatial">
+<p>Anselin, Luc. 2003. “Spatial Externalities, Spatial Multipliers, and Spatial Econometrics.” <em>International Regional Science Review</em> 26 (2): 153–66.</p>
+</div>
+<div id="ref-anselin2005spatial">
+<p>Anselin, Luc. 2007. “Spatial Regression Analysis in R–a Workbook.” Center for Spatially Integrated Social Science. <a href="http://csiss.org/GISPopSci/workshops/2011/PSU/readings/W15_Anselin2007.pdf">http://csiss.org/GISPopSci/workshops/2011/PSU/readings/W15_Anselin2007.pdf</a>.</p>
+</div>
+<div id="ref-anselin2014modern">
+<p>Anselin, Luc, and Sergio J. Rey. 2014. <em>Modern Spatial Econometrics in Practice: A Guide to Geoda, Geodaspace and Pysal</em>. GeoDa Press LLC.</p>
+</div>
+<div id="ref-arribas2014spatial">
+<p>Arribas-Bel, Dani. 2014. “Spatial Data, Analysis, and Regression-a Mini Course.” <em>REGION</em> 1 (1): R1. <a href="http://darribas.org/sdar_mini">http://darribas.org/sdar_mini</a>.</p>
+</div>
+<div id="ref-darribas_gds_course">
+<p>Arribas-Bel, Dani. 2019. “A Course on Geographic Data Science.” <em>The Journal of Open Source Education</em> 2 (14). <a href="https://doi.org/https://doi.org/10.21105/jose.00042">https://doi.org/https://doi.org/10.21105/jose.00042</a>.</p>
+</div>
+<div id="ref-gelman2006data">
+<p>Gelman, Andrew, and Jennifer Hill. 2006a. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge University Press.</p>
+</div>
+<div id="ref-gibbons2014spatial">
+<p>Gibbons, Stephen, Henry G Overman, and Eleonora Patacchini. 2014. “Spatial Methods.”</p>
+</div>
+<div id="ref-reyABwolf">
+<p>Rey, Sergio J., Daniel Arribas-Bel, and Levi J. Wolf. n.d. <em>Geographic Data Science with Pysal and the Pydata Stack</em>. CRC press.</p>
 </div>
 </div>
 <div class="footnotes">
@@ -1108,7 +1114,7 @@ u_i = u_{lag-i} + \epsilon_i
 <li id="fn25"><p><strong>QUESTION</strong> How would you incorporate this into a regression model that extends the log-log equation of the previous section?<a href="spatialecon.html#fnref25" class="footnote-back">↩︎</a></p></li>
 <li id="fn26"><p>Additionally, estimating spatial FE in our particular example also gives you an indirect measure of area <em>desirability</em>: since they are simple dummies in a regression explaining the price of a house, their estimate tells us about how much people are willing to pay to live in a given area. However, this interpretation does not necessarily apply in other contexts where introducing spatial FEs does make sense. <strong>EXERCISE</strong> <em>What is the most desired area to live in Liverpool?</em><a href="spatialecon.html#fnref26" class="footnote-back">↩︎</a></p></li>
 <li id="fn27"><p><strong>PRO EXERCISE</strong> <em>How does the effect of IMD vary over space?</em> You can answer this by looking at the coefficients of <code>imd_score</code> over postcodes, but it would be much clearer if you could create a choropleth of the house locations where each dot is colored based on the value of the <code>imd_score</code> estimated for that postcode.<a href="spatialecon.html#fnref27" class="footnote-back">↩︎</a></p></li>
-<li id="fn28"><p>If you need to refresh your knowledge on spatial weight matrices, check <a href="http://darribas.org/gds15/notes/Class_05.html">Lecture 5</a> of <span class="citation">(<a href="#ref-darribas_gds15" role="doc-biblioref"><strong>darribas_gds15?</strong></a>)</span><a href="spatialecon.html#fnref28" class="footnote-back">↩︎</a></p></li>
+<li id="fn28"><p>If you need to refresh your knowledge on spatial weight matrices, check <a href="http://darribas.org/gds15/notes/Class_05.html">Lecture 5</a> of <span class="citation">(<span class="citeproc-not-found" data-reference-id="darribas_gds15"><strong>???</strong></span>)</span><a href="spatialecon.html#fnref28" class="footnote-back">↩︎</a></p></li>
 <li id="fn29"><p><strong>EXERCISE</strong> <em>How do results change if you modify the number of neighbors included to compute the <span class="math inline">\(K\)</span>-nn spatial weight matrix?</em> Replace the originak <span class="math inline">\(k\)</span> used and re-run the regressions. Try to interpret the results and the (potential) differences with the original ones.<a href="spatialecon.html#fnref29" class="footnote-back">↩︎</a></p></li>
 <li id="fn30"><p><strong>EXERCISE</strong> <em>How would the price change if the surrounding houses did not have an average of 50 but of 80?</em> Obtain a new prediction and compare it with the original one.<a href="spatialecon.html#fnref30" class="footnote-back">↩︎</a></p></li>
 </ol>

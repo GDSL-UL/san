@@ -20,8 +20,9 @@ hierarchical-structure-of-data
 key-challenges
 modifible-area-unit-problem-maup
 ecological-fallacy
-spatial-autocorrelation
+spatial-dependence
 spatial-heterogeneity
+spatial-nonstationarity
 data_wrangling
 dependencies
 introducing-r
@@ -73,7 +74,7 @@ data-2
 non-spatial-regression-a-refresh
 spatial-regression-a-very-first-dip
 spatial-heterogeneity-1
-spatial-dependence
+spatial-dependence-1
 predicting-house-prices
 mlm1
 dependencies-4
@@ -138,3 +139,4 @@ spatio-temporal-data-modelling
 intuition
 fitting-spatio-temporal-models
 model-comparision
+datasets
