@@ -4,13 +4,13 @@ This Chapter seeks to present and describe distinctive attributes of spatial dat
 
 ## Spatial Data types
 
-Different classifications of spatial data types exist. Knowing the structure of the data at hand is important as specific analytical methods would be more appropriate for particular data types. We will use a particular classification involving four data types: lattice/areal data, point data, flow data and trajectory data. This is not a exhaustive list but it is helpful to motivate the analytical and modelling methods that we cover in this book.
-
-*Point Data*. These data refer to records of the geographic location of an discrete event, or the number of occurrences of geographical process at a given location. As displayed in Figure 1, examples include the geographic location of bus stops in a city, or the number of boarding passengers at each bus stop. 
+Different classifications of spatial data types exist. Knowing the structure of the data at hand is important as specific analytical methods would be more appropriate for particular data types. We will use a particular classification involving four data types: lattice/areal data, point data, flow data and trajectory data (Fig. 1). This is not a exhaustive list but it is helpful to motivate the analytical and modelling methods that we cover in this book.
 
 ![Fig. 1. Data Types. Area / Lattice data source: @onnerfors2019eurostat. Point data source: @tao2018travel. Flow data source: @rowe2020mapping. Trajectory data source: @kwan2004geovisualization.](figs/ch1/datatypes.png)
 
 *Lattice/Areal Data*. These data correspond to records of attribute values (such as population counts) for a fixed geographical area. They may comprise regular shapes (such as grids or pixels) or irregular shapes (such as states, counties or travel-to-work areas). Raster data are a common source of regular lattice/areal area, while censuses are probably the most common form of irregular lattice/areal area. Point data within an area can be aggregated to produce lattice/areal data.
+
+*Point Data*. These data refer to records of the geographic location of an discrete event, or the number of occurrences of geographical process at a given location. As displayed in Fig. 1, examples include the geographic location of bus stops in a city, or the number of boarding passengers at each bus stop. 
 
 *Flow Data*. These data refer to records of measurements for a pair of geographic point locations. or pair of areas. These data capture the linkage or spatial interaction between two locations. Migration flows between a place of origin and a place of destination is an example of this type of data.
 
