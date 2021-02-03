@@ -670,17 +670,17 @@ and then we made the <em>random</em> part of the model (<span class="math inline
 <p>We can also obtain group-level errors (<em>random effects</em>) by using a simulation approach, labelled “Empirical Bayes” and discussed <a href="https://stat.ethz.ch/pipermail/r-sig-mixed-models/2009q4/002984.html">here</a>. To this end, we run:</p>
 <div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="mlm1.html#cb285-1"></a><span class="co"># obtain estimates</span></span>
 <span id="cb285-2"><a href="mlm1.html#cb285-2"></a><span class="kw">REsim</span>(model3) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">10</span>)</span></code></pre></div>
-<pre><code>##    groupFctr   groupID        term         mean       median         sd
-## 1    lsoa_cd E01006512 (Intercept) -0.014814117 -0.015809976 0.02055549
-## 2    lsoa_cd E01006513 (Intercept) -0.016470565 -0.015505934 0.02074985
-## 3    lsoa_cd E01006514 (Intercept) -0.022655226 -0.024272922 0.02098536
-## 4    lsoa_cd E01006515 (Intercept) -0.016416821 -0.015415849 0.02015970
-## 5    lsoa_cd E01006518 (Intercept) -0.015636021 -0.015647502 0.01866407
-## 6    lsoa_cd E01006519 (Intercept) -0.016167188 -0.016434661 0.01064378
-## 7    lsoa_cd E01006520 (Intercept) -0.027776154 -0.027034767 0.02173028
-## 8    lsoa_cd E01006521 (Intercept)  0.006519561  0.005762612 0.02047110
-## 9    lsoa_cd E01006522 (Intercept)  0.020300876  0.020277494 0.01992120
-## 10   lsoa_cd E01006523 (Intercept)  0.003698641  0.003022227 0.01953167</code></pre>
+<pre><code>##    groupFctr   groupID        term         mean       median          sd
+## 1    lsoa_cd E01006512 (Intercept) -0.014300871 -0.015499790 0.021474026
+## 2    lsoa_cd E01006513 (Intercept) -0.014113770 -0.013187410 0.021473541
+## 3    lsoa_cd E01006514 (Intercept) -0.022176147 -0.021070944 0.021091133
+## 4    lsoa_cd E01006515 (Intercept) -0.014820671 -0.012979534 0.020177448
+## 5    lsoa_cd E01006518 (Intercept) -0.018416101 -0.018803685 0.018762732
+## 6    lsoa_cd E01006519 (Intercept) -0.017068116 -0.017449758 0.009876318
+## 7    lsoa_cd E01006520 (Intercept) -0.023566883 -0.024756326 0.020431395
+## 8    lsoa_cd E01006521 (Intercept)  0.005438061  0.004810701 0.018954990
+## 9    lsoa_cd E01006522 (Intercept)  0.019245797  0.018744954 0.018947335
+## 10   lsoa_cd E01006523 (Intercept)  0.004901460  0.006606778 0.017795934</code></pre>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
 <p>To gain an undertanding of the general pattern of the <em>random effects</em>, we can use caterpillar plots via <code>plotREsim</code> - reported below. The plot on the right shows the estimated random effects for each MSOA and their respective interval estimate. Note that random effects are on average zero, represented by the red horizontal line. Intervals that do not include zero are in bold. Also note that the width of the confidence interval depends on the standard error of the respective residual estimate, which is inversely related to the size of the sample. The residuals represent an observation departures from the grand mean, so an observation whose confidence interval does not overlap the line at zero (representing the mean proportion of unemployed population across all areas) is said to differ significantly from the average at the 5% level.</p>
 <div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="mlm1.html#cb287-1"></a><span class="co"># plot</span></span>
@@ -723,9 +723,9 @@ and then we made the <em>random</em> part of the model (<span class="math inline
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; ...
-##  $ mean     : num  -0.00715 -0.02503 -0.02838 0.0046 0.02117 ...
-##  $ median   : num  -0.00647 -0.02439 -0.03047 0.00476 0.02192 ...
-##  $ sd       : num  0.0337 0.0334 0.0335 0.0335 0.0154 ...</code></pre>
+##  $ mean     : num  -0.01117 -0.02466 -0.03245 0.00572 0.02248 ...
+##  $ median   : num  -0.00998 -0.02519 -0.03109 0.00327 0.02294 ...
+##  $ sd       : num  0.0346 0.0331 0.0337 0.0301 0.0165 ...</code></pre>
 <div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="mlm1.html#cb294-1"></a><span class="co"># merge data</span></span>
 <span id="cb294-2"><a href="mlm1.html#cb294-2"></a>msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</span></code></pre></div>
 <p>Now we can create our map:</p>
