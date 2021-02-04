@@ -513,4 +513,41 @@ idw.one
 
 And, as show above, the estimated value is $171.4141334^[**PRO QUESTION** Is that house expensive or cheap, as compared to the other houses sold in this dataset? Can you figure out where the house is in the distribution?].
 
+## Questions
 
+We will be using the Madrid AirBnb dataset:
+
+
+```r
+mad_abb <- st_read("data/assignment_1_madrid/madrid_abb.gpkg")
+```
+
+```
+## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Simple feature collection with 18399 features and 15 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
+## geographic CRS: WGS 84
+```
+
+This is fairly similar in spirit to the one from San Diego we have relied on for the chapter, although the column set is not exactly the same:
+
+
+```r
+colnames(mad_abb)
+```
+
+```
+##  [1] "price"           "price_usd"       "log1p_price_usd" "accommodates"   
+##  [5] "bathrooms"       "bedrooms"        "beds"            "neighbourhood"  
+##  [9] "room_type"       "property_type"   "WiFi"            "Coffee"         
+## [13] "Gym"             "Parking"         "km_to_retiro"    "geom"
+```
+
+For this set of questions, the only two columns we will need is `geom`, which contains the point geometries, and `price_usd`, which record the price of the AirBnb property in USD.
+
+With this at hand, answer the following questions:
+
+1. Create a KDE that represents the density of locations of AirBnb properties in Madrid
+1. Using inverse distance weighting, create a surface of AirBnb prices

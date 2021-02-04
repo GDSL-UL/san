@@ -62,12 +62,14 @@ spatial-interpolation
 inverse-distance-weight-idw-interpolation
 a-surface-of-housing-prices
 what-should-the-next-houses-price-be
+questions
 flows
 dependencies-2
 data-1
 seeing-flows
 modelling-flows
 predicting-flows
+questions-1
 spatialecon
 dependencies-3
 data-2
@@ -76,6 +78,7 @@ spatial-regression-a-very-first-dip
 spatial-heterogeneity-1
 spatial-dependence-1
 predicting-house-prices
+questions-2
 mlm1
 dependencies-4
 data-3

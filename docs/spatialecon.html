@@ -217,6 +217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>4.5.2</b> A surface of housing prices</a></li>
 <li class="chapter" data-level="4.5.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>4.5.3</b> <em>“What should the next house’s price be?”</em></a></li>
 </ul></li>
+<li class="chapter" data-level="4.6" data-path="points.html"><a href="points.html#questions"><i class="fa fa-check"></i><b>4.6</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>5</b> Flows</a>
 <ul>
@@ -225,6 +226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="flows.html"><a href="flows.html#seeing-flows"><i class="fa fa-check"></i><b>5.3</b> “<em>Seeing</em>” flows</a></li>
 <li class="chapter" data-level="5.4" data-path="flows.html"><a href="flows.html#modelling-flows"><i class="fa fa-check"></i><b>5.4</b> Modelling flows</a></li>
 <li class="chapter" data-level="5.5" data-path="flows.html"><a href="flows.html#predicting-flows"><i class="fa fa-check"></i><b>5.5</b> Predicting flows</a></li>
+<li class="chapter" data-level="5.6" data-path="flows.html"><a href="flows.html#questions-1"><i class="fa fa-check"></i><b>5.6</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="spatialecon.html"><a href="spatialecon.html"><i class="fa fa-check"></i><b>6</b> Spatial Econometrics</a>
 <ul>
@@ -235,6 +237,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5" data-path="spatialecon.html"><a href="spatialecon.html#spatial-heterogeneity-1"><i class="fa fa-check"></i><b>6.5</b> Spatial heterogeneity</a></li>
 <li class="chapter" data-level="6.6" data-path="spatialecon.html"><a href="spatialecon.html#spatial-dependence-1"><i class="fa fa-check"></i><b>6.6</b> Spatial dependence</a></li>
 <li class="chapter" data-level="6.7" data-path="spatialecon.html"><a href="spatialecon.html#predicting-house-prices"><i class="fa fa-check"></i><b>6.7</b> Predicting house prices</a></li>
+<li class="chapter" data-level="6.8" data-path="spatialecon.html"><a href="spatialecon.html#questions-2"><i class="fa fa-check"></i><b>6.8</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="mlm1.html"><a href="mlm1.html"><i class="fa fa-check"></i><b>7</b> Multilevel Modelling - Part 1</a>
 <ul>
@@ -346,14 +349,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="dependencies-3" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Dependencies</h2>
 <p>We will rely on the following libraries in this section, all of them included in the <a href="#Dependency-list">book list</a>:</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="spatialecon.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Layout</span></span>
-<span id="cb204-2"><a href="spatialecon.html#cb204-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tufte)</span>
-<span id="cb204-3"><a href="spatialecon.html#cb204-3" aria-hidden="true" tabindex="-1"></a><span class="co"># For pretty table</span></span>
-<span id="cb204-4"><a href="spatialecon.html#cb204-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb204-5"><a href="spatialecon.html#cb204-5" aria-hidden="true" tabindex="-1"></a><span class="co"># For string parsing</span></span>
-<span id="cb204-6"><a href="spatialecon.html#cb204-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb204-7"><a href="spatialecon.html#cb204-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial Data management</span></span>
-<span id="cb204-8"><a href="spatialecon.html#cb204-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgdal)</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="spatialecon.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Layout</span></span>
+<span id="cb210-2"><a href="spatialecon.html#cb210-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tufte)</span>
+<span id="cb210-3"><a href="spatialecon.html#cb210-3" aria-hidden="true" tabindex="-1"></a><span class="co"># For pretty table</span></span>
+<span id="cb210-4"><a href="spatialecon.html#cb210-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb210-5"><a href="spatialecon.html#cb210-5" aria-hidden="true" tabindex="-1"></a><span class="co"># For string parsing</span></span>
+<span id="cb210-6"><a href="spatialecon.html#cb210-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb210-7"><a href="spatialecon.html#cb210-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial Data management</span></span>
+<span id="cb210-8"><a href="spatialecon.html#cb210-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgdal)</span></code></pre></div>
 <pre><code>## Loading required package: sp</code></pre>
 <pre><code>## rgdal: version: 1.5-18, (SVN revision 1082)
 ## Geospatial Data Abstraction Library extensions to R successfully loaded
@@ -365,14 +368,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Linking to sp version:1.4-4
 ## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
 ## use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) before loading rgdal.</code></pre>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="spatialecon.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty graphics</span></span>
-<span id="cb207-2"><a href="spatialecon.html#cb207-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb207-3"><a href="spatialecon.html#cb207-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty maps</span></span>
-<span id="cb207-4"><a href="spatialecon.html#cb207-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmap)</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="spatialecon.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty graphics</span></span>
+<span id="cb213-2"><a href="spatialecon.html#cb213-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb213-3"><a href="spatialecon.html#cb213-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty maps</span></span>
+<span id="cb213-4"><a href="spatialecon.html#cb213-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmap)</span></code></pre></div>
 <pre><code>## Google&#39;s Terms of Service: https://cloud.google.com/maps-platform/terms/.</code></pre>
 <pre><code>## Please cite ggmap if you use it! See citation(&quot;ggmap&quot;) for details.</code></pre>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="spatialecon.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Various GIS utilities</span></span>
-<span id="cb210-2"><a href="spatialecon.html#cb210-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GISTools)</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="spatialecon.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Various GIS utilities</span></span>
+<span id="cb216-2"><a href="spatialecon.html#cb216-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GISTools)</span></code></pre></div>
 <pre><code>## Loading required package: maptools</code></pre>
 <pre><code>## Checking rgeos availability: TRUE</code></pre>
 <pre><code>## Loading required package: RColorBrewer</code></pre>
@@ -382,10 +385,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  GEOS runtime version: 3.8.0-CAPI-1.13.1 
 ##  Linking to sp version: 1.4-4 
 ##  Polygon checking: TRUE</code></pre>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="spatialecon.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For all your interpolation needs</span></span>
-<span id="cb217-2"><a href="spatialecon.html#cb217-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gstat)</span>
-<span id="cb217-3"><a href="spatialecon.html#cb217-3" aria-hidden="true" tabindex="-1"></a><span class="co"># For data manipulation</span></span>
-<span id="cb217-4"><a href="spatialecon.html#cb217-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="spatialecon.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For all your interpolation needs</span></span>
+<span id="cb223-2"><a href="spatialecon.html#cb223-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gstat)</span>
+<span id="cb223-3"><a href="spatialecon.html#cb223-3" aria-hidden="true" tabindex="-1"></a><span class="co"># For data manipulation</span></span>
+<span id="cb223-4"><a href="spatialecon.html#cb223-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:rgeos&#39;:
@@ -400,20 +403,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="spatialecon.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial regression</span></span>
-<span id="cb223-2"><a href="spatialecon.html#cb223-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spdep)</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="spatialecon.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial regression</span></span>
+<span id="cb229-2"><a href="spatialecon.html#cb229-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spdep)</span></code></pre></div>
 <pre><code>## Loading required package: spData</code></pre>
 <pre><code>## Loading required package: sf</code></pre>
 <pre><code>## Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1</code></pre>
 <p>Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with <code>setwd()</code>. Please replace in the following line the path to the folder where you have placed this file -and where the <code>house_transactions</code> folder with the data lives.</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="spatialecon.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="co">#setwd(&#39;/media/dani/baul/AAA/Documents/teaching/u-lvl/2016/envs453/code/GIT/kde_idw_r/&#39;)</span></span>
-<span id="cb227-2"><a href="spatialecon.html#cb227-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="spatialecon.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&#39;.&#39;</span>)</span></code></pre></div>
 </div>
 <div id="data-2" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Data</h2>
 <p>To explore ideas in spatial regression, we will the set of Airbnb properties for San Diego (US), borrowed from the “Geographic Data Science with Python” book (see <a href="https://geographicdata.science/book/data/airbnb/regression_cleaning.html">here</a> for more info on the dataset source). This covers the point location of properties advertised on the Airbnb website in the San Diego region.</p>
 <p>Let us load it up first of all:</p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="spatialecon.html#cb228-1" aria-hidden="true" tabindex="-1"></a>db <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&#39;data/abb_sd/regression_db.geojson&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="spatialecon.html#cb234-1" aria-hidden="true" tabindex="-1"></a>db <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&#39;data/abb_sd/regression_db.geojson&#39;</span>)</span></code></pre></div>
 <pre><code>## Reading layer `regression_db&#39; from data source `/home/jovyan/work/data/abb_sd/regression_db.geojson&#39; using driver `GeoJSON&#39;
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
@@ -421,7 +423,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## bbox:           xmin: -117.2812 ymin: 32.57349 xmax: -116.9553 ymax: 33.08311
 ## geographic CRS: WGS 84</code></pre>
 <p>The table contains the followig variables:</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="spatialecon.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(db)</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="spatialecon.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(db)</span></code></pre></div>
 <pre><code>##  [1] &quot;accommodates&quot;       &quot;bathrooms&quot;          &quot;bedrooms&quot;          
 ##  [4] &quot;beds&quot;               &quot;neighborhood&quot;       &quot;pool&quot;              
 ##  [7] &quot;d2balboa&quot;           &quot;coastal&quot;            &quot;price&quot;             
@@ -430,11 +432,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [16] &quot;pg_Townhouse&quot;       &quot;rt_Entire_home.apt&quot; &quot;rt_Private_room&quot;   
 ## [19] &quot;rt_Shared_room&quot;     &quot;geometry&quot;</code></pre>
 <p>For most of this chapter, we will be exploring determinants and strategies for modelling the price of a property advertised in AirBnb. To get a first taste of what this means, we can create a plot of prices within the area of San Diego:</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="spatialecon.html#cb232-1" aria-hidden="true" tabindex="-1"></a>db <span class="sc">%&gt;%</span></span>
-<span id="cb232-2"><a href="spatialecon.html#cb232-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> price)) <span class="sc">+</span></span>
-<span id="cb232-3"><a href="spatialecon.html#cb232-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
-<span id="cb232-4"><a href="spatialecon.html#cb232-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb232-5"><a href="spatialecon.html#cb232-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="spatialecon.html#cb238-1" aria-hidden="true" tabindex="-1"></a>db <span class="sc">%&gt;%</span></span>
+<span id="cb238-2"><a href="spatialecon.html#cb238-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> price)) <span class="sc">+</span></span>
+<span id="cb238-3"><a href="spatialecon.html#cb238-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
+<span id="cb238-4"><a href="spatialecon.html#cb238-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb238-5"><a href="spatialecon.html#cb238-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
 <p><img src="06-spatial_econometrics_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 <div id="non-spatial-regression-a-refresh" class="section level2" number="6.3">
@@ -451,10 +453,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 where each term can be interpreted in terms of vectors instead of scalars (wit the exception of the parameters <span class="math inline">\((\alpha, \beta_{1, 2, 3, 4})\)</span>, which <em>are</em> scalars). Note we are using the logarithm of the price, since this allows us to interpret the coefficients as roughly the percentual change induced by a unit increase in the explanatory variable of the estimate.</p>
 <p>Remember a regression can be seen as a multivariate extension of bivariate correlations. Indeed, one way to interpret the <span class="math inline">\(\beta_k\)</span> coefficients in the equation above is as the degree of correlation between the explanatory variable <span class="math inline">\(k\)</span> and the dependent variable, <em>keeping all the other explanatory variables constant</em>. When you calculate simple bivariate correlations, the coefficient of a variable is picking up the correlation between the variables, but it is also subsuming into it variation associated with other correlated variables –also called confounding factors<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>. Regression allows you to isolate the distinct effect that a single variable has on the dependent one, once we <em>control</em> for those other variables.</p>
 <p>Practically speaking, running linear regressions in <code>R</code> is straightforward. For example, to fit the model specified in the equation above, we only need one line of code:</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="spatialecon.html#cb233-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="st">&#39;log_price ~ accommodates + bathrooms + bedrooms + beds&#39;</span>, db)</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="spatialecon.html#cb239-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="st">&#39;log_price ~ accommodates + bathrooms + bedrooms + beds&#39;</span>, db)</span></code></pre></div>
 <p>We use the command <code>lm</code>, for linear model, and specify the equation we want to fit using a string that relates the dependent variable (the log of the price, <code>log_price</code>) with a set of explanatory ones (<code>accommodates</code>, <code>bathrooms</code>, <code>bedrooms</code>, <code>beds</code>) by using a tilde <code>~</code> that is akin to the <span class="math inline">\(=\)</span> symbol in the mathematical equation above. Since we are using names of variables that are stored in a table, we need to pass the table object (<code>db</code>) as well.</p>
 <p>In order to inspect the results of the model, the quickest way is to call <code>summary</code>:</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="spatialecon.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="spatialecon.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;log_price ~ accommodates + bathrooms + bedrooms + beds&quot;, 
@@ -489,10 +491,10 @@ where each term can be interpreted in terms of vectors instead of scalars (wit t
 <p>Spatial heterogeneity (SH) arises when we cannot safely assume the process we are studying operates under the same “rules” throughout the geography of interest. In other words, we can observe SH when there are effects on the outcome variable that are intrinsically linked to specific locations. A good example of this is the case of seafront houses above: we are trying to model the price of a house and, the fact some houses are located under certain conditions (i.e. by the sea), makes their price behave differently. This somewhat abstract concept of SH can be made operational in a model in several ways. We will explore the following two: spatial fixed-effects (FE); and spatial regimes, which is a generalization of FE.</p>
 <p><strong>Spatial FE</strong></p>
 <p>Let us consider the house price example from the previous section to introduce a more general illustration that relates to the second motivation for spatial effects (“space as a proxy”). Given we are only including two explanatory variables in the model, it is likely we are missing some important factors that play a role at determining the price at which a house is sold. Some of them, however, are likely to vary systematically over space (e.g. different neighborhood characteristics). If that is the case, we can control for those unobserved factors by using traditional dummy variables but basing their creation on a spatial rule. For example, let us include a binary variable for every neighbourhood, as provided by AirBnB, indicating whether a given house is located within such area (<code>1</code>) or not (<code>0</code>). Neighbourhood membership is expressed on the <code>neighborhood</code> column:</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="spatialecon.html#cb236-1" aria-hidden="true" tabindex="-1"></a>db <span class="sc">%&gt;%</span></span>
-<span id="cb236-2"><a href="spatialecon.html#cb236-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> neighborhood)) <span class="sc">+</span></span>
-<span id="cb236-3"><a href="spatialecon.html#cb236-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
-<span id="cb236-4"><a href="spatialecon.html#cb236-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="spatialecon.html#cb242-1" aria-hidden="true" tabindex="-1"></a>db <span class="sc">%&gt;%</span></span>
+<span id="cb242-2"><a href="spatialecon.html#cb242-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> neighborhood)) <span class="sc">+</span></span>
+<span id="cb242-3"><a href="spatialecon.html#cb242-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
+<span id="cb242-4"><a href="spatialecon.html#cb242-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
 <p><img src="06-spatial_econometrics_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Mathematically, we are now fitting the following equation:</p>
 <p><span class="math display">\[
@@ -500,12 +502,12 @@ where each term can be interpreted in terms of vectors instead of scalars (wit t
 \]</span></p>
 <p>where the main difference is that we are now allowing the constant term, <span class="math inline">\(\alpha\)</span>, to vary by neighbourhood <span class="math inline">\(r\)</span>, <span class="math inline">\(\alpha_r\)</span>.</p>
 <p>Programmatically, we can fit this model with <code>lm</code>:</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="spatialecon.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Include `-1` to eliminate the constant term and include a dummy for every area</span></span>
-<span id="cb237-2"><a href="spatialecon.html#cb237-2" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
-<span id="cb237-3"><a href="spatialecon.html#cb237-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;log_price ~ neighborhood + accommodates + bathrooms + bedrooms + beds - 1&#39;</span>, </span>
-<span id="cb237-4"><a href="spatialecon.html#cb237-4" aria-hidden="true" tabindex="-1"></a>  db</span>
-<span id="cb237-5"><a href="spatialecon.html#cb237-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb237-6"><a href="spatialecon.html#cb237-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="spatialecon.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Include `-1` to eliminate the constant term and include a dummy for every area</span></span>
+<span id="cb243-2"><a href="spatialecon.html#cb243-2" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb243-3"><a href="spatialecon.html#cb243-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;log_price ~ neighborhood + accommodates + bathrooms + bedrooms + beds - 1&#39;</span>, </span>
+<span id="cb243-4"><a href="spatialecon.html#cb243-4" aria-hidden="true" tabindex="-1"></a>  db</span>
+<span id="cb243-5"><a href="spatialecon.html#cb243-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb243-6"><a href="spatialecon.html#cb243-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;log_price ~ neighborhood + accommodates + bathrooms + bedrooms + beds - 1&quot;, 
@@ -573,27 +575,27 @@ where each term can be interpreted in terms of vectors instead of scalars (wit t
 ## Multiple R-squared:  0.9904, Adjusted R-squared:  0.9904 
 ## F-statistic: 1.28e+04 on 49 and 6061 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Econometrically speaking, what the postcode FE we have introduced imply is that, instead of comparing all house prices across San Diego as equal, we only derive variation from <em>within</em> each postcode. In our particular case, estimating spatial FE in our particular example also gives you an indirect measure of area <em>desirability</em>: since they are simple dummies in a regression explaining the price of a house, their estimate tells us about how much people are willing to pay to live in a given area. We can visualise this “geography of desirability” by plotting the estimates of each fixed effect on a map:</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="spatialecon.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract neighborhood names from coefficients</span></span>
-<span id="cb239-2"><a href="spatialecon.html#cb239-2" aria-hidden="true" tabindex="-1"></a>nei.names <span class="ot">&lt;-</span> m2<span class="sc">$</span>coefficients <span class="sc">%&gt;%</span></span>
-<span id="cb239-3"><a href="spatialecon.html#cb239-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb239-4"><a href="spatialecon.html#cb239-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row.names</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb239-5"><a href="spatialecon.html#cb239-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_replace</span>(<span class="st">&quot;neighborhood&quot;</span>, <span class="st">&quot;&quot;</span>)</span>
-<span id="cb239-6"><a href="spatialecon.html#cb239-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up as Data Frame</span></span>
-<span id="cb239-7"><a href="spatialecon.html#cb239-7" aria-hidden="true" tabindex="-1"></a>nei.fes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb239-8"><a href="spatialecon.html#cb239-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef =</span> m2<span class="sc">$</span>coefficients,</span>
-<span id="cb239-9"><a href="spatialecon.html#cb239-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">nei =</span> nei.names,</span>
-<span id="cb239-10"><a href="spatialecon.html#cb239-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">row.names =</span> nei.names</span>
-<span id="cb239-11"><a href="spatialecon.html#cb239-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb239-12"><a href="spatialecon.html#cb239-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(</span>
-<span id="cb239-13"><a href="spatialecon.html#cb239-13" aria-hidden="true" tabindex="-1"></a>    db, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;nei&quot;</span> <span class="ot">=</span> <span class="st">&quot;neighborhood&quot;</span>)</span>
-<span id="cb239-14"><a href="spatialecon.html#cb239-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb239-15"><a href="spatialecon.html#cb239-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
-<span id="cb239-16"><a href="spatialecon.html#cb239-16" aria-hidden="true" tabindex="-1"></a>nei.fes <span class="sc">%&gt;%</span></span>
-<span id="cb239-17"><a href="spatialecon.html#cb239-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb239-18"><a href="spatialecon.html#cb239-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> coef)) <span class="sc">+</span></span>
-<span id="cb239-19"><a href="spatialecon.html#cb239-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
-<span id="cb239-20"><a href="spatialecon.html#cb239-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb239-21"><a href="spatialecon.html#cb239-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="spatialecon.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract neighborhood names from coefficients</span></span>
+<span id="cb245-2"><a href="spatialecon.html#cb245-2" aria-hidden="true" tabindex="-1"></a>nei.names <span class="ot">&lt;-</span> m2<span class="sc">$</span>coefficients <span class="sc">%&gt;%</span></span>
+<span id="cb245-3"><a href="spatialecon.html#cb245-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb245-4"><a href="spatialecon.html#cb245-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row.names</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb245-5"><a href="spatialecon.html#cb245-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_replace</span>(<span class="st">&quot;neighborhood&quot;</span>, <span class="st">&quot;&quot;</span>)</span>
+<span id="cb245-6"><a href="spatialecon.html#cb245-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up as Data Frame</span></span>
+<span id="cb245-7"><a href="spatialecon.html#cb245-7" aria-hidden="true" tabindex="-1"></a>nei.fes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb245-8"><a href="spatialecon.html#cb245-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef =</span> m2<span class="sc">$</span>coefficients,</span>
+<span id="cb245-9"><a href="spatialecon.html#cb245-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">nei =</span> nei.names,</span>
+<span id="cb245-10"><a href="spatialecon.html#cb245-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">row.names =</span> nei.names</span>
+<span id="cb245-11"><a href="spatialecon.html#cb245-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb245-12"><a href="spatialecon.html#cb245-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(</span>
+<span id="cb245-13"><a href="spatialecon.html#cb245-13" aria-hidden="true" tabindex="-1"></a>    db, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;nei&quot;</span> <span class="ot">=</span> <span class="st">&quot;neighborhood&quot;</span>)</span>
+<span id="cb245-14"><a href="spatialecon.html#cb245-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb245-15"><a href="spatialecon.html#cb245-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb245-16"><a href="spatialecon.html#cb245-16" aria-hidden="true" tabindex="-1"></a>nei.fes <span class="sc">%&gt;%</span></span>
+<span id="cb245-17"><a href="spatialecon.html#cb245-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb245-18"><a href="spatialecon.html#cb245-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> coef)) <span class="sc">+</span></span>
+<span id="cb245-19"><a href="spatialecon.html#cb245-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb245-20"><a href="spatialecon.html#cb245-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb245-21"><a href="spatialecon.html#cb245-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
 <p><img src="06-spatial_econometrics_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 We can see how neighborhoods in the left (west) tend to have higher prices. What we can’t see, but it is represented there if you are familiar with the geography of San Diego, is that the city is bounded by the Pacific ocean on the left, suggesting neighbourhoods by the beach tend to be more expensive.</p>
 <p>Remember that the interpretation of a <span class="math inline">\(\beta_k\)</span> coefficient is the effect of variable <span class="math inline">\(k\)</span>, <em>given all the other explanatory variables included remain constant</em>. By including a single variable for each area, we are effectively forcing the model to compare as equal only house prices that share the same value for each variable; in other words, only houses located within the same area. Introducing FE affords you a higher degree of isolation of the effects of the variables you introduce in your model because you can control for unobserved effects that align spatially with the distribution of the FE you introduce (by neighbourhood, in our case).</p>
@@ -604,14 +606,14 @@ We can see how neighborhoods in the left (west) tend to have higher prices. What
 \]</span></p>
 <p>where we are not only allowing the constant term to vary by region (<span class="math inline">\(\alpha_r\)</span>), but also every other parameter (<span class="math inline">\(\beta_{kr}\)</span>).</p>
 <p>Also, given we are going to allow <em>every</em> coefficient to vary by regime, we will need to explicitly set a constant term that we can allow to vary:</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="spatialecon.html#cb240-1" aria-hidden="true" tabindex="-1"></a>db<span class="sc">$</span>one <span class="ot">&lt;-</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="spatialecon.html#cb246-1" aria-hidden="true" tabindex="-1"></a>db<span class="sc">$</span>one <span class="ot">&lt;-</span> <span class="dv">1</span></span></code></pre></div>
 <p>Then, the estimation leverages the capabilities in model description of R formulas:</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="spatialecon.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="co"># `:` notation implies interaction variables</span></span>
-<span id="cb241-2"><a href="spatialecon.html#cb241-2" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
-<span id="cb241-3"><a href="spatialecon.html#cb241-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;log_price ~ 0 + (accommodates + bathrooms + bedrooms + beds):(neighborhood)&#39;</span>, </span>
-<span id="cb241-4"><a href="spatialecon.html#cb241-4" aria-hidden="true" tabindex="-1"></a>  db</span>
-<span id="cb241-5"><a href="spatialecon.html#cb241-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb241-6"><a href="spatialecon.html#cb241-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="spatialecon.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="co"># `:` notation implies interaction variables</span></span>
+<span id="cb247-2"><a href="spatialecon.html#cb247-2" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb247-3"><a href="spatialecon.html#cb247-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;log_price ~ 0 + (accommodates + bathrooms + bedrooms + beds):(neighborhood)&#39;</span>, </span>
+<span id="cb247-4"><a href="spatialecon.html#cb247-4" aria-hidden="true" tabindex="-1"></a>  db</span>
+<span id="cb247-5"><a href="spatialecon.html#cb247-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb247-6"><a href="spatialecon.html#cb247-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;log_price ~ 0 + (accommodates + bathrooms + bedrooms + beds):(neighborhood)&quot;, 
@@ -1007,17 +1009,17 @@ y_{lag-i} = \displaystyle \sum_j w_{ij} y_j
 \]</span></p>
 <p>where <span class="math inline">\(y_{lag-i}\)</span> is the spatial lag of variable <span class="math inline">\(y\)</span> at location <span class="math inline">\(i\)</span>, and <span class="math inline">\(j\)</span> sums over the entire dataset. If <span class="math inline">\(W\)</span> is row-standardized, <span class="math inline">\(y_{lag-i}\)</span> becomes an average of <span class="math inline">\(y\)</span> weighted by the spatial criterium defined in <span class="math inline">\(W\)</span>.</p>
 <p>Given that spatial weights matrices are not the focus of this tutorial, we will stick to a very simple case. Since we are dealing with points, we will use <span class="math inline">\(K\)</span>-nn weights, which take the <span class="math inline">\(k\)</span> nearest neighbors of each observation as neighbors and assign a value of one, assigning everyone else a zero. We will use <span class="math inline">\(k=50\)</span> to get a good degree of variation and sensible results.</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="spatialecon.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create knn list of each house</span></span>
-<span id="cb243-2"><a href="spatialecon.html#cb243-2" aria-hidden="true" tabindex="-1"></a>hnn <span class="ot">&lt;-</span> db <span class="sc">%&gt;%</span></span>
-<span id="cb243-3"><a href="spatialecon.html#cb243-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_coordinates</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb243-4"><a href="spatialecon.html#cb243-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.matrix</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb243-5"><a href="spatialecon.html#cb243-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">knearneigh</span>(<span class="at">k =</span> <span class="dv">50</span>)</span>
-<span id="cb243-6"><a href="spatialecon.html#cb243-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create nb object</span></span>
-<span id="cb243-7"><a href="spatialecon.html#cb243-7" aria-hidden="true" tabindex="-1"></a>hnb <span class="ot">&lt;-</span> <span class="fu">knn2nb</span>(hnn)</span>
-<span id="cb243-8"><a href="spatialecon.html#cb243-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create spatial weights matrix (note it row-standardizes by default)</span></span>
-<span id="cb243-9"><a href="spatialecon.html#cb243-9" aria-hidden="true" tabindex="-1"></a>hknn <span class="ot">&lt;-</span> <span class="fu">nb2listw</span>(hnb)</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="spatialecon.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create knn list of each house</span></span>
+<span id="cb249-2"><a href="spatialecon.html#cb249-2" aria-hidden="true" tabindex="-1"></a>hnn <span class="ot">&lt;-</span> db <span class="sc">%&gt;%</span></span>
+<span id="cb249-3"><a href="spatialecon.html#cb249-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_coordinates</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb249-4"><a href="spatialecon.html#cb249-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.matrix</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb249-5"><a href="spatialecon.html#cb249-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">knearneigh</span>(<span class="at">k =</span> <span class="dv">50</span>)</span>
+<span id="cb249-6"><a href="spatialecon.html#cb249-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create nb object</span></span>
+<span id="cb249-7"><a href="spatialecon.html#cb249-7" aria-hidden="true" tabindex="-1"></a>hnb <span class="ot">&lt;-</span> <span class="fu">knn2nb</span>(hnn)</span>
+<span id="cb249-8"><a href="spatialecon.html#cb249-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create spatial weights matrix (note it row-standardizes by default)</span></span>
+<span id="cb249-9"><a href="spatialecon.html#cb249-9" aria-hidden="true" tabindex="-1"></a>hknn <span class="ot">&lt;-</span> <span class="fu">nb2listw</span>(hnb)</span></code></pre></div>
 <p>We can inspect the weights created by simply typing the name of the object:</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="spatialecon.html#cb244-1" aria-hidden="true" tabindex="-1"></a>hknn</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="spatialecon.html#cb250-1" aria-hidden="true" tabindex="-1"></a>hknn</span></code></pre></div>
 <pre><code>## Characteristics of weights list object:
 ## Neighbour list object:
 ## Number of regions: 6110 
@@ -1037,14 +1039,14 @@ y_{lag-i} = \displaystyle \sum_j w_{ij} y_j
 \log(P_i) = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i+ \beta_5 Bath_{lag-i} + \epsilon_i
 \]</span></p>
 <p>Let us first compute the spatial lag of imd_score:</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="spatialecon.html#cb246-1" aria-hidden="true" tabindex="-1"></a>db<span class="sc">$</span>w_bathrooms <span class="ot">&lt;-</span> <span class="fu">lag.listw</span>(hknn, db<span class="sc">$</span>bathrooms)</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="spatialecon.html#cb252-1" aria-hidden="true" tabindex="-1"></a>db<span class="sc">$</span>w_bathrooms <span class="ot">&lt;-</span> <span class="fu">lag.listw</span>(hknn, db<span class="sc">$</span>bathrooms)</span></code></pre></div>
 <p>And then we can include it in our previous specification. Note that we apply the log to the lag, not the reverse:</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="spatialecon.html#cb247-1" aria-hidden="true" tabindex="-1"></a>m5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
-<span id="cb247-2"><a href="spatialecon.html#cb247-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;log_price ~ accommodates + bedrooms + beds + bathrooms + w_bathrooms&#39;</span>,</span>
-<span id="cb247-3"><a href="spatialecon.html#cb247-3" aria-hidden="true" tabindex="-1"></a>  db</span>
-<span id="cb247-4"><a href="spatialecon.html#cb247-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb247-5"><a href="spatialecon.html#cb247-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb247-6"><a href="spatialecon.html#cb247-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m5)</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="spatialecon.html#cb253-1" aria-hidden="true" tabindex="-1"></a>m5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb253-2"><a href="spatialecon.html#cb253-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;log_price ~ accommodates + bedrooms + beds + bathrooms + w_bathrooms&#39;</span>,</span>
+<span id="cb253-3"><a href="spatialecon.html#cb253-3" aria-hidden="true" tabindex="-1"></a>  db</span>
+<span id="cb253-4"><a href="spatialecon.html#cb253-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb253-5"><a href="spatialecon.html#cb253-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb253-6"><a href="spatialecon.html#cb253-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m5)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = &quot;log_price ~ accommodates + bedrooms + beds + bathrooms + w_bathrooms&quot;, 
@@ -1096,23 +1098,70 @@ u_i = u_{lag-i} + \epsilon_i
 \]</span>
 where <span class="math inline">\(\bar{\log{P_i}}\)</span> is our predicted value, and we include the <span class="math inline">\(\bar{}\)</span> sign to note that it is our estimate obtained from fitting the model. We use the <span class="math inline">\(^*\)</span> sign to note that those can be new values for the explanatory variables, not necessarily those used to fit the model.</p>
 <p>Technically speaking, prediction in linear models is relatively streamlined in R. Suppose we are given data for a new house which is to be put on the AirBnb platform. We know it accommodates four people, and has two bedrooms, three beds, and one bathroom. We also know that the surrounding properties have, on average, 1.5 bathrooms. Let us record the data first:</p>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="spatialecon.html#cb249-1" aria-hidden="true" tabindex="-1"></a>new.house <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb249-2"><a href="spatialecon.html#cb249-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">accommodates =</span> <span class="dv">4</span>, </span>
-<span id="cb249-3"><a href="spatialecon.html#cb249-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">bedrooms =</span> <span class="dv">2</span>,</span>
-<span id="cb249-4"><a href="spatialecon.html#cb249-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">beds =</span> <span class="dv">3</span>,</span>
-<span id="cb249-5"><a href="spatialecon.html#cb249-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">bathrooms =</span> <span class="dv">1</span>,</span>
-<span id="cb249-6"><a href="spatialecon.html#cb249-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">w_bathrooms =</span> <span class="fl">1.5</span></span>
-<span id="cb249-7"><a href="spatialecon.html#cb249-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="spatialecon.html#cb255-1" aria-hidden="true" tabindex="-1"></a>new.house <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb255-2"><a href="spatialecon.html#cb255-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">accommodates =</span> <span class="dv">4</span>, </span>
+<span id="cb255-3"><a href="spatialecon.html#cb255-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">bedrooms =</span> <span class="dv">2</span>,</span>
+<span id="cb255-4"><a href="spatialecon.html#cb255-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">beds =</span> <span class="dv">3</span>,</span>
+<span id="cb255-5"><a href="spatialecon.html#cb255-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">bathrooms =</span> <span class="dv">1</span>,</span>
+<span id="cb255-6"><a href="spatialecon.html#cb255-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">w_bathrooms =</span> <span class="fl">1.5</span></span>
+<span id="cb255-7"><a href="spatialecon.html#cb255-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>To obtain the prediction for its price, we can use the <code>predict</code> method:</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="spatialecon.html#cb250-1" aria-hidden="true" tabindex="-1"></a>new.price <span class="ot">&lt;-</span> <span class="fu">predict</span>(m5, new.house)</span>
-<span id="cb250-2"><a href="spatialecon.html#cb250-2" aria-hidden="true" tabindex="-1"></a>new.price</span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="spatialecon.html#cb256-1" aria-hidden="true" tabindex="-1"></a>new.price <span class="ot">&lt;-</span> <span class="fu">predict</span>(m5, new.house)</span>
+<span id="cb256-2"><a href="spatialecon.html#cb256-2" aria-hidden="true" tabindex="-1"></a>new.price</span></code></pre></div>
 <pre><code>##        1 
 ## 4.900168</code></pre>
 <p>Now remember we were using the log of the price as dependent variable. If we want to recover the actual price of the house, we need to take its exponent:</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="spatialecon.html#cb252-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(new.price)</span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="spatialecon.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(new.price)</span></code></pre></div>
 <pre><code>##        1 
 ## 134.3123</code></pre>
 <p>According to our model, the house would be worth $134.3123448.</p>
+<!-- #region -->
+</div>
+<div id="questions-2" class="section level2" number="6.8">
+<h2><span class="header-section-number">6.8</span> Questions</h2>
+<p>We will be using again the Madrid AirBnb dataset:
+<!-- #endregion --></p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="spatialecon.html#cb260-1" aria-hidden="true" tabindex="-1"></a>mad_abb <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&#39;./data/assignment_1_madrid/madrid_abb.gpkg&#39;</span>)</span></code></pre></div>
+<pre><code>## Reading layer `madrid_abb&#39; from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg&#39; using driver `GPKG&#39;
+## Simple feature collection with 18399 features and 15 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
+## geographic CRS: WGS 84</code></pre>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="spatialecon.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mad_abb)</span></code></pre></div>
+<pre><code>##  [1] &quot;price&quot;           &quot;price_usd&quot;       &quot;log1p_price_usd&quot; &quot;accommodates&quot;   
+##  [5] &quot;bathrooms&quot;       &quot;bedrooms&quot;        &quot;beds&quot;            &quot;neighbourhood&quot;  
+##  [9] &quot;room_type&quot;       &quot;property_type&quot;   &quot;WiFi&quot;            &quot;Coffee&quot;         
+## [13] &quot;Gym&quot;             &quot;Parking&quot;         &quot;km_to_retiro&quot;    &quot;geom&quot;</code></pre>
+<!-- #region -->
+<p>In addition to those we have already seen, the columns to use here are:</p>
+<ul>
+<li><code>neighbourhood</code>: a column with the name of the neighbourhood in which the property is located</li>
+</ul>
+<p>With this at hand, answer the following questions:</p>
+<ol style="list-style-type: decimal">
+<li>Fit a baseline model with only property characteristics explaining the log of price</li>
+</ol>
+<p><span class="math display">\[
+\log(P_i) = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
+\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Augment the model with fixed effects at the neighbourhood level</li>
+</ol>
+<p><span class="math display">\[
+\log(P_i) = \alpha_r + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
+\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>[Optional] Augment the model with spatial regimes at the neighbourhood level:</li>
+</ol>
+<p><span class="math display">\[
+\log(P_i) = \alpha_r + \beta_{r1} Acc_i + \beta_{r2} Bath_i + \beta_{r3} Bedr_i + \beta_{r4} Beds_i + \epsilon_{ri}
+\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Fit a model that augments the baseline in 1. with the spatial lag of a variable you consider interesting. Motivate this choice. Note that to complete this, you will need to also generate a spatial weights matrix.</li>
+</ol>
+<p>In each instance, provide a brief interpretation (no more thana few lines for each) that demonstrates your understanding of theunderlying concepts behind your approach.
+<!-- #endregion --></p>
 
 </div>
 </div>

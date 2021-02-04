@@ -217,6 +217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>4.5.2</b> A surface of housing prices</a></li>
 <li class="chapter" data-level="4.5.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>4.5.3</b> <em>“What should the next house’s price be?”</em></a></li>
 </ul></li>
+<li class="chapter" data-level="4.6" data-path="points.html"><a href="points.html#questions"><i class="fa fa-check"></i><b>4.6</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>5</b> Flows</a>
 <ul>
@@ -225,6 +226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="flows.html"><a href="flows.html#seeing-flows"><i class="fa fa-check"></i><b>5.3</b> “<em>Seeing</em>” flows</a></li>
 <li class="chapter" data-level="5.4" data-path="flows.html"><a href="flows.html#modelling-flows"><i class="fa fa-check"></i><b>5.4</b> Modelling flows</a></li>
 <li class="chapter" data-level="5.5" data-path="flows.html"><a href="flows.html#predicting-flows"><i class="fa fa-check"></i><b>5.5</b> Predicting flows</a></li>
+<li class="chapter" data-level="5.6" data-path="flows.html"><a href="flows.html#questions-1"><i class="fa fa-check"></i><b>5.6</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="spatialecon.html"><a href="spatialecon.html"><i class="fa fa-check"></i><b>6</b> Spatial Econometrics</a>
 <ul>
@@ -235,6 +237,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5" data-path="spatialecon.html"><a href="spatialecon.html#spatial-heterogeneity-1"><i class="fa fa-check"></i><b>6.5</b> Spatial heterogeneity</a></li>
 <li class="chapter" data-level="6.6" data-path="spatialecon.html"><a href="spatialecon.html#spatial-dependence-1"><i class="fa fa-check"></i><b>6.6</b> Spatial dependence</a></li>
 <li class="chapter" data-level="6.7" data-path="spatialecon.html"><a href="spatialecon.html#predicting-house-prices"><i class="fa fa-check"></i><b>6.7</b> Predicting house prices</a></li>
+<li class="chapter" data-level="6.8" data-path="spatialecon.html"><a href="spatialecon.html#questions-2"><i class="fa fa-check"></i><b>6.8</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="mlm1.html"><a href="mlm1.html"><i class="fa fa-check"></i><b>7</b> Multilevel Modelling - Part 1</a>
 <ul>
@@ -649,8 +652,31 @@ And we can “dress it up” a bit further:</p>
 ##   var1.pred var1.var                   geometry
 ## 1  171.4141       NA POINT (-117.0226 32.76512)</code></pre>
 <p>And, as show above, the estimated value is $171.4141334<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>.</p>
-
 </div>
+</div>
+<div id="questions" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Questions</h2>
+<p>We will be using the Madrid AirBnb dataset:</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="points.html#cb140-1" aria-hidden="true" tabindex="-1"></a>mad_abb <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/assignment_1_madrid/madrid_abb.gpkg&quot;</span>)</span></code></pre></div>
+<pre><code>## Reading layer `madrid_abb&#39; from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg&#39; using driver `GPKG&#39;
+## Simple feature collection with 18399 features and 15 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
+## geographic CRS: WGS 84</code></pre>
+<p>This is fairly similar in spirit to the one from San Diego we have relied on for the chapter, although the column set is not exactly the same:</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="points.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mad_abb)</span></code></pre></div>
+<pre><code>##  [1] &quot;price&quot;           &quot;price_usd&quot;       &quot;log1p_price_usd&quot; &quot;accommodates&quot;   
+##  [5] &quot;bathrooms&quot;       &quot;bedrooms&quot;        &quot;beds&quot;            &quot;neighbourhood&quot;  
+##  [9] &quot;room_type&quot;       &quot;property_type&quot;   &quot;WiFi&quot;            &quot;Coffee&quot;         
+## [13] &quot;Gym&quot;             &quot;Parking&quot;         &quot;km_to_retiro&quot;    &quot;geom&quot;</code></pre>
+<p>For this set of questions, the only two columns we will need is <code>geom</code>, which contains the point geometries, and <code>price_usd</code>, which record the price of the AirBnb property in USD.</p>
+<p>With this at hand, answer the following questions:</p>
+<ol style="list-style-type: decimal">
+<li>Create a KDE that represents the density of locations of AirBnb properties in Madrid</li>
+<li>Using inverse distance weighting, create a surface of AirBnb prices</li>
+</ol>
+
 </div>
 </div>
 <div class="footnotes">

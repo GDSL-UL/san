@@ -871,3 +871,49 @@ rmses
 ```
 
 The table is both encouraging and disheartning at the same time. On the one hand, all the modeling techniques covered above behave as we would expect: the baseline model displays the worst predicting power of all, and every improvement (except the street distances!) results in notable decreases of the RMSE. This is good news. However, on the other hand, all of our modelling efforts fall short of given a better guess than simply using the previous year's counts. *Why? Does this mean that we should not pay attention to modeling and inference?* Not really. Generally speaking, a model is as good at predicting as it is able to mimic the underlying process that gave rise to the data in the first place. The results above point to a case where our model is not picking up all the factors that determine the amount of trips undertaken in a give route. This could be improved by enriching the model with more/better predictors, as we have seen above. Also, the example above seems to point to a case where those idiosyncracies in 2015 that the model does not pick up seem to be at work in 2016 as well. This is great news for our prediction efforts this time, but we have no idea why this is the case and, for all that matters, it could change the coming year. Besides the elegant quantification of uncertainty, the true advantage of a modeling approach in this context is that, if well fit, it is able to pick up the fundamentals that apply over and over. This means that, if next year we're not as lucky as this one and previous counts are not good predictors but the variables we used in our model continue to have a role in determining the outcome, the data scientist should be luckier and hit a better prediction.
+
+<!-- #region -->
+## Questions
+
+
+We will be using again the Madrid AirBnb dataset:
+<!-- #endregion -->
+
+
+```r
+mad_abb <- readOGR('./data/assignment_1_madrid/madrid_abb.gpkg')
+```
+
+```
+## OGR data source with driver: GPKG 
+## Source: "/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg", layer: "madrid_abb"
+## with 18399 features
+## It has 15 fields
+## Integer64 fields read as strings:  accommodates
+```
+
+The columns to use here are:
+
+- `price_usd`: price expressed in USD
+- `log1p_price_usd`: logarithm of the price expressed in USD
+- `accommodates`: number of people the property accommodates
+- `bathrooms`: number of bathrooms the property includes
+- `bedrooms`: number of bedrooms the property includes
+- `beds`: number of beds the property includes
+
+
+With these data at hand, accomplish the following challenges:
+
+1. Set up a baseline regression model where you explain the price of a property as a function of its characteristics:
+
+$$
+P_i = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
+$$
+
+2. Fit a parallel model that uses the log of price as dependent variable:
+
+$$
+\log(P_i) = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
+$$
+
+3. Perform a predictive check analysis of both models, discussing how they compare, which one you would prefer, and why 

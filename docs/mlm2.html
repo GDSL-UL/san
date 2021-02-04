@@ -217,6 +217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>4.5.2</b> A surface of housing prices</a></li>
 <li class="chapter" data-level="4.5.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>4.5.3</b> <em>“What should the next house’s price be?”</em></a></li>
 </ul></li>
+<li class="chapter" data-level="4.6" data-path="points.html"><a href="points.html#questions"><i class="fa fa-check"></i><b>4.6</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>5</b> Flows</a>
 <ul>
@@ -225,6 +226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="flows.html"><a href="flows.html#seeing-flows"><i class="fa fa-check"></i><b>5.3</b> “<em>Seeing</em>” flows</a></li>
 <li class="chapter" data-level="5.4" data-path="flows.html"><a href="flows.html#modelling-flows"><i class="fa fa-check"></i><b>5.4</b> Modelling flows</a></li>
 <li class="chapter" data-level="5.5" data-path="flows.html"><a href="flows.html#predicting-flows"><i class="fa fa-check"></i><b>5.5</b> Predicting flows</a></li>
+<li class="chapter" data-level="5.6" data-path="flows.html"><a href="flows.html#questions-1"><i class="fa fa-check"></i><b>5.6</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="spatialecon.html"><a href="spatialecon.html"><i class="fa fa-check"></i><b>6</b> Spatial Econometrics</a>
 <ul>
@@ -235,6 +237,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5" data-path="spatialecon.html"><a href="spatialecon.html#spatial-heterogeneity-1"><i class="fa fa-check"></i><b>6.5</b> Spatial heterogeneity</a></li>
 <li class="chapter" data-level="6.6" data-path="spatialecon.html"><a href="spatialecon.html#spatial-dependence-1"><i class="fa fa-check"></i><b>6.6</b> Spatial dependence</a></li>
 <li class="chapter" data-level="6.7" data-path="spatialecon.html"><a href="spatialecon.html#predicting-house-prices"><i class="fa fa-check"></i><b>6.7</b> Predicting house prices</a></li>
+<li class="chapter" data-level="6.8" data-path="spatialecon.html"><a href="spatialecon.html#questions-2"><i class="fa fa-check"></i><b>6.8</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="mlm1.html"><a href="mlm1.html"><i class="fa fa-check"></i><b>7</b> Multilevel Modelling - Part 1</a>
 <ul>
@@ -354,37 +357,37 @@ document</a></li>
 <div id="dependencies-5" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Dependencies</h2>
 <p>This chapter uses the following libraries: Ensure they are installed on your machine<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a> before loading them executing the following code chunk:</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="mlm2.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data manipulation, transformation and visualisation</span></span>
-<span id="cb316-2"><a href="mlm2.html#cb316-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb316-3"><a href="mlm2.html#cb316-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Nice tables</span></span>
-<span id="cb316-4"><a href="mlm2.html#cb316-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb316-5"><a href="mlm2.html#cb316-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple features (a standardised way to encode vector data ie. points, lines, polygons)</span></span>
-<span id="cb316-6"><a href="mlm2.html#cb316-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf) </span>
-<span id="cb316-7"><a href="mlm2.html#cb316-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial objects conversion</span></span>
-<span id="cb316-8"><a href="mlm2.html#cb316-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sp) </span>
-<span id="cb316-9"><a href="mlm2.html#cb316-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Thematic maps</span></span>
-<span id="cb316-10"><a href="mlm2.html#cb316-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap) </span>
-<span id="cb316-11"><a href="mlm2.html#cb316-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Colour palettes</span></span>
-<span id="cb316-12"><a href="mlm2.html#cb316-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) </span>
-<span id="cb316-13"><a href="mlm2.html#cb316-13" aria-hidden="true" tabindex="-1"></a><span class="co"># More colour palettes</span></span>
-<span id="cb316-14"><a href="mlm2.html#cb316-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis) <span class="co"># nice colour schemes</span></span>
-<span id="cb316-15"><a href="mlm2.html#cb316-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting multilevel models</span></span>
-<span id="cb316-16"><a href="mlm2.html#cb316-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb316-17"><a href="mlm2.html#cb316-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Tools for extracting information generated by lme4</span></span>
-<span id="cb316-18"><a href="mlm2.html#cb316-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(merTools)</span>
-<span id="cb316-19"><a href="mlm2.html#cb316-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportable regression tables</span></span>
-<span id="cb316-20"><a href="mlm2.html#cb316-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
-<span id="cb316-21"><a href="mlm2.html#cb316-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
-<span id="cb316-22"><a href="mlm2.html#cb316-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="mlm2.html#cb326-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data manipulation, transformation and visualisation</span></span>
+<span id="cb326-2"><a href="mlm2.html#cb326-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb326-3"><a href="mlm2.html#cb326-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Nice tables</span></span>
+<span id="cb326-4"><a href="mlm2.html#cb326-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb326-5"><a href="mlm2.html#cb326-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple features (a standardised way to encode vector data ie. points, lines, polygons)</span></span>
+<span id="cb326-6"><a href="mlm2.html#cb326-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf) </span>
+<span id="cb326-7"><a href="mlm2.html#cb326-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial objects conversion</span></span>
+<span id="cb326-8"><a href="mlm2.html#cb326-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sp) </span>
+<span id="cb326-9"><a href="mlm2.html#cb326-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Thematic maps</span></span>
+<span id="cb326-10"><a href="mlm2.html#cb326-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap) </span>
+<span id="cb326-11"><a href="mlm2.html#cb326-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Colour palettes</span></span>
+<span id="cb326-12"><a href="mlm2.html#cb326-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) </span>
+<span id="cb326-13"><a href="mlm2.html#cb326-13" aria-hidden="true" tabindex="-1"></a><span class="co"># More colour palettes</span></span>
+<span id="cb326-14"><a href="mlm2.html#cb326-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis) <span class="co"># nice colour schemes</span></span>
+<span id="cb326-15"><a href="mlm2.html#cb326-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting multilevel models</span></span>
+<span id="cb326-16"><a href="mlm2.html#cb326-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb326-17"><a href="mlm2.html#cb326-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Tools for extracting information generated by lme4</span></span>
+<span id="cb326-18"><a href="mlm2.html#cb326-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(merTools)</span>
+<span id="cb326-19"><a href="mlm2.html#cb326-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportable regression tables</span></span>
+<span id="cb326-20"><a href="mlm2.html#cb326-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
+<span id="cb326-21"><a href="mlm2.html#cb326-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb326-22"><a href="mlm2.html#cb326-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span></code></pre></div>
 </div>
 <div id="data-4" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> Data</h2>
 <p>For this chapter, we will data for Liverpool from England’s 2011 Census. The original source is the <a href="https://www.nomisweb.co.uk/home/census2001.asp">Office of National Statistics</a> and the dataset comprises a number of selected variables capturing demographic, health and socio-economic of the local resident population at four geographic levels: Output Area (OA), Lower Super Output Area (LSOA), Middle Super Output Area (MSOA) and Local Authority District (LAD). The variables include population counts and percentages. For a description of the variables, see the readme file in the mlm data folder.<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a></p>
 <p>Let us read the data:</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="mlm2.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clean workspace</span></span>
-<span id="cb317-2"><a href="mlm2.html#cb317-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
-<span id="cb317-3"><a href="mlm2.html#cb317-3" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
-<span id="cb317-4"><a href="mlm2.html#cb317-4" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/mlm/OA.shp&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="mlm2.html#cb327-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clean workspace</span></span>
+<span id="cb327-2"><a href="mlm2.html#cb327-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
+<span id="cb327-3"><a href="mlm2.html#cb327-3" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
+<span id="cb327-4"><a href="mlm2.html#cb327-4" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/mlm/OA.shp&quot;</span>)</span></code></pre></div>
 </div>
 <div id="conceptual-overview" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> Conceptual Overview</h2>
@@ -396,9 +399,9 @@ document</a></li>
 <div id="exploratory-analysis-varying-slopes" class="section level3" number="8.3.1">
 <h3><span class="header-section-number">8.3.1</span> Exploratory Analysis: Varying Slopes</h3>
 <p>Let’s then explore if there is variation in the relationship between unemployment rate and the share of population in long-term illness. We do this by selecting the 8 MSOAs containing OAs with the highest unemployment rates in Liverpool.</p>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="mlm2.html#cb318-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort data </span></span>
-<span id="cb318-2"><a href="mlm2.html#cb318-2" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="ot">&lt;-</span> oa_shp <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="sc">-</span>unemp)</span>
-<span id="cb318-3"><a href="mlm2.html#cb318-3" aria-hidden="true" tabindex="-1"></a>oa_shp[<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="fu">c</span>(<span class="st">&quot;msoa_cd&quot;</span>, <span class="st">&quot;unemp&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="mlm2.html#cb328-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort data </span></span>
+<span id="cb328-2"><a href="mlm2.html#cb328-2" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="ot">&lt;-</span> oa_shp <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="sc">-</span>unemp)</span>
+<span id="cb328-3"><a href="mlm2.html#cb328-3" aria-hidden="true" tabindex="-1"></a>oa_shp[<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="fu">c</span>(<span class="st">&quot;msoa_cd&quot;</span>, <span class="st">&quot;unemp&quot;</span>)]</span></code></pre></div>
 <pre><code>## Simple feature collection with 9 features and 2 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -414,26 +417,26 @@ document</a></li>
 ## 7 E02001354 0.3750000 MULTIPOLYGON (((337403 3949...
 ## 8 E02001385 0.3707865 MULTIPOLYGON (((336251.6 38...
 ## 9 E02001368 0.3648649 MULTIPOLYGON (((335209.3 39...</code></pre>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="mlm2.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select MSOAs</span></span>
-<span id="cb320-2"><a href="mlm2.html#cb320-2" aria-hidden="true" tabindex="-1"></a>s_t8 <span class="ot">&lt;-</span> oa_shp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
-<span id="cb320-3"><a href="mlm2.html#cb320-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.character</span>(msoa_cd) <span class="sc">%in%</span> <span class="fu">c</span>(</span>
-<span id="cb320-4"><a href="mlm2.html#cb320-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001354&quot;</span>, </span>
-<span id="cb320-5"><a href="mlm2.html#cb320-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001369&quot;</span>, </span>
-<span id="cb320-6"><a href="mlm2.html#cb320-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001366&quot;</span>, </span>
-<span id="cb320-7"><a href="mlm2.html#cb320-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001365&quot;</span>, </span>
-<span id="cb320-8"><a href="mlm2.html#cb320-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001370&quot;</span>, </span>
-<span id="cb320-9"><a href="mlm2.html#cb320-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001390&quot;</span>, </span>
-<span id="cb320-10"><a href="mlm2.html#cb320-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001368&quot;</span>, </span>
-<span id="cb320-11"><a href="mlm2.html#cb320-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001385&quot;</span>)</span>
-<span id="cb320-12"><a href="mlm2.html#cb320-12" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="mlm2.html#cb330-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select MSOAs</span></span>
+<span id="cb330-2"><a href="mlm2.html#cb330-2" aria-hidden="true" tabindex="-1"></a>s_t8 <span class="ot">&lt;-</span> oa_shp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
+<span id="cb330-3"><a href="mlm2.html#cb330-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.character</span>(msoa_cd) <span class="sc">%in%</span> <span class="fu">c</span>(</span>
+<span id="cb330-4"><a href="mlm2.html#cb330-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001354&quot;</span>, </span>
+<span id="cb330-5"><a href="mlm2.html#cb330-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001369&quot;</span>, </span>
+<span id="cb330-6"><a href="mlm2.html#cb330-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001366&quot;</span>, </span>
+<span id="cb330-7"><a href="mlm2.html#cb330-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001365&quot;</span>, </span>
+<span id="cb330-8"><a href="mlm2.html#cb330-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001370&quot;</span>, </span>
+<span id="cb330-9"><a href="mlm2.html#cb330-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001390&quot;</span>, </span>
+<span id="cb330-10"><a href="mlm2.html#cb330-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001368&quot;</span>, </span>
+<span id="cb330-11"><a href="mlm2.html#cb330-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;E02001385&quot;</span>)</span>
+<span id="cb330-12"><a href="mlm2.html#cb330-12" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <p>And then we generate a set of scatter plots and draw regression lines for each MSOA.</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="mlm2.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(s_t8, <span class="fu">aes</span>(<span class="at">x =</span> lt_ill, <span class="at">y =</span> unemp)) <span class="sc">+</span> </span>
-<span id="cb321-2"><a href="mlm2.html#cb321-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb321-3"><a href="mlm2.html#cb321-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">+</span></span>
-<span id="cb321-4"><a href="mlm2.html#cb321-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> msoa_cd, <span class="at">nrow =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb321-5"><a href="mlm2.html#cb321-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Unemployment rate&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb321-6"><a href="mlm2.html#cb321-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Long-term Illness (%)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb321-7"><a href="mlm2.html#cb321-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="mlm2.html#cb331-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(s_t8, <span class="fu">aes</span>(<span class="at">x =</span> lt_ill, <span class="at">y =</span> unemp)) <span class="sc">+</span> </span>
+<span id="cb331-2"><a href="mlm2.html#cb331-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb331-3"><a href="mlm2.html#cb331-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">+</span></span>
+<span id="cb331-4"><a href="mlm2.html#cb331-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> msoa_cd, <span class="at">nrow =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb331-5"><a href="mlm2.html#cb331-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Unemployment rate&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb331-6"><a href="mlm2.html#cb331-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Long-term Illness (%)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb331-7"><a href="mlm2.html#cb331-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="08-multilevel_02_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>We can observe great variability in the relationship between unemployment rates and the percentage of population in long-term illness. A strong and positive relationship exists in MSOA <code>E02001366</code> (Tuebrook and Stoneycroft), while it is negative in MSOA <code>E02001370</code> (Everton) and neutral in MSOA <code>E02001390</code> (Princes Park &amp; Riverside). This visual inspection suggests that accounting for differences in the way unmployment rates relate to long-term illness is important. Contextual factors may differ across MSOAs in systematic ways.</p>
@@ -451,18 +454,18 @@ Replacing the first equation into the second generates:</p>
 <p><span class="math display">\[y_{ij} = (\beta_{0} + u_{0j}) + (\beta_{1} + u_{1j})x_{ij} + e_{ij}\]</span>
 where, as in the previous Chapter, <span class="math inline">\(y\)</span> the proportion of unemployed population in OA <span class="math inline">\(i\)</span> within MSOA <span class="math inline">\(j\)</span>; <span class="math inline">\(\beta_{0}\)</span> is the fixed intercept (averaging over all MSOAs); <span class="math inline">\(u_{0j}\)</span> represents the MSOA-level residuals, or <em>random effects</em>, of the intercept; <span class="math inline">\(e_{ij}\)</span> is the individual-level residuals; and, <span class="math inline">\(x_{ij}\)</span> represents the percentage of long-term illness population. <em>But</em> now we have a varying slope represented by <span class="math inline">\(\beta_{1}\)</span> and <span class="math inline">\(u_{1j}\)</span>: <span class="math inline">\(\beta_{1}\)</span> is estimated average slope - fixed part of the model; and, <span class="math inline">\(u_{1j}\)</span> is the estimated group-level errors of the slope.</p>
 <p>To estimate such model, we add <code>lt_ill</code> in the bracket with a <code>+</code> sign between <code>1</code> and <code>|</code> i.e. <code>(1 + lt_ill | msoa_cd)</code>.</p>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="mlm2.html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="co"># attach df</span></span>
-<span id="cb323-2"><a href="mlm2.html#cb323-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(oa_shp)</span>
-<span id="cb323-3"><a href="mlm2.html#cb323-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb323-4"><a href="mlm2.html#cb323-4" aria-hidden="true" tabindex="-1"></a><span class="co"># change to proportion</span></span>
-<span id="cb323-5"><a href="mlm2.html#cb323-5" aria-hidden="true" tabindex="-1"></a>oa_shp<span class="sc">$</span>lt_ill <span class="ot">&lt;-</span> lt_ill<span class="sc">/</span><span class="dv">100</span></span>
-<span id="cb323-6"><a href="mlm2.html#cb323-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb323-7"><a href="mlm2.html#cb323-7" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
-<span id="cb323-8"><a href="mlm2.html#cb323-8" aria-hidden="true" tabindex="-1"></a>eq6 <span class="ot">&lt;-</span> unemp <span class="sc">~</span> lt_ill <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> lt_ill <span class="sc">|</span> msoa_cd)</span>
-<span id="cb323-9"><a href="mlm2.html#cb323-9" aria-hidden="true" tabindex="-1"></a>model6 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(eq6, <span class="at">data =</span> oa_shp)</span>
-<span id="cb323-10"><a href="mlm2.html#cb323-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb323-11"><a href="mlm2.html#cb323-11" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
-<span id="cb323-12"><a href="mlm2.html#cb323-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model6)</span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="mlm2.html#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="co"># attach df</span></span>
+<span id="cb333-2"><a href="mlm2.html#cb333-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(oa_shp)</span>
+<span id="cb333-3"><a href="mlm2.html#cb333-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb333-4"><a href="mlm2.html#cb333-4" aria-hidden="true" tabindex="-1"></a><span class="co"># change to proportion</span></span>
+<span id="cb333-5"><a href="mlm2.html#cb333-5" aria-hidden="true" tabindex="-1"></a>oa_shp<span class="sc">$</span>lt_ill <span class="ot">&lt;-</span> lt_ill<span class="sc">/</span><span class="dv">100</span></span>
+<span id="cb333-6"><a href="mlm2.html#cb333-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb333-7"><a href="mlm2.html#cb333-7" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
+<span id="cb333-8"><a href="mlm2.html#cb333-8" aria-hidden="true" tabindex="-1"></a>eq6 <span class="ot">&lt;-</span> unemp <span class="sc">~</span> lt_ill <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> lt_ill <span class="sc">|</span> msoa_cd)</span>
+<span id="cb333-9"><a href="mlm2.html#cb333-9" aria-hidden="true" tabindex="-1"></a>model6 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(eq6, <span class="at">data =</span> oa_shp)</span>
+<span id="cb333-10"><a href="mlm2.html#cb333-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb333-11"><a href="mlm2.html#cb333-11" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
+<span id="cb333-12"><a href="mlm2.html#cb333-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model6)</span></code></pre></div>
 <pre><code>## Linear mixed model fit by REML [&#39;lmerMod&#39;]
 ## Formula: unemp ~ lt_ill + (1 + lt_ill | msoa_cd)
 ##    Data: oa_shp
@@ -491,13 +494,13 @@ where, as in the previous Chapter, <span class="math inline">\(y\)</span> the pr
 <p>In this model, the estimated standard deviation of the unexplained within-MSOA variation is 0.04974, and the estimated standard deviation of the MSOA intercepts is 0.05855. But, additionally, we also have estimates of standard deviation of the MSOA slopes (0.17154) and correlation between MSOA-level residuals for the intercept and slope (-0.73). While the former measures the extent of average deviation in the slopes across MSOAs, the latter indicates that the intercept and slope MSOA-level residuals are negatively associated; that is, MSOAs with large slopes have relatively smaller intercepts and <em>vice versa</em>. We will come back to this in Section <a href="mlm2.html#interpreting-correlations-between-group-level-intercepts-and-slopes">Interpreting Correlations Between Group-level Intercepts and Slopes</a>.</p>
 <p>Similarly, the correlation of fixed effects indicates a negative relationship between the intercept and slope of the average regression model; that is, as the average model intercept tends to increase, the average strength of the relationship between unemployment rate and long-term illness decreases and <em>vice versa</em>.</p>
 <p>We then explore the estimated average coefficients (<em>fixed effects</em>):</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="mlm2.html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(model6)</span></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="mlm2.html#cb335-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(model6)</span></code></pre></div>
 <pre><code>## (Intercept)      lt_ill 
 ##  0.04765009  0.30125875</code></pre>
 <p>yields an estimated regression line in an average LSOA: <span class="math inline">\(y = 0.04764998 + 0.30125916x\)</span>. The fixed intercept indicates that the average unemployment rate is 0.05 if the percentage of population with long-term illness is zero.The fixed slope indicates that the average relationship between unemployment rate and long-term illness is positive across MSOAs i.e. as the percentage of population with long-term illness increases by 1 percentage point, the unemployment rate increases by 0.3.</p>
 <p>We look the estimated MSOA-level errors (<em>random effects</em>):</p>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="mlm2.html#cb327-1" aria-hidden="true" tabindex="-1"></a>ranef_m6 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model6)</span>
-<span id="cb327-2"><a href="mlm2.html#cb327-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ranef_m6<span class="sc">$</span>msoa_cd, <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="mlm2.html#cb337-1" aria-hidden="true" tabindex="-1"></a>ranef_m6 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model6)</span>
+<span id="cb337-2"><a href="mlm2.html#cb337-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ranef_m6<span class="sc">$</span>msoa_cd, <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##            (Intercept)      lt_ill
 ## E02001347 -0.026561345  0.02718102
 ## E02001348  0.001688245 -0.11533102
@@ -506,49 +509,49 @@ where, as in the previous Chapter, <span class="math inline">\(y\)</span> the pr
 ## E02001351  0.086214137 -0.28130162</code></pre>
 <p>Recall these estimates indicate the extent of deviation of the MSOA-specific intercept and slope from the estimated model average captured by the fixed model component.</p>
 <p>We can also regain the estimated intercept and slope for each county by adding the estimated MSOA-level errors to the estimated average coefficients; or by executing:</p>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="mlm2.html#cb329-1" aria-hidden="true" tabindex="-1"></a><span class="co">#coef(model6)</span></span></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="mlm2.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="co">#coef(model6)</span></span></code></pre></div>
 <p>We are normally more interested in identifying the extent of deviation and its significance. To this end, we create a caterpillar plot:</p>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="mlm2.html#cb330-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
-<span id="cb330-2"><a href="mlm2.html#cb330-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotREsim</span>(<span class="fu">REsim</span>(model6))</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="mlm2.html#cb340-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb340-2"><a href="mlm2.html#cb340-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotREsim</span>(<span class="fu">REsim</span>(model6))</span></code></pre></div>
 <p><img src="08-multilevel_02_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>These plots reveal some interesting patterns. First, only one MSOA, containing wards such as Tuebrook and Stoneycroft, Anfield &amp; Everton, seems to have a statistically significantly different intercept, or average unemployment rate. Confidence intervals overlap zero for all other 60 MSOAs. Despite this, note that when a slope is allowed to vary by group, it generally makes sense for the intercept to also vary. Second, significant variability exists in the association between unemployment rate and long-term illness across MSOAs. Ten MSOAs display a significant positive association, while 12 exhibit a significantly negative relationship. Third, these results reveal that geographical differences in the relationship between unemployment rate and long-term illness can explain the significant differences in average unemployment rates in the varying intercept only model.</p>
 <p>Let’s try to get a better understanding of the varying relationship between unemployment rate and long-term illness by mapping the relevant MSOA-level errors.</p>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="mlm2.html#cb331-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
-<span id="cb331-2"><a href="mlm2.html#cb331-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/mlm/MSOA.shp&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="mlm2.html#cb341-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
+<span id="cb341-2"><a href="mlm2.html#cb341-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/mlm/MSOA.shp&quot;</span>)</span></code></pre></div>
 <pre><code>## Reading layer `MSOA&#39; from data source `/home/jovyan/work/data/mlm/MSOA.shp&#39; using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 61 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
 ## bbox:           xmin: 333086.1 ymin: 381426.3 xmax: 345636 ymax: 397980.1
 ## projected CRS:  Transverse_Mercator</code></pre>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="mlm2.html#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a dataframe for MSOA-level random effects</span></span>
-<span id="cb333-2"><a href="mlm2.html#cb333-2" aria-hidden="true" tabindex="-1"></a>re_msoa_m6 <span class="ot">&lt;-</span> <span class="fu">REsim</span>(model6) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(groupFctr <span class="sc">==</span> <span class="st">&quot;msoa_cd&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb333-3"><a href="mlm2.html#cb333-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">&quot;lt_ill&quot;</span>)</span>
-<span id="cb333-4"><a href="mlm2.html#cb333-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(re_msoa_m6)</span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="mlm2.html#cb343-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a dataframe for MSOA-level random effects</span></span>
+<span id="cb343-2"><a href="mlm2.html#cb343-2" aria-hidden="true" tabindex="-1"></a>re_msoa_m6 <span class="ot">&lt;-</span> <span class="fu">REsim</span>(model6) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(groupFctr <span class="sc">==</span> <span class="st">&quot;msoa_cd&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb343-3"><a href="mlm2.html#cb343-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">&quot;lt_ill&quot;</span>)</span>
+<span id="cb343-4"><a href="mlm2.html#cb343-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(re_msoa_m6)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    61 obs. of  6 variables:
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; ...
-##  $ mean     : num  0.0315 -0.113 0.0591 -0.1435 -0.2809 ...
-##  $ median   : num  0.0348 -0.1168 0.06 -0.144 -0.2821 ...
-##  $ sd       : num  0.0464 0.072 0.0817 0.0374 0.0403 ...</code></pre>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="mlm2.html#cb335-1" aria-hidden="true" tabindex="-1"></a><span class="co"># merge data</span></span>
-<span id="cb335-2"><a href="mlm2.html#cb335-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> msoa_shp, <span class="at">y =</span> re_msoa_m6, <span class="at">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="at">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="mlm2.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ensure geometry is valid</span></span>
-<span id="cb336-2"><a href="mlm2.html#cb336-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_make_valid</span>(msoa_shp)</span>
-<span id="cb336-3"><a href="mlm2.html#cb336-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb336-4"><a href="mlm2.html#cb336-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create a map</span></span>
-<span id="cb336-5"><a href="mlm2.html#cb336-5" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">&quot;MSOA-level residuals&quot;</span>)</span>
-<span id="cb336-6"><a href="mlm2.html#cb336-6" aria-hidden="true" tabindex="-1"></a>map_msoa <span class="ot">=</span> <span class="fu">tm_shape</span>(msoa_shp) <span class="sc">+</span></span>
-<span id="cb336-7"><a href="mlm2.html#cb336-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">&quot;median&quot;</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>, <span class="at">begin =</span> <span class="dv">0</span>, <span class="at">end =</span> <span class="dv">1</span>), <span class="at">style =</span> <span class="st">&quot;cont&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb336-8"><a href="mlm2.html#cb336-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> .<span class="dv">01</span>)  <span class="sc">+</span> </span>
-<span id="cb336-9"><a href="mlm2.html#cb336-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">&quot;arrow&quot;</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>) , <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
-<span id="cb336-10"><a href="mlm2.html#cb336-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">text.size =</span> <span class="fl">0.5</span>, <span class="at">position =</span>  <span class="fu">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;bottom&quot;</span>)) </span>
-<span id="cb336-11"><a href="mlm2.html#cb336-11" aria-hidden="true" tabindex="-1"></a>map_msoa</span></code></pre></div>
+##  $ mean     : num  0.0338 -0.1169 0.0527 -0.1436 -0.2801 ...
+##  $ median   : num  0.0348 -0.1186 0.0512 -0.1437 -0.282 ...
+##  $ sd       : num  0.0473 0.0792 0.0761 0.0357 0.036 ...</code></pre>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="mlm2.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="co"># merge data</span></span>
+<span id="cb345-2"><a href="mlm2.html#cb345-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> msoa_shp, <span class="at">y =</span> re_msoa_m6, <span class="at">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="at">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="mlm2.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ensure geometry is valid</span></span>
+<span id="cb346-2"><a href="mlm2.html#cb346-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_make_valid</span>(msoa_shp)</span>
+<span id="cb346-3"><a href="mlm2.html#cb346-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb346-4"><a href="mlm2.html#cb346-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create a map</span></span>
+<span id="cb346-5"><a href="mlm2.html#cb346-5" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">&quot;MSOA-level residuals&quot;</span>)</span>
+<span id="cb346-6"><a href="mlm2.html#cb346-6" aria-hidden="true" tabindex="-1"></a>map_msoa <span class="ot">=</span> <span class="fu">tm_shape</span>(msoa_shp) <span class="sc">+</span></span>
+<span id="cb346-7"><a href="mlm2.html#cb346-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">&quot;median&quot;</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>, <span class="at">begin =</span> <span class="dv">0</span>, <span class="at">end =</span> <span class="dv">1</span>), <span class="at">style =</span> <span class="st">&quot;cont&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb346-8"><a href="mlm2.html#cb346-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> .<span class="dv">01</span>)  <span class="sc">+</span> </span>
+<span id="cb346-9"><a href="mlm2.html#cb346-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">&quot;arrow&quot;</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>) , <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb346-10"><a href="mlm2.html#cb346-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">text.size =</span> <span class="fl">0.5</span>, <span class="at">position =</span>  <span class="fu">c</span>(<span class="st">&quot;center&quot;</span>, <span class="st">&quot;bottom&quot;</span>)) </span>
+<span id="cb346-11"><a href="mlm2.html#cb346-11" aria-hidden="true" tabindex="-1"></a>map_msoa</span></code></pre></div>
 <p><img src="08-multilevel_02_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>The map indicates that the relationship between unemployment rate and long-term illness is tends to stronger and positive in northern MSOAs; that is, the percentage of population with long-term illness explains a greater share of the variation in unemployment rates in these locations. As expected, a greater share of population in long-term illness is associated with higher local unemployment. In contrast, the relationship between unemployment rate and long-term illness tends to operate in the reverse direction in north-east and middle-southern MSOAs. In these MSOAs, OAs tend to have a higher unemployment rate relative the share of population in long-term illness. You can confirm this examining the data for specific MSOA executing:</p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="mlm2.html#cb337-1" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(msoa_cd, ward_nm, unemp, lt_ill) <span class="sc">%&gt;%</span></span>
-<span id="cb337-2"><a href="mlm2.html#cb337-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">as.character</span>(msoa_cd) <span class="sc">==</span> <span class="st">&quot;E02001370&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="mlm2.html#cb347-1" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(msoa_cd, ward_nm, unemp, lt_ill) <span class="sc">%&gt;%</span></span>
+<span id="cb347-2"><a href="mlm2.html#cb347-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">as.character</span>(msoa_cd) <span class="sc">==</span> <span class="st">&quot;E02001370&quot;</span>)</span></code></pre></div>
 <pre><code>## Simple feature collection with 23 features and 4 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -583,16 +586,16 @@ where, as in the previous Chapter, <span class="math inline">\(y\)</span> the pr
 <h2><span class="header-section-number">8.5</span> Interpreting Correlations Between Group-level Intercepts and Slopes</h2>
 <p>Correlations of random effects are confusing to interpret. Key for their appropriate interpretation is to recall they refer to group-level residuals i.e. deviation of intercepts and slopes from the average model intercept and slope. A strong <em>negative</em> correlation indicates that groups with high intercepts have relatively low slopes, and <em>vice versa</em>. A strong <em>positive</em> correlation indicates that groups with high intercepts have relatively high slopes, and <em>vice versa</em>. A correlation close to <em>zero</em> indicate little or no systematic between intercepts and slopes. Note that a high correlation between intercepts and slopes is not a problem, but it makes the interpretation of the estimated intercepts more challenging. For this reason, a suggestion is to center predictors (<span class="math inline">\(x&#39;s\)</span>); that is, substract their average value (<span class="math inline">\(z = x - \bar{x}\)</span>). For a more detailed discussion, see <span class="citation"><a href="references.html#ref-bristol2020" role="doc-biblioref">Multilevel Modelling</a> (<a href="references.html#ref-bristol2020" role="doc-biblioref">n.d.</a>)</span>.</p>
 <p>To illustrate this, let’s reestimate our model adding an individual-level predictor: the share of population with no educational qualification.</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="mlm2.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="co"># centering to the mean</span></span>
-<span id="cb339-2"><a href="mlm2.html#cb339-2" aria-hidden="true" tabindex="-1"></a>oa_shp<span class="sc">$</span>z_no_qual <span class="ot">&lt;-</span> no_qual<span class="sc">/</span><span class="dv">100</span> <span class="sc">-</span> <span class="fu">mean</span>(no_qual<span class="sc">/</span><span class="dv">100</span>)</span>
-<span id="cb339-3"><a href="mlm2.html#cb339-3" aria-hidden="true" tabindex="-1"></a>oa_shp<span class="sc">$</span>z_lt_ill <span class="ot">&lt;-</span> lt_ill <span class="sc">-</span> <span class="fu">mean</span>(lt_ill)</span>
-<span id="cb339-4"><a href="mlm2.html#cb339-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb339-5"><a href="mlm2.html#cb339-5" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
-<span id="cb339-6"><a href="mlm2.html#cb339-6" aria-hidden="true" tabindex="-1"></a>eq7 <span class="ot">&lt;-</span> unemp <span class="sc">~</span> z_lt_ill <span class="sc">+</span> z_no_qual <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> z_lt_ill <span class="sc">|</span> msoa_cd)</span>
-<span id="cb339-7"><a href="mlm2.html#cb339-7" aria-hidden="true" tabindex="-1"></a>model7 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(eq7, <span class="at">data =</span> oa_shp)</span>
-<span id="cb339-8"><a href="mlm2.html#cb339-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb339-9"><a href="mlm2.html#cb339-9" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
-<span id="cb339-10"><a href="mlm2.html#cb339-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model7)</span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="mlm2.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="co"># centering to the mean</span></span>
+<span id="cb349-2"><a href="mlm2.html#cb349-2" aria-hidden="true" tabindex="-1"></a>oa_shp<span class="sc">$</span>z_no_qual <span class="ot">&lt;-</span> no_qual<span class="sc">/</span><span class="dv">100</span> <span class="sc">-</span> <span class="fu">mean</span>(no_qual<span class="sc">/</span><span class="dv">100</span>)</span>
+<span id="cb349-3"><a href="mlm2.html#cb349-3" aria-hidden="true" tabindex="-1"></a>oa_shp<span class="sc">$</span>z_lt_ill <span class="ot">&lt;-</span> lt_ill <span class="sc">-</span> <span class="fu">mean</span>(lt_ill)</span>
+<span id="cb349-4"><a href="mlm2.html#cb349-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb349-5"><a href="mlm2.html#cb349-5" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
+<span id="cb349-6"><a href="mlm2.html#cb349-6" aria-hidden="true" tabindex="-1"></a>eq7 <span class="ot">&lt;-</span> unemp <span class="sc">~</span> z_lt_ill <span class="sc">+</span> z_no_qual <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> z_lt_ill <span class="sc">|</span> msoa_cd)</span>
+<span id="cb349-7"><a href="mlm2.html#cb349-7" aria-hidden="true" tabindex="-1"></a>model7 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(eq7, <span class="at">data =</span> oa_shp)</span>
+<span id="cb349-8"><a href="mlm2.html#cb349-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb349-9"><a href="mlm2.html#cb349-9" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
+<span id="cb349-10"><a href="mlm2.html#cb349-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model7)</span></code></pre></div>
 <pre><code>## Linear mixed model fit by REML [&#39;lmerMod&#39;]
 ## Formula: unemp ~ z_lt_ill + z_no_qual + (1 + z_lt_ill | msoa_cd)
 ##    Data: oa_shp
@@ -634,7 +637,7 @@ where, as in the previous Chapter, <span class="math inline">\(y\)</span> the pr
 <div id="model-comparison" class="section level3" number="8.6.1">
 <h3><span class="header-section-number">8.6.1</span> Model Comparison</h3>
 <p><em>How we assess different candidate models?</em> We can use the function <code>anova()</code> and assess various statistics: The Akaike Information Criterion (AIC), the Bayesian Information Criterion (BIC), Loglik and Deviance. Generally, we look for lower scores for all these indicators. We can also refer to the <em>Chisq</em> statistic below. It tests the hypothesis of whether additional predictors improve model fit. Particularly it tests the <em>Null Hypothesis</em> whether the coefficients of the additional predictors equal 0. It does so comparing the deviance statistic and determining if changes in the deviance are statistically significant. Note that a major limitation of the deviance test is that it is for nested models i.e. a model being compared must be nested in the other. Below we compare our two models. The results indicate that adding an individual-level predictor (i.e. the share of population with no qualification) provides a model with better.</p>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="mlm2.html#cb341-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model6, model7)</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="mlm2.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model6, model7)</span></code></pre></div>
 <pre><code>## refitting model(s) with ML (instead of REML)</code></pre>
 <pre><code>## Data: oa_shp
 ## Models:

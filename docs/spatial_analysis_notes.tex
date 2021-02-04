@@ -2228,6 +2228,54 @@ Let us say, a new house is going to be advertised on the coordinates \texttt{X\ 
 
 And, as show above, the estimated value is \$171.4141334\footnote{\textbf{PRO QUESTION} Is that house expensive or cheap, as compared to the other houses sold in this dataset? Can you figure out where the house is in the distribution?}.
 
+\hypertarget{questions}{%
+\section{Questions}\label{questions}}
+
+We will be using the Madrid AirBnb dataset:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mad\_abb }\OtherTok{\textless{}{-}} \FunctionTok{st\_read}\NormalTok{(}\StringTok{"data/assignment\_1\_madrid/madrid\_abb.gpkg"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Simple feature collection with 18399 features and 15 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
+## geographic CRS: WGS 84
+\end{verbatim}
+
+This is fairly similar in spirit to the one from San Diego we have relied on for the chapter, although the column set is not exactly the same:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colnames}\NormalTok{(mad\_abb)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "price"           "price_usd"       "log1p_price_usd" "accommodates"   
+##  [5] "bathrooms"       "bedrooms"        "beds"            "neighbourhood"  
+##  [9] "room_type"       "property_type"   "WiFi"            "Coffee"         
+## [13] "Gym"             "Parking"         "km_to_retiro"    "geom"
+\end{verbatim}
+
+For this set of questions, the only two columns we will need is \texttt{geom}, which contains the point geometries, and \texttt{price\_usd}, which record the price of the AirBnb property in USD.
+
+With this at hand, answer the following questions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a KDE that represents the density of locations of AirBnb properties in Madrid
+\item
+  Using inverse distance weighting, create a surface of AirBnb prices
+\end{enumerate}
+
 \hypertarget{flows}{%
 \chapter{Flows}\label{flows}}
 
@@ -3172,6 +3220,76 @@ That means that, on average, predictions in our best model \texttt{m4} are 256 t
 
 The table is both encouraging and disheartning at the same time. On the one hand, all the modeling techniques covered above behave as we would expect: the baseline model displays the worst predicting power of all, and every improvement (except the street distances!) results in notable decreases of the RMSE. This is good news. However, on the other hand, all of our modelling efforts fall short of given a better guess than simply using the previous year's counts. \emph{Why? Does this mean that we should not pay attention to modeling and inference?} Not really. Generally speaking, a model is as good at predicting as it is able to mimic the underlying process that gave rise to the data in the first place. The results above point to a case where our model is not picking up all the factors that determine the amount of trips undertaken in a give route. This could be improved by enriching the model with more/better predictors, as we have seen above. Also, the example above seems to point to a case where those idiosyncracies in 2015 that the model does not pick up seem to be at work in 2016 as well. This is great news for our prediction efforts this time, but we have no idea why this is the case and, for all that matters, it could change the coming year. Besides the elegant quantification of uncertainty, the true advantage of a modeling approach in this context is that, if well fit, it is able to pick up the fundamentals that apply over and over. This means that, if next year we're not as lucky as this one and previous counts are not good predictors but the variables we used in our model continue to have a role in determining the outcome, the data scientist should be luckier and hit a better prediction.
 
+\hypertarget{questions-1}{%
+\section{Questions}\label{questions-1}}
+
+We will be using again the Madrid AirBnb dataset:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mad\_abb }\OtherTok{\textless{}{-}} \FunctionTok{readOGR}\NormalTok{(}\StringTok{\textquotesingle{}./data/assignment\_1\_madrid/madrid\_abb.gpkg\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## OGR data source with driver: GPKG 
+## Source: "/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg", layer: "madrid_abb"
+## with 18399 features
+## It has 15 fields
+## Integer64 fields read as strings:  accommodates
+\end{verbatim}
+
+The columns to use here are:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{price\_usd}: price expressed in USD
+\item
+  \texttt{log1p\_price\_usd}: logarithm of the price expressed in USD
+\item
+  \texttt{accommodates}: number of people the property accommodates
+\item
+  \texttt{bathrooms}: number of bathrooms the property includes
+\item
+  \texttt{bedrooms}: number of bedrooms the property includes
+\item
+  \texttt{beds}: number of beds the property includes
+\end{itemize}
+
+With these data at hand, accomplish the following challenges:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Set up a baseline regression model where you explain the price of a property as a function of its characteristics:
+\end{enumerate}
+
+\[
+P_i = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Fit a parallel model that uses the log of price as dependent variable:
+\end{enumerate}
+
+\[
+\log(P_i) = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Perform a predictive check analysis of both models, discussing how they compare, which one you would prefer, and why
+\end{enumerate}
+
 \hypertarget{spatialecon}{%
 \chapter{Spatial Econometrics}\label{spatialecon}}
 
@@ -3336,7 +3454,6 @@ Before we start any analysis, let us set the path to the directory where we are 
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\#setwd(\textquotesingle{}/media/dani/baul/AAA/Documents/teaching/u{-}lvl/2016/envs453/code/GIT/kde\_idw\_r/\textquotesingle{})}
 \FunctionTok{setwd}\NormalTok{(}\StringTok{\textquotesingle{}.\textquotesingle{}}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -4227,6 +4344,94 @@ Now remember we were using the log of the price as dependent variable. If we wan
 
 According to our model, the house would be worth \$134.3123448.
 
+\hypertarget{questions-2}{%
+\section{Questions}\label{questions-2}}
+
+We will be using again the Madrid AirBnb dataset:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mad\_abb }\OtherTok{\textless{}{-}} \FunctionTok{st\_read}\NormalTok{(}\StringTok{\textquotesingle{}./data/assignment\_1\_madrid/madrid\_abb.gpkg\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Simple feature collection with 18399 features and 15 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
+## geographic CRS: WGS 84
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colnames}\NormalTok{(mad\_abb)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "price"           "price_usd"       "log1p_price_usd" "accommodates"   
+##  [5] "bathrooms"       "bedrooms"        "beds"            "neighbourhood"  
+##  [9] "room_type"       "property_type"   "WiFi"            "Coffee"         
+## [13] "Gym"             "Parking"         "km_to_retiro"    "geom"
+\end{verbatim}
+
+In addition to those we have already seen, the columns to use here are:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{neighbourhood}: a column with the name of the neighbourhood in which the property is located
+\end{itemize}
+
+With this at hand, answer the following questions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Fit a baseline model with only property characteristics explaining the log of price
+\end{enumerate}
+
+\[
+\log(P_i) = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Augment the model with fixed effects at the neighbourhood level
+\end{enumerate}
+
+\[
+\log(P_i) = \alpha_r + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  {[}Optional{]} Augment the model with spatial regimes at the neighbourhood level:
+\end{enumerate}
+
+\[
+\log(P_i) = \alpha_r + \beta_{r1} Acc_i + \beta_{r2} Bath_i + \beta_{r3} Bedr_i + \beta_{r4} Beds_i + \epsilon_{ri}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Fit a model that augments the baseline in 1. with the spatial lag of a variable you consider interesting. Motivate this choice. Note that to complete this, you will need to also generate a spatial weights matrix.
+\end{enumerate}
+
+In each instance, provide a brief interpretation (no more thana few lines for each) that demonstrates your understanding of theunderlying concepts behind your approach.
+
 \hypertarget{mlm1}{%
 \chapter{Multilevel Modelling - Part 1}\label{mlm1}}
 
@@ -4827,17 +5032,17 @@ We can also obtain group-level errors (\emph{random effects}) by using a simulat
 \end{Shaded}
 
 \begin{verbatim}
-##    groupFctr   groupID        term         mean       median         sd
-## 1    lsoa_cd E01006512 (Intercept) -0.014700814 -0.014666384 0.01991231
-## 2    lsoa_cd E01006513 (Intercept) -0.017736009 -0.017429190 0.01950046
-## 3    lsoa_cd E01006514 (Intercept) -0.020012819 -0.020217234 0.02021052
-## 4    lsoa_cd E01006515 (Intercept) -0.018952198 -0.019091378 0.01956191
-## 5    lsoa_cd E01006518 (Intercept) -0.017177726 -0.017083454 0.02133430
-## 6    lsoa_cd E01006519 (Intercept) -0.016180626 -0.016994391 0.01002338
-## 7    lsoa_cd E01006520 (Intercept) -0.022994437 -0.022369737 0.01881679
-## 8    lsoa_cd E01006521 (Intercept)  0.006675158  0.006470678 0.01919220
-## 9    lsoa_cd E01006522 (Intercept)  0.019415210  0.019385978 0.01993856
-## 10   lsoa_cd E01006523 (Intercept)  0.003331132  0.001746739 0.02000557
+##    groupFctr   groupID        term         mean       median          sd
+## 1    lsoa_cd E01006512 (Intercept) -0.015471108 -0.014024889 0.018502845
+## 2    lsoa_cd E01006513 (Intercept) -0.016242388 -0.017134589 0.018807439
+## 3    lsoa_cd E01006514 (Intercept) -0.022486320 -0.022085883 0.019307663
+## 4    lsoa_cd E01006515 (Intercept) -0.017674406 -0.018630115 0.019509020
+## 5    lsoa_cd E01006518 (Intercept) -0.019172600 -0.021171119 0.019618507
+## 6    lsoa_cd E01006519 (Intercept) -0.015409627 -0.014633292 0.009396506
+## 7    lsoa_cd E01006520 (Intercept) -0.029054259 -0.029817337 0.021181812
+## 8    lsoa_cd E01006521 (Intercept)  0.006849465  0.008136881 0.020713774
+## 9    lsoa_cd E01006522 (Intercept)  0.018603501  0.019849149 0.019894843
+## 10   lsoa_cd E01006523 (Intercept)  0.002899042  0.003127135 0.019542610
 \end{verbatim}
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g.~LSOA). The mean estimates are similar to those obtained from \texttt{ranef} with some small differences due to rounding.
@@ -4914,9 +5119,9 @@ We can also map the MSOA-level \emph{random effects}. To this end, we first need
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.00883 -0.01904 -0.03103 0.00504 0.02242 ...
-##  $ median   : num  -0.00787 -0.02089 -0.03015 0.00415 0.02264 ...
-##  $ sd       : num  0.0298 0.0323 0.0312 0.0303 0.015 ...
+##  $ mean     : num  -0.01243 -0.02588 -0.02713 0.00307 0.02265 ...
+##  $ median   : num  -0.01275 -0.02432 -0.02453 0.00597 0.0225 ...
+##  $ sd       : num  0.0343 0.0339 0.0309 0.0347 0.0158 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -5548,9 +5753,9 @@ Let's try to get a better understanding of the varying relationship between unem
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.0286 -0.1182 0.0631 -0.1461 -0.2866 ...
-##  $ median   : num  0.0282 -0.1199 0.0611 -0.1455 -0.2869 ...
-##  $ sd       : num  0.0441 0.0771 0.0869 0.0403 0.0371 ...
+##  $ mean     : num  0.0252 -0.1137 0.0597 -0.1401 -0.282 ...
+##  $ median   : num  0.025 -0.109 0.063 -0.141 -0.287 ...
+##  $ sd       : num  0.0394 0.0744 0.083 0.0391 0.0413 ...
 \end{verbatim}
 
 \begin{Shaded}

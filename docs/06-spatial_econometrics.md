@@ -148,7 +148,6 @@ Before we start any analysis, let us set the path to the directory where we are 
 
 
 ```r
-#setwd('/media/dani/baul/AAA/Documents/teaching/u-lvl/2016/envs453/code/GIT/kde_idw_r/')
 setwd('.')
 ```
 
@@ -1014,3 +1013,67 @@ exp(new.price)
 ```
 
 According to our model, the house would be worth $134.3123448.
+
+<!-- #region -->
+## Questions
+
+
+We will be using again the Madrid AirBnb dataset:
+<!-- #endregion -->
+
+
+```r
+mad_abb <- st_read('./data/assignment_1_madrid/madrid_abb.gpkg')
+```
+
+```
+## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Simple feature collection with 18399 features and 15 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
+## geographic CRS: WGS 84
+```
+
+
+```r
+colnames(mad_abb)
+```
+
+```
+##  [1] "price"           "price_usd"       "log1p_price_usd" "accommodates"   
+##  [5] "bathrooms"       "bedrooms"        "beds"            "neighbourhood"  
+##  [9] "room_type"       "property_type"   "WiFi"            "Coffee"         
+## [13] "Gym"             "Parking"         "km_to_retiro"    "geom"
+```
+
+<!-- #region -->
+In addition to those we have already seen, the columns to use here are:
+
+- `neighbourhood`: a column with the name of the neighbourhood in which the property is located
+
+With this at hand, answer the following questions:
+
+1. Fit a baseline model with only property characteristics explaining the log of price
+
+$$
+\log(P_i) = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
+$$
+
+2. Augment the model with fixed effects at the neighbourhood level
+
+
+$$
+\log(P_i) = \alpha_r + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
+$$
+
+3. [Optional] Augment the model with spatial regimes at the neighbourhood level:
+
+$$
+\log(P_i) = \alpha_r + \beta_{r1} Acc_i + \beta_{r2} Bath_i + \beta_{r3} Bedr_i + \beta_{r4} Beds_i + \epsilon_{ri}
+$$
+
+4. Fit a model that augments the baseline in 1. with the spatial lag of a variable you consider interesting. Motivate this choice. Note that to complete this, you will need to also generate a spatial weights matrix.
+
+In each instance, provide a brief interpretation (no more thana few lines for each) that demonstrates your understanding of theunderlying concepts behind your approach.
+<!-- #endregion -->
