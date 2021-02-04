@@ -10,7 +10,7 @@ This chapter is based on the following references, which are great follow-up's o
 
 We will rely on the following libraries in this section, all of them included in the [book list](#Dependency-list):
 
-```{r, results='hide'}
+```{r results='hide'}
 # For pretty table
 library(knitr)
 # All things geodata
@@ -53,7 +53,7 @@ colnames(db)
 
 The rest of this session will focus on two main elements of the table: the spatial dimension (as stored in the point coordinates), and the nightly price values, expressedin USD and contained in the `price` column. To get a sense of what they look like first, let us plot both. We can get a quick look at the non-spatial distribution of house values with the following commands:
 
-```{r, fig.margin = TRUE, fig.cap = 'Raw AirBnb prices in San Diego'}
+```{r fig.margin=TRUE, fig.cap="Raw AirBnb prices in San Diego"}
 # Create the histogram
 hist <- qplot(data=db,x=price)
 hist
@@ -61,7 +61,7 @@ hist
 
 This basically shows there is a lot of values concentrated around the lower end of the distribution but a few very large ones. A usual transformation to *shrink* these differences is to take logarithms. The original table already contains an additional column with the logarithm of each price (`log_price`).
 
-```{r, fig.margin = TRUE, fig.cap = 'Log of AirBnb price in San Diego'}
+```{r fig.margin=TRUE, fig.cap="Log of AirBnb price in San Diego"}
 # Create the histogram
 hist <- qplot(data=db, x=log_price)
 hist
@@ -69,7 +69,7 @@ hist
 
 To obtain the spatial distribution of these houses, we need to focus on the `geometry` column. The easiest, quickest (and also "dirtiest") way to get a sense of what the data look like over space is using `plot`:
 
-```{r, fig.margin = TRUE, fig.cap = 'Spatial distribution of AirBnb in San Diego'}
+```{r fig.margin=TRUE, fig.cap="Spatial distribution of AirBnb in San Diego"}
 plot(st_geometry(db))
 ```
 
@@ -112,7 +112,7 @@ Kernel Density Estimation (KDE) is a technique that creates a *continuous* repre
 
 KDE over a single dimension is essentially a contiguous version of a histogram. We can see that by overlaying a KDE on top of the histogram of logs that we have created before:
 
-```{r, fig.fullwidth = TRUE, fig.cap="Histogram and KDE of the log of AirBnb prices in San Diego"}
+```{r fig.fullwidth=TRUE, fig.cap="Histogram and KDE of the log of AirBnb prices in San Diego"}
 # Create the base
 base <- ggplot(db, aes(x=log_price))
 # Histogram
@@ -132,7 +132,7 @@ Geography, at the end of the day, is usually represented as a two-dimensional sp
 
 To create a spatial KDE in R, we can use general tooling for non-spatial points, such as the `stat_density2d_filled` method:
 
-```{r, fig.margin = TRUE, fig.cap = 'KDE of AirBnb properties in San Diego'}
+```{r fig.margin=TRUE, fig.cap="KDE of AirBnb properties in San Diego"}
 # Create the KDE surface
 kde <- ggplot(data = db) +
   stat_density2d_filled(
@@ -150,7 +150,7 @@ kde + geom_sf(alpha=0)
 
 This approach generates a surface that represents the density of dots, that is an estimation of the probability of finding a house transaction at a given coordinate. However, without any further information, they are hard to interpret and link with previous knowledge of the area. To bring such context to the figure, we can plot an underlying basemap, using a cloud provider such as Google Maps or, as in this case, OpenStreetMap. To do it, we will leverage the library `ggmap`, which is designed to play nicely with the `ggplot2` family (hence the seemingly counterintuitive example above). Before we can plot them with the online map, we need to reproject them though.
 
-```{r, fig.fullwidth = TRUE, fig.cap = 'KDE of AirBnb properties in San Diego'}
+```{r fig.fullwidth=TRUE, fig.cap="KDE of AirBnb properties in San Diego"}
 # Reproject coordinates
 lon_lat <- st_transform(db, crs = 4326) %>%
   st_coordinates() %>%
@@ -214,7 +214,7 @@ sd.grid <- db %>%
 
 The object `sd.grid` is a regular grid with 10,000 ($100 \times 100$) equally spaced cells:
 
-```{r, fig.margin = TRUE}
+```{r fig.margin=TRUE}
 sd.grid
 ```
 
@@ -242,7 +242,7 @@ The column we will pay attention to is `var1.pred`. For a hypothetical house adv
 
 Once we have the IDW object computed, we can plot it to explore the distribution, not of AirBnb locations in this case, but of house prices over the geography of San Diego. To do this using `ggplot2`, we first append the coordinates of each grid cell as columns of the table:
 
-```{r, fig.margin=TRUE}
+```{r fig.margin=TRUE}
 idw.hp = idw.hp %>%
   cbind(st_coordinates(.))
 ```
@@ -281,4 +281,23 @@ idw.one
 
 And, as show above, the estimated value is $`r idw.one[[1, "var1.pred"]]`^[**PRO QUESTION** Is that house expensive or cheap, as compared to the other houses sold in this dataset? Can you figure out where the house is in the distribution?].
 
+## Questions
 
+We will be using the Madrid AirBnb dataset:
+
+```{r}
+mad_abb <- st_read("data/assignment_1_madrid/madrid_abb.gpkg")
+```
+
+This is fairly similar in spirit to the one from San Diego we have relied on for the chapter, although the column set is not exactly the same:
+
+```{r}
+colnames(mad_abb)
+```
+
+For this set of questions, the only two columns we will need is `geom`, which contains the point geometries, and `price_usd`, which record the price of the AirBnb property in USD.
+
+With this at hand, answer the following questions:
+
+1. Create a KDE that represents the density of locations of AirBnb properties in Madrid
+1. Using inverse distance weighting, create a surface of AirBnb prices
