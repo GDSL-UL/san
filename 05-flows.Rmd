@@ -12,7 +12,7 @@ Content is based on the following references, which are great follow-up's on the
 
 We will rely on the following libraries in this section, all of them included in the [book list](#Dependency-list):
 
-```{r, results='hide'}
+```{r results='hide'}
 # Spatial Data management
 library(rgdal)
 # Pretty graphics
@@ -59,13 +59,13 @@ where `orig` and `dest` are the station IDs of the origin and destination, `stre
 
 The easiest way to get a quick preview of what the data looks like spatially is to make a simple plot:
 
-```{r, fig.margin = TRUE, fig.cap = 'Potential routes'}
+```{r fig.margin=TRUE, fig.cap="Potential routes"}
 plot(db)
 ```
 
 Equally, if we want to visualize a single route, we can simply subset the table. For example, to get the shape of the trip from station `39` to station `48`, we can:
 
-```{r, fig.margin = TRUE, fig.cap = 'Trip from station 39 to 48'}
+```{r fig.margin=TRUE, fig.cap="Trip from station 39 to 48"}
 one39to48 <- db[ which(
           db@data$orig == 39 & db@data$dest == 48
           ) , ]
@@ -74,7 +74,7 @@ plot(one39to48)
 
 or, for the most popular route, we can:
 
-```{r, fig.margin = TRUE, fig.cap = 'Most popular trip'}
+```{r fig.margin=TRUE, fig.cap="Most popular trip"}
 most_pop <- db[ which(
           db@data$trips15 == max(db@data$trips15)
           ) , ]
@@ -101,19 +101,19 @@ SanFran <- get_stamenmap(
 
 and make sure it looks like we intend it to look:
 
-```{r, fig.margin=T}
+```{r fig.margin=TRUE}
 ggmap(SanFran)
 ```
 
 Now to combine tiles and routes, we need to pull out the coordinates that make up each line. For the route example above, this would be:
 
-```{r, fig.margin=T}
+```{r fig.margin=TRUE}
 xys1 <- as.data.frame(coordinates(most_pop))
 ```
 
 Now we can plot the route^[**EXERCISE**: *can you plot the route for the largest climb?*] (note we also dim down the background to focus the attention on flows):
 
-```{r, fig.margin=T}
+```{r fig.margin=TRUE}
 ggmap(SanFran, darken=0.5) + 
   geom_path(
     aes(x=X1, y=X2), 
@@ -151,7 +151,7 @@ for(x in 1:nrow(db)){
 
 Now we can go on and plot all of them:
 
-```{r, fig.margin=T}
+```{r fig.margin=TRUE}
 ggmap(SanFran, darken=0.75) + 
   geom_path(
     aes(x=lon, y=lat, group=id),
@@ -164,7 +164,7 @@ ggmap(SanFran, darken=0.75) +
 
 Finally, we can get a sense of the distribution of the flows by associating a color gradient to each flow based on its number of trips:
 
-```{r, fig.fullwidth=T}
+```{r fig.fullwidth=TRUE}
 ggmap(SanFran, darken=0.75) + 
   geom_path(
     aes(x=lon, y=lat, group=id, colour=trips),
@@ -212,7 +212,7 @@ summary(m1)
 
 To explore how good this model is, we will be comparing the predictions the model makes about the number of trips each flow should have with the actual number of trips. A first approach is to simply plot the distribution of both variables:
 
-```{r, fig.margin=T}
+```{r fig.margin=TRUE}
 plot(
   density(m1$fitted.values), 
   xlim=c(-100, max(db_std$trips15)),
@@ -262,7 +262,7 @@ generate_draw <- function(m){
 
 This function takes a model `m` and the set of covariates `x` used and returns a random realization of predictions from the model. To get a sense of how this works, we can get and plot a realization of the model, compared to the expected one and the actual values:
 
-```{r, fig.margin=T}
+```{r fig.margin=TRUE}
 new_y <- generate_draw(m1)
 
 plot(
@@ -297,7 +297,7 @@ legend(
 
 Once we have this "draw engine", we can set it to work as many times as we want using a simple `for` loop. In fact, we can directly plot these lines as compared to the expected one and the trip count:
 
-```{r, fig.fullwidth=T}
+```{r fig.fullwidth=TRUE}
 plot(
   density(m1$fitted.values), 
   xlim=c(-100, max(db_std$trips15)),
@@ -372,7 +372,7 @@ m2 <- glm(
 
 Now let's see how much better, if any, this approach is. To get a quick overview, we can simply plot the point predictions:
 
-```{r, fig.margin=T}
+```{r fig.margin=TRUE}
 plot(
   density(m2$fitted.values), 
   xlim=c(-100, max(db_std$trips15)),
@@ -420,7 +420,7 @@ generate_draw_poi <- function(m){
 
 And then we can examine both point predictions an uncertainty around them:
 
-```{r, fig.fullwidth=T}
+```{r fig.fullwidth=TRUE}
 plot(
   density(m2$fitted.values), 
   xlim=c(-100, max(db_std$trips15)),
@@ -487,7 +487,7 @@ m3 <- glm(
 And with our new model, we can have a look at how well it does at predicting the overall number of trips^[Although, theoretically, we could also include simulations of the model in the plot to get a better sense of the uncertainty behind our model, in practice this seems troublesome. The problems most likely arise from the fact that many of the origin and destination binary variable coefficients are estimated with a great deal of uncertainty. This causes some of the simulation to generate extreme values that, when passed through the exponential term of the Poisson link function, cause problems. If anything, this is testimony of how a simple fixed effect model can sometimes lack accuracy and generate very uncertain estimates. A potential extension to work around these problems could be to fit a multilevel model with two specific levels beyond the trip-level: one for origin and another one for destination stations.]:
 
 
-```{r, fig.fullwidth=T}
+```{r fig.fullwidth=TRUE}
 plot(
   density(m3$fitted.values), 
   xlim=c(-100, max(db_std$trips15)),
@@ -532,7 +532,7 @@ m4 <- glm(
 
 And we can similarly get a sense of our predictive fitting with:
 
-```{r, fig.fullwidth=T}
+```{r fig.fullwidth=TRUE}
 plot(
   density(m4$fitted.values), 
   xlim=c(-100, max(db_std$trips15)),
@@ -634,3 +634,40 @@ rmses
 ```
 
 The table is both encouraging and disheartning at the same time. On the one hand, all the modeling techniques covered above behave as we would expect: the baseline model displays the worst predicting power of all, and every improvement (except the street distances!) results in notable decreases of the RMSE. This is good news. However, on the other hand, all of our modelling efforts fall short of given a better guess than simply using the previous year's counts. *Why? Does this mean that we should not pay attention to modeling and inference?* Not really. Generally speaking, a model is as good at predicting as it is able to mimic the underlying process that gave rise to the data in the first place. The results above point to a case where our model is not picking up all the factors that determine the amount of trips undertaken in a give route. This could be improved by enriching the model with more/better predictors, as we have seen above. Also, the example above seems to point to a case where those idiosyncracies in 2015 that the model does not pick up seem to be at work in 2016 as well. This is great news for our prediction efforts this time, but we have no idea why this is the case and, for all that matters, it could change the coming year. Besides the elegant quantification of uncertainty, the true advantage of a modeling approach in this context is that, if well fit, it is able to pick up the fundamentals that apply over and over. This means that, if next year we're not as lucky as this one and previous counts are not good predictors but the variables we used in our model continue to have a role in determining the outcome, the data scientist should be luckier and hit a better prediction.
+
+<!-- #region -->
+## Questions
+
+
+We will be using again the Madrid AirBnb dataset:
+<!-- #endregion -->
+
+```{r}
+mad_abb <- readOGR('./data/assignment_1_madrid/madrid_abb.gpkg')
+```
+
+The columns to use here are:
+
+- `price_usd`: price expressed in USD
+- `log1p_price_usd`: logarithm of the price expressed in USD
+- `accommodates`: number of people the property accommodates
+- `bathrooms`: number of bathrooms the property includes
+- `bedrooms`: number of bedrooms the property includes
+- `beds`: number of beds the property includes
+
+
+With these data at hand, accomplish the following challenges:
+
+1. Set up a baseline regression model where you explain the price of a property as a function of its characteristics:
+
+$$
+P_i = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
+$$
+
+2. Fit a parallel model that uses the log of price as dependent variable:
+
+$$
+\log(P_i) = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
+$$
+
+3. Perform a predictive check analysis of both models, discussing how they compare, which one you would prefer, and why 

@@ -20,7 +20,7 @@ This chapter is based on the following references, which are good follow-up's on
 
 We will rely on the following libraries in this section, all of them included in the [book list](#Dependency-list):
 
-```{r, results='hide'}
+```{r results='hide'}
 # Layout
 library(tufte)
 # For pretty table
@@ -46,7 +46,6 @@ library(spdep)
 Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with `setwd()`. Please replace in the following line the path to the folder where you have placed this file -and where the `house_transactions` folder with the data lives.
 
 ```{r}
-#setwd('/media/dani/baul/AAA/Documents/teaching/u-lvl/2016/envs453/code/GIT/kde_idw_r/')
 setwd('.')
 ```
 
@@ -344,3 +343,49 @@ exp(new.price)
 ```
 
 According to our model, the house would be worth $`r exp(new.price)`.
+
+<!-- #region -->
+## Questions
+
+
+We will be using again the Madrid AirBnb dataset:
+<!-- #endregion -->
+
+```{r}
+mad_abb <- st_read('./data/assignment_1_madrid/madrid_abb.gpkg')
+```
+
+```{r}
+colnames(mad_abb)
+```
+
+<!-- #region -->
+In addition to those we have already seen, the columns to use here are:
+
+- `neighbourhood`: a column with the name of the neighbourhood in which the property is located
+
+With this at hand, answer the following questions:
+
+1. Fit a baseline model with only property characteristics explaining the log of price
+
+$$
+\log(P_i) = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
+$$
+
+2. Augment the model with fixed effects at the neighbourhood level
+
+
+$$
+\log(P_i) = \alpha_r + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
+$$
+
+3. [Optional] Augment the model with spatial regimes at the neighbourhood level:
+
+$$
+\log(P_i) = \alpha_r + \beta_{r1} Acc_i + \beta_{r2} Bath_i + \beta_{r3} Bedr_i + \beta_{r4} Beds_i + \epsilon_{ri}
+$$
+
+4. Fit a model that augments the baseline in 1. with the spatial lag of a variable you consider interesting. Motivate this choice. Note that to complete this, you will need to also generate a spatial weights matrix.
+
+In each instance, provide a brief interpretation (no more thana few lines for each) that demonstrates your understanding of theunderlying concepts behind your approach.
+<!-- #endregion -->
