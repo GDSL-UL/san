@@ -461,6 +461,81 @@ Adding group-level predictors tends to improve inferences for group coefficients
 
 ## Questions
 
-For the second assignment we will be using a different dataset comprising information on COVID-19 cases and census data for England:
+For the second assignment, we will be using a different dataset comprising information on COVID-19 cases, census data and the Index of Multiple Deprivation (IMD) for England. The data set is similar in structured to that used in this chapter. It is hierarchically organised into 149 Upper Tier Local Authority Districts (UTLADs) within 9 Regions and has 508 variables - see Chapter \@ref(datasets) for a more detailed description of the data.
 
+```{r}
+sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
+```
+
+Here we see a selection of 10 variables for 5 UTLADs.
+
+```{r}
+head(sdf[1:5,c(3,4,9,10,381,385,386,387,403,406)])
+```
+
+* `ctyua19nm`: Upper Tier Local Authority District name
+* `Region`: Region name
+* `X2020.01.31`: COVID-19 cases on January 31st 2020
+* `X2020.02.01`: COVID-19 cases on February 1st 2020
+* `IMD...Average.score`: Average IMD score for UTLADs - see [File 11: upper-tier local authority summaries](https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019) for information on this and associated indicators.
+* `Residents`: Number of residents
+* `Households`: Number of households
+* `Dwellings`: Number of dwellings
+* `Age_85plus`: Number of people aged 85 and over
+* `White_British_and_Irish`: Number of white British and Irish people
+
+Note that variable names relating to the daily COVID-19 cases are organised in the following way: `X` stands for daily COVID-19 cases, followed by the year (i.e. 2020, 2021); month (i.e. January to December); and day (i.e. 01 to 31).
+
+Using these data, you are required to address the following challenges:
+
+1. Fit a varying-intercept model with no explanatory variables. Let the intercept to vary by region.
+
+2. Fit a varying-intercept model with including at least three explanatory variables.
+
+3. Compute the Variance Partition Coefficient (VPC) for the models estimated according to points 1 and 2 above.
+
+In addressing these challenges, you have some flexibility. A set of key factors to consider:
+
+1. *Dependent Variable*: We will seek to explain daily COVID-19 cases, and you will need to make a decision as to:
+
+  * *Daily vs cumulative COVID-19 cases*. Given that we will be focusing on cross-sectional models (i.e. models for one snapshot), you can focus on modelling daily cases at one specific date or cumulative daily cases over a period of time. 
+  
+  * *Time period*. You can select the date or period of time that you will focus your analysis on.
+  
+  * *Use risk of COVID-19 infection*. The dependent variable should be the risk or rate of COVID-19 infection. For example, the risk of COVID-19 infection for the period (i.e. between Dec. 1st, 2020 - January 29th, 2021) comprising the third wave of the pandemic in the United Kingdom can be computed as:
+  
+```{r}
+# computing cumulative COVID cases for  01/12/2020 - 29/01/2021
+sdf[,509] <- sdf %>% select(314:373) %>% # select COVID cases 01/12/2020 - 29/01/2021
+  mutate(cum_covid = rowSums(across(where(is.numeric)))) %>% # sum daily cases
+  select(cum_covid) %>% # select cumulative cases
+  st_set_geometry(., NULL) # set geometry to NULL
+
+# 
+sdf <- sdf %>%  mutate(
+  covid19_r = round((cum_covid / Residents ) * 100000) 
+  )
+
+sdf <- sdf %>% mutate( covid19_r = cum_covid / Residents * 100000 )
+  
+  df %>%
+   replace(is.na(.), 0) %>%
+   mutate(sum = rowSums(.[1:5]))
+
+utla_shp$covid19_r <- (sdf$X2020.12.01 / utla_shp$Rsdnt) * 100000
+```
+
+
+> Factors to consider
+For the questions in this and following chapters, please consider 
+
+Dependent variable
+1. Daily vs cumulative
+2. period
+3. Use risk of covid-19 infection
+
+Explanatory variables
+1. Use 3?
+2. Different combinations - justify - based on evidence, theory
+3. Use percentages/proportions
 
