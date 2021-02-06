@@ -1,9 +1,5 @@
 # Spatial Econometrics {#spatialecon}
 
-
-
-
-
 This chapter is based on the following references, which are good follow-up's on the topic:
 
 * [Chapter 11](https://geographicdata.science/book/notebooks/11_regression.html) of the GDS Book, by @reyABwolf.
@@ -25,123 +21,18 @@ library(knitr)
 library(stringr)
 # Spatial Data management
 library(rgdal)
-```
-
-```
-## Loading required package: sp
-```
-
-```
-## rgdal: version: 1.5-18, (SVN revision 1082)
-## Geospatial Data Abstraction Library extensions to R successfully loaded
-## Loaded GDAL runtime: GDAL 3.0.4, released 2020/01/28
-## Path to GDAL shared files: /opt/conda/share/gdal
-## GDAL binary built with GEOS: TRUE 
-## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
-## Path to PROJ shared files: /opt/conda/share/proj
-## Linking to sp version:1.4-4
-## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
-## use options("rgdal_show_exportToProj4_warnings"="none") before loading rgdal.
-```
-
-```r
 # Pretty graphics
 library(ggplot2)
 # Pretty maps
 library(ggmap)
-```
-
-```
-## Google's Terms of Service: https://cloud.google.com/maps-platform/terms/.
-```
-
-```
-## Please cite ggmap if you use it! See citation("ggmap") for details.
-```
-
-```r
 # Various GIS utilities
 library(GISTools)
-```
-
-```
-## Loading required package: maptools
-```
-
-```
-## Checking rgeos availability: TRUE
-```
-
-```
-## Loading required package: RColorBrewer
-```
-
-```
-## Loading required package: MASS
-```
-
-```
-## Loading required package: rgeos
-```
-
-```
-## rgeos version: 0.5-5, (SVN revision 640)
-##  GEOS runtime version: 3.8.0-CAPI-1.13.1 
-##  Linking to sp version: 1.4-4 
-##  Polygon checking: TRUE
-```
-
-```r
 # For all your interpolation needs
 library(gstat)
 # For data manipulation
 library(dplyr)
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:rgeos':
-## 
-##     intersect, setdiff, union
-```
-
-```
-## The following object is masked from 'package:MASS':
-## 
-##     select
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 # Spatial regression
 library(spdep)
-```
-
-```
-## Loading required package: spData
-```
-
-```
-## Loading required package: sf
-```
-
-```
-## Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1
 ```
 
 Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with `setwd()`. Please replace in the following line the path to the folder where you have placed this file -and where the `house_transactions` folder with the data lives.
@@ -163,7 +54,7 @@ db <- st_read('data/abb_sd/regression_db.geojson')
 ```
 
 ```
-## Reading layer `regression_db' from data source `/home/jovyan/work/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
+## Reading layer `regression_db' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -199,7 +90,7 @@ db %>%
   theme_void()
 ```
 
-![](06-spatial_econometrics_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+<img src="06-spatial_econometrics_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 ## Non-spatial regression, a refresh
 
@@ -285,7 +176,7 @@ db %>%
   theme_void()
 ```
 
-![](06-spatial_econometrics_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
+<img src="06-spatial_econometrics_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 Mathematically, we are now fitting the following equation:
 
@@ -403,7 +294,7 @@ nei.fes %>%
   theme_void()
 ```
 
-![](06-spatial_econometrics_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
+<img src="06-spatial_econometrics_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 We can see how neighborhoods in the left (west) tend to have higher prices. What we can't see, but it is represented there if you are familiar with the geography of San Diego, is that the city is bounded by the Pacific ocean on the left, suggesting neighbourhoods by the beach tend to be more expensive.
 
 Remember that the interpretation of a $\beta_k$ coefficient is the effect of variable $k$, *given all the other explanatory variables included remain constant*. By including a single variable for each area, we are effectively forcing the model to compare as equal only house prices that share the same value for each variable; in other words, only houses located within the same area. Introducing FE affords you a higher degree of isolation of the effects of the variables you introduce in your model because you can control for unobserved effects that align spatially with the distribution of the FE you introduce (by neighbourhood, in our case).
@@ -1027,7 +918,7 @@ mad_abb <- st_read('./data/assignment_1_madrid/madrid_abb.gpkg')
 ```
 
 ```
-## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Reading layer `madrid_abb' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
 ## Simple feature collection with 18399 features and 15 fields
 ## geometry type:  POINT
 ## dimension:      XY

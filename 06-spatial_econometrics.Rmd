@@ -1,14 +1,5 @@
 # Spatial Econometrics {#spatialecon}
 
-
-```{r setup, include=FALSE}
-library(tufte)
-# invalidate cache when the tufte version changes
-knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
-options(htmltools.dir.version = FALSE)
-```
-
-
 This chapter is based on the following references, which are good follow-up's on the topic:
 
 * [Chapter 11](https://geographicdata.science/book/notebooks/11_regression.html) of the GDS Book, by @reyABwolf.
@@ -20,7 +11,7 @@ This chapter is based on the following references, which are good follow-up's on
 
 We will rely on the following libraries in this section, all of them included in the [book list](#Dependency-list):
 
-```{r results='hide'}
+```{r results='hide', message = FALSE}
 # Layout
 library(tufte)
 # For pretty table

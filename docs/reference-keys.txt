@@ -93,7 +93,7 @@ uncertainty-of-estimates
 assessing-group-level-variation
 adding-individual-level-predictors
 adding-group-level-predictors
-useful-functions-1
+questions-3
 mlm2
 dependencies-5
 data-4
@@ -143,3 +143,8 @@ intuition
 fitting-spatio-temporal-models
 model-comparision
 datasets
+madrid-airbnb
+availability
+variables
+projection
+source-pre-processing

@@ -1,26 +1,13 @@
 # Multilevel Modelling - Part 1 {#mlm1}
 
-This chapter^[This note is part of [Spatial Analysis Notes](index.html) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Multilevel Modelling -- Random Intercept Multilevel Model</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.] provides an introduction to multi-level data structures and multi-level modelling.
-
-
-The content of this chapter is based on:
+This chapter provides an introduction to multi-level data structures and multi-level modelling and draws on the following references:
 
 * @Gelman_Hill_2006_book provides an excellent and intuitive explanation of multilevel modelling and data analysis in general. Read Part 2A for a really good explanation of multilevel models.
-
 * @bristol2020 is an useful online resource on multilevel modelling and is free!
-
-This Chapter is part of [Spatial Analysis Notes](index.html), a compilation hosted as a GitHub repository that you can access it in a few ways:
-
-* As a [download](https://github.com/GDSL-UL/san/archive/master.zip) of a `.zip` file that contains all the materials.
-* As an [html
-  website](https://gdsl-ul.github.io/san/multilevel-modelling-part-1.html).
-* As a [pdf
-  document](https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf)
-* As a [GitHub repository](https://github.com/GDSL-UL/san).
 
 ## Dependencies
 
-This chapter uses the following libraries: Ensure they are installed on your machine^[You can install package `mypackage` by running the command `install.packages("mypackage")` on the R prompt or through the `Tools --> Install Packages...` menu in RStudio.] before loading them executing the following code chunk:
+This chapter uses the following libraries which are listed in the [Dependency list] Section of Chapter 1:
 
 
 ```r
@@ -157,7 +144,7 @@ lsoa_cd %>% table() %>%
   plot()
 ```
 
-![](07-multilevel_01_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
+<img src="07-multilevel_01_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 ```r
 msoa_cd %>% table() %>%
@@ -165,7 +152,7 @@ msoa_cd %>% table() %>%
   plot()
 ```
 
-![](07-multilevel_01_files/figure-epub3/unnamed-chunk-4-2.png)<!-- -->
+<img src="07-multilevel_01_files/figure-html/unnamed-chunk-4-2.png" width="672" />
 
 ## Modelling 
 
@@ -180,7 +167,7 @@ geom_density(alpha=0.8, colour="black", fill="lightblue", aes(x = unemp)) +
    theme_classic()
 ```
 
-![](07-multilevel_01_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+<img src="07-multilevel_01_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 
 ```r
@@ -209,7 +196,7 @@ map_oa = tm_shape(oa_shp) +
 map_oa
 ```
 
-![](07-multilevel_01_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
+<img src="07-multilevel_01_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 Let us look at those areas:
 
@@ -529,16 +516,16 @@ REsim(model3) %>% head(10)
 
 ```
 ##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.017790890 -0.017840980 0.020711833
-## 2    lsoa_cd E01006513 (Intercept) -0.017938493 -0.018735566 0.021391242
-## 3    lsoa_cd E01006514 (Intercept) -0.022873674 -0.023129351 0.019249999
-## 4    lsoa_cd E01006515 (Intercept) -0.015053707 -0.014279150 0.018633634
-## 5    lsoa_cd E01006518 (Intercept) -0.017968040 -0.019473117 0.019211460
-## 6    lsoa_cd E01006519 (Intercept) -0.016489693 -0.016994612 0.009916255
-## 7    lsoa_cd E01006520 (Intercept) -0.023554289 -0.022253480 0.019753516
-## 8    lsoa_cd E01006521 (Intercept)  0.007373143  0.006307012 0.019311807
-## 9    lsoa_cd E01006522 (Intercept)  0.019690617  0.021268315 0.018996878
-## 10   lsoa_cd E01006523 (Intercept)  0.003185788  0.003497953 0.018850215
+## 1    lsoa_cd E01006512 (Intercept) -0.016218493 -0.015453333 0.019603371
+## 2    lsoa_cd E01006513 (Intercept) -0.017341273 -0.016544951 0.020059902
+## 3    lsoa_cd E01006514 (Intercept) -0.021028078 -0.023547502 0.020052294
+## 4    lsoa_cd E01006515 (Intercept) -0.016929918 -0.017985387 0.018802766
+## 5    lsoa_cd E01006518 (Intercept) -0.019369473 -0.017857354 0.018582257
+## 6    lsoa_cd E01006519 (Intercept) -0.016102474 -0.016681300 0.009509064
+## 7    lsoa_cd E01006520 (Intercept) -0.026479266 -0.027445142 0.018785620
+## 8    lsoa_cd E01006521 (Intercept)  0.007743864  0.005827690 0.018209814
+## 9    lsoa_cd E01006522 (Intercept)  0.019596678  0.020085102 0.018920863
+## 10   lsoa_cd E01006523 (Intercept)  0.005351206  0.004448855 0.020055473
 ```
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from `ranef` with some small differences due to rounding.
@@ -551,7 +538,7 @@ To gain an undertanding of the general pattern of the *random effects*, we can u
 plotREsim(REsim(model3)) 
 ```
 
-![](07-multilevel_01_files/figure-epub3/unnamed-chunk-20-1.png)<!-- -->
+<img src="07-multilevel_01_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 Focusing on the plot on the right, we see MSOAs whose mean proportion of unemployed population, assuming no explanatory variables, is lower than average. On the right-hand side of the plot, you will see MSOAs whose mean proportion is higher than average. The MSOAs with the smallest residuals include the districts of Allerton and Hunt Cross, Church, Childwall, Wavertree and Woolton. What districts do we have at the other extreme?
 
@@ -591,7 +578,7 @@ msoa_shp <- st_read("data/mlm/MSOA.shp")
 ```
 
 ```
-## Reading layer `MSOA' from data source `/home/jovyan/work/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `MSOA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -610,9 +597,9 @@ str(re_msoa)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.01294 -0.02361 -0.03084 0.00468 0.02312 ...
-##  $ median   : num  -0.0121 -0.0254 -0.0299 0.0023 0.0231 ...
-##  $ sd       : num  0.0365 0.0315 0.0302 0.0299 0.0158 ...
+##  $ mean     : num  -0.00992 -0.03013 -0.03004 0.00497 0.02265 ...
+##  $ median   : num  -0.00846 -0.02966 -0.02794 0.00502 0.0218 ...
+##  $ sd       : num  0.0335 0.0332 0.0301 0.0323 0.0149 ...
 ```
 
 ```r
@@ -637,7 +624,7 @@ map_msoa = tm_shape(msoa_shp) +
 map_msoa
 ```
 
-![](07-multilevel_01_files/figure-epub3/unnamed-chunk-23-1.png)<!-- -->
+<img src="07-multilevel_01_files/figure-html/unnamed-chunk-23-1.png" width="672" />
  
 ### Adding Individual-level Predictors
 
@@ -864,14 +851,8 @@ head(ranef_m5$msoa_cd, 5)
 Adding group-level predictors tends to improve inferences for group coefficients. Examine the confidence intervals, in order to evalute how the precision of our estimates of the MSOA intercepts have changed. *Have confidence intervals for the intercepts of Model 4 and 5 increased or reduced?* Hint: look at how to get the confidence intervals above.
 
 
-## Useful Functions
+## Questions
 
-Function | Description
-----------|---------------------------------------------
-lmer() | fit linear mixed-effects models
-fixef() | obtain estimated fixed effects or model averaging over groups
-ranef() | obtain estimated random effects or group-level residuals
-REsim() | obtain estimated random effects or group-level residuals based on simulation
-plotREsim() | create a caterpillar plot of estimated random effects
-coef() | obtain coefficients within each group
-anova() | provide regression model diagnostics
+For the second assignment we will be using a different dataset comprising information on COVID-19 cases and census data for England:
+
+

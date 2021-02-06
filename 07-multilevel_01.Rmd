@@ -1,26 +1,13 @@
 # Multilevel Modelling - Part 1 {#mlm1}
 
-This chapter^[This note is part of [Spatial Analysis Notes](index.html) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Multilevel Modelling -- Random Intercept Multilevel Model</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.] provides an introduction to multi-level data structures and multi-level modelling.
-
-
-The content of this chapter is based on:
+This chapter provides an introduction to multi-level data structures and multi-level modelling and draws on the following references:
 
 * @Gelman_Hill_2006_book provides an excellent and intuitive explanation of multilevel modelling and data analysis in general. Read Part 2A for a really good explanation of multilevel models.
-
 * @bristol2020 is an useful online resource on multilevel modelling and is free!
-
-This Chapter is part of [Spatial Analysis Notes](index.html), a compilation hosted as a GitHub repository that you can access it in a few ways:
-
-* As a [download](https://github.com/GDSL-UL/san/archive/master.zip) of a `.zip` file that contains all the materials.
-* As an [html
-  website](https://gdsl-ul.github.io/san/multilevel-modelling-part-1.html).
-* As a [pdf
-  document](https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf)
-* As a [GitHub repository](https://github.com/GDSL-UL/san).
 
 ## Dependencies
 
-This chapter uses the following libraries: Ensure they are installed on your machine^[You can install package `mypackage` by running the command `install.packages("mypackage")` on the R prompt or through the `Tools --> Install Packages...` menu in RStudio.] before loading them executing the following code chunk:
+This chapter uses the following libraries which are listed in the [Dependency list] Section of Chapter 1:
 
 ```{r, message = FALSE}
 # Data manipulation, transformation and visualisation
@@ -472,14 +459,8 @@ head(ranef_m5$msoa_cd, 5)
 Adding group-level predictors tends to improve inferences for group coefficients. Examine the confidence intervals, in order to evalute how the precision of our estimates of the MSOA intercepts have changed. *Have confidence intervals for the intercepts of Model 4 and 5 increased or reduced?* Hint: look at how to get the confidence intervals above.
 
 
-## Useful Functions
+## Questions
 
-Function | Description
-----------|---------------------------------------------
-lmer() | fit linear mixed-effects models
-fixef() | obtain estimated fixed effects or model averaging over groups
-ranef() | obtain estimated random effects or group-level residuals
-REsim() | obtain estimated random effects or group-level residuals based on simulation
-plotREsim() | create a caterpillar plot of estimated random effects
-coef() | obtain coefficients within each group
-anova() | provide regression model diagnostics
+For the second assignment we will be using a different dataset comprising information on COVID-19 cases and census data for England:
+
+
