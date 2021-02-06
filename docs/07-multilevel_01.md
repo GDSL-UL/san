@@ -516,16 +516,16 @@ REsim(model3) %>% head(10)
 
 ```
 ##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.016218493 -0.015453333 0.019603371
-## 2    lsoa_cd E01006513 (Intercept) -0.017341273 -0.016544951 0.020059902
-## 3    lsoa_cd E01006514 (Intercept) -0.021028078 -0.023547502 0.020052294
-## 4    lsoa_cd E01006515 (Intercept) -0.016929918 -0.017985387 0.018802766
-## 5    lsoa_cd E01006518 (Intercept) -0.019369473 -0.017857354 0.018582257
-## 6    lsoa_cd E01006519 (Intercept) -0.016102474 -0.016681300 0.009509064
-## 7    lsoa_cd E01006520 (Intercept) -0.026479266 -0.027445142 0.018785620
-## 8    lsoa_cd E01006521 (Intercept)  0.007743864  0.005827690 0.018209814
-## 9    lsoa_cd E01006522 (Intercept)  0.019596678  0.020085102 0.018920863
-## 10   lsoa_cd E01006523 (Intercept)  0.005351206  0.004448855 0.020055473
+## 1    lsoa_cd E01006512 (Intercept) -0.014747969 -0.014418002 0.020592879
+## 2    lsoa_cd E01006513 (Intercept) -0.014818580 -0.013640511 0.020573306
+## 3    lsoa_cd E01006514 (Intercept) -0.023092100 -0.022335468 0.020209242
+## 4    lsoa_cd E01006515 (Intercept) -0.017668899 -0.019196293 0.020579771
+## 5    lsoa_cd E01006518 (Intercept) -0.018522667 -0.019126398 0.018507895
+## 6    lsoa_cd E01006519 (Intercept) -0.015540873 -0.015613139 0.009093102
+## 7    lsoa_cd E01006520 (Intercept) -0.023993703 -0.023527004 0.019080685
+## 8    lsoa_cd E01006521 (Intercept)  0.007843566  0.008643941 0.019265588
+## 9    lsoa_cd E01006522 (Intercept)  0.020539513  0.021005593 0.019564043
+## 10   lsoa_cd E01006523 (Intercept)  0.006251822  0.005302431 0.018764763
 ```
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from `ranef` with some small differences due to rounding.
@@ -578,7 +578,7 @@ msoa_shp <- st_read("data/mlm/MSOA.shp")
 ```
 
 ```
-## Reading layer `MSOA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `MSOA' from data source `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -597,9 +597,9 @@ str(re_msoa)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.00992 -0.03013 -0.03004 0.00497 0.02265 ...
-##  $ median   : num  -0.00846 -0.02966 -0.02794 0.00502 0.0218 ...
-##  $ sd       : num  0.0335 0.0332 0.0301 0.0323 0.0149 ...
+##  $ mean     : num  -0.0098 -0.02576 -0.02861 0.00439 0.0244 ...
+##  $ median   : num  -0.0116 -0.0266 -0.0311 0.0044 0.0249 ...
+##  $ sd       : num  0.0342 0.033 0.0316 0.0302 0.0161 ...
 ```
 
 ```r
@@ -853,6 +853,133 @@ Adding group-level predictors tends to improve inferences for group coefficients
 
 ## Questions
 
-For the second assignment we will be using a different dataset comprising information on COVID-19 cases and census data for England:
+For the second assignment, we will be using a different dataset comprising information on COVID-19 cases, census data and the Index of Multiple Deprivation (IMD) for England. The data set is similar in structured to that used in this chapter. It is hierarchically organised into 149 Upper Tier Local Authority Districts (UTLADs) within 9 Regions and has 508 variables - see Chapter \@ref(datasets) for a more detailed description of the data.
+
+
+```r
+sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
+```
+
+```
+## Reading layer `covid19_eng' from data source `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Simple feature collection with 149 features and 507 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 134112.4 ymin: 11429.67 xmax: 655653.8 ymax: 657536
+## projected CRS:  OSGB 1936 / British National Grid
+```
+
+Here we see a selection of 10 variables for 5 UTLADs.
+
+
+```r
+head(sdf[1:5,c(3,4,9,10,381,385,386,387,403,406)])
+```
+
+```
+## Simple feature collection with 5 features and 10 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 418871.2 ymin: 506329.3 xmax: 478441.5 ymax: 537152
+## projected CRS:  OSGB 1936 / British National Grid
+##              ctyua19nm     Region X2020.01.31 X2020.02.01 IMD...Average.score
+## 1           Hartlepool North East           0           0              35.037
+## 2        Middlesbrough North East           0           0              40.460
+## 3 Redcar and Cleveland North East           0           0              29.792
+## 4     Stockton-on-Tees North East           0           0              25.790
+## 5           Darlington North East           0           0              25.657
+##   Residents Households Dwellings Age_85plus White_British_and_Irish
+## 1     92028      40434     42102       1856                   89117
+## 2    138412      57203     59956       2465                  119680
+## 3    135177      59605     61899       3113                  132343
+## 4    191610      79159     82237       3481                  179501
+## 5    105564      46670     48644       2550                   99226
+##                             geom
+## 1 MULTIPOLYGON (((447097 5371...
+## 2 MULTIPOLYGON (((449862.8 52...
+## 3 MULTIPOLYGON (((455939.7 52...
+## 4 MULTIPOLYGON (((444126.1 52...
+## 5 MULTIPOLYGON (((423475.7 52...
+```
+
+* `ctyua19nm`: Upper Tier Local Authority District name
+* `Region`: Region name
+* `X2020.01.31`: COVID-19 cases on January 31st 2020
+* `X2020.02.01`: COVID-19 cases on February 1st 2020
+* `IMD...Average.score`: Average IMD score for UTLADs - see [File 11: upper-tier local authority summaries](https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019) for information on this and associated indicators.
+* `Residents`: Number of residents
+* `Households`: Number of households
+* `Dwellings`: Number of dwellings
+* `Age_85plus`: Number of people aged 85 and over
+* `White_British_and_Irish`: Number of white British and Irish people
+
+Note that variable names relating to the daily COVID-19 cases are organised in the following way: `X` stands for daily COVID-19 cases, followed by the year (i.e. 2020, 2021); month (i.e. January to December); and day (i.e. 01 to 31).
+
+Using these data, you are required to address the following challenges:
+
+1. Fit a varying-intercept model with no explanatory variables. Let the intercept to vary by region.
+
+2. Fit a varying-intercept model with including at least three explanatory variables.
+
+3. Compute the Variance Partition Coefficient (VPC) for the models estimated according to points 1 and 2 above.
+
+In addressing these challenges, you have some flexibility to be creative. A set of key factors to consider:
+
+1. *Dependent Variable*: We will seek to explain daily COVID-19 cases, and you will need to make a decision as to:
+
+  * *Daily vs cumulative COVID-19 cases*. Given that we will be focusing on cross-sectional models (i.e. models for one snapshot), you can focus on modelling daily cases at one specific date or cumulative daily cases over a period of time. 
+  
+  * *Time period*. You can select the date or period of time that you will focus your analysis on.
+  
+  * *Use risk of COVID-19 infection*. The dependent variable should be the risk or rate of COVID-19 infection. 
+  
+For example, the risk of COVID-19 infection for the period (i.e. between Dec. 1st, 2020 - January 29th, 2021) comprising the third wave of the pandemic in the United Kingdom can be computed as:
+  
+
+```r
+# computing cumulative COVID cases for  01/12/2020 - 29/01/2021
+sdf[, 509] <- sdf %>% dplyr::select("X2020.12.01":"X2021.01.29") %>% # select COVID cases 01/12/2020 - 29/01/2021
+  mutate(cum_covid = rowSums(across(where(is.numeric)))) %>% # sum daily cases
+  dplyr::select(cum_covid) %>% # select cumulative cases
+   st_set_geometry(., NULL) # set geometry to NULL
+
+# computing risk of infection
+sdf <- sdf %>%  mutate(
+  covid19_r = round((cum_covid / Residents ) * 1000) 
+  )
+```
+
+2. *Explanatory variables*:
+  * *At least 3*. Use at least 3 explanatory variables. There is no maximum limit but consider your model to be parsimonious. 
+
+  * *Choice your set*. Select the set of variables you consider appropriate / interesting. Make sure you justify your choice based on evidence and/or theory.
+  
+  * *Percentages / Proportions*. Use percentages or proportions to capture the composition of places, rather than numbers of people, households or dwellings. For this, ensure you are using the appropriate denominator.
+  
+  For instance, if you want to capture the relationship between cumulative COVID-19 cases and overcrowding, share of elderly population and nonwhite minorities, use the following variables
+  
+
+```r
+sdf <- sdf %>% mutate(
+  crowded_hou = Crowded_housing / Households, # share of crowded housing
+  elderly = (Age_85plus) / Residents, # share of population aged 65+
+  ethnic = (Mixed + Indian + Pakistani + Bangladeshi + Chinese + Other_Asian + Black + Other_ethnicity) / Residents, # share of nonwhite population
+)
+```
+  
+**ADVICE**: Create a new spatial data frame including only the variables you will analyse. For example:
+
+
+```r
+nsdf <- sdf  %>%  dplyr::select(objectid, 
+                         ctyua19cd, 
+                         ctyua19nm, 
+                         Region, 
+                         covid19_r, 
+                         crowded_hou, 
+                         elderly, 
+                         ethnic, 
+                         Residents)
+```
 
 

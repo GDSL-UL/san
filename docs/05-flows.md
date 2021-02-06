@@ -23,14 +23,14 @@ library(rgdal)
 ```
 
 ```
-## rgdal: version: 1.5-18, (SVN revision 1082)
+## rgdal: version: 1.5-16, (SVN revision 1050)
 ## Geospatial Data Abstraction Library extensions to R successfully loaded
 ## Loaded GDAL runtime: GDAL 3.1.1, released 2020/06/22
 ## Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/gdal
 ## GDAL binary built with GEOS: TRUE 
 ## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
 ## Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj
-## Linking to sp version:1.4-4
+## Linking to sp version:1.4-2
 ## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
 ## use options("rgdal_show_exportToProj4_warnings"="none") before loading rgdal.
 ```
@@ -75,7 +75,7 @@ library(arm)
 ```
 
 ```
-## Working directory is /Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san
+## Working directory is /Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202021/san
 ```
 
 In this chapter we will show a slightly different way of managing spatial data in R. Although most of the functionality will be similar to that seen in previous chapters, we will not rely on the "`sf` stack" and we will instead show how to read and manipulate data using the more traditional `sp` stack. Although this approach is being slowly phased out, it is still important to be aware of its existence and its differences with more modern approaches.
@@ -100,7 +100,7 @@ db <- readOGR('./data/sf_bikes/flows.geojson')
 
 ```
 ## OGR data source with driver: GeoJSON 
-## Source: "/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sf_bikes/flows.geojson", layer: "flows"
+## Source: "/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sf_bikes/flows.geojson", layer: "flows"
 ## with 1722 features
 ## It has 9 fields
 ```
@@ -886,7 +886,7 @@ mad_abb <- readOGR('./data/assignment_1_madrid/madrid_abb.gpkg')
 
 ```
 ## OGR data source with driver: GPKG 
-## Source: "/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg", layer: "madrid_abb"
+## Source: "/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg", layer: "madrid_abb"
 ## with 18399 features
 ## It has 15 fields
 ## Integer64 fields read as strings:  accommodates

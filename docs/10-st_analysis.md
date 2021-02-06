@@ -131,7 +131,7 @@ utla_shp <- st_read("data/sta/ons_utla.shp")
 ```
 
 ```
-## Reading layer `ons_utla' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sta/ons_utla.shp' using driver `ESRI Shapefile'
+## Reading layer `ons_utla' from data source `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sta/ons_utla.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 150 features and 11 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -221,14 +221,8 @@ spat_part <- as(dplyr::select(covid19_spt, -c(bng_e, bng_n, Area.code, Area.type
 ```
 
 ```
-## Warning in showSRID(uprojargs, format = "PROJ", multiline = "NO", prefer_proj
-## = prefer_proj): Discarded datum Unknown based on Airy 1830 ellipsoid in CRS
-## definition
-```
-
-```
-## Warning in showSRID(SRS_string, format = "PROJ", multiline = "NO", prefer_proj =
-## prefer_proj): Discarded datum D_unknown in CRS definition
+## Warning in showSRID(uprojargs, format = "PROJ", multiline = "NO"): Discarded
+## datum Unknown based on Airy 1830 ellipsoid in CRS definition
 ```
 
 ```r
@@ -300,7 +294,7 @@ daycases_week <- covid19_spt %>% group_by(week, ctyu19nm, as.character(cty19c), 
 ```
 
 ```
-## `summarise()` regrouping output by 'week', 'ctyu19nm', 'as.character(cty19c)' (override with `.groups` argument)
+## `summarise()` has grouped output by 'week', 'ctyu19nm', 'as.character(cty19c)'. You can override using the `.groups` argument.
 ```
 
 ```r
@@ -424,13 +418,7 @@ The empirical spatial mean for a data set can be obtained by averaging over time
 # compute empirical spatial mean
 sp_av <- covid19_spt %>% group_by(ctyu19nm) %>% # group by spatial unit
   summarise(sp_mu_emp = mean(n_covid19_r))
-```
 
-```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```r
 # plot empirical spatial mean
 ggplot(data=sp_av) +
   geom_col( aes( y = reorder(ctyu19nm, sp_mu_emp), x = sp_mu_emp) , fill = "grey50") +
@@ -497,13 +485,6 @@ Before measuring the temporal dependence is our time-series, a time-series objec
 # create a time series object
 total_cnt <- covid19 %>% group_by(date) %>%
   summarise(new_cases = sum(n_covid19_r)) 
-```
-
-```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```r
 total_cases_ts <- ts(total_cnt$new_cases, 
                      start = 1,
                      frequency =7)

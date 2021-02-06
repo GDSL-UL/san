@@ -67,7 +67,7 @@ db <- st_read("data/abb_sd/regression_db.geojson")
 ```
 
 ```
-## Reading layer `regression_db' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
+## Reading layer `regression_db' from data source `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -353,6 +353,11 @@ sd.grid <- db %>%
   cbind(., st_coordinates(.))
 ```
 
+```
+## although coordinates are longitude/latitude, st_intersects assumes that they are planar
+## although coordinates are longitude/latitude, st_intersects assumes that they are planar
+```
+
 The object `sd.grid` is a regular grid with 10,000 ($100 \times 100$) equally spaced cells:
 
 
@@ -523,7 +528,7 @@ mad_abb <- st_read("data/assignment_1_madrid/madrid_abb.gpkg")
 ```
 
 ```
-## Reading layer `madrid_abb' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Reading layer `madrid_abb' from data source `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
 ## Simple feature collection with 18399 features and 15 fields
 ## geometry type:  POINT
 ## dimension:      XY

@@ -494,7 +494,7 @@ Using these data, you are required to address the following challenges:
 
 3. Compute the Variance Partition Coefficient (VPC) for the models estimated according to points 1 and 2 above.
 
-In addressing these challenges, you have some flexibility. A set of key factors to consider:
+In addressing these challenges, you have some flexibility to be creative. A set of key factors to consider:
 
 1. *Dependent Variable*: We will seek to explain daily COVID-19 cases, and you will need to make a decision as to:
 
@@ -502,40 +502,52 @@ In addressing these challenges, you have some flexibility. A set of key factors 
   
   * *Time period*. You can select the date or period of time that you will focus your analysis on.
   
-  * *Use risk of COVID-19 infection*. The dependent variable should be the risk or rate of COVID-19 infection. For example, the risk of COVID-19 infection for the period (i.e. between Dec. 1st, 2020 - January 29th, 2021) comprising the third wave of the pandemic in the United Kingdom can be computed as:
+  * *Use risk of COVID-19 infection*. The dependent variable should be the risk or rate of COVID-19 infection. 
+  
+For example, the risk of COVID-19 infection for the period (i.e. between Dec. 1st, 2020 - January 29th, 2021) comprising the third wave of the pandemic in the United Kingdom can be computed as:
   
 ```{r}
 # computing cumulative COVID cases for  01/12/2020 - 29/01/2021
-sdf[,509] <- sdf %>% select(314:373) %>% # select COVID cases 01/12/2020 - 29/01/2021
+sdf[, 509] <- sdf %>% dplyr::select("X2020.12.01":"X2021.01.29") %>% # select COVID cases 01/12/2020 - 29/01/2021
   mutate(cum_covid = rowSums(across(where(is.numeric)))) %>% # sum daily cases
-  select(cum_covid) %>% # select cumulative cases
-  st_set_geometry(., NULL) # set geometry to NULL
+  dplyr::select(cum_covid) %>% # select cumulative cases
+   st_set_geometry(., NULL) # set geometry to NULL
 
-# 
+# computing risk of infection
 sdf <- sdf %>%  mutate(
-  covid19_r = round((cum_covid / Residents ) * 100000) 
+  covid19_r = round((cum_covid / Residents ) * 1000) 
   )
-
-sdf <- sdf %>% mutate( covid19_r = cum_covid / Residents * 100000 )
-  
-  df %>%
-   replace(is.na(.), 0) %>%
-   mutate(sum = rowSums(.[1:5]))
-
-utla_shp$covid19_r <- (sdf$X2020.12.01 / utla_shp$Rsdnt) * 100000
 ```
 
+2. *Explanatory variables*:
+  * *At least 3*. Use at least 3 explanatory variables. There is no maximum limit but consider your model to be parsimonious. 
 
-> Factors to consider
-For the questions in this and following chapters, please consider 
+  * *Choice your set*. Select the set of variables you consider appropriate / interesting. Make sure you justify your choice based on evidence and/or theory.
+  
+  * *Percentages / Proportions*. Use percentages or proportions to capture the composition of places, rather than numbers of people, households or dwellings. For this, ensure you are using the appropriate denominator.
+  
+  For instance, if you want to capture the relationship between cumulative COVID-19 cases and overcrowding, share of elderly population and nonwhite minorities, use the following variables
+  
+```{r}
+sdf <- sdf %>% mutate(
+  crowded_hou = Crowded_housing / Households, # share of crowded housing
+  elderly = (Age_85plus) / Residents, # share of population aged 65+
+  ethnic = (Mixed + Indian + Pakistani + Bangladeshi + Chinese + Other_Asian + Black + Other_ethnicity) / Residents, # share of nonwhite population
+)
+```
+  
+**ADVICE**: Create a new spatial data frame including only the variables you will analyse. For example:
 
-Dependent variable
-1. Daily vs cumulative
-2. period
-3. Use risk of covid-19 infection
+```{r}
+nsdf <- sdf  %>%  dplyr::select(objectid, 
+                         ctyua19cd, 
+                         ctyua19nm, 
+                         Region, 
+                         covid19_r, 
+                         crowded_hou, 
+                         elderly, 
+                         ethnic, 
+                         Residents)
+```
 
-Explanatory variables
-1. Use 3?
-2. Different combinations - justify - based on evidence, theory
-3. Use percentages/proportions
 

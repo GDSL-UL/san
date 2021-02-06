@@ -129,7 +129,7 @@ reg_shp <- st_read("data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp")
 ```
 
 ```
-## Reading layer `Regions_December_2019_Boundaries_EN_BGC' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp' using driver `ESRI Shapefile'
+## Reading layer `Regions_December_2019_Boundaries_EN_BGC' from data source `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 9 features and 9 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
