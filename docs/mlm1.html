@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
 
 
-<meta name="date" content="2021-02-06" />
+<meta name="date" content="2021-02-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -250,6 +250,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.6" data-path="mlm2.html"><a href="mlm2.html#model-building"><i class="fa fa-check"></i><b>8.6</b> Model building</a><ul>
 <li class="chapter" data-level="8.6.1" data-path="mlm2.html"><a href="mlm2.html#model-comparison"><i class="fa fa-check"></i><b>8.6.1</b> Model Comparison</a></li>
 </ul></li>
+<li class="chapter" data-level="8.7" data-path="points.html"><a href="points.html#questions"><i class="fa fa-check"></i><b>8.7</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>9</b> Geographically Weighted Regression</a><ul>
 <li class="chapter" data-level="9.1" data-path="data-wrangling.html"><a href="data-wrangling.html#dependencies"><i class="fa fa-check"></i><b>9.1</b> Dependencies</a></li>
@@ -269,6 +270,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.6.7" data-path="gwr.html"><a href="gwr.html#assessing-statistical-significance"><i class="fa fa-check"></i><b>9.6.7</b> Assessing statistical significance</a></li>
 <li class="chapter" data-level="9.6.8" data-path="gwr.html"><a href="gwr.html#collinearity-in-gwr"><i class="fa fa-check"></i><b>9.6.8</b> Collinearity in GWR</a></li>
 </ul></li>
+<li class="chapter" data-level="9.7" data-path="points.html"><a href="points.html#questions"><i class="fa fa-check"></i><b>9.7</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="sta.html"><a href="sta.html"><i class="fa fa-check"></i><b>10</b> Spatio-Temporal Analysis</a><ul>
 <li class="chapter" data-level="10.1" data-path="data-wrangling.html"><a href="data-wrangling.html#dependencies"><i class="fa fa-check"></i><b>10.1</b> Dependencies</a></li>
@@ -285,13 +287,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.6.1" data-path="sta.html"><a href="sta.html#intuition"><i class="fa fa-check"></i><b>10.6.1</b> Intuition</a></li>
 <li class="chapter" data-level="10.6.2" data-path="sta.html"><a href="sta.html#fitting-spatio-temporal-models"><i class="fa fa-check"></i><b>10.6.2</b> Fitting Spatio-Temporal Models</a></li>
 </ul></li>
+<li class="chapter" data-level="10.7" data-path="points.html"><a href="points.html#questions"><i class="fa fa-check"></i><b>10.7</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>11</b> Data Sets</a><ul>
 <li class="chapter" data-level="11.1" data-path="datasets.html"><a href="datasets.html#madrid-airbnb"><i class="fa fa-check"></i><b>11.1</b> Madrid AirBnb</a><ul>
-<li class="chapter" data-level="11.1.1" data-path="datasets.html"><a href="datasets.html#availability"><i class="fa fa-check"></i><b>11.1.1</b> Availability</a></li>
-<li class="chapter" data-level="11.1.2" data-path="datasets.html"><a href="datasets.html#variables"><i class="fa fa-check"></i><b>11.1.2</b> Variables</a></li>
-<li class="chapter" data-level="11.1.3" data-path="datasets.html"><a href="datasets.html#projection"><i class="fa fa-check"></i><b>11.1.3</b> Projection</a></li>
-<li class="chapter" data-level="11.1.4" data-path="datasets.html"><a href="datasets.html#source-pre-processing"><i class="fa fa-check"></i><b>11.1.4</b> Source &amp; Pre-processing</a></li>
+<li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#availability"><i class="fa fa-check"></i>Availability</a></li>
+<li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#variables"><i class="fa fa-check"></i>Variables</a></li>
+<li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#projection"><i class="fa fa-check"></i>Projection</a></li>
+<li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#source-pre-processing"><i class="fa fa-check"></i>Source &amp; Pre-processing</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="datasets.html"><a href="datasets.html#england-covid-19"><i class="fa fa-check"></i><b>11.2</b> England COVID-19</a><ul>
+<li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#availability-1"><i class="fa fa-check"></i>Availability</a></li>
+<li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#variables-1"><i class="fa fa-check"></i>Variables</a></li>
+<li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#projection-1"><i class="fa fa-check"></i>Projection</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -671,16 +679,16 @@ and then we made the <em>random</em> part of the model (<span class="math inline
 <div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="mlm1.html#cb279-1"></a><span class="co"># obtain estimates</span></span>
 <span id="cb279-2"><a href="mlm1.html#cb279-2"></a><span class="kw">REsim</span>(model3) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.014747969 -0.014418002 0.020592879
-## 2    lsoa_cd E01006513 (Intercept) -0.014818580 -0.013640511 0.020573306
-## 3    lsoa_cd E01006514 (Intercept) -0.023092100 -0.022335468 0.020209242
-## 4    lsoa_cd E01006515 (Intercept) -0.017668899 -0.019196293 0.020579771
-## 5    lsoa_cd E01006518 (Intercept) -0.018522667 -0.019126398 0.018507895
-## 6    lsoa_cd E01006519 (Intercept) -0.015540873 -0.015613139 0.009093102
-## 7    lsoa_cd E01006520 (Intercept) -0.023993703 -0.023527004 0.019080685
-## 8    lsoa_cd E01006521 (Intercept)  0.007843566  0.008643941 0.019265588
-## 9    lsoa_cd E01006522 (Intercept)  0.020539513  0.021005593 0.019564043
-## 10   lsoa_cd E01006523 (Intercept)  0.006251822  0.005302431 0.018764763</code></pre>
+## 1    lsoa_cd E01006512 (Intercept) -0.016733993 -0.016242280 0.020186689
+## 2    lsoa_cd E01006513 (Intercept) -0.014068841 -0.013826504 0.019591583
+## 3    lsoa_cd E01006514 (Intercept) -0.021442965 -0.021699509 0.018694790
+## 4    lsoa_cd E01006515 (Intercept) -0.019192828 -0.019674698 0.020021322
+## 5    lsoa_cd E01006518 (Intercept) -0.019916425 -0.019941799 0.020349796
+## 6    lsoa_cd E01006519 (Intercept) -0.016510920 -0.015930776 0.009790344
+## 7    lsoa_cd E01006520 (Intercept) -0.022304623 -0.023198252 0.019347743
+## 8    lsoa_cd E01006521 (Intercept)  0.008560665  0.007699773 0.018794944
+## 9    lsoa_cd E01006522 (Intercept)  0.018756323  0.020011969 0.019231407
+## 10   lsoa_cd E01006523 (Intercept)  0.005100006  0.004518048 0.019185529</code></pre>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
 <p>To gain an undertanding of the general pattern of the <em>random effects</em>, we can use caterpillar plots via <code>plotREsim</code> - reported below. The plot on the right shows the estimated random effects for each MSOA and their respective interval estimate. Note that random effects are on average zero, represented by the red horizontal line. Intervals that do not include zero are in bold. Also note that the width of the confidence interval depends on the standard error of the respective residual estimate, which is inversely related to the size of the sample. The residuals represent an observation departures from the grand mean, so an observation whose confidence interval does not overlap the line at zero (representing the mean proportion of unemployed population across all areas) is said to differ significantly from the average at the 5% level.</p>
 <div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="mlm1.html#cb281-1"></a><span class="co"># plot</span></span>
@@ -723,9 +731,9 @@ and then we made the <em>random</em> part of the model (<span class="math inline
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; ...
-##  $ mean     : num  -0.0098 -0.02576 -0.02861 0.00439 0.0244 ...
-##  $ median   : num  -0.0116 -0.0266 -0.0311 0.0044 0.0249 ...
-##  $ sd       : num  0.0342 0.033 0.0316 0.0302 0.0161 ...</code></pre>
+##  $ mean     : num  -0.00865 -0.02336 -0.02628 0.0023 0.02304 ...
+##  $ median   : num  -0.01108 -0.02384 -0.02712 0.00309 0.02259 ...
+##  $ sd       : num  0.0306 0.0313 0.0313 0.0297 0.0166 ...</code></pre>
 <div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="mlm1.html#cb288-1"></a><span class="co"># merge data</span></span>
 <span id="cb288-2"><a href="mlm1.html#cb288-2"></a>msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</span></code></pre></div>
 <p>Now we can create our map:</p>

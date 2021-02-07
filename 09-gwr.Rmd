@@ -1,6 +1,6 @@
 # Geographically Weighted Regression {#gwr}
 
-This chapter^[This note is part of [Spatial Analysis Notes](index.html) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Geographically Weighted Regression -- Spatial Nonstationarity</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.] provides an introduction to geographically weighted regression models.
+This chapter provides an introduction to geographically weighted regression models.
 
 The content of this chapter is based on:
 
@@ -8,18 +8,9 @@ The content of this chapter is based on:
 
 * @comber2020gwr's recently published preprint which provides a roadmap to approach various practical issues in the application of GWR.
 
-This Chapter is part of [Spatial Analysis Notes](index.html), a compilation hosted as a GitHub repository that you can access in a few ways:
-
-* As a [download](https://github.com/GDSL-UL/san/archive/master.zip) of a `.zip` file that contains all the materials.
-* As an [html
-  website](https://gdsl-ul.github.io/san/geographically-weighted-regression.html).
-* As a [pdf
-  document](https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf)
-* As a [GitHub repository](https://github.com/GDSL-UL/san).
-
 ## Dependencies
 
-This chapter uses the following libraries. Ensure they are installed on your machine^[You can install package `mypackage` by running the command `install.packages("mypackage")` on the R prompt or through the `Tools --> Install Packages...` menu in RStudio.] before loading them by executing the following code chunk:
+This chapter uses the following libraries:
 
 ```{r, message = FALSE}
 # Data manipulation, transformation and visualisation
@@ -453,4 +444,18 @@ For the share of nonwhite population, 67% of all local coefficients are statisti
 ### Collinearity in GWR
 
 An important final note is: collinearity tends to be problematic in GWR models. It can be present in the data subsets to estimate local coefficients even when not observed globally @wheeler2005multicollinearity. Collinearity can be highly problematic in the case of compositional, categorical and ordinal predictors, and may result in exact local collinearity making the search for an optimal bandwidth impossible. A recent paper suggests potential ways forward [@comber2020gwr].
+
+## Questions
+
+We will continue to use the COVID-19 dataset. Please see Chapter \@ref(datasets) for details on the data.
+
+```{r}
+sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
+```
+
+Using these data, you are required to address the following challenges:
+
+* Fit a GWR model using a fixed and an adaptive bandwidth.
+
+* Create a multiple map figure to analyse the spatial variation of coefficients.
 

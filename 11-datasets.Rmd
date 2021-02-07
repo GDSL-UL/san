@@ -1,7 +1,7 @@
 # Data Sets {#datasets}
 
 
-```{r}
+```{r, message=FALSE}
 library(sf)
 ```
 
@@ -9,7 +9,7 @@ library(sf)
 
 This dataset contains a pre-processed set of properties advertised on the AirBnb website within the region of Madrid (Spain), together with house characteristics.
 
-### Availability
+### Availability {.unnumbered}
 
 The dataset is stored on a Geopackage that can be found, within the structure of this project, under:
 
@@ -21,7 +21,7 @@ path <- "data/assignment_1_madrid/madrid_abb.gpkg"
 db <- st_read(path)
 ```
 
-### Variables
+### Variables {.unnumbered}
 
 For each of the `r length(db)` properties, the following characteristics are available:
 
@@ -43,7 +43,7 @@ For each of the `r length(db)` properties, the following characteristics are ava
 - `geom`: [geometry] Point geometry
 
 
-### Projection
+### Projection {.unnumbered}
 
 The location of each property is stored as point geometries and expressed in longitude and latitude coordinates:
 
@@ -51,6 +51,57 @@ The location of each property is stored as point geometries and expressed in lon
 st_crs(db)
 ```
 
-### Source & Pre-processing
+### Source & Pre-processing {.unnumbered}
 
-The data are sourced from [Inside Airbnb](http://insideairbnb.com/). A Jupyter notebook in Python (available at `data/assignment_1_madrid/clean_data.ipynb`) details the process from the original file available from source to the data in `madrid_abb.gpkg`. 
+The data are sourced from [Inside Airbnb](http://insideairbnb.com/). A Jupyter notebook in Python (available at `data/assignment_1_madrid/clean_data.ipynb`) details the process from the original file available from source to the data in `madrid_abb.gpkg`.
+
+## England COVID-19
+
+This dataset contains:
+
+* daily COVID-19 confirmed cases from 1st January, 2020 to 2nd February, 2021 from the [GOV.UK dashboard](https://coronavirus.data.gov.uk);
+
+* resident population characteristics from the 2011 census, available from the [Office of National Statistics](https://www.nomisweb.co.uk/home/census2001.asp); and,
+
+* 2019 Index of Multiple Deprivation (IMD) data from [GOV.UK](https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019) and published by the Ministry of Housing, Communities & Local Government. 
+
+The data are at the Upper Tier Local Authority District (UTLAD) level - also known as [Counties and Unitary Authorities](https://geoportal.statistics.gov.uk/datasets/fe6bcee87d95476abc84e194fe088abb_0).
+
+
+### Availability {.unnumbered}
+
+The dataset is stored on a Geopackage:
+
+```{r}
+sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
+```
+
+### Variables {.unnumbered}
+
+The data set contains 508 variables:
+
+
+* `objectid`: [integer] unit identifier
+* `ctyua19cd`: [integer] Upper Tier Local Authority District (or Counties and Unitary Authorities) identifier
+* `ctyua19nm`: [character] Upper Tier Local Authority District (or Counties and Unitary Authorities) name
+* `Region`: [character] Region name
+* `long`: [numeric] longitude
+* `lat`: [numeric] latitude
+* `st_areasha`: [numeric] area in hectare 
+* `X2020.01.31` to `X2021.02.05`: [numeric] Daily COVID-19 cases from 31st January, 2020 to 5th February, 2021
+* `IMD...Average.score` - `IMD.2019...Local.concentration`: [numeric] IMD indicators - for details see [File 11: upper-tier local authority summaries](https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019).
+* `Residents`:	[numeric] Total resident population
+* `Households`:	[numeric]	Total households
+* `Dwellings`:	[numeric]	Total dwellings
+* `Household_Spaces`:	[numeric]	Total household spaces
+* `Aged_16plus` to `Other_industry`: [numeric] comprise 114 variables relating to various population and household attributes of the resident population. A description of all these variables can be found [here](data/assignment_2_covid/census_vars.csv) 
+* `geom`: [geometry] Point geometry
+
+### Projection {.unnumbered}
+
+Details of the coordinate reference system:
+
+```{r}
+st_crs(sdf)
+```
+

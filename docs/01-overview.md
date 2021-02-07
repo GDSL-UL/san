@@ -38,55 +38,53 @@ By the end of the module, students should be able to:
 
 ## Computational Environment
 
+To reproduce the code in the book, you need the most recent version of R and packages. These can be installed following the instructions provided in our [R installation guide](https://gdsl-ul.github.io/r_install/).
+
+
+
 Dependencies + Landing page for guides
 
 ### Dependency list
 
-List of libraries used in this book:
+The list of libraries used in this book is provided below. If you have followed the instructions provided in our [R installation guide](https://gdsl-ul.github.io/r_install/) and will be using Docker, you can relax and these libraries have already been installed for you. 
+
+If you have `natively` installed R and RStudio, you need to ensure you have installed the list of libraries used in this book following the steps provided [here](https://gdsl-ul.github.io/r_install/otherWin.html#install-packages)
+
+* `arm`
+* `car`
+* `corrplot`
+* `FRK`
+* `gghighlight`
+* `ggplot2`
+* `ggmap`
+* `GISTools`
+* `gridExtra`
+* `gstat`
+* `jtools`
+* `kableExtra`
+* `knitr`
+* `lme4`
+* `lmtest`
+* `lubridate`
+* `MASS`
+* `merTools`
+* `plyr`
+* `RColorBrewer`
+* `rgdal`
+* `sf`
+* `sjPlot`
+* `sp`
+* `spgwr`
+* `spatialreg`
+* `spacetime`
+* `stargazer`
+* `tidyverse`
+* `tmap`
+* `viridis`
 
 
-```r
-deps <- list(
-    "arm",
-    "car",
-    "corrplot",
-    "FRK",
-    "gghighlight",
-    "ggplot2",
-    "ggmap",
-    "GISTools",
-    "gridExtra",
-    "gstat",
-    "jtools",
-    "kableExtra",
-    "knitr",
-    "lme4",
-    "lmtest",
-    "lubridate",
-    "MASS",
-    "merTools",
-    "plyr",
-    "RColorBrewer",
-    "rgdal",
-    "sf",
-    "sjPlot",
-    "sp",
-    "spgwr",
-    "spatialreg",
-    "spacetime",
-    "stargazer",
-    "tidyverse",
-    "tmap",
-    "viridis"
-)
-```
-
-And we can load them all to make sure they are installed:
 
 
-```r
-for(lib in deps){library(lib, character.only = TRUE)}
-```
 
 ## Assessment
 

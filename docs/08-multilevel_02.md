@@ -1,6 +1,6 @@
 # Multilevel Modelling - Part 2 {#mlm2}
 
-This chapter^[This note is part of [Spatial Analysis Notes](index.html) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Multilevel Modelling -- Random Slope Model</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.] provides an introduction to multi-level data structures and multi-level modelling.
+This chapter explains varying slopes and draws on the following references:
 
 The content of this chapter is based on:
 
@@ -8,18 +8,10 @@ The content of this chapter is based on:
 
 * @bristol2020 is an useful online resource on multilevel modelling and is free!
 
-This Chapter is part of [Spatial Analysis Notes](index.html), a compilation hosted as a GitHub repository that you can access it in a few ways:
-
-* As a [download](https://github.com/GDSL-UL/san/archive/master.zip) of a `.zip` file that contains all the materials.
-* As an [html
-  website](https://gdsl-ul.github.io/san/multilevel-modelling-part-2.html).
-* As a [pdf
-  document](https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf)
-* As a [GitHub repository](https://github.com/GDSL-UL/san).
 
 ## Dependencies
 
-This chapter uses the following libraries: Ensure they are installed on your machine^[You can install package `mypackage` by running the command `install.packages("mypackage")` on the R prompt or through the `Tools --> Install Packages...` menu in RStudio.] before loading them executing the following code chunk:
+This chapter uses the following libraries which are listed in the [Dependency list] Section of Chapter 1:
 
 
 ```r
@@ -278,9 +270,9 @@ str(re_msoa_m6)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.028 -0.1111 0.0597 -0.1483 -0.284 ...
-##  $ median   : num  0.0272 -0.1086 0.0622 -0.1455 -0.285 ...
-##  $ sd       : num  0.0437 0.0744 0.0781 0.0375 0.044 ...
+##  $ mean     : num  0.0269 -0.1096 0.046 -0.1444 -0.2733 ...
+##  $ median   : num  0.0258 -0.1083 0.0386 -0.1489 -0.2745 ...
+##  $ sd       : num  0.0431 0.0699 0.0841 0.0406 0.0397 ...
 ```
 
 ```r
@@ -440,3 +432,31 @@ anova(model6, model7)
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
+
+## Questions
+
+We will continue to use the COVID-19 dataset. Please see Chapter \@ref(datasets) for details on the data.
+
+
+```r
+sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
+```
+
+```
+## Reading layer `covid19_eng' from data source `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Simple feature collection with 149 features and 507 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 134112.4 ymin: 11429.67 xmax: 655653.8 ymax: 657536
+## projected CRS:  OSGB 1936 / British National Grid
+```
+
+Using these data, you are required to address the following challenges:
+
+1. Fit a varying-slope model. Let one slope to vary by region. Think carefully your choice.
+
+2. Fit a varying-intercept and varying-slope model.
+
+3. Compare the results for models fitted in 1 and 2. Which is better? Why?
+
+Use the same explanatory variables used for the Chapter \@ref(mlm1) challenge, so you can compare the model results from this chapter. 

@@ -1,0 +1,119 @@
+﻿Topic,Variable name,Description
+,Residents,Total resident population
+,Households,Total households
+,Dwellings,Total dwellings
+,Household_Spaces,Total household spaces
+Sex, Males,  Total resident population who are Males
+, Females,  Total resident population who are Females
+Resident type, Household_Resident,  Total resident population who Live in a private household
+, Communal_Resident,  Total resident population who Live in a communal establishment
+Age, Age_0_to_19,  Total resident population who are Aged 0 to 19
+, Age_20_to_29,  Total resident population who are Aged 20 to 29
+, Age_30_to_44,  Total resident population who are Aged 30 to 44
+, Age_45_to_64,  Total resident population who are Aged 45 to 64
+, Age_65_to_84,  Total resident population who are Aged 65 to 84
+, Age_85plus,  Total resident population who are Aged 85 or more
+,Mean_age,Mean age
+,Median_age,Median age
+Ethnicity, White_British_and_Irish,  Total resident population who are White: British and Irish
+, White_other,  Total resident population who are White: Other White
+, Mixed,  Total resident population who are Mixed/multiple ethnic group: Other Mixed
+, Indian,  Total resident population who are Asian/Asian British: Indian
+, Pakistani,  Total resident population who are Asian/Asian British: Pakistani
+, Bangladeshi,  Total resident population who are Asian/Asian British: Bangladeshi
+, Chinese,  Total resident population who are Asian/Asian British: Chinese
+, Other_Asian,  Total resident population who are Asian/Asian British: Other Asian
+, Black,  Total resident population who are Black/African/Caribbean/Black British: African
+, Other_ethnicity,  Total resident population who are Arab or Other Ethnic Groups
+Religion, Christian,  Total resident population who are Christian
+, Other_religion,  Total resident population who are Other religion
+, No_religion,  Total resident population who are No religion
+, Religion_not_stated,  Total resident population who are Religion not stated
+Country of Birth, CoB_United_Kingdom,  Total resident population who are United Kingdom
+, CoB_Ireland,  Total resident population who are Ireland
+, CoB_EU_Member_pre_2001,  Total resident population who are Other EU: Member countries in March 2001
+, CoB_EU_member_pre_2011,  Total resident population who are Other EU: Accession countries April 2001 to March 2011
+, CoB_Other,  Total resident population who are Other countries
+Language, Little_or_no_English,  Total residents aged 3 and over who are Speak little or no English
+Marital Status, Single,  Total residents aged 16 and over who are Not living in a couple: Single (never married or never registered a same-sex civil partnership)
+, Married_couple,  Total residents aged 16 and over who are Living in a couple: Married
+, Cohabiting_couple,  Total residents aged 16 and over who are Living in a couple: Cohabiting (opposite-sex)
+, Same_sex_couple,  Total residents aged 16 and over who are Living in a couple: In a registered same-sex civil partnership or cohabiting (same-sex)
+, Legal_couple_living_apart,  Total residents aged 16 and over who are Not living in a couple: Married or in a registered same-sex civil partnership
+, Separated,  Total residents aged 16 and over who are Not living in a couple: Separated (but still legally married or still legally in a same-sex civil partnership)
+, Divorced,  Total residents aged 16 and over who are Not living in a couple: Divorced or formerly in a same-sex civil partnership which is now legally dissolved
+, Widowed,  Total residents aged 16 and over who are Not living in a couple: Widowed or surviving partner from a same-sex civil partnership
+Household composition, Lone_person,  Total households who are Single person households
+, Couple_no_kids,  Total households who are Mixed or same sex couple households with no children
+, Couple_dependent_kids,  Total households who are Mixed or same sex couple households with dependent children
+, Lone_parent_dependent_children,  Total households who are One family only: Lone parent: Dependent children
+, All_fulltime_students,  Total households who are Full-time Student households
+, Other_household_type,  Total households who are Other household types
+Empty households, Households_with_0_residents,  Total household spaces which have No usual residents
+Accomodation type, Detached,  Total household spaces which are Whole house or bungalow: Detached
+, Semidetached,  Total household spaces which are Whole house or bungalow: Semi-detached
+, Terraced,  Total household spaces which are Whole house or bungalow: Terraced (including end-terrace)
+, Flats,  Total household spaces which are Flats
+, Caravan_or_other,  Total household spaces which are Caravan or other mobile or temporary structure
+Tenure, Owned,  Total households who are Owned and Shared Ownership
+, Social_rented,  Total households who are Social rented
+, Private_rented,  Total households who are Private rented
+, Living_rent_free,  Total households who are Living rent free
+Over-crowding, Crowded_housing,  Total households who are One or more persons per room
+Health, Long_term_ill,  Total resident population who are Ill-health limits activities a lot or a little
+,Standardised_illness_ratio,Standardised Illness Ratio
+, Very_good_health,  Total resident population who are Very good health
+, Good_health,  Total resident population who are Good health
+, Fair_health,  Total resident population who are Fair health
+, Bad_health,  Total resident population who are Bad health
+, Very_bad_health,  Total resident population who are Very bad health
+Care, Provides_unpaid_care,  Total resident population who Provide unpaid care
+Highest Qualification, No_qualifications,  Total residents aged 16 and over with No qualifications
+, GCSE,"  Total residents aged 16 and over with Highest level of qualification: Level 1, Level 2 or Apprenticeship"
+, A_level,  Total residents aged 16 and over with Highest level of qualification: Level 3 qualifications
+, Degree_plus,  Total residents aged 16 and over with Highest level of qualification: Level 4 qualifications and above
+Cars, Cars_0,  Total households with No cars or vans in household
+, Cars_1,  Total households with 1 car or van in household
+, Cars_2plus,  Total households with 2 or more cars or vans in household
+Transport to work, Work_from_home,  Total working residents aged 16 to 74 who Work mainly at or from home
+, Public_Transport,  Wokers aged 16 to 74 who commute by Public Transport
+, Private_Transport,  Wokers aged 16 to 74 who commute by Private Transport
+, Other_Transport,"  Wokers aged 16 to 74 who commute On foot, Bicycle or Other"
+Economic Activity, Employee_Parttime,  Total residents aged 16 to 74 who are Economically active: Employee: Part-time
+, Employee_Fulltime,  Total residents aged 16 to 74 who are Economically active: Employee: Full-time
+, Self_employed,  Total residents aged 16 to 74 who are Economically active: Self-employed
+, Unemployed,  Total residents aged 16 to 74 who are Economically active: Unemployed
+, Fulltime_student,  Total residents aged 16 to 74 who are Economically active: Full-time student
+, Retired,  Total residents aged 16 to 74 who are Economically inactive: Retired
+, Student_Econ_Inactive,  Total residents aged 16 to 74 who are Economically inactive: Student (including full-time students)
+, Looking_after_home_or_family,  Total residents aged 16 to 74 who are Economically inactive: Looking after home or family
+, Longterm_sick_or_disabled,  Total residents aged 16 to 74 who are Economically inactive: Long-term sick or disabled
+, Economically_inactive_Other,  Total residents aged 16 to 74 who are Economically inactive: Other
+, Never_worked,  Total residents aged 16 to 74 who are Unemployed: Never worked
+, Longterm_unemployed,  Total residents aged 16 to 74 who are Long-term unemployed
+Socio-Economic Classification, Higher_manager_prof,  Total residents aged 16 to 74 who are in Higher managerial and professional occupations
+, Lower_manager_prof,  Total residents aged 16 to 74 who are in Lower managerial and professional occupations
+, Intermediate_occupations,  Total residents aged 16 to 74 who are in Intermediate occupations
+, Small_employer_self_employed,  Total residents aged 16 to 74 who are Small employers or self-employed
+, Lower_supervisory_technical,  Total residents aged 16 to 74 who are in Lower supervisory and technical occupations
+, Semi_routine_occupations,  Total residents aged 16 to 74 who are in Semi-routine occupations
+, Routine_occupations,  Total residents aged 16 to 74 who are in Routine occupations
+, Long_unemp_never_worked,  Total residents aged 16 to 74 who are in Long-term unemployed or have never worked
+Industry, Agriculture_forestry_and_fishing,"  Working population (16 to 74) who work in Agriculture, forestry and fishing"
+, Mining_and_quarrying,  Working population (16 to 74) who work in Mining and quarrying
+, Manufacturing,  Working population (16 to 74) who work in Manufacturing
+, Electricity_gas_air_conditioning,"  Working population (16 to 74) who work in Electricity, gas, steam and air conditioning supply"
+, Water_and_waste,"  Working population (16 to 74) who work in Water supply; sewerage, waste management and remediation activities"
+, Construction,  Working population (16 to 74) who work in Construction
+, Motor_vehicles,  Working population (16 to 74) who work in Wholesale and retail trade; repair of motor vehicles and motor cycles
+, Transport_and_storage,  Working population (16 to 74) who work in Transport and storage
+, Accommodation_and_food_service,  Working population (16 to 74) who work in Accommodation and food service activities
+, Information_and_communication,  Working population (16 to 74) who work in Information and communication
+, Financial_and_insurance,  Working population (16 to 74) who work in Financial and insurance activities
+, Real_estate,  Working population (16 to 74) who work in Real estate activities
+, Scientific_and_technical,"  Working population (16 to 74) who work in Professional, scientific and technical activities"
+, Administrative_and_support,  Working population (16 to 74) who work in Administrative and support service activities
+, Public_administration_and_defence,  Working population (16 to 74) who work in Public administration and defence; compulsory social security
+, Education,  Working population (16 to 74) who work in Education
+, Human_health_and_social_work,  Working population (16 to 74) who work in Human health and social work activities
+, Other_industry,  Working population (16 to 74) who work in Other industry

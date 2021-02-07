@@ -249,3 +249,18 @@ anova(model6, model7)
 
 ## Questions
 
+We will continue to use the COVID-19 dataset. Please see Chapter \@ref(datasets) for details on the data.
+
+```{r}
+sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
+```
+
+Using these data, you are required to address the following challenges:
+
+1. Fit a varying-slope model. Let one slope to vary by region. Think carefully your choice.
+
+2. Fit a varying-intercept and varying-slope model.
+
+3. Compare the results for models fitted in 1 and 2. Which is better? Why?
+
+Use the same explanatory variables used for the Chapter \@ref(mlm1) challenge, so you can compare the model results from this chapter. 
