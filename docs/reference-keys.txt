@@ -13,6 +13,7 @@ feedback
 computational-environment
 dependency-list
 assessment
+assignment-1-50
 marking-criteria
 spatial_data
 spatial-data-types
@@ -103,6 +104,7 @@ estimating-varying-intercept-and-slopes-models
 interpreting-correlations-between-group-level-intercepts-and-slopes
 model-building
 model-comparison
+questions-4
 gwr
 dependencies-6
 data-5
@@ -121,6 +123,7 @@ model-fit
 interpretation-1
 assessing-statistical-significance
 collinearity-in-gwr
+questions-5
 sta
 dependencies-7
 data-6
@@ -142,9 +145,7 @@ spatio-temporal-data-modelling
 intuition
 fitting-spatio-temporal-models
 model-comparision
+questions-6
 datasets
 madrid-airbnb
-availability
-variables
-projection
-source-pre-processing
+england-covid-19

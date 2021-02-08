@@ -40,15 +40,11 @@ By the end of the module, students should be able to:
 
 To reproduce the code in the book, you need the most recent version of R and packages. These can be installed following the instructions provided in our [R installation guide](https://gdsl-ul.github.io/r_install/).
 
-
-
-Dependencies + Landing page for guides
-
 ### Dependency list
 
 The list of libraries used in this book is provided below. If you have followed the instructions provided in our [R installation guide](https://gdsl-ul.github.io/r_install/) and will be using Docker, you can relax and these libraries have already been installed for you. 
 
-If you have `natively` installed R and RStudio, you need to ensure you have installed the list of libraries used in this book following the steps provided [here](https://gdsl-ul.github.io/r_install/otherWin.html#install-packages)
+If you have `natively` installed R and RStudio, you need to ensure you have installed the list of libraries used in this book following the steps provided [here](https://gdsl-ul.github.io/r_install/otherWin.html#install-packages).
 
 * `arm`
 * `car`
@@ -88,12 +84,13 @@ If you have `natively` installed R and RStudio, you need to ensure you have inst
 
 ## Assessment
 
-The final module mark is composed of the *two computational essays*. Together they are designed to cover the materials introduced in the entirety of content covered during the semester.
+The final module mark is composed of the *two computational essays*. Together they are designed to cover the materials introduced in the entirety of content covered during the semester. A computational essay is an essay whose narrative is supported by code and computational results that are included in the essay itself. Each teaching week, you will be required to address a set of questions relating to the module content covered in that week. You will be required to use the material produced to address each question to build your computational essay.
 
-* Assignment 1 (50%) - for details see Chapters \@ref(points), \@ref(flows) and \@ref(spatialecon)
-* Assignment 2 (50%) - for details see Chapters \@ref(mlm1), \@ref(mlm2), \@ref(gwr) and \@ref(sta)
+Both assignments will be similar in format: 
 
-*Maximum word count: 2,000 words*, excluding figures and references. Both assignments will be similar in format. Each teaching week, you will be required to address a set of questions relating to the module content covered in that week. You should use roughly the same number of words to document your answers each week. For assignment 1, for example, you will be required to address questions in Weeks 2, 3 and 4 so we should roughly document your answers in 666 words (= 2,000 / 3) each week.
+* Maximum word count: 2,000 words, excluding figures and references.
+* Up to three maps, plot or figures (a figure may include more than one map and/or plot and will only count as one but needs to be integrated in the figure)
+* Up to two tables.
 
 Assignments need to be prepared in *R Notebook* format and then converted into
 a self-contained HTML file that will then be submitted via Turnitin.
@@ -108,6 +105,13 @@ Useful resources to customise your *R notebook* can be found on the [R Markdown 
 A R Notebook template is available via the [*module Canvas site*](https://liverpool.instructure.com).
 
 *Submission* is electronic only via Turnitin on *Canvas*.
+
+### Assignment 1 (50%)
+
+- for details see Chapters \@ref(points), \@ref(flows) and \@ref(spatialecon)
+* Assignment 2 (50%) - for details see Chapters \@ref(mlm1), \@ref(mlm2), \@ref(gwr) and \@ref(sta)
+
+
 
 ### Marking criteria
 
