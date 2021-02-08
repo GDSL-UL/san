@@ -138,7 +138,7 @@
 
 \title{Spatial Modelling for Data Scientists}
 \author{Francisco Rowe and Dani Arribas-Bel}
-\date{2021-02-04}
+\date{2021-02-08}
 
 \begin{document}
 \maketitle
@@ -257,76 +257,107 @@ By the end of the module, students should be able to:
 \hypertarget{computational-environment}{%
 \section{Computational Environment}\label{computational-environment}}
 
-Dependencies + Landing page for guides
+To reproduce the code in the book, you need the most recent version of R and packages. These can be installed following the instructions provided in our \href{https://gdsl-ul.github.io/r_install/}{R installation guide}.
 
 \hypertarget{dependency-list}{%
 \subsection{Dependency list}\label{dependency-list}}
 
-List of libraries used in this book:
+The list of libraries used in this book is provided below. If you have followed the instructions provided in our \href{https://gdsl-ul.github.io/r_install/}{R installation guide} and will be using Docker, you can relax and these libraries have already been installed for you.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{deps }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}
-    \StringTok{"arm"}\NormalTok{,}
-    \StringTok{"car"}\NormalTok{,}
-    \StringTok{"corrplot"}\NormalTok{,}
-    \StringTok{"FRK"}\NormalTok{,}
-    \StringTok{"gghighlight"}\NormalTok{,}
-    \StringTok{"ggplot2"}\NormalTok{,}
-    \StringTok{"ggmap"}\NormalTok{,}
-    \StringTok{"GISTools"}\NormalTok{,}
-    \StringTok{"gridExtra"}\NormalTok{,}
-    \StringTok{"gstat"}\NormalTok{,}
-    \StringTok{"jtools"}\NormalTok{,}
-    \StringTok{"kableExtra"}\NormalTok{,}
-    \StringTok{"knitr"}\NormalTok{,}
-    \StringTok{"lme4"}\NormalTok{,}
-    \StringTok{"lmtest"}\NormalTok{,}
-    \StringTok{"lubridate"}\NormalTok{,}
-    \StringTok{"MASS"}\NormalTok{,}
-    \StringTok{"merTools"}\NormalTok{,}
-    \StringTok{"plyr"}\NormalTok{,}
-    \StringTok{"RColorBrewer"}\NormalTok{,}
-    \StringTok{"rgdal"}\NormalTok{,}
-    \StringTok{"sf"}\NormalTok{,}
-    \StringTok{"sjPlot"}\NormalTok{,}
-    \StringTok{"sp"}\NormalTok{,}
-    \StringTok{"spgwr"}\NormalTok{,}
-    \StringTok{"spatialreg"}\NormalTok{,}
-    \StringTok{"spacetime"}\NormalTok{,}
-    \StringTok{"stargazer"}\NormalTok{,}
-    \StringTok{"tidyverse"}\NormalTok{,}
-    \StringTok{"tmap"}\NormalTok{,}
-    \StringTok{"viridis"}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-And we can load them all to make sure they are installed:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ControlFlowTok{for}\NormalTok{(lib }\ControlFlowTok{in}\NormalTok{ deps)\{}\FunctionTok{library}\NormalTok{(lib, }\AttributeTok{character.only =} \ConstantTok{TRUE}\NormalTok{)\}}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{assessment}{%
-\section{Assessment}\label{assessment}}
-
-The final module mark is composed of the \emph{two computational essays}. Together they are designed to cover the materials introduced in the entirety of content covered during the semester.
+If you have \texttt{natively} installed R and RStudio, you need to ensure you have installed the list of libraries used in this book following the steps provided \href{https://gdsl-ul.github.io/r_install/otherWin.html\#install-packages}{here}.
 
 \begin{itemize}
 \tightlist
 \item
-  Assignment 1 (50\%) - for details see Chapters \ref{points}, \ref{flows} and \ref{spatialecon}
+  \texttt{arm}
 \item
-  Assignment 2 (50\%) - for details see Chapters \ref{mlm1}, \ref{mlm2}, \ref{gwr} and \ref{sta}
+  \texttt{car}
+\item
+  \texttt{corrplot}
+\item
+  \texttt{FRK}
+\item
+  \texttt{gghighlight}
+\item
+  \texttt{ggplot2}
+\item
+  \texttt{ggmap}
+\item
+  \texttt{GISTools}
+\item
+  \texttt{gridExtra}
+\item
+  \texttt{gstat}
+\item
+  \texttt{jtools}
+\item
+  \texttt{kableExtra}
+\item
+  \texttt{knitr}
+\item
+  \texttt{lme4}
+\item
+  \texttt{lmtest}
+\item
+  \texttt{lubridate}
+\item
+  \texttt{MASS}
+\item
+  \texttt{merTools}
+\item
+  \texttt{plyr}
+\item
+  \texttt{RColorBrewer}
+\item
+  \texttt{rgdal}
+\item
+  \texttt{sf}
+\item
+  \texttt{sjPlot}
+\item
+  \texttt{sp}
+\item
+  \texttt{spgwr}
+\item
+  \texttt{spatialreg}
+\item
+  \texttt{spacetime}
+\item
+  \texttt{stargazer}
+\item
+  \texttt{tidyverse}
+\item
+  \texttt{tmap}
+\item
+  \texttt{viridis}
 \end{itemize}
 
-\emph{Maximum word count: 2,000 words}, excluding figures and references. Both assignments will be similar in format. Each teaching week, you will be required to address a set of questions relating to the module content covered in that week. You should use roughly the same number of words to document your answers each week. For assignment 1, for example, you will be required to address questions in Weeks 2, 3 and 4 so we should roughly document your answers in 666 words (= 2,000 / 3) each week.
+\hypertarget{assessment}{%
+\section{Assessment}\label{assessment}}
+
+The final module mark is composed of the \emph{two computational essays}. Together they are designed to cover the materials introduced in the entirety of content covered during the semester. A computational essay is an essay whose narrative is supported by code and computational results that are included in the essay itself. Each teaching week, you will be required to address a set of questions relating to the module content covered in that week, and to use the material that you will produce for this purpose to build your computational essay.
+
+\textbf{Assignment 1 (50\%)} refer to the set of questions at the end of Chapters \ref{points}, \ref{flows} and \ref{spatialecon}. You are required to use your responses to build your computational essay. Each chapter provides more specific guidance of the tasks and discussion that you are required to consider in your assignment.
+
+\textbf{Assignment 2 (50\%)} refer to the set of questions at the end of Chapters \ref{mlm1}, \ref{mlm2}, \ref{gwr} and \ref{sta}. You are required to use your responses to build your computational essay. Each chapter provides more specific guidance of the tasks and discussion that you are required to consider in your assignment.
+
+\hypertarget{format-requirements}{%
+\subsection{Format Requirements}\label{format-requirements}}
+
+Both assignments will have the same requirements:
+
+\begin{itemize}
+\tightlist
+\item
+  Maximum word count: 2,000 words, excluding figures and references.
+\item
+  Up to three maps, plot or figures (a figure may include more than one map and/or plot and will only count as one but needs to be integrated in the figure)
+\item
+  Up to two tables.
+\end{itemize}
 
 Assignments need to be prepared in \emph{R Notebook} format and then converted into
-a self-contained HTML file that will then be submitted via Turnitin.
+a self-contained \emph{HTML} file that will then be submitted via Turnitin.
 The notebook should only display content that will be assessed.
 Intermediate steps do not need to be displayed.
 Messages resulting from loading packages, attaching data frames, or similar messages do not need to be included as output code.
@@ -335,7 +366,7 @@ Useful resources to customise your \emph{R notebook} can be found on the \href{h
 * \href{https://bookdown.org/yihui/rmarkdown/}{R Markdown: The Definitive Guide} by \citet{xie2018r}\\
 * \href{https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.199646894.1496049738.1611760832-141828105.1610798362}{R Markdown Reference Guide}
 
-A R Notebook template is available via the \href{https://liverpool.instructure.com}{\emph{module Canvas site}}.
+Two R Notebook templates will be available via the \href{https://liverpool.instructure.com}{\emph{module Canvas site}}.
 
 \emph{Submission} is electronic only via Turnitin on \emph{Canvas}.
 
@@ -347,19 +378,19 @@ The Standard Environmental Sciences School marking criteria apply, with a strong
 \begin{itemize}
 \tightlist
 \item
-  0-15: no documentation and use of default options.
+  \textbf{0-15}: no documentation and use of default options.
 \item
-  16-39: little documentation and use of default options.
+  \textbf{16-39}: little documentation and use of default options.
 \item
-  40-49: some documentation, and use of default options.
+  \textbf{40-49}: some documentation, and use of default options.
 \item
-  50-59: extensive documentation, and edit of some of the options provided in the notebook (e.g.~change north arrow location).
+  \textbf{50-59}: extensive documentation, and edit of some of the options provided in the notebook (e.g.~change north arrow location).
 \item
-  60-69: extensive well organised and easy to read documentation, and evidence of understanding of options provided in the code (e.g.~tweaking existing options).
+  \textbf{60-69}: extensive well organised and easy to read documentation, and evidence of understanding of options provided in the code (e.g.~tweaking existing options).
 \item
-  70-79: all above, plus clear evidence of code design skills (e.g.~customising graphics, combining plots (or tables) into a single output, adding clear axis labels and variable names on graphic outputs, etc.).
+  \textbf{70-79}: all above, plus clear evidence of code design skills (e.g.~customising graphics, combining plots (or tables) into a single output, adding clear axis labels and variable names on graphic outputs, etc.).
 \item
-  80-100: all as above, plus code containing novel contributions that extend/improve the functionality the code was provided with (e.g.~comparative model assessments, novel methods to perform the task, etc.).
+  \textbf{80-100}: all as above, plus code containing novel contributions that extend/improve the functionality the code was provided with (e.g.~comparative model assessments, novel methods to perform the task, etc.).
 \end{itemize}
 
 \hypertarget{spatial_data}{%
@@ -3322,133 +3353,20 @@ We will rely on the following libraries in this section, all of them included in
 \FunctionTok{library}\NormalTok{(stringr)}
 \CommentTok{\# Spatial Data management}
 \FunctionTok{library}\NormalTok{(rgdal)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Loading required package: sp
-\end{verbatim}
-
-\begin{verbatim}
-## rgdal: version: 1.5-18, (SVN revision 1082)
-## Geospatial Data Abstraction Library extensions to R successfully loaded
-## Loaded GDAL runtime: GDAL 3.0.4, released 2020/01/28
-## Path to GDAL shared files: /opt/conda/share/gdal
-## GDAL binary built with GEOS: TRUE 
-## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
-## Path to PROJ shared files: /opt/conda/share/proj
-## Linking to sp version:1.4-4
-## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
-## use options("rgdal_show_exportToProj4_warnings"="none") before loading rgdal.
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{\# Pretty graphics}
 \FunctionTok{library}\NormalTok{(ggplot2)}
 \CommentTok{\# Pretty maps}
 \FunctionTok{library}\NormalTok{(ggmap)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Google's Terms of Service: https://cloud.google.com/maps-platform/terms/.
-\end{verbatim}
-
-\begin{verbatim}
-## Please cite ggmap if you use it! See citation("ggmap") for details.
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{\# Various GIS utilities}
 \FunctionTok{library}\NormalTok{(GISTools)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Loading required package: maptools
-\end{verbatim}
-
-\begin{verbatim}
-## Checking rgeos availability: TRUE
-\end{verbatim}
-
-\begin{verbatim}
-## Loading required package: RColorBrewer
-\end{verbatim}
-
-\begin{verbatim}
-## Loading required package: MASS
-\end{verbatim}
-
-\begin{verbatim}
-## Loading required package: rgeos
-\end{verbatim}
-
-\begin{verbatim}
-## rgeos version: 0.5-5, (SVN revision 640)
-##  GEOS runtime version: 3.8.0-CAPI-1.13.1 
-##  Linking to sp version: 1.4-4 
-##  Polygon checking: TRUE
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{\# For all your interpolation needs}
 \FunctionTok{library}\NormalTok{(gstat)}
 \CommentTok{\# For data manipulation}
 \FunctionTok{library}\NormalTok{(dplyr)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Attaching package: 'dplyr'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:rgeos':
-## 
-##     intersect, setdiff, union
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:MASS':
-## 
-##     select
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{\# Spatial regression}
 \FunctionTok{library}\NormalTok{(spdep)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Loading required package: spData
-\end{verbatim}
-
-\begin{verbatim}
-## Loading required package: sf
-\end{verbatim}
-
-\begin{verbatim}
-## Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1
-\end{verbatim}
 
 Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with \texttt{setwd()}. Please replace in the following line the path to the folder where you have placed this file -and where the \texttt{house\_transactions} folder with the data lives.
 
@@ -4435,37 +4353,20 @@ In each instance, provide a brief interpretation (no more thana few lines for ea
 \hypertarget{mlm1}{%
 \chapter{Multilevel Modelling - Part 1}\label{mlm1}}
 
-This chapter\footnote{This note is part of \href{index.html}{Spatial Analysis Notes} {Multilevel Modelling -- Random Intercept Multilevel Model} by Francisco Rowe is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.} provides an introduction to multi-level data structures and multi-level modelling.
-
-The content of this chapter is based on:
+This chapter provides an introduction to multi-level data structures and multi-level modelling and draws on the following references:
 
 \begin{itemize}
+\tightlist
 \item
   \citet{Gelman_Hill_2006_book} provides an excellent and intuitive explanation of multilevel modelling and data analysis in general. Read Part 2A for a really good explanation of multilevel models.
 \item
   \citet{bristol2020} is an useful online resource on multilevel modelling and is free!
 \end{itemize}
 
-This Chapter is part of \href{index.html}{Spatial Analysis Notes}, a compilation hosted as a GitHub repository that you can access it in a few ways:
-
-\begin{itemize}
-\tightlist
-\item
-  As a \href{https://github.com/GDSL-UL/san/archive/master.zip}{download} of a \texttt{.zip} file that contains all the materials.
-\item
-  As an \href{https://gdsl-ul.github.io/san/multilevel-modelling-part-1.html}{html
-  website}.
-\item
-  As a \href{https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf}{pdf
-  document}
-\item
-  As a \href{https://github.com/GDSL-UL/san}{GitHub repository}.
-\end{itemize}
-
 \hypertarget{dependencies-4}{%
 \section{Dependencies}\label{dependencies-4}}
 
-This chapter uses the following libraries: Ensure they are installed on your machine\footnote{You can install package \texttt{mypackage} by running the command \texttt{install.packages("mypackage")} on the R prompt or through the \texttt{Tools\ -\/-\textgreater{}\ Install\ Packages...} menu in RStudio.} before loading them executing the following code chunk:
+This chapter uses the following libraries which are listed in the \protect\hyperlink{dependency-list}{Dependency list} Section of Chapter 1:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5032,17 +4933,17 @@ We can also obtain group-level errors (\emph{random effects}) by using a simulat
 \end{Shaded}
 
 \begin{verbatim}
-##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.015471108 -0.014024889 0.018502845
-## 2    lsoa_cd E01006513 (Intercept) -0.016242388 -0.017134589 0.018807439
-## 3    lsoa_cd E01006514 (Intercept) -0.022486320 -0.022085883 0.019307663
-## 4    lsoa_cd E01006515 (Intercept) -0.017674406 -0.018630115 0.019509020
-## 5    lsoa_cd E01006518 (Intercept) -0.019172600 -0.021171119 0.019618507
-## 6    lsoa_cd E01006519 (Intercept) -0.015409627 -0.014633292 0.009396506
-## 7    lsoa_cd E01006520 (Intercept) -0.029054259 -0.029817337 0.021181812
-## 8    lsoa_cd E01006521 (Intercept)  0.006849465  0.008136881 0.020713774
-## 9    lsoa_cd E01006522 (Intercept)  0.018603501  0.019849149 0.019894843
-## 10   lsoa_cd E01006523 (Intercept)  0.002899042  0.003127135 0.019542610
+##    groupFctr   groupID        term         mean       median         sd
+## 1    lsoa_cd E01006512 (Intercept) -0.017360666 -0.016428829 0.01958606
+## 2    lsoa_cd E01006513 (Intercept) -0.016404985 -0.014811862 0.02029030
+## 3    lsoa_cd E01006514 (Intercept) -0.021019479 -0.020684093 0.02038621
+## 4    lsoa_cd E01006515 (Intercept) -0.017846506 -0.018021045 0.01943637
+## 5    lsoa_cd E01006518 (Intercept) -0.019695473 -0.019447644 0.01930640
+## 6    lsoa_cd E01006519 (Intercept) -0.016011648 -0.016088772 0.01067648
+## 7    lsoa_cd E01006520 (Intercept) -0.025635691 -0.026819757 0.01841737
+## 8    lsoa_cd E01006521 (Intercept)  0.006573416  0.006748749 0.01857851
+## 9    lsoa_cd E01006522 (Intercept)  0.017871161  0.017509364 0.01928528
+## 10   lsoa_cd E01006523 (Intercept)  0.004203106  0.006457941 0.02098784
 \end{verbatim}
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g.~LSOA). The mean estimates are similar to those obtained from \texttt{ranef} with some small differences due to rounding.
@@ -5119,9 +5020,9 @@ We can also map the MSOA-level \emph{random effects}. To this end, we first need
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.01243 -0.02588 -0.02713 0.00307 0.02265 ...
-##  $ median   : num  -0.01275 -0.02432 -0.02453 0.00597 0.0225 ...
-##  $ sd       : num  0.0343 0.0339 0.0309 0.0347 0.0158 ...
+##  $ mean     : num  -0.01365 -0.02662 -0.02771 0.00754 0.02418 ...
+##  $ median   : num  -0.01167 -0.02796 -0.02983 0.00632 0.02468 ...
+##  $ sd       : num  0.0316 0.0317 0.0298 0.0292 0.0143 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -5387,60 +5288,193 @@ function only accepts predictors at the individual level, so we have included da
 
 Adding group-level predictors tends to improve inferences for group coefficients. Examine the confidence intervals, in order to evalute how the precision of our estimates of the MSOA intercepts have changed. \emph{Have confidence intervals for the intercepts of Model 4 and 5 increased or reduced?} Hint: look at how to get the confidence intervals above.
 
-\hypertarget{useful-functions-1}{%
-\section{Useful Functions}\label{useful-functions-1}}
+\hypertarget{questions-3}{%
+\section{Questions}\label{questions-3}}
 
-\begin{longtable}[]{@{}ll@{}}
-\toprule
-\begin{minipage}[b]{0.17\columnwidth}\raggedright
-Function\strut
-\end{minipage} & \begin{minipage}[b]{0.77\columnwidth}\raggedright
-Description\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.17\columnwidth}\raggedright
-lmer()\strut
-\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
-fit linear mixed-effects models\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.17\columnwidth}\raggedright
-fixef()\strut
-\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
-obtain estimated fixed effects or model averaging over groups\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.17\columnwidth}\raggedright
-ranef()\strut
-\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
-obtain estimated random effects or group-level residuals\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.17\columnwidth}\raggedright
-REsim()\strut
-\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
-obtain estimated random effects or group-level residuals based on simulation\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.17\columnwidth}\raggedright
-plotREsim()\strut
-\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
-create a caterpillar plot of estimated random effects\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.17\columnwidth}\raggedright
-coef()\strut
-\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
-obtain coefficients within each group\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.17\columnwidth}\raggedright
-anova()\strut
-\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
-provide regression model diagnostics\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+For the second assignment, we will be using a different dataset comprising information on COVID-19 cases, census data and the Index of Multiple Deprivation (IMD) for England. The data set is similar in structured to that used in this chapter. It is hierarchically organised into 149 Upper Tier Local Authority Districts (UTLADs) within 9 Regions and has 508 variables - see Chapter \ref{datasets} for a more detailed description of the data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sdf }\OtherTok{\textless{}{-}} \FunctionTok{st\_read}\NormalTok{(}\StringTok{"data/assignment\_2\_covid/covid19\_eng.gpkg"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Simple feature collection with 149 features and 507 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 134112.4 ymin: 11429.67 xmax: 655653.8 ymax: 657536
+## projected CRS:  OSGB 1936 / British National Grid
+\end{verbatim}
+
+Here we see a selection of 10 variables for 5 UTLADs.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(sdf[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{,}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{9}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{381}\NormalTok{,}\DecValTok{385}\NormalTok{,}\DecValTok{386}\NormalTok{,}\DecValTok{387}\NormalTok{,}\DecValTok{403}\NormalTok{,}\DecValTok{406}\NormalTok{)])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Simple feature collection with 5 features and 10 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 418871.2 ymin: 506329.3 xmax: 478441.5 ymax: 537152
+## projected CRS:  OSGB 1936 / British National Grid
+##              ctyua19nm     Region X2020.01.31 X2020.02.01 IMD...Average.score
+## 1           Hartlepool North East           0           0              35.037
+## 2        Middlesbrough North East           0           0              40.460
+## 3 Redcar and Cleveland North East           0           0              29.792
+## 4     Stockton-on-Tees North East           0           0              25.790
+## 5           Darlington North East           0           0              25.657
+##   Residents Households Dwellings Age_85plus White_British_and_Irish
+## 1     92028      40434     42102       1856                   89117
+## 2    138412      57203     59956       2465                  119680
+## 3    135177      59605     61899       3113                  132343
+## 4    191610      79159     82237       3481                  179501
+## 5    105564      46670     48644       2550                   99226
+##                             geom
+## 1 MULTIPOLYGON (((447097 5371...
+## 2 MULTIPOLYGON (((449862.8 52...
+## 3 MULTIPOLYGON (((455939.7 52...
+## 4 MULTIPOLYGON (((444126.1 52...
+## 5 MULTIPOLYGON (((423475.7 52...
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{ctyua19nm}: Upper Tier Local Authority District name
+\item
+  \texttt{Region}: Region name
+\item
+  \texttt{X2020.01.31}: COVID-19 cases on January 31st 2020
+\item
+  \texttt{X2020.02.01}: COVID-19 cases on February 1st 2020
+\item
+  \texttt{IMD...Average.score}: Average IMD score for UTLADs - see \href{https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019}{File 11: upper-tier local authority summaries} for information on this and associated indicators.
+\item
+  \texttt{Residents}: Number of residents
+\item
+  \texttt{Households}: Number of households
+\item
+  \texttt{Dwellings}: Number of dwellings
+\item
+  \texttt{Age\_85plus}: Number of people aged 85 and over
+\item
+  \texttt{White\_British\_and\_Irish}: Number of white British and Irish people
+\end{itemize}
+
+Note that variable names relating to the daily COVID-19 cases are organised in the following way: \texttt{X} stands for daily COVID-19 cases, followed by the year (i.e.~2020, 2021); month (i.e.~January to December); and day (i.e.~01 to 31).
+
+Using these data, you are required to address the following challenges:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Fit a varying-intercept model with no explanatory variables. Let the intercept to vary by region.
+\item
+  Fit a varying-intercept model with including at least three explanatory variables.
+\item
+  Compute the Variance Partition Coefficient (VPC) for the models estimated according to points 1 and 2 above.
+\item
+  Create caterpillar plots to visualise the varying intercepts.
+\end{enumerate}
+
+Analyse and discuss:
+1. the extent of variation in the dependent variables at the two geographical scales (variation at which
+geographical scale explains most of variance in your dependent variable);
+2. the varying intercept estimate(s) from your model(s) (what can they tell you about the difference
+between groups / areas? are they statistically significantly different?);
+
+Ensure you appropriately describe the structure of the data and identify the various geographical scales of
+analysis (i.e.~level-1 and level-2 units)
+
+In addressing the challenges in this and following chapters, you have some flexibility to be creative. A set of key factors to consider:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{Dependent Variable}: We will seek to explain daily COVID-19 cases, and you will need to make a decision as to:
+\end{enumerate}
+
+\begin{itemize}
+\item
+  \emph{Daily vs cumulative COVID-19 cases}. Given that we will be focusing on cross-sectional models (i.e.~models for one snapshot), you can focus on modelling daily cases at one specific date or cumulative daily cases over a period of time.
+\item
+  \emph{Time period}. You can select the date or period of time that you will focus your analysis on.
+\item
+  \emph{Use risk of COVID-19 infection}. The dependent variable should be the risk or rate of COVID-19 infection.
+\end{itemize}
+
+For example, the risk of COVID-19 infection for the period (i.e.~between Dec.~1st, 2020 - January 29th, 2021) comprising the third wave of the pandemic in the United Kingdom can be computed as:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# computing cumulative COVID cases for  01/12/2020 {-} 29/01/2021}
+\NormalTok{sdf[, }\DecValTok{509}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ sdf }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\StringTok{"X2020.12.01"}\SpecialCharTok{:}\StringTok{"X2021.01.29"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# select COVID cases 01/12/2020 {-} 29/01/2021}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{cum\_covid =} \FunctionTok{rowSums}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric)))) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# sum daily cases}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(cum\_covid) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# select cumulative cases}
+   \FunctionTok{st\_set\_geometry}\NormalTok{(., }\ConstantTok{NULL}\NormalTok{) }\CommentTok{\# set geometry to NULL}
+
+\CommentTok{\# computing risk of infection}
+\NormalTok{sdf }\OtherTok{\textless{}{-}}\NormalTok{ sdf }\SpecialCharTok{\%\textgreater{}\%}  \FunctionTok{mutate}\NormalTok{(}
+  \AttributeTok{covid19\_r =} \FunctionTok{round}\NormalTok{((cum\_covid }\SpecialCharTok{/}\NormalTok{ Residents ) }\SpecialCharTok{*} \DecValTok{1000}\NormalTok{) }
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \emph{Explanatory variables}:
+\end{enumerate}
+
+\begin{itemize}
+\item
+  \emph{At least 3}. Use at least 3 explanatory variables. There is no maximum limit but consider your model to be parsimonious.
+\item
+  \emph{Choice your set}. Select the set of variables you consider appropriate / interesting. Make sure you justify your choice based on evidence and/or theory.
+\item
+  \emph{Percentages / Proportions}. Use percentages or proportions to capture the composition of places, rather than numbers of people, households or dwellings. For this, ensure you are using the appropriate denominator.
+\end{itemize}
+
+For instance, if you want to capture the relationship between cumulative COVID-19 cases and overcrowding, share of elderly population and nonwhite minorities, use the following variables
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sdf }\OtherTok{\textless{}{-}}\NormalTok{ sdf }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}
+  \AttributeTok{crowded\_hou =}\NormalTok{ Crowded\_housing }\SpecialCharTok{/}\NormalTok{ Households, }\CommentTok{\# share of crowded housing}
+  \AttributeTok{elderly =}\NormalTok{ (Age\_85plus) }\SpecialCharTok{/}\NormalTok{ Residents, }\CommentTok{\# share of population aged 65+}
+  \AttributeTok{ethnic =}\NormalTok{ (Mixed }\SpecialCharTok{+}\NormalTok{ Indian }\SpecialCharTok{+}\NormalTok{ Pakistani }\SpecialCharTok{+}\NormalTok{ Bangladeshi }\SpecialCharTok{+}\NormalTok{ Chinese }\SpecialCharTok{+}\NormalTok{ Other\_Asian }\SpecialCharTok{+}\NormalTok{ Black }\SpecialCharTok{+}\NormalTok{ Other\_ethnicity) }\SpecialCharTok{/}\NormalTok{ Residents, }\CommentTok{\# share of nonwhite population}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{ADVICE}: Create a new spatial data frame including only the variables you will analyse. For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nsdf }\OtherTok{\textless{}{-}}\NormalTok{ sdf  }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(objectid, }
+\NormalTok{                         ctyua19cd, }
+\NormalTok{                         ctyua19nm, }
+\NormalTok{                         Region, }
+\NormalTok{                         covid19\_r, }
+\NormalTok{                         crowded\_hou, }
+\NormalTok{                         elderly, }
+\NormalTok{                         ethnic, }
+\NormalTok{                         Residents)}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{mlm2}{%
 \chapter{Multilevel Modelling - Part 2}\label{mlm2}}
 
-This chapter\footnote{This note is part of \href{index.html}{Spatial Analysis Notes} {Multilevel Modelling -- Random Slope Model} by Francisco Rowe is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.} provides an introduction to multi-level data structures and multi-level modelling.
+This chapter explains varying slopes and draws on the following references:
 
 The content of this chapter is based on:
 
@@ -5451,26 +5485,10 @@ The content of this chapter is based on:
   \citet{bristol2020} is an useful online resource on multilevel modelling and is free!
 \end{itemize}
 
-This Chapter is part of \href{index.html}{Spatial Analysis Notes}, a compilation hosted as a GitHub repository that you can access it in a few ways:
-
-\begin{itemize}
-\tightlist
-\item
-  As a \href{https://github.com/GDSL-UL/san/archive/master.zip}{download} of a \texttt{.zip} file that contains all the materials.
-\item
-  As an \href{https://gdsl-ul.github.io/san/multilevel-modelling-part-2.html}{html
-  website}.
-\item
-  As a \href{https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf}{pdf
-  document}
-\item
-  As a \href{https://github.com/GDSL-UL/san}{GitHub repository}.
-\end{itemize}
-
 \hypertarget{dependencies-5}{%
 \section{Dependencies}\label{dependencies-5}}
 
-This chapter uses the following libraries: Ensure they are installed on your machine\footnote{You can install package \texttt{mypackage} by running the command \texttt{install.packages("mypackage")} on the R prompt or through the \texttt{Tools\ -\/-\textgreater{}\ Install\ Packages...} menu in RStudio.} before loading them executing the following code chunk:
+This chapter uses the following libraries which are listed in the \protect\hyperlink{dependency-list}{Dependency list} Section of Chapter 1:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5753,9 +5771,9 @@ Let's try to get a better understanding of the varying relationship between unem
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.0252 -0.1137 0.0597 -0.1401 -0.282 ...
-##  $ median   : num  0.025 -0.109 0.063 -0.141 -0.287 ...
-##  $ sd       : num  0.0394 0.0744 0.083 0.0391 0.0413 ...
+##  $ mean     : num  0.0296 -0.1223 0.0555 -0.1398 -0.2832 ...
+##  $ median   : num  0.034 -0.1213 0.0547 -0.1375 -0.2856 ...
+##  $ sd       : num  0.0462 0.075 0.0893 0.0366 0.0413 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -5923,10 +5941,57 @@ Two observations per group is sufficient to fit a multilevel model.
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 \end{verbatim}
 
+\hypertarget{questions-4}{%
+\section{Questions}\label{questions-4}}
+
+We will continue to use the COVID-19 dataset. Please see Chapter \ref{datasets} for details on the data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sdf }\OtherTok{\textless{}{-}} \FunctionTok{st\_read}\NormalTok{(}\StringTok{"data/assignment\_2\_covid/covid19\_eng.gpkg"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Simple feature collection with 149 features and 507 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 134112.4 ymin: 11429.67 xmax: 655653.8 ymax: 657536
+## projected CRS:  OSGB 1936 / British National Grid
+\end{verbatim}
+
+Using these data, you are required to address the following challenges:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Fit a varying-slope model. Let one slope to vary by region. Think carefully your choice.
+\item
+  Fit a varying-intercept and varying-slope model.
+\item
+  Compare the results for models fitted in 1 and 2. Which is better? Why?
+\end{enumerate}
+
+Use the same explanatory variables used for the Chapter \ref{mlm1} challenge, so you can compare the model results from this chapter.
+
+Analyse and discuss:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  the varying slope estimate(s) from your model(s) (to what extent does the relationship between your
+  dependent and independent variables vary across groups / areas? are they statistically significantly
+  different?).
+\item
+  differences between your varying intercept and varying slope models.
+\end{enumerate}
+
 \hypertarget{gwr}{%
 \chapter{Geographically Weighted Regression}\label{gwr}}
 
-This chapter\footnote{This note is part of \href{index.html}{Spatial Analysis Notes} {Geographically Weighted Regression -- Spatial Nonstationarity} by Francisco Rowe is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.} provides an introduction to geographically weighted regression models.
+This chapter provides an introduction to geographically weighted regression models.
 
 The content of this chapter is based on:
 
@@ -5937,26 +6002,10 @@ The content of this chapter is based on:
   \citet{comber2020gwr}'s recently published preprint which provides a roadmap to approach various practical issues in the application of GWR.
 \end{itemize}
 
-This Chapter is part of \href{index.html}{Spatial Analysis Notes}, a compilation hosted as a GitHub repository that you can access in a few ways:
-
-\begin{itemize}
-\tightlist
-\item
-  As a \href{https://github.com/GDSL-UL/san/archive/master.zip}{download} of a \texttt{.zip} file that contains all the materials.
-\item
-  As an \href{https://gdsl-ul.github.io/san/geographically-weighted-regression.html}{html
-  website}.
-\item
-  As a \href{https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf}{pdf
-  document}
-\item
-  As a \href{https://github.com/GDSL-UL/san}{GitHub repository}.
-\end{itemize}
-
 \hypertarget{dependencies-6}{%
 \section{Dependencies}\label{dependencies-6}}
 
-This chapter uses the following libraries. Ensure they are installed on your machine\footnote{You can install package \texttt{mypackage} by running the command \texttt{install.packages("mypackage")} on the R prompt or through the \texttt{Tools\ -\/-\textgreater{}\ Install\ Packages...} menu in RStudio.} before loading them by executing the following code chunk:
+This chapter uses the following libraries:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6001,7 +6050,7 @@ For this chapter, we will use data on:
   2019 Index of Multiple Deprivation (IMD) data from \href{https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019}{GOV.UK} and published by the Ministry of Housing, Communities \& Local Government.
 \end{itemize}
 
-The data used for this Chapter are organised at the ONS Upper Tier Local Authority (UTLA) level - also known as \href{https://ago-item-storage.s3.us-east-1.amazonaws.com/7bb8db84e0f54e83aa05204f7bd674b8/EN37152_CTY_UA_DEC_2018_UK.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEI7\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2FwEaCXVzLWVhc3QtMSJHMEUCIHGIIjyriwWRx5QXeakP\%2BhJr39uh7b7jP1dr4q\%2FbEgC3AiEA0ohlaSFkwlCKLMy3vFhZDcQvDgzEVEP0kS17VN2ZnxMqvQMIpv\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2FARAAGgw2MDQ3NTgxMDI2NjUiDD2XGTMX5p\%2BWiurX2iqRA\%2FHRJfiW8YaOjNi65RC8AFZ5shx\%2Fn3Upl\%2B9YP5xhX4YzsRqkYkx\%2FYkwbMZ\%2FlDDqWpBHcZzoRdFDz1IGLueQJvDhFignjzIBmExSJ0UdMvuU56tXbnZQ\%2BI8lTjP9JRtLpZELENSjVeoi5qJpphGzoBo9O9cCJkQvWC3NNxqV6eFez00ld5qlRMpJ4KTOl7\%2FxJBBfua\%2F8WYdrcZ4H0KA47l\%2FIJnp2AklUv\%2Fw0cBoU0LZq3djjuVlE\%2FseJKOnm1Z8KMFItEanYUpOrMfROJ5C\%2FTwqqJ2GQMSvr30W\%2F4\%2FY\%2F2BKNTiyCvbEJnD03SWrB20bBlN0Gr13YYvcSBBjgwmhe4EKIrrLSKo8SOZNOg02nq\%2Bmrc0\%2FsPo\%2BYyLgA0MXASt9kDPL4N5IF9yG3lS7vd7E7\%2FpesIlC\%2FW3g3TVOBA92bKMtU6QA\%2B93URcqkrXyrvN6LGAt2C83HjvuAmtbSmlJOD5enC7abdOEqJMyJdUH\%2BwbBKXN8TK\%2F\%2BbRMzgshl1dJElvSnPAYZEuNwaso8bVXwSK\%2F31m6MP\%2Bv4fQFOusBk4G2Dlca6chTsAlFjXomtOeu6Kxm0MRAgdhF4mSRnKggkWu8mBYY68\%2BeGt3egIOtssrEVcWYr1nseCriPHpsA\%2BGi3IFnyPVIKZpStdv\%2F\%2FNoOip3YGsb\%2BSxgkIdxjVJdnkTsEvEf7AZtu6BFTKfTtTAII\%2Boh46F\%2BH\%2FDztv9kHuQMMXQsJozbphriOJDxP8TMSe16v8Tc1yULmRuenrfX1CMGTPrTcoUYPEu82qwDWlcMWwRRTMAv3xcupkZXVOQhMzkcyOOxQdOLWyIH5\%2FZ\%2BuIkNMQzndBya5nNjpGJ6UniQp22CkZ5n52KK\%2Fnw\%3D\%3D\&X-Amz-Algorithm=AWS4-HMAC-SHA256\&X-Amz-Date=20200416T135331Z\&X-Amz-SignedHeaders=host\&X-Amz-Expires=300\&X-Amz-Credential=ASIAYZTTEKKEUJMS7TPU\%2F20200416\%2Fus-east-1\%2Fs3\%2Faws4_request\&X-Amz-Signature=02022ae0228c2fc1d09a90a389d7fd00b9de38ff2df002159d3ad84666c213e8}{Counties and Unitary Authorities}. They are the geographical units used to report COVID-19 data.
+The data used for this Chapter are organised at the ONS Upper Tier Local Authority (UTLA) level - also known as \href{https://geoportal.statistics.gov.uk/datasets/fe6bcee87d95476abc84e194fe088abb_0}{Counties and Unitary Authorities}. They are the geographical units used to report COVID-19 data.
 
 If you use the dataset utilised in this chapter, make sure cite this book. For a full list of the variables included in the data set used in this Chapter, see the readme file in the gwr data folder.\footnote{Read the file in R by executing \texttt{read\_tsv("data/gwr/readme.txt")}}
 
@@ -6618,10 +6667,50 @@ How many UTLAs report statistically significant coefficients?
 
 An important final note is: collinearity tends to be problematic in GWR models. It can be present in the data subsets to estimate local coefficients even when not observed globally \citet{wheeler2005multicollinearity}. Collinearity can be highly problematic in the case of compositional, categorical and ordinal predictors, and may result in exact local collinearity making the search for an optimal bandwidth impossible. A recent paper suggests potential ways forward \citep{comber2020gwr}.
 
+\hypertarget{questions-5}{%
+\section{Questions}\label{questions-5}}
+
+We will continue to use the COVID-19 dataset. Please see Chapter \ref{datasets} for details on the data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sdf }\OtherTok{\textless{}{-}} \FunctionTok{st\_read}\NormalTok{(}\StringTok{"data/assignment\_2\_covid/covid19\_eng.gpkg"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Simple feature collection with 149 features and 507 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 134112.4 ymin: 11429.67 xmax: 655653.8 ymax: 657536
+## projected CRS:  OSGB 1936 / British National Grid
+\end{verbatim}
+
+Using these data, you are required to address the following challenges:
+
+\begin{itemize}
+\item
+  Fit a GWR model using a fixed and an adaptive bandwidth.
+\item
+  Create a multiple map figure to analyse the spatial variation of coefficients.
+\end{itemize}
+
+Analyse and discuss:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  How regression coefficients vary across space. Do they vary in size and statistical significance?
+\item
+  What is the appropriate bandwidth for your GWR? Why?
+\end{enumerate}
+
 \hypertarget{sta}{%
 \chapter{Spatio-Temporal Analysis}\label{sta}}
 
-This chapter\footnote{This note is part of \href{index.html}{Spatial Analysis Notes} {Space-Time Analysis -- Spatio-temporal modelling} by Francisco Rowe is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.} provides an introduction to the complexities of spatio-temporal data and modelling. For modelling, we consider the Fixed Rank Kriging (FRK) framework developed by \citet{cressie2008fixed}. It enables constructing a spatial random effects model on a discretised spatial domain. Key advantages of this approach comprise the capacity to: (1) work with large data sets, (2) be scaled up; (3) generate predictions based on sparse linear algebraic techniques, and (4) produce fine-scale resolution uncertainty estimates.
+This chapter provides an introduction to the complexities of spatio-temporal data and modelling. For modelling, we consider the Fixed Rank Kriging (FRK) framework developed by \citet{cressie2008fixed}. It enables constructing a spatial random effects model on a discretised spatial domain. Key advantages of this approach comprise the capacity to: (1) work with large data sets, (2) be scaled up; (3) generate predictions based on sparse linear algebraic techniques, and (4) produce fine-scale resolution uncertainty estimates.
 
 The content of this chapter is based on:
 
@@ -6632,26 +6721,10 @@ The content of this chapter is based on:
   \citet{zammit2017frk}, who introduce the statistical framework and R package for modelling spatio-temporal used in this Chapter.
 \end{itemize}
 
-This Chapter is part of \href{index.html}{Spatial Analysis Notes}, a compilation hosted as a GitHub repository that you can access in a few ways:
-
-\begin{itemize}
-\tightlist
-\item
-  As a \href{https://github.com/GDSL-UL/san/archive/master.zip}{download} of a \texttt{.zip} file that contains all the materials.
-\item
-  As an \href{https://gdsl-ul.github.io/san/spatio-temporal-analysis.html}{html
-  website}.
-\item
-  As a \href{https://gdsl-ul.github.io/san/spatial_analysis_notes.pdf}{pdf
-  document}
-\item
-  As a \href{https://github.com/GDSL-UL/san}{GitHub repository}.
-\end{itemize}
-
 \hypertarget{dependencies-7}{%
 \section{Dependencies}\label{dependencies-7}}
 
-This chapter uses the following libraries: Ensure they are installed on your machine\footnote{You can install package \texttt{mypackage} by running the command \texttt{install.packages("mypackage")} on the R prompt or through the \texttt{Tools\ -\/-\textgreater{}\ Install\ Packages...} menu in RStudio.} before loading them executing the following code chunk:
+This chapter uses the following libraries:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7659,16 +7732,310 @@ To compare regression models based on different specifications and assumptions, 
 
 None of the models does a great job at predicting the observed count of new COVID-19 cases. They display correlation coefficients between 0.23 and 0.24 and high degree of correlation between them. Part of the assignment will be finding ways to improve this initial models. They should just be considered as a starting point.
 
-\begin{quote}
-Challenge 3: Find ways to achive better model fit. Hint: There are a potentially few easy ways to make some considerable improvement.
-\emph{One option} is to remove all zeros from the dependent variable \texttt{c\_covid19\_r}. They are likely to be affecting the ability of the model to predict positive values which are of main interest if we want to understand the spatio-temporal patterns of the outbreak.
-\emph{A second idea} is to remove all zeros from the dependent variable and additionally use its log for the regression model.
-\emph{A third idea} is to include more explanatory variables. Look for factors which can explain the spatial-temporal variability of the current COVID-19 outbreak. Look for hypotheses / anecdotal evidence from the newspapers and social media.
-\emph{A fourth idea} is to check for collinearity. Collinearity is likely to be an issue given the way basis functions are created. Checking for collinearity of course will not improve the fit of the existing model but it is important to remove collinear terms if statistical inference is a key goal - which in this case is. Over to you now!
-\end{quote}
+There are a potentially few easy ways to make some considerable improvement.
+* \emph{Option 1} Remove all zeros from the dependent variable \texttt{c\_covid19\_r}. They are likely to be affecting the ability of the model to predict positive values which are of main interest if we want to understand the spatio-temporal patterns of the outbreak.
+* \emph{Option 2} Remove all zeros from the dependent variable and additionally use its log for the regression model.
+* \emph{Option 3} Include more explanatory variables. Look for factors which can explain the spatial-temporal variability of the current COVID-19 outbreak. Look for hypotheses / anecdotal evidence from the newspapers and social media.
+* \emph{Option 4} Check for collinearity. Collinearity is likely to be an issue given the way basis functions are created. Checking for collinearity of course will not improve the fit of the existing model but it is important to remove collinear terms if statistical inference is a key goal - which in this case is. Over to you now!
+
+\hypertarget{questions-6}{%
+\section{Questions}\label{questions-6}}
+
+We will continue to use the COVID-19 dataset. Please see Chapter \ref{datasets} for details on the data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sdf }\OtherTok{\textless{}{-}} \FunctionTok{st\_read}\NormalTok{(}\StringTok{"data/assignment\_2\_covid/covid19\_eng.gpkg"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Simple feature collection with 149 features and 507 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 134112.4 ymin: 11429.67 xmax: 655653.8 ymax: 657536
+## projected CRS:  OSGB 1936 / British National Grid
+\end{verbatim}
+
+Using these data, you are required to address the following challenges:
+
+\begin{itemize}
+\item
+  Create a spatio-temporal visualisation.
+\item
+  Fit a ST model to assess changes over space and time.
+\end{itemize}
+
+Analyse and discuss:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Do the results for your GWR and ST results differ: How do regression coefficients vary across space? Is this
+  variation statistically significant?
+\item
+  Does the ST model indicate significant variations over time? How?
+\end{enumerate}
 
 \hypertarget{datasets}{%
 \chapter{Data Sets}\label{datasets}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(sf)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{madrid-airbnb}{%
+\section{Madrid AirBnb}\label{madrid-airbnb}}
+
+This dataset contains a pre-processed set of properties advertised on the AirBnb website within the region of Madrid (Spain), together with house characteristics.
+
+\hypertarget{availability}{%
+\subsection*{Availability}\label{availability}}
+\addcontentsline{toc}{subsection}{Availability}
+
+The dataset is stored on a Geopackage that can be found, within the structure of this project, under:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{path }\OtherTok{\textless{}{-}} \StringTok{"data/assignment\_1\_madrid/madrid\_abb.gpkg"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{db }\OtherTok{\textless{}{-}} \FunctionTok{st\_read}\NormalTok{(path)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Simple feature collection with 18399 features and 15 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
+## geographic CRS: WGS 84
+\end{verbatim}
+
+\hypertarget{variables}{%
+\subsection*{Variables}\label{variables}}
+\addcontentsline{toc}{subsection}{Variables}
+
+For each of the 16 properties, the following characteristics are available:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{price}: {[}string{]} Price with currency
+\item
+  \texttt{price\_usd}: {[}int{]} Price expressed in USD
+\item
+  \texttt{log1pm\_price\_usd}: {[}float{]} Log of the price
+\item
+  \texttt{accommodates}: {[}integer{]} Number of people the property accommodates
+\item
+  \texttt{bathrooms}: {[}integer{]} Number of bathrooms
+\item
+  \texttt{bedrooms}: {[}integer{]} Number of bedrooms
+\item
+  \texttt{beds}: {[}integer{]} Number of beds
+\item
+  \texttt{neighbourhood}: {[}string{]} Name of the neighbourhood the property is located in
+\item
+  \texttt{room\_type}: {[}string{]} Type of room offered (shared, private, entire home, hotel room)
+\item
+  \texttt{property\_type}: {[}string{]} Type of property advertised (apartment, house, hut, etc.)
+\item
+  \texttt{WiFi}: {[}binary{]} Takes \texttt{1} if the property has WiFi, \texttt{0} otherwise
+\item
+  \texttt{Coffee}: {[}binary{]} Takes \texttt{1} if the property has a coffee maker, \texttt{0} otherwise
+\item
+  \texttt{Gym}: {[}binary{]} Takes \texttt{1} if the property has access to a gym, \texttt{0} otherwise
+\item
+  \texttt{Parking}: {[}binary{]} Takes \texttt{1} if the property offers parking, \texttt{0} otherwise
+\item
+  \texttt{km\_to\_retiro}: {[}float{]} Euclidean distance from the property to the El Retiro park
+\item
+  \texttt{geom}: {[}geometry{]} Point geometry
+\end{itemize}
+
+\hypertarget{projection}{%
+\subsection*{Projection}\label{projection}}
+\addcontentsline{toc}{subsection}{Projection}
+
+The location of each property is stored as point geometries and expressed in longitude and latitude coordinates:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{st\_crs}\NormalTok{(db)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Coordinate Reference System:
+##   User input: WGS 84 
+##   wkt:
+## GEOGCRS["WGS 84",
+##     DATUM["World Geodetic System 1984",
+##         ELLIPSOID["WGS 84",6378137,298.257223563,
+##             LENGTHUNIT["metre",1]]],
+##     PRIMEM["Greenwich",0,
+##         ANGLEUNIT["degree",0.0174532925199433]],
+##     CS[ellipsoidal,2],
+##         AXIS["geodetic latitude (Lat)",north,
+##             ORDER[1],
+##             ANGLEUNIT["degree",0.0174532925199433]],
+##         AXIS["geodetic longitude (Lon)",east,
+##             ORDER[2],
+##             ANGLEUNIT["degree",0.0174532925199433]],
+##     USAGE[
+##         SCOPE["unknown"],
+##         AREA["World"],
+##         BBOX[-90,-180,90,180]],
+##     ID["EPSG",4326]]
+\end{verbatim}
+
+\hypertarget{source-pre-processing}{%
+\subsection*{Source \& Pre-processing}\label{source-pre-processing}}
+\addcontentsline{toc}{subsection}{Source \& Pre-processing}
+
+The data are sourced from \href{http://insideairbnb.com/}{Inside Airbnb}. A Jupyter notebook in Python (available at \texttt{data/assignment\_1\_madrid/clean\_data.ipynb}) details the process from the original file available from source to the data in \texttt{madrid\_abb.gpkg}.
+
+\hypertarget{england-covid-19}{%
+\section{England COVID-19}\label{england-covid-19}}
+
+This dataset contains:
+
+\begin{itemize}
+\item
+  daily COVID-19 confirmed cases from 1st January, 2020 to 2nd February, 2021 from the \href{https://coronavirus.data.gov.uk}{GOV.UK dashboard};
+\item
+  resident population characteristics from the 2011 census, available from the \href{https://www.nomisweb.co.uk/home/census2001.asp}{Office of National Statistics}; and,
+\item
+  2019 Index of Multiple Deprivation (IMD) data from \href{https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019}{GOV.UK} and published by the Ministry of Housing, Communities \& Local Government.
+\end{itemize}
+
+The data are at the Upper Tier Local Authority District (UTLAD) level - also known as \href{https://geoportal.statistics.gov.uk/datasets/fe6bcee87d95476abc84e194fe088abb_0}{Counties and Unitary Authorities}.
+
+\hypertarget{availability-1}{%
+\subsection*{Availability}\label{availability-1}}
+\addcontentsline{toc}{subsection}{Availability}
+
+The dataset is stored on a Geopackage:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sdf }\OtherTok{\textless{}{-}} \FunctionTok{st\_read}\NormalTok{(}\StringTok{"data/assignment\_2\_covid/covid19\_eng.gpkg"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Simple feature collection with 149 features and 507 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 134112.4 ymin: 11429.67 xmax: 655653.8 ymax: 657536
+## projected CRS:  OSGB 1936 / British National Grid
+\end{verbatim}
+
+\hypertarget{variables-1}{%
+\subsection*{Variables}\label{variables-1}}
+\addcontentsline{toc}{subsection}{Variables}
+
+The data set contains 508 variables:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{objectid}: {[}integer{]} unit identifier
+\item
+  \texttt{ctyua19cd}: {[}integer{]} Upper Tier Local Authority District (or Counties and Unitary Authorities) identifier
+\item
+  \texttt{ctyua19nm}: {[}character{]} Upper Tier Local Authority District (or Counties and Unitary Authorities) name
+\item
+  \texttt{Region}: {[}character{]} Region name
+\item
+  \texttt{long}: {[}numeric{]} longitude
+\item
+  \texttt{lat}: {[}numeric{]} latitude
+\item
+  \texttt{st\_areasha}: {[}numeric{]} area in hectare
+\item
+  \texttt{X2020.01.31} to \texttt{X2021.02.05}: {[}numeric{]} Daily COVID-19 cases from 31st January, 2020 to 5th February, 2021
+\item
+  \texttt{IMD...Average.score} - \texttt{IMD.2019...Local.concentration}: {[}numeric{]} IMD indicators - for details see \href{https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019}{File 11: upper-tier local authority summaries}.
+\item
+  \texttt{Residents}: {[}numeric{]} Total resident population
+\item
+  \texttt{Households}: {[}numeric{]} Total households
+\item
+  \texttt{Dwellings}: {[}numeric{]} Total dwellings
+\item
+  \texttt{Household\_Spaces}: {[}numeric{]} Total household spaces
+\item
+  \texttt{Aged\_16plus} to \texttt{Other\_industry}: {[}numeric{]} comprise 114 variables relating to various population and household attributes of the resident population. A description of all these variables can be found \href{data/assignment_2_covid/census_vars.csv}{here}
+\item
+  \texttt{geom}: {[}geometry{]} Point geometry
+\end{itemize}
+
+\hypertarget{projection-1}{%
+\subsection*{Projection}\label{projection-1}}
+\addcontentsline{toc}{subsection}{Projection}
+
+Details of the coordinate reference system:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{st\_crs}\NormalTok{(sdf)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Coordinate Reference System:
+##   User input: OSGB 1936 / British National Grid 
+##   wkt:
+## PROJCRS["OSGB 1936 / British National Grid",
+##     BASEGEOGCRS["OSGB 1936",
+##         DATUM["OSGB 1936",
+##             ELLIPSOID["Airy 1830",6377563.396,299.3249646,
+##                 LENGTHUNIT["metre",1]]],
+##         PRIMEM["Greenwich",0,
+##             ANGLEUNIT["degree",0.0174532925199433]],
+##         ID["EPSG",4277]],
+##     CONVERSION["British National Grid",
+##         METHOD["Transverse Mercator",
+##             ID["EPSG",9807]],
+##         PARAMETER["Latitude of natural origin",49,
+##             ANGLEUNIT["degree",0.0174532925199433],
+##             ID["EPSG",8801]],
+##         PARAMETER["Longitude of natural origin",-2,
+##             ANGLEUNIT["degree",0.0174532925199433],
+##             ID["EPSG",8802]],
+##         PARAMETER["Scale factor at natural origin",0.9996012717,
+##             SCALEUNIT["unity",1],
+##             ID["EPSG",8805]],
+##         PARAMETER["False easting",400000,
+##             LENGTHUNIT["metre",1],
+##             ID["EPSG",8806]],
+##         PARAMETER["False northing",-100000,
+##             LENGTHUNIT["metre",1],
+##             ID["EPSG",8807]]],
+##     CS[Cartesian,2],
+##         AXIS["(E)",east,
+##             ORDER[1],
+##             LENGTHUNIT["metre",1]],
+##         AXIS["(N)",north,
+##             ORDER[2],
+##             LENGTHUNIT["metre",1]],
+##     USAGE[
+##         SCOPE["unknown"],
+##         AREA["UK - Britain and UKCS 49°45'N to 61°N, 9°W to 2°E"],
+##         BBOX[49.75,-9,61.01,2.01]],
+##     ID["EPSG",27700]]
+\end{verbatim}
 
   \bibliography{book.bib,packages.bib}
 

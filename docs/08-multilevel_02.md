@@ -119,7 +119,7 @@ ggplot(s_t8, aes(x = lt_ill, y = unemp)) +
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="08-multilevel_02_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](08-multilevel_02_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
       
 We can observe great variability in the relationship between unemployment rates and the percentage of population in long-term illness. A strong and positive relationship exists in MSOA `E02001366` (Tuebrook and Stoneycroft), while it is negative in MSOA `E02001370` (Everton) and neutral in MSOA `E02001390` (Princes Park & Riverside). This visual inspection suggests that accounting for differences in the way unmployment rates relate to long-term illness is important. Contextual factors may differ across MSOAs in systematic ways.
 
@@ -237,7 +237,7 @@ We are normally more interested in identifying the extent of deviation and its s
 plotREsim(REsim(model6))
 ```
 
-<img src="08-multilevel_02_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](08-multilevel_02_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
 
 These plots reveal some interesting patterns. First, only one MSOA, containing wards such as Tuebrook and Stoneycroft, Anfield & Everton, seems to have a statistically significantly different intercept, or average unemployment rate. Confidence intervals overlap zero for all other 60 MSOAs. Despite this, note that when a slope is allowed to vary by group, it generally makes sense for the intercept to also vary. Second, significant variability exists in the association between unemployment rate and long-term illness across MSOAs. Ten MSOAs display a significant positive association, while 12 exhibit a significantly negative relationship. Third, these results reveal that geographical differences in the relationship between unemployment rate and long-term illness can explain the significant differences in average unemployment rates in the varying intercept only model.
 
@@ -250,7 +250,7 @@ msoa_shp <- st_read("data/mlm/MSOA.shp")
 ```
 
 ```
-## Reading layer `MSOA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `MSOA' from data source `/home/jovyan/work/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -270,9 +270,9 @@ str(re_msoa_m6)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.029 -0.1156 0.0567 -0.1443 -0.2808 ...
-##  $ median   : num  0.028 -0.1128 0.0492 -0.1444 -0.2767 ...
-##  $ sd       : num  0.0466 0.0738 0.0809 0.0399 0.0385 ...
+##  $ mean     : num  0.0344 -0.113 0.0558 -0.1464 -0.2759 ...
+##  $ median   : num  0.0351 -0.1096 0.0516 -0.1498 -0.2755 ...
+##  $ sd       : num  0.0461 0.0737 0.0845 0.0398 0.0389 ...
 ```
 
 ```r
@@ -296,7 +296,7 @@ map_msoa = tm_shape(msoa_shp) +
 map_msoa
 ```
 
-<img src="08-multilevel_02_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+![](08-multilevel_02_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
 
 The map indicates that the relationship between unemployment rate and long-term illness is tends to stronger and positive in northern MSOAs; that is, the percentage of population with long-term illness explains a greater share of the variation in unemployment rates in these locations. As expected, a greater share of population in long-term illness is associated with higher local unemployment. In contrast, the relationship between unemployment rate and long-term illness tends to operate in the reverse direction in north-east and middle-southern MSOAs. In these MSOAs, OAs tend to have a higher unemployment rate relative the share of population in long-term illness. You can confirm this examining the data for specific MSOA executing:
 
@@ -443,7 +443,7 @@ sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
 ```
 
 ```
-## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY

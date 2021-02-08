@@ -54,7 +54,7 @@ db <- st_read('data/abb_sd/regression_db.geojson')
 ```
 
 ```
-## Reading layer `regression_db' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
+## Reading layer `regression_db' from data source `/home/jovyan/work/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -90,7 +90,7 @@ db %>%
   theme_void()
 ```
 
-<img src="06-spatial_econometrics_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+![](06-spatial_econometrics_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
 
 ## Non-spatial regression, a refresh
 
@@ -176,7 +176,7 @@ db %>%
   theme_void()
 ```
 
-<img src="06-spatial_econometrics_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+![](06-spatial_econometrics_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
 
 Mathematically, we are now fitting the following equation:
 
@@ -294,7 +294,7 @@ nei.fes %>%
   theme_void()
 ```
 
-<img src="06-spatial_econometrics_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](06-spatial_econometrics_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
 We can see how neighborhoods in the left (west) tend to have higher prices. What we can't see, but it is represented there if you are familiar with the geography of San Diego, is that the city is bounded by the Pacific ocean on the left, suggesting neighbourhoods by the beach tend to be more expensive.
 
 Remember that the interpretation of a $\beta_k$ coefficient is the effect of variable $k$, *given all the other explanatory variables included remain constant*. By including a single variable for each area, we are effectively forcing the model to compare as equal only house prices that share the same value for each variable; in other words, only houses located within the same area. Introducing FE affords you a higher degree of isolation of the effects of the variables you introduce in your model because you can control for unobserved effects that align spatially with the distribution of the FE you introduce (by neighbourhood, in our case).
@@ -918,7 +918,7 @@ mad_abb <- st_read('./data/assignment_1_madrid/madrid_abb.gpkg')
 ```
 
 ```
-## Reading layer `madrid_abb' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
 ## Simple feature collection with 18399 features and 15 fields
 ## geometry type:  POINT
 ## dimension:      XY

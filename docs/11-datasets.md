@@ -25,7 +25,7 @@ db <- st_read(path)
 ```
 
 ```
-## Reading layer `madrid_abb' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
 ## Simple feature collection with 18399 features and 15 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -115,7 +115,7 @@ sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
 ```
 
 ```
-## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -192,8 +192,8 @@ st_crs(sdf)
 ##             LENGTHUNIT["metre",1]],
 ##     USAGE[
 ##         SCOPE["unknown"],
-##         AREA["UK - Britain and UKCS 49°46'N to 61°01'N, 7°33'W to 3°33'E"],
-##         BBOX[49.75,-9.2,61.14,2.88]],
+##         AREA["UK - Britain and UKCS 49°45'N to 61°N, 9°W to 2°E"],
+##         BBOX[49.75,-9,61.01,2.01]],
 ##     ID["EPSG",27700]]
 ```
 

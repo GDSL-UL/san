@@ -33,6 +33,7 @@
   
 <link rel="prev" href="data-wrangling.html"/>
 <link rel="next" href="flows.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,22 +51,20 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,25 +133,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Spatial Modelling for Data Scientists</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview</a><ul>
+<li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html#aims"><i class="fa fa-check"></i><b>1.1</b> Aims</a></li>
 <li class="chapter" data-level="1.2" data-path="overview.html"><a href="overview.html#learning-outcomes"><i class="fa fa-check"></i><b>1.2</b> Learning Outcomes</a></li>
 <li class="chapter" data-level="1.3" data-path="overview.html"><a href="overview.html#feedback"><i class="fa fa-check"></i><b>1.3</b> Feedback</a></li>
-<li class="chapter" data-level="1.4" data-path="overview.html"><a href="overview.html#computational-environment"><i class="fa fa-check"></i><b>1.4</b> Computational Environment</a><ul>
+<li class="chapter" data-level="1.4" data-path="overview.html"><a href="overview.html#computational-environment"><i class="fa fa-check"></i><b>1.4</b> Computational Environment</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="overview.html"><a href="overview.html#dependency-list"><i class="fa fa-check"></i><b>1.4.1</b> Dependency list</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="overview.html"><a href="overview.html#assessment"><i class="fa fa-check"></i><b>1.5</b> Assessment</a><ul>
+<li class="chapter" data-level="1.5" data-path="overview.html"><a href="overview.html#assessment"><i class="fa fa-check"></i><b>1.5</b> Assessment</a>
+<ul>
 <li class="chapter" data-level="1.5.1" data-path="overview.html"><a href="overview.html#format-requirements"><i class="fa fa-check"></i><b>1.5.1</b> Format Requirements</a></li>
 <li class="chapter" data-level="1.5.2" data-path="overview.html"><a href="overview.html#marking-criteria"><i class="fa fa-check"></i><b>1.5.2</b> Marking criteria</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>2</b> Spatial Data</a><ul>
+<li class="chapter" data-level="2" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>2</b> Spatial Data</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="spatial-data.html"><a href="spatial-data.html#spatial-data-types"><i class="fa fa-check"></i><b>2.1</b> Spatial Data types</a></li>
 <li class="chapter" data-level="2.2" data-path="spatial-data.html"><a href="spatial-data.html#hierarchical-structure-of-data"><i class="fa fa-check"></i><b>2.2</b> Hierarchical Structure of Data</a></li>
-<li class="chapter" data-level="2.3" data-path="spatial-data.html"><a href="spatial-data.html#key-challenges"><i class="fa fa-check"></i><b>2.3</b> Key Challenges</a><ul>
+<li class="chapter" data-level="2.3" data-path="spatial-data.html"><a href="spatial-data.html#key-challenges"><i class="fa fa-check"></i><b>2.3</b> Key Challenges</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="spatial-data.html"><a href="spatial-data.html#modifible-area-unit-problem-maup"><i class="fa fa-check"></i><b>2.3.1</b> Modifible Area Unit Problem (MAUP)</a></li>
 <li class="chapter" data-level="2.3.2" data-path="spatial-data.html"><a href="spatial-data.html#ecological-fallacy"><i class="fa fa-check"></i><b>2.3.2</b> Ecological Fallacy</a></li>
 <li class="chapter" data-level="2.3.3" data-path="spatial-data.html"><a href="spatial-data.html#spatial-dependence"><i class="fa fa-check"></i><b>2.3.3</b> Spatial Dependence</a></li>
@@ -160,53 +165,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.5" data-path="spatial-data.html"><a href="spatial-data.html#spatial-nonstationarity"><i class="fa fa-check"></i><b>2.3.5</b> Spatial nonstationarity</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a><ul>
+<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#dependencies"><i class="fa fa-check"></i><b>3.1</b> Dependencies</a></li>
 <li class="chapter" data-level="3.2" data-path="data-wrangling.html"><a href="data-wrangling.html#introducing-r"><i class="fa fa-check"></i><b>3.2</b> Introducing R</a></li>
 <li class="chapter" data-level="3.3" data-path="data-wrangling.html"><a href="data-wrangling.html#setting-the-working-directory"><i class="fa fa-check"></i><b>3.3</b> Setting the working directory</a></li>
 <li class="chapter" data-level="3.4" data-path="data-wrangling.html"><a href="data-wrangling.html#r-scripts-and-notebooks"><i class="fa fa-check"></i><b>3.4</b> R Scripts and Notebooks</a></li>
 <li class="chapter" data-level="3.5" data-path="data-wrangling.html"><a href="data-wrangling.html#getting-help"><i class="fa fa-check"></i><b>3.5</b> Getting Help</a></li>
-<li class="chapter" data-level="3.6" data-path="data-wrangling.html"><a href="data-wrangling.html#variables-and-objects"><i class="fa fa-check"></i><b>3.6</b> Variables and objects</a><ul>
+<li class="chapter" data-level="3.6" data-path="data-wrangling.html"><a href="data-wrangling.html#variables-and-objects"><i class="fa fa-check"></i><b>3.6</b> Variables and objects</a>
+<ul>
 <li class="chapter" data-level="3.6.1" data-path="data-wrangling.html"><a href="data-wrangling.html#basic-data-types"><i class="fa fa-check"></i><b>3.6.1</b> Basic Data Types</a></li>
 <li class="chapter" data-level="3.6.2" data-path="data-wrangling.html"><a href="data-wrangling.html#random-variables"><i class="fa fa-check"></i><b>3.6.2</b> Random Variables</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="data-wrangling.html"><a href="data-wrangling.html#data-frames"><i class="fa fa-check"></i><b>3.7</b> Data Frames</a><ul>
+<li class="chapter" data-level="3.7" data-path="data-wrangling.html"><a href="data-wrangling.html#data-frames"><i class="fa fa-check"></i><b>3.7</b> Data Frames</a>
+<ul>
 <li class="chapter" data-level="3.7.1" data-path="data-wrangling.html"><a href="data-wrangling.html#creating-a-data-frame"><i class="fa fa-check"></i><b>3.7.1</b> Creating A Data Frame</a></li>
 <li class="chapter" data-level="3.7.2" data-path="data-wrangling.html"><a href="data-wrangling.html#referencing-data-frames"><i class="fa fa-check"></i><b>3.7.2</b> Referencing Data Frames</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="data-wrangling.html"><a href="data-wrangling.html#sec_readdata"><i class="fa fa-check"></i><b>3.8</b> Read Data</a><ul>
+<li class="chapter" data-level="3.8" data-path="data-wrangling.html"><a href="data-wrangling.html#sec_readdata"><i class="fa fa-check"></i><b>3.8</b> Read Data</a>
+<ul>
 <li class="chapter" data-level="3.8.1" data-path="data-wrangling.html"><a href="data-wrangling.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>3.8.1</b> Quickly inspect the data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="data-wrangling.html"><a href="data-wrangling.html#manipulation-data"><i class="fa fa-check"></i><b>3.9</b> Manipulation Data</a><ul>
+<li class="chapter" data-level="3.9" data-path="data-wrangling.html"><a href="data-wrangling.html#manipulation-data"><i class="fa fa-check"></i><b>3.9</b> Manipulation Data</a>
+<ul>
 <li class="chapter" data-level="3.9.1" data-path="data-wrangling.html"><a href="data-wrangling.html#adding-new-variables"><i class="fa fa-check"></i><b>3.9.1</b> Adding New Variables</a></li>
 <li class="chapter" data-level="3.9.2" data-path="data-wrangling.html"><a href="data-wrangling.html#selecting-variables"><i class="fa fa-check"></i><b>3.9.2</b> Selecting Variables</a></li>
 <li class="chapter" data-level="3.9.3" data-path="data-wrangling.html"><a href="data-wrangling.html#filtering-data"><i class="fa fa-check"></i><b>3.9.3</b> Filtering Data</a></li>
 <li class="chapter" data-level="3.9.4" data-path="data-wrangling.html"><a href="data-wrangling.html#joining-data-drames"><i class="fa fa-check"></i><b>3.9.4</b> Joining Data Drames</a></li>
 <li class="chapter" data-level="3.9.5" data-path="data-wrangling.html"><a href="data-wrangling.html#saving-data"><i class="fa fa-check"></i><b>3.9.5</b> Saving Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="data-wrangling.html"><a href="data-wrangling.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>3.10</b> Using Spatial Data Frames</a><ul>
+<li class="chapter" data-level="3.10" data-path="data-wrangling.html"><a href="data-wrangling.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>3.10</b> Using Spatial Data Frames</a>
+<ul>
 <li class="chapter" data-level="3.10.1" data-path="data-wrangling.html"><a href="data-wrangling.html#read-spatial-data"><i class="fa fa-check"></i><b>3.10.1</b> Read Spatial Data</a></li>
 <li class="chapter" data-level="3.10.2" data-path="data-wrangling.html"><a href="data-wrangling.html#basic-mapping"><i class="fa fa-check"></i><b>3.10.2</b> Basic Mapping</a></li>
 <li class="chapter" data-level="3.10.3" data-path="data-wrangling.html"><a href="data-wrangling.html#comparing-geographies"><i class="fa fa-check"></i><b>3.10.3</b> Comparing geographies</a></li>
 </ul></li>
 <li class="chapter" data-level="3.11" data-path="data-wrangling.html"><a href="data-wrangling.html#useful-functions"><i class="fa fa-check"></i><b>3.11</b> Useful Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>4</b> Points</a><ul>
+<li class="chapter" data-level="4" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>4</b> Points</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="points.html"><a href="points.html#dependencies-1"><i class="fa fa-check"></i><b>4.1</b> Dependencies</a></li>
 <li class="chapter" data-level="4.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>4.2</b> Data</a></li>
 <li class="chapter" data-level="4.3" data-path="points.html"><a href="points.html#binning"><i class="fa fa-check"></i><b>4.3</b> Binning</a></li>
-<li class="chapter" data-level="4.4" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>4.4</b> KDE</a><ul>
+<li class="chapter" data-level="4.4" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>4.4</b> KDE</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>4.4.1</b> One-dimensional KDE</a></li>
 <li class="chapter" data-level="4.4.2" data-path="points.html"><a href="points.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>4.4.2</b> Two-dimensional (spatial) KDE</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>4.5</b> Spatial Interpolation</a><ul>
+<li class="chapter" data-level="4.5" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>4.5</b> Spatial Interpolation</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="points.html"><a href="points.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>4.5.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
 <li class="chapter" data-level="4.5.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>4.5.2</b> A surface of housing prices</a></li>
 <li class="chapter" data-level="4.5.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>4.5.3</b> <em>“What should the next house’s price be?”</em></a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="points.html"><a href="points.html#questions"><i class="fa fa-check"></i><b>4.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>5</b> Flows</a><ul>
+<li class="chapter" data-level="5" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>5</b> Flows</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="flows.html"><a href="flows.html#dependencies-2"><i class="fa fa-check"></i><b>5.1</b> Dependencies</a></li>
 <li class="chapter" data-level="5.2" data-path="flows.html"><a href="flows.html#data-1"><i class="fa fa-check"></i><b>5.2</b> Data</a></li>
 <li class="chapter" data-level="5.3" data-path="flows.html"><a href="flows.html#seeing-flows"><i class="fa fa-check"></i><b>5.3</b> “<em>Seeing</em>” flows</a></li>
@@ -214,7 +229,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5" data-path="flows.html"><a href="flows.html#predicting-flows"><i class="fa fa-check"></i><b>5.5</b> Predicting flows</a></li>
 <li class="chapter" data-level="5.6" data-path="flows.html"><a href="flows.html#questions-1"><i class="fa fa-check"></i><b>5.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="spatialecon.html"><a href="spatialecon.html"><i class="fa fa-check"></i><b>6</b> Spatial Econometrics</a><ul>
+<li class="chapter" data-level="6" data-path="spatialecon.html"><a href="spatialecon.html"><i class="fa fa-check"></i><b>6</b> Spatial Econometrics</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="spatialecon.html"><a href="spatialecon.html#dependencies-3"><i class="fa fa-check"></i><b>6.1</b> Dependencies</a></li>
 <li class="chapter" data-level="6.2" data-path="spatialecon.html"><a href="spatialecon.html#data-2"><i class="fa fa-check"></i><b>6.2</b> Data</a></li>
 <li class="chapter" data-level="6.3" data-path="spatialecon.html"><a href="spatialecon.html#non-spatial-regression-a-refresh"><i class="fa fa-check"></i><b>6.3</b> Non-spatial regression, a refresh</a></li>
@@ -224,13 +240,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="spatialecon.html"><a href="spatialecon.html#predicting-house-prices"><i class="fa fa-check"></i><b>6.7</b> Predicting house prices</a></li>
 <li class="chapter" data-level="6.8" data-path="spatialecon.html"><a href="spatialecon.html#questions-2"><i class="fa fa-check"></i><b>6.8</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="mlm1.html"><a href="mlm1.html"><i class="fa fa-check"></i><b>7</b> Multilevel Modelling - Part 1</a><ul>
+<li class="chapter" data-level="7" data-path="mlm1.html"><a href="mlm1.html"><i class="fa fa-check"></i><b>7</b> Multilevel Modelling - Part 1</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="mlm1.html"><a href="mlm1.html#dependencies-4"><i class="fa fa-check"></i><b>7.1</b> Dependencies</a></li>
 <li class="chapter" data-level="7.2" data-path="mlm1.html"><a href="mlm1.html#data-3"><i class="fa fa-check"></i><b>7.2</b> Data</a></li>
-<li class="chapter" data-level="7.3" data-path="mlm1.html"><a href="mlm1.html#modelling"><i class="fa fa-check"></i><b>7.3</b> Modelling</a><ul>
+<li class="chapter" data-level="7.3" data-path="mlm1.html"><a href="mlm1.html#modelling"><i class="fa fa-check"></i><b>7.3</b> Modelling</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="mlm1.html"><a href="mlm1.html#baseline-linear-regression-model"><i class="fa fa-check"></i><b>7.3.1</b> Baseline Linear Regression Model</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="mlm1.html"><a href="mlm1.html#multilevel-modelling-random-intercept-model"><i class="fa fa-check"></i><b>7.4</b> Multilevel Modelling: Random Intercept Model</a><ul>
+<li class="chapter" data-level="7.4" data-path="mlm1.html"><a href="mlm1.html#multilevel-modelling-random-intercept-model"><i class="fa fa-check"></i><b>7.4</b> Multilevel Modelling: Random Intercept Model</a>
+<ul>
 <li class="chapter" data-level="7.4.1" data-path="mlm1.html"><a href="mlm1.html#interpretation"><i class="fa fa-check"></i><b>7.4.1</b> Interpretation</a></li>
 <li class="chapter" data-level="7.4.2" data-path="mlm1.html"><a href="mlm1.html#variance-partition-coefficient-vpc"><i class="fa fa-check"></i><b>7.4.2</b> Variance Partition Coefficient (VPC)</a></li>
 <li class="chapter" data-level="7.4.3" data-path="mlm1.html"><a href="mlm1.html#uncertainty-of-estimates"><i class="fa fa-check"></i><b>7.4.3</b> Uncertainty of Estimates</a></li>
@@ -240,28 +259,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="mlm1.html"><a href="mlm1.html#questions-3"><i class="fa fa-check"></i><b>7.5</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="mlm2.html"><a href="mlm2.html"><i class="fa fa-check"></i><b>8</b> Multilevel Modelling - Part 2</a><ul>
+<li class="chapter" data-level="8" data-path="mlm2.html"><a href="mlm2.html"><i class="fa fa-check"></i><b>8</b> Multilevel Modelling - Part 2</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="mlm2.html"><a href="mlm2.html#dependencies-5"><i class="fa fa-check"></i><b>8.1</b> Dependencies</a></li>
 <li class="chapter" data-level="8.2" data-path="mlm2.html"><a href="mlm2.html#data-4"><i class="fa fa-check"></i><b>8.2</b> Data</a></li>
-<li class="chapter" data-level="8.3" data-path="mlm2.html"><a href="mlm2.html#conceptual-overview"><i class="fa fa-check"></i><b>8.3</b> Conceptual Overview</a><ul>
+<li class="chapter" data-level="8.3" data-path="mlm2.html"><a href="mlm2.html#conceptual-overview"><i class="fa fa-check"></i><b>8.3</b> Conceptual Overview</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="mlm2.html"><a href="mlm2.html#exploratory-analysis-varying-slopes"><i class="fa fa-check"></i><b>8.3.1</b> Exploratory Analysis: Varying Slopes</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="mlm2.html"><a href="mlm2.html#estimating-varying-intercept-and-slopes-models"><i class="fa fa-check"></i><b>8.4</b> Estimating Varying Intercept and Slopes Models</a></li>
 <li class="chapter" data-level="8.5" data-path="mlm2.html"><a href="mlm2.html#interpreting-correlations-between-group-level-intercepts-and-slopes"><i class="fa fa-check"></i><b>8.5</b> Interpreting Correlations Between Group-level Intercepts and Slopes</a></li>
-<li class="chapter" data-level="8.6" data-path="mlm2.html"><a href="mlm2.html#model-building"><i class="fa fa-check"></i><b>8.6</b> Model building</a><ul>
+<li class="chapter" data-level="8.6" data-path="mlm2.html"><a href="mlm2.html#model-building"><i class="fa fa-check"></i><b>8.6</b> Model building</a>
+<ul>
 <li class="chapter" data-level="8.6.1" data-path="mlm2.html"><a href="mlm2.html#model-comparison"><i class="fa fa-check"></i><b>8.6.1</b> Model Comparison</a></li>
 </ul></li>
 <li class="chapter" data-level="8.7" data-path="mlm2.html"><a href="mlm2.html#questions-4"><i class="fa fa-check"></i><b>8.7</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>9</b> Geographically Weighted Regression</a><ul>
+<li class="chapter" data-level="9" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>9</b> Geographically Weighted Regression</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="gwr.html"><a href="gwr.html#dependencies-6"><i class="fa fa-check"></i><b>9.1</b> Dependencies</a></li>
 <li class="chapter" data-level="9.2" data-path="gwr.html"><a href="gwr.html#data-5"><i class="fa fa-check"></i><b>9.2</b> Data</a></li>
 <li class="chapter" data-level="9.3" data-path="gwr.html"><a href="gwr.html#recap-spatial-effects"><i class="fa fa-check"></i><b>9.3</b> Recap: Spatial Effects</a></li>
 <li class="chapter" data-level="9.4" data-path="gwr.html"><a href="gwr.html#exploratory-analysis"><i class="fa fa-check"></i><b>9.4</b> Exploratory Analysis</a></li>
-<li class="chapter" data-level="9.5" data-path="gwr.html"><a href="gwr.html#global-regression"><i class="fa fa-check"></i><b>9.5</b> Global Regression</a><ul>
+<li class="chapter" data-level="9.5" data-path="gwr.html"><a href="gwr.html#global-regression"><i class="fa fa-check"></i><b>9.5</b> Global Regression</a>
+<ul>
 <li class="chapter" data-level="9.5.1" data-path="gwr.html"><a href="gwr.html#global-regression-results"><i class="fa fa-check"></i><b>9.5.1</b> Global Regression Results</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="gwr.html"><a href="gwr.html#fitting-a-geographically-weighted-regression"><i class="fa fa-check"></i><b>9.6</b> Fitting a Geographically Weighted Regression</a><ul>
+<li class="chapter" data-level="9.6" data-path="gwr.html"><a href="gwr.html#fitting-a-geographically-weighted-regression"><i class="fa fa-check"></i><b>9.6</b> Fitting a Geographically Weighted Regression</a>
+<ul>
 <li class="chapter" data-level="9.6.1" data-path="gwr.html"><a href="gwr.html#fixed-or-adaptive-kernel"><i class="fa fa-check"></i><b>9.6.1</b> Fixed or Adaptive Kernel</a></li>
 <li class="chapter" data-level="9.6.2" data-path="gwr.html"><a href="gwr.html#optimal-bandwidth"><i class="fa fa-check"></i><b>9.6.2</b> Optimal Bandwidth</a></li>
 <li class="chapter" data-level="9.6.3" data-path="gwr.html"><a href="gwr.html#shape-of-spatial-kernel"><i class="fa fa-check"></i><b>9.6.3</b> Shape of Spatial Kernel</a></li>
@@ -273,31 +298,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9.7" data-path="gwr.html"><a href="gwr.html#questions-5"><i class="fa fa-check"></i><b>9.7</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="sta.html"><a href="sta.html"><i class="fa fa-check"></i><b>10</b> Spatio-Temporal Analysis</a><ul>
+<li class="chapter" data-level="10" data-path="sta.html"><a href="sta.html"><i class="fa fa-check"></i><b>10</b> Spatio-Temporal Analysis</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="sta.html"><a href="sta.html#dependencies-7"><i class="fa fa-check"></i><b>10.1</b> Dependencies</a></li>
 <li class="chapter" data-level="10.2" data-path="sta.html"><a href="sta.html#data-6"><i class="fa fa-check"></i><b>10.2</b> Data</a></li>
-<li class="chapter" data-level="10.3" data-path="sta.html"><a href="sta.html#why-spatio-temporal-analysis"><i class="fa fa-check"></i><b>10.3</b> Why Spatio-Temporal Analysis?</a><ul>
+<li class="chapter" data-level="10.3" data-path="sta.html"><a href="sta.html#why-spatio-temporal-analysis"><i class="fa fa-check"></i><b>10.3</b> Why Spatio-Temporal Analysis?</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="sta.html"><a href="sta.html#spatio-temporal-data-structures"><i class="fa fa-check"></i><b>10.3.1</b> Spatio-temporal Data Structures</a></li>
 </ul></li>
 <li class="chapter" data-level="10.4" data-path="sta.html"><a href="sta.html#data-wrangling"><i class="fa fa-check"></i><b>10.4</b> Data Wrangling</a></li>
-<li class="chapter" data-level="10.5" data-path="sta.html"><a href="sta.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>10.5</b> Exploring Spatio-Temporal Data</a><ul>
+<li class="chapter" data-level="10.5" data-path="sta.html"><a href="sta.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>10.5</b> Exploring Spatio-Temporal Data</a>
+<ul>
 <li class="chapter" data-level="10.5.1" data-path="sta.html"><a href="sta.html#visualisation"><i class="fa fa-check"></i><b>10.5.1</b> Visualisation</a></li>
 <li class="chapter" data-level="10.5.2" data-path="sta.html"><a href="sta.html#exploratory-analysis-1"><i class="fa fa-check"></i><b>10.5.2</b> Exploratory Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="sta.html"><a href="sta.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>10.6</b> Spatio-Temporal Data Modelling</a><ul>
+<li class="chapter" data-level="10.6" data-path="sta.html"><a href="sta.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>10.6</b> Spatio-Temporal Data Modelling</a>
+<ul>
 <li class="chapter" data-level="10.6.1" data-path="sta.html"><a href="sta.html#intuition"><i class="fa fa-check"></i><b>10.6.1</b> Intuition</a></li>
 <li class="chapter" data-level="10.6.2" data-path="sta.html"><a href="sta.html#fitting-spatio-temporal-models"><i class="fa fa-check"></i><b>10.6.2</b> Fitting Spatio-Temporal Models</a></li>
 </ul></li>
 <li class="chapter" data-level="10.7" data-path="sta.html"><a href="sta.html#questions-6"><i class="fa fa-check"></i><b>10.7</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>11</b> Data Sets</a><ul>
-<li class="chapter" data-level="11.1" data-path="datasets.html"><a href="datasets.html#madrid-airbnb"><i class="fa fa-check"></i><b>11.1</b> Madrid AirBnb</a><ul>
+<li class="chapter" data-level="11" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>11</b> Data Sets</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="datasets.html"><a href="datasets.html#madrid-airbnb"><i class="fa fa-check"></i><b>11.1</b> Madrid AirBnb</a>
+<ul>
 <li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#availability"><i class="fa fa-check"></i>Availability</a></li>
 <li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#variables"><i class="fa fa-check"></i>Variables</a></li>
 <li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#projection"><i class="fa fa-check"></i>Projection</a></li>
 <li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#source-pre-processing"><i class="fa fa-check"></i>Source &amp; Pre-processing</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="datasets.html"><a href="datasets.html#england-covid-19"><i class="fa fa-check"></i><b>11.2</b> England COVID-19</a><ul>
+<li class="chapter" data-level="11.2" data-path="datasets.html"><a href="datasets.html#england-covid-19"><i class="fa fa-check"></i><b>11.2</b> England COVID-19</a>
+<ul>
 <li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#availability-1"><i class="fa fa-check"></i>Availability</a></li>
 <li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#variables-1"><i class="fa fa-check"></i>Variables</a></li>
 <li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#projection-1"><i class="fa fa-check"></i>Projection</a></li>
@@ -324,52 +356,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="points" class="section level1">
+<div id="points" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Points</h1>
 <p>This chapter is based on the following references, which are great follow-up’s on the topic:</p>
 <ul>
-<li><span class="citation">Lovelace and Cheshire (<a href="#ref-lovelace2014introduction" role="doc-biblioref">2014</a>)</span> is a great introduction.</li>
-<li>Chapter 6 of <span class="citation">Brunsdon and Comber (<a href="#ref-comber2015" role="doc-biblioref">2015</a>)</span>, in particular subsections 6.3 and 6.7.</li>
-<li><span class="citation">Bivand, Pebesma, and Gómez-Rubio (<a href="#ref-bivand2013applied" role="doc-biblioref">2013</a>)</span> provides an in-depth treatment of spatial data in R.</li>
+<li><span class="citation"><a href="references.html#ref-lovelace2014introduction" role="doc-biblioref">Lovelace and Cheshire</a> (<a href="references.html#ref-lovelace2014introduction" role="doc-biblioref">2014</a>)</span> is a great introduction.</li>
+<li>Chapter 6 of <span class="citation"><a href="references.html#ref-comber2015" role="doc-biblioref">Brunsdon and Comber</a> (<a href="references.html#ref-comber2015" role="doc-biblioref">2015</a>)</span>, in particular subsections 6.3 and 6.7.</li>
+<li><span class="citation"><a href="references.html#ref-bivand2013applied" role="doc-biblioref">Bivand, Pebesma, and Gómez-Rubio</a> (<a href="references.html#ref-bivand2013applied" role="doc-biblioref">2013</a>)</span> provides an in-depth treatment of spatial data in R.</li>
 </ul>
-<div id="dependencies-1" class="section level2">
+<div id="dependencies-1" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Dependencies</h2>
 <p>We will rely on the following libraries in this section, all of them included in the <a href="#Dependency-list">book list</a>:</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="points.html#cb85-1"></a><span class="co"># For pretty table</span></span>
-<span id="cb85-2"><a href="points.html#cb85-2"></a><span class="kw">library</span>(knitr)</span>
-<span id="cb85-3"><a href="points.html#cb85-3"></a><span class="co"># All things geodata</span></span>
-<span id="cb85-4"><a href="points.html#cb85-4"></a><span class="kw">library</span>(sf)</span></code></pre></div>
-<pre><code>## Linking to GEOS 3.8.1, GDAL 3.1.1, PROJ 6.3.1</code></pre>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="points.html#cb87-1"></a><span class="kw">library</span>(sp)</span>
-<span id="cb87-2"><a href="points.html#cb87-2"></a><span class="co"># Pretty graphics</span></span>
-<span id="cb87-3"><a href="points.html#cb87-3"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb87-4"><a href="points.html#cb87-4"></a><span class="kw">library</span>(gridExtra)</span>
-<span id="cb87-5"><a href="points.html#cb87-5"></a><span class="co"># Thematic maps</span></span>
-<span id="cb87-6"><a href="points.html#cb87-6"></a><span class="kw">library</span>(tmap)</span>
-<span id="cb87-7"><a href="points.html#cb87-7"></a><span class="co"># Pretty maps</span></span>
-<span id="cb87-8"><a href="points.html#cb87-8"></a><span class="kw">library</span>(ggmap)</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="points.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For pretty table</span></span>
+<span id="cb85-2"><a href="points.html#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb85-3"><a href="points.html#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="co"># All things geodata</span></span>
+<span id="cb85-4"><a href="points.html#cb85-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code></pre></div>
+<pre><code>## Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="points.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sp)</span>
+<span id="cb87-2"><a href="points.html#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty graphics</span></span>
+<span id="cb87-3"><a href="points.html#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb87-4"><a href="points.html#cb87-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb87-5"><a href="points.html#cb87-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Thematic maps</span></span>
+<span id="cb87-6"><a href="points.html#cb87-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)</span>
+<span id="cb87-7"><a href="points.html#cb87-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty maps</span></span>
+<span id="cb87-8"><a href="points.html#cb87-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmap)</span></code></pre></div>
 <pre><code>## Google&#39;s Terms of Service: https://cloud.google.com/maps-platform/terms/.</code></pre>
 <pre><code>## Please cite ggmap if you use it! See citation(&quot;ggmap&quot;) for details.</code></pre>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="points.html#cb90-1"></a><span class="co"># For all your interpolation needs</span></span>
-<span id="cb90-2"><a href="points.html#cb90-2"></a><span class="kw">library</span>(gstat)</span>
-<span id="cb90-3"><a href="points.html#cb90-3"></a><span class="co"># For data manipulation</span></span>
-<span id="cb90-4"><a href="points.html#cb90-4"></a><span class="kw">library</span>(plyr)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="points.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For all your interpolation needs</span></span>
+<span id="cb90-2"><a href="points.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gstat)</span>
+<span id="cb90-3"><a href="points.html#cb90-3" aria-hidden="true" tabindex="-1"></a><span class="co"># For data manipulation</span></span>
+<span id="cb90-4"><a href="points.html#cb90-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plyr)</span></code></pre></div>
 <p>Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with <code>setwd()</code>. Please replace in the following line the path to the folder where you have placed this file -and where the <code>house_transactions</code> folder with the data lives.</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="points.html#cb91-1"></a><span class="kw">setwd</span>(<span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="points.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&#39;.&#39;</span>)</span></code></pre></div>
 </div>
-<div id="data" class="section level2">
+<div id="data" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Data</h2>
 <p>For this session, we will use the set of Airbnb properties for San Diego (US), borrowed from the “Geographic Data Science with Python” book (see <a href="https://geographicdata.science/book/data/airbnb/regression_cleaning.html">here</a> for more info on the dataset source). This covers the point location of properties advertised on the Airbnb website in the San Diego region.</p>
 <p>Let us start by reading the data, which comes in a GeoJSON:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="points.html#cb92-1"></a>db &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/abb_sd/regression_db.geojson&quot;</span>)</span></code></pre></div>
-<pre><code>## Reading layer `regression_db&#39; from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/regression_db.geojson&#39; using driver `GeoJSON&#39;
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="points.html#cb92-1" aria-hidden="true" tabindex="-1"></a>db <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/abb_sd/regression_db.geojson&quot;</span>)</span></code></pre></div>
+<pre><code>## Reading layer `regression_db&#39; from data source `/home/jovyan/work/data/abb_sd/regression_db.geojson&#39; using driver `GeoJSON&#39;
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
 ## dimension:      XY
 ## bbox:           xmin: -117.2812 ymin: 32.57349 xmax: -116.9553 ymax: 33.08311
 ## geographic CRS: WGS 84</code></pre>
 <p>We can then examine the columns of the table with the <code>colnames</code> method:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="points.html#cb94-1"></a><span class="kw">colnames</span>(db)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="points.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(db)</span></code></pre></div>
 <pre><code>##  [1] &quot;accommodates&quot;       &quot;bathrooms&quot;          &quot;bedrooms&quot;          
 ##  [4] &quot;beds&quot;               &quot;neighborhood&quot;       &quot;pool&quot;              
 ##  [7] &quot;d2balboa&quot;           &quot;coastal&quot;            &quot;price&quot;             
@@ -378,9 +410,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [16] &quot;pg_Townhouse&quot;       &quot;rt_Entire_home.apt&quot; &quot;rt_Private_room&quot;   
 ## [19] &quot;rt_Shared_room&quot;     &quot;geometry&quot;</code></pre>
 <p>The rest of this session will focus on two main elements of the table: the spatial dimension (as stored in the point coordinates), and the nightly price values, expressedin USD and contained in the <code>price</code> column. To get a sense of what they look like first, let us plot both. We can get a quick look at the non-spatial distribution of house values with the following commands:</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="points.html#cb96-1"></a><span class="co"># Create the histogram</span></span>
-<span id="cb96-2"><a href="points.html#cb96-2"></a>hist &lt;-<span class="st"> </span><span class="kw">qplot</span>(<span class="dt">data=</span>db,<span class="dt">x=</span>price)</span>
-<span id="cb96-3"><a href="points.html#cb96-3"></a>hist</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="points.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the histogram</span></span>
+<span id="cb96-2"><a href="points.html#cb96-2" aria-hidden="true" tabindex="-1"></a>hist <span class="ot">&lt;-</span> <span class="fu">qplot</span>(<span class="at">data=</span>db,<span class="at">x=</span>price)</span>
+<span id="cb96-3"><a href="points.html#cb96-3" aria-hidden="true" tabindex="-1"></a>hist</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <div class="figure"><span id="fig:unnamed-chunk-5"></span>
 <img src="04-points_files/figure-html/unnamed-chunk-5-1.png" alt="Raw AirBnb prices in San Diego" width="672" />
@@ -389,9 +421,9 @@ Figure 4.1: Raw AirBnb prices in San Diego
 </p>
 </div>
 <p>This basically shows there is a lot of values concentrated around the lower end of the distribution but a few very large ones. A usual transformation to <em>shrink</em> these differences is to take logarithms. The original table already contains an additional column with the logarithm of each price (<code>log_price</code>).</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="points.html#cb98-1"></a><span class="co"># Create the histogram</span></span>
-<span id="cb98-2"><a href="points.html#cb98-2"></a>hist &lt;-<span class="st"> </span><span class="kw">qplot</span>(<span class="dt">data=</span>db, <span class="dt">x=</span>log_price)</span>
-<span id="cb98-3"><a href="points.html#cb98-3"></a>hist</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="points.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the histogram</span></span>
+<span id="cb98-2"><a href="points.html#cb98-2" aria-hidden="true" tabindex="-1"></a>hist <span class="ot">&lt;-</span> <span class="fu">qplot</span>(<span class="at">data=</span>db, <span class="at">x=</span>log_price)</span>
+<span id="cb98-3"><a href="points.html#cb98-3" aria-hidden="true" tabindex="-1"></a>hist</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <div class="figure"><span id="fig:unnamed-chunk-6"></span>
 <img src="04-points_files/figure-html/unnamed-chunk-6-1.png" alt="Log of AirBnb price in San Diego" width="672" />
@@ -400,7 +432,7 @@ Figure 4.2: Log of AirBnb price in San Diego
 </p>
 </div>
 <p>To obtain the spatial distribution of these houses, we need to focus on the <code>geometry</code> column. The easiest, quickest (and also “dirtiest”) way to get a sense of what the data look like over space is using <code>plot</code>:</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="points.html#cb100-1"></a><span class="kw">plot</span>(<span class="kw">st_geometry</span>(db))</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="points.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(db))</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-7"></span>
 <img src="04-points_files/figure-html/unnamed-chunk-7-1.png" alt="Spatial distribution of AirBnb in San Diego" width="672" />
 <p class="caption">
@@ -409,48 +441,48 @@ Figure 3.1: Spatial distribution of AirBnb in San Diego
 </div>
 <p>Now this has the classic problem of cluttering: some portions of the map have so many points that we can’t tell what the distribution is like. To get around this issue, there are two solutions: binning and smoothing.</p>
 </div>
-<div id="binning" class="section level2">
+<div id="binning" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Binning</h2>
-<p>The two-dimensional sister of histograms are binning maps: we divide each of the two dimensions into “buckets”, and count how many points fall within each bucket. Unlike histograms, we encode that count with a color gradient rather than a bar chart over an additional dimension (for that, we would need a 3D plot). These “buckets” can be squares (left) or hexagons (right):</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="points.html#cb101-1"></a>      <span class="co"># Squared binning</span></span>
-<span id="cb101-2"><a href="points.html#cb101-2"></a><span class="co"># Set up plot</span></span>
-<span id="cb101-3"><a href="points.html#cb101-3"></a>sqbin &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb101-4"><a href="points.html#cb101-4"></a><span class="co"># Add 2D binning with the XY coordinates as</span></span>
-<span id="cb101-5"><a href="points.html#cb101-5"></a><span class="co"># a dataframe</span></span>
-<span id="cb101-6"><a href="points.html#cb101-6"></a><span class="st">  </span><span class="kw">geom_bin2d</span>(</span>
-<span id="cb101-7"><a href="points.html#cb101-7"></a>    <span class="dt">data=</span><span class="kw">as.data.frame</span>(<span class="kw">st_coordinates</span>(db)), </span>
-<span id="cb101-8"><a href="points.html#cb101-8"></a>    <span class="kw">aes</span>(<span class="dt">x=</span>X, <span class="dt">y=</span>Y)</span>
-<span id="cb101-9"><a href="points.html#cb101-9"></a>  )</span>
-<span id="cb101-10"><a href="points.html#cb101-10"></a>      <span class="co"># Hex binning</span></span>
-<span id="cb101-11"><a href="points.html#cb101-11"></a><span class="co"># Set up plot</span></span>
-<span id="cb101-12"><a href="points.html#cb101-12"></a>hexbin &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span></span>
-<span id="cb101-13"><a href="points.html#cb101-13"></a><span class="co"># Add hex binning with the XY coordinates as</span></span>
-<span id="cb101-14"><a href="points.html#cb101-14"></a><span class="co"># a dataframe </span></span>
-<span id="cb101-15"><a href="points.html#cb101-15"></a><span class="st">  </span><span class="kw">geom_hex</span>(</span>
-<span id="cb101-16"><a href="points.html#cb101-16"></a>    <span class="dt">data=</span><span class="kw">as.data.frame</span>(<span class="kw">st_coordinates</span>(db)),</span>
-<span id="cb101-17"><a href="points.html#cb101-17"></a>    <span class="kw">aes</span>(<span class="dt">x=</span>X, <span class="dt">y=</span>Y)</span>
-<span id="cb101-18"><a href="points.html#cb101-18"></a>  ) <span class="op">+</span></span>
-<span id="cb101-19"><a href="points.html#cb101-19"></a><span class="co"># Use viridis for color encoding (recommended)</span></span>
-<span id="cb101-20"><a href="points.html#cb101-20"></a><span class="st">  </span><span class="kw">scale_fill_continuous</span>(<span class="dt">type =</span> <span class="st">&quot;viridis&quot;</span>)</span>
-<span id="cb101-21"><a href="points.html#cb101-21"></a>      <span class="co"># Bind in subplots</span></span>
-<span id="cb101-22"><a href="points.html#cb101-22"></a><span class="kw">grid.arrange</span>(sqbin, hexbin, <span class="dt">ncol=</span><span class="dv">2</span>)</span></code></pre></div>
+<p>The two-dimensional sister of histograms are binning maps: we divide each of the two dimensions into “buckets,” and count how many points fall within each bucket. Unlike histograms, we encode that count with a color gradient rather than a bar chart over an additional dimension (for that, we would need a 3D plot). These “buckets” can be squares (left) or hexagons (right):</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="points.html#cb101-1" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Squared binning</span></span>
+<span id="cb101-2"><a href="points.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up plot</span></span>
+<span id="cb101-3"><a href="points.html#cb101-3" aria-hidden="true" tabindex="-1"></a>sqbin <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb101-4"><a href="points.html#cb101-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add 2D binning with the XY coordinates as</span></span>
+<span id="cb101-5"><a href="points.html#cb101-5" aria-hidden="true" tabindex="-1"></a><span class="co"># a dataframe</span></span>
+<span id="cb101-6"><a href="points.html#cb101-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bin2d</span>(</span>
+<span id="cb101-7"><a href="points.html#cb101-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span><span class="fu">as.data.frame</span>(<span class="fu">st_coordinates</span>(db)), </span>
+<span id="cb101-8"><a href="points.html#cb101-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>X, <span class="at">y=</span>Y)</span>
+<span id="cb101-9"><a href="points.html#cb101-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb101-10"><a href="points.html#cb101-10" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Hex binning</span></span>
+<span id="cb101-11"><a href="points.html#cb101-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up plot</span></span>
+<span id="cb101-12"><a href="points.html#cb101-12" aria-hidden="true" tabindex="-1"></a>hexbin <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb101-13"><a href="points.html#cb101-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Add hex binning with the XY coordinates as</span></span>
+<span id="cb101-14"><a href="points.html#cb101-14" aria-hidden="true" tabindex="-1"></a><span class="co"># a dataframe </span></span>
+<span id="cb101-15"><a href="points.html#cb101-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(</span>
+<span id="cb101-16"><a href="points.html#cb101-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span><span class="fu">as.data.frame</span>(<span class="fu">st_coordinates</span>(db)),</span>
+<span id="cb101-17"><a href="points.html#cb101-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>X, <span class="at">y=</span>Y)</span>
+<span id="cb101-18"><a href="points.html#cb101-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb101-19"><a href="points.html#cb101-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Use viridis for color encoding (recommended)</span></span>
+<span id="cb101-20"><a href="points.html#cb101-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_continuous</span>(<span class="at">type =</span> <span class="st">&quot;viridis&quot;</span>)</span>
+<span id="cb101-21"><a href="points.html#cb101-21" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Bind in subplots</span></span>
+<span id="cb101-22"><a href="points.html#cb101-22" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(sqbin, hexbin, <span class="at">ncol=</span><span class="dv">2</span>)</span></code></pre></div>
 <p><img src="04-points_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
-<div id="kde" class="section level2">
+<div id="kde" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> KDE</h2>
 <p>Kernel Density Estimation (KDE) is a technique that creates a <em>continuous</em> representation of the distribution of a given variable, such as house prices. Although theoretically it can be applied to any dimension, usually, KDE is applied to either one or two dimensions.</p>
-<div id="one-dimensional-kde" class="section level3">
+<div id="one-dimensional-kde" class="section level3" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> One-dimensional KDE</h3>
 <p>KDE over a single dimension is essentially a contiguous version of a histogram. We can see that by overlaying a KDE on top of the histogram of logs that we have created before:</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="points.html#cb102-1"></a><span class="co"># Create the base</span></span>
-<span id="cb102-2"><a href="points.html#cb102-2"></a>base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(db, <span class="kw">aes</span>(<span class="dt">x=</span>log_price))</span>
-<span id="cb102-3"><a href="points.html#cb102-3"></a><span class="co"># Histogram</span></span>
-<span id="cb102-4"><a href="points.html#cb102-4"></a>hist &lt;-<span class="st"> </span>base <span class="op">+</span><span class="st"> </span></span>
-<span id="cb102-5"><a href="points.html#cb102-5"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins=</span><span class="dv">50</span>, <span class="kw">aes</span>(<span class="dt">y=</span>..density..))</span>
-<span id="cb102-6"><a href="points.html#cb102-6"></a><span class="co"># Overlay density plot</span></span>
-<span id="cb102-7"><a href="points.html#cb102-7"></a>kde &lt;-<span class="st"> </span>hist <span class="op">+</span><span class="st"> </span></span>
-<span id="cb102-8"><a href="points.html#cb102-8"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">fill=</span><span class="st">&quot;#FF6666&quot;</span>, <span class="dt">alpha=</span><span class="fl">0.5</span>, <span class="dt">colour=</span><span class="st">&quot;#FF6666&quot;</span>)</span>
-<span id="cb102-9"><a href="points.html#cb102-9"></a>kde</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="points.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the base</span></span>
+<span id="cb102-2"><a href="points.html#cb102-2" aria-hidden="true" tabindex="-1"></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(db, <span class="fu">aes</span>(<span class="at">x=</span>log_price))</span>
+<span id="cb102-3"><a href="points.html#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram</span></span>
+<span id="cb102-4"><a href="points.html#cb102-4" aria-hidden="true" tabindex="-1"></a>hist <span class="ot">&lt;-</span> base <span class="sc">+</span> </span>
+<span id="cb102-5"><a href="points.html#cb102-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">50</span>, <span class="fu">aes</span>(<span class="at">y=</span>..density..))</span>
+<span id="cb102-6"><a href="points.html#cb102-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Overlay density plot</span></span>
+<span id="cb102-7"><a href="points.html#cb102-7" aria-hidden="true" tabindex="-1"></a>kde <span class="ot">&lt;-</span> hist <span class="sc">+</span> </span>
+<span id="cb102-8"><a href="points.html#cb102-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">&quot;#FF6666&quot;</span>, <span class="at">alpha=</span><span class="fl">0.5</span>, <span class="at">colour=</span><span class="st">&quot;#FF6666&quot;</span>)</span>
+<span id="cb102-9"><a href="points.html#cb102-9" aria-hidden="true" tabindex="-1"></a>kde</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-9"></span>
 <img src="04-points_files/figure-html/unnamed-chunk-9-1.png" alt="Histogram and KDE of the log of AirBnb prices in San Diego" width="672" />
 <p class="caption">
@@ -459,23 +491,23 @@ Figure 4.3: Histogram and KDE of the log of AirBnb prices in San Diego
 </div>
 <p>The key idea is that we are smoothing out the discrete binning that the histogram involves. Note how the histogram is exactly the same as above shape-wise, but it has been rescalend on the Y axis to reflect probabilities rather than counts.</p>
 </div>
-<div id="two-dimensional-spatial-kde" class="section level3">
+<div id="two-dimensional-spatial-kde" class="section level3" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Two-dimensional (spatial) KDE</h3>
 <p>Geography, at the end of the day, is usually represented as a two-dimensional space where we locate objects using a system of dual coordinates, <code>X</code> and <code>Y</code> (or latitude and longitude). Thanks to that, we can use the same technique as above to obtain a smooth representation of the distribution of a two-dimensional variable. The crucial difference is that, instead of obtaining a curve as the output, we will create a <em>surface</em>, where intensity will be represented with a color gradient, rather than with the second dimension, as it is the case in the figure above.</p>
 <p>To create a spatial KDE in R, we can use general tooling for non-spatial points, such as the <code>stat_density2d_filled</code> method:</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="points.html#cb103-1"></a><span class="co"># Create the KDE surface</span></span>
-<span id="cb103-2"><a href="points.html#cb103-2"></a>kde &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> db) <span class="op">+</span></span>
-<span id="cb103-3"><a href="points.html#cb103-3"></a><span class="st">  </span><span class="kw">stat_density2d_filled</span>(</span>
-<span id="cb103-4"><a href="points.html#cb103-4"></a>    <span class="dt">data =</span> <span class="kw">as.data.frame</span>(<span class="kw">st_coordinates</span>(db)), </span>
-<span id="cb103-5"><a href="points.html#cb103-5"></a>    <span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">alpha =</span> ..level..),</span>
-<span id="cb103-6"><a href="points.html#cb103-6"></a>    <span class="dt">n =</span> <span class="dv">16</span></span>
-<span id="cb103-7"><a href="points.html#cb103-7"></a>  ) <span class="op">+</span></span>
-<span id="cb103-8"><a href="points.html#cb103-8"></a><span class="st">  </span><span class="co"># Tweak the color gradient</span></span>
-<span id="cb103-9"><a href="points.html#cb103-9"></a><span class="st">  </span><span class="kw">scale_color_viridis_c</span>() <span class="op">+</span></span>
-<span id="cb103-10"><a href="points.html#cb103-10"></a><span class="st">  </span><span class="co"># White theme</span></span>
-<span id="cb103-11"><a href="points.html#cb103-11"></a><span class="st">  </span><span class="kw">theme_bw</span>()</span>
-<span id="cb103-12"><a href="points.html#cb103-12"></a><span class="co"># Tip! Add invisible points to improve proportions</span></span>
-<span id="cb103-13"><a href="points.html#cb103-13"></a>kde <span class="op">+</span><span class="st"> </span><span class="kw">geom_sf</span>(<span class="dt">alpha=</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="points.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the KDE surface</span></span>
+<span id="cb103-2"><a href="points.html#cb103-2" aria-hidden="true" tabindex="-1"></a>kde <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> db) <span class="sc">+</span></span>
+<span id="cb103-3"><a href="points.html#cb103-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_density2d_filled</span>(</span>
+<span id="cb103-4"><a href="points.html#cb103-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">as.data.frame</span>(<span class="fu">st_coordinates</span>(db)), </span>
+<span id="cb103-5"><a href="points.html#cb103-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Y, <span class="at">alpha =</span> ..level..),</span>
+<span id="cb103-6"><a href="points.html#cb103-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="dv">16</span></span>
+<span id="cb103-7"><a href="points.html#cb103-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb103-8"><a href="points.html#cb103-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tweak the color gradient</span></span>
+<span id="cb103-9"><a href="points.html#cb103-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb103-10"><a href="points.html#cb103-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># White theme</span></span>
+<span id="cb103-11"><a href="points.html#cb103-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb103-12"><a href="points.html#cb103-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Tip! Add invisible points to improve proportions</span></span>
+<span id="cb103-13"><a href="points.html#cb103-13" aria-hidden="true" tabindex="-1"></a>kde <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">alpha=</span><span class="dv">0</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-10"></span>
 <img src="04-points_files/figure-html/unnamed-chunk-10-1.png" alt="KDE of AirBnb properties in San Diego" width="672" />
 <p class="caption">
@@ -483,25 +515,25 @@ Figure 4.4: KDE of AirBnb properties in San Diego
 </p>
 </div>
 <p>This approach generates a surface that represents the density of dots, that is an estimation of the probability of finding a house transaction at a given coordinate. However, without any further information, they are hard to interpret and link with previous knowledge of the area. To bring such context to the figure, we can plot an underlying basemap, using a cloud provider such as Google Maps or, as in this case, OpenStreetMap. To do it, we will leverage the library <code>ggmap</code>, which is designed to play nicely with the <code>ggplot2</code> family (hence the seemingly counterintuitive example above). Before we can plot them with the online map, we need to reproject them though.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="points.html#cb104-1"></a><span class="co"># Reproject coordinates</span></span>
-<span id="cb104-2"><a href="points.html#cb104-2"></a>lon_lat &lt;-<span class="st"> </span><span class="kw">st_transform</span>(db, <span class="dt">crs =</span> <span class="dv">4326</span>) <span class="op">%&gt;%</span></span>
-<span id="cb104-3"><a href="points.html#cb104-3"></a><span class="st">  </span><span class="kw">st_coordinates</span>() <span class="op">%&gt;%</span></span>
-<span id="cb104-4"><a href="points.html#cb104-4"></a><span class="st">  </span><span class="kw">as.data.frame</span>()</span>
-<span id="cb104-5"><a href="points.html#cb104-5"></a><span class="co"># Basemap</span></span>
-<span id="cb104-6"><a href="points.html#cb104-6"></a><span class="kw">qmplot</span>(</span>
-<span id="cb104-7"><a href="points.html#cb104-7"></a>  X, </span>
-<span id="cb104-8"><a href="points.html#cb104-8"></a>  Y, </span>
-<span id="cb104-9"><a href="points.html#cb104-9"></a>  <span class="dt">data =</span> lon_lat, </span>
-<span id="cb104-10"><a href="points.html#cb104-10"></a>  <span class="dt">geom=</span><span class="st">&quot;blank&quot;</span></span>
-<span id="cb104-11"><a href="points.html#cb104-11"></a>) <span class="op">+</span></span>
-<span id="cb104-12"><a href="points.html#cb104-12"></a><span class="st">  </span><span class="co"># KDE</span></span>
-<span id="cb104-13"><a href="points.html#cb104-13"></a><span class="st">  </span><span class="kw">stat_density2d_filled</span>(</span>
-<span id="cb104-14"><a href="points.html#cb104-14"></a>    <span class="dt">data =</span> lon_lat, </span>
-<span id="cb104-15"><a href="points.html#cb104-15"></a>    <span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">alpha =</span> ..level..),</span>
-<span id="cb104-16"><a href="points.html#cb104-16"></a>    <span class="dt">n =</span> <span class="dv">16</span></span>
-<span id="cb104-17"><a href="points.html#cb104-17"></a>  ) <span class="op">+</span></span>
-<span id="cb104-18"><a href="points.html#cb104-18"></a><span class="st">  </span><span class="co"># Tweak the color gradient</span></span>
-<span id="cb104-19"><a href="points.html#cb104-19"></a><span class="st">  </span><span class="kw">scale_color_viridis_c</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="points.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproject coordinates</span></span>
+<span id="cb104-2"><a href="points.html#cb104-2" aria-hidden="true" tabindex="-1"></a>lon_lat <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(db, <span class="at">crs =</span> <span class="dv">4326</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb104-3"><a href="points.html#cb104-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_coordinates</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb104-4"><a href="points.html#cb104-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb104-5"><a href="points.html#cb104-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Basemap</span></span>
+<span id="cb104-6"><a href="points.html#cb104-6" aria-hidden="true" tabindex="-1"></a><span class="fu">qmplot</span>(</span>
+<span id="cb104-7"><a href="points.html#cb104-7" aria-hidden="true" tabindex="-1"></a>  X, </span>
+<span id="cb104-8"><a href="points.html#cb104-8" aria-hidden="true" tabindex="-1"></a>  Y, </span>
+<span id="cb104-9"><a href="points.html#cb104-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> lon_lat, </span>
+<span id="cb104-10"><a href="points.html#cb104-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">geom=</span><span class="st">&quot;blank&quot;</span></span>
+<span id="cb104-11"><a href="points.html#cb104-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb104-12"><a href="points.html#cb104-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># KDE</span></span>
+<span id="cb104-13"><a href="points.html#cb104-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_density2d_filled</span>(</span>
+<span id="cb104-14"><a href="points.html#cb104-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> lon_lat, </span>
+<span id="cb104-15"><a href="points.html#cb104-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Y, <span class="at">alpha =</span> ..level..),</span>
+<span id="cb104-16"><a href="points.html#cb104-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="dv">16</span></span>
+<span id="cb104-17"><a href="points.html#cb104-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb104-18"><a href="points.html#cb104-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tweak the color gradient</span></span>
+<span id="cb104-19"><a href="points.html#cb104-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>()</span></code></pre></div>
 <pre><code>## Using zoom = 11...</code></pre>
 <pre><code>## Source : http://tile.stamen.com/terrain/11/356/824.png</code></pre>
 <pre><code>## Source : http://tile.stamen.com/terrain/11/357/824.png</code></pre>
@@ -523,14 +555,14 @@ Figure 4.5: KDE of AirBnb properties in San Diego
 </div>
 </div>
 </div>
-<div id="spatial-interpolation" class="section level2">
+<div id="spatial-interpolation" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> Spatial Interpolation</h2>
 <p>The previous section demonstrates how to visualize the distribution of a set of spatial objects represented as points. In particular, given a bunch of house locations, it shows how one can effectively visualize their distribution over space and get a sense of the density of occurrences. Such visualization, because it is based on KDE, is based on a smooth continuum, rather than on a discrete approach (as a choropleth would do, for example).</p>
 <p>Many times however, we are not particularly interested in learning about the density of occurrences, but about the distribution of a given value attached to each location. Think for example of weather stations and temperature: the location of the stations is no secret and rarely changes, so it is not of particular interest to visualize the density of stations; what we are usually interested instead is to know how temperature is distributed over space, given we only measure it in a few places. One could argue the example we have been working with so far, house prices in AirBnb, fits into this category as well: although where a house is advertised may be of relevance, more often we are interested in finding out what the “surface of price” looks like. Rather than <em>where are most houses being advertised?</em> we usually want to know <em>where the most expensive or most affordable</em> houses are located.</p>
-<p>In cases where we are interested in creating a surface of a given value, rather than a simple density surface of occurrences, KDE cannot help us. In these cases, what we are interested in is <em>spatial interpolation</em>, a family of techniques that aim at exactly that: creating continuous surfaces for a particular phenomenon (e.g. temperature, house prices) given only a finite sample of observations. Spatial interpolation is a large field of research that is still being actively developed and that can involve a substantial amount of mathematical complexity in order to obtain the most accurate estimates possible<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. In this chapter, we will introduce the simplest possible way of interpolating values, hoping this will give you a general understanding of the methodology and, if you are interested, you can check out further literature. For example, <span class="citation">Banerjee, Carlin, and Gelfand (<a href="#ref-banerjee2014hierarchical" role="doc-biblioref">2014</a>)</span> or <span class="citation">Cressie (<a href="#ref-cressie2015statistics" role="doc-biblioref">2015</a>)</span> are hard but good overviews.</p>
-<div id="inverse-distance-weight-idw-interpolation" class="section level3">
+<p>In cases where we are interested in creating a surface of a given value, rather than a simple density surface of occurrences, KDE cannot help us. In these cases, what we are interested in is <em>spatial interpolation</em>, a family of techniques that aim at exactly that: creating continuous surfaces for a particular phenomenon (e.g. temperature, house prices) given only a finite sample of observations. Spatial interpolation is a large field of research that is still being actively developed and that can involve a substantial amount of mathematical complexity in order to obtain the most accurate estimates possible<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. In this chapter, we will introduce the simplest possible way of interpolating values, hoping this will give you a general understanding of the methodology and, if you are interested, you can check out further literature. For example, <span class="citation"><a href="references.html#ref-banerjee2014hierarchical" role="doc-biblioref">Banerjee, Carlin, and Gelfand</a> (<a href="references.html#ref-banerjee2014hierarchical" role="doc-biblioref">2014</a>)</span> or <span class="citation"><a href="references.html#ref-cressie2015statistics" role="doc-biblioref">Cressie</a> (<a href="references.html#ref-cressie2015statistics" role="doc-biblioref">2015</a>)</span> are hard but good overviews.</p>
+<div id="inverse-distance-weight-idw-interpolation" class="section level3" number="4.5.1">
 <h3><span class="header-section-number">4.5.1</span> Inverse Distance Weight (IDW) interpolation</h3>
-<p>The technique we will cover here is called <em>Inverse Distance Weighting</em>, or IDW for convenience. <span class="citation">Brunsdon and Comber (<a href="#ref-comber2015" role="doc-biblioref">2015</a>)</span> offer a good description:</p>
+<p>The technique we will cover here is called <em>Inverse Distance Weighting</em>, or IDW for convenience. <span class="citation"><a href="references.html#ref-comber2015" role="doc-biblioref">Brunsdon and Comber</a> (<a href="references.html#ref-comber2015" role="doc-biblioref">2015</a>)</span> offer a good description:</p>
 <blockquote>
 <p>In the <em>inverse distance weighting</em> (IDW) approach to interpolation, to estimate the value of <span class="math inline">\(z\)</span> at location <span class="math inline">\(x\)</span> a weighted mean of nearby observations is taken […]. To accommodate the idea that observations of <span class="math inline">\(z\)</span> at points closer to <span class="math inline">\(x\)</span> should be given more importance in the interpolation, greater weight is given to these points […]</p>
 <p>— Page 204</p>
@@ -544,17 +576,17 @@ Figure 4.5: KDE of AirBnb properties in San Diego
 <li>Plot a smoothed version of the grid, effectively representing the surface of house prices.</li>
 </ol>
 <p>Let us go in detail into each of them<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>. First, let us set up a grid for the extent of the bounding box of our data (not the use of pipe, <code>%&gt;%</code>, operator to chain functions):</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="points.html#cb118-1"></a>sd.grid &lt;-<span class="st"> </span>db <span class="op">%&gt;%</span></span>
-<span id="cb118-2"><a href="points.html#cb118-2"></a><span class="st">  </span><span class="kw">st_bbox</span>() <span class="op">%&gt;%</span></span>
-<span id="cb118-3"><a href="points.html#cb118-3"></a><span class="st">  </span><span class="kw">st_as_sfc</span>() <span class="op">%&gt;%</span></span>
-<span id="cb118-4"><a href="points.html#cb118-4"></a><span class="st">  </span><span class="kw">st_make_grid</span>(</span>
-<span id="cb118-5"><a href="points.html#cb118-5"></a>    <span class="dt">n =</span> <span class="dv">100</span>,</span>
-<span id="cb118-6"><a href="points.html#cb118-6"></a>    <span class="dt">what =</span> <span class="st">&quot;centers&quot;</span></span>
-<span id="cb118-7"><a href="points.html#cb118-7"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb118-8"><a href="points.html#cb118-8"></a><span class="st">  </span><span class="kw">st_as_sf</span>() <span class="op">%&gt;%</span></span>
-<span id="cb118-9"><a href="points.html#cb118-9"></a><span class="st">  </span><span class="kw">cbind</span>(., <span class="kw">st_coordinates</span>(.))</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="points.html#cb118-1" aria-hidden="true" tabindex="-1"></a>sd.grid <span class="ot">&lt;-</span> db <span class="sc">%&gt;%</span></span>
+<span id="cb118-2"><a href="points.html#cb118-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_bbox</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb118-3"><a href="points.html#cb118-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sfc</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb118-4"><a href="points.html#cb118-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_make_grid</span>(</span>
+<span id="cb118-5"><a href="points.html#cb118-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="dv">100</span>,</span>
+<span id="cb118-6"><a href="points.html#cb118-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">what =</span> <span class="st">&quot;centers&quot;</span></span>
+<span id="cb118-7"><a href="points.html#cb118-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb118-8"><a href="points.html#cb118-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb118-9"><a href="points.html#cb118-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(., <span class="fu">st_coordinates</span>(.))</span></code></pre></div>
 <p>The object <code>sd.grid</code> is a regular grid with 10,000 (<span class="math inline">\(100 \times 100\)</span>) equally spaced cells:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="points.html#cb119-1"></a>sd.grid</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="points.html#cb119-1" aria-hidden="true" tabindex="-1"></a>sd.grid</span></code></pre></div>
 <pre><code>## Simple feature collection with 10000 features and 2 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -573,18 +605,18 @@ Figure 4.5: KDE of AirBnb properties in San Diego
 ## 9  -117.2535 32.57604 POINT (-117.2535 32.57604)
 ## 10 -117.2502 32.57604 POINT (-117.2502 32.57604)</code></pre>
 <p>Now, <code>sd.grid</code> only contain the location of points to which we wish to interpolate. That is, we now our “target” geography for which we’d like to have AirBnb prices, but we don’t have price estimates. For that, on to the IDW, which will generate estimates for locations in <code>sd.grid</code> based on the observed prices in <code>db</code>. Again, this is hugely simplified by <code>gstat</code>:</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="points.html#cb121-1"></a>idw.hp &lt;-<span class="st"> </span><span class="kw">idw</span>(</span>
-<span id="cb121-2"><a href="points.html#cb121-2"></a>  price <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,         <span class="co"># Formula for IDW</span></span>
-<span id="cb121-3"><a href="points.html#cb121-3"></a>  <span class="dt">locations =</span> db,    <span class="co"># Initial locations with values</span></span>
-<span id="cb121-4"><a href="points.html#cb121-4"></a>  <span class="dt">newdata=</span>sd.grid    <span class="co"># Locations we want predictions for</span></span>
-<span id="cb121-5"><a href="points.html#cb121-5"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="points.html#cb121-1" aria-hidden="true" tabindex="-1"></a>idw.hp <span class="ot">&lt;-</span> <span class="fu">idw</span>(</span>
+<span id="cb121-2"><a href="points.html#cb121-2" aria-hidden="true" tabindex="-1"></a>  price <span class="sc">~</span> <span class="dv">1</span>,         <span class="co"># Formula for IDW</span></span>
+<span id="cb121-3"><a href="points.html#cb121-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">locations =</span> db,    <span class="co"># Initial locations with values</span></span>
+<span id="cb121-4"><a href="points.html#cb121-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">newdata=</span>sd.grid    <span class="co"># Locations we want predictions for</span></span>
+<span id="cb121-5"><a href="points.html#cb121-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## Warning in proj4string(d$data): CRS object has comment, which is lost in output</code></pre>
 <pre><code>## Warning in proj4string(newdata): CRS object has comment, which is lost in output</code></pre>
 <pre><code>## [inverse distance weighted interpolation]</code></pre>
 <pre><code>## Warning in proj4string(newdata): CRS object has comment, which is lost in output</code></pre>
 <p>Boom! We’ve got it. Let us pause for a second to see how we just did it. First, we pass <code>price ~ 1</code>. This specifies the formula we are using to model house prices. The name on the left of <code>~</code> represents the variable we want to explain, while everything to its right captures the <em>explanatory</em> variables. Since we are considering the simplest possible case, we do not have further variables to add, so we simply write <code>1</code>. Then we specify the original locations for which we do have house prices (our original <code>db</code> object), and the points where we want to interpolate the house prices (the <code>sd.grid</code> object we just created above). One more note: by default, <code>idw</code> uses all the available observations, weighted by distance, to provide an estimate for a given point. If you want to modify that and restrict the maximum number of neighbors to consider, you need to tweak the argument <code>nmax</code>, as we do above by using the 150 neares observations to each point<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>.</p>
 <p>The object we get from <code>idw</code> is another spatial table, just as <code>db</code>, containing the interpolated values. As such, we can inspect it just as with any other of its kind. For example, to check out the top of the estimated table:</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="points.html#cb126-1"></a><span class="kw">head</span>(idw.hp)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="points.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(idw.hp)</span></code></pre></div>
 <pre><code>## Simple feature collection with 6 features and 2 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -599,38 +631,38 @@ Figure 4.5: KDE of AirBnb properties in San Diego
 ## 6  209.8641       NA POINT (-117.2632 32.57604)</code></pre>
 <p>The column we will pay attention to is <code>var1.pred</code>. For a hypothetical house advertised at the location in the first row of point in <code>sd.grid</code>, the price IDW would guess it would cost, based on prices nearby, is the first element of column <code>var1.pred</code> in <code>idw.hp</code>.</p>
 </div>
-<div id="a-surface-of-housing-prices" class="section level3">
+<div id="a-surface-of-housing-prices" class="section level3" number="4.5.2">
 <h3><span class="header-section-number">4.5.2</span> A surface of housing prices</h3>
 <p>Once we have the IDW object computed, we can plot it to explore the distribution, not of AirBnb locations in this case, but of house prices over the geography of San Diego. To do this using <code>ggplot2</code>, we first append the coordinates of each grid cell as columns of the table:</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="points.html#cb128-1"></a>idw.hp =<span class="st"> </span>idw.hp <span class="op">%&gt;%</span></span>
-<span id="cb128-2"><a href="points.html#cb128-2"></a><span class="st">  </span><span class="kw">cbind</span>(<span class="kw">st_coordinates</span>(.))</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="points.html#cb128-1" aria-hidden="true" tabindex="-1"></a>idw.hp <span class="ot">=</span> idw.hp <span class="sc">%&gt;%</span></span>
+<span id="cb128-2"><a href="points.html#cb128-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(<span class="fu">st_coordinates</span>(.))</span></code></pre></div>
 <p>Now, we can visualise the surface using standard <code>ggplot2</code> tools:</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="points.html#cb129-1"></a><span class="kw">ggplot</span>(idw.hp, <span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">fill =</span> var1.pred)) <span class="op">+</span></span>
-<span id="cb129-2"><a href="points.html#cb129-2"></a><span class="st">  </span><span class="kw">geom_raster</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="points.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(idw.hp, <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Y, <span class="at">fill =</span> var1.pred)) <span class="sc">+</span></span>
+<span id="cb129-2"><a href="points.html#cb129-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_raster</span>()</span></code></pre></div>
 <p><img src="04-points_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 And we can “dress it up” a bit further:</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="points.html#cb130-1"></a><span class="kw">ggplot</span>(idw.hp, <span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y, <span class="dt">fill =</span> var1.pred)) <span class="op">+</span></span>
-<span id="cb130-2"><a href="points.html#cb130-2"></a><span class="st">  </span><span class="kw">geom_raster</span>() <span class="op">+</span></span>
-<span id="cb130-3"><a href="points.html#cb130-3"></a><span class="st">  </span><span class="kw">scale_fill_viridis_b</span>() <span class="op">+</span></span>
-<span id="cb130-4"><a href="points.html#cb130-4"></a><span class="st">  </span><span class="kw">theme_void</span>() <span class="op">+</span></span>
-<span id="cb130-5"><a href="points.html#cb130-5"></a><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">alpha=</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="points.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(idw.hp, <span class="fu">aes</span>(<span class="at">x =</span> X, <span class="at">y =</span> Y, <span class="at">fill =</span> var1.pred)) <span class="sc">+</span></span>
+<span id="cb130-2"><a href="points.html#cb130-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_raster</span>() <span class="sc">+</span></span>
+<span id="cb130-3"><a href="points.html#cb130-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_b</span>() <span class="sc">+</span></span>
+<span id="cb130-4"><a href="points.html#cb130-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb130-5"><a href="points.html#cb130-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">alpha=</span><span class="dv">0</span>)</span></code></pre></div>
 <p><img src="04-points_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>Looking at this, we can start to tell some patterns. To bring in context, it would be great to be able to add a basemap layer, as we did for the KDE. This is conceptually very similar to what we did above, starting by reprojecting the points and continuing by overlaying them on top of the basemap. However, technically speaking it is not possible because <code>ggmap</code> –the library we have been using to display tiles from cloud providers– does not play well with our own rasters (i.e. the price surface). At the moment, it is surprisingly tricky to get this to work, so we will park it for now<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.</p>
 </div>
-<div id="what-should-the-next-houses-price-be" class="section level3">
+<div id="what-should-the-next-houses-price-be" class="section level3" number="4.5.3">
 <h3><span class="header-section-number">4.5.3</span> <em>“What should the next house’s price be?”</em></h3>
 <p>The last bit we will explore in this session relates to prediction for new values. Imagine you are a real state data scientist working for Airbnb and your boss asks you to give an estimate of how much a new house going into the market should cost. The only information you have to make such a guess is the location of the house. In this case, the IDW model we have just fitted can help you. The trick is realizing that, instead of creating an entire grid, all we need is to obtain an estimate of a single location.</p>
 <p>Let us say, a new house is going to be advertised on the coordinates <code>X = -117.02259063720702, Y = 32.76511965117273</code> as expressed in longitude and latitude. In that case, we can do as follows:</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="points.html#cb131-1"></a>pt &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">X =</span> <span class="fl">-117.02259063720702</span>, <span class="dt">Y =</span> <span class="fl">32.76511965117273</span>) <span class="op">%&gt;%</span></span>
-<span id="cb131-2"><a href="points.html#cb131-2"></a><span class="st">  </span><span class="kw">st_point</span>() <span class="op">%&gt;%</span></span>
-<span id="cb131-3"><a href="points.html#cb131-3"></a><span class="st">  </span><span class="kw">st_sfc</span>() <span class="op">%&gt;%</span></span>
-<span id="cb131-4"><a href="points.html#cb131-4"></a><span class="st">  </span><span class="kw">st_sf</span>(<span class="dt">crs =</span> <span class="st">&quot;EPSG:4326&quot;</span>)</span>
-<span id="cb131-5"><a href="points.html#cb131-5"></a>idw.one &lt;-<span class="st"> </span><span class="kw">idw</span>(price <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">locations=</span>db, <span class="dt">newdata=</span>pt)</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="points.html#cb131-1" aria-hidden="true" tabindex="-1"></a>pt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">X =</span> <span class="sc">-</span><span class="fl">117.02259063720702</span>, <span class="at">Y =</span> <span class="fl">32.76511965117273</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb131-2"><a href="points.html#cb131-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_point</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb131-3"><a href="points.html#cb131-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_sfc</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb131-4"><a href="points.html#cb131-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_sf</span>(<span class="at">crs =</span> <span class="st">&quot;EPSG:4326&quot;</span>)</span>
+<span id="cb131-5"><a href="points.html#cb131-5" aria-hidden="true" tabindex="-1"></a>idw.one <span class="ot">&lt;-</span> <span class="fu">idw</span>(price <span class="sc">~</span> <span class="dv">1</span>, <span class="at">locations=</span>db, <span class="at">newdata=</span>pt)</span></code></pre></div>
 <pre><code>## Warning in proj4string(d$data): CRS object has comment, which is lost in output</code></pre>
 <pre><code>## Warning in proj4string(newdata): CRS object has comment, which is lost in output</code></pre>
 <pre><code>## [inverse distance weighted interpolation]</code></pre>
 <pre><code>## Warning in proj4string(newdata): CRS object has comment, which is lost in output</code></pre>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="points.html#cb136-1"></a>idw.one</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="points.html#cb136-1" aria-hidden="true" tabindex="-1"></a>idw.one</span></code></pre></div>
 <pre><code>## Simple feature collection with 1 feature and 2 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -641,18 +673,18 @@ And we can “dress it up” a bit further:</p>
 <p>And, as show above, the estimated value is $171.4141334<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>.</p>
 </div>
 </div>
-<div id="questions" class="section level2">
+<div id="questions" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Questions</h2>
 <p>We will be using the Madrid AirBnb dataset:</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="points.html#cb138-1"></a>mad_abb &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/assignment_1_madrid/madrid_abb.gpkg&quot;</span>)</span></code></pre></div>
-<pre><code>## Reading layer `madrid_abb&#39; from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg&#39; using driver `GPKG&#39;
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="points.html#cb138-1" aria-hidden="true" tabindex="-1"></a>mad_abb <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/assignment_1_madrid/madrid_abb.gpkg&quot;</span>)</span></code></pre></div>
+<pre><code>## Reading layer `madrid_abb&#39; from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg&#39; using driver `GPKG&#39;
 ## Simple feature collection with 18399 features and 15 fields
 ## geometry type:  POINT
 ## dimension:      XY
 ## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
 ## geographic CRS: WGS 84</code></pre>
 <p>This is fairly similar in spirit to the one from San Diego we have relied on for the chapter, although the column set is not exactly the same:</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="points.html#cb140-1"></a><span class="kw">colnames</span>(mad_abb)</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="points.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mad_abb)</span></code></pre></div>
 <pre><code>##  [1] &quot;price&quot;           &quot;price_usd&quot;       &quot;log1p_price_usd&quot; &quot;accommodates&quot;   
 ##  [5] &quot;bathrooms&quot;       &quot;bedrooms&quot;        &quot;beds&quot;            &quot;neighbourhood&quot;  
 ##  [9] &quot;room_type&quot;       &quot;property_type&quot;   &quot;WiFi&quot;            &quot;Coffee&quot;         
@@ -664,24 +696,6 @@ And we can “dress it up” a bit further:</p>
 <li>Using inverse distance weighting, create a surface of AirBnb prices</li>
 </ol>
 
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-banerjee2014hierarchical">
-<p>Banerjee, Sudipto, Bradley P Carlin, and Alan E Gelfand. 2014. <em>Hierarchical Modeling and Analysis for Spatial Data</em>. Crc Press.</p>
-</div>
-<div id="ref-bivand2013applied">
-<p>Bivand, Roger S, Edzer Pebesma, and Virgilio Gómez-Rubio. 2013. <em>Applied Spatial Data Analysis with R</em>. Springer New York.</p>
-</div>
-<div id="ref-comber2015">
-<p>Brunsdon, Chris, and Lex Comber. 2015. <em>An Introduction to R for Spatial Analysis &amp; Mapping</em>. Sage.</p>
-</div>
-<div id="ref-cressie2015statistics">
-<p>Cressie, Noel. 2015. <em>Statistics for Spatial Data</em>. John Wiley &amp; Sons.</p>
-</div>
-<div id="ref-lovelace2014introduction">
-<p>Lovelace, Robin, and James Cheshire. 2014. “Introduction to visualising spatial data in R.” <em>National Centre for Research Methods Working Papers</em> 14 (03). <a href="https://github.com/Robinlovelace/Creating-maps-in-R">https://github.com/Robinlovelace/Creating-maps-in-R</a>.</p>
 </div>
 </div>
 <div class="footnotes">

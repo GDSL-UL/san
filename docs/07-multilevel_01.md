@@ -144,7 +144,7 @@ lsoa_cd %>% table() %>%
   plot()
 ```
 
-<img src="07-multilevel_01_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](07-multilevel_01_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
 
 ```r
 msoa_cd %>% table() %>%
@@ -152,7 +152,7 @@ msoa_cd %>% table() %>%
   plot()
 ```
 
-<img src="07-multilevel_01_files/figure-html/unnamed-chunk-4-2.png" width="672" />
+![](07-multilevel_01_files/figure-epub3/unnamed-chunk-4-2.png)<!-- -->
 
 ## Modelling 
 
@@ -167,7 +167,7 @@ geom_density(alpha=0.8, colour="black", fill="lightblue", aes(x = unemp)) +
    theme_classic()
 ```
 
-<img src="07-multilevel_01_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+![](07-multilevel_01_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
 
 
 ```r
@@ -196,7 +196,7 @@ map_oa = tm_shape(oa_shp) +
 map_oa
 ```
 
-<img src="07-multilevel_01_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+![](07-multilevel_01_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
 
 Let us look at those areas:
 
@@ -515,17 +515,17 @@ REsim(model3) %>% head(10)
 ```
 
 ```
-##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.016826971 -0.016355661 0.020136235
-## 2    lsoa_cd E01006513 (Intercept) -0.015894021 -0.016364219 0.021823066
-## 3    lsoa_cd E01006514 (Intercept) -0.021105394 -0.020461777 0.020525442
-## 4    lsoa_cd E01006515 (Intercept) -0.014875974 -0.014194971 0.017974016
-## 5    lsoa_cd E01006518 (Intercept) -0.018797345 -0.016776075 0.019756698
-## 6    lsoa_cd E01006519 (Intercept) -0.017010585 -0.017359786 0.009236294
-## 7    lsoa_cd E01006520 (Intercept) -0.022928649 -0.023825751 0.021761328
-## 8    lsoa_cd E01006521 (Intercept)  0.006528662  0.005994256 0.021117384
-## 9    lsoa_cd E01006522 (Intercept)  0.020684061  0.019606432 0.019744864
-## 10   lsoa_cd E01006523 (Intercept)  0.002609673  0.003281632 0.020258080
+##    groupFctr   groupID        term         mean       median         sd
+## 1    lsoa_cd E01006512 (Intercept) -0.014898190 -0.015226491 0.01921925
+## 2    lsoa_cd E01006513 (Intercept) -0.016811764 -0.017654917 0.02058505
+## 3    lsoa_cd E01006514 (Intercept) -0.022093756 -0.023672809 0.02059286
+## 4    lsoa_cd E01006515 (Intercept) -0.019517122 -0.018568568 0.02045608
+## 5    lsoa_cd E01006518 (Intercept) -0.021348987 -0.022257253 0.01905839
+## 6    lsoa_cd E01006519 (Intercept) -0.015737891 -0.015814816 0.01041172
+## 7    lsoa_cd E01006520 (Intercept) -0.023968446 -0.022787116 0.01898223
+## 8    lsoa_cd E01006521 (Intercept)  0.008214870  0.008025170 0.01978909
+## 9    lsoa_cd E01006522 (Intercept)  0.018222864  0.018213173 0.02015236
+## 10   lsoa_cd E01006523 (Intercept)  0.005387494  0.006170605 0.01780681
 ```
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from `ranef` with some small differences due to rounding.
@@ -538,7 +538,7 @@ To gain an undertanding of the general pattern of the *random effects*, we can u
 plotREsim(REsim(model3)) 
 ```
 
-<img src="07-multilevel_01_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+![](07-multilevel_01_files/figure-epub3/unnamed-chunk-20-1.png)<!-- -->
 
 Focusing on the plot on the right, we see MSOAs whose mean proportion of unemployed population, assuming no explanatory variables, is lower than average. On the right-hand side of the plot, you will see MSOAs whose mean proportion is higher than average. The MSOAs with the smallest residuals include the districts of Allerton and Hunt Cross, Church, Childwall, Wavertree and Woolton. What districts do we have at the other extreme?
 
@@ -578,7 +578,7 @@ msoa_shp <- st_read("data/mlm/MSOA.shp")
 ```
 
 ```
-## Reading layer `MSOA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `MSOA' from data source `/home/jovyan/work/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -597,9 +597,9 @@ str(re_msoa)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.00945 -0.0204 -0.02832 0.0042 0.02101 ...
-##  $ median   : num  -0.00551 -0.0204 -0.02968 0.00465 0.01923 ...
-##  $ sd       : num  0.035 0.031 0.0301 0.0319 0.0164 ...
+##  $ mean     : num  -0.00923 -0.02437 -0.0306 0.00549 0.02218 ...
+##  $ median   : num  -0.01085 -0.02595 -0.03263 0.00645 0.02113 ...
+##  $ sd       : num  0.0313 0.0332 0.0289 0.0317 0.0145 ...
 ```
 
 ```r
@@ -624,7 +624,7 @@ map_msoa = tm_shape(msoa_shp) +
 map_msoa
 ```
 
-<img src="07-multilevel_01_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+![](07-multilevel_01_files/figure-epub3/unnamed-chunk-23-1.png)<!-- -->
  
 ### Adding Individual-level Predictors
 
@@ -861,7 +861,7 @@ sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
 ```
 
 ```
-## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
