@@ -145,7 +145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4.1" data-path="overview.html"><a href="overview.html#dependency-list"><i class="fa fa-check"></i><b>1.4.1</b> Dependency list</a></li>
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="overview.html"><a href="overview.html#assessment"><i class="fa fa-check"></i><b>1.5</b> Assessment</a><ul>
-<li class="chapter" data-level="1.5.1" data-path="overview.html"><a href="overview.html#assignment-1-50"><i class="fa fa-check"></i><b>1.5.1</b> Assignment 1 (50%)</a></li>
+<li class="chapter" data-level="1.5.1" data-path="overview.html"><a href="overview.html#format-requirements"><i class="fa fa-check"></i><b>1.5.1</b> Format Requirements</a></li>
 <li class="chapter" data-level="1.5.2" data-path="overview.html"><a href="overview.html#marking-criteria"><i class="fa fa-check"></i><b>1.5.2</b> Marking criteria</a></li>
 </ul></li>
 </ul></li>
@@ -510,9 +510,9 @@ where, as in the previous Chapter, <span class="math inline">\(y\)</span> the pr
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; ...
-##  $ mean     : num  0.0298 -0.109 0.0534 -0.1429 -0.2835 ...
-##  $ median   : num  0.0302 -0.1068 0.0559 -0.1424 -0.2866 ...
-##  $ sd       : num  0.0444 0.0745 0.0817 0.0366 0.0409 ...</code></pre>
+##  $ mean     : num  0.029 -0.1156 0.0567 -0.1443 -0.2808 ...
+##  $ median   : num  0.028 -0.1128 0.0492 -0.1444 -0.2767 ...
+##  $ sd       : num  0.0466 0.0738 0.0809 0.0399 0.0385 ...</code></pre>
 <div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="mlm2.html#cb328-1"></a><span class="co"># merge data</span></span>
 <span id="cb328-2"><a href="mlm2.html#cb328-2"></a>msoa_shp &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> msoa_shp, <span class="dt">y =</span> re_msoa_m6, <span class="dt">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="mlm2.html#cb329-1"></a><span class="co"># ensure geometry is valid</span></span>
@@ -645,6 +645,13 @@ where, as in the previous Chapter, <span class="math inline">\(y\)</span> the pr
 <li><p>Compare the results for models fitted in 1 and 2. Which is better? Why?</p></li>
 </ol>
 <p>Use the same explanatory variables used for the Chapter <a href="mlm1.html#mlm1">7</a> challenge, so you can compare the model results from this chapter.</p>
+<p>Analyse and discuss:</p>
+<ol style="list-style-type: decimal">
+<li>the varying slope estimate(s) from your model(s) (to what extent does the relationship between your
+dependent and independent variables vary across groups / areas? are they statistically significantly
+different?).</li>
+<li>differences between your varying intercept and varying slope models.</li>
+</ol>
 
 </div>
 </div>

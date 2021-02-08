@@ -264,3 +264,12 @@ Using these data, you are required to address the following challenges:
 3. Compare the results for models fitted in 1 and 2. Which is better? Why?
 
 Use the same explanatory variables used for the Chapter \@ref(mlm1) challenge, so you can compare the model results from this chapter. 
+
+Analyse and discuss: 
+
+1. the varying slope estimate(s) from your model(s) (to what extent does the relationship between your
+dependent and independent variables vary across groups / areas? are they statistically significantly
+different?).
+2. differences between your varying intercept and varying slope models.
+
+

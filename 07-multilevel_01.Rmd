@@ -494,7 +494,18 @@ Using these data, you are required to address the following challenges:
 
 3. Compute the Variance Partition Coefficient (VPC) for the models estimated according to points 1 and 2 above.
 
-In addressing these challenges, you have some flexibility to be creative. A set of key factors to consider:
+4. Create caterpillar plots to visualise the varying intercepts.
+
+Analyse and discuss: 
+1. the extent of variation in the dependent variables at the two geographical scales (variation at which
+geographical scale explains most of variance in your dependent variable);
+2. the varying intercept estimate(s) from your model(s) (what can they tell you about the difference
+between groups / areas? are they statistically significantly different?);
+
+Ensure you appropriately describe the structure of the data and identify the various geographical scales of
+analysis (i.e. level-1 and level-2 units)
+
+In addressing the challenges in this and following chapters, you have some flexibility to be creative. A set of key factors to consider:
 
 1. *Dependent Variable*: We will seek to explain daily COVID-19 cases, and you will need to make a decision as to:
 

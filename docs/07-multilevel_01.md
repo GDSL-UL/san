@@ -516,16 +516,16 @@ REsim(model3) %>% head(10)
 
 ```
 ##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.013461512 -0.011929004 0.019245603
-## 2    lsoa_cd E01006513 (Intercept) -0.016663726 -0.016558609 0.020749190
-## 3    lsoa_cd E01006514 (Intercept) -0.023107650 -0.023506302 0.019286829
-## 4    lsoa_cd E01006515 (Intercept) -0.018014207 -0.017681465 0.019194729
-## 5    lsoa_cd E01006518 (Intercept) -0.018891192 -0.019487802 0.019572707
-## 6    lsoa_cd E01006519 (Intercept) -0.016643781 -0.016434306 0.009844459
-## 7    lsoa_cd E01006520 (Intercept) -0.026324189 -0.026941444 0.018509693
-## 8    lsoa_cd E01006521 (Intercept)  0.003728483  0.004218233 0.019465424
-## 9    lsoa_cd E01006522 (Intercept)  0.018173056  0.019595116 0.019662031
-## 10   lsoa_cd E01006523 (Intercept)  0.004298453  0.005347542 0.018707807
+## 1    lsoa_cd E01006512 (Intercept) -0.016826971 -0.016355661 0.020136235
+## 2    lsoa_cd E01006513 (Intercept) -0.015894021 -0.016364219 0.021823066
+## 3    lsoa_cd E01006514 (Intercept) -0.021105394 -0.020461777 0.020525442
+## 4    lsoa_cd E01006515 (Intercept) -0.014875974 -0.014194971 0.017974016
+## 5    lsoa_cd E01006518 (Intercept) -0.018797345 -0.016776075 0.019756698
+## 6    lsoa_cd E01006519 (Intercept) -0.017010585 -0.017359786 0.009236294
+## 7    lsoa_cd E01006520 (Intercept) -0.022928649 -0.023825751 0.021761328
+## 8    lsoa_cd E01006521 (Intercept)  0.006528662  0.005994256 0.021117384
+## 9    lsoa_cd E01006522 (Intercept)  0.020684061  0.019606432 0.019744864
+## 10   lsoa_cd E01006523 (Intercept)  0.002609673  0.003281632 0.020258080
 ```
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from `ranef` with some small differences due to rounding.
@@ -597,9 +597,9 @@ str(re_msoa)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.00931 -0.02526 -0.02838 0.00707 0.02138 ...
-##  $ median   : num  -0.00921 -0.02639 -0.02725 0.00771 0.02088 ...
-##  $ sd       : num  0.0337 0.0333 0.0318 0.0285 0.016 ...
+##  $ mean     : num  -0.00945 -0.0204 -0.02832 0.0042 0.02101 ...
+##  $ median   : num  -0.00551 -0.0204 -0.02968 0.00465 0.01923 ...
+##  $ sd       : num  0.035 0.031 0.0301 0.0319 0.0164 ...
 ```
 
 ```r
@@ -923,7 +923,18 @@ Using these data, you are required to address the following challenges:
 
 3. Compute the Variance Partition Coefficient (VPC) for the models estimated according to points 1 and 2 above.
 
-In addressing these challenges, you have some flexibility to be creative. A set of key factors to consider:
+4. Create caterpillar plots to visualise the varying intercepts.
+
+Analyse and discuss: 
+1. the extent of variation in the dependent variables at the two geographical scales (variation at which
+geographical scale explains most of variance in your dependent variable);
+2. the varying intercept estimate(s) from your model(s) (what can they tell you about the difference
+between groups / areas? are they statistically significantly different?);
+
+Ensure you appropriately describe the structure of the data and identify the various geographical scales of
+analysis (i.e. level-1 and level-2 units)
+
+In addressing the challenges in this and following chapters, you have some flexibility to be creative. A set of key factors to consider:
 
 1. *Dependent Variable*: We will seek to explain daily COVID-19 cases, and you will need to make a decision as to:
 

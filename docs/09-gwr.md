@@ -636,3 +636,7 @@ Using these data, you are required to address the following challenges:
 
 * Create a multiple map figure to analyse the spatial variation of coefficients.
 
+Analyse and discuss: 
+
+1. How regression coefficients vary across space. Do they vary in size and statistical significance?
+2. What is the appropriate bandwidth for your GWR? Why?

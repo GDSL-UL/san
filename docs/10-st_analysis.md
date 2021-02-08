@@ -933,3 +933,10 @@ Using these data, you are required to address the following challenges:
 * Create a spatio-temporal visualisation.
 
 * Fit a ST model to assess changes over space and time.
+
+Analyse and discuss: 
+
+1. Do the results for your GWR and ST results differ: How do regression coefficients vary across space? Is this
+variation statistically significant?
+2. Does the ST model indicate significant variations over time? How?
+

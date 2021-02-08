@@ -121,16 +121,22 @@ for(lib in deps){library(lib, character.only = TRUE)}
 
 ## Assessment
 
-The final module mark is composed of the *two computational essays*. Together they are designed to cover the materials introduced in the entirety of content covered during the semester. A computational essay is an essay whose narrative is supported by code and computational results that are included in the essay itself. Each teaching week, you will be required to address a set of questions relating to the module content covered in that week. You will be required to use the material produced to address each question to build your computational essay.
+The final module mark is composed of the *two computational essays*. Together they are designed to cover the materials introduced in the entirety of content covered during the semester. A computational essay is an essay whose narrative is supported by code and computational results that are included in the essay itself. Each teaching week, you will be required to address a set of questions relating to the module content covered in that week, and to use the material that you will produce for this purpose to build your computational essay.
 
-Both assignments will be similar in format: 
+**Assignment 1 (50%)** refer to the set of questions at the end of Chapters \@ref(points), \@ref(flows) and \@ref(spatialecon). You are required to use your responses to build your computational essay. Each chapter provides more specific guidance of the tasks and discussion that you are required to consider in your assignment.
+
+**Assignment 2 (50%)** refer to the set of questions at the end of Chapters \@ref(mlm1), \@ref(mlm2), \@ref(gwr) and \@ref(sta). You are required to use your responses to build your computational essay. Each chapter provides more specific guidance of the tasks and discussion that you are required to consider in your assignment. 
+
+### Format Requirements
+
+Both assignments will have the same requirements: 
 
 * Maximum word count: 2,000 words, excluding figures and references.
 * Up to three maps, plot or figures (a figure may include more than one map and/or plot and will only count as one but needs to be integrated in the figure)
 * Up to two tables.
 
 Assignments need to be prepared in *R Notebook* format and then converted into
-a self-contained HTML file that will then be submitted via Turnitin.
+a self-contained *HTML* file that will then be submitted via Turnitin.
 The notebook should only display content that will be assessed. 
 Intermediate steps do not need to be displayed. 
 Messages resulting from loading packages, attaching data frames, or similar messages do not need to be included as output code.
@@ -139,27 +145,20 @@ Useful resources to customise your *R notebook* can be found on the [R Markdown 
 * [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) by @xie2018r  
 * [R Markdown Reference Guide](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.199646894.1496049738.1611760832-141828105.1610798362)  
 
-A R Notebook template is available via the [*module Canvas site*](https://liverpool.instructure.com).
+Two R Notebook templates will be available via the [*module Canvas site*](https://liverpool.instructure.com).
 
 *Submission* is electronic only via Turnitin on *Canvas*.
-
-### Assignment 1 (50%)
-
-- for details see Chapters \@ref(points), \@ref(flows) and \@ref(spatialecon)
-* Assignment 2 (50%) - for details see Chapters \@ref(mlm1), \@ref(mlm2), \@ref(gwr) and \@ref(sta)
-
-
 
 ### Marking criteria
 
 The Standard Environmental Sciences School marking criteria apply, with a stronger emphasis on evidencing the use of regression models, critical analysis of results and presentation standards. In addition to these general criteria, the code and outputs (i.e. tables, maps and plots) contained within the notebook submitted for assessment will be assessed according to the extent of documentation and evidence of expertise in changing and extending the code options illustrated in each chapter. Specifically, the following criteria will be applied:
 
-* 0-15: no documentation and use of default options.
-* 16-39: little documentation and use of default options.
-* 40-49: some documentation, and use of default options.
-* 50-59: extensive documentation, and edit of some of the options provided in the notebook (e.g. change north arrow location).
-* 60-69: extensive well organised and easy to read documentation, and evidence of understanding of options provided in the code (e.g. tweaking existing options).
-* 70-79: all above, plus clear evidence of code design skills (e.g. customising graphics, combining plots (or tables) into a single output, adding clear axis labels and variable names on graphic outputs, etc.).
-* 80-100: all as above, plus code containing novel contributions that extend/improve the functionality the code was provided with (e.g. comparative model assessments, novel methods to perform the task, etc.).
+* **0-15**: no documentation and use of default options.
+* **16-39**: little documentation and use of default options.
+* **40-49**: some documentation, and use of default options.
+* **50-59**: extensive documentation, and edit of some of the options provided in the notebook (e.g. change north arrow location).
+* **60-69**: extensive well organised and easy to read documentation, and evidence of understanding of options provided in the code (e.g. tweaking existing options).
+* **70-79**: all above, plus clear evidence of code design skills (e.g. customising graphics, combining plots (or tables) into a single output, adding clear axis labels and variable names on graphic outputs, etc.).
+* **80-100**: all as above, plus code containing novel contributions that extend/improve the functionality the code was provided with (e.g. comparative model assessments, novel methods to perform the task, etc.).
 
 
