@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
 
 
-<meta name="date" content="2021-02-08" />
+<meta name="date" content="2021-02-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -370,14 +370,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="flows.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial Data management</span></span>
 <span id="cb142-2"><a href="flows.html#cb142-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgdal)</span></code></pre></div>
 <pre><code>## Loading required package: sp</code></pre>
-<pre><code>## rgdal: version: 1.5-18, (SVN revision 1082)
+<pre><code>## rgdal: version: 1.5-23, (SVN revision 1121)
 ## Geospatial Data Abstraction Library extensions to R successfully loaded
 ## Loaded GDAL runtime: GDAL 3.0.4, released 2020/01/28
-## Path to GDAL shared files: /opt/conda/share/gdal
+## Path to GDAL shared files: /usr/share/gdal
 ## GDAL binary built with GEOS: TRUE 
 ## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
-## Path to PROJ shared files: /opt/conda/share/proj
-## Linking to sp version:1.4-4
+## Path to PROJ shared files: /usr/share/proj
+## Linking to sp version:1.4-5
 ## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
 ## use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) before loading rgdal.</code></pre>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="flows.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty graphics</span></span>
@@ -395,7 +395,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Loading required package: lme4</code></pre>
 <pre><code>## 
 ## arm (Version 1.11-2, built: 2020-7-27)</code></pre>
-<pre><code>## Working directory is /home/jovyan/work</code></pre>
+<pre><code>## Working directory is /home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san</code></pre>
 <p>In this chapter we will show a slightly different way of managing spatial data in R. Although most of the functionality will be similar to that seen in previous chapters, we will not rely on the “<code>sf</code> stack” and we will instead show how to read and manipulate data using the more traditional <code>sp</code> stack. Although this approach is being slowly phased out, it is still important to be aware of its existence and its differences with more modern approaches.</p>
 <p>Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with <code>setwd()</code>. Please replace in the following line the path to the folder where you have placed this file -and where the <code>sf_bikes</code> folder with the data lives.</p>
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="flows.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&#39;.&#39;</span>)</span></code></pre></div>
@@ -406,7 +406,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let us then directly load the file with all the information necessary:</p>
 <div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="flows.html#cb155-1" aria-hidden="true" tabindex="-1"></a>db <span class="ot">&lt;-</span> <span class="fu">readOGR</span>(<span class="st">&#39;./data/sf_bikes/flows.geojson&#39;</span>)</span></code></pre></div>
 <pre><code>## OGR data source with driver: GeoJSON 
-## Source: &quot;/home/jovyan/work/data/sf_bikes/flows.geojson&quot;, layer: &quot;flows&quot;
+## Source: &quot;/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sf_bikes/flows.geojson&quot;, layer: &quot;flows&quot;
 ## with 1722 features
 ## It has 9 fields</code></pre>
 <div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="flows.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(db<span class="sc">@</span>data) <span class="ot">&lt;-</span> db<span class="sc">$</span>flow_id</span>
@@ -943,7 +943,7 @@ RMSE = \sqrt{ \sum_{ij} (\hat{T_{ij}} - T_{ij})^2}
 <!-- #endregion --></p>
 <div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="flows.html#cb206-1" aria-hidden="true" tabindex="-1"></a>mad_abb <span class="ot">&lt;-</span> <span class="fu">readOGR</span>(<span class="st">&#39;./data/assignment_1_madrid/madrid_abb.gpkg&#39;</span>)</span></code></pre></div>
 <pre><code>## OGR data source with driver: GPKG 
-## Source: &quot;/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg&quot;, layer: &quot;madrid_abb&quot;
+## Source: &quot;/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg&quot;, layer: &quot;madrid_abb&quot;
 ## with 18399 features
 ## It has 15 fields
 ## Integer64 fields read as strings:  accommodates</code></pre>

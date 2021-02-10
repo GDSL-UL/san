@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
 
 
-<meta name="date" content="2021-02-08" />
+<meta name="date" content="2021-02-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -528,7 +528,7 @@ where, as in the previous Chapter, <span class="math inline">\(y\)</span> the pr
 <p>Let’s try to get a better understanding of the varying relationship between unemployment rate and long-term illness by mapping the relevant MSOA-level errors.</p>
 <div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="mlm2.html#cb324-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
 <span id="cb324-2"><a href="mlm2.html#cb324-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/mlm/MSOA.shp&quot;</span>)</span></code></pre></div>
-<pre><code>## Reading layer `MSOA&#39; from data source `/home/jovyan/work/data/mlm/MSOA.shp&#39; using driver `ESRI Shapefile&#39;
+<pre><code>## Reading layer `MSOA&#39; from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp&#39; using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 61 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -542,9 +542,9 @@ where, as in the previous Chapter, <span class="math inline">\(y\)</span> the pr
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; &quot;lt_ill&quot; ...
-##  $ mean     : num  0.0285 -0.1176 0.0565 -0.1391 -0.2811 ...
-##  $ median   : num  0.0248 -0.1207 0.0478 -0.1428 -0.281 ...
-##  $ sd       : num  0.0453 0.0722 0.0795 0.0383 0.04 ...</code></pre>
+##  $ mean     : num  0.0264 -0.1154 0.0541 -0.1409 -0.2818 ...
+##  $ median   : num  0.0259 -0.111 0.0534 -0.1396 -0.2825 ...
+##  $ sd       : num  0.042 0.0762 0.0826 0.039 0.0372 ...</code></pre>
 <div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="mlm2.html#cb328-1" aria-hidden="true" tabindex="-1"></a><span class="co"># merge data</span></span>
 <span id="cb328-2"><a href="mlm2.html#cb328-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> msoa_shp, <span class="at">y =</span> re_msoa_m6, <span class="at">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="at">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="mlm2.html#cb329-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ensure geometry is valid</span></span>
@@ -664,7 +664,7 @@ where, as in the previous Chapter, <span class="math inline">\(y\)</span> the pr
 <h2><span class="header-section-number">8.7</span> Questions</h2>
 <p>We will continue to use the COVID-19 dataset. Please see Chapter <a href="datasets.html#datasets">11</a> for details on the data.</p>
 <div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="mlm2.html#cb337-1" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/assignment_2_covid/covid19_eng.gpkg&quot;</span>)</span></code></pre></div>
-<pre><code>## Reading layer `covid19_eng&#39; from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg&#39; using driver `GPKG&#39;
+<pre><code>## Reading layer `covid19_eng&#39; from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg&#39; using driver `GPKG&#39;
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY

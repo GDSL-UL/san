@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
 
 
-<meta name="date" content="2021-02-08" />
+<meta name="date" content="2021-02-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -443,7 +443,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The results indicate a wide variation in the risk of infection across UTLAs in England, ranging from 31 to 342 confirmed positive cases of COVID-19 per 100,000 people with a median of 147. We map the cases to understand their spatial structure.</p>
 <div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="gwr.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read region boundaries for a better looking map</span></span>
 <span id="cb344-2"><a href="gwr.html#cb344-2" aria-hidden="true" tabindex="-1"></a>reg_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp&quot;</span>)</span></code></pre></div>
-<pre><code>## Reading layer `Regions_December_2019_Boundaries_EN_BGC&#39; from data source `/home/jovyan/work/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp&#39; using driver `ESRI Shapefile&#39;
+<pre><code>## Reading layer `Regions_December_2019_Boundaries_EN_BGC&#39; from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp&#39; using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 9 features and 9 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -832,7 +832,7 @@ How many UTLAs report statistically significant coefficients?</p>
 <h2><span class="header-section-number">9.7</span> Questions</h2>
 <p>We will continue to use the COVID-19 dataset. Please see Chapter <a href="datasets.html#datasets">11</a> for details on the data.</p>
 <div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="gwr.html#cb370-1" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/assignment_2_covid/covid19_eng.gpkg&quot;</span>)</span></code></pre></div>
-<pre><code>## Reading layer `covid19_eng&#39; from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg&#39; using driver `GPKG&#39;
+<pre><code>## Reading layer `covid19_eng&#39; from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg&#39; using driver `GPKG&#39;
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY

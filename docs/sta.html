@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
 
 
-<meta name="date" content="2021-02-08" />
+<meta name="date" content="2021-02-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -459,7 +459,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb373-3"><a href="sta.html#cb373-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb373-4"><a href="sta.html#cb373-4" aria-hidden="true" tabindex="-1"></a><span class="co"># read ONS UTLA shapefile</span></span>
 <span id="cb373-5"><a href="sta.html#cb373-5" aria-hidden="true" tabindex="-1"></a>utla_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/sta/ons_utla.shp&quot;</span>) </span></code></pre></div>
-<pre><code>## Reading layer `ons_utla&#39; from data source `/home/jovyan/work/data/sta/ons_utla.shp&#39; using driver `ESRI Shapefile&#39;
+<pre><code>## Reading layer `ons_utla&#39; from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sta/ons_utla.shp&#39; using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 150 features and 11 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -509,10 +509,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="sta.html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="co"># identifying spatial fields</span></span>
 <span id="cb384-2"><a href="sta.html#cb384-2" aria-hidden="true" tabindex="-1"></a>spat_part <span class="ot">&lt;-</span> <span class="fu">as</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(covid19_spt, <span class="sc">-</span><span class="fu">c</span>(bng_e, bng_n, Area.code, Area.type, Daily.lab.confirmed.cases, Cumulative.lab.confirmed.cases, date, day, week, month, year)), <span class="at">Class =</span> <span class="st">&quot;Spatial&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;, prefer_proj
-## = prefer_proj): Discarded datum Unknown based on Airy 1830 ellipsoid in CRS
+## = prefer_proj): Discarded datum Unknown based on Airy 1830 ellipsoid in Proj4
 ## definition</code></pre>
 <pre><code>## Warning in showSRID(SRS_string, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;, prefer_proj =
-## prefer_proj): Discarded datum D_unknown in CRS definition</code></pre>
+## prefer_proj): Discarded datum D_unknown in Proj4 definition</code></pre>
 <div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="sta.html#cb387-1" aria-hidden="true" tabindex="-1"></a><span class="co"># identifying temporal fields</span></span>
 <span id="cb387-2"><a href="sta.html#cb387-2" aria-hidden="true" tabindex="-1"></a>temp_part <span class="ot">&lt;-</span> covid19_spt<span class="sc">$</span>date</span>
 <span id="cb387-3"><a href="sta.html#cb387-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -560,7 +560,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="sta.html#cb391-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create data frame for new cases by week</span></span>
 <span id="cb391-2"><a href="sta.html#cb391-2" aria-hidden="true" tabindex="-1"></a>daycases_week <span class="ot">&lt;-</span> covid19_spt <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(week, ctyu19nm, <span class="fu">as.character</span>(cty19c), Residents) <span class="sc">%&gt;%</span></span>
 <span id="cb391-3"><a href="sta.html#cb391-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_daycases =</span> <span class="fu">sum</span>(Daily.lab.confirmed.cases)) </span></code></pre></div>
-<pre><code>## `summarise()` regrouping output by &#39;week&#39;, &#39;ctyu19nm&#39;, &#39;as.character(cty19c)&#39; (override with `.groups` argument)</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;week&#39;, &#39;ctyu19nm&#39;, &#39;as.character(cty19c)&#39;. You can override using the `.groups` argument.</code></pre>
 <div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="sta.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="co"># weekly rate of new covid-19 infection</span></span>
 <span id="cb393-2"><a href="sta.html#cb393-2" aria-hidden="true" tabindex="-1"></a>daycases_week<span class="sc">$</span>wn_covid19_r <span class="ot">&lt;-</span> (daycases_week<span class="sc">$</span>n_daycases <span class="sc">/</span> daycases_week<span class="sc">$</span>Residents) <span class="sc">*</span> <span class="dv">100000</span></span>
 <span id="cb393-3"><a href="sta.html#cb393-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -649,43 +649,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The empirical spatial mean for a data set can be obtained by averaging over time points for one location. In our case, we can compute the empirical spatial mean by averaging the daily rate of new COVID-19 cases for UTLAs between January 30th and April 21st. It reveals that Brent, Southwark and Sunderland report an average daily infection rate of over 5 new cases per 100,000 people, whereas Rutland and Isle of Wight display an average of less than 1.</p>
 <div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="sta.html#cb399-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute empirical spatial mean</span></span>
 <span id="cb399-2"><a href="sta.html#cb399-2" aria-hidden="true" tabindex="-1"></a>sp_av <span class="ot">&lt;-</span> covid19_spt <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(ctyu19nm) <span class="sc">%&gt;%</span> <span class="co"># group by spatial unit</span></span>
-<span id="cb399-3"><a href="sta.html#cb399-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sp_mu_emp =</span> <span class="fu">mean</span>(n_covid19_r))</span></code></pre></div>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="sta.html#cb401-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot empirical spatial mean</span></span>
-<span id="cb401-2"><a href="sta.html#cb401-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>sp_av) <span class="sc">+</span></span>
-<span id="cb401-3"><a href="sta.html#cb401-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>( <span class="fu">aes</span>( <span class="at">y =</span> <span class="fu">reorder</span>(ctyu19nm, sp_mu_emp), <span class="at">x =</span> sp_mu_emp) , <span class="at">fill =</span> <span class="st">&quot;grey50&quot;</span>) <span class="sc">+</span></span>
-<span id="cb401-4"><a href="sta.html#cb401-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb401-5"><a href="sta.html#cb401-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="fu">paste</span>(<span class="st">&quot; &quot;</span>), <span class="at">x=</span><span class="st">&quot;Average New Cases per 100,000&quot;</span>, <span class="at">y=</span><span class="st">&quot;Upper Tier Authority Area&quot;</span>) <span class="sc">+</span></span>
-<span id="cb401-6"><a href="sta.html#cb401-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="sc">+</span></span>
-<span id="cb401-7"><a href="sta.html#cb401-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">7</span>)) <span class="sc">+</span></span>
-<span id="cb401-8"><a href="sta.html#cb401-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>)) <span class="sc">+</span></span>
-<span id="cb401-9"><a href="sta.html#cb401-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>, <span class="at">face=</span><span class="st">&quot;plain&quot;</span>))</span></code></pre></div>
+<span id="cb399-3"><a href="sta.html#cb399-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sp_mu_emp =</span> <span class="fu">mean</span>(n_covid19_r))</span>
+<span id="cb399-4"><a href="sta.html#cb399-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb399-5"><a href="sta.html#cb399-5" aria-hidden="true" tabindex="-1"></a><span class="co"># plot empirical spatial mean</span></span>
+<span id="cb399-6"><a href="sta.html#cb399-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>sp_av) <span class="sc">+</span></span>
+<span id="cb399-7"><a href="sta.html#cb399-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>( <span class="fu">aes</span>( <span class="at">y =</span> <span class="fu">reorder</span>(ctyu19nm, sp_mu_emp), <span class="at">x =</span> sp_mu_emp) , <span class="at">fill =</span> <span class="st">&quot;grey50&quot;</span>) <span class="sc">+</span></span>
+<span id="cb399-8"><a href="sta.html#cb399-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb399-9"><a href="sta.html#cb399-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="fu">paste</span>(<span class="st">&quot; &quot;</span>), <span class="at">x=</span><span class="st">&quot;Average New Cases per 100,000&quot;</span>, <span class="at">y=</span><span class="st">&quot;Upper Tier Authority Area&quot;</span>) <span class="sc">+</span></span>
+<span id="cb399-10"><a href="sta.html#cb399-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="sc">+</span></span>
+<span id="cb399-11"><a href="sta.html#cb399-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">7</span>)) <span class="sc">+</span></span>
+<span id="cb399-12"><a href="sta.html#cb399-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>)) <span class="sc">+</span></span>
+<span id="cb399-13"><a href="sta.html#cb399-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>, <span class="at">face=</span><span class="st">&quot;plain&quot;</span>))</span></code></pre></div>
 <p><img src="10-st_analysis_files/figure-html/unnamed-chunk-14-1.png" width="1152" /></p>
 <p><strong>Empirical Temporal Mean</strong></p>
 <p>The empirical temporal mean for a data set can be obtained by averaging across spatial locations for a time point. In our case, we can compute the empirical temporal mean by averaging the rate of new COVID-19 cases over UTLAs by day. The empirical temporal mean is plotted below revealing a peak of 8.32 number of new cases per 100,000 people the 7th of April, steadily decreasing to 0.35 for the last reporting observation in our data; that is, April 21st.</p>
 <blockquote>
 <p>Note the empirical temporal mean is smoothed via local polynomial regression fitting; hence below zero values are reported between February and March.</p>
 </blockquote>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="sta.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute temporal mean</span></span>
-<span id="cb402-2"><a href="sta.html#cb402-2" aria-hidden="true" tabindex="-1"></a>tm_av <span class="ot">&lt;-</span> covid19 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(date) <span class="sc">%&gt;%</span></span>
-<span id="cb402-3"><a href="sta.html#cb402-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">tm_mu_emp =</span> <span class="fu">mean</span>(n_covid19_r))</span>
-<span id="cb402-4"><a href="sta.html#cb402-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb402-5"><a href="sta.html#cb402-5" aria-hidden="true" tabindex="-1"></a><span class="co"># plot temporal mean + trends for all spatial units</span></span>
-<span id="cb402-6"><a href="sta.html#cb402-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb402-7"><a href="sta.html#cb402-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> covid19, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span>date, <span class="at">y =</span> n_covid19_r,</span>
-<span id="cb402-8"><a href="sta.html#cb402-8" aria-hidden="true" tabindex="-1"></a>                          <span class="at">group =</span> Area.name), <span class="at">color =</span> <span class="st">&quot;gray80&quot;</span>) <span class="sc">+</span></span>
-<span id="cb402-9"><a href="sta.html#cb402-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb402-10"><a href="sta.html#cb402-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> tm_av, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span>date, <span class="at">y =</span> tm_mu_emp), </span>
-<span id="cb402-11"><a href="sta.html#cb402-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
-<span id="cb402-12"><a href="sta.html#cb402-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb402-13"><a href="sta.html#cb402-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title=</span> <span class="fu">paste</span>(<span class="st">&quot; &quot;</span>), <span class="at">x=</span><span class="st">&quot;Date&quot;</span>, <span class="at">y=</span><span class="st">&quot;Cumulative Cases per 100,000&quot;</span>) <span class="sc">+</span></span>
-<span id="cb402-14"><a href="sta.html#cb402-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb402-15"><a href="sta.html#cb402-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>)) <span class="sc">+</span></span>
-<span id="cb402-16"><a href="sta.html#cb402-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>)) <span class="sc">+</span></span>
-<span id="cb402-17"><a href="sta.html#cb402-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>)) <span class="sc">+</span></span>
-<span id="cb402-18"><a href="sta.html#cb402-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>)) <span class="sc">+</span></span>
-<span id="cb402-19"><a href="sta.html#cb402-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.subtitle=</span><span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>)) <span class="sc">+</span></span>
-<span id="cb402-20"><a href="sta.html#cb402-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>, <span class="at">face=</span><span class="st">&quot;plain&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="sta.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute temporal mean</span></span>
+<span id="cb400-2"><a href="sta.html#cb400-2" aria-hidden="true" tabindex="-1"></a>tm_av <span class="ot">&lt;-</span> covid19 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(date) <span class="sc">%&gt;%</span></span>
+<span id="cb400-3"><a href="sta.html#cb400-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">tm_mu_emp =</span> <span class="fu">mean</span>(n_covid19_r))</span>
+<span id="cb400-4"><a href="sta.html#cb400-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb400-5"><a href="sta.html#cb400-5" aria-hidden="true" tabindex="-1"></a><span class="co"># plot temporal mean + trends for all spatial units</span></span>
+<span id="cb400-6"><a href="sta.html#cb400-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb400-7"><a href="sta.html#cb400-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> covid19, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span>date, <span class="at">y =</span> n_covid19_r,</span>
+<span id="cb400-8"><a href="sta.html#cb400-8" aria-hidden="true" tabindex="-1"></a>                          <span class="at">group =</span> Area.name), <span class="at">color =</span> <span class="st">&quot;gray80&quot;</span>) <span class="sc">+</span></span>
+<span id="cb400-9"><a href="sta.html#cb400-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb400-10"><a href="sta.html#cb400-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> tm_av, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span>date, <span class="at">y =</span> tm_mu_emp), </span>
+<span id="cb400-11"><a href="sta.html#cb400-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb400-12"><a href="sta.html#cb400-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb400-13"><a href="sta.html#cb400-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title=</span> <span class="fu">paste</span>(<span class="st">&quot; &quot;</span>), <span class="at">x=</span><span class="st">&quot;Date&quot;</span>, <span class="at">y=</span><span class="st">&quot;Cumulative Cases per 100,000&quot;</span>) <span class="sc">+</span></span>
+<span id="cb400-14"><a href="sta.html#cb400-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb400-15"><a href="sta.html#cb400-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>)) <span class="sc">+</span></span>
+<span id="cb400-16"><a href="sta.html#cb400-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>)) <span class="sc">+</span></span>
+<span id="cb400-17"><a href="sta.html#cb400-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>)) <span class="sc">+</span></span>
+<span id="cb400-18"><a href="sta.html#cb400-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>)) <span class="sc">+</span></span>
+<span id="cb400-19"><a href="sta.html#cb400-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.subtitle=</span><span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>)) <span class="sc">+</span></span>
+<span id="cb400-20"><a href="sta.html#cb400-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>, <span class="at">face=</span><span class="st">&quot;plain&quot;</span>))</span></code></pre></div>
 <p><img src="10-st_analysis_files/figure-html/unnamed-chunk-15-1.png" width="1152" /></p>
 </div>
 <div id="dependence" class="section level4" number="10.5.2.2">
@@ -701,18 +701,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Temporal Dependence</strong></p>
 <p>As for spatial data, dependence can also exists in temporal data. Temporal dependence or temporal autocorrelation exists when a variable’s value at time <span class="math inline">\(t\)</span> is dependent on its value(s) at <span class="math inline">\(t-1\)</span>. More recent observations are often expected to have a greater influence on present observations. A key difference between temporal and spatial dependence is that temporal dependence is unidirectional (i.e. past observations can only affect present or future observations but not inversely), while spatial dependence is multidirectional (i.e. an observation in a spatial unit can influence and be influenced by observations in multiple spatial units).</p>
 <p>Before measuring the temporal dependence is our time-series, a time-series object needs to be created with a time stamp and given cycle frequency. A cycle frequency refers to when a seasonal pattern is repeated. We consider a time series of the total number of new COVID-19 cases per 100,000 (i.e. we sum cases over UTLAs by day) and the frequency set to 7 to reflect weekly cycles. So we end up with a data frame of length 71.</p>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="sta.html#cb403-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a time series object</span></span>
-<span id="cb403-2"><a href="sta.html#cb403-2" aria-hidden="true" tabindex="-1"></a>total_cnt <span class="ot">&lt;-</span> covid19 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(date) <span class="sc">%&gt;%</span></span>
-<span id="cb403-3"><a href="sta.html#cb403-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">new_cases =</span> <span class="fu">sum</span>(n_covid19_r)) </span></code></pre></div>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="sta.html#cb405-1" aria-hidden="true" tabindex="-1"></a>total_cases_ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(total_cnt<span class="sc">$</span>new_cases, </span>
-<span id="cb405-2"><a href="sta.html#cb405-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">start =</span> <span class="dv">1</span>,</span>
-<span id="cb405-3"><a href="sta.html#cb405-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">frequency =</span><span class="dv">7</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="sta.html#cb401-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a time series object</span></span>
+<span id="cb401-2"><a href="sta.html#cb401-2" aria-hidden="true" tabindex="-1"></a>total_cnt <span class="ot">&lt;-</span> covid19 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(date) <span class="sc">%&gt;%</span></span>
+<span id="cb401-3"><a href="sta.html#cb401-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">new_cases =</span> <span class="fu">sum</span>(n_covid19_r)) </span>
+<span id="cb401-4"><a href="sta.html#cb401-4" aria-hidden="true" tabindex="-1"></a>total_cases_ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(total_cnt<span class="sc">$</span>new_cases, </span>
+<span id="cb401-5"><a href="sta.html#cb401-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">start =</span> <span class="dv">1</span>,</span>
+<span id="cb401-6"><a href="sta.html#cb401-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">frequency =</span><span class="dv">7</span>)</span></code></pre></div>
 <p>There are various ways to test for temporal autocorrelation. An easy way is to compute the correlation coefficient between a time series measured at time <span class="math inline">\(t\)</span> and its lag measured at time <span class="math inline">\(t-1\)</span>. Below we measure the temporal autocorrelation in the rate of new COVID-19 cases per 100,000 people. A correlation of 0.97 is returned indicating high positive autocorrelation; that is, high (low) past numbers of new COVID-19 cases per 100,000 people tend to correlate with higher (lower) present numbers of new COVID-19 cases. The Durbin-Watson test is often used to test for autocorrelation in regression models.</p>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="sta.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create lag term t-1</span></span>
-<span id="cb406-2"><a href="sta.html#cb406-2" aria-hidden="true" tabindex="-1"></a>lag_new_cases <span class="ot">&lt;-</span> total_cnt<span class="sc">$</span>new_cases[<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb406-3"><a href="sta.html#cb406-3" aria-hidden="true" tabindex="-1"></a>total_cnt <span class="ot">&lt;-</span> <span class="fu">cbind</span>(total_cnt[<span class="dv">1</span><span class="sc">:</span><span class="dv">70</span>,], lag_new_cases)</span>
-<span id="cb406-4"><a href="sta.html#cb406-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(total_cnt[,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="sta.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create lag term t-1</span></span>
+<span id="cb402-2"><a href="sta.html#cb402-2" aria-hidden="true" tabindex="-1"></a>lag_new_cases <span class="ot">&lt;-</span> total_cnt<span class="sc">$</span>new_cases[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb402-3"><a href="sta.html#cb402-3" aria-hidden="true" tabindex="-1"></a>total_cnt <span class="ot">&lt;-</span> <span class="fu">cbind</span>(total_cnt[<span class="dv">1</span><span class="sc">:</span><span class="dv">70</span>,], lag_new_cases)</span>
+<span id="cb402-4"><a href="sta.html#cb402-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(total_cnt[,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>])</span></code></pre></div>
 <pre><code>##               new_cases lag_new_cases
 ## new_cases      1.000000      0.974284
 ## lag_new_cases  0.974284      1.000000</code></pre>
@@ -724,10 +723,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Cyclic (random): A cycle exists when the data exhibit rises and falls that are not of a fixed frequency.</p></li>
 </ul>
 <p>To understand and model a time series, these components need to be identified and appropriately incorporated into a regression model. We illustrate these components by decomposing our time series for total COVID-19 cases below. The top plot shows the observed data. Subsequent plots display the trend, seasonal and random components of the total number of COVID-19 cases on a weekly periodicity. They reveal a clear inverted U-shape trend and seasonal pattern. This idea that we can decompose data to extract information and understand temporal processes is key to understand the concept of basis functions to model spatio-temporal data, which will be introduced in the next section.</p>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="sta.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="co"># decompose time series</span></span>
-<span id="cb408-2"><a href="sta.html#cb408-2" aria-hidden="true" tabindex="-1"></a>dec_ts <span class="ot">&lt;-</span> <span class="fu">decompose</span>(total_cases_ts)</span>
-<span id="cb408-3"><a href="sta.html#cb408-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plot time series components</span></span>
-<span id="cb408-4"><a href="sta.html#cb408-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dec_ts)</span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="sta.html#cb404-1" aria-hidden="true" tabindex="-1"></a><span class="co"># decompose time series</span></span>
+<span id="cb404-2"><a href="sta.html#cb404-2" aria-hidden="true" tabindex="-1"></a>dec_ts <span class="ot">&lt;-</span> <span class="fu">decompose</span>(total_cases_ts)</span>
+<span id="cb404-3"><a href="sta.html#cb404-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plot time series components</span></span>
+<span id="cb404-4"><a href="sta.html#cb404-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dec_ts)</span></code></pre></div>
 <p><img src="10-st_analysis_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>For a good introduction to time-series analysis in R, refer to <span class="citation"><a href="references.html#ref-hyndman2018forecasting" role="doc-biblioref">Hyndman and Athanasopoulos</a> (<a href="references.html#ref-hyndman2018forecasting" role="doc-biblioref">2018</a>)</span> and <a href="https://www.datacamp.com/courses/forecasting-using-r">DataCamp</a>.</p>
 </div>
@@ -773,40 +772,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>As indicated at the start of this Chapter, we use the FRK framework developed by <span class="citation"><a href="references.html#ref-cressie2008fixed" role="doc-biblioref">Cressie and Johannesson</a> (<a href="references.html#ref-cressie2008fixed" role="doc-biblioref">2008</a>)</span>. It provides a scalable, relies on the use a spatial random effects model (with which we have some familiarity) and can be easily implemented in R by the use of the <code>FRK</code> package <span class="citation">(<a href="references.html#ref-zammit2017frk" role="doc-biblioref">Zammit-Mangion and Cressie 2017</a>)</span>. In this framework, a spatially correlated errors can be decomposed using a linear combination of spatial basis functions, effectively addressing issues of spatial-temporal dependence and nonstationarity. The specification of spatio-temporal basis functions is a key component of the model and they can be generated automatically or by the user via the <code>FRK</code> package. We will use the automatically generated functions. While as we will notice they are difficult to interpret, user generated functions require greater understanding of the spatio-temporal structure of COVID-19 which is beyond the scope of this Chapter.</p>
 <p><strong>Prepare Data</strong></p>
 <p>The first step to create a data frame with the variables that we will consider for the analysis. We first remove the geometries to convert <code>covid19_spt</code> from a simple feature object to a data frame and then compute the share of long-term illness population.</p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="sta.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove geometries</span></span>
-<span id="cb409-2"><a href="sta.html#cb409-2" aria-hidden="true" tabindex="-1"></a><span class="fu">st_geometry</span>(covid19_spt) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb409-3"><a href="sta.html#cb409-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb409-4"><a href="sta.html#cb409-4" aria-hidden="true" tabindex="-1"></a><span class="co"># share of population in long-term illness </span></span>
-<span id="cb409-5"><a href="sta.html#cb409-5" aria-hidden="true" tabindex="-1"></a>covid19_spt <span class="ot">&lt;-</span> covid19_spt <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
-<span id="cb409-6"><a href="sta.html#cb409-6" aria-hidden="true" tabindex="-1"></a> <span class="at">lt_illness =</span> Longterm_sick_or_disabled <span class="sc">/</span> Residents</span>
-<span id="cb409-7"><a href="sta.html#cb409-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="sta.html#cb405-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove geometries</span></span>
+<span id="cb405-2"><a href="sta.html#cb405-2" aria-hidden="true" tabindex="-1"></a><span class="fu">st_geometry</span>(covid19_spt) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb405-3"><a href="sta.html#cb405-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb405-4"><a href="sta.html#cb405-4" aria-hidden="true" tabindex="-1"></a><span class="co"># share of population in long-term illness </span></span>
+<span id="cb405-5"><a href="sta.html#cb405-5" aria-hidden="true" tabindex="-1"></a>covid19_spt <span class="ot">&lt;-</span> covid19_spt <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb405-6"><a href="sta.html#cb405-6" aria-hidden="true" tabindex="-1"></a> <span class="at">lt_illness =</span> Longterm_sick_or_disabled <span class="sc">/</span> Residents</span>
+<span id="cb405-7"><a href="sta.html#cb405-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><strong>Construct Basis Functions</strong></p>
 <p>We now build the set of basis functions. The can be constructed by using the function <code>auto_basis</code> from the <code>FRK</code> package. The function takes as arguments: data, nres (which is the number of “resolutions” or aggregation to construct); and type of basis function to use. We consider a single resolution of the default Gaussian radial basis function.</p>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="sta.html#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="co"># build basis functions</span></span>
-<span id="cb410-2"><a href="sta.html#cb410-2" aria-hidden="true" tabindex="-1"></a>G <span class="ot">&lt;-</span> <span class="fu">auto_basis</span>(<span class="at">data =</span> covid19_spt[,<span class="fu">c</span>(<span class="st">&quot;long&quot;</span>,<span class="st">&quot;lat&quot;</span>)] <span class="sc">%&gt;%</span></span>
-<span id="cb410-3"><a href="sta.html#cb410-3" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">SpatialPoints</span>(),           <span class="co"># To sp obj</span></span>
-<span id="cb410-4"><a href="sta.html#cb410-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">nres =</span> <span class="dv">1</span>,                         <span class="co"># One resolution</span></span>
-<span id="cb410-5"><a href="sta.html#cb410-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">type =</span> <span class="st">&quot;Gaussian&quot;</span>)                <span class="co"># Gaussian BFs</span></span>
-<span id="cb410-6"><a href="sta.html#cb410-6" aria-hidden="true" tabindex="-1"></a><span class="co"># basis functions evaluated at data locations are then the covariates</span></span>
-<span id="cb410-7"><a href="sta.html#cb410-7" aria-hidden="true" tabindex="-1"></a>S <span class="ot">&lt;-</span> <span class="fu">eval_basis</span>(<span class="at">basis =</span> G,                       <span class="co"># basis functions</span></span>
-<span id="cb410-8"><a href="sta.html#cb410-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">s =</span> covid19_spt[,<span class="fu">c</span>(<span class="st">&quot;long&quot;</span>,<span class="st">&quot;lat&quot;</span>)] <span class="sc">%&gt;%</span></span>
-<span id="cb410-9"><a href="sta.html#cb410-9" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">as.matrix</span>()) <span class="sc">%&gt;%</span>            <span class="co"># conv. to matrix</span></span>
-<span id="cb410-10"><a href="sta.html#cb410-10" aria-hidden="true" tabindex="-1"></a>     <span class="fu">as.matrix</span>()                                 <span class="co"># conv. to matrix</span></span>
-<span id="cb410-11"><a href="sta.html#cb410-11" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(S) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;B&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(S)) <span class="co"># assign column names</span></span></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="sta.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="co"># build basis functions</span></span>
+<span id="cb406-2"><a href="sta.html#cb406-2" aria-hidden="true" tabindex="-1"></a>G <span class="ot">&lt;-</span> <span class="fu">auto_basis</span>(<span class="at">data =</span> covid19_spt[,<span class="fu">c</span>(<span class="st">&quot;long&quot;</span>,<span class="st">&quot;lat&quot;</span>)] <span class="sc">%&gt;%</span></span>
+<span id="cb406-3"><a href="sta.html#cb406-3" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">SpatialPoints</span>(),           <span class="co"># To sp obj</span></span>
+<span id="cb406-4"><a href="sta.html#cb406-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">nres =</span> <span class="dv">1</span>,                         <span class="co"># One resolution</span></span>
+<span id="cb406-5"><a href="sta.html#cb406-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">type =</span> <span class="st">&quot;Gaussian&quot;</span>)                <span class="co"># Gaussian BFs</span></span>
+<span id="cb406-6"><a href="sta.html#cb406-6" aria-hidden="true" tabindex="-1"></a><span class="co"># basis functions evaluated at data locations are then the covariates</span></span>
+<span id="cb406-7"><a href="sta.html#cb406-7" aria-hidden="true" tabindex="-1"></a>S <span class="ot">&lt;-</span> <span class="fu">eval_basis</span>(<span class="at">basis =</span> G,                       <span class="co"># basis functions</span></span>
+<span id="cb406-8"><a href="sta.html#cb406-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">s =</span> covid19_spt[,<span class="fu">c</span>(<span class="st">&quot;long&quot;</span>,<span class="st">&quot;lat&quot;</span>)] <span class="sc">%&gt;%</span></span>
+<span id="cb406-9"><a href="sta.html#cb406-9" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">as.matrix</span>()) <span class="sc">%&gt;%</span>            <span class="co"># conv. to matrix</span></span>
+<span id="cb406-10"><a href="sta.html#cb406-10" aria-hidden="true" tabindex="-1"></a>     <span class="fu">as.matrix</span>()                                 <span class="co"># conv. to matrix</span></span>
+<span id="cb406-11"><a href="sta.html#cb406-11" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(S) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;B&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(S)) <span class="co"># assign column names</span></span></code></pre></div>
 <p><strong>Add Basis Functions to Data Frame</strong></p>
 <p>We then prepare a data frame for the regression model, adding the weights extracted from the basis functions. These weights enter as covariates in our model. Note that the resulting number of basis functions is nine. Explore by executing <code>colnames(S)</code>. Below we select only relevant variables for our model.</p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="sta.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting variables</span></span>
-<span id="cb411-2"><a href="sta.html#cb411-2" aria-hidden="true" tabindex="-1"></a>reg_df <span class="ot">&lt;-</span> <span class="fu">cbind</span>(covid19_spt, S) <span class="sc">%&gt;%</span></span>
-<span id="cb411-3"><a href="sta.html#cb411-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(ctyu19nm, c_covid19_r, long, lat, day, lt_illness, B1<span class="sc">:</span>B9)</span></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="sta.html#cb407-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting variables</span></span>
+<span id="cb407-2"><a href="sta.html#cb407-2" aria-hidden="true" tabindex="-1"></a>reg_df <span class="ot">&lt;-</span> <span class="fu">cbind</span>(covid19_spt, S) <span class="sc">%&gt;%</span></span>
+<span id="cb407-3"><a href="sta.html#cb407-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(ctyu19nm, c_covid19_r, long, lat, day, lt_illness, B1<span class="sc">:</span>B9)</span></code></pre></div>
 <p><strong>Fit Linear Regression</strong></p>
 <p>We now fit a linear model using <code>lm</code> including as covariates longitude, latitude, day, share of long-term ill population and the nine basis functions.</p>
 <blockquote>
 <p>Recall that latitude refers to north/south from the equator and longitude refers to west/east from Greenwich. Further up north means a higher latitude score. Further west means higher longitude score. Scores for Liverpool (53.4084° N, 2.9916° W) are thus higher than for London (51.5074° N, 0.1278° W). This will be helpful for interpretation.</p>
 </blockquote>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="sta.html#cb412-1" aria-hidden="true" tabindex="-1"></a>eq1 <span class="ot">&lt;-</span> c_covid19_r <span class="sc">~</span> long <span class="sc">+</span> lat <span class="sc">+</span> day <span class="sc">+</span> lt_illness <span class="sc">+</span> .</span>
-<span id="cb412-2"><a href="sta.html#cb412-2" aria-hidden="true" tabindex="-1"></a>lm_m <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> eq1, </span>
-<span id="cb412-3"><a href="sta.html#cb412-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(reg_df, <span class="sc">-</span>ctyu19nm))</span>
-<span id="cb412-4"><a href="sta.html#cb412-4" aria-hidden="true" tabindex="-1"></a>lm_m <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="sta.html#cb408-1" aria-hidden="true" tabindex="-1"></a>eq1 <span class="ot">&lt;-</span> c_covid19_r <span class="sc">~</span> long <span class="sc">+</span> lat <span class="sc">+</span> day <span class="sc">+</span> lt_illness <span class="sc">+</span> .</span>
+<span id="cb408-2"><a href="sta.html#cb408-2" aria-hidden="true" tabindex="-1"></a>lm_m <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> eq1, </span>
+<span id="cb408-3"><a href="sta.html#cb408-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(reg_df, <span class="sc">-</span>ctyu19nm))</span>
+<span id="cb408-4"><a href="sta.html#cb408-4" aria-hidden="true" tabindex="-1"></a>lm_m <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = eq1, data = dplyr::select(reg_df, -ctyu19nm))
@@ -844,11 +843,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p><strong>Poisson Regression</strong></p>
 <p>A Poisson regression model provides a more appropriate framework to address these issues. We do this fitting a general linear model (or GLM) specifying the family function to be a Poisson.</p>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="sta.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estimate a poisson model</span></span>
-<span id="cb414-2"><a href="sta.html#cb414-2" aria-hidden="true" tabindex="-1"></a>poisson_m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(eq1,</span>
-<span id="cb414-3"><a href="sta.html#cb414-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">poisson</span>(<span class="st">&quot;log&quot;</span>), <span class="co"># Poisson + log link</span></span>
-<span id="cb414-4"><a href="sta.html#cb414-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(reg_df, <span class="sc">-</span>ctyu19nm))</span>
-<span id="cb414-5"><a href="sta.html#cb414-5" aria-hidden="true" tabindex="-1"></a>poisson_m1 <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="sta.html#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estimate a poisson model</span></span>
+<span id="cb410-2"><a href="sta.html#cb410-2" aria-hidden="true" tabindex="-1"></a>poisson_m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(eq1,</span>
+<span id="cb410-3"><a href="sta.html#cb410-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">poisson</span>(<span class="st">&quot;log&quot;</span>), <span class="co"># Poisson + log link</span></span>
+<span id="cb410-4"><a href="sta.html#cb410-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(reg_df, <span class="sc">-</span>ctyu19nm))</span>
+<span id="cb410-5"><a href="sta.html#cb410-5" aria-hidden="true" tabindex="-1"></a>poisson_m1 <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = eq1, family = poisson(&quot;log&quot;), data = dplyr::select(reg_df, 
@@ -885,16 +884,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Number of Fisher Scoring iterations: 6</code></pre>
 <p>The model seems to provide a better fit to the data as the median of deviance residuals (-6.3) is smaller than for the linear regression model (-27.51). And, all coefficients are positive and statistically significant. Yet, the Poisson model assumes that the mean and variance of the COVID-19 cases is the same. But, given the distribution of our dependent variable, its variance is likely to be greater than the mean. That means the data exhibit “overdispersion.” How do we know this? An estimate of the dispersion is given by the ratio of the deviance to the total degrees of freedom (the number of data points minus the number of covariates). In this case the dispersion estimate is:</p>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="sta.html#cb416-1" aria-hidden="true" tabindex="-1"></a>poisson_m1<span class="sc">$</span>deviance <span class="sc">/</span> poisson_m1<span class="sc">$</span>df.residual</span></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="sta.html#cb412-1" aria-hidden="true" tabindex="-1"></a>poisson_m1<span class="sc">$</span>deviance <span class="sc">/</span> poisson_m1<span class="sc">$</span>df.residual</span></code></pre></div>
 <pre><code>## [1] 90.25383</code></pre>
 <p>which is clearly greater than 1! i.e. the data are overdispersed.</p>
 <p><strong>Quasipoisson Regression</strong></p>
 <p>An approach to account for overdispersion is to use quasipoisson when calling <code>glm</code>. The quasi-Poisson model assumes that the variance is proportional to the mean, and that the constant of the proportionality is the over-dispersion parameter.</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="sta.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estimate a quasipoisson model</span></span>
-<span id="cb418-2"><a href="sta.html#cb418-2" aria-hidden="true" tabindex="-1"></a>qpoisson_m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(eq1,</span>
-<span id="cb418-3"><a href="sta.html#cb418-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">quasipoisson</span>(<span class="st">&quot;log&quot;</span>), <span class="co"># QuasiPoisson + log link</span></span>
-<span id="cb418-4"><a href="sta.html#cb418-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(reg_df, <span class="sc">-</span>ctyu19nm))</span>
-<span id="cb418-5"><a href="sta.html#cb418-5" aria-hidden="true" tabindex="-1"></a>qpoisson_m1 <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="sta.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estimate a quasipoisson model</span></span>
+<span id="cb414-2"><a href="sta.html#cb414-2" aria-hidden="true" tabindex="-1"></a>qpoisson_m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(eq1,</span>
+<span id="cb414-3"><a href="sta.html#cb414-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">quasipoisson</span>(<span class="st">&quot;log&quot;</span>), <span class="co"># QuasiPoisson + log link</span></span>
+<span id="cb414-4"><a href="sta.html#cb414-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(reg_df, <span class="sc">-</span>ctyu19nm))</span>
+<span id="cb414-5"><a href="sta.html#cb414-5" aria-hidden="true" tabindex="-1"></a>qpoisson_m1 <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = eq1, family = quasipoisson(&quot;log&quot;), data = dplyr::select(reg_df, 
@@ -932,17 +931,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Number of Fisher Scoring iterations: 6</code></pre>
 <p><strong>Negative Binomial Regression</strong></p>
 <p>The model output indicates major improvement in terms of model fit as the residual deviance (959940) and median of deviance residuals (-6.380) remain unchanged. An alternative approach is a Negative Binomial Model (NBM). This models relaxes the assumption of equality between the mean and variance. We estimate a NBM by using the function <code>glm.nb</code> from the <code>MASS</code> package.</p>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="sta.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estimate a negative binomial model</span></span>
-<span id="cb420-2"><a href="sta.html#cb420-2" aria-hidden="true" tabindex="-1"></a>nb_m1 <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(eq1, </span>
-<span id="cb420-3"><a href="sta.html#cb420-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(reg_df, <span class="sc">-</span>ctyu19nm))</span>
-<span id="cb420-4"><a href="sta.html#cb420-4" aria-hidden="true" tabindex="-1"></a>nb_m1</span></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="sta.html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estimate a negative binomial model</span></span>
+<span id="cb416-2"><a href="sta.html#cb416-2" aria-hidden="true" tabindex="-1"></a>nb_m1 <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(eq1, </span>
+<span id="cb416-3"><a href="sta.html#cb416-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(reg_df, <span class="sc">-</span>ctyu19nm))</span>
+<span id="cb416-4"><a href="sta.html#cb416-4" aria-hidden="true" tabindex="-1"></a>nb_m1</span></code></pre></div>
 <pre><code>## 
 ## Call:  glm.nb(formula = eq1, data = dplyr::select(reg_df, -ctyu19nm), 
-##     init.theta = 11051670.9, link = log)
+##     init.theta = 10953838.91, link = log)
 ## 
 ## Coefficients:
 ## (Intercept)         long          lat          day   lt_illness           B1  
-##   -97.26122     -0.97892      1.76667     -0.01441     14.42040      6.19749  
+##   -97.26121     -0.97892      1.76667     -0.01441     14.42040      6.19749  
 ##          B2           B3           B4           B5           B6           B7  
 ##     0.36155     11.36319     -1.97553      2.81326     -1.33374      0.76959  
 ##          B8           B9  
@@ -953,15 +952,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residual Deviance: 959900    AIC: 993300</code></pre>
 <p><strong>Including Interactions</strong></p>
 <p>Similarly the model output does not suggest any major improvement in explaining the spatio-temporal variability in the spread of COVID-19. We may need a different strategy then. Let’s try running a NBM including interaction terms between spatial and temporal terms (i.e. longitude, latitude and day). We can do this by estimating the following model <code>c_covid19_r ~ (long + lat + day)^2 + lt_illness + .</code></p>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="sta.html#cb422-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new model specification</span></span>
-<span id="cb422-2"><a href="sta.html#cb422-2" aria-hidden="true" tabindex="-1"></a>eq2 <span class="ot">&lt;-</span> c_covid19_r <span class="sc">~</span> (long <span class="sc">+</span> lat <span class="sc">+</span> day)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> lt_illness <span class="sc">+</span> .</span>
-<span id="cb422-3"><a href="sta.html#cb422-3" aria-hidden="true" tabindex="-1"></a><span class="co"># estimate a negative binomial model</span></span>
-<span id="cb422-4"><a href="sta.html#cb422-4" aria-hidden="true" tabindex="-1"></a>nb_m2 <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(eq2, </span>
-<span id="cb422-5"><a href="sta.html#cb422-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(reg_df, <span class="sc">-</span>ctyu19nm))</span>
-<span id="cb422-6"><a href="sta.html#cb422-6" aria-hidden="true" tabindex="-1"></a>nb_m2</span></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="sta.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new model specification</span></span>
+<span id="cb418-2"><a href="sta.html#cb418-2" aria-hidden="true" tabindex="-1"></a>eq2 <span class="ot">&lt;-</span> c_covid19_r <span class="sc">~</span> (long <span class="sc">+</span> lat <span class="sc">+</span> day)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> lt_illness <span class="sc">+</span> .</span>
+<span id="cb418-3"><a href="sta.html#cb418-3" aria-hidden="true" tabindex="-1"></a><span class="co"># estimate a negative binomial model</span></span>
+<span id="cb418-4"><a href="sta.html#cb418-4" aria-hidden="true" tabindex="-1"></a>nb_m2 <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(eq2, </span>
+<span id="cb418-5"><a href="sta.html#cb418-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(reg_df, <span class="sc">-</span>ctyu19nm))</span>
+<span id="cb418-6"><a href="sta.html#cb418-6" aria-hidden="true" tabindex="-1"></a>nb_m2</span></code></pre></div>
 <pre><code>## 
 ## Call:  glm.nb(formula = eq2, data = dplyr::select(reg_df, -ctyu19nm), 
-##     init.theta = 300465.7453, link = log)
+##     init.theta = 300465.7437, link = log)
 ## 
 ## Coefficients:
 ## (Intercept)         long          lat          day   lt_illness           B1  
@@ -976,31 +975,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residual Deviance: 953600    AIC: 987000</code></pre>
 <p>This model leads to a better model by returning a slight reduction in the residual deviance and AIC score. Interestingly it also returns highly statisticaly significant coeficients for the interaction terms between longitude and latitude (<code>long:lat</code>) and latitude and day (<code>lat:day</code>). The former indicates that as we move one degree north and west, the number of new cases tend to increase in 2 cases. The latter indicates UTLAs on the west of England tend to report a lower number of cases as time passes.</p>
 <p>You can report the output for all models estimated above by executing (after removing <code>#</code>):</p>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="sta.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="co"># export_summs(lm_m, poisson_m, qpoisson_m1, nb_m1, nb_m2)</span></span></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="sta.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="co"># export_summs(lm_m, poisson_m, qpoisson_m1, nb_m1, nb_m2)</span></span></code></pre></div>
 <div id="model-comparision" class="section level4" number="10.6.2.1">
 <h4><span class="header-section-number">10.6.2.1</span> Model Comparision</h4>
 <p>To compare regression models based on different specifications and assumptions, like those reported above, you may want to consider the cross-validation approach used in Chapter 4 <a href="flows.html#flows">Flows</a>. An easy approach if you would like to get a quick sense of model fit, you can look at the correlation between observed and predicted values of the dependent variable. For our models, we can achieve this by executing:</p>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="sta.html#cb425-1" aria-hidden="true" tabindex="-1"></a><span class="co"># computing predictions for all models</span></span>
-<span id="cb425-2"><a href="sta.html#cb425-2" aria-hidden="true" tabindex="-1"></a>lm_cnt <span class="ot">&lt;-</span> <span class="fu">predict</span>(lm_m)</span>
-<span id="cb425-3"><a href="sta.html#cb425-3" aria-hidden="true" tabindex="-1"></a>poisson_cnt <span class="ot">&lt;-</span> <span class="fu">predict</span>(poisson_m1)</span>
-<span id="cb425-4"><a href="sta.html#cb425-4" aria-hidden="true" tabindex="-1"></a>nb1_cnt <span class="ot">&lt;-</span> <span class="fu">predict</span>(nb_m1)</span>
-<span id="cb425-5"><a href="sta.html#cb425-5" aria-hidden="true" tabindex="-1"></a>nb2_cnt <span class="ot">&lt;-</span> <span class="fu">predict</span>(nb_m2)</span>
-<span id="cb425-6"><a href="sta.html#cb425-6" aria-hidden="true" tabindex="-1"></a>reg_df <span class="ot">&lt;-</span> <span class="fu">cbind</span>(reg_df, lm_cnt, poisson_cnt, nb1_cnt, nb2_cnt)</span>
-<span id="cb425-7"><a href="sta.html#cb425-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb425-8"><a href="sta.html#cb425-8" aria-hidden="true" tabindex="-1"></a><span class="co"># computing correlation coefficients</span></span>
-<span id="cb425-9"><a href="sta.html#cb425-9" aria-hidden="true" tabindex="-1"></a>cormat <span class="ot">&lt;-</span> <span class="fu">cor</span>(reg_df[, <span class="fu">c</span>(<span class="st">&quot;c_covid19_r&quot;</span>, <span class="st">&quot;lm_cnt&quot;</span>, <span class="st">&quot;poisson_cnt&quot;</span>, <span class="st">&quot;nb1_cnt&quot;</span>, <span class="st">&quot;nb2_cnt&quot;</span>)], </span>
-<span id="cb425-10"><a href="sta.html#cb425-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">use=</span><span class="st">&quot;complete.obs&quot;</span>, </span>
-<span id="cb425-11"><a href="sta.html#cb425-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">method=</span><span class="st">&quot;pearson&quot;</span>)</span>
-<span id="cb425-12"><a href="sta.html#cb425-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb425-13"><a href="sta.html#cb425-13" aria-hidden="true" tabindex="-1"></a><span class="co"># significance test</span></span>
-<span id="cb425-14"><a href="sta.html#cb425-14" aria-hidden="true" tabindex="-1"></a>sig1 <span class="ot">&lt;-</span> corrplot<span class="sc">::</span><span class="fu">cor.mtest</span>(reg_df[, <span class="fu">c</span>(<span class="st">&quot;c_covid19_r&quot;</span>, <span class="st">&quot;lm_cnt&quot;</span>, <span class="st">&quot;poisson_cnt&quot;</span>, <span class="st">&quot;nb1_cnt&quot;</span>, <span class="st">&quot;nb2_cnt&quot;</span>)],</span>
-<span id="cb425-15"><a href="sta.html#cb425-15" aria-hidden="true" tabindex="-1"></a>                            <span class="at">conf.level =</span> .<span class="dv">95</span>)</span>
-<span id="cb425-16"><a href="sta.html#cb425-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb425-17"><a href="sta.html#cb425-17" aria-hidden="true" tabindex="-1"></a><span class="co"># create a correlogram</span></span>
-<span id="cb425-18"><a href="sta.html#cb425-18" aria-hidden="true" tabindex="-1"></a>corrplot<span class="sc">::</span><span class="fu">corrplot.mixed</span>(cormat,</span>
-<span id="cb425-19"><a href="sta.html#cb425-19" aria-hidden="true" tabindex="-1"></a>                         <span class="at">number.cex =</span> <span class="dv">1</span>,</span>
-<span id="cb425-20"><a href="sta.html#cb425-20" aria-hidden="true" tabindex="-1"></a>                         <span class="at">tl.pos =</span> <span class="st">&quot;d&quot;</span>,</span>
-<span id="cb425-21"><a href="sta.html#cb425-21" aria-hidden="true" tabindex="-1"></a>                         <span class="at">tl.cex =</span> <span class="fl">0.9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="sta.html#cb421-1" aria-hidden="true" tabindex="-1"></a><span class="co"># computing predictions for all models</span></span>
+<span id="cb421-2"><a href="sta.html#cb421-2" aria-hidden="true" tabindex="-1"></a>lm_cnt <span class="ot">&lt;-</span> <span class="fu">predict</span>(lm_m)</span>
+<span id="cb421-3"><a href="sta.html#cb421-3" aria-hidden="true" tabindex="-1"></a>poisson_cnt <span class="ot">&lt;-</span> <span class="fu">predict</span>(poisson_m1)</span>
+<span id="cb421-4"><a href="sta.html#cb421-4" aria-hidden="true" tabindex="-1"></a>nb1_cnt <span class="ot">&lt;-</span> <span class="fu">predict</span>(nb_m1)</span>
+<span id="cb421-5"><a href="sta.html#cb421-5" aria-hidden="true" tabindex="-1"></a>nb2_cnt <span class="ot">&lt;-</span> <span class="fu">predict</span>(nb_m2)</span>
+<span id="cb421-6"><a href="sta.html#cb421-6" aria-hidden="true" tabindex="-1"></a>reg_df <span class="ot">&lt;-</span> <span class="fu">cbind</span>(reg_df, lm_cnt, poisson_cnt, nb1_cnt, nb2_cnt)</span>
+<span id="cb421-7"><a href="sta.html#cb421-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb421-8"><a href="sta.html#cb421-8" aria-hidden="true" tabindex="-1"></a><span class="co"># computing correlation coefficients</span></span>
+<span id="cb421-9"><a href="sta.html#cb421-9" aria-hidden="true" tabindex="-1"></a>cormat <span class="ot">&lt;-</span> <span class="fu">cor</span>(reg_df[, <span class="fu">c</span>(<span class="st">&quot;c_covid19_r&quot;</span>, <span class="st">&quot;lm_cnt&quot;</span>, <span class="st">&quot;poisson_cnt&quot;</span>, <span class="st">&quot;nb1_cnt&quot;</span>, <span class="st">&quot;nb2_cnt&quot;</span>)], </span>
+<span id="cb421-10"><a href="sta.html#cb421-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">use=</span><span class="st">&quot;complete.obs&quot;</span>, </span>
+<span id="cb421-11"><a href="sta.html#cb421-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">method=</span><span class="st">&quot;pearson&quot;</span>)</span>
+<span id="cb421-12"><a href="sta.html#cb421-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb421-13"><a href="sta.html#cb421-13" aria-hidden="true" tabindex="-1"></a><span class="co"># significance test</span></span>
+<span id="cb421-14"><a href="sta.html#cb421-14" aria-hidden="true" tabindex="-1"></a>sig1 <span class="ot">&lt;-</span> corrplot<span class="sc">::</span><span class="fu">cor.mtest</span>(reg_df[, <span class="fu">c</span>(<span class="st">&quot;c_covid19_r&quot;</span>, <span class="st">&quot;lm_cnt&quot;</span>, <span class="st">&quot;poisson_cnt&quot;</span>, <span class="st">&quot;nb1_cnt&quot;</span>, <span class="st">&quot;nb2_cnt&quot;</span>)],</span>
+<span id="cb421-15"><a href="sta.html#cb421-15" aria-hidden="true" tabindex="-1"></a>                            <span class="at">conf.level =</span> .<span class="dv">95</span>)</span>
+<span id="cb421-16"><a href="sta.html#cb421-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb421-17"><a href="sta.html#cb421-17" aria-hidden="true" tabindex="-1"></a><span class="co"># create a correlogram</span></span>
+<span id="cb421-18"><a href="sta.html#cb421-18" aria-hidden="true" tabindex="-1"></a>corrplot<span class="sc">::</span><span class="fu">corrplot.mixed</span>(cormat,</span>
+<span id="cb421-19"><a href="sta.html#cb421-19" aria-hidden="true" tabindex="-1"></a>                         <span class="at">number.cex =</span> <span class="dv">1</span>,</span>
+<span id="cb421-20"><a href="sta.html#cb421-20" aria-hidden="true" tabindex="-1"></a>                         <span class="at">tl.pos =</span> <span class="st">&quot;d&quot;</span>,</span>
+<span id="cb421-21"><a href="sta.html#cb421-21" aria-hidden="true" tabindex="-1"></a>                         <span class="at">tl.cex =</span> <span class="fl">0.9</span>)</span></code></pre></div>
 <p><img src="10-st_analysis_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 <p>None of the models does a great job at predicting the observed count of new COVID-19 cases. They display correlation coefficients between 0.23 and 0.24 and high degree of correlation between them. Part of the assignment will be finding ways to improve this initial models. They should just be considered as a starting point.</p>
 <p>There are a potentially few easy ways to make some considerable improvement.
@@ -1014,8 +1013,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="questions-6" class="section level2" number="10.7">
 <h2><span class="header-section-number">10.7</span> Questions</h2>
 <p>We will continue to use the COVID-19 dataset. Please see Chapter <a href="datasets.html#datasets">11</a> for details on the data.</p>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="sta.html#cb426-1" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/assignment_2_covid/covid19_eng.gpkg&quot;</span>)</span></code></pre></div>
-<pre><code>## Reading layer `covid19_eng&#39; from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg&#39; using driver `GPKG&#39;
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="sta.html#cb422-1" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/assignment_2_covid/covid19_eng.gpkg&quot;</span>)</span></code></pre></div>
+<pre><code>## Reading layer `covid19_eng&#39; from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg&#39; using driver `GPKG&#39;
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY

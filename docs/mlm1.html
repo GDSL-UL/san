@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
 
 
-<meta name="date" content="2021-02-08" />
+<meta name="date" content="2021-02-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -711,17 +711,17 @@ and then we made the <em>random</em> part of the model (<span class="math inline
 <p>We can also obtain group-level errors (<em>random effects</em>) by using a simulation approach, labelled “Empirical Bayes” and discussed <a href="https://stat.ethz.ch/pipermail/r-sig-mixed-models/2009q4/002984.html">here</a>. To this end, we run:</p>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="mlm1.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="co"># obtain estimates</span></span>
 <span id="cb276-2"><a href="mlm1.html#cb276-2" aria-hidden="true" tabindex="-1"></a><span class="fu">REsim</span>(model3) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
-<pre><code>##    groupFctr   groupID        term         mean       median         sd
-## 1    lsoa_cd E01006512 (Intercept) -0.015963635 -0.015571952 0.02061209
-## 2    lsoa_cd E01006513 (Intercept) -0.018209543 -0.017102942 0.02065346
-## 3    lsoa_cd E01006514 (Intercept) -0.021220909 -0.022723866 0.01897220
-## 4    lsoa_cd E01006515 (Intercept) -0.015761535 -0.015058594 0.01948935
-## 5    lsoa_cd E01006518 (Intercept) -0.019469890 -0.017934715 0.01962080
-## 6    lsoa_cd E01006519 (Intercept) -0.017013195 -0.016645816 0.01062676
-## 7    lsoa_cd E01006520 (Intercept) -0.026304394 -0.026367881 0.01958508
-## 8    lsoa_cd E01006521 (Intercept)  0.006082943  0.005105206 0.01939866
-## 9    lsoa_cd E01006522 (Intercept)  0.018480513  0.018927124 0.01932583
-## 10   lsoa_cd E01006523 (Intercept)  0.005844970  0.007188392 0.01888351</code></pre>
+<pre><code>##    groupFctr   groupID        term         mean       median          sd
+## 1    lsoa_cd E01006512 (Intercept) -0.017655601 -0.019515507 0.019182690
+## 2    lsoa_cd E01006513 (Intercept) -0.017743665 -0.018361622 0.019964289
+## 3    lsoa_cd E01006514 (Intercept) -0.021761724 -0.022056102 0.018685129
+## 4    lsoa_cd E01006515 (Intercept) -0.016409803 -0.018047732 0.019332262
+## 5    lsoa_cd E01006518 (Intercept) -0.019674306 -0.019710728 0.018738150
+## 6    lsoa_cd E01006519 (Intercept) -0.015595525 -0.015226194 0.009974742
+## 7    lsoa_cd E01006520 (Intercept) -0.025120433 -0.024423505 0.020980555
+## 8    lsoa_cd E01006521 (Intercept)  0.007324408  0.006784893 0.019903377
+## 9    lsoa_cd E01006522 (Intercept)  0.019273052  0.018773096 0.020474908
+## 10   lsoa_cd E01006523 (Intercept)  0.002089622  0.002608302 0.019061966</code></pre>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
 <p>To gain an undertanding of the general pattern of the <em>random effects</em>, we can use caterpillar plots via <code>plotREsim</code> - reported below. The plot on the right shows the estimated random effects for each MSOA and their respective interval estimate. Note that random effects are on average zero, represented by the red horizontal line. Intervals that do not include zero are in bold. Also note that the width of the confidence interval depends on the standard error of the respective residual estimate, which is inversely related to the size of the sample. The residuals represent an observation departures from the grand mean, so an observation whose confidence interval does not overlap the line at zero (representing the mean proportion of unemployed population across all areas) is said to differ significantly from the average at the 5% level.</p>
 <div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="mlm1.html#cb278-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
@@ -751,7 +751,7 @@ and then we made the <em>random</em> part of the model (<span class="math inline
 <p>We can also map the MSOA-level <em>random effects</em>. To this end, we first need to read a shapefile containing data at the MSOA level and merge it with the <em>random effects</em> estimates.</p>
 <div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="mlm1.html#cb281-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
 <span id="cb281-2"><a href="mlm1.html#cb281-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/mlm/MSOA.shp&quot;</span>)</span></code></pre></div>
-<pre><code>## Reading layer `MSOA&#39; from data source `/home/jovyan/work/data/mlm/MSOA.shp&#39; using driver `ESRI Shapefile&#39;
+<pre><code>## Reading layer `MSOA&#39; from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp&#39; using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 61 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -764,9 +764,9 @@ and then we made the <em>random</em> part of the model (<span class="math inline
 ##  $ groupFctr: chr  &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; &quot;msoa_cd&quot; ...
 ##  $ groupID  : chr  &quot;E02001347&quot; &quot;E02001348&quot; &quot;E02001349&quot; &quot;E02001350&quot; ...
 ##  $ term     : chr  &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; &quot;(Intercept)&quot; ...
-##  $ mean     : num  -0.01283 -0.02634 -0.02602 0.00562 0.02185 ...
-##  $ median   : num  -0.01048 -0.0287 -0.02826 0.00664 0.02163 ...
-##  $ sd       : num  0.0335 0.0305 0.0317 0.0298 0.0171 ...</code></pre>
+##  $ mean     : num  -0.01615 -0.02425 -0.03355 0.00459 0.02284 ...
+##  $ median   : num  -0.01564 -0.02275 -0.03377 0.00634 0.02429 ...
+##  $ sd       : num  0.0311 0.0335 0.0312 0.0334 0.0177 ...</code></pre>
 <div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="mlm1.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="co"># merge data</span></span>
 <span id="cb285-2"><a href="mlm1.html#cb285-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> msoa_shp, <span class="at">y =</span> re_msoa, <span class="at">by.x =</span> <span class="st">&quot;MSOA_CD&quot;</span>, <span class="at">by.y =</span> <span class="st">&quot;groupID&quot;</span>)</span></code></pre></div>
 <p>Now we can create our map:</p>
@@ -942,7 +942,7 @@ function only accepts predictors at the individual level, so we have included da
 <h2><span class="header-section-number">7.5</span> Questions</h2>
 <p>For the second assignment, we will be using a different dataset comprising information on COVID-19 cases, census data and the Index of Multiple Deprivation (IMD) for England. The data set is similar in structured to that used in this chapter. It is hierarchically organised into 149 Upper Tier Local Authority Districts (UTLADs) within 9 Regions and has 508 variables - see Chapter <a href="datasets.html#datasets">11</a> for a more detailed description of the data.</p>
 <div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="mlm1.html#cb302-1" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/assignment_2_covid/covid19_eng.gpkg&quot;</span>)</span></code></pre></div>
-<pre><code>## Reading layer `covid19_eng&#39; from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg&#39; using driver `GPKG&#39;
+<pre><code>## Reading layer `covid19_eng&#39; from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg&#39; using driver `GPKG&#39;
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY

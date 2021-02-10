@@ -122,7 +122,7 @@ utla_shp <- st_read("data/sta/ons_utla.shp")
 ```
 
 ```
-## Reading layer `ons_utla' from data source `/home/jovyan/work/data/sta/ons_utla.shp' using driver `ESRI Shapefile'
+## Reading layer `ons_utla' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sta/ons_utla.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 150 features and 11 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -213,13 +213,13 @@ spat_part <- as(dplyr::select(covid19_spt, -c(bng_e, bng_n, Area.code, Area.type
 
 ```
 ## Warning in showSRID(uprojargs, format = "PROJ", multiline = "NO", prefer_proj
-## = prefer_proj): Discarded datum Unknown based on Airy 1830 ellipsoid in CRS
+## = prefer_proj): Discarded datum Unknown based on Airy 1830 ellipsoid in Proj4
 ## definition
 ```
 
 ```
 ## Warning in showSRID(SRS_string, format = "PROJ", multiline = "NO", prefer_proj =
-## prefer_proj): Discarded datum D_unknown in CRS definition
+## prefer_proj): Discarded datum D_unknown in Proj4 definition
 ```
 
 ```r
@@ -291,7 +291,7 @@ daycases_week <- covid19_spt %>% group_by(week, ctyu19nm, as.character(cty19c), 
 ```
 
 ```
-## `summarise()` regrouping output by 'week', 'ctyu19nm', 'as.character(cty19c)' (override with `.groups` argument)
+## `summarise()` has grouped output by 'week', 'ctyu19nm', 'as.character(cty19c)'. You can override using the `.groups` argument.
 ```
 
 ```r
@@ -415,13 +415,7 @@ The empirical spatial mean for a data set can be obtained by averaging over time
 # compute empirical spatial mean
 sp_av <- covid19_spt %>% group_by(ctyu19nm) %>% # group by spatial unit
   summarise(sp_mu_emp = mean(n_covid19_r))
-```
 
-```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```r
 # plot empirical spatial mean
 ggplot(data=sp_av) +
   geom_col( aes( y = reorder(ctyu19nm, sp_mu_emp), x = sp_mu_emp) , fill = "grey50") +
@@ -488,13 +482,6 @@ Before measuring the temporal dependence is our time-series, a time-series objec
 # create a time series object
 total_cnt <- covid19 %>% group_by(date) %>%
   summarise(new_cases = sum(n_covid19_r)) 
-```
-
-```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```r
 total_cases_ts <- ts(total_cnt$new_cases, 
                      start = 1,
                      frequency =7)
@@ -815,11 +802,11 @@ nb_m1
 ```
 ## 
 ## Call:  glm.nb(formula = eq1, data = dplyr::select(reg_df, -ctyu19nm), 
-##     init.theta = 11051670.9, link = log)
+##     init.theta = 10953838.91, link = log)
 ## 
 ## Coefficients:
 ## (Intercept)         long          lat          day   lt_illness           B1  
-##   -97.26122     -0.97892      1.76667     -0.01441     14.42040      6.19749  
+##   -97.26121     -0.97892      1.76667     -0.01441     14.42040      6.19749  
 ##          B2           B3           B4           B5           B6           B7  
 ##     0.36155     11.36319     -1.97553      2.81326     -1.33374      0.76959  
 ##          B8           B9  
@@ -847,7 +834,7 @@ nb_m2
 ```
 ## 
 ## Call:  glm.nb(formula = eq2, data = dplyr::select(reg_df, -ctyu19nm), 
-##     init.theta = 300465.7453, link = log)
+##     init.theta = 300465.7437, link = log)
 ## 
 ## Coefficients:
 ## (Intercept)         long          lat          day   lt_illness           B1  
@@ -920,7 +907,7 @@ sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
 ```
 
 ```
-## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY

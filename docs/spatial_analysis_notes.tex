@@ -83,6 +83,7 @@
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
+\usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
 \makeatletter
@@ -138,7 +139,7 @@
 
 \title{Spatial Modelling for Data Scientists}
 \author{Francisco Rowe and Dani Arribas-Bel}
-\date{2021-02-08}
+\date{2021-02-10}
 
 \begin{document}
 \maketitle
@@ -153,7 +154,7 @@
 
 This is the website for \textbf{``Spatial Modeling for Data Scientists''}. This is a course taught by Dr.~Francisco Rowe and Dr.~Dani Arribas-Bel in the Second Semester of 2020/21 at the University of Liverpool, United Kingdom. You will learn how to analyse and model different types of spatial data as well as gaining an understanding of the various challenges arising from manipulating such data.
 
-The website is free to use and licensed under the \href{http://creativecommons.org/licenses/by-nc-nd/3.0/us/}{Creative Commons Attribution-NonCommercial-NoDerivs 3.0} License. A compilation of this web course is hosted as a GitHub repository that you can access:
+The website is licensed under the \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{Attribution-NonCommercial-NoDerivatives 4.0 International} License. A compilation of this web course is hosted as a GitHub repository that you can access:
 
 \begin{itemize}
 \tightlist
@@ -574,7 +575,7 @@ You can check your current working directory by typing:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/home/jovyan/work"
+## [1] "/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san"
 \end{verbatim}
 
 \hypertarget{r-scripts-and-notebooks}{%
@@ -1395,7 +1396,7 @@ We first need to import our spatial data. We will use a shapefile containing dat
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `Liverpool_OA' from data source `/home/jovyan/work/data/census/Liverpool_OA.shp' using driver `ESRI Shapefile'
+## Reading layer `Liverpool_OA' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/census/Liverpool_OA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 1584 features and 18 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -1627,7 +1628,7 @@ If you recall, one of the key issues of working with spatial data is the modifia
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `Liverpool_MSOA' from data source `/home/jovyan/work/data/census/Liverpool_MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `Liverpool_MSOA' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/census/Liverpool_MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 16 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -1771,7 +1772,7 @@ Let us start by reading the data, which comes in a GeoJSON:
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `regression_db' from data source `/home/jovyan/work/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
+## Reading layer `regression_db' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -2271,7 +2272,7 @@ We will be using the Madrid AirBnb dataset:
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Reading layer `madrid_abb' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
 ## Simple feature collection with 18399 features and 15 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -2339,14 +2340,14 @@ We will rely on the following libraries in this section, all of them included in
 \end{verbatim}
 
 \begin{verbatim}
-## rgdal: version: 1.5-18, (SVN revision 1082)
+## rgdal: version: 1.5-23, (SVN revision 1121)
 ## Geospatial Data Abstraction Library extensions to R successfully loaded
 ## Loaded GDAL runtime: GDAL 3.0.4, released 2020/01/28
-## Path to GDAL shared files: /opt/conda/share/gdal
+## Path to GDAL shared files: /usr/share/gdal
 ## GDAL binary built with GEOS: TRUE 
 ## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
-## Path to PROJ shared files: /opt/conda/share/proj
-## Linking to sp version:1.4-4
+## Path to PROJ shared files: /usr/share/proj
+## Linking to sp version:1.4-5
 ## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
 ## use options("rgdal_show_exportToProj4_warnings"="none") before loading rgdal.
 \end{verbatim}
@@ -2395,7 +2396,7 @@ We will rely on the following libraries in this section, all of them included in
 \end{verbatim}
 
 \begin{verbatim}
-## Working directory is /home/jovyan/work
+## Working directory is /home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san
 \end{verbatim}
 
 In this chapter we will show a slightly different way of managing spatial data in R. Although most of the functionality will be similar to that seen in previous chapters, we will not rely on the ``\texttt{sf} stack'' and we will instead show how to read and manipulate data using the more traditional \texttt{sp} stack. Although this approach is being slowly phased out, it is still important to be aware of its existence and its differences with more modern approaches.
@@ -2423,7 +2424,7 @@ Let us then directly load the file with all the information necessary:
 
 \begin{verbatim}
 ## OGR data source with driver: GeoJSON 
-## Source: "/home/jovyan/work/data/sf_bikes/flows.geojson", layer: "flows"
+## Source: "/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sf_bikes/flows.geojson", layer: "flows"
 ## with 1722 features
 ## It has 9 fields
 \end{verbatim}
@@ -3264,7 +3265,7 @@ We will be using again the Madrid AirBnb dataset:
 
 \begin{verbatim}
 ## OGR data source with driver: GPKG 
-## Source: "/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg", layer: "madrid_abb"
+## Source: "/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg", layer: "madrid_abb"
 ## with 18399 features
 ## It has 15 fields
 ## Integer64 fields read as strings:  accommodates
@@ -3390,7 +3391,7 @@ Let us load it up first of all:
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `regression_db' from data source `/home/jovyan/work/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
+## Reading layer `regression_db' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -4274,7 +4275,7 @@ We will be using again the Madrid AirBnb dataset:
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Reading layer `madrid_abb' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
 ## Simple feature collection with 18399 features and 15 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -4933,17 +4934,17 @@ We can also obtain group-level errors (\emph{random effects}) by using a simulat
 \end{Shaded}
 
 \begin{verbatim}
-##    groupFctr   groupID        term         mean       median         sd
-## 1    lsoa_cd E01006512 (Intercept) -0.017360666 -0.016428829 0.01958606
-## 2    lsoa_cd E01006513 (Intercept) -0.016404985 -0.014811862 0.02029030
-## 3    lsoa_cd E01006514 (Intercept) -0.021019479 -0.020684093 0.02038621
-## 4    lsoa_cd E01006515 (Intercept) -0.017846506 -0.018021045 0.01943637
-## 5    lsoa_cd E01006518 (Intercept) -0.019695473 -0.019447644 0.01930640
-## 6    lsoa_cd E01006519 (Intercept) -0.016011648 -0.016088772 0.01067648
-## 7    lsoa_cd E01006520 (Intercept) -0.025635691 -0.026819757 0.01841737
-## 8    lsoa_cd E01006521 (Intercept)  0.006573416  0.006748749 0.01857851
-## 9    lsoa_cd E01006522 (Intercept)  0.017871161  0.017509364 0.01928528
-## 10   lsoa_cd E01006523 (Intercept)  0.004203106  0.006457941 0.02098784
+##    groupFctr   groupID        term         mean       median          sd
+## 1    lsoa_cd E01006512 (Intercept) -0.017312773 -0.018803581 0.020020991
+## 2    lsoa_cd E01006513 (Intercept) -0.017683709 -0.017706040 0.020450602
+## 3    lsoa_cd E01006514 (Intercept) -0.024013944 -0.026464323 0.020179136
+## 4    lsoa_cd E01006515 (Intercept) -0.020903554 -0.020891581 0.019507474
+## 5    lsoa_cd E01006518 (Intercept) -0.019840992 -0.019677326 0.019716669
+## 6    lsoa_cd E01006519 (Intercept) -0.015492122 -0.014602003 0.009613831
+## 7    lsoa_cd E01006520 (Intercept) -0.024527473 -0.024393683 0.019648979
+## 8    lsoa_cd E01006521 (Intercept)  0.006554234  0.004701648 0.018473716
+## 9    lsoa_cd E01006522 (Intercept)  0.017625530  0.016047179 0.020643750
+## 10   lsoa_cd E01006523 (Intercept)  0.003772186  0.004164008 0.017967741
 \end{verbatim}
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g.~LSOA). The mean estimates are similar to those obtained from \texttt{ranef} with some small differences due to rounding.
@@ -4999,7 +5000,7 @@ We can also map the MSOA-level \emph{random effects}. To this end, we first need
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `MSOA' from data source `/home/jovyan/work/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `MSOA' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -5020,9 +5021,9 @@ We can also map the MSOA-level \emph{random effects}. To this end, we first need
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.01365 -0.02662 -0.02771 0.00754 0.02418 ...
-##  $ median   : num  -0.01167 -0.02796 -0.02983 0.00632 0.02468 ...
-##  $ sd       : num  0.0316 0.0317 0.0298 0.0292 0.0143 ...
+##  $ mean     : num  -0.01007 -0.02569 -0.02873 0.00822 0.02179 ...
+##  $ median   : num  -0.0119 -0.0238 -0.0276 0.0113 0.0232 ...
+##  $ sd       : num  0.0341 0.0321 0.0308 0.0299 0.0164 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -5300,7 +5301,7 @@ For the second assignment, we will be using a different dataset comprising infor
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -5749,7 +5750,7 @@ Let's try to get a better understanding of the varying relationship between unem
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `MSOA' from data source `/home/jovyan/work/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `MSOA' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -5771,9 +5772,9 @@ Let's try to get a better understanding of the varying relationship between unem
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.0296 -0.1223 0.0555 -0.1398 -0.2832 ...
-##  $ median   : num  0.034 -0.1213 0.0547 -0.1375 -0.2856 ...
-##  $ sd       : num  0.0462 0.075 0.0893 0.0366 0.0413 ...
+##  $ mean     : num  0.0269 -0.1108 0.0494 -0.1444 -0.2829 ...
+##  $ median   : num  0.0232 -0.1149 0.0487 -0.1451 -0.2789 ...
+##  $ sd       : num  0.0433 0.0668 0.0827 0.0358 0.0386 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -5953,7 +5954,7 @@ We will continue to use the COVID-19 dataset. Please see Chapter \ref{datasets} 
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -6130,7 +6131,7 @@ The results indicate a wide variation in the risk of infection across UTLAs in E
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `Regions_December_2019_Boundaries_EN_BGC' from data source `/home/jovyan/work/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp' using driver `ESRI Shapefile'
+## Reading layer `Regions_December_2019_Boundaries_EN_BGC' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 9 features and 9 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -6679,7 +6680,7 @@ We will continue to use the COVID-19 dataset. Please see Chapter \ref{datasets} 
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -6862,7 +6863,7 @@ These data objects correspond to \texttt{locs}, \texttt{time}, and \texttt{covid
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `ons_utla' from data source `/home/jovyan/work/data/sta/ons_utla.shp' using driver `ESRI Shapefile'
+## Reading layer `ons_utla' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sta/ons_utla.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 150 features and 11 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -6965,13 +6966,13 @@ We now have all the components to build a spatio-temporal object of class STIDF 
 
 \begin{verbatim}
 ## Warning in showSRID(uprojargs, format = "PROJ", multiline = "NO", prefer_proj
-## = prefer_proj): Discarded datum Unknown based on Airy 1830 ellipsoid in CRS
+## = prefer_proj): Discarded datum Unknown based on Airy 1830 ellipsoid in Proj4
 ## definition
 \end{verbatim}
 
 \begin{verbatim}
 ## Warning in showSRID(SRS_string, format = "PROJ", multiline = "NO", prefer_proj =
-## prefer_proj): Discarded datum D_unknown in CRS definition
+## prefer_proj): Discarded datum D_unknown in Proj4 definition
 \end{verbatim}
 
 \begin{Shaded}
@@ -7053,7 +7054,7 @@ Note that Weeks range from 5 to 16 as they refer to calendar weeks. Calendar wee
 \end{Shaded}
 
 \begin{verbatim}
-## `summarise()` regrouping output by 'week', 'ctyu19nm', 'as.character(cty19c)' (override with `.groups` argument)
+## `summarise()` has grouped output by 'week', 'ctyu19nm', 'as.character(cty19c)'. You can override using the `.groups` argument.
 \end{verbatim}
 
 \begin{Shaded}
@@ -7187,15 +7188,7 @@ The empirical spatial mean for a data set can be obtained by averaging over time
 \CommentTok{\# compute empirical spatial mean}
 \NormalTok{sp\_av }\OtherTok{\textless{}{-}}\NormalTok{ covid19\_spt }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(ctyu19nm) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# group by spatial unit}
   \FunctionTok{summarise}\NormalTok{(}\AttributeTok{sp\_mu\_emp =} \FunctionTok{mean}\NormalTok{(n\_covid19\_r))}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-## `summarise()` ungrouping output (override with `.groups` argument)
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{\# plot empirical spatial mean}
 \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{sp\_av) }\SpecialCharTok{+}
   \FunctionTok{geom\_col}\NormalTok{( }\FunctionTok{aes}\NormalTok{( }\AttributeTok{y =} \FunctionTok{reorder}\NormalTok{(ctyu19nm, sp\_mu\_emp), }\AttributeTok{x =}\NormalTok{ sp\_mu\_emp) , }\AttributeTok{fill =} \StringTok{"grey50"}\NormalTok{) }\SpecialCharTok{+}
@@ -7271,15 +7264,6 @@ Before measuring the temporal dependence is our time-series, a time-series objec
 \CommentTok{\# create a time series object}
 \NormalTok{total\_cnt }\OtherTok{\textless{}{-}}\NormalTok{ covid19 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(date) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{summarise}\NormalTok{(}\AttributeTok{new\_cases =} \FunctionTok{sum}\NormalTok{(n\_covid19\_r)) }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## `summarise()` ungrouping output (override with `.groups` argument)
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{total\_cases\_ts }\OtherTok{\textless{}{-}} \FunctionTok{ts}\NormalTok{(total\_cnt}\SpecialCharTok{$}\NormalTok{new\_cases, }
                      \AttributeTok{start =} \DecValTok{1}\NormalTok{,}
                      \AttributeTok{frequency =}\DecValTok{7}\NormalTok{)}
@@ -7639,11 +7623,11 @@ The model output indicates major improvement in terms of model fit as the residu
 \begin{verbatim}
 ## 
 ## Call:  glm.nb(formula = eq1, data = dplyr::select(reg_df, -ctyu19nm), 
-##     init.theta = 11051670.9, link = log)
+##     init.theta = 10953838.91, link = log)
 ## 
 ## Coefficients:
 ## (Intercept)         long          lat          day   lt_illness           B1  
-##   -97.26122     -0.97892      1.76667     -0.01441     14.42040      6.19749  
+##   -97.26121     -0.97892      1.76667     -0.01441     14.42040      6.19749  
 ##          B2           B3           B4           B5           B6           B7  
 ##     0.36155     11.36319     -1.97553      2.81326     -1.33374      0.76959  
 ##          B8           B9  
@@ -7672,7 +7656,7 @@ Similarly the model output does not suggest any major improvement in explaining 
 \begin{verbatim}
 ## 
 ## Call:  glm.nb(formula = eq2, data = dplyr::select(reg_df, -ctyu19nm), 
-##     init.theta = 300465.7453, link = log)
+##     init.theta = 300465.7437, link = log)
 ## 
 ## Coefficients:
 ## (Intercept)         long          lat          day   lt_illness           B1  
@@ -7750,7 +7734,7 @@ We will continue to use the COVID-19 dataset. Please see Chapter \ref{datasets} 
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -7812,7 +7796,7 @@ The dataset is stored on a Geopackage that can be found, within the structure of
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Reading layer `madrid_abb' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
 ## Simple feature collection with 18399 features and 15 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -7933,7 +7917,7 @@ The dataset is stored on a Geopackage:
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -8032,8 +8016,8 @@ Details of the coordinate reference system:
 ##             LENGTHUNIT["metre",1]],
 ##     USAGE[
 ##         SCOPE["unknown"],
-##         AREA["UK - Britain and UKCS 49°45'N to 61°N, 9°W to 2°E"],
-##         BBOX[49.75,-9,61.01,2.01]],
+##         AREA["UK - Britain and UKCS 49°46'N to 61°01'N, 7°33'W to 3°33'E"],
+##         BBOX[49.75,-9.2,61.14,2.88]],
 ##     ID["EPSG",27700]]
 \end{verbatim}
 
