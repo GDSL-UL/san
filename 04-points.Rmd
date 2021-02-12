@@ -224,7 +224,8 @@ Now, `sd.grid` only contain the location of points to which we wish to interpola
 idw.hp <- idw(
   price ~ 1,         # Formula for IDW
   locations = db,    # Initial locations with values
-  newdata=sd.grid    # Locations we want predictions for
+  newdata=sd.grid,   # Locations we want predictions for
+  nmax = 150         # Limit the number of neighbours for IDW
 )
 ```
 
