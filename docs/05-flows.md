@@ -75,7 +75,7 @@ library(arm)
 ```
 
 ```
-## Working directory is /home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san
+## Working directory is /home/jovyan/work
 ```
 
 In this chapter we will show a slightly different way of managing spatial data in R. Although most of the functionality will be similar to that seen in previous chapters, we will not rely on the "`sf` stack" and we will instead show how to read and manipulate data using the more traditional `sp` stack. Although this approach is being slowly phased out, it is still important to be aware of its existence and its differences with more modern approaches.
@@ -100,7 +100,7 @@ db <- readOGR('./data/sf_bikes/flows.geojson')
 
 ```
 ## OGR data source with driver: GeoJSON 
-## Source: "/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sf_bikes/flows.geojson", layer: "flows"
+## Source: "/home/jovyan/work/data/sf_bikes/flows.geojson", layer: "flows"
 ## with 1722 features
 ## It has 9 fields
 ```
@@ -886,7 +886,7 @@ mad_abb <- readOGR('./data/assignment_1_madrid/madrid_abb.gpkg')
 
 ```
 ## OGR data source with driver: GPKG 
-## Source: "/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg", layer: "madrid_abb"
+## Source: "/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg", layer: "madrid_abb"
 ## with 18399 features
 ## It has 15 fields
 ## Integer64 fields read as strings:  accommodates

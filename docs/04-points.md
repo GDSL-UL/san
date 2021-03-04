@@ -67,7 +67,7 @@ db <- st_read("data/abb_sd/regression_db.geojson")
 ```
 
 ```
-## Reading layer `regression_db' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
+## Reading layer `regression_db' from data source `/home/jovyan/work/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -387,7 +387,8 @@ Now, `sd.grid` only contain the location of points to which we wish to interpola
 idw.hp <- idw(
   price ~ 1,         # Formula for IDW
   locations = db,    # Initial locations with values
-  newdata=sd.grid    # Locations we want predictions for
+  newdata=sd.grid,   # Locations we want predictions for
+  nmax = 150         # Limit the number of neighbours for IDW
 )
 ```
 
@@ -423,12 +424,12 @@ head(idw.hp)
 ## bbox:           xmin: -117.2795 ymin: 32.57604 xmax: -117.2632 ymax: 32.57604
 ## geographic CRS: WGS 84
 ##   var1.pred var1.var                   geometry
-## 1  211.4131       NA POINT (-117.2795 32.57604)
-## 2  211.1100       NA POINT (-117.2763 32.57604)
-## 3  210.8035       NA  POINT (-117.273 32.57604)
-## 4  210.4936       NA POINT (-117.2698 32.57604)
-## 5  210.1804       NA POINT (-117.2665 32.57604)
-## 6  209.8641       NA POINT (-117.2632 32.57604)
+## 1  295.6100       NA POINT (-117.2795 32.57604)
+## 2  295.1651       NA POINT (-117.2763 32.57604)
+## 3  296.5927       NA  POINT (-117.273 32.57604)
+## 4  288.2252       NA POINT (-117.2698 32.57604)
+## 5  281.5522       NA POINT (-117.2665 32.57604)
+## 6  268.3567       NA POINT (-117.2632 32.57604)
 ```
 
 The column we will pay attention to is `var1.pred`. For a hypothetical house advertised at the location in the first row of point in `sd.grid`, the price IDW would guess it would cost, based on prices nearby, is the first element of column `var1.pred` in `idw.hp`.
@@ -523,7 +524,7 @@ mad_abb <- st_read("data/assignment_1_madrid/madrid_abb.gpkg")
 ```
 
 ```
-## Reading layer `madrid_abb' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
 ## Simple feature collection with 18399 features and 15 fields
 ## geometry type:  POINT
 ## dimension:      XY

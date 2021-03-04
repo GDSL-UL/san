@@ -13,6 +13,14 @@ This chapter uses the following libraries which are listed in the [Dependency li
 ```r
 # Data manipulation, transformation and visualisation
 library(tidyverse)
+```
+
+```
+## Warning in system("timedatectl", intern = TRUE): running command 'timedatectl'
+## had status 1
+```
+
+```r
 # Nice tables
 library(kableExtra)
 # Simple features (a standardised way to encode vector data ie. points, lines, polygons)
@@ -515,17 +523,17 @@ REsim(model3) %>% head(10)
 ```
 
 ```
-##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.016488441 -0.016734554 0.017863289
-## 2    lsoa_cd E01006513 (Intercept) -0.018048035 -0.018279901 0.020553542
-## 3    lsoa_cd E01006514 (Intercept) -0.022731985 -0.024158242 0.020549081
-## 4    lsoa_cd E01006515 (Intercept) -0.015724493 -0.013949277 0.018198957
-## 5    lsoa_cd E01006518 (Intercept) -0.019389172 -0.018479303 0.019980613
-## 6    lsoa_cd E01006519 (Intercept) -0.016016164 -0.016467372 0.009361716
-## 7    lsoa_cd E01006520 (Intercept) -0.024045754 -0.021829724 0.019036508
-## 8    lsoa_cd E01006521 (Intercept)  0.006607333  0.004328409 0.021719184
-## 9    lsoa_cd E01006522 (Intercept)  0.017331942  0.018594264 0.020742379
-## 10   lsoa_cd E01006523 (Intercept)  0.005408177  0.003306592 0.019078783
+##    groupFctr   groupID        term         mean        median         sd
+## 1    lsoa_cd E01006512 (Intercept) -0.016243748 -0.0168597492 0.02033366
+## 2    lsoa_cd E01006513 (Intercept) -0.016432625 -0.0172453768 0.02008737
+## 3    lsoa_cd E01006514 (Intercept) -0.024162835 -0.0236374602 0.01917780
+## 4    lsoa_cd E01006515 (Intercept) -0.015480521 -0.0147169885 0.02014687
+## 5    lsoa_cd E01006518 (Intercept) -0.019476470 -0.0196303998 0.02166041
+## 6    lsoa_cd E01006519 (Intercept) -0.016776175 -0.0159951356 0.01013979
+## 7    lsoa_cd E01006520 (Intercept) -0.024331304 -0.0237254423 0.01940656
+## 8    lsoa_cd E01006521 (Intercept)  0.006967176  0.0082368688 0.01842554
+## 9    lsoa_cd E01006522 (Intercept)  0.020355881  0.0188620766 0.01947313
+## 10   lsoa_cd E01006523 (Intercept)  0.002583665  0.0007739189 0.01853903
 ```
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from `ranef` with some small differences due to rounding.
@@ -578,7 +586,7 @@ msoa_shp <- st_read("data/mlm/MSOA.shp")
 ```
 
 ```
-## Reading layer `MSOA' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `MSOA' from data source `/home/jovyan/work/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -597,9 +605,9 @@ str(re_msoa)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.00963 -0.02309 -0.02466 0.00697 0.02109 ...
-##  $ median   : num  -0.01345 -0.02221 -0.02638 0.00586 0.02113 ...
-##  $ sd       : num  0.0314 0.0335 0.0331 0.0327 0.0148 ...
+##  $ mean     : num  -0.0133 -0.0222 -0.032 0.0028 0.0223 ...
+##  $ median   : num  -0.011541 -0.022204 -0.034954 0.000639 0.021565 ...
+##  $ sd       : num  0.0308 0.0334 0.0323 0.0288 0.0167 ...
 ```
 
 ```r
@@ -861,7 +869,7 @@ sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
 ```
 
 ```
-## Reading layer `covid19_eng' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
