@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
 
 
-<meta name="date" content="2021-03-04" />
+<meta name="date" content="2021-03-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1104,16 +1104,17 @@ where <span class="math inline">\(\bar{\log{P_i}}\)</span> is our predicted valu
 <!-- #endregion --></p>
 <div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="spatialecon.html#cb238-1" aria-hidden="true" tabindex="-1"></a>mad_abb <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&#39;./data/assignment_1_madrid/madrid_abb.gpkg&#39;</span>)</span></code></pre></div>
 <pre><code>## Reading layer `madrid_abb&#39; from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg&#39; using driver `GPKG&#39;
-## Simple feature collection with 18399 features and 15 fields
+## Simple feature collection with 18399 features and 16 fields
 ## geometry type:  POINT
 ## dimension:      XY
 ## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
 ## geographic CRS: WGS 84</code></pre>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="spatialecon.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mad_abb)</span></code></pre></div>
 <pre><code>##  [1] &quot;price&quot;           &quot;price_usd&quot;       &quot;log1p_price_usd&quot; &quot;accommodates&quot;   
-##  [5] &quot;bathrooms&quot;       &quot;bedrooms&quot;        &quot;beds&quot;            &quot;neighbourhood&quot;  
-##  [9] &quot;room_type&quot;       &quot;property_type&quot;   &quot;WiFi&quot;            &quot;Coffee&quot;         
-## [13] &quot;Gym&quot;             &quot;Parking&quot;         &quot;km_to_retiro&quot;    &quot;geom&quot;</code></pre>
+##  [5] &quot;bathrooms_text&quot;  &quot;bathrooms&quot;       &quot;bedrooms&quot;        &quot;beds&quot;           
+##  [9] &quot;neighbourhood&quot;   &quot;room_type&quot;       &quot;property_type&quot;   &quot;WiFi&quot;           
+## [13] &quot;Coffee&quot;          &quot;Gym&quot;             &quot;Parking&quot;         &quot;km_to_retiro&quot;   
+## [17] &quot;geom&quot;</code></pre>
 <!-- #region -->
 <p>In addition to those we have already seen, the columns to use here are:</p>
 <ul>

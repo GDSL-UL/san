@@ -888,7 +888,7 @@ mad_abb <- readOGR('./data/assignment_1_madrid/madrid_abb.gpkg')
 ## OGR data source with driver: GPKG 
 ## Source: "/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg", layer: "madrid_abb"
 ## with 18399 features
-## It has 15 fields
+## It has 16 fields
 ## Integer64 fields read as strings:  accommodates
 ```
 

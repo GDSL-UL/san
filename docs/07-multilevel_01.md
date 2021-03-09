@@ -523,17 +523,17 @@ REsim(model3) %>% head(10)
 ```
 
 ```
-##    groupFctr   groupID        term         mean        median         sd
-## 1    lsoa_cd E01006512 (Intercept) -0.016243748 -0.0168597492 0.02033366
-## 2    lsoa_cd E01006513 (Intercept) -0.016432625 -0.0172453768 0.02008737
-## 3    lsoa_cd E01006514 (Intercept) -0.024162835 -0.0236374602 0.01917780
-## 4    lsoa_cd E01006515 (Intercept) -0.015480521 -0.0147169885 0.02014687
-## 5    lsoa_cd E01006518 (Intercept) -0.019476470 -0.0196303998 0.02166041
-## 6    lsoa_cd E01006519 (Intercept) -0.016776175 -0.0159951356 0.01013979
-## 7    lsoa_cd E01006520 (Intercept) -0.024331304 -0.0237254423 0.01940656
-## 8    lsoa_cd E01006521 (Intercept)  0.006967176  0.0082368688 0.01842554
-## 9    lsoa_cd E01006522 (Intercept)  0.020355881  0.0188620766 0.01947313
-## 10   lsoa_cd E01006523 (Intercept)  0.002583665  0.0007739189 0.01853903
+##    groupFctr   groupID        term         mean       median         sd
+## 1    lsoa_cd E01006512 (Intercept) -0.014865244 -0.015796205 0.02089236
+## 2    lsoa_cd E01006513 (Intercept) -0.013607008 -0.014016928 0.02002253
+## 3    lsoa_cd E01006514 (Intercept) -0.023215238 -0.020467011 0.02034524
+## 4    lsoa_cd E01006515 (Intercept) -0.015420520 -0.016360380 0.02250687
+## 5    lsoa_cd E01006518 (Intercept) -0.017386304 -0.015396717 0.01987524
+## 6    lsoa_cd E01006519 (Intercept) -0.016975328 -0.017337494 0.01042356
+## 7    lsoa_cd E01006520 (Intercept) -0.026620316 -0.026909129 0.01917460
+## 8    lsoa_cd E01006521 (Intercept)  0.003686941  0.004444726 0.02044146
+## 9    lsoa_cd E01006522 (Intercept)  0.019902502  0.019559758 0.01924039
+## 10   lsoa_cd E01006523 (Intercept)  0.001853233  0.002101518 0.01897925
 ```
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from `ranef` with some small differences due to rounding.
@@ -605,9 +605,9 @@ str(re_msoa)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.0133 -0.0222 -0.032 0.0028 0.0223 ...
-##  $ median   : num  -0.011541 -0.022204 -0.034954 0.000639 0.021565 ...
-##  $ sd       : num  0.0308 0.0334 0.0323 0.0288 0.0167 ...
+##  $ mean     : num  -0.01626 -0.02403 -0.02532 0.00188 0.02399 ...
+##  $ median   : num  -0.01644 -0.02446 -0.02422 0.00199 0.0237 ...
+##  $ sd       : num  0.0344 0.032 0.0304 0.0321 0.0155 ...
 ```
 
 ```r

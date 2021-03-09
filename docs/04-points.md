@@ -525,7 +525,7 @@ mad_abb <- st_read("data/assignment_1_madrid/madrid_abb.gpkg")
 
 ```
 ## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
-## Simple feature collection with 18399 features and 15 fields
+## Simple feature collection with 18399 features and 16 fields
 ## geometry type:  POINT
 ## dimension:      XY
 ## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
@@ -541,9 +541,10 @@ colnames(mad_abb)
 
 ```
 ##  [1] "price"           "price_usd"       "log1p_price_usd" "accommodates"   
-##  [5] "bathrooms"       "bedrooms"        "beds"            "neighbourhood"  
-##  [9] "room_type"       "property_type"   "WiFi"            "Coffee"         
-## [13] "Gym"             "Parking"         "km_to_retiro"    "geom"
+##  [5] "bathrooms_text"  "bathrooms"       "bedrooms"        "beds"           
+##  [9] "neighbourhood"   "room_type"       "property_type"   "WiFi"           
+## [13] "Coffee"          "Gym"             "Parking"         "km_to_retiro"   
+## [17] "geom"
 ```
 
 For this set of questions, the only two columns we will need is `geom`, which contains the point geometries, and `price_usd`, which record the price of the AirBnb property in USD.

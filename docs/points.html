@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
 
 
-<meta name="date" content="2021-03-04" />
+<meta name="date" content="2021-03-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -680,7 +680,7 @@ And we can “dress it up” a bit further:</p>
 <p>We will be using the Madrid AirBnb dataset:</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="points.html#cb140-1" aria-hidden="true" tabindex="-1"></a>mad_abb <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/assignment_1_madrid/madrid_abb.gpkg&quot;</span>)</span></code></pre></div>
 <pre><code>## Reading layer `madrid_abb&#39; from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg&#39; using driver `GPKG&#39;
-## Simple feature collection with 18399 features and 15 fields
+## Simple feature collection with 18399 features and 16 fields
 ## geometry type:  POINT
 ## dimension:      XY
 ## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
@@ -688,9 +688,10 @@ And we can “dress it up” a bit further:</p>
 <p>This is fairly similar in spirit to the one from San Diego we have relied on for the chapter, although the column set is not exactly the same:</p>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="points.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mad_abb)</span></code></pre></div>
 <pre><code>##  [1] &quot;price&quot;           &quot;price_usd&quot;       &quot;log1p_price_usd&quot; &quot;accommodates&quot;   
-##  [5] &quot;bathrooms&quot;       &quot;bedrooms&quot;        &quot;beds&quot;            &quot;neighbourhood&quot;  
-##  [9] &quot;room_type&quot;       &quot;property_type&quot;   &quot;WiFi&quot;            &quot;Coffee&quot;         
-## [13] &quot;Gym&quot;             &quot;Parking&quot;         &quot;km_to_retiro&quot;    &quot;geom&quot;</code></pre>
+##  [5] &quot;bathrooms_text&quot;  &quot;bathrooms&quot;       &quot;bedrooms&quot;        &quot;beds&quot;           
+##  [9] &quot;neighbourhood&quot;   &quot;room_type&quot;       &quot;property_type&quot;   &quot;WiFi&quot;           
+## [13] &quot;Coffee&quot;          &quot;Gym&quot;             &quot;Parking&quot;         &quot;km_to_retiro&quot;   
+## [17] &quot;geom&quot;</code></pre>
 <p>For this set of questions, the only two columns we will need is <code>geom</code>, which contains the point geometries, and <code>price_usd</code>, which record the price of the AirBnb property in USD.</p>
 <p>With this at hand, answer the following questions:</p>
 <ol style="list-style-type: decimal">

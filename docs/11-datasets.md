@@ -26,7 +26,7 @@ db <- st_read(path)
 
 ```
 ## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
-## Simple feature collection with 18399 features and 15 fields
+## Simple feature collection with 18399 features and 16 fields
 ## geometry type:  POINT
 ## dimension:      XY
 ## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
@@ -35,7 +35,7 @@ db <- st_read(path)
 
 ### Variables {.unnumbered}
 
-For each of the 16 properties, the following characteristics are available:
+For each of the 17 properties, the following characteristics are available:
 
 - `price`: [string] Price with currency
 - `price_usd`: [int] Price expressed in USD

@@ -138,7 +138,7 @@
 
 \title{Spatial Modelling for Data Scientists}
 \author{Francisco Rowe and Dani Arribas-Bel}
-\date{2021-03-04}
+\date{2021-03-09}
 
 \begin{document}
 \maketitle
@@ -2283,7 +2283,7 @@ We will be using the Madrid AirBnb dataset:
 
 \begin{verbatim}
 ## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
-## Simple feature collection with 18399 features and 15 fields
+## Simple feature collection with 18399 features and 16 fields
 ## geometry type:  POINT
 ## dimension:      XY
 ## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
@@ -2300,9 +2300,10 @@ This is fairly similar in spirit to the one from San Diego we have relied on for
 
 \begin{verbatim}
 ##  [1] "price"           "price_usd"       "log1p_price_usd" "accommodates"   
-##  [5] "bathrooms"       "bedrooms"        "beds"            "neighbourhood"  
-##  [9] "room_type"       "property_type"   "WiFi"            "Coffee"         
-## [13] "Gym"             "Parking"         "km_to_retiro"    "geom"
+##  [5] "bathrooms_text"  "bathrooms"       "bedrooms"        "beds"           
+##  [9] "neighbourhood"   "room_type"       "property_type"   "WiFi"           
+## [13] "Coffee"          "Gym"             "Parking"         "km_to_retiro"   
+## [17] "geom"
 \end{verbatim}
 
 For this set of questions, the only two columns we will need is \texttt{geom}, which contains the point geometries, and \texttt{price\_usd}, which record the price of the AirBnb property in USD.
@@ -3277,7 +3278,7 @@ We will be using again the Madrid AirBnb dataset:
 ## OGR data source with driver: GPKG 
 ## Source: "/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg", layer: "madrid_abb"
 ## with 18399 features
-## It has 15 fields
+## It has 16 fields
 ## Integer64 fields read as strings:  accommodates
 \end{verbatim}
 
@@ -4286,7 +4287,7 @@ We will be using again the Madrid AirBnb dataset:
 
 \begin{verbatim}
 ## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
-## Simple feature collection with 18399 features and 15 fields
+## Simple feature collection with 18399 features and 16 fields
 ## geometry type:  POINT
 ## dimension:      XY
 ## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
@@ -4301,9 +4302,10 @@ We will be using again the Madrid AirBnb dataset:
 
 \begin{verbatim}
 ##  [1] "price"           "price_usd"       "log1p_price_usd" "accommodates"   
-##  [5] "bathrooms"       "bedrooms"        "beds"            "neighbourhood"  
-##  [9] "room_type"       "property_type"   "WiFi"            "Coffee"         
-## [13] "Gym"             "Parking"         "km_to_retiro"    "geom"
+##  [5] "bathrooms_text"  "bathrooms"       "bedrooms"        "beds"           
+##  [9] "neighbourhood"   "room_type"       "property_type"   "WiFi"           
+## [13] "Coffee"          "Gym"             "Parking"         "km_to_retiro"   
+## [17] "geom"
 \end{verbatim}
 
 In addition to those we have already seen, the columns to use here are:
@@ -4955,16 +4957,16 @@ We can also obtain group-level errors (\emph{random effects}) by using a simulat
 
 \begin{verbatim}
 ##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.017680906 -0.016626842 0.018870092
-## 2    lsoa_cd E01006513 (Intercept) -0.017617570 -0.018066693 0.019115525
-## 3    lsoa_cd E01006514 (Intercept) -0.022455219 -0.024168033 0.021785368
-## 4    lsoa_cd E01006515 (Intercept) -0.016784163 -0.016395283 0.021320606
-## 5    lsoa_cd E01006518 (Intercept) -0.017768949 -0.017502809 0.019970023
-## 6    lsoa_cd E01006519 (Intercept) -0.015479211 -0.015541777 0.009387277
-## 7    lsoa_cd E01006520 (Intercept) -0.023994861 -0.023096642 0.018421685
-## 8    lsoa_cd E01006521 (Intercept)  0.008643320  0.008511596 0.019978527
-## 9    lsoa_cd E01006522 (Intercept)  0.019293899  0.018170819 0.019429499
-## 10   lsoa_cd E01006523 (Intercept)  0.003201865  0.003069179 0.020071012
+## 1    lsoa_cd E01006512 (Intercept) -0.017571250 -0.018409611 0.019856203
+## 2    lsoa_cd E01006513 (Intercept) -0.017997503 -0.018431958 0.020338964
+## 3    lsoa_cd E01006514 (Intercept) -0.023025554 -0.021409016 0.018419526
+## 4    lsoa_cd E01006515 (Intercept) -0.014809761 -0.015182084 0.017941842
+## 5    lsoa_cd E01006518 (Intercept) -0.017966169 -0.019754684 0.020449175
+## 6    lsoa_cd E01006519 (Intercept) -0.016690370 -0.016403614 0.009121549
+## 7    lsoa_cd E01006520 (Intercept) -0.024490783 -0.024416801 0.019491994
+## 8    lsoa_cd E01006521 (Intercept)  0.005153600  0.005856537 0.018813114
+## 9    lsoa_cd E01006522 (Intercept)  0.015744589  0.015072998 0.019172764
+## 10   lsoa_cd E01006523 (Intercept)  0.002413828  0.002205473 0.018334849
 \end{verbatim}
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g.~LSOA). The mean estimates are similar to those obtained from \texttt{ranef} with some small differences due to rounding.
@@ -5041,9 +5043,9 @@ We can also map the MSOA-level \emph{random effects}. To this end, we first need
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.01178 -0.02368 -0.03151 0.00459 0.02287 ...
-##  $ median   : num  -0.01383 -0.02663 -0.03042 0.00513 0.02388 ...
-##  $ sd       : num  0.0359 0.0345 0.0335 0.0316 0.0166 ...
+##  $ mean     : num  -0.01156 -0.02505 -0.03463 0.00105 0.02509 ...
+##  $ median   : num  -0.011923 -0.025402 -0.035942 0.000172 0.025215 ...
+##  $ sd       : num  0.0318 0.0294 0.0297 0.0314 0.016 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -5802,9 +5804,9 @@ Let's try to get a better understanding of the varying relationship between unem
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.0261 -0.1225 0.0572 -0.1453 -0.2815 ...
-##  $ median   : num  0.0251 -0.1258 0.06 -0.149 -0.2825 ...
-##  $ sd       : num  0.0425 0.0805 0.0788 0.0396 0.0393 ...
+##  $ mean     : num  0.0289 -0.1073 0.0451 -0.1427 -0.2773 ...
+##  $ median   : num  0.0307 -0.1079 0.0447 -0.144 -0.2781 ...
+##  $ sd       : num  0.0417 0.0709 0.0897 0.0391 0.0407 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -7837,7 +7839,7 @@ The dataset is stored on a Geopackage that can be found, within the structure of
 
 \begin{verbatim}
 ## Reading layer `madrid_abb' from data source `/home/jovyan/work/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
-## Simple feature collection with 18399 features and 15 fields
+## Simple feature collection with 18399 features and 16 fields
 ## geometry type:  POINT
 ## dimension:      XY
 ## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
@@ -7848,7 +7850,7 @@ The dataset is stored on a Geopackage that can be found, within the structure of
 \subsection*{Variables}\label{variables}}
 \addcontentsline{toc}{subsection}{Variables}
 
-For each of the 16 properties, the following characteristics are available:
+For each of the 17 properties, the following characteristics are available:
 
 \begin{itemize}
 \tightlist
