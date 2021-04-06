@@ -122,7 +122,7 @@ utla_shp <- st_read("data/sta/ons_utla.shp")
 ```
 
 ```
-## Reading layer `ons_utla' from data source `/home/jovyan/work/data/sta/ons_utla.shp' using driver `ESRI Shapefile'
+## Reading layer `ons_utla' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sta/ons_utla.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 150 features and 11 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -617,7 +617,7 @@ We then prepare a data frame for the regression model, adding the weights extrac
 ```r
 # selecting variables
 reg_df <- cbind(covid19_spt, S) %>%
-  dplyr::select(ctyu19nm, c_covid19_r, long, lat, day, lt_illness, B1:B9)
+  dplyr::select(ctyu19nm, n_covid19_r, long, lat, date, lt_illness, B1:B9)
 ```
 
 **Fit Linear Regression**
@@ -628,7 +628,7 @@ We now fit a linear model using `lm` including as covariates longitude, latitude
 
 
 ```r
-eq1 <- c_covid19_r ~ long + lat + day + lt_illness + .
+eq1 <- n_covid19_r ~ long + lat + date + lt_illness + .
 lm_m <- lm(formula = eq1, 
            data = dplyr::select(reg_df, -ctyu19nm))
 lm_m %>% summary()
@@ -640,36 +640,36 @@ lm_m %>% summary()
 ## lm(formula = eq1, data = dplyr::select(reg_df, -ctyu19nm))
 ## 
 ## Residuals:
-##    Min     1Q Median     3Q    Max 
-## -87.55 -48.31 -27.51  27.68 338.54 
+##     Min      1Q  Median      3Q     Max 
+## -7.9726 -1.6679 -0.4867  1.1702 22.5346 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) -3.772e+03  4.218e+02  -8.943  < 2e-16 ***
-## long        -3.738e+01  9.054e+00  -4.128 3.68e-05 ***
-## lat          6.652e+01  8.169e+00   8.144 4.27e-16 ***
-## day         -6.662e-01  7.993e-02  -8.335  < 2e-16 ***
-## lt_illness   7.094e+02  8.857e+01   8.009 1.28e-15 ***
-## B1           2.367e+02  7.896e+01   2.997  0.00273 ** 
-## B2           4.438e+01  3.525e+01   1.259  0.20802    
-## B3           4.002e+02  4.947e+01   8.090 6.61e-16 ***
-## B4          -6.687e+01  6.858e+01  -0.975  0.32960    
-## B5           6.585e+01  5.585e+01   1.179  0.23835    
-## B6           8.324e+00  6.249e+01   0.133  0.89403    
-## B7           4.503e+01  9.222e+01   0.488  0.62534    
-## B8          -6.151e+00  7.006e+01  -0.088  0.93005    
-## B9           3.862e+01  6.359e+01   0.607  0.54368    
+## (Intercept) -2.082e+03  2.839e+01 -73.354  < 2e-16 ***
+## long        -1.932e+00  3.620e-01  -5.336  9.7e-08 ***
+## lat          3.390e+00  3.266e-01  10.380  < 2e-16 ***
+## date         1.033e-01  1.245e-03  82.958  < 2e-16 ***
+## lt_illness   3.276e+01  3.541e+00   9.250  < 2e-16 ***
+## B1           7.556e+00  3.157e+00   2.393   0.0167 *  
+## B2           1.898e+00  1.409e+00   1.347   0.1780    
+## B3           1.750e+01  1.978e+00   8.847  < 2e-16 ***
+## B4          -2.022e+00  2.742e+00  -0.737   0.4609    
+## B5           2.207e+00  2.233e+00   0.989   0.3229    
+## B6          -9.814e-01  2.498e+00  -0.393   0.6945    
+## B7          -2.031e-01  3.687e+00  -0.055   0.9561    
+## B8          -2.234e+00  2.801e+00  -0.797   0.4252    
+## B9           1.877e+00  2.543e+00   0.738   0.4604    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 71.08 on 10636 degrees of freedom
-## Multiple R-squared:  0.05544,	Adjusted R-squared:  0.05429 
-## F-statistic: 48.02 on 13 and 10636 DF,  p-value: < 2.2e-16
+## Residual standard error: 2.842 on 10636 degrees of freedom
+## Multiple R-squared:  0.4169,	Adjusted R-squared:  0.4162 
+## F-statistic:   585 on 13 and 10636 DF,  p-value: < 2.2e-16
 ```
 
-Coefficients for explicitly specified spatial and temporal variables and the share of long-term ill population are all statistically significant. The interpretation of the regression coefficients is as usual; that is, one unit increase in a covariate relates to one unit increase in the dependent variable. For instance, the coefficient for long-term illness population indicates that UTLAs with a larger share of long-term ill population in one percentage point tend to have 709 more new COVID-19 cases per 100,000 people! on average. The coefficient for day reveals a strong negative temporal dependence with smaller number of new cases per 100,000 people as we move over time. The coefficient for latutide indicates as we move north the number of new COVID-19 cases per 100,000 people tends to be higher but lower if we move west.
+Coefficients for explicitly specified spatial and temporal variables and the share of long-term ill population are all statistically significant. The interpretation of the regression coefficients is as usual; that is, one unit increase in a covariate relates to one unit increase in the dependent variable. For instance, the coefficient for long-term illness population indicates that UTLAs with a larger share of long-term ill population in one percentage point tend to have 328 more new COVID-19 cases per 100,000 people! on average. The coefficient for date reveals a strong positive temporal dependence with an average increase in the number of new cases per 100,000 people over time. The coefficient for latitude indicates as we move north the number of new COVID-19 cases per 100,000 people tends to be higher but lower if we move west.
 
-While overall the model provides some understanding of the spatio-temporal structure of the spread of COVID-19, the overall fit of the model is relatively poor. The $R^{2}$ reveals that the model explains only 5% of the variability of the spread of COVID-19 cases. Also, except for one, the coefficients associated to the basis functions are statistically insignificant. A key issue that we have ignored so far is the fact that our dependent variable is a count and is highly skewed - refer back to Section [8.4 Exploratory Analysis].
+While overall the model provides some understanding of the spatio-temporal structure of the spread of COVID-19, the overall fit of the model is relatively poor. The $R^{2}$ reveals that the model explains only 4.2% of the variability of the spread of COVID-19 cases, reflecting the complexity of modelling spatio-temporal processes. Also, except for two, the coefficients associated to the basis functions are statistically insignificant. A key issue that we have ignored so far is the fact that our dependent variable is a count and is highly skewed - refer back to Section [8.4 Exploratory Analysis].
 
 > Challenge 2: Explore a model with only spatial components (i.e. `long` and `lat`) or only temporal components (`day`). What model returns the largest $R^{2}$?
 
@@ -694,37 +694,37 @@ poisson_m1 %>% summary()
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -14.457   -9.386   -6.380    3.995   29.573  
+## -5.7454  -1.2043  -0.6993   0.3764   7.8981  
 ## 
 ## Coefficients:
-##               Estimate Std. Error z value Pr(>|z|)    
-## (Intercept) -9.726e+01  1.010e+00 -96.313  < 2e-16 ***
-## long        -9.789e-01  2.242e-02 -43.666  < 2e-16 ***
-## lat          1.767e+00  1.902e-02  92.869  < 2e-16 ***
-## day         -1.441e-02  1.664e-04 -86.581  < 2e-16 ***
-## lt_illness   1.442e+01  1.851e-01  77.923  < 2e-16 ***
-## B1           6.198e+00  2.017e-01  30.719  < 2e-16 ***
-## B2           3.616e-01  7.889e-02   4.583 4.59e-06 ***
-## B3           1.136e+01  1.418e-01  80.147  < 2e-16 ***
-## B4          -1.976e+00  1.450e-01 -13.627  < 2e-16 ***
-## B5           2.813e+00  1.255e-01  22.414  < 2e-16 ***
-## B6          -1.334e+00  1.380e-01  -9.662  < 2e-16 ***
-## B7           7.696e-01  2.117e-01   3.635 0.000278 ***
-## B8          -7.094e-01  1.546e-01  -4.589 4.46e-06 ***
-## B9           1.809e+00  1.616e-01  11.196  < 2e-16 ***
+##               Estimate Std. Error  z value Pr(>|z|)    
+## (Intercept) -1.027e+03  8.168e+00 -125.699  < 2e-16 ***
+## long        -8.534e-01  9.080e-02   -9.399  < 2e-16 ***
+## lat          1.456e+00  7.617e-02   19.115  < 2e-16 ***
+## date         5.153e-02  3.871e-04  133.121  < 2e-16 ***
+## lt_illness   1.166e+01  7.701e-01   15.139  < 2e-16 ***
+## B1           3.418e+00  8.005e-01    4.270 1.96e-05 ***
+## B2           4.414e-01  3.249e-01    1.359  0.17421    
+## B3           8.531e+00  5.480e-01   15.568  < 2e-16 ***
+## B4          -7.129e-01  5.865e-01   -1.215  0.22418    
+## B5           1.639e+00  5.048e-01    3.246  0.00117 ** 
+## B6          -1.282e+00  5.618e-01   -2.283  0.02245 *  
+## B7          -3.572e-01  8.411e-01   -0.425  0.67102    
+## B8          -1.003e+00  6.262e-01   -1.602  0.10917    
+## B9           1.655e+00  6.268e-01    2.640  0.00829 ** 
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## (Dispersion parameter for poisson family taken to be 1)
 ## 
-##     Null deviance: 1032743  on 10649  degrees of freedom
-## Residual deviance:  959940  on 10636  degrees of freedom
-## AIC: 993314
+##     Null deviance: 51245  on 10649  degrees of freedom
+## Residual deviance: 24458  on 10636  degrees of freedom
+## AIC: 42364
 ## 
-## Number of Fisher Scoring iterations: 6
+## Number of Fisher Scoring iterations: 5
 ```
 
-The model seems to provide a better fit to the data as the median of deviance residuals (-6.3) is smaller than for the linear regression model (-27.51). And, all coefficients are positive and statistically significant. Yet, the Poisson model assumes that the mean and variance of the COVID-19 cases is the same. But, given the distribution of our dependent variable, its variance is likely to be greater than the mean. That means the data exhibit “overdispersion”. How do we know this? An estimate of the dispersion is given by the ratio of the deviance to the total degrees of freedom (the number of data points minus the number of covariates). In this case the dispersion estimate is:
+The Poisson model seems to provide a more appropriate functional forms to identify the strength of the relationship between new COVID-19 cases and spatio-temporal dependencies as captured by a greater number (relative to the linear model) of basis functions coefficients becoming statistically significant. Yet, the Poisson model assumes that the mean and variance of the COVID-19 cases is the same. But, given the distribution of our dependent variable, its variance is likely to be greater than the mean. That means the data exhibit “overdispersion”. How do we know this? An estimate of the dispersion is given by the ratio of the deviance to the total degrees of freedom (the number of data points minus the number of covariates). In this case the dispersion estimate is:
 
 
 ```r
@@ -732,13 +732,13 @@ poisson_m1$deviance / poisson_m1$df.residual
 ```
 
 ```
-## [1] 90.25383
+## [1] 2.29953
 ```
 which is clearly greater than 1! i.e. the data are overdispersed.
 
 **Quasipoisson Regression**
 
-An approach to account for overdispersion is to use quasipoisson when calling `glm`. The quasi-Poisson model assumes that the variance is proportional to the mean, and that the constant of the proportionality is the over-dispersion parameter.
+An approach to account for overdispersion is to use quasipoisson when calling `glm`. The quasi-Poisson model assumes that the variance is proportional to the mean, and that the constant of the proportionality is the over-dispersion parameter. This model corrects the standard error of the estimated coefficients. So only p-values and t values are affected. No changes are recorded in terms of residual deviance (24458) and median of deviance residuals (-0.6993), compared to the standard Poisson model. 
 
 
 ```r
@@ -757,99 +757,156 @@ qpoisson_m1 %>% summary()
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -14.457   -9.386   -6.380    3.995   29.573  
+## -5.7454  -1.2043  -0.6993   0.3764   7.8981  
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) -97.261261  10.069209  -9.659  < 2e-16 ***
-## long         -0.978924   0.223534  -4.379 1.20e-05 ***
-## lat           1.766675   0.189682   9.314  < 2e-16 ***
-## day          -0.014405   0.001659  -8.683  < 2e-16 ***
-## lt_illness   14.420396   1.845247   7.815 6.02e-15 ***
-## B1            6.197505   2.011637   3.081  0.00207 ** 
-## B2            0.361556   0.786651   0.460  0.64580    
-## B3           11.363202   1.413688   8.038 1.01e-15 ***
-## B4           -1.975530   1.445504  -1.367  0.17176    
-## B5            2.813267   1.251510   2.248  0.02460 *  
-## B6           -1.333746   1.376430  -0.969  0.33257    
-## B7            0.769599   2.110944   0.365  0.71544    
-## B8           -0.709375   1.541475  -0.460  0.64539    
-## B9            1.809393   1.611435   1.123  0.26153    
+## (Intercept) -1.027e+03  1.215e+01 -84.490  < 2e-16 ***
+## long        -8.534e-01  1.351e-01  -6.318 2.76e-10 ***
+## lat          1.456e+00  1.133e-01  12.848  < 2e-16 ***
+## date         5.153e-02  5.759e-04  89.478  < 2e-16 ***
+## lt_illness   1.166e+01  1.146e+00  10.176  < 2e-16 ***
+## B1           3.418e+00  1.191e+00   2.870  0.00411 ** 
+## B2           4.414e-01  4.833e-01   0.913  0.36109    
+## B3           8.531e+00  8.153e-01  10.464  < 2e-16 ***
+## B4          -7.129e-01  8.726e-01  -0.817  0.41395    
+## B5           1.639e+00  7.510e-01   2.182  0.02915 *  
+## B6          -1.282e+00  8.358e-01  -1.534  0.12499    
+## B7          -3.572e-01  1.251e+00  -0.286  0.77526    
+## B8          -1.003e+00  9.316e-01  -1.077  0.28162    
+## B9           1.655e+00  9.325e-01   1.774  0.07603 .  
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## (Dispersion parameter for quasipoisson family taken to be 99.42153)
+## (Dispersion parameter for quasipoisson family taken to be 2.213379)
 ## 
-##     Null deviance: 1032743  on 10649  degrees of freedom
-## Residual deviance:  959940  on 10636  degrees of freedom
+##     Null deviance: 51245  on 10649  degrees of freedom
+## Residual deviance: 24458  on 10636  degrees of freedom
 ## AIC: NA
 ## 
-## Number of Fisher Scoring iterations: 6
+## Number of Fisher Scoring iterations: 5
 ```
 
 **Negative Binomial Regression**
 
-The model output indicates major improvement in terms of model fit as the residual deviance (959940) and median of deviance residuals (-6.380) remain unchanged. An alternative approach is a Negative Binomial Model (NBM). This models relaxes the assumption of equality between the mean and variance. We estimate a NBM by using the function `glm.nb` from the `MASS` package.
+An alternative approach to deal with overdispersion is the Negative Binomial Model (NBM). This models relaxes the assumption of equality between the mean and variance. We estimate a NBM by using the function `glm.nb` from the `MASS` package.
 
 
 ```r
 # estimate a negative binomial model
 nb_m1 <- glm.nb(eq1, 
        data = dplyr::select(reg_df, -ctyu19nm))
-nb_m1
+nb_m1 %>% summary()
 ```
 
 ```
 ## 
-## Call:  glm.nb(formula = eq1, data = dplyr::select(reg_df, -ctyu19nm), 
-##     init.theta = 11051670.9, link = log)
+## Call:
+## glm.nb(formula = eq1, data = dplyr::select(reg_df, -ctyu19nm), 
+##     init.theta = 1.493089258, link = log)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -3.0655  -0.8110  -0.4119   0.1861   3.1676  
 ## 
 ## Coefficients:
-## (Intercept)         long          lat          day   lt_illness           B1  
-##   -97.26122     -0.97892      1.76667     -0.01441     14.42040      6.19749  
-##          B2           B3           B4           B5           B6           B7  
-##     0.36155     11.36319     -1.97553      2.81326     -1.33374      0.76959  
-##          B8           B9  
-##    -0.70938      1.80938  
+##               Estimate Std. Error z value Pr(>|z|)    
+## (Intercept) -1.540e+03  1.596e+01 -96.459  < 2e-16 ***
+## long        -8.402e-01  1.650e-01  -5.090 3.57e-07 ***
+## lat          1.604e+00  1.456e-01  11.021  < 2e-16 ***
+## date         7.901e-02  7.522e-04 105.030  < 2e-16 ***
+## lt_illness   1.440e+01  1.534e+00   9.387  < 2e-16 ***
+## B1           5.121e+00  1.460e+00   3.508 0.000452 ***
+## B2           1.622e-01  6.177e-01   0.263 0.792897    
+## B3           9.502e+00  9.469e-01  10.035  < 2e-16 ***
+## B4          -2.054e+00  1.183e+00  -1.736 0.082590 .  
+## B5           2.461e+00  9.802e-01   2.510 0.012059 *  
+## B6          -1.095e+00  1.089e+00  -1.005 0.314895    
+## B7           6.486e-01  1.642e+00   0.395 0.692877    
+## B8          -1.143e+00  1.225e+00  -0.933 0.350789    
+## B9           1.068e+00  1.169e+00   0.914 0.360917    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Degrees of Freedom: 10649 Total (i.e. Null);  10636 Residual
-## Null Deviance:	    1033000 
-## Residual Deviance: 959900 	AIC: 993300
+## (Dispersion parameter for Negative Binomial(1.4931) family taken to be 1)
+## 
+##     Null deviance: 22092.1  on 10649  degrees of freedom
+## Residual deviance:  8374.3  on 10636  degrees of freedom
+## AIC: 34057
+## 
+## Number of Fisher Scoring iterations: 1
+## 
+## 
+##               Theta:  1.4931 
+##           Std. Err.:  0.0361 
+## 
+##  2 x log-likelihood:  -34027.2980
 ```
+
+The NBM leads to a significant reduction in residual deviance from 24,458 returned by the Poisson model to only 8,374. It points to a major improvement in explaining the spatio-temporal variability in the spread of COVID-19
 
 **Including Interactions**
 
-Similarly the model output does not suggest any major improvement in explaining the spatio-temporal variability in the spread of COVID-19. We may need a different strategy then. Let's try running a NBM including interaction terms between spatial and temporal terms (i.e. longitude, latitude and day). We can do this by estimating the following model `c_covid19_r ~ (long + lat + day)^2 + lt_illness + .`
+Yet, we may further refine our model based on a different strategy. Let's try running a NBM including interaction terms between spatial and temporal terms (i.e. longitude, latitude and date). We can do this by estimating the following model `c_covid19_r ~ (long + lat + date)^2 + lt_illness + .`
 
 
 ```r
 # new model specification
-eq2 <- c_covid19_r ~ (long + lat + day)^2 + lt_illness + .
+eq2 <- n_covid19_r ~ (long + lat + date)^2 + lt_illness + .
 # estimate a negative binomial model
 nb_m2 <- glm.nb(eq2, 
        data = dplyr::select(reg_df, -ctyu19nm))
-nb_m2
+nb_m2 %>% summary()
 ```
 
 ```
 ## 
-## Call:  glm.nb(formula = eq2, data = dplyr::select(reg_df, -ctyu19nm), 
-##     init.theta = 300465.7453, link = log)
+## Call:
+## glm.nb(formula = eq2, data = dplyr::select(reg_df, -ctyu19nm), 
+##     init.theta = 1.56089592, link = log)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -3.1506  -0.8099  -0.4039   0.2036   3.4084  
 ## 
 ## Coefficients:
-## (Intercept)         long          lat          day   lt_illness           B1  
-##  -2.642e+02   -7.873e+01    4.936e+00    6.423e-02    1.335e+01    1.145e+01  
-##          B2           B3           B4           B5           B6           B7  
-##  -7.235e-01    2.132e+01   -6.598e+00    9.543e+00   -1.075e+01    2.157e+01  
-##          B8           B9     long:lat     long:day      lat:day  
-##  -5.503e+00    9.127e-01    1.533e+00    8.504e-05   -1.499e-03  
+##               Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)  4.797e+03  6.955e+02   6.897 5.32e-12 ***
+## long        -4.509e+01  1.559e+01  -2.892  0.00382 ** 
+## lat         -1.185e+02  1.342e+01  -8.827  < 2e-16 ***
+## date        -2.754e-01  3.788e-02  -7.270 3.61e-13 ***
+## lt_illness   1.329e+01  1.522e+00   8.734  < 2e-16 ***
+## B1           1.155e+01  1.571e+00   7.354 1.92e-13 ***
+## B2          -4.181e-01  6.212e-01  -0.673  0.50095    
+## B3           2.062e+01  1.408e+00  14.644  < 2e-16 ***
+## B4          -6.669e+00  1.256e+00  -5.311 1.09e-07 ***
+## B5           9.446e+00  1.170e+00   8.071 6.96e-16 ***
+## B6          -1.050e+01  1.398e+00  -7.509 5.96e-14 ***
+## B7           2.309e+01  2.626e+00   8.793  < 2e-16 ***
+## B8          -5.111e+00  1.279e+00  -3.995 6.48e-05 ***
+## B9           1.139e+00  1.159e+00   0.983  0.32575    
+## long:lat     1.574e+00  1.462e-01  10.763  < 2e-16 ***
+## long:date   -1.937e-03  7.525e-04  -2.574  0.01005 *  
+## lat:date     6.713e-03  7.309e-04   9.185  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Degrees of Freedom: 10649 Total (i.e. Null);  10633 Residual
-## Null Deviance:	    1033000 
-## Residual Deviance: 953600 	AIC: 987000
+## (Dispersion parameter for Negative Binomial(1.5609) family taken to be 1)
+## 
+##     Null deviance: 22557.0  on 10649  degrees of freedom
+## Residual deviance:  8352.3  on 10633  degrees of freedom
+## AIC: 33849
+## 
+## Number of Fisher Scoring iterations: 1
+## 
+## 
+##               Theta:  1.5609 
+##           Std. Err.:  0.0383 
+## 
+##  2 x log-likelihood:  -33813.3960
 ```
 
-This model leads to a better model by returning a slight reduction in the residual deviance and AIC score. Interestingly it also returns highly statisticaly significant coeficients for the interaction terms between longitude and latitude (`long:lat`) and latitude and day (`lat:day`). The former indicates that as we move one degree north and west, the number of new cases tend to increase in 2 cases. The latter indicates UTLAs on the west of England tend to report a lower number of cases as time passes.
+This model leads to a slightly better model by returning a small reduction in the residual deviance and AIC score. Interestingly it also returns highly statistically significant coefficients for all three interaction terms between longitude and latitude (`long:lat`), longitude and date (`long:date`), and latitude and date (`lat:date`). The first  indicates that as we move one degree north and west, the number of new cases tend to increase in 2 cases. The second indicates that UTLAs located further north of England tend to record a smaller number of cases over time. The third indicates that UTLAs on the west of England tend to report a much higher number of cases as time passes.
 
 You can report the output for all models estimated above by executing (after removing `#`):
 
@@ -857,10 +914,11 @@ You can report the output for all models estimated above by executing (after rem
 ```r
 # export_summs(lm_m, poisson_m, qpoisson_m1, nb_m1, nb_m2)
 ```
+Note that you may need to install the `huxtable` package.
 
 #### Model Comparision
 
-To compare regression models based on different specifications and assumptions, like those reported above, you may want to consider the cross-validation approach used in Chapter 4 [Flows]. An easy approach if you would like to get a quick sense of model fit, you can look at the correlation between observed and predicted values of the dependent variable. For our models, we can achieve this by executing:
+To compare regression models based on different specifications and assumptions, like those reported above, you may want to consider the cross-validation approach used in Chapter 4 [Flows]. An alternative approach if you would like to get a quick sense of model fit is to explore the correlation between observed and predicted values of the dependent variable. For our models, we can achieve this by executing:
 
 
 ```r
@@ -872,12 +930,12 @@ nb2_cnt <- predict(nb_m2)
 reg_df <- cbind(reg_df, lm_cnt, poisson_cnt, nb1_cnt, nb2_cnt)
 
 # computing correlation coefficients
-cormat <- cor(reg_df[, c("c_covid19_r", "lm_cnt", "poisson_cnt", "nb1_cnt", "nb2_cnt")], 
+cormat <- cor(reg_df[, c("n_covid19_r", "lm_cnt", "poisson_cnt", "nb1_cnt", "nb2_cnt")], 
               use="complete.obs", 
               method="pearson")
 
 # significance test
-sig1 <- corrplot::cor.mtest(reg_df[, c("c_covid19_r", "lm_cnt", "poisson_cnt", "nb1_cnt", "nb2_cnt")],
+sig1 <- corrplot::cor.mtest(reg_df[, c("n_covid19_r", "lm_cnt", "poisson_cnt", "nb1_cnt", "nb2_cnt")],
                             conf.level = .95)
 
 # create a correlogram
@@ -889,10 +947,9 @@ corrplot::corrplot.mixed(cormat,
 
 ![](10-st_analysis_files/figure-epub3/unnamed-chunk-29-1.png)<!-- -->
 
-None of the models does a great job at predicting the observed count of new COVID-19 cases. They display correlation coefficients between 0.23 and 0.24 and high degree of correlation between them. Part of the assignment will be finding ways to improve this initial models. They should just be considered as a starting point.
+All the models do a relatively job at predicting the observed count of new COVID-19 cases. They display correlation coefficients of 0.64/5 and high degree of correlation between them. These models will provide a good starting point for the assignment. There are a potentially few easy ways to make some considerable improvement.
 
-There are a potentially few easy ways to make some considerable improvement. 
-* *Option 1* Remove all zeros from the dependent variable `c_covid19_r`. They are likely to be affecting the ability of the model to predict positive values which are of main interest if we want to understand the spatio-temporal patterns of the outbreak. 
+* *Option 1* Remove all zeros from the dependent variable `n_covid19_r`. They are likely to be affecting the ability of the model to predict positive values which are of main interest if we want to understand the spatio-temporal patterns of the outbreak. 
 * *Option 2* Remove all zeros from the dependent variable and additionally use its log for the regression model. 
 * *Option 3* Include more explanatory variables. Look for factors which can explain the spatial-temporal variability of the current COVID-19 outbreak. Look for hypotheses / anecdotal evidence from the newspapers and social media. 
 * *Option 4* Check for collinearity. Collinearity is likely to be an issue given the way basis functions are created. Checking for collinearity of course will not improve the fit of the existing model but it is important to remove collinear terms if statistical inference is a key goal - which in this case is. Over to you now!
@@ -907,7 +964,7 @@ sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
 ```
 
 ```
-## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY

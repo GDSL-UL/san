@@ -515,7 +515,7 @@ We then prepare a data frame for the regression model, adding the weights extrac
 ```{r}
 # selecting variables
 reg_df <- cbind(covid19_spt, S) %>%
-  dplyr::select(ctyu19nm, c_covid19_r, long, lat, day, lt_illness, B1:B9)
+  dplyr::select(ctyu19nm, n_covid19_r, long, lat, date, lt_illness, B1:B9)
 ```
 
 **Fit Linear Regression**
@@ -525,15 +525,15 @@ We now fit a linear model using `lm` including as covariates longitude, latitude
 > Recall that latitude refers to north/south from the equator and longitude refers to west/east from Greenwich. Further up north means a higher latitude score. Further west means higher longitude score. Scores for Liverpool (53.4084° N, 2.9916° W) are thus higher than for London (51.5074° N, 0.1278° W). This will be helpful for interpretation.
 
 ```{r}
-eq1 <- c_covid19_r ~ long + lat + day + lt_illness + .
+eq1 <- n_covid19_r ~ long + lat + date + lt_illness + .
 lm_m <- lm(formula = eq1, 
            data = dplyr::select(reg_df, -ctyu19nm))
 lm_m %>% summary()
 ```
 
-Coefficients for explicitly specified spatial and temporal variables and the share of long-term ill population are all statistically significant. The interpretation of the regression coefficients is as usual; that is, one unit increase in a covariate relates to one unit increase in the dependent variable. For instance, the coefficient for long-term illness population indicates that UTLAs with a larger share of long-term ill population in one percentage point tend to have 709 more new COVID-19 cases per 100,000 people! on average. The coefficient for day reveals a strong negative temporal dependence with smaller number of new cases per 100,000 people as we move over time. The coefficient for latutide indicates as we move north the number of new COVID-19 cases per 100,000 people tends to be higher but lower if we move west.
+Coefficients for explicitly specified spatial and temporal variables and the share of long-term ill population are all statistically significant. The interpretation of the regression coefficients is as usual; that is, one unit increase in a covariate relates to one unit increase in the dependent variable. For instance, the coefficient for long-term illness population indicates that UTLAs with a larger share of long-term ill population in one percentage point tend to have 328 more new COVID-19 cases per 100,000 people! on average. The coefficient for date reveals a strong positive temporal dependence with an average increase in the number of new cases per 100,000 people over time. The coefficient for latitude indicates as we move north the number of new COVID-19 cases per 100,000 people tends to be higher but lower if we move west.
 
-While overall the model provides some understanding of the spatio-temporal structure of the spread of COVID-19, the overall fit of the model is relatively poor. The $R^{2}$ reveals that the model explains only 5% of the variability of the spread of COVID-19 cases. Also, except for one, the coefficients associated to the basis functions are statistically insignificant. A key issue that we have ignored so far is the fact that our dependent variable is a count and is highly skewed - refer back to Section [8.4 Exploratory Analysis].
+While overall the model provides some understanding of the spatio-temporal structure of the spread of COVID-19, the overall fit of the model is relatively poor. The $R^{2}$ reveals that the model explains only 4.2% of the variability of the spread of COVID-19 cases, reflecting the complexity of modelling spatio-temporal processes. Also, except for two, the coefficients associated to the basis functions are statistically insignificant. A key issue that we have ignored so far is the fact that our dependent variable is a count and is highly skewed - refer back to Section [8.4 Exploratory Analysis].
 
 > Challenge 2: Explore a model with only spatial components (i.e. `long` and `lat`) or only temporal components (`day`). What model returns the largest $R^{2}$?
 
@@ -549,7 +549,7 @@ poisson_m1 <- glm(eq1,
 poisson_m1 %>% summary()
 ```
 
-The model seems to provide a better fit to the data as the median of deviance residuals (-6.3) is smaller than for the linear regression model (-27.51). And, all coefficients are positive and statistically significant. Yet, the Poisson model assumes that the mean and variance of the COVID-19 cases is the same. But, given the distribution of our dependent variable, its variance is likely to be greater than the mean. That means the data exhibit “overdispersion”. How do we know this? An estimate of the dispersion is given by the ratio of the deviance to the total degrees of freedom (the number of data points minus the number of covariates). In this case the dispersion estimate is:
+The Poisson model seems to provide a more appropriate functional forms to identify the strength of the relationship between new COVID-19 cases and spatio-temporal dependencies as captured by a greater number (relative to the linear model) of basis functions coefficients becoming statistically significant. Yet, the Poisson model assumes that the mean and variance of the COVID-19 cases is the same. But, given the distribution of our dependent variable, its variance is likely to be greater than the mean. That means the data exhibit “overdispersion”. How do we know this? An estimate of the dispersion is given by the ratio of the deviance to the total degrees of freedom (the number of data points minus the number of covariates). In this case the dispersion estimate is:
 
 ```{r}
 poisson_m1$deviance / poisson_m1$df.residual
@@ -558,7 +558,7 @@ which is clearly greater than 1! i.e. the data are overdispersed.
 
 **Quasipoisson Regression**
 
-An approach to account for overdispersion is to use quasipoisson when calling `glm`. The quasi-Poisson model assumes that the variance is proportional to the mean, and that the constant of the proportionality is the over-dispersion parameter.
+An approach to account for overdispersion is to use quasipoisson when calling `glm`. The quasi-Poisson model assumes that the variance is proportional to the mean, and that the constant of the proportionality is the over-dispersion parameter. This model corrects the standard error of the estimated coefficients. So only p-values and t values are affected. No changes are recorded in terms of residual deviance (24458) and median of deviance residuals (-0.6993), compared to the standard Poisson model. 
 
 ```{r}
 # estimate a quasipoisson model
@@ -570,39 +570,42 @@ qpoisson_m1 %>% summary()
 
 **Negative Binomial Regression**
 
-The model output indicates major improvement in terms of model fit as the residual deviance (959940) and median of deviance residuals (-6.380) remain unchanged. An alternative approach is a Negative Binomial Model (NBM). This models relaxes the assumption of equality between the mean and variance. We estimate a NBM by using the function `glm.nb` from the `MASS` package.
+An alternative approach to deal with overdispersion is the Negative Binomial Model (NBM). This models relaxes the assumption of equality between the mean and variance. We estimate a NBM by using the function `glm.nb` from the `MASS` package.
 
 ```{r, warning=FALSE, message=FALSE}
 # estimate a negative binomial model
 nb_m1 <- glm.nb(eq1, 
        data = dplyr::select(reg_df, -ctyu19nm))
-nb_m1
+nb_m1 %>% summary()
 ```
+
+The NBM leads to a significant reduction in residual deviance from 24,458 returned by the Poisson model to only 8,374. It points to a major improvement in explaining the spatio-temporal variability in the spread of COVID-19
 
 **Including Interactions**
 
-Similarly the model output does not suggest any major improvement in explaining the spatio-temporal variability in the spread of COVID-19. We may need a different strategy then. Let's try running a NBM including interaction terms between spatial and temporal terms (i.e. longitude, latitude and day). We can do this by estimating the following model `c_covid19_r ~ (long + lat + day)^2 + lt_illness + .`
+Yet, we may further refine our model based on a different strategy. Let's try running a NBM including interaction terms between spatial and temporal terms (i.e. longitude, latitude and date). We can do this by estimating the following model `c_covid19_r ~ (long + lat + date)^2 + lt_illness + .`
 
 ```{r, warning=FALSE, message=FALSE}
 # new model specification
-eq2 <- c_covid19_r ~ (long + lat + day)^2 + lt_illness + .
+eq2 <- n_covid19_r ~ (long + lat + date)^2 + lt_illness + .
 # estimate a negative binomial model
 nb_m2 <- glm.nb(eq2, 
        data = dplyr::select(reg_df, -ctyu19nm))
-nb_m2
+nb_m2 %>% summary()
 ```
 
-This model leads to a better model by returning a slight reduction in the residual deviance and AIC score. Interestingly it also returns highly statisticaly significant coeficients for the interaction terms between longitude and latitude (`long:lat`) and latitude and day (`lat:day`). The former indicates that as we move one degree north and west, the number of new cases tend to increase in 2 cases. The latter indicates UTLAs on the west of England tend to report a lower number of cases as time passes.
+This model leads to a slightly better model by returning a small reduction in the residual deviance and AIC score. Interestingly it also returns highly statistically significant coefficients for all three interaction terms between longitude and latitude (`long:lat`), longitude and date (`long:date`), and latitude and date (`lat:date`). The first  indicates that as we move one degree north and west, the number of new cases tend to increase in 2 cases. The second indicates that UTLAs located further north of England tend to record a smaller number of cases over time. The third indicates that UTLAs on the west of England tend to report a much higher number of cases as time passes.
 
 You can report the output for all models estimated above by executing (after removing `#`):
 
 ```{r}
 # export_summs(lm_m, poisson_m, qpoisson_m1, nb_m1, nb_m2)
 ```
+Note that you may need to install the `huxtable` package.
 
 #### Model Comparision
 
-To compare regression models based on different specifications and assumptions, like those reported above, you may want to consider the cross-validation approach used in Chapter 4 [Flows]. An easy approach if you would like to get a quick sense of model fit, you can look at the correlation between observed and predicted values of the dependent variable. For our models, we can achieve this by executing:
+To compare regression models based on different specifications and assumptions, like those reported above, you may want to consider the cross-validation approach used in Chapter 4 [Flows]. An alternative approach if you would like to get a quick sense of model fit is to explore the correlation between observed and predicted values of the dependent variable. For our models, we can achieve this by executing:
 
 ```{r}
 # computing predictions for all models
@@ -613,12 +616,12 @@ nb2_cnt <- predict(nb_m2)
 reg_df <- cbind(reg_df, lm_cnt, poisson_cnt, nb1_cnt, nb2_cnt)
 
 # computing correlation coefficients
-cormat <- cor(reg_df[, c("c_covid19_r", "lm_cnt", "poisson_cnt", "nb1_cnt", "nb2_cnt")], 
+cormat <- cor(reg_df[, c("n_covid19_r", "lm_cnt", "poisson_cnt", "nb1_cnt", "nb2_cnt")], 
               use="complete.obs", 
               method="pearson")
 
 # significance test
-sig1 <- corrplot::cor.mtest(reg_df[, c("c_covid19_r", "lm_cnt", "poisson_cnt", "nb1_cnt", "nb2_cnt")],
+sig1 <- corrplot::cor.mtest(reg_df[, c("n_covid19_r", "lm_cnt", "poisson_cnt", "nb1_cnt", "nb2_cnt")],
                             conf.level = .95)
 
 # create a correlogram
@@ -628,10 +631,9 @@ corrplot::corrplot.mixed(cormat,
                          tl.cex = 0.9)
 ```
 
-None of the models does a great job at predicting the observed count of new COVID-19 cases. They display correlation coefficients between 0.23 and 0.24 and high degree of correlation between them. Part of the assignment will be finding ways to improve this initial models. They should just be considered as a starting point.
+All the models do a relatively job at predicting the observed count of new COVID-19 cases. They display correlation coefficients of 0.64/5 and high degree of correlation between them. These models will provide a good starting point for the assignment. There are a potentially few easy ways to make some considerable improvement.
 
-There are a potentially few easy ways to make some considerable improvement. 
-* *Option 1* Remove all zeros from the dependent variable `c_covid19_r`. They are likely to be affecting the ability of the model to predict positive values which are of main interest if we want to understand the spatio-temporal patterns of the outbreak. 
+* *Option 1* Remove all zeros from the dependent variable `n_covid19_r`. They are likely to be affecting the ability of the model to predict positive values which are of main interest if we want to understand the spatio-temporal patterns of the outbreak. 
 * *Option 2* Remove all zeros from the dependent variable and additionally use its log for the regression model. 
 * *Option 3* Include more explanatory variables. Look for factors which can explain the spatial-temporal variability of the current COVID-19 outbreak. Look for hypotheses / anecdotal evidence from the newspapers and social media. 
 * *Option 4* Check for collinearity. Collinearity is likely to be an issue given the way basis functions are created. Checking for collinearity of course will not improve the fit of the existing model but it is important to remove collinear terms if statistical inference is a key goal - which in this case is. Over to you now!

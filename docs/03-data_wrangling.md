@@ -22,14 +22,6 @@ This tutorial uses the libraries below. Ensure they are installed on your machin
 ```r
 # Data manipulation, transformation and visualisation
 library(tidyverse)
-```
-
-```
-## Warning in system("timedatectl", intern = TRUE): running command 'timedatectl'
-## had status 1
-```
-
-```r
 # Nice tables
 library(kableExtra)
 # Simple features (a standardised way to encode vector data ie. points, lines, polygons)
@@ -78,7 +70,7 @@ getwd()
 ```
 
 ```
-## [1] "/home/jovyan/work"
+## [1] "/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san"
 ```
 
 ## R Scripts and Notebooks
@@ -741,7 +733,7 @@ oa_shp <- st_read("data/census/Liverpool_OA.shp")
 ```
 
 ```
-## Reading layer `Liverpool_OA' from data source `/home/jovyan/work/data/census/Liverpool_OA.shp' using driver `ESRI Shapefile'
+## Reading layer `Liverpool_OA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/census/Liverpool_OA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 1584 features and 18 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -931,7 +923,7 @@ msoa_shp <- st_read("data/census/Liverpool_MSOA.shp")
 ```
 
 ```
-## Reading layer `Liverpool_MSOA' from data source `/home/jovyan/work/data/census/Liverpool_MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `Liverpool_MSOA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/census/Liverpool_MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 16 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY

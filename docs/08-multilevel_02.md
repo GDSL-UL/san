@@ -17,14 +17,6 @@ This chapter uses the following libraries which are listed in the [Dependency li
 ```r
 # Data manipulation, transformation and visualisation
 library(tidyverse)
-```
-
-```
-## Warning in system("timedatectl", intern = TRUE): running command 'timedatectl'
-## had status 1
-```
-
-```r
 # Nice tables
 library(kableExtra)
 # Simple features (a standardised way to encode vector data ie. points, lines, polygons)
@@ -258,7 +250,7 @@ msoa_shp <- st_read("data/mlm/MSOA.shp")
 ```
 
 ```
-## Reading layer `MSOA' from data source `/home/jovyan/work/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `MSOA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -278,9 +270,9 @@ str(re_msoa_m6)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.0282 -0.1173 0.0553 -0.1463 -0.2809 ...
-##  $ median   : num  0.0275 -0.1176 0.0551 -0.1433 -0.2811 ...
-##  $ sd       : num  0.0498 0.0767 0.0882 0.0365 0.0388 ...
+##  $ mean     : num  0.0268 -0.109 0.0574 -0.1464 -0.2826 ...
+##  $ median   : num  0.0311 -0.1102 0.0594 -0.1435 -0.2852 ...
+##  $ sd       : num  0.0429 0.0678 0.0806 0.0375 0.04 ...
 ```
 
 ```r
@@ -451,7 +443,7 @@ sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
 ```
 
 ```
-## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY

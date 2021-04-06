@@ -16,14 +16,6 @@ This chapter uses the following libraries:
 ```r
 # Data manipulation, transformation and visualisation
 library(tidyverse)
-```
-
-```
-## Warning in system("timedatectl", intern = TRUE): running command 'timedatectl'
-## had status 1
-```
-
-```r
 # Nice tables
 library(kableExtra)
 # Simple features (a standardised way to encode vector data ie. points, lines, polygons)
@@ -128,7 +120,7 @@ reg_shp <- st_read("data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp")
 ```
 
 ```
-## Reading layer `Regions_December_2019_Boundaries_EN_BGC' from data source `/home/jovyan/work/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp' using driver `ESRI Shapefile'
+## Reading layer `Regions_December_2019_Boundaries_EN_BGC' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 9 features and 9 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -630,7 +622,7 @@ sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
 ```
 
 ```
-## Reading layer `covid19_eng' from data source `/home/jovyan/work/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
