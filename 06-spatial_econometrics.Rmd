@@ -250,7 +250,7 @@ $$
 \log(P_i) = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i+ \beta_5 Bath_{lag-i} + \epsilon_i
 $$
 
-Let us first compute the spatial lag of imd_score:
+Let us first compute the spatial lag of `bathrooms`:
 
 ```{r}
 db$w_bathrooms <- lag.listw(hknn, db$bathrooms)
