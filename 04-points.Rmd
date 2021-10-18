@@ -276,7 +276,7 @@ pt <- c(X = -117.02259063720702, Y = 32.76511965117273) %>%
   st_point() %>%
   st_sfc() %>%
   st_sf(crs = "EPSG:4326") %>%
-  st_transform(st_crs(db)  
+  st_transform(st_crs(db))
 idw.one <- idw(price ~ 1, locations=db, newdata=pt)
 idw.one
 ```
