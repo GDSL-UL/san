@@ -19,7 +19,7 @@ library(sf)
 ```
 
 ```
-## Linking to GEOS 3.8.1, GDAL 3.1.4, PROJ 6.3.1
+## Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1
 ```
 
 ```r
@@ -67,7 +67,7 @@ db <- st_read("data/abb_sd/regression_db.geojson")
 ```
 
 ```
-## Reading layer `regression_db' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
+## Reading layer `regression_db' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -525,7 +525,7 @@ mad_abb <- st_read("data/assignment_1_madrid/madrid_abb.gpkg")
 ```
 
 ```
-## Reading layer `madrid_abb' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Reading layer `madrid_abb' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
 ## Simple feature collection with 18399 features and 16 fields
 ## geometry type:  POINT
 ## dimension:      XY

@@ -15,7 +15,7 @@ description: "This course will teach you how to analyse and model spatial data u
 
 # Welcome {-}
 
-This is the website for **"Spatial Modeling for Data Scientists"**. This is a course taught by Dr. Francisco Rowe and Dr. Dani Arribas-Bel in the Second Semester of 2020/21 at the University of Liverpool, United Kingdom. You will learn how to analyse and model different types of spatial data as well as gaining an understanding of the various challenges arising from manipulating such data.
+This is the website for **"Spatial Modeling for Data Scientists"**. This is a course taught by Dr. Francisco Rowe and Dr. Dani Arribas-Bel at the University of Liverpool, United Kingdom. You will learn how to analyse and model different types of spatial data as well as gaining an understanding of the various challenges arising from manipulating such data.
 
 The website is licensed under the [Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/) License. A compilation of this web course is hosted as a GitHub repository that you can access:
 

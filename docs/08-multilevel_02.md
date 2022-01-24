@@ -250,7 +250,7 @@ msoa_shp <- st_read("data/mlm/MSOA.shp")
 ```
 
 ```
-## Reading layer `MSOA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `MSOA' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -270,9 +270,9 @@ str(re_msoa_m6)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.025 -0.1145 0.0534 -0.1449 -0.2805 ...
-##  $ median   : num  0.0248 -0.1109 0.0554 -0.1411 -0.283 ...
-##  $ sd       : num  0.047 0.077 0.0802 0.0344 0.0368 ...
+##  $ mean     : num  0.0208 -0.1192 0.0384 -0.1438 -0.281 ...
+##  $ median   : num  0.0183 -0.1152 0.0354 -0.1487 -0.2833 ...
+##  $ sd       : num  0.0442 0.0699 0.0831 0.0414 0.0382 ...
 ```
 
 ```r
@@ -443,7 +443,7 @@ sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
 ```
 
 ```
-## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/home/rstudio/work/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY

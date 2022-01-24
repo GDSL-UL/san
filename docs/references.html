@@ -33,6 +33,7 @@
   
 <link rel="prev" href="datasets.html"/>
 
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,22 +51,20 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,25 +133,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Spatial Modelling for Data Scientists</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview</a><ul>
+<li class="chapter" data-level="1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html#aims"><i class="fa fa-check"></i><b>1.1</b> Aims</a></li>
 <li class="chapter" data-level="1.2" data-path="overview.html"><a href="overview.html#learning-outcomes"><i class="fa fa-check"></i><b>1.2</b> Learning Outcomes</a></li>
 <li class="chapter" data-level="1.3" data-path="overview.html"><a href="overview.html#feedback"><i class="fa fa-check"></i><b>1.3</b> Feedback</a></li>
-<li class="chapter" data-level="1.4" data-path="overview.html"><a href="overview.html#computational-environment"><i class="fa fa-check"></i><b>1.4</b> Computational Environment</a><ul>
+<li class="chapter" data-level="1.4" data-path="overview.html"><a href="overview.html#computational-environment"><i class="fa fa-check"></i><b>1.4</b> Computational Environment</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="overview.html"><a href="overview.html#dependency-list"><i class="fa fa-check"></i><b>1.4.1</b> Dependency list</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="overview.html"><a href="overview.html#assessment"><i class="fa fa-check"></i><b>1.5</b> Assessment</a><ul>
+<li class="chapter" data-level="1.5" data-path="overview.html"><a href="overview.html#assessment"><i class="fa fa-check"></i><b>1.5</b> Assessment</a>
+<ul>
 <li class="chapter" data-level="1.5.1" data-path="overview.html"><a href="overview.html#format-requirements"><i class="fa fa-check"></i><b>1.5.1</b> Format Requirements</a></li>
 <li class="chapter" data-level="1.5.2" data-path="overview.html"><a href="overview.html#marking-criteria"><i class="fa fa-check"></i><b>1.5.2</b> Marking criteria</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>2</b> Spatial Data</a><ul>
+<li class="chapter" data-level="2" data-path="spatial-data.html"><a href="spatial-data.html"><i class="fa fa-check"></i><b>2</b> Spatial Data</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="spatial-data.html"><a href="spatial-data.html#spatial-data-types"><i class="fa fa-check"></i><b>2.1</b> Spatial Data types</a></li>
 <li class="chapter" data-level="2.2" data-path="spatial-data.html"><a href="spatial-data.html#hierarchical-structure-of-data"><i class="fa fa-check"></i><b>2.2</b> Hierarchical Structure of Data</a></li>
-<li class="chapter" data-level="2.3" data-path="spatial-data.html"><a href="spatial-data.html#key-challenges"><i class="fa fa-check"></i><b>2.3</b> Key Challenges</a><ul>
+<li class="chapter" data-level="2.3" data-path="spatial-data.html"><a href="spatial-data.html#key-challenges"><i class="fa fa-check"></i><b>2.3</b> Key Challenges</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="spatial-data.html"><a href="spatial-data.html#modifible-area-unit-problem-maup"><i class="fa fa-check"></i><b>2.3.1</b> Modifible Area Unit Problem (MAUP)</a></li>
 <li class="chapter" data-level="2.3.2" data-path="spatial-data.html"><a href="spatial-data.html#ecological-fallacy"><i class="fa fa-check"></i><b>2.3.2</b> Ecological Fallacy</a></li>
 <li class="chapter" data-level="2.3.3" data-path="spatial-data.html"><a href="spatial-data.html#spatial-dependence"><i class="fa fa-check"></i><b>2.3.3</b> Spatial Dependence</a></li>
@@ -160,53 +165,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.5" data-path="spatial-data.html"><a href="spatial-data.html#spatial-nonstationarity"><i class="fa fa-check"></i><b>2.3.5</b> Spatial nonstationarity</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a><ul>
+<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#dependencies"><i class="fa fa-check"></i><b>3.1</b> Dependencies</a></li>
 <li class="chapter" data-level="3.2" data-path="data-wrangling.html"><a href="data-wrangling.html#introducing-r"><i class="fa fa-check"></i><b>3.2</b> Introducing R</a></li>
 <li class="chapter" data-level="3.3" data-path="data-wrangling.html"><a href="data-wrangling.html#setting-the-working-directory"><i class="fa fa-check"></i><b>3.3</b> Setting the working directory</a></li>
 <li class="chapter" data-level="3.4" data-path="data-wrangling.html"><a href="data-wrangling.html#r-scripts-and-notebooks"><i class="fa fa-check"></i><b>3.4</b> R Scripts and Notebooks</a></li>
 <li class="chapter" data-level="3.5" data-path="data-wrangling.html"><a href="data-wrangling.html#getting-help"><i class="fa fa-check"></i><b>3.5</b> Getting Help</a></li>
-<li class="chapter" data-level="3.6" data-path="data-wrangling.html"><a href="data-wrangling.html#variables-and-objects"><i class="fa fa-check"></i><b>3.6</b> Variables and objects</a><ul>
+<li class="chapter" data-level="3.6" data-path="data-wrangling.html"><a href="data-wrangling.html#variables-and-objects"><i class="fa fa-check"></i><b>3.6</b> Variables and objects</a>
+<ul>
 <li class="chapter" data-level="3.6.1" data-path="data-wrangling.html"><a href="data-wrangling.html#basic-data-types"><i class="fa fa-check"></i><b>3.6.1</b> Basic Data Types</a></li>
 <li class="chapter" data-level="3.6.2" data-path="data-wrangling.html"><a href="data-wrangling.html#random-variables"><i class="fa fa-check"></i><b>3.6.2</b> Random Variables</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="data-wrangling.html"><a href="data-wrangling.html#data-frames"><i class="fa fa-check"></i><b>3.7</b> Data Frames</a><ul>
+<li class="chapter" data-level="3.7" data-path="data-wrangling.html"><a href="data-wrangling.html#data-frames"><i class="fa fa-check"></i><b>3.7</b> Data Frames</a>
+<ul>
 <li class="chapter" data-level="3.7.1" data-path="data-wrangling.html"><a href="data-wrangling.html#creating-a-data-frame"><i class="fa fa-check"></i><b>3.7.1</b> Creating A Data Frame</a></li>
 <li class="chapter" data-level="3.7.2" data-path="data-wrangling.html"><a href="data-wrangling.html#referencing-data-frames"><i class="fa fa-check"></i><b>3.7.2</b> Referencing Data Frames</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="data-wrangling.html"><a href="data-wrangling.html#sec_readdata"><i class="fa fa-check"></i><b>3.8</b> Read Data</a><ul>
+<li class="chapter" data-level="3.8" data-path="data-wrangling.html"><a href="data-wrangling.html#sec_readdata"><i class="fa fa-check"></i><b>3.8</b> Read Data</a>
+<ul>
 <li class="chapter" data-level="3.8.1" data-path="data-wrangling.html"><a href="data-wrangling.html#quickly-inspect-the-data"><i class="fa fa-check"></i><b>3.8.1</b> Quickly inspect the data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="data-wrangling.html"><a href="data-wrangling.html#manipulation-data"><i class="fa fa-check"></i><b>3.9</b> Manipulation Data</a><ul>
+<li class="chapter" data-level="3.9" data-path="data-wrangling.html"><a href="data-wrangling.html#manipulation-data"><i class="fa fa-check"></i><b>3.9</b> Manipulation Data</a>
+<ul>
 <li class="chapter" data-level="3.9.1" data-path="data-wrangling.html"><a href="data-wrangling.html#adding-new-variables"><i class="fa fa-check"></i><b>3.9.1</b> Adding New Variables</a></li>
 <li class="chapter" data-level="3.9.2" data-path="data-wrangling.html"><a href="data-wrangling.html#selecting-variables"><i class="fa fa-check"></i><b>3.9.2</b> Selecting Variables</a></li>
 <li class="chapter" data-level="3.9.3" data-path="data-wrangling.html"><a href="data-wrangling.html#filtering-data"><i class="fa fa-check"></i><b>3.9.3</b> Filtering Data</a></li>
 <li class="chapter" data-level="3.9.4" data-path="data-wrangling.html"><a href="data-wrangling.html#joining-data-drames"><i class="fa fa-check"></i><b>3.9.4</b> Joining Data Drames</a></li>
 <li class="chapter" data-level="3.9.5" data-path="data-wrangling.html"><a href="data-wrangling.html#saving-data"><i class="fa fa-check"></i><b>3.9.5</b> Saving Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="data-wrangling.html"><a href="data-wrangling.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>3.10</b> Using Spatial Data Frames</a><ul>
+<li class="chapter" data-level="3.10" data-path="data-wrangling.html"><a href="data-wrangling.html#using-spatial-data-frames"><i class="fa fa-check"></i><b>3.10</b> Using Spatial Data Frames</a>
+<ul>
 <li class="chapter" data-level="3.10.1" data-path="data-wrangling.html"><a href="data-wrangling.html#read-spatial-data"><i class="fa fa-check"></i><b>3.10.1</b> Read Spatial Data</a></li>
 <li class="chapter" data-level="3.10.2" data-path="data-wrangling.html"><a href="data-wrangling.html#basic-mapping"><i class="fa fa-check"></i><b>3.10.2</b> Basic Mapping</a></li>
 <li class="chapter" data-level="3.10.3" data-path="data-wrangling.html"><a href="data-wrangling.html#comparing-geographies"><i class="fa fa-check"></i><b>3.10.3</b> Comparing geographies</a></li>
 </ul></li>
 <li class="chapter" data-level="3.11" data-path="data-wrangling.html"><a href="data-wrangling.html#useful-functions"><i class="fa fa-check"></i><b>3.11</b> Useful Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>4</b> Points</a><ul>
+<li class="chapter" data-level="4" data-path="points.html"><a href="points.html"><i class="fa fa-check"></i><b>4</b> Points</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="points.html"><a href="points.html#dependencies-1"><i class="fa fa-check"></i><b>4.1</b> Dependencies</a></li>
 <li class="chapter" data-level="4.2" data-path="points.html"><a href="points.html#data"><i class="fa fa-check"></i><b>4.2</b> Data</a></li>
 <li class="chapter" data-level="4.3" data-path="points.html"><a href="points.html#binning"><i class="fa fa-check"></i><b>4.3</b> Binning</a></li>
-<li class="chapter" data-level="4.4" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>4.4</b> KDE</a><ul>
+<li class="chapter" data-level="4.4" data-path="points.html"><a href="points.html#kde"><i class="fa fa-check"></i><b>4.4</b> KDE</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="points.html"><a href="points.html#one-dimensional-kde"><i class="fa fa-check"></i><b>4.4.1</b> One-dimensional KDE</a></li>
 <li class="chapter" data-level="4.4.2" data-path="points.html"><a href="points.html#two-dimensional-spatial-kde"><i class="fa fa-check"></i><b>4.4.2</b> Two-dimensional (spatial) KDE</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>4.5</b> Spatial Interpolation</a><ul>
+<li class="chapter" data-level="4.5" data-path="points.html"><a href="points.html#spatial-interpolation"><i class="fa fa-check"></i><b>4.5</b> Spatial Interpolation</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="points.html"><a href="points.html#inverse-distance-weight-idw-interpolation"><i class="fa fa-check"></i><b>4.5.1</b> Inverse Distance Weight (IDW) interpolation</a></li>
 <li class="chapter" data-level="4.5.2" data-path="points.html"><a href="points.html#a-surface-of-housing-prices"><i class="fa fa-check"></i><b>4.5.2</b> A surface of housing prices</a></li>
 <li class="chapter" data-level="4.5.3" data-path="points.html"><a href="points.html#what-should-the-next-houses-price-be"><i class="fa fa-check"></i><b>4.5.3</b> <em>“What should the next house’s price be?”</em></a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="points.html"><a href="points.html#questions"><i class="fa fa-check"></i><b>4.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>5</b> Flows</a><ul>
+<li class="chapter" data-level="5" data-path="flows.html"><a href="flows.html"><i class="fa fa-check"></i><b>5</b> Flows</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="flows.html"><a href="flows.html#dependencies-2"><i class="fa fa-check"></i><b>5.1</b> Dependencies</a></li>
 <li class="chapter" data-level="5.2" data-path="flows.html"><a href="flows.html#data-1"><i class="fa fa-check"></i><b>5.2</b> Data</a></li>
 <li class="chapter" data-level="5.3" data-path="flows.html"><a href="flows.html#seeing-flows"><i class="fa fa-check"></i><b>5.3</b> “<em>Seeing</em>” flows</a></li>
@@ -214,7 +229,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5" data-path="flows.html"><a href="flows.html#predicting-flows"><i class="fa fa-check"></i><b>5.5</b> Predicting flows</a></li>
 <li class="chapter" data-level="5.6" data-path="flows.html"><a href="flows.html#questions-1"><i class="fa fa-check"></i><b>5.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="spatialecon.html"><a href="spatialecon.html"><i class="fa fa-check"></i><b>6</b> Spatial Econometrics</a><ul>
+<li class="chapter" data-level="6" data-path="spatialecon.html"><a href="spatialecon.html"><i class="fa fa-check"></i><b>6</b> Spatial Econometrics</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="spatialecon.html"><a href="spatialecon.html#dependencies-3"><i class="fa fa-check"></i><b>6.1</b> Dependencies</a></li>
 <li class="chapter" data-level="6.2" data-path="spatialecon.html"><a href="spatialecon.html#data-2"><i class="fa fa-check"></i><b>6.2</b> Data</a></li>
 <li class="chapter" data-level="6.3" data-path="spatialecon.html"><a href="spatialecon.html#non-spatial-regression-a-refresh"><i class="fa fa-check"></i><b>6.3</b> Non-spatial regression, a refresh</a></li>
@@ -224,13 +240,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="spatialecon.html"><a href="spatialecon.html#predicting-house-prices"><i class="fa fa-check"></i><b>6.7</b> Predicting house prices</a></li>
 <li class="chapter" data-level="6.8" data-path="spatialecon.html"><a href="spatialecon.html#questions-2"><i class="fa fa-check"></i><b>6.8</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="mlm1.html"><a href="mlm1.html"><i class="fa fa-check"></i><b>7</b> Multilevel Modelling - Part 1</a><ul>
+<li class="chapter" data-level="7" data-path="mlm1.html"><a href="mlm1.html"><i class="fa fa-check"></i><b>7</b> Multilevel Modelling - Part 1</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="mlm1.html"><a href="mlm1.html#dependencies-4"><i class="fa fa-check"></i><b>7.1</b> Dependencies</a></li>
 <li class="chapter" data-level="7.2" data-path="mlm1.html"><a href="mlm1.html#data-3"><i class="fa fa-check"></i><b>7.2</b> Data</a></li>
-<li class="chapter" data-level="7.3" data-path="mlm1.html"><a href="mlm1.html#modelling"><i class="fa fa-check"></i><b>7.3</b> Modelling</a><ul>
+<li class="chapter" data-level="7.3" data-path="mlm1.html"><a href="mlm1.html#modelling"><i class="fa fa-check"></i><b>7.3</b> Modelling</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="mlm1.html"><a href="mlm1.html#baseline-linear-regression-model"><i class="fa fa-check"></i><b>7.3.1</b> Baseline Linear Regression Model</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="mlm1.html"><a href="mlm1.html#multilevel-modelling-random-intercept-model"><i class="fa fa-check"></i><b>7.4</b> Multilevel Modelling: Random Intercept Model</a><ul>
+<li class="chapter" data-level="7.4" data-path="mlm1.html"><a href="mlm1.html#multilevel-modelling-random-intercept-model"><i class="fa fa-check"></i><b>7.4</b> Multilevel Modelling: Random Intercept Model</a>
+<ul>
 <li class="chapter" data-level="7.4.1" data-path="mlm1.html"><a href="mlm1.html#interpretation"><i class="fa fa-check"></i><b>7.4.1</b> Interpretation</a></li>
 <li class="chapter" data-level="7.4.2" data-path="mlm1.html"><a href="mlm1.html#variance-partition-coefficient-vpc"><i class="fa fa-check"></i><b>7.4.2</b> Variance Partition Coefficient (VPC)</a></li>
 <li class="chapter" data-level="7.4.3" data-path="mlm1.html"><a href="mlm1.html#uncertainty-of-estimates"><i class="fa fa-check"></i><b>7.4.3</b> Uncertainty of Estimates</a></li>
@@ -240,28 +259,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="mlm1.html"><a href="mlm1.html#questions-3"><i class="fa fa-check"></i><b>7.5</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="mlm2.html"><a href="mlm2.html"><i class="fa fa-check"></i><b>8</b> Multilevel Modelling - Part 2</a><ul>
+<li class="chapter" data-level="8" data-path="mlm2.html"><a href="mlm2.html"><i class="fa fa-check"></i><b>8</b> Multilevel Modelling - Part 2</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="mlm2.html"><a href="mlm2.html#dependencies-5"><i class="fa fa-check"></i><b>8.1</b> Dependencies</a></li>
 <li class="chapter" data-level="8.2" data-path="mlm2.html"><a href="mlm2.html#data-4"><i class="fa fa-check"></i><b>8.2</b> Data</a></li>
-<li class="chapter" data-level="8.3" data-path="mlm2.html"><a href="mlm2.html#conceptual-overview"><i class="fa fa-check"></i><b>8.3</b> Conceptual Overview</a><ul>
+<li class="chapter" data-level="8.3" data-path="mlm2.html"><a href="mlm2.html#conceptual-overview"><i class="fa fa-check"></i><b>8.3</b> Conceptual Overview</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="mlm2.html"><a href="mlm2.html#exploratory-analysis-varying-slopes"><i class="fa fa-check"></i><b>8.3.1</b> Exploratory Analysis: Varying Slopes</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="mlm2.html"><a href="mlm2.html#estimating-varying-intercept-and-slopes-models"><i class="fa fa-check"></i><b>8.4</b> Estimating Varying Intercept and Slopes Models</a></li>
 <li class="chapter" data-level="8.5" data-path="mlm2.html"><a href="mlm2.html#interpreting-correlations-between-group-level-intercepts-and-slopes"><i class="fa fa-check"></i><b>8.5</b> Interpreting Correlations Between Group-level Intercepts and Slopes</a></li>
-<li class="chapter" data-level="8.6" data-path="mlm2.html"><a href="mlm2.html#model-building"><i class="fa fa-check"></i><b>8.6</b> Model building</a><ul>
+<li class="chapter" data-level="8.6" data-path="mlm2.html"><a href="mlm2.html#model-building"><i class="fa fa-check"></i><b>8.6</b> Model building</a>
+<ul>
 <li class="chapter" data-level="8.6.1" data-path="mlm2.html"><a href="mlm2.html#model-comparison"><i class="fa fa-check"></i><b>8.6.1</b> Model Comparison</a></li>
 </ul></li>
 <li class="chapter" data-level="8.7" data-path="mlm2.html"><a href="mlm2.html#questions-4"><i class="fa fa-check"></i><b>8.7</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>9</b> Geographically Weighted Regression</a><ul>
+<li class="chapter" data-level="9" data-path="gwr.html"><a href="gwr.html"><i class="fa fa-check"></i><b>9</b> Geographically Weighted Regression</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="gwr.html"><a href="gwr.html#dependencies-6"><i class="fa fa-check"></i><b>9.1</b> Dependencies</a></li>
 <li class="chapter" data-level="9.2" data-path="gwr.html"><a href="gwr.html#data-5"><i class="fa fa-check"></i><b>9.2</b> Data</a></li>
 <li class="chapter" data-level="9.3" data-path="gwr.html"><a href="gwr.html#recap-spatial-effects"><i class="fa fa-check"></i><b>9.3</b> Recap: Spatial Effects</a></li>
 <li class="chapter" data-level="9.4" data-path="gwr.html"><a href="gwr.html#exploratory-analysis"><i class="fa fa-check"></i><b>9.4</b> Exploratory Analysis</a></li>
-<li class="chapter" data-level="9.5" data-path="gwr.html"><a href="gwr.html#global-regression"><i class="fa fa-check"></i><b>9.5</b> Global Regression</a><ul>
+<li class="chapter" data-level="9.5" data-path="gwr.html"><a href="gwr.html#global-regression"><i class="fa fa-check"></i><b>9.5</b> Global Regression</a>
+<ul>
 <li class="chapter" data-level="9.5.1" data-path="gwr.html"><a href="gwr.html#global-regression-results"><i class="fa fa-check"></i><b>9.5.1</b> Global Regression Results</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="gwr.html"><a href="gwr.html#fitting-a-geographically-weighted-regression"><i class="fa fa-check"></i><b>9.6</b> Fitting a Geographically Weighted Regression</a><ul>
+<li class="chapter" data-level="9.6" data-path="gwr.html"><a href="gwr.html#fitting-a-geographically-weighted-regression"><i class="fa fa-check"></i><b>9.6</b> Fitting a Geographically Weighted Regression</a>
+<ul>
 <li class="chapter" data-level="9.6.1" data-path="gwr.html"><a href="gwr.html#fixed-or-adaptive-kernel"><i class="fa fa-check"></i><b>9.6.1</b> Fixed or Adaptive Kernel</a></li>
 <li class="chapter" data-level="9.6.2" data-path="gwr.html"><a href="gwr.html#optimal-bandwidth"><i class="fa fa-check"></i><b>9.6.2</b> Optimal Bandwidth</a></li>
 <li class="chapter" data-level="9.6.3" data-path="gwr.html"><a href="gwr.html#shape-of-spatial-kernel"><i class="fa fa-check"></i><b>9.6.3</b> Shape of Spatial Kernel</a></li>
@@ -273,31 +298,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9.7" data-path="gwr.html"><a href="gwr.html#questions-5"><i class="fa fa-check"></i><b>9.7</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="sta.html"><a href="sta.html"><i class="fa fa-check"></i><b>10</b> Spatio-Temporal Analysis</a><ul>
+<li class="chapter" data-level="10" data-path="sta.html"><a href="sta.html"><i class="fa fa-check"></i><b>10</b> Spatio-Temporal Analysis</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="sta.html"><a href="sta.html#dependencies-7"><i class="fa fa-check"></i><b>10.1</b> Dependencies</a></li>
 <li class="chapter" data-level="10.2" data-path="sta.html"><a href="sta.html#data-6"><i class="fa fa-check"></i><b>10.2</b> Data</a></li>
-<li class="chapter" data-level="10.3" data-path="sta.html"><a href="sta.html#why-spatio-temporal-analysis"><i class="fa fa-check"></i><b>10.3</b> Why Spatio-Temporal Analysis?</a><ul>
+<li class="chapter" data-level="10.3" data-path="sta.html"><a href="sta.html#why-spatio-temporal-analysis"><i class="fa fa-check"></i><b>10.3</b> Why Spatio-Temporal Analysis?</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="sta.html"><a href="sta.html#spatio-temporal-data-structures"><i class="fa fa-check"></i><b>10.3.1</b> Spatio-temporal Data Structures</a></li>
 </ul></li>
 <li class="chapter" data-level="10.4" data-path="sta.html"><a href="sta.html#data-wrangling"><i class="fa fa-check"></i><b>10.4</b> Data Wrangling</a></li>
-<li class="chapter" data-level="10.5" data-path="sta.html"><a href="sta.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>10.5</b> Exploring Spatio-Temporal Data</a><ul>
+<li class="chapter" data-level="10.5" data-path="sta.html"><a href="sta.html#exploring-spatio-temporal-data"><i class="fa fa-check"></i><b>10.5</b> Exploring Spatio-Temporal Data</a>
+<ul>
 <li class="chapter" data-level="10.5.1" data-path="sta.html"><a href="sta.html#visualisation"><i class="fa fa-check"></i><b>10.5.1</b> Visualisation</a></li>
 <li class="chapter" data-level="10.5.2" data-path="sta.html"><a href="sta.html#exploratory-analysis-1"><i class="fa fa-check"></i><b>10.5.2</b> Exploratory Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="sta.html"><a href="sta.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>10.6</b> Spatio-Temporal Data Modelling</a><ul>
+<li class="chapter" data-level="10.6" data-path="sta.html"><a href="sta.html#spatio-temporal-data-modelling"><i class="fa fa-check"></i><b>10.6</b> Spatio-Temporal Data Modelling</a>
+<ul>
 <li class="chapter" data-level="10.6.1" data-path="sta.html"><a href="sta.html#intuition"><i class="fa fa-check"></i><b>10.6.1</b> Intuition</a></li>
 <li class="chapter" data-level="10.6.2" data-path="sta.html"><a href="sta.html#fitting-spatio-temporal-models"><i class="fa fa-check"></i><b>10.6.2</b> Fitting Spatio-Temporal Models</a></li>
 </ul></li>
 <li class="chapter" data-level="10.7" data-path="sta.html"><a href="sta.html#questions-6"><i class="fa fa-check"></i><b>10.7</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>11</b> Data Sets</a><ul>
-<li class="chapter" data-level="11.1" data-path="datasets.html"><a href="datasets.html#madrid-airbnb"><i class="fa fa-check"></i><b>11.1</b> Madrid AirBnb</a><ul>
+<li class="chapter" data-level="11" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>11</b> Data Sets</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="datasets.html"><a href="datasets.html#madrid-airbnb"><i class="fa fa-check"></i><b>11.1</b> Madrid AirBnb</a>
+<ul>
 <li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#availability"><i class="fa fa-check"></i>Availability</a></li>
 <li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#variables"><i class="fa fa-check"></i>Variables</a></li>
 <li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#projection"><i class="fa fa-check"></i>Projection</a></li>
 <li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#source-pre-processing"><i class="fa fa-check"></i>Source &amp; Pre-processing</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="datasets.html"><a href="datasets.html#england-covid-19"><i class="fa fa-check"></i><b>11.2</b> England COVID-19</a><ul>
+<li class="chapter" data-level="11.2" data-path="datasets.html"><a href="datasets.html#england-covid-19"><i class="fa fa-check"></i><b>11.2</b> England COVID-19</a>
+<ul>
 <li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#availability-1"><i class="fa fa-check"></i>Availability</a></li>
 <li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#variables-1"><i class="fa fa-check"></i>Variables</a></li>
 <li class="chapter" data-level="" data-path="datasets.html"><a href="datasets.html#projection-1"><i class="fa fa-check"></i>Projection</a></li>
@@ -327,156 +359,156 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
 
-<div id="refs" class="references">
-<div>
-<p>Anselin, Luc. 1988. <em>Spatial Econometrics: Methods and Models</em>. Vol. 4. Springer Science &amp; Business Media.</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-anselin1988spatial" class="csl-entry">
+Anselin, Luc. 1988. <em>Spatial Econometrics: Methods and Models</em>. Vol. 4. Springer Science &amp; Business Media.
 </div>
-<div>
-<p>———. 2003. “Spatial Externalities, Spatial Multipliers, and Spatial Econometrics.” <em>International Regional Science Review</em> 26 (2): 153–66.</p>
+<div id="ref-anselin2003spatial" class="csl-entry">
+———. 2003. <span>“Spatial Externalities, Spatial Multipliers, and Spatial Econometrics.”</span> <em>International Regional Science Review</em> 26 (2): 153–66.
 </div>
-<div>
-<p>———. 2007. “Spatial Regression Analysis in R–a Workbook.” Center for Spatially Integrated Social Science. <a href="http://csiss.org/GISPopSci/workshops/2011/PSU/readings/W15_Anselin2007.pdf">http://csiss.org/GISPopSci/workshops/2011/PSU/readings/W15_Anselin2007.pdf</a>.</p>
+<div id="ref-anselin2005spatial" class="csl-entry">
+———. 2007. <span>“Spatial Regression Analysis in r–a Workbook.”</span> Center for Spatially Integrated Social Science. <a href="http://csiss.org/GISPopSci/workshops/2011/PSU/readings/W15_Anselin2007.pdf">http://csiss.org/GISPopSci/workshops/2011/PSU/readings/W15_Anselin2007.pdf</a>.
 </div>
-<div>
-<p>Anselin, Luc, and Sergio J. Rey. 2014. <em>Modern Spatial Econometrics in Practice: A Guide to Geoda, Geodaspace and Pysal</em>. GeoDa Press LLC.</p>
+<div id="ref-anselin2014modern" class="csl-entry">
+Anselin, Luc, and Sergio J. Rey. 2014. <em>Modern Spatial Econometrics in Practice: A Guide to GeoDa, GeoDaSpace and PySAL</em>. GeoDa Press LLC.
 </div>
-<div>
-<p>Arribas-Bel, Dani. 2014. “Spatial Data, Analysis, and Regression-a Mini Course.” <em>REGION</em> 1 (1): R1. <a href="http://darribas.org/sdar_mini">http://darribas.org/sdar_mini</a>.</p>
+<div id="ref-arribas2014spatial" class="csl-entry">
+Arribas-Bel, Dani. 2014. <span>“Spatial Data, Analysis, and Regression-a Mini Course.”</span> <em>REGION</em> 1 (1): R1. <a href="http://darribas.org/sdar_mini">http://darribas.org/sdar_mini</a>.
 </div>
-<div>
-<p>———. 2019. “A Course on Geographic Data Science.” <em>The Journal of Open Source Education</em> 2 (14). <a href="https://doi.org/https://doi.org/10.21105/jose.00042">https://doi.org/https://doi.org/10.21105/jose.00042</a>.</p>
+<div id="ref-darribas_gds_course" class="csl-entry">
+———. 2019. <span>“A Course on Geographic Data Science.”</span> <em>The Journal of Open Source Education</em> 2 (14). https://doi.org/<a href="https://doi.org/10.21105/jose.00042">https://doi.org/10.21105/jose.00042</a>.
 </div>
-<div>
-<p>Arribas-Bel, Daniel, M-À Garcia-López, and Elisabet Viladecans-Marsal. 2019. “Building (S and) Cities: Delineating Urban Areas with a Machine Learning Algorithm.” <em>Journal of Urban Economics</em>, 103217.</p>
+<div id="ref-arribas2019building" class="csl-entry">
+Arribas-Bel, Daniel, M-À Garcia-López, and Elisabet Viladecans-Marsal. 2019. <span>“Building (s and) Cities: Delineating Urban Areas with a Machine Learning Algorithm.”</span> <em>Journal of Urban Economics</em>, 103217.
 </div>
-<div>
-<p>Banerjee, Sudipto, Bradley P Carlin, and Alan E Gelfand. 2014. <em>Hierarchical Modeling and Analysis for Spatial Data</em>. Crc Press.</p>
+<div id="ref-banerjee2014hierarchical" class="csl-entry">
+Banerjee, Sudipto, Bradley P Carlin, and Alan E Gelfand. 2014. <em>Hierarchical Modeling and Analysis for Spatial Data</em>. Crc Press.
 </div>
-<div>
-<p>Belsley, David A, Edwin Kuh, and Roy E Welsch. 2005. <em>Regression Diagnostics: Identifying Influential Data and Sources of Collinearity</em>. Vol. 571. John Wiley &amp; Sons.</p>
+<div id="ref-belsley2005regression" class="csl-entry">
+Belsley, David A, Edwin Kuh, and Roy E Welsch. 2005. <em>Regression Diagnostics: Identifying Influential Data and Sources of Collinearity</em>. Vol. 571. John Wiley &amp; Sons.
 </div>
-<div>
-<p>Bivand, Roger S, Edzer Pebesma, and Virgilio Gómez-Rubio. 2013. <em>Applied Spatial Data Analysis with R</em>. Springer New York.</p>
+<div id="ref-bivand2013applied" class="csl-entry">
+Bivand, Roger S, Edzer Pebesma, and Virgilio Gómez-Rubio. 2013. <em>Applied Spatial Data Analysis with r</em>. Springer New York.
 </div>
-<div>
-<p>Brunsdon, Chris, and Lex Comber. 2015. <em>An Introduction to R for Spatial Analysis &amp; Mapping</em>. Sage.</p>
+<div id="ref-comber2015" class="csl-entry">
+Brunsdon, Chris, and Lex Comber. 2015. <em>An Introduction to r for Spatial Analysis &amp; Mapping</em>. Sage.
 </div>
-<div>
-<p>Brunsdon, Chris, Stewart Fotheringham, and Martin Charlton. 1998. “Geographically Weighted Regression.” <em>Journal of the Royal Statistical Society: Series D (the Statistician)</em> 47 (3): 431–43.</p>
+<div id="ref-brunsdon1998geographically" class="csl-entry">
+Brunsdon, Chris, Stewart Fotheringham, and Martin Charlton. 1998. <span>“Geographically Weighted Regression.”</span> <em>Journal of the Royal Statistical Society: Series D (The Statistician)</em> 47 (3): 431–43.
 </div>
-<div>
-<p>Casado-Dı́az, José Manuel, Lucas Martı́nez-Bernabéu, and Francisco Rowe. 2017. “An Evolutionary Approach to the Delimitation of Labour Market Areas: An Empirical Application for Chile.” <em>Spatial Economic Analysis</em> 12 (4): 379–403.</p>
+<div id="ref-casado2017evolutionary" class="csl-entry">
+Casado-Dı́az, José Manuel, Lucas Martı́nez-Bernabéu, and Francisco Rowe. 2017. <span>“An Evolutionary Approach to the Delimitation of Labour Market Areas: An Empirical Application for Chile.”</span> <em>Spatial Economic Analysis</em> 12 (4): 379–403.
 </div>
-<div>
-<p>Comber, Alexis, Chris Brunsdon, Martin Charlton, Guanpeng Dong, Rich Harris, Binbin Lu, Yihe Lü, et al. 2020. “The Gwr Route Map: A Guide to the Informed Application of Geographically Weighted Regression.” <em>arXiv Preprint arXiv:2004.06070</em>.</p>
+<div id="ref-comber2020gwr" class="csl-entry">
+Comber, Alexis, Chris Brunsdon, Martin Charlton, Guanpeng Dong, Rich Harris, Binbin Lu, Yihe Lü, et al. 2020. <span>“The GWR Route Map: A Guide to the Informed Application of Geographically Weighted Regression.”</span> <em>arXiv Preprint arXiv:2004.06070</em>.
 </div>
-<div>
-<p>Cressie, Noel. 2015. <em>Statistics for Spatial Data</em>. John Wiley &amp; Sons.</p>
+<div id="ref-cressie2015statistics" class="csl-entry">
+Cressie, Noel. 2015. <em>Statistics for Spatial Data</em>. John Wiley &amp; Sons.
 </div>
-<div>
-<p>Cressie, Noel, and Gardar Johannesson. 2008. “Fixed Rank Kriging for Very Large Spatial Data Sets.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 70 (1): 209–26.</p>
+<div id="ref-cressie2008fixed" class="csl-entry">
+Cressie, Noel, and Gardar Johannesson. 2008. <span>“Fixed Rank Kriging for Very Large Spatial Data Sets.”</span> <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 70 (1): 209–26.
 </div>
-<div>
-<p>Fotheringham, A Stewart, and David WS Wong. 1991. “The Modifiable Areal Unit Problem in Multivariate Statistical Analysis.” <em>Environment and Planning A</em> 23 (7): 1025–44.</p>
+<div id="ref-fotheringham1991modifiable" class="csl-entry">
+Fotheringham, A Stewart, and David WS Wong. 1991. <span>“The Modifiable Areal Unit Problem in Multivariate Statistical Analysis.”</span> <em>Environment and Planning A</em> 23 (7): 1025–44.
 </div>
-<div>
-<p>Fotheringham, Stewart, Chris Brunsdon, and Martin Charlton. 2002. <em>Geographically Weighted Regression</em>. John Wiley &amp; Sons.</p>
+<div id="ref-Fotheringham_et_al_2002_book" class="csl-entry">
+Fotheringham, Stewart, Chris Brunsdon, and Martin Charlton. 2002. <em>Geographically Weighted Regression</em>. John Wiley &amp; Sons.
 </div>
-<div>
-<p>Gabadinho, Alexis, Gilbert Ritschard, Matthias Studer, and Nicolas S Müller. 2009. “Mining Sequence Data in R with the Traminer Package: A User’s Guide.” <em>Geneva: Department of Econometrics and Laboratory of Demography, University of Geneva</em>.</p>
+<div id="ref-gabadinho2009mining" class="csl-entry">
+Gabadinho, Alexis, Gilbert Ritschard, Matthias Studer, and Nicolas S Müller. 2009. <span>“Mining Sequence Data in r with the TraMineR Package: A User’s Guide.”</span> <em>Geneva: Department of Econometrics and Laboratory of Demography, University of Geneva</em>.
 </div>
-<div>
-<p>Gelman, Andrew, and Jennifer Hill. 2006a. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge University Press.</p>
+<div id="ref-gelman2006data" class="csl-entry">
+Gelman, Andrew, and Jennifer Hill. 2006a. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge University Press.
 </div>
-<div>
-<p>———. 2006b. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models. Cambridge University Press.</em> Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511790942">https://doi.org/10.1017/CBO9780511790942</a>.</p>
+<div id="ref-Gelman_Hill_2006_book" class="csl-entry">
+———. 2006b. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models. Cambridge University Press.</em> Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511790942">https://doi.org/10.1017/CBO9780511790942</a>.
 </div>
-<div>
-<p>Gibbons, Stephen, Henry G Overman, and Eleonora Patacchini. 2014. “Spatial Methods.”</p>
+<div id="ref-gibbons2014spatial" class="csl-entry">
+Gibbons, Stephen, Henry G Overman, and Eleonora Patacchini. 2014. <span>“Spatial Methods.”</span>
 </div>
-<div>
-<p>Grolemund, Garrett, and Hadley Wickham. 2019. <em>R for Data Science</em>. O’Reilly, US. <a href="https://r4ds.had.co.nz">https://r4ds.had.co.nz</a>.</p>
+<div id="ref-grolemund_wickham_2019_book" class="csl-entry">
+Grolemund, Garrett, and Hadley Wickham. 2019. <em>R for Data Science</em>. O’Reilly, US. <a href="https://r4ds.had.co.nz">https://r4ds.had.co.nz</a>.
 </div>
-<div>
-<p>Hyndman, Rob J, and George Athanasopoulos. 2018. <em>Forecasting: Principles and Practice</em>. OTexts.</p>
+<div id="ref-hyndman2018forecasting" class="csl-entry">
+Hyndman, Rob J, and George Athanasopoulos. 2018. <em>Forecasting: Principles and Practice</em>. OTexts.
 </div>
-<div>
-<p>Kong, Xiangjie, Menglin Li, Kai Ma, Kaiqi Tian, Mengyuan Wang, Zhaolong Ning, and Feng Xia. 2018. “Big Trajectory Data: A Survey of Applications and Services.” <em>IEEE Access</em> 6: 58295–58306.</p>
+<div id="ref-kong2018big" class="csl-entry">
+Kong, Xiangjie, Menglin Li, Kai Ma, Kaiqi Tian, Mengyuan Wang, Zhaolong Ning, and Feng Xia. 2018. <span>“Big Trajectory Data: A Survey of Applications and Services.”</span> <em>IEEE Access</em> 6: 58295–306.
 </div>
-<div>
-<p>Kwan, Mei-Po, and Jiyeong Lee. 2004. “Geovisualization of Human Activity Patterns Using 3D Gis: A Time-Geographic Approach.” <em>Spatially Integrated Social Science</em> 27: 721–44.</p>
+<div id="ref-kwan2004geovisualization" class="csl-entry">
+Kwan, Mei-Po, and Jiyeong Lee. 2004. <span>“Geovisualization of Human Activity Patterns Using 3d GIS: A Time-Geographic Approach.”</span> <em>Spatially Integrated Social Science</em> 27: 721–44.
 </div>
-<div>
-<p>Lovelace, Robin, and James Cheshire. 2014. “Introduction to visualising spatial data in R.” <em>National Centre for Research Methods Working Papers</em> 14 (03). <a href="https://github.com/Robinlovelace/Creating-maps-in-R">https://github.com/Robinlovelace/Creating-maps-in-R</a>.</p>
+<div id="ref-lovelace2014introduction" class="csl-entry">
+Lovelace, Robin, and James Cheshire. 2014. <span>“<span class="nocase">Introduction to visualising spatial data in R</span>.”</span> <em>National Centre for Research Methods Working Papers</em> 14 (03). <a href="https://github.com/Robinlovelace/Creating-maps-in-R">https://github.com/Robinlovelace/Creating-maps-in-R</a>.
 </div>
-<div>
-<p>Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2020. <em>An Introduction to Statistical Learning</em>. Vol. 112. CRC Press, R Series. <a href="https://geocompr.robinlovelace.net">https://geocompr.robinlovelace.net</a>.</p>
+<div id="ref-Lovelace_et_al_2020_book" class="csl-entry">
+Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2020. <em>An Introduction to Statistical Learning</em>. Vol. 112. CRC Press, R Series. <a href="https://geocompr.robinlovelace.net">https://geocompr.robinlovelace.net</a>.
 </div>
-<div>
-<p>Lu, Binbin, Paul Harris, Martin Charlton, and Chris Brunsdon. 2014. “The Gwmodel R Package: Further Topics for Exploring Spatial Heterogeneity Using Geographically Weighted Models.” <em>Geo-Spatial Information Science</em> 17 (2): 85–101.</p>
+<div id="ref-lu2014gwmodel" class="csl-entry">
+Lu, Binbin, Paul Harris, Martin Charlton, and Chris Brunsdon. 2014. <span>“The GWmodel r Package: Further Topics for Exploring Spatial Heterogeneity Using Geographically Weighted Models.”</span> <em>Geo-Spatial Information Science</em> 17 (2): 85–101.
 </div>
-<div>
-<p>Multilevel Modelling, Centre for. n.d. “Introduction to Multilevel Modelling.” Accessed February 11, 2020. <a href="http://www.bristol.ac.uk/cmm/learning/online-course/course-topics.html#m04">http://www.bristol.ac.uk/cmm/learning/online-course/course-topics.html#m04</a>.</p>
+<div id="ref-bristol2020" class="csl-entry">
+Multilevel Modelling, Centre for. n.d. <span>“Introduction to Multilevel Modelling.”</span> n.d.
 </div>
-<div>
-<p>Niedomysl, Thomas. 2011. “How Migration Motives Change over Migration Distance: Evidence on Variation Across Socio-Economic and Demographic Groups.” <em>Regional Studies</em> 45 (6): 843–55.</p>
+<div id="ref-niedomysl2011migration" class="csl-entry">
+Niedomysl, Thomas. 2011. <span>“How Migration Motives Change over Migration Distance: Evidence on Variation Across Socio-Economic and Demographic Groups.”</span> <em>Regional Studies</em> 45 (6): 843–55.
 </div>
-<div>
-<p>Openshaw, Stan. 1981. “The Modifiable Areal Unit Problem.” <em>Quantitative Geography: A British View</em>, 60–69.</p>
+<div id="ref-openshaw1981modifiable" class="csl-entry">
+Openshaw, Stan. 1981. <span>“The Modifiable Areal Unit Problem.”</span> <em>Quantitative Geography: A British View</em>, 60–69.
 </div>
-<div>
-<p>Önnerfors, Åsa, Mariana Kotzeva, Teodóra Brandmüller, and others. 2019. “Eurostat Regional Yearbook 2019 Edition.”</p>
+<div id="ref-onnerfors2019eurostat" class="csl-entry">
+Önnerfors, Åsa, Mariana Kotzeva, Teodóra Brandmüller, and others. 2019. <span>“Eurostat Regional Yearbook 2019 Edition.”</span>
 </div>
-<div>
-<p>Patias, Nikos, Francisco Rowe, and Stefano Cavazzi. 2019. “A Scalable Analytical Framework for Spatio-Temporal Analysis of Neighborhood Change: A Sequence Analysis Approach.” In <em>International Conference on Geographic Information Science</em>, 223–41. Springer.</p>
+<div id="ref-patias2019scalable" class="csl-entry">
+Patias, Nikos, Francisco Rowe, and Stefano Cavazzi. 2019. <span>“A Scalable Analytical Framework for Spatio-Temporal Analysis of Neighborhood Change: A Sequence Analysis Approach.”</span> In <em>International Conference on Geographic Information Science</em>, 223–41. Springer.
 </div>
-<div>
-<p>Pebesma, Edzer, and others. 2012. “Spacetime: Spatio-Temporal Data in R.” <em>Journal of Statistical Software</em> 51 (7): 1–30.</p>
+<div id="ref-pebesma2012spacetime" class="csl-entry">
+Pebesma, Edzer, and others. 2012. <span>“Spacetime: Spatio-Temporal Data in r.”</span> <em>Journal of Statistical Software</em> 51 (7): 1–30.
 </div>
-<div>
-<p>Rey, Sergio J., Daniel Arribas-Bel, and Levi J. Wolf. n.d. <em>Geographic Data Science with Pysal and the Pydata Stack</em>. CRC press.</p>
+<div id="ref-reyABwolf" class="csl-entry">
+Rey, Sergio J., Daniel Arribas-Bel, and Levi J. Wolf. forthcoming. <em>Geographic Data Science with PySAL and the PyData Stack</em>. CRC press.
 </div>
-<div>
-<p>Robinson, WS. 1950. “Ecological Correlations and Individual Behavior.” <em>American Sociological Review</em> 15 (195): 351–57.</p>
+<div id="ref-robinson1950ecological" class="csl-entry">
+Robinson, WS. 1950. <span>“Ecological Correlations and Individual Behavior.”</span> <em>American Sociological Review</em> 15 (195): 351–57.
 </div>
-<div>
-<p>Rowe, Francisco, and Nikos Patias. 2020. “Mapping the Spatial Patterns of Internal Migration in Europe.” <em>Regional Studies, Regional Science</em> 7 (1): 390–93.</p>
+<div id="ref-rowe2020mapping" class="csl-entry">
+Rowe, Francisco, and Nikos Patias. 2020. <span>“Mapping the Spatial Patterns of Internal Migration in Europe.”</span> <em>Regional Studies, Regional Science</em> 7 (1): 390–93.
 </div>
-<div>
-<p>Rowe, Francisco, Nikos Patias, and Dani Arribas-Bel. 2020. “Policy Brief: Neighbourhood Change and Trajectories of Inequality in Britain, 1971-2011.”</p>
+<div id="ref-rowe2020policy" class="csl-entry">
+Rowe, Francisco, Nikos Patias, and Dani Arribas-Bel. 2020. <span>“Policy Brief: Neighbourhood Change and Trajectories of Inequality in Britain, 1971-2011.”</span>
 </div>
-<div>
-<p>Singleton, Alex. 2017. “Geographic Data Science for Urban Analytics.” <a href="http://www.alex-singleton.com/GDS_UA_2017/">http://www.alex-singleton.com/GDS_UA_2017/</a>.</p>
+<div id="ref-gds_ua17" class="csl-entry">
+Singleton, Alex. 2017. <span>“Geographic Data Science for Urban Analytics.”</span> <a href="http://www.alex-singleton.com/GDS_UA_2017/">http://www.alex-singleton.com/GDS_UA_2017/</a>.
 </div>
-<div>
-<p>Singleton, Alexander D, and Seth E Spielman. 2014. “The Past, Present, and Future of Geodemographic Research in the United States and United Kingdom.” <em>The Professional Geographer</em> 66 (4): 558–67.</p>
+<div id="ref-singleton2014past" class="csl-entry">
+Singleton, Alexander D, and Seth E Spielman. 2014. <span>“The Past, Present, and Future of Geodemographic Research in the United States and United Kingdom.”</span> <em>The Professional Geographer</em> 66 (4): 558–67.
 </div>
-<div>
-<p>Stillwell, John, Konstantinos Daras, and Martin Bell. 2018. “Spatial Aggregation Methods for Investigating the Maup Effects in Migration Analysis.” <em>Applied Spatial Analysis and Policy</em> 11 (4): 693–711.</p>
+<div id="ref-stillwell2018spatial" class="csl-entry">
+Stillwell, John, Konstantinos Daras, and Martin Bell. 2018. <span>“Spatial Aggregation Methods for Investigating the MAUP Effects in Migration Analysis.”</span> <em>Applied Spatial Analysis and Policy</em> 11 (4): 693–711.
 </div>
-<div>
-<p>Tao, Sui, Jonathan Corcoran, Francisco Rowe, and Mark Hickman. 2018. “To Travel or Not to Travel:‘Weather’is the Question. Modelling the Effect of Local Weather Conditions on Bus Ridership.” <em>Transportation Research Part C: Emerging Technologies</em> 86: 147–67.</p>
+<div id="ref-tao2018travel" class="csl-entry">
+Tao, Sui, Jonathan Corcoran, Francisco Rowe, and Mark Hickman. 2018. <span>“To Travel or Not to Travel:‘weather’is the Question. Modelling the Effect of Local Weather Conditions on Bus Ridership.”</span> <em>Transportation Research Part C: Emerging Technologies</em> 86: 147–67.
 </div>
-<div>
-<p>Wheeler, David, and Michael Tiefelsdorf. 2005. “Multicollinearity and Correlation Among Local Regression Coefficients in Geographically Weighted Regression.” <em>Journal of Geographical Systems</em> 7 (2): 161–87.</p>
+<div id="ref-wheeler2005multicollinearity" class="csl-entry">
+Wheeler, David, and Michael Tiefelsdorf. 2005. <span>“Multicollinearity and Correlation Among Local Regression Coefficients in Geographically Weighted Regression.”</span> <em>Journal of Geographical Systems</em> 7 (2): 161–87.
 </div>
-<div>
-<p>Wikle, Christopher K, Andrew Zammit-Mangion, and Noel Cressie. 2019. <em>Spatio-Temporal Statistics with R</em>. CRC Press.</p>
+<div id="ref-wikle2019spatio" class="csl-entry">
+Wikle, Christopher K, Andrew Zammit-Mangion, and Noel Cressie. 2019. <em>Spatio-Temporal Statistics with r</em>. CRC Press.
 </div>
-<div>
-<p>Williamson, Paul. 2018. “Survey Analysis.”</p>
+<div id="ref-envs450_2018" class="csl-entry">
+Williamson, Paul. 2018. <span>“Survey Analysis.”</span>
 </div>
-<div>
-<p>Wolf, Levi John, Sean Fox, Rich Harris, Ron Johnston, Kelvyn Jones, David Manley, Emmanouil Tranos, and Wenfei Winnie Wang. 2020. “Quantitative Geography Iii: Future Challenges and Challenging Futures.” <em>Progress in Human Geography</em>, 0309132520924722.</p>
+<div id="ref-wolf2020quantitative" class="csl-entry">
+Wolf, Levi John, Sean Fox, Rich Harris, Ron Johnston, Kelvyn Jones, David Manley, Emmanouil Tranos, and Wenfei Winnie Wang. 2020. <span>“Quantitative Geography III: Future Challenges and Challenging Futures.”</span> <em>Progress in Human Geography</em>, 0309132520924722.
 </div>
-<div>
-<p>Xie, Yihui, JJ Allaire, and Garrett Grolemund. 2019. <em>R Markdown: The Definitive Guide</em>. CRC Press, Taylor &amp; Francis, Chapman &amp; Hall Book. <a href="https://bookdown.org/yihui/rmarkdown/">https://bookdown.org/yihui/rmarkdown/</a>.</p>
+<div id="ref-Xie_et_al_2019_book" class="csl-entry">
+Xie, Yihui, JJ Allaire, and Garrett Grolemund. 2019. <em>R Markdown: The Definitive Guide</em>. CRC Press, Taylor &amp; Francis, Chapman &amp; Hall Book. <a href="https://bookdown.org/yihui/rmarkdown/">https://bookdown.org/yihui/rmarkdown/</a>.
 </div>
-<div>
-<p>Xie, Yihui, Joseph J Allaire, and Garrett Grolemund. 2018. <em>R Markdown: The Definitive Guide</em>. CRC Press.</p>
+<div id="ref-xie2018r" class="csl-entry">
+Xie, Yihui, Joseph J Allaire, and Garrett Grolemund. 2018. <em>R Markdown: The Definitive Guide</em>. CRC Press.
 </div>
-<div>
-<p>Zammit-Mangion, Andrew, and Noel Cressie. 2017. “FRK: An R Package for Spatial and Spatio-Temporal Prediction with Large Datasets.” <em>arXiv Preprint arXiv:1705.08105</em>.</p>
+<div id="ref-zammit2017frk" class="csl-entry">
+Zammit-Mangion, Andrew, and Noel Cressie. 2017. <span>“FRK: An r Package for Spatial and Spatio-Temporal Prediction with Large Datasets.”</span> <em>arXiv Preprint arXiv:1705.08105</em>.
 </div>
 </div>
 </div>
