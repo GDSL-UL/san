@@ -134,7 +134,7 @@
 
 \title{Spatial Modelling for Data Scientists}
 \author{Francisco Rowe and Dani Arribas-Bel}
-\date{2021-04-06}
+\date{2022-01-24}
 
 \begin{document}
 \maketitle
@@ -570,7 +570,7 @@ You can check your current working directory by typing:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san"
+## [1] "/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san"
 \end{verbatim}
 
 \hypertarget{r-scripts-and-notebooks}{%
@@ -1391,7 +1391,7 @@ We first need to import our spatial data. We will use a shapefile containing dat
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `Liverpool_OA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/census/Liverpool_OA.shp' using driver `ESRI Shapefile'
+## Reading layer `Liverpool_OA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/census/Liverpool_OA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 1584 features and 18 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -1623,7 +1623,7 @@ If you recall, one of the key issues of working with spatial data is the modifia
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `Liverpool_MSOA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/census/Liverpool_MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `Liverpool_MSOA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/census/Liverpool_MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 16 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -1767,7 +1767,7 @@ Let us start by reading the data, which comes in a GeoJSON:
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `regression_db' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
+## Reading layer `regression_db' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -2217,7 +2217,8 @@ Let us say, a new house is going to be advertised on the coordinates \texttt{X\ 
 \NormalTok{pt <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DataTypeTok{X =} \FloatTok{-117.02259063720702}\NormalTok{, }\DataTypeTok{Y =} \FloatTok{32.76511965117273}\NormalTok{) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{st_point}\NormalTok{() }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{st_sfc}\NormalTok{() }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{st_sf}\NormalTok{(}\DataTypeTok{crs =} \StringTok{"EPSG:4326"}\NormalTok{)}
+\StringTok{  }\KeywordTok{st_sf}\NormalTok{(}\DataTypeTok{crs =} \StringTok{"EPSG:4326"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{st_transform}\NormalTok{(}\KeywordTok{st_crs}\NormalTok{(db))}
 \NormalTok{idw.one <-}\StringTok{ }\KeywordTok{idw}\NormalTok{(price }\OperatorTok{~}\StringTok{ }\DecValTok{1}\NormalTok{, }\DataTypeTok{locations=}\NormalTok{db, }\DataTypeTok{newdata=}\NormalTok{pt)}
 \end{Highlighting}
 \end{Shaded}
@@ -2268,7 +2269,7 @@ We will be using the Madrid AirBnb dataset:
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `madrid_abb' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Reading layer `madrid_abb' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
 ## Simple feature collection with 18399 features and 16 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -2393,7 +2394,7 @@ We will rely on the following libraries in this section, all of them included in
 \end{verbatim}
 
 \begin{verbatim}
-## Working directory is /Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san
+## Working directory is /Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san
 \end{verbatim}
 
 In this chapter we will show a slightly different way of managing spatial data in R. Although most of the functionality will be similar to that seen in previous chapters, we will not rely on the ``\texttt{sf} stack'' and we will instead show how to read and manipulate data using the more traditional \texttt{sp} stack. Although this approach is being slowly phased out, it is still important to be aware of its existence and its differences with more modern approaches.
@@ -2421,7 +2422,7 @@ Let us then directly load the file with all the information necessary:
 
 \begin{verbatim}
 ## OGR data source with driver: GeoJSON 
-## Source: "/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sf_bikes/flows.geojson", layer: "flows"
+## Source: "/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/sf_bikes/flows.geojson", layer: "flows"
 ## with 1722 features
 ## It has 9 fields
 \end{verbatim}
@@ -3262,7 +3263,7 @@ We will be using again the Madrid AirBnb dataset:
 
 \begin{verbatim}
 ## OGR data source with driver: GPKG 
-## Source: "/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg", layer: "madrid_abb"
+## Source: "/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_1_madrid/madrid_abb.gpkg", layer: "madrid_abb"
 ## with 18399 features
 ## It has 16 fields
 ## Integer64 fields read as strings:  accommodates
@@ -3366,6 +3367,14 @@ We will rely on the following libraries in this section, all of them included in
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## Warning: namespace 'terra' is not available and has been replaced
+## by .GlobalEnv when processing object '<unknown>'
+
+## Warning: namespace 'terra' is not available and has been replaced
+## by .GlobalEnv when processing object '<unknown>'
+\end{verbatim}
+
 Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with \texttt{setwd()}. Please replace in the following line the path to the folder where you have placed this file -and where the \texttt{house\_transactions} folder with the data lives.
 
 \begin{Shaded}
@@ -3388,7 +3397,7 @@ Let us load it up first of all:
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `regression_db' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
+## Reading layer `regression_db' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -4128,7 +4137,7 @@ In our example case, in addition to including the number of bathrooms of the pro
 \log(P_i) = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i+ \beta_5 Bath_{lag-i} + \epsilon_i
 \]
 
-Let us first compute the spatial lag of imd\_score:
+Let us first compute the spatial lag of \texttt{bathrooms}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4272,7 +4281,7 @@ We will be using again the Madrid AirBnb dataset:
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `madrid_abb' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Reading layer `madrid_abb' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
 ## Simple feature collection with 18399 features and 16 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -4933,16 +4942,16 @@ We can also obtain group-level errors (\emph{random effects}) by using a simulat
 
 \begin{verbatim}
 ##    groupFctr   groupID        term         mean       median          sd
-## 1    lsoa_cd E01006512 (Intercept) -0.012626119 -0.012633868 0.019942700
-## 2    lsoa_cd E01006513 (Intercept) -0.016535284 -0.016534611 0.019824315
-## 3    lsoa_cd E01006514 (Intercept) -0.019452532 -0.019486355 0.018864162
-## 4    lsoa_cd E01006515 (Intercept) -0.017268572 -0.018372289 0.020969246
-## 5    lsoa_cd E01006518 (Intercept) -0.017027134 -0.015699462 0.019460981
-## 6    lsoa_cd E01006519 (Intercept) -0.017446820 -0.017443324 0.009039999
-## 7    lsoa_cd E01006520 (Intercept) -0.023543715 -0.022906734 0.020121484
-## 8    lsoa_cd E01006521 (Intercept)  0.007830939  0.007965642 0.018477904
-## 9    lsoa_cd E01006522 (Intercept)  0.019527188  0.019547709 0.018925474
-## 10   lsoa_cd E01006523 (Intercept)  0.005617165  0.004890024 0.017362313
+## 1    lsoa_cd E01006512 (Intercept) -0.017031079 -0.018246665 0.019190661
+## 2    lsoa_cd E01006513 (Intercept) -0.016413641 -0.017455762 0.018518796
+## 3    lsoa_cd E01006514 (Intercept) -0.022879079 -0.023989714 0.019644689
+## 4    lsoa_cd E01006515 (Intercept) -0.015892132 -0.016108262 0.019112631
+## 5    lsoa_cd E01006518 (Intercept) -0.019728420 -0.020496931 0.018564825
+## 6    lsoa_cd E01006519 (Intercept) -0.016400219 -0.016184397 0.009535827
+## 7    lsoa_cd E01006520 (Intercept) -0.025544696 -0.025788086 0.019092295
+## 8    lsoa_cd E01006521 (Intercept)  0.006058062  0.005780336 0.017819128
+## 9    lsoa_cd E01006522 (Intercept)  0.018416993  0.019340471 0.020342759
+## 10   lsoa_cd E01006523 (Intercept)  0.004341891  0.004800401 0.018504335
 \end{verbatim}
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g.~LSOA). The mean estimates are similar to those obtained from \texttt{ranef} with some small differences due to rounding.
@@ -4998,7 +5007,7 @@ We can also map the MSOA-level \emph{random effects}. To this end, we first need
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `MSOA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `MSOA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -5019,9 +5028,9 @@ We can also map the MSOA-level \emph{random effects}. To this end, we first need
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.0114 -0.0267 -0.0281 0.0089 0.0223 ...
-##  $ median   : num  -0.009 -0.02639 -0.02758 0.00846 0.02331 ...
-##  $ sd       : num  0.0339 0.0311 0.03 0.0297 0.015 ...
+##  $ mean     : num  -0.0133 -0.0261 -0.0343 0.005 0.0229 ...
+##  $ median   : num  -0.01105 -0.02698 -0.03204 0.00782 0.02246 ...
+##  $ sd       : num  0.0319 0.0322 0.0304 0.0299 0.0148 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -5299,7 +5308,7 @@ For the second assignment, we will be using a different dataset comprising infor
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -5748,7 +5757,7 @@ Let's try to get a better understanding of the varying relationship between unem
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `MSOA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `MSOA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -5770,9 +5779,9 @@ Let's try to get a better understanding of the varying relationship between unem
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
-##  $ mean     : num  0.026 -0.1161 0.0555 -0.1476 -0.2811 ...
-##  $ median   : num  0.0235 -0.1148 0.0558 -0.1458 -0.2781 ...
-##  $ sd       : num  0.0436 0.08 0.0842 0.038 0.0401 ...
+##  $ mean     : num  0.0262 -0.1103 0.0664 -0.1431 -0.2827 ...
+##  $ median   : num  0.0259 -0.1099 0.0697 -0.1437 -0.2849 ...
+##  $ sd       : num  0.0479 0.0761 0.0827 0.0363 0.0413 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -5952,7 +5961,7 @@ We will continue to use the COVID-19 dataset. Please see Chapter \ref{datasets} 
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -6129,7 +6138,7 @@ The results indicate a wide variation in the risk of infection across UTLAs in E
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `Regions_December_2019_Boundaries_EN_BGC' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp' using driver `ESRI Shapefile'
+## Reading layer `Regions_December_2019_Boundaries_EN_BGC' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 9 features and 9 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -6678,7 +6687,7 @@ We will continue to use the COVID-19 dataset. Please see Chapter \ref{datasets} 
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -6861,7 +6870,7 @@ These data objects correspond to \texttt{locs}, \texttt{time}, and \texttt{covid
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `ons_utla' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sta/ons_utla.shp' using driver `ESRI Shapefile'
+## Reading layer `ons_utla' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/sta/ons_utla.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 150 features and 11 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -7797,7 +7806,7 @@ We will continue to use the COVID-19 dataset. Please see Chapter \ref{datasets} 
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -7859,7 +7868,7 @@ The dataset is stored on a Geopackage that can be found, within the structure of
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `madrid_abb' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Reading layer `madrid_abb' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
 ## Simple feature collection with 18399 features and 16 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -7980,7 +7989,7 @@ The dataset is stored on a Geopackage:
 \end{Shaded}
 
 \begin{verbatim}
-## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY

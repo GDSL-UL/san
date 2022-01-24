@@ -1,7 +1,7 @@
 --- 
 title: "Spatial Modelling for Data Scientists"
 author: "Francisco Rowe and Dani Arribas-Bel"
-date: "2021-04-06"
+date: "2022-01-24"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book

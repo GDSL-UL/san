@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
 
 
-<meta name="date" content="2021-04-06" />
+<meta name="date" content="2022-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -326,16 +326,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="datasets" class="section level1">
 <h1><span class="header-section-number">Chapter 11</span> Data Sets</h1>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="datasets.html#cb424-1"></a><span class="kw">library</span>(sf)</span></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="datasets.html#cb425-1"></a><span class="kw">library</span>(sf)</span></code></pre></div>
 <div id="madrid-airbnb" class="section level2">
 <h2><span class="header-section-number">11.1</span> Madrid AirBnb</h2>
 <p>This dataset contains a pre-processed set of properties advertised on the AirBnb website within the region of Madrid (Spain), together with house characteristics.</p>
 <div id="availability" class="section level3 unnumbered">
 <h3>Availability</h3>
 <p>The dataset is stored on a Geopackage that can be found, within the structure of this project, under:</p>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="datasets.html#cb425-1"></a>path &lt;-<span class="st"> &quot;data/assignment_1_madrid/madrid_abb.gpkg&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="datasets.html#cb426-1"></a>db &lt;-<span class="st"> </span><span class="kw">st_read</span>(path)</span></code></pre></div>
-<pre><code>## Reading layer `madrid_abb&#39; from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg&#39; using driver `GPKG&#39;
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="datasets.html#cb426-1"></a>path &lt;-<span class="st"> &quot;data/assignment_1_madrid/madrid_abb.gpkg&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="datasets.html#cb427-1"></a>db &lt;-<span class="st"> </span><span class="kw">st_read</span>(path)</span></code></pre></div>
+<pre><code>## Reading layer `madrid_abb&#39; from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_1_madrid/madrid_abb.gpkg&#39; using driver `GPKG&#39;
 ## Simple feature collection with 18399 features and 16 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -367,7 +367,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="projection" class="section level3 unnumbered">
 <h3>Projection</h3>
 <p>The location of each property is stored as point geometries and expressed in longitude and latitude coordinates:</p>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="datasets.html#cb428-1"></a><span class="kw">st_crs</span>(db)</span></code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="datasets.html#cb429-1"></a><span class="kw">st_crs</span>(db)</span></code></pre></div>
 <pre><code>## Coordinate Reference System:
 ##   User input: WGS 84 
 ##   wkt:
@@ -407,8 +407,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="availability-1" class="section level3 unnumbered">
 <h3>Availability</h3>
 <p>The dataset is stored on a Geopackage:</p>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="datasets.html#cb430-1"></a>sdf &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/assignment_2_covid/covid19_eng.gpkg&quot;</span>)</span></code></pre></div>
-<pre><code>## Reading layer `covid19_eng&#39; from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg&#39; using driver `GPKG&#39;
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="datasets.html#cb431-1"></a>sdf &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/assignment_2_covid/covid19_eng.gpkg&quot;</span>)</span></code></pre></div>
+<pre><code>## Reading layer `covid19_eng&#39; from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_2_covid/covid19_eng.gpkg&#39; using driver `GPKG&#39;
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -439,7 +439,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="projection-1" class="section level3 unnumbered">
 <h3>Projection</h3>
 <p>Details of the coordinate reference system:</p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="datasets.html#cb432-1"></a><span class="kw">st_crs</span>(sdf)</span></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="datasets.html#cb433-1"></a><span class="kw">st_crs</span>(sdf)</span></code></pre></div>
 <pre><code>## Coordinate Reference System:
 ##   User input: OSGB 1936 / British National Grid 
 ##   wkt:

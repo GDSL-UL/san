@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.9.13)  6 APR 2021 11:08
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.9.13)  24 JAN 2022 10:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1342,7 +1342,7 @@ File: figs/ch2/rstudio_features.png Graphic file (type QTm)
 <use  "figs/ch2/rstudio_features.png" > [22] [23]
 Overfull \hbox (75.0pt too wide) in paragraph at lines 574--574
 []\EU1/lmtt/m/n/10 ## [1] "/Users/Franciscorowe 1/Dropbox/Francisco/uol/teachin
-g/envs453/202021/san"[] 
+g/envs453/202122/san"[] 
  []
 
 [24]
@@ -1451,7 +1451,7 @@ Overfull \hbox (3.25pt too wide) in paragraph at lines 1346--1346
 [36]
 Overfull \hbox (589.5pt too wide) in paragraph at lines 1400--1400
 []\EU1/lmtt/m/n/10 ## Reading layer `Liverpool_OA' from data source `/Users/Fra
-nciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/census/Live
+nciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/census/Live
 rpool_OA.shp' using driver `ESRI Shapefile'[] 
  []
 
@@ -1608,7 +1608,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [41] [42]
 Overfull \hbox (610.5pt too wide) in paragraph at lines 1632--1632
 []\EU1/lmtt/m/n/10 ## Reading layer `Liverpool_MSOA' from data source `/Users/F
-ranciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/census/Li
+ranciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/census/Li
 verpool_MSOA.shp' using driver `ESRI Shapefile'[] 
  []
 
@@ -1649,7 +1649,7 @@ r details.[]
 ]
 Overfull \hbox (586.0pt too wide) in paragraph at lines 1776--1776
 []\EU1/lmtt/m/n/10 ## Reading layer `regression_db' from data source `/Users/Fr
-anciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/reg
+anciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/abb_sd/reg
 ression_db.geojson' using driver `GeoJSON'[] 
  []
 
@@ -1733,44 +1733,44 @@ m)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [60] [61]
-Overfull \hbox (64.5pt too wide) in paragraph at lines 2227--2227
+Overfull \hbox (64.5pt too wide) in paragraph at lines 2228--2228
 []\EU1/lmtt/m/n/10 ## Warning in proj4string(d$data): CRS object has comment, w
 hich is lost in output[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 2231--2231
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2232--2232
 []\EU1/lmtt/m/n/10 ## Warning in proj4string(newdata): CRS object has comment, 
 which is lost in output[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 2239--2239
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2240--2240
 []\EU1/lmtt/m/n/10 ## Warning in proj4string(newdata): CRS object has comment, 
 which is lost in output[] 
  []
 
 
-Overfull \hbox (41.75pt too wide) in paragraph at lines 2255--2255
+Overfull \hbox (41.75pt too wide) in paragraph at lines 2256--2256
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: -117.0226 ymin: 32.76512 xmax: -117
 .0226 ymax: 32.76512[] 
  []
 
 
-Overfull \hbox (591.25pt too wide) in paragraph at lines 2277--2277
+Overfull \hbox (591.25pt too wide) in paragraph at lines 2278--2278
 []\EU1/lmtt/m/n/10 ## Reading layer `madrid_abb' from data source `/Users/Franc
-iscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_
+iscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_1_
 madrid/madrid_abb.gpkg' using driver `GPKG'[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 2277--2277
+Overfull \hbox (20.75pt too wide) in paragraph at lines 2278--2278
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.55
 6 ymax: 40.56274[] 
  []
 
 [62]
-Overfull \hbox (15.5pt too wide) in paragraph at lines 2293--2293
+Overfull \hbox (15.5pt too wide) in paragraph at lines 2294--2294
 []\EU1/lmtt/m/n/10 ##  [1] "price"           "price_usd"       "log1p_price_usd
 " "accommodates"[] 
  []
@@ -1780,106 +1780,106 @@ Overfull \hbox (15.5pt too wide) in paragraph at lines 2293--2293
 ]
 Chapter 5.
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 2350--2350
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2351--2351
 []\EU1/lmtt/m/n/10 ## Geospatial Data Abstraction Library extensions to R succe
 ssfully loaded[] 
  []
 
 [65]
-Overfull \hbox (185.25pt too wide) in paragraph at lines 2350--2350
+Overfull \hbox (185.25pt too wide) in paragraph at lines 2351--2351
 []\EU1/lmtt/m/n/10 ## Path to GDAL shared files: /Library/Frameworks/R.framewor
 k/Versions/4.0/Resources/library/rgdal/gdal[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 2350--2350
+Overfull \hbox (26.0pt too wide) in paragraph at lines 2351--2351
 []\EU1/lmtt/m/n/10 ## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ
 _VERSION: 631][] 
  []
 
 
-Overfull \hbox (185.25pt too wide) in paragraph at lines 2350--2350
+Overfull \hbox (185.25pt too wide) in paragraph at lines 2351--2351
 []\EU1/lmtt/m/n/10 ## Path to PROJ shared files: /Library/Frameworks/R.framewor
 k/Versions/4.0/Resources/library/rgdal/proj[] 
  []
 
 
-Overfull \hbox (3.25pt too wide) in paragraph at lines 2350--2350
+Overfull \hbox (3.25pt too wide) in paragraph at lines 2351--2351
 []\EU1/lmtt/m/n/10 ## To mute warnings of possible GDAL/OSR exportToProj4() deg
 radation,[] 
  []
 
 
-Overfull \hbox (66.25pt too wide) in paragraph at lines 2350--2350
+Overfull \hbox (66.25pt too wide) in paragraph at lines 2351--2351
 []\EU1/lmtt/m/n/10 ## use options("rgdal_show_exportToProj4_warnings"="none") b
 efore loading rgdal.[] 
  []
 
 
-Overfull \hbox (45.25pt too wide) in paragraph at lines 2365--2365
+Overfull \hbox (45.25pt too wide) in paragraph at lines 2366--2366
 []\EU1/lmtt/m/n/10 ## Google's Terms of Service: https://cloud.google.com/maps-
 platform/terms/.[] 
  []
 
 
-Overfull \hbox (3.25pt too wide) in paragraph at lines 2369--2369
+Overfull \hbox (3.25pt too wide) in paragraph at lines 2370--2370
 []\EU1/lmtt/m/n/10 ## Please cite ggmap if you use it! See citation("ggmap") fo
 r details.[] 
  []
 
 
-Overfull \hbox (150.25pt too wide) in paragraph at lines 2397--2397
+Overfull \hbox (150.25pt too wide) in paragraph at lines 2398--2398
 []\EU1/lmtt/m/n/10 ## Working directory is /Users/Franciscorowe 1/Dropbox/Franc
-isco/uol/teaching/envs453/202021/san[] 
+isco/uol/teaching/envs453/202122/san[] 
  []
 
 
 Underfull \vbox (badness 1210) has occurred while \output is active []
 
 [66]
-Overfull \hbox (323.5pt too wide) in paragraph at lines 2427--2427
+Overfull \hbox (323.5pt too wide) in paragraph at lines 2428--2428
 []\EU1/lmtt/m/n/10 ## Source: "/Users/Franciscorowe 1/Dropbox/Francisco/uol/tea
-ching/envs453/202021/san/data/sf_bikes/flows.geojson", layer: "flows"[] 
+ching/envs453/202122/san/data/sf_bikes/flows.geojson", layer: "flows"[] 
  []
 
 
-Overfull \hbox (50.5pt too wide) in paragraph at lines 2454--2454
+Overfull \hbox (50.5pt too wide) in paragraph at lines 2455--2455
 []\EU1/lmtt/m/n/10 ##       dest orig straight_dist street_dist total_down tota
 l_up trips15 trips16[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 2454--2454
+Overfull \hbox (20.75pt too wide) in paragraph at lines 2455--2455
 []\EU1/lmtt/m/n/10 ## 39-41   41   39      1452.201   1804.1150  11.205753 4.69
 8162      68      68[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 2454--2454
+Overfull \hbox (20.75pt too wide) in paragraph at lines 2455--2455
 []\EU1/lmtt/m/n/10 ## 39-42   42   39      1734.861   2069.1557  10.290236 2.89
 7886      23      29[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 2454--2454
+Overfull \hbox (20.75pt too wide) in paragraph at lines 2455--2455
 []\EU1/lmtt/m/n/10 ## 39-45   45   39      1255.349   1747.9928  11.015596 4.59
 3927      83      50[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 2454--2454
+Overfull \hbox (22.5pt too wide) in paragraph at lines 2455--2455
 []\EU1/lmtt/m/n/10 ## 39-46   46   39      1323.303   1490.8361   3.511543 5.03
 8044     258     163[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2454--2454
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2455--2455
 []\EU1/lmtt/m/n/10 ## 39-47   47   39       715.689    769.9189   0.000000 3.28
 2495     127      73[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 2454--2454
+Overfull \hbox (20.75pt too wide) in paragraph at lines 2455--2455
 []\EU1/lmtt/m/n/10 ## 39-48   48   39      1996.778   2740.1290  11.375186 3.84
 1296      81      56[] 
  []
@@ -1906,7 +1906,7 @@ File: 05-flows_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (type QTm
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [71]
-Underfull \vbox (badness 7944) detected at line 2637
+Underfull \vbox (badness 7944) detected at line 2638
  []
 
 
@@ -1928,14 +1928,14 @@ File: 05-flows_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type QTm
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [76] [77]
-Underfull \vbox (badness 1248) detected at line 2828
+Underfull \vbox (badness 1248) detected at line 2829
  []
 
 [78]
 File: 05-flows_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file (type QTm
 )
 <use  "05-flows_files/figure-latex/unnamed-chunk-19-1.pdf" >
-Overfull \vbox (0.15982pt too high) detected at line 2875
+Overfull \vbox (0.15982pt too high) detected at line 2876
  []
 
 [79]
@@ -1948,13 +1948,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: 05-flows_files/figure-latex/unnamed-chunk-22-1.pdf Graphic file (type QTm
 )
 <use  "05-flows_files/figure-latex/unnamed-chunk-22-1.pdf" >
-Underfull \hbox (badness 1237) in paragraph at lines 2957--2958
+Underfull \hbox (badness 1237) in paragraph at lines 2958--2959
 []\EU1/lmr/m/n/10 To incorporate uncertainty to these predictions, we need to t
 weak our
  []
 
 
-Underfull \vbox (badness 1087) detected at line 2976
+Underfull \vbox (badness 1087) detected at line 2977
  []
 
 [83] [84]
@@ -1970,9 +1970,9 @@ File: 05-flows_files/figure-latex/unnamed-chunk-28-1.pdf Graphic file (type QTm
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [88] [89] [90] [91]
-Overfull \hbox (418.0pt too wide) in paragraph at lines 3269--3269
+Overfull \hbox (418.0pt too wide) in paragraph at lines 3270--3270
 []\EU1/lmtt/m/n/10 ## Source: "/Users/Franciscorowe 1/Dropbox/Francisco/uol/tea
-ching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg", layer: "mad
+ching/envs453/202122/san/data/assignment_1_madrid/madrid_abb.gpkg", layer: "mad
 rid_abb"[] 
  []
 
@@ -1981,14 +1981,14 @@ rid_abb"[]
 ]
 Chapter 6.
 [95]
-Overfull \hbox (586.0pt too wide) in paragraph at lines 3397--3397
+Overfull \hbox (586.0pt too wide) in paragraph at lines 3406--3406
 []\EU1/lmtt/m/n/10 ## Reading layer `regression_db' from data source `/Users/Fr
-anciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/reg
+anciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/abb_sd/reg
 ression_db.geojson' using driver `GeoJSON'[] 
  []
 
 
-Overfull \hbox (41.75pt too wide) in paragraph at lines 3397--3397
+Overfull \hbox (41.75pt too wide) in paragraph at lines 3406--3406
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: -117.2812 ymin: 32.57349 xmax: -116
 .9553 ymax: 33.08311[] 
  []
@@ -1998,7 +1998,7 @@ File: 06-spatial_econometrics_files/figure-latex/unnamed-chunk-5-1.pdf Graphic
 file (type QTm)
 <use  "06-spatial_econometrics_files/figure-latex/unnamed-chunk-5-1.pdf" > [97]
 [98]
-Overfull \hbox (19.0pt too wide) in paragraph at lines 3492--3492
+Overfull \hbox (19.0pt too wide) in paragraph at lines 3501--3501
 []\EU1/lmtt/m/n/10 ## lm(formula = "log_price ~ accommodates + bathrooms + bedr
 ooms + beds",[] 
  []
@@ -2006,308 +2006,312 @@ ooms + beds",[]
 [99] [100]
 File: 06-spatial_econometrics_files/figure-latex/unnamed-chunk-8-1.pdf Graphic 
 file (type QTm)
-<use  "06-spatial_econometrics_files/figure-latex/unnamed-chunk-8-1.pdf" >
-Overfull \hbox (111.75pt too wide) in paragraph at lines 3611--3611
+<use  "06-spatial_econometrics_files/figure-latex/unnamed-chunk-8-1.pdf" > [101
+]
+Overfull \hbox (111.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## lm(formula = "log_price ~ neighborhood + accommodates + b
 athrooms + bedrooms + beds - 1",[] 
  []
 
-[101]
-Overfull \hbox (31.25pt too wide) in paragraph at lines 3611--3611
+
+Overfull \hbox (31.25pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodBalboa Park              3.994775   0.036539 
  109.33   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (20.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodBay Ho                   3.780025   0.086081 
   43.91   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (24.25pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (24.25pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodBay Park                 3.941847   0.055788 
   70.66   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (33.0pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodCarmel Valley            4.034052   0.062811 
   64.23   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (38.25pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodCity Heights West        3.698788   0.065502 
   56.47   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (36.5pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodClairemont Mesa          3.658339   0.051438 
   71.12   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (31.25pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodCollege Area             3.649859   0.064979 
   56.17   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (19.0pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (19.0pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodCore                     4.433447   0.058864 
   75.32   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (29.5pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodCortez Hill              4.294790   0.057648 
   74.50   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (34.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodDel Mar Heights          4.300659   0.060912 
   70.61   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (33.0pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodEast Village             4.241146   0.032019 
  132.46   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (36.5pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodGaslamp Quarter          4.473863   0.052493 
   85.23   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (27.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodGrant Hill               4.001481   0.058825 
   68.02   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (29.5pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodGrantville               3.664989   0.080168 
   45.72   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (29.5pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodKensington               4.073520   0.087322 
   46.65   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (26.0pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodLa Jolla                 4.400145   0.026772 
  164.36   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (36.5pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodLa Jolla Village         4.066151   0.087263 
   46.60   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (29.5pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodLinda Vista              3.817940   0.063128 
   60.48   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (31.25pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodLittle Italy             4.390651   0.052433 
   83.74   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (31.25pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodLoma Portal              4.034473   0.036173 
  111.53   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (22.5pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodMarina                   4.046133   0.052178 
   77.55   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (26.0pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodMidtown                  4.032038   0.030280 
  133.16   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (38.25pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodMidtown District         4.356943   0.071756 
   60.72   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (26.0pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodMira Mesa                3.570523   0.061543 
   58.02   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (31.25pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodMission Bay              4.251309   0.023318 
  182.32   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (34.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodMission Valley           4.012410   0.083766 
   47.90   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (34.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodMoreno Mission           4.028288   0.063342 
   63.59   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (34.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodNormal Heights           3.791895   0.054730 
   69.28   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (38.25pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodNorth Clairemont         3.498107   0.076432 
   45.77   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (31.25pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodNorth Hills              3.959403   0.026823 
  147.61   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (27.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodNorthwest                3.810201   0.078158 
   48.75   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 3611--3611
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[102]
+Overfull \hbox (31.25pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodOcean Beach              4.152695   0.032352 
  128.36   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (24.25pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (24.25pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodOld Town                 4.127737   0.046523 
   88.72   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (27.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodOtay Ranch               3.722902   0.091633 
   40.63   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (34.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodPacific Beach            4.116749   0.022711 
  181.27   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (26.0pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodPark West                4.216829   0.050370 
   83.72   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (38.25pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodRancho Bernadino         3.873962   0.080780 
   47.96   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (41.75pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (41.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodRancho Penasquitos       3.772037   0.068808 
   54.82   <2e-16 ***[] 
  []
 
-[102]
-Overfull \hbox (27.75pt too wide) in paragraph at lines 3611--3611
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodRoseville                4.070468   0.065299 
   62.34   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (27.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodSan Carlos               3.935042   0.093205 
   42.22   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (33.0pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodScripps Ranch            3.641239   0.085190 
   42.74   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (27.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodSerra Mesa               3.912127   0.066630 
   58.71   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (27.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodSouth Park               3.987019   0.060141 
   66.30   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (36.5pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodUniversity City          3.772504   0.039638 
   95.17   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (48.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## neighborhoodWest University Heights  4.043161   0.048238 
   83.82   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## accommodates                         0.150283   0.005086 
   29.55   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## bathrooms                            0.132287   0.011886 
   11.13   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (5.0pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## bedrooms                             0.147631   0.011960 
   12.34   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 3611--3611
+Overfull \hbox (1.5pt too wide) in paragraph at lines 3620--3620
 []\EU1/lmtt/m/n/10 ## beds                                -0.074622   0.007405 
  -10.08   <2e-16 ***[] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3639
+Underfull \vbox (badness 10000) detected at line 3648
  []
 
 
@@ -2318,1115 +2322,1115 @@ File: 06-spatial_econometrics_files/figure-latex/unnamed-chunk-10-1.pdf Graphic
  file (type QTm)
 <use  "06-spatial_econometrics_files/figure-latex/unnamed-chunk-10-1.pdf" > [10
 4]
-Overfull \hbox (125.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (125.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## lm(formula = "log_price ~ 0 + (accommodates + bathrooms +
  bedrooms + beds):(neighborhood)",[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodBalboa Park              0.06352
 8   0.093237   0.681[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodBay Ho                  -0.25961
 5   0.335007  -0.775[] 
  []
 
-
-Overfull \hbox (34.75pt too wide) in paragraph at lines 4055--4055
+[105]
+Overfull \hbox (34.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodBay Park                -0.35540
 1   0.232720  -1.527[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (40.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodCarmel Valley            0.12978
 6   0.187193   0.693[] 
  []
 
 
-Overfull \hbox (45.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (45.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodCity Heights West        0.44737
 1   0.231998   1.928[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodClairemont Mesa          0.71135
 3   0.177821   4.000[] 
  []
 
 
-Overfull \hbox (41.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (41.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodCollege Area            -0.34615
 2   0.188071  -1.841[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (26.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodCore                     0.12586
 4   0.148417   0.848[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodCortez Hill              0.71595
 8   0.126562   5.657[] 
  []
 
-[105]
-Overfull \hbox (41.75pt too wide) in paragraph at lines 4055--4055
+
+Overfull \hbox (41.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodDel Mar Heights          0.82919
 5   0.214067   3.874[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodEast Village             0.21464
 2   0.077394   2.773[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodGaslamp Quarter          0.45144
 3   0.197637   2.284[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (34.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodGrant Hill               1.13517
 6   0.167771   6.766[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodGrantville               0.30090
 7   0.280369   1.073[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodKensington               0.66874
 2   0.450243   1.485[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodLa Jolla                 0.52088
 2   0.055887   9.320[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodLa Jolla Village         0.56645
 2   0.413185   1.371[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodLinda Vista              0.52397
 5   0.282219   1.857[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodLittle Italy             0.60390
 8   0.121899   4.954[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodLoma Portal              0.48774
 3   0.127870   3.814[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodMarina                   0.43138
 4   0.172628   2.499[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodMidtown                  0.61805
 8   0.087992   7.024[] 
  []
 
 
-Overfull \hbox (45.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (45.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodMidtown District         0.43039
 8   0.191682   2.245[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodMira Mesa               -0.01819
 9   0.310167  -0.059[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodMission Bay              0.44095
 1   0.049454   8.916[] 
  []
 
 
-Overfull \hbox (41.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (41.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodMission Valley           0.14453
 0   0.507925   0.285[] 
  []
 
 
-Overfull \hbox (41.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (41.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodMoreno Mission           0.10047
 1   0.229460   0.438[] 
  []
 
 
-Overfull \hbox (41.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (41.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodNormal Heights           0.41368
 2   0.198584   2.083[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (48.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodNorth Clairemont        -0.24272
 3   0.307090  -0.790[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodNorth Hills              0.26284
 0   0.083258   3.157[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodNorthwest               -0.22915
 7   0.255656  -0.896[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodOcean Beach              0.75477
 1   0.079097   9.542[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodOld Town                 0.17717
 6   0.159714   1.109[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodOtay Ranch              -0.33353
 6   0.309545  -1.078[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (40.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodPacific Beach            0.34547
 5   0.057599   5.998[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodPark West                0.90902
 0   0.156013   5.827[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (48.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodRancho Bernadino        -0.11893
 9   0.256750  -0.463[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (48.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodRancho Penasquitos       0.12184
 5   0.228456   0.533[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (34.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodRoseville                0.31692
 9   0.226110   1.402[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (34.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodSan Carlos               0.19124
 8   0.318706   0.600[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (40.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodScripps Ranch            0.34763
 8   0.127239   2.732[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (34.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodSerra Mesa               0.49549
 1   0.282281   1.755[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (34.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodSouth Park               0.33437
 8   0.256708   1.303[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodUniversity City          0.10760
 5   0.113883   0.945[] 
  []
 
 
-Overfull \hbox (55.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (55.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## accommodates:neighborhoodWest University Heights  0.19021
 5   0.212040   0.897[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodBalboa Park                 2.27532
 1   0.225032  10.111[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodBay Ho                      3.31223
 1   0.530568   6.243[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (26.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodBay Park                    2.23164
 9   0.365655   6.103[] 
  []
 
-
-Overfull \hbox (34.75pt too wide) in paragraph at lines 4055--4055
+[106]
+Overfull \hbox (34.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodCarmel Valley               1.19105
 8   0.224138   5.314[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (40.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodCity Heights West           2.51723
 5   0.550272   4.575[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodClairemont Mesa             3.73729
 7   0.427366   8.745[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodCollege Area                3.37026
 3   0.413479   8.151[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (20.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodCore                        3.63518
 8   0.490640   7.409[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodCortez Hill                 1.63103
 2   0.299654   5.443[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodDel Mar Heights             1.34620
 6   0.342828   3.927[] 
  []
 
-[106]
-Overfull \hbox (34.75pt too wide) in paragraph at lines 4055--4055
+
+Overfull \hbox (34.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodEast Village                2.60048
 9   0.190932  13.620[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodGaslamp Quarter             3.18309
 2   0.527615   6.033[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodGrant Hill                  2.77097
 6   0.416838   6.648[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodGrantville                  2.17717
 5   0.693599   3.139[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodKensington                  1.28404
 4   0.671482   1.912[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (26.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodLa Jolla                    0.85266
 7   0.099413   8.577[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodLa Jolla Village            0.98442
 6   1.193870   0.825[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodLinda Vista                 2.35989
 5   0.393392   5.999[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodLittle Italy                2.60056
 7   0.275834   9.428[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodLoma Portal                 2.57516
 4   0.249679  10.314[] 
  []
 
 
-Overfull \hbox (24.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (24.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodMarina                      3.31713
 9   0.656533   5.053[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (26.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodMidtown                     0.89973
 6   0.112205   8.019[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (40.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodMidtown District            3.14344
 0   0.594875   5.284[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (27.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodMira Mesa                   2.85828
 0   0.512511   5.577[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodMission Bay                 1.76492
 9   0.122421  14.417[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodMission Valley              2.66600
 0   1.365483   1.952[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodMoreno Mission              3.23451
 2   0.557898   5.798[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodNormal Heights              3.50513
 9   0.467965   7.490[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (40.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodNorth Clairemont            2.57484
 7   0.613471   4.197[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodNorth Hills                 2.58472
 4   0.191541  13.494[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodNorthwest                   2.87751
 9   0.569924   5.049[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodOcean Beach                 1.70220
 8   0.207508   8.203[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (26.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodOld Town                    2.24912
 0   0.302755   7.429[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodOtay Ranch                  2.81873
 6   1.132794   2.488[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodPacific Beach               2.27280
 3   0.130607  17.402[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (27.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodPark West                   2.67673
 9   0.308257   8.683[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (40.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodRancho Bernadino            0.85672
 3   0.555198   1.543[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodRancho Penasquitos          0.67776
 7   0.414569   1.635[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodRoseville                   1.10962
 5   0.360103   3.081[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodSan Carlos                  2.48981
 5   0.511232   4.870[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (34.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodScripps Ranch               2.45986
 2   0.469601   5.238[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodSerra Mesa                  2.96893
 4   0.602807   4.925[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodSouth Park                  2.89547
 1   0.521793   5.549[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodUniversity City             3.12538
 7   0.347825   8.986[] 
  []
 
 
-Overfull \hbox (50.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (50.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bathrooms:neighborhoodWest University Heights     2.18825
 7   0.390408   5.605[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodBalboa Park                  0.60565
 5   0.245384   2.468[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (20.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodBay Ho                       0.83616
 3   0.631871   1.323[] 
  []
 
 
-Overfull \hbox (24.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (24.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodBay Park                     1.06094
 4   0.430737   2.463[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodCarmel Valley                0.52195
 4   0.480497   1.086[] 
  []
 
-
-Overfull \hbox (41.75pt too wide) in paragraph at lines 4055--4055
+[107]
+Overfull \hbox (41.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodCity Heights West           -0.27260
 0   0.663983  -0.411[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (40.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodClairemont Mesa             -0.74253
 9   0.450344  -1.649[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (34.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodCollege Area                -0.30662
 1   0.410476  -0.747[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodCore                        -0.78647
 0   0.395991  -1.986[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodCortez Hill                  0.79303
 9   0.380195   2.086[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodDel Mar Heights             -0.07106
 9   0.369070  -0.193[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (34.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodEast Village                -0.18607
 6   0.213572  -0.871[] 
  []
 
-[107]
-Overfull \hbox (40.0pt too wide) in paragraph at lines 4055--4055
+
+Overfull \hbox (40.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodGaslamp Quarter             -0.29402
 4   0.342057  -0.860[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodGrant Hill                  -0.45682
 5   0.425374  -1.074[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodGrantville                   0.90725
 9   0.770945   1.177[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodKensington                  -0.25719
 5   1.009326  -0.255[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (27.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodLa Jolla                    -0.15209
 8   0.133726  -1.137[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodLa Jolla Village             4.29170
 0   1.882046   2.280[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodLinda Vista                 -0.48537
 2   0.642684  -0.755[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodLittle Italy                 0.05747
 5   0.306357   0.188[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodLoma Portal                 -0.40648
 4   0.250607  -1.622[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (26.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodMarina                      -0.83111
 4   0.511626  -1.624[] 
  []
 
 
-Overfull \hbox (24.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (24.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodMidtown                      0.69685
 2   0.167900   4.150[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodMidtown District             0.01061
 4   0.509151   0.021[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodMira Mesa                   -0.19769
 2   0.780959  -0.253[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodMission Bay                 -0.33054
 0   0.121602  -2.718[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (34.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodMission Valley               0.51499
 8   1.295767   0.397[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodMoreno Mission              -0.58468
 9   0.596044  -0.981[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodNormal Heights              -0.12774
 4   0.391691  -0.326[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodNorth Clairemont             0.28130
 6   0.695297   0.405[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodNorth Hills                  0.38044
 4   0.178477   2.132[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (27.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodNorthwest                    0.28860
 3   0.607295   0.475[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodOcean Beach                 -0.03806
 9   0.207927  -0.183[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (27.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodOld Town                    -0.31972
 4   0.375203  -0.852[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (27.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodOtay Ranch                   0.01556
 4   1.332279   0.012[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodPacific Beach               -0.03791
 2   0.139026  -0.273[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodPark West                   -0.69651
 4   0.413881  -1.683[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodRancho Bernadino             1.03477
 6   0.579798   1.785[] 
  []
 
 
-Overfull \hbox (41.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (41.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodRancho Penasquitos           0.67452
 0   0.519260   1.299[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (27.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodRoseville                    0.88101
 1   0.592962   1.486[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodSan Carlos                  -0.39419
 1   0.540343  -0.730[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodScripps Ranch                1.10745
 5   0.336101   3.295[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (27.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodSerra Mesa                   0.25300
 1   0.620774   0.408[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodSouth Park                  -0.59584
 4   0.407811  -1.461[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (36.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodUniversity City              0.20378
 3   0.455767   0.447[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (48.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## bedrooms:neighborhoodWest University Heights      0.24287
 3   0.359245   0.676[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodBalboa Park                      0.04155
 6   0.173183   0.240[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (17.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodBay Ho                          -0.40254
 4   0.495241  -0.813[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (17.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodBay Park                         0.28395
 8   0.410776   0.691[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (26.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodCarmel Valley                    0.15041
 6   0.288268   0.522[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (34.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodCity Heights West               -0.21752
 6   0.497878  -0.437[] 
  []
 
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+[108]
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodClairemont Mesa                 -1.10958
 1   0.308998  -3.591[] 
  []
 
 
-Overfull \hbox (24.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (24.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodCollege Area                     0.59489
 2   0.312780   1.902[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (12.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodCore                             0.60255
 9   0.277027   2.175[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (26.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodCortez Hill                     -0.60999
 6   0.143559  -4.249[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodDel Mar Heights                 -0.70847
 6   0.257299  -2.754[] 
  []
 
 
-Overfull \hbox (24.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (24.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodEast Village                     0.39990
 9   0.148641   2.690[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodGaslamp Quarter                  0.24024
 5   0.319910   0.751[] 
  []
 
-[108]
-Overfull \hbox (24.25pt too wide) in paragraph at lines 4055--4055
+
+Overfull \hbox (24.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodGrant Hill                      -1.31580
 7   0.186724  -7.047[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (26.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodGrantville                      -0.38259
 0   0.469011  -0.816[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodKensington                       0.13347
 4   0.664698   0.201[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (17.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodLa Jolla                         0.00134
 7   0.085013   0.016[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodLa Jolla Village                -2.87867
 6   1.020652  -2.820[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (26.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodLinda Vista                     -0.14237
 2   0.278211  -0.512[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (27.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodLittle Italy                    -0.56986
 8   0.099961  -5.701[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (26.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodLoma Portal                     -0.25551
 0   0.222956  -1.146[] 
  []
 
 
-Overfull \hbox (15.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (15.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodMarina                           0.02417
 5   0.429466   0.056[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (20.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodMidtown                         -0.34686
 6   0.137915  -2.515[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (34.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodMidtown District                -0.46478
 1   0.337775  -1.376[] 
  []
 
 
-Overfull \hbox (19.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (19.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodMira Mesa                        0.31993
 4   0.426799   0.750[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (26.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodMission Bay                     -0.10893
 6   0.067105  -1.623[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodMission Valley                  -0.50244
 1   0.879795  -0.571[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (27.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodMoreno Mission                   0.49251
 4   0.439355   1.121[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodNormal Heights                  -0.53290
 7   0.227211  -2.345[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodNorth Clairemont                 0.56236
 3   0.704213   0.799[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (26.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodNorth Hills                     -0.27943
 0   0.123678  -2.259[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (20.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodNorthwest                        0.74201
 7   0.474903   1.562[] 
  []
 
 
-Overfull \hbox (26.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (26.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodOcean Beach                     -0.66765
 1   0.137647  -4.850[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (17.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodOld Town                         0.45921
 0   0.287008   1.600[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (20.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodOtay Ranch                       0.23572
 3   0.983870   0.240[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodPacific Beach                   -0.17924
 2   0.087511  -2.048[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodPark West                       -0.87329
 7   0.225334  -3.876[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodRancho Bernadino                 0.37808
 8   0.348640   1.084[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (34.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodRancho Penasquitos               0.14745
 7   0.344820   0.428[] 
  []
 
 
-Overfull \hbox (24.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (24.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodRoseville                       -0.39152
 9   0.328609  -1.191[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (20.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodSan Carlos                       0.11533
 8   0.621666   0.186[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodScripps Ranch                   -1.65448
 4   0.338331  -4.890[] 
  []
 
 
-Overfull \hbox (24.25pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (24.25pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodSerra Mesa                      -1.01881
 2   0.705888  -1.443[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (20.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodSouth Park                       0.45281
 5   0.406052   1.115[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodUniversity City                 -0.34582
 2   0.232779  -1.486[] 
  []
 
 
-Overfull \hbox (41.75pt too wide) in paragraph at lines 4055--4055
+Overfull \hbox (41.75pt too wide) in paragraph at lines 4064--4064
 []\EU1/lmtt/m/n/10 ## beds:neighborhoodWest University Heights          0.14612
 8   0.364075   0.401[] 
  []
 
 [109] [110] [111] [112]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2698) has occurred while \output is active []
 
 [113] [114] [115]
-Overfull \hbox (89.0pt too wide) in paragraph at lines 4176--4176
+Overfull \hbox (89.0pt too wide) in paragraph at lines 4185--4185
 []\EU1/lmtt/m/n/10 ## lm(formula = "log_price ~ accommodates + bedrooms + beds 
 + bathrooms + w_bathrooms",[] 
  []
 
 [116] [117] [118]
-Overfull \hbox (591.25pt too wide) in paragraph at lines 4281--4281
+Overfull \hbox (591.25pt too wide) in paragraph at lines 4290--4290
 []\EU1/lmtt/m/n/10 ## Reading layer `madrid_abb' from data source `/Users/Franc
-iscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_
+iscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_1_
 madrid/madrid_abb.gpkg' using driver `GPKG'[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 4281--4281
+Overfull \hbox (20.75pt too wide) in paragraph at lines 4290--4290
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.55
 6 ymax: 40.56274[] 
  []
 
 
-Overfull \hbox (15.5pt too wide) in paragraph at lines 4295--4295
+Overfull \hbox (15.5pt too wide) in paragraph at lines 4304--4304
 []\EU1/lmtt/m/n/10 ##  [1] "price"           "price_usd"       "log1p_price_usd
 " "accommodates"[] 
  []
@@ -3436,115 +3440,115 @@ Chapter 7.
 [121
 
 ]
-Overfull \hbox (13.75pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (13.75pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ##       oa_cd   lsoa_cd   msoa_cd    lad_cd      ward_nm  d
 strt_nm    cnty_nm[] 
  []
 
 
-Overfull \hbox (45.25pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (45.25pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 1 E00032987 E01006515 E02001383 E08000012    Riverside Li
 verpool Merseyside[] 
  []
 
 [122]
-Overfull \hbox (48.75pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (48.75pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 2 E00032988 E01006514 E02001383 E08000012 Princes Park Li
 verpool Merseyside[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (48.75pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 3 E00032989 E01033768 E02001383 E08000012 Princes Park Li
 verpool Merseyside[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (48.75pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 4 E00032990 E01033768 E02001383 E08000012 Princes Park Li
 verpool Merseyside[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (48.75pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 5 E00032991 E01033768 E02001383 E08000012 Princes Park Li
 verpool Merseyside[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (48.75pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 6 E00032992 E01033768 E02001383 E08000012 Princes Park Li
 verpool Merseyside[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 1  England 198 0.11616162 0.1130435 53.39821 -2.976786 46
 .46465 19.19192[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 2  England 348 0.16954023 0.1458333 53.39813 -2.969072 58
 .33333 33.62069[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 3  England 333 0.09009009 0.1049724 53.39778 -2.965290 64
 .26426 23.72372[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 4  England 330 0.15151515 0.1329787 53.39802 -2.963597 59
 .69697 23.03030[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 5  England 320 0.04687500 0.1813725 53.39706 -2.968030 60
 .62500 25.00000[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 6  England 240 0.05833333 0.2519685 53.39679 -2.966494 57
 .91667 28.33333[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (20.75pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 1  6.565657 1.515152 24.69136  7.643312 MULTIPOLYGON (((3
 35187 3894...[] 
  []
 
 
-Overfull \hbox (24.25pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (24.25pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 2 10.344828 1.436782 14.84848 13.375796 MULTIPOLYGON (((3
 35834 3895...[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 3  6.606607 2.102102 15.38462 10.204082 MULTIPOLYGON (((3
 35975.2 38...[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 4  5.151515 2.424242 17.91531 15.224913 MULTIPOLYGON (((3
 36030.8 38...[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 5  8.750000 2.187500 12.58278 11.333333 MULTIPOLYGON (((3
 35804.9 38...[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 4453--4453
+Overfull \hbox (20.75pt too wide) in paragraph at lines 4462--4462
 []\EU1/lmtt/m/n/10 ## 6  6.666667 2.916667 27.47748  5.479452 MULTIPOLYGON (((3
 35804.9 38...[] 
  []
@@ -3566,7 +3570,7 @@ ype QTm)
 File: 07-multilevel_01_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (t
 ype QTm)
 <use  "07-multilevel_01_files/figure-latex/unnamed-chunk-7-1.pdf" >
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4611--4611
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4620--4620
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 333993.8 ymin: 379748.5 xmax: 34560
 0.2 ymax: 397681.5[] 
  []
@@ -3581,154 +3585,154 @@ File: figs/ch5/nm_dist_msoa.png Graphic file (type QTm)
 <use  "figs/ch5/nm_dist_msoa.png" >
 File: figs/ch5/nm_dist_grand.png Graphic file (type QTm)
 <use  "figs/ch5/nm_dist_grand.png" > [131] [132] [133] [134] [135]
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4946--4946
-[]\EU1/lmtt/m/n/10 ## 1    lsoa_cd E01006512 (Intercept) -0.012626119 -0.012633
-868 0.019942700[] 
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4955--4955
+[]\EU1/lmtt/m/n/10 ## 1    lsoa_cd E01006512 (Intercept) -0.017031079 -0.018246
+665 0.019190661[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4946--4946
-[]\EU1/lmtt/m/n/10 ## 2    lsoa_cd E01006513 (Intercept) -0.016535284 -0.016534
-611 0.019824315[] 
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4955--4955
+[]\EU1/lmtt/m/n/10 ## 2    lsoa_cd E01006513 (Intercept) -0.016413641 -0.017455
+762 0.018518796[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4946--4946
-[]\EU1/lmtt/m/n/10 ## 3    lsoa_cd E01006514 (Intercept) -0.019452532 -0.019486
-355 0.018864162[] 
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4955--4955
+[]\EU1/lmtt/m/n/10 ## 3    lsoa_cd E01006514 (Intercept) -0.022879079 -0.023989
+714 0.019644689[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4946--4946
-[]\EU1/lmtt/m/n/10 ## 4    lsoa_cd E01006515 (Intercept) -0.017268572 -0.018372
-289 0.020969246[] 
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4955--4955
+[]\EU1/lmtt/m/n/10 ## 4    lsoa_cd E01006515 (Intercept) -0.015892132 -0.016108
+262 0.019112631[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4946--4946
-[]\EU1/lmtt/m/n/10 ## 5    lsoa_cd E01006518 (Intercept) -0.017027134 -0.015699
-462 0.019460981[] 
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4955--4955
+[]\EU1/lmtt/m/n/10 ## 5    lsoa_cd E01006518 (Intercept) -0.019728420 -0.020496
+931 0.018564825[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4946--4946
-[]\EU1/lmtt/m/n/10 ## 6    lsoa_cd E01006519 (Intercept) -0.017446820 -0.017443
-324 0.009039999[] 
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4955--4955
+[]\EU1/lmtt/m/n/10 ## 6    lsoa_cd E01006519 (Intercept) -0.016400219 -0.016184
+397 0.009535827[] 
  []
 
 
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4946--4946
-[]\EU1/lmtt/m/n/10 ## 7    lsoa_cd E01006520 (Intercept) -0.023543715 -0.022906
-734 0.020121484[] 
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4955--4955
+[]\EU1/lmtt/m/n/10 ## 7    lsoa_cd E01006520 (Intercept) -0.025544696 -0.025788
+086 0.019092295[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 4946--4946
-[]\EU1/lmtt/m/n/10 ## 8    lsoa_cd E01006521 (Intercept)  0.007830939  0.007965
-642 0.018477904[] 
+Overfull \hbox (27.75pt too wide) in paragraph at lines 4955--4955
+[]\EU1/lmtt/m/n/10 ## 8    lsoa_cd E01006521 (Intercept)  0.006058062  0.005780
+336 0.017819128[] 
  []
 
 [136]
-Overfull \hbox (27.75pt too wide) in paragraph at lines 4946--4946
-[]\EU1/lmtt/m/n/10 ## 9    lsoa_cd E01006522 (Intercept)  0.019527188  0.019547
-709 0.018925474[] 
+Overfull \hbox (27.75pt too wide) in paragraph at lines 4955--4955
+[]\EU1/lmtt/m/n/10 ## 9    lsoa_cd E01006522 (Intercept)  0.018416993  0.019340
+471 0.020342759[] 
  []
 
 
-Overfull \hbox (29.5pt too wide) in paragraph at lines 4946--4946
-[]\EU1/lmtt/m/n/10 ## 10   lsoa_cd E01006523 (Intercept)  0.005617165  0.004890
-024 0.017362313[] 
+Overfull \hbox (29.5pt too wide) in paragraph at lines 4955--4955
+[]\EU1/lmtt/m/n/10 ## 10   lsoa_cd E01006523 (Intercept)  0.004341891  0.004800
+401 0.018504335[] 
  []
 
 File: 07-multilevel_01_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file (
 type QTm)
 <use  "07-multilevel_01_files/figure-latex/unnamed-chunk-20-1.pdf" > [137]
-Overfull \hbox (31.25pt too wide) in paragraph at lines 4989--4989
+Overfull \hbox (31.25pt too wide) in paragraph at lines 4998--4998
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 339178.6 ymin: 386244.2 xmax: 34195
 9.9 ymax: 389646.7[] 
  []
 
 
-Overfull \hbox (66.25pt too wide) in paragraph at lines 4989--4989
+Overfull \hbox (66.25pt too wide) in paragraph at lines 4998--4998
 []\EU1/lmtt/m/n/10 ## 1  E02001393 Allerton and Hunts Cross 0.03246753 MULTIPOL
 YGON (((341333.6 38...[] 
  []
 
 
-Overfull \hbox (66.25pt too wide) in paragraph at lines 4989--4989
+Overfull \hbox (66.25pt too wide) in paragraph at lines 4998--4998
 []\EU1/lmtt/m/n/10 ## 2  E02001393 Allerton and Hunts Cross 0.03684211 MULTIPOL
 YGON (((340658.2 38...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 4989--4989
+Overfull \hbox (40.0pt too wide) in paragraph at lines 4998--4998
 []\EU1/lmtt/m/n/10 ## 3  E02001393                   Church 0.04098361 MULTIPOL
 YGON (((339908.1 38...[] 
  []
 
 
-Overfull \hbox (66.25pt too wide) in paragraph at lines 4989--4989
+Overfull \hbox (66.25pt too wide) in paragraph at lines 4998--4998
 []\EU1/lmtt/m/n/10 ## 4  E02001393 Allerton and Hunts Cross 0.05982906 MULTIPOL
 YGON (((340306 3865...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 4989--4989
+Overfull \hbox (40.0pt too wide) in paragraph at lines 4998--4998
 []\EU1/lmtt/m/n/10 ## 5  E02001393                   Church 0.01212121 MULTIPOL
 YGON (((339974.2 38...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 4989--4989
+Overfull \hbox (40.0pt too wide) in paragraph at lines 4998--4998
 []\EU1/lmtt/m/n/10 ## 6  E02001393                   Church 0.09219858 MULTIPOL
 YGON (((340181.4 38...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 4989--4989
+Overfull \hbox (40.0pt too wide) in paragraph at lines 4998--4998
 []\EU1/lmtt/m/n/10 ## 7  E02001393                   Church 0.01986755 MULTIPOL
 YGON (((340301.2 38...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 4989--4989
+Overfull \hbox (40.0pt too wide) in paragraph at lines 4998--4998
 []\EU1/lmtt/m/n/10 ## 8  E02001393                   Church 0.04615385 MULTIPOL
 YGON (((340375.9 38...[] 
  []
 
 
-Overfull \hbox (66.25pt too wide) in paragraph at lines 4989--4989
+Overfull \hbox (66.25pt too wide) in paragraph at lines 4998--4998
 []\EU1/lmtt/m/n/10 ## 9  E02001393 Allerton and Hunts Cross 0.04117647 MULTIPOL
 YGON (((340435.3 38...[] 
  []
 
 
-Overfull \hbox (68.0pt too wide) in paragraph at lines 4989--4989
+Overfull \hbox (68.0pt too wide) in paragraph at lines 4998--4998
 []\EU1/lmtt/m/n/10 ## 10 E02001393 Allerton and Hunts Cross 0.02272727 MULTIPOL
 YGON (((340681.7 38...[] 
  []
 
 
-Overfull \hbox (489.75pt too wide) in paragraph at lines 5007--5007
+Overfull \hbox (489.75pt too wide) in paragraph at lines 5016--5016
 []\EU1/lmtt/m/n/10 ## Reading layer `MSOA' from data source `/Users/Franciscoro
-we 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp' using
+we 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/mlm/MSOA.shp' using
  driver `ESRI Shapefile'[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 5007--5007
+Overfull \hbox (20.75pt too wide) in paragraph at lines 5016--5016
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 333086.1 ymin: 381426.3 xmax: 34563
 6 ymax: 397980.1[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 5025--5025
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5034--5034
 []\EU1/lmtt/m/n/10 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E
 02001350" ...[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 5025--5025
+Overfull \hbox (54.0pt too wide) in paragraph at lines 5034--5034
 []\EU1/lmtt/m/n/10 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercep
 t)" "(Intercept)" ...[] 
  []
@@ -3740,80 +3744,80 @@ type QTm)
 Underfull \vbox (badness 7631) has occurred while \output is active []
 
 [139] [140] [141]
-Overfull \hbox (20.75pt too wide) in paragraph at lines 5209--5209
+Overfull \hbox (20.75pt too wide) in paragraph at lines 5218--5218
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 337693.5 ymin: 396068.2 xmax: 33943
 0.9 ymax: 397790[] 
  []
 
 [142]
-Overfull \hbox (40.0pt too wide) in paragraph at lines 5209--5209
+Overfull \hbox (40.0pt too wide) in paragraph at lines 5218--5218
 []\EU1/lmtt/m/n/10 ## 1 E02001347 E00033730 0.10322581 0.4775905 MULTIPOLYGON (
 ((338376 3970...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 5209--5209
+Overfull \hbox (40.0pt too wide) in paragraph at lines 5218--5218
 []\EU1/lmtt/m/n/10 ## 2 E02001347 E00033722 0.06306306 0.4775905 MULTIPOLYGON (
 ((337929.4 39...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 5209--5209
+Overfull \hbox (40.0pt too wide) in paragraph at lines 5218--5218
 []\EU1/lmtt/m/n/10 ## 3 E02001347 E00033712 0.09090909 0.4775905 MULTIPOLYGON (
 ((338830 3960...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 5209--5209
+Overfull \hbox (40.0pt too wide) in paragraph at lines 5218--5218
 []\EU1/lmtt/m/n/10 ## 4 E02001347 E00033739 0.09401709 0.4775905 MULTIPOLYGON (
 ((339140.3 39...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 5209--5209
+Overfull \hbox (40.0pt too wide) in paragraph at lines 5218--5218
 []\EU1/lmtt/m/n/10 ## 5 E02001347 E00033719 0.05855856 0.4775905 MULTIPOLYGON (
 ((338128.8 39...[] 
  []
 
 
-Overfull \hbox (40.0pt too wide) in paragraph at lines 5209--5209
+Overfull \hbox (40.0pt too wide) in paragraph at lines 5218--5218
 []\EU1/lmtt/m/n/10 ## 6 E02001347 E00033711 0.12195122 0.4775905 MULTIPOLYGON (
 ((339163.2 39...[] 
  []
 
 [143]
-Overfull \hbox (596.5pt too wide) in paragraph at lines 5308--5308
+Overfull \hbox (596.5pt too wide) in paragraph at lines 5317--5317
 []\EU1/lmtt/m/n/10 ## Reading layer `covid19_eng' from data source `/Users/Fran
-ciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2
+ciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_2
 _covid/covid19_eng.gpkg' using driver `GPKG'[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 5308--5308
+Overfull \hbox (20.75pt too wide) in paragraph at lines 5317--5317
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 134112.4 ymin: 11429.67 xmax: 65565
 3.8 ymax: 657536[] 
  []
 
 [144]
-Overfull \hbox (20.75pt too wide) in paragraph at lines 5342--5342
+Overfull \hbox (20.75pt too wide) in paragraph at lines 5351--5351
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 418871.2 ymin: 506329.3 xmax: 47844
 1.5 ymax: 537152[] 
  []
 
 
-Overfull \hbox (36.5pt too wide) in paragraph at lines 5342--5342
+Overfull \hbox (36.5pt too wide) in paragraph at lines 5351--5351
 []\EU1/lmtt/m/n/10 ##              ctyua19nm     Region X2020.01.31 X2020.02.01
  IMD...Average.score[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 5342--5342
+Overfull \hbox (1.5pt too wide) in paragraph at lines 5351--5351
 []\EU1/lmtt/m/n/10 ## 3 Redcar and Cleveland North East           0           0
               29.792[] 
  []
 
 
-Overfull \hbox (10.25pt too wide) in paragraph at lines 5342--5342
+Overfull \hbox (10.25pt too wide) in paragraph at lines 5351--5351
 []\EU1/lmtt/m/n/10 ##   Residents Households Dwellings Age_85plus White_British
 _and_Irish[] 
  []
@@ -3825,7 +3829,7 @@ Chapter 8.
 [149]
 File: figs/ch6/fig11.1_Gelman_Hill.png Graphic file (type QTm)
 <use  "figs/ch6/fig11.1_Gelman_Hill.png" > [150]
-Overfull \hbox (10.25pt too wide) in paragraph at lines 5575--5575
+Overfull \hbox (10.25pt too wide) in paragraph at lines 5584--5584
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 335032 ymin: 387777 xmax: 338576.1 
 ymax: 395022.4[] 
  []
@@ -3841,20 +3845,20 @@ ype QTm)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [155]
-Overfull \hbox (489.75pt too wide) in paragraph at lines 5757--5757
+Overfull \hbox (489.75pt too wide) in paragraph at lines 5766--5766
 []\EU1/lmtt/m/n/10 ## Reading layer `MSOA' from data source `/Users/Franciscoro
-we 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp' using
+we 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/mlm/MSOA.shp' using
  driver `ESRI Shapefile'[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 5757--5757
+Overfull \hbox (20.75pt too wide) in paragraph at lines 5766--5766
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 333086.1 ymin: 381426.3 xmax: 34563
 6 ymax: 397980.1[] 
  []
 
 [156]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 5776--5776
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5785--5785
 []\EU1/lmtt/m/n/10 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E
 02001350" ...[] 
  []
@@ -3865,7 +3869,7 @@ type QTm)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [157]
-Overfull \hbox (10.25pt too wide) in paragraph at lines 5841--5841
+Overfull \hbox (10.25pt too wide) in paragraph at lines 5850--5850
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 335885 ymin: 391134.2 xmax: 337596.
 3 ymax: 392467[] 
  []
@@ -3880,14 +3884,14 @@ Overfull \hbox (119.67343pt too wide) has occurred while \output is active
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [160] [161]
-Overfull \hbox (596.5pt too wide) in paragraph at lines 5961--5961
+Overfull \hbox (596.5pt too wide) in paragraph at lines 5970--5970
 []\EU1/lmtt/m/n/10 ## Reading layer `covid19_eng' from data source `/Users/Fran
-ciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2
+ciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_2
 _covid/covid19_eng.gpkg' using driver `GPKG'[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 5961--5961
+Overfull \hbox (20.75pt too wide) in paragraph at lines 5970--5970
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 134112.4 ymin: 11429.67 xmax: 65565
 3.8 ymax: 657536[] 
  []
@@ -3899,17 +3903,17 @@ Chapter 9.
 ] [164]
 File: 09-gwr_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type QTm)
 <use  "09-gwr_files/figure-latex/unnamed-chunk-3-1.pdf" > [165]
-Overfull \hbox (857.25pt too wide) in paragraph at lines 6138--6138
+Overfull \hbox (857.25pt too wide) in paragraph at lines 6147--6147
 []\EU1/lmtt/m/n/10 ## Reading layer `Regions_December_2019_Boundaries_EN_BGC' f
 rom data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/
-202021/san/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp' using driver `
+202122/san/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp' using driver `
 ESRI Shapefile'[] 
  []
 
 [166]
 File: 09-gwr_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type QTm)
 <use  "09-gwr_files/figure-latex/unnamed-chunk-4-1.pdf" > [167]
-Overfull \hbox (31.25pt too wide) in paragraph at lines 6189--6189
+Overfull \hbox (31.25pt too wide) in paragraph at lines 6198--6198
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 293941.4 ymin: 155850.8 xmax: 56195
 6.7 ymax: 588517.4[] 
  []
@@ -3924,37 +3928,37 @@ File: figs/ch8/fixed_bandwidth.png Graphic file (type QTm)
 <use  "figs/ch8/fixed_bandwidth.png" >
 File: figs/ch8/adaptive_bandwidth.png Graphic file (type QTm)
 <use  "figs/ch8/adaptive_bandwidth.png" > [174] [175] [176]
-Overfull \hbox (36.5pt too wide) in paragraph at lines 6446--6446
+Overfull \hbox (36.5pt too wide) in paragraph at lines 6455--6455
 []\EU1/lmtt/m/n/10 ##     bandwidth = fbw, gweight = gwr.Gauss, hatmatrix = TRU
 E, longlat = TRUE,[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6446--6446
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6455--6455
 []\EU1/lmtt/m/n/10 ## X.Intercept.  -187.913   -42.890    93.702   211.685   79
 2.989  63.768[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 6446--6446
+Overfull \hbox (1.5pt too wide) in paragraph at lines 6455--6455
 []\EU1/lmtt/m/n/10 ## ethnic        -785.938   104.813   194.609   254.717  107
 8.854 271.096[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 6446--6446
+Overfull \hbox (12.0pt too wide) in paragraph at lines 6455--6455
 []\EU1/lmtt/m/n/10 ## lt_illness   -2599.119  -563.128   128.176   690.603  150
 7.024 216.198[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6446--6446
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6455--6455
 []\EU1/lmtt/m/n/10 ## Effective number of parameters (residual: 2traceS - trace
 S'S): 57.11019[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6446--6446
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6455--6455
 []\EU1/lmtt/m/n/10 ## Effective degrees of freedom (residual: 2traceS - traceS'
 S): 92.88981[] 
  []
@@ -3965,37 +3969,37 @@ File: 09-gwr_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type QTm)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [178]
-Overfull \hbox (15.5pt too wide) in paragraph at lines 6542--6542
+Overfull \hbox (15.5pt too wide) in paragraph at lines 6551--6551
 []\EU1/lmtt/m/n/10 ##     gweight = gwr.Gauss, adapt = abw, hatmatrix = TRUE, l
 onglat = TRUE,[] 
  []
 
 [179]
-Overfull \hbox (8.5pt too wide) in paragraph at lines 6542--6542
+Overfull \hbox (8.5pt too wide) in paragraph at lines 6551--6551
 []\EU1/lmtt/m/n/10 ## X.Intercept.  -198.790   -28.398   113.961   226.437   34
 6.510  63.768[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 6542--6542
+Overfull \hbox (1.5pt too wide) in paragraph at lines 6551--6551
 []\EU1/lmtt/m/n/10 ## ethnic        -121.872   106.822   229.591   283.739  116
 2.123 271.096[] 
  []
 
 
-Overfull \hbox (13.75pt too wide) in paragraph at lines 6542--6542
+Overfull \hbox (13.75pt too wide) in paragraph at lines 6551--6551
 []\EU1/lmtt/m/n/10 ## lt_illness   -1907.098  -746.468  -125.855   798.875  149
 6.549 216.198[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6542--6542
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6551--6551
 []\EU1/lmtt/m/n/10 ## Effective number of parameters (residual: 2traceS - trace
 S'S): 48.59361[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6542--6542
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6551--6551
 []\EU1/lmtt/m/n/10 ## Effective degrees of freedom (residual: 2traceS - traceS'
 S): 101.4064[] 
  []
@@ -4016,14 +4020,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [185]
-Overfull \hbox (596.5pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (596.5pt too wide) in paragraph at lines 6696--6696
 []\EU1/lmtt/m/n/10 ## Reading layer `covid19_eng' from data source `/Users/Fran
-ciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2
+ciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_2
 _covid/covid19_eng.gpkg' using driver `GPKG'[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (20.75pt too wide) in paragraph at lines 6696--6696
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 134112.4 ymin: 11429.67 xmax: 65565
 3.8 ymax: 657536[] 
  []
@@ -4031,98 +4035,98 @@ Overfull \hbox (20.75pt too wide) in paragraph at lines 6687--6687
 [186]
 Chapter 10.
 
-Overfull \vbox (0.72438pt too high) detected at line 6760
+Overfull \vbox (0.72438pt too high) detected at line 6769
  []
 
 [187
 
 ] [188] [189] [190]
-Overfull \hbox (531.75pt too wide) in paragraph at lines 6870--6870
+Overfull \hbox (531.75pt too wide) in paragraph at lines 6879--6879
 []\EU1/lmtt/m/n/10 ## Reading layer `ons_utla' from data source `/Users/Francis
-corowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sta/ons_utla.sh
+corowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/sta/ons_utla.sh
 p' using driver `ESRI Shapefile'[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 6870--6870
+Overfull \hbox (20.75pt too wide) in paragraph at lines 6879--6879
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 134112.4 ymin: 11429.67 xmax: 65565
 3.8 ymax: 657536[] 
  []
 
 
-Overfull \hbox (61.0pt too wide) in paragraph at lines 6904--6904
+Overfull \hbox (61.0pt too wide) in paragraph at lines 6913--6913
 []\EU1/lmtt/m/n/10 ##   Area.name  Area.code Area.type   date       Daily.lab.c
 onfi~ Cumulative.lab.c~[] 
  []
 
 
-Overfull \hbox (3.25pt too wide) in paragraph at lines 6904--6904
+Overfull \hbox (3.25pt too wide) in paragraph at lines 6913--6913
 []\EU1/lmtt/m/n/10 ##   <chr>      <chr>     <chr>       <date>                
 <dbl>             <dbl>[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 6904--6904
+Overfull \hbox (20.75pt too wide) in paragraph at lines 6913--6913
 []\EU1/lmtt/m/n/10 ## 1 Barking a~ E09000002 Upper tier~ 2020-01-30            
     0                 0[] 
  []
 
 
-Overfull \hbox (15.5pt too wide) in paragraph at lines 6904--6904
+Overfull \hbox (15.5pt too wide) in paragraph at lines 6913--6913
 []\EU1/lmtt/m/n/10 ## 2 Barnet     E09000003 Upper tier~ 2020-01-30            
     0                 0[] 
  []
 
 
-Overfull \hbox (19.0pt too wide) in paragraph at lines 6904--6904
+Overfull \hbox (19.0pt too wide) in paragraph at lines 6913--6913
 []\EU1/lmtt/m/n/10 ## 3 Barnsley   E08000016 Upper tier~ 2020-01-30            
     0                 0[] 
  []
 
 [191]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6923--6923
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6932--6932
 []\EU1/lmtt/m/n/10 ## [1] "2020-01-30" "2020-01-30" "2020-01-30" "2020-01-30" "
 2020-01-30"[] 
  []
 
 
-Overfull \hbox (57.5pt too wide) in paragraph at lines 6969--6969
+Overfull \hbox (57.5pt too wide) in paragraph at lines 6978--6978
 []\EU1/lmtt/m/n/10 ## Warning in showSRID(uprojargs, format = "PROJ", multiline
  = "NO", prefer_proj[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 6969--6969
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6978--6978
 []\EU1/lmtt/m/n/10 ## = prefer_proj): Discarded datum Unknown based on Airy 183
 0 ellipsoid in Proj4[] 
  []
 
 
-Overfull \hbox (71.5pt too wide) in paragraph at lines 6974--6974
+Overfull \hbox (71.5pt too wide) in paragraph at lines 6983--6983
 []\EU1/lmtt/m/n/10 ## Warning in showSRID(SRS_string, format = "PROJ", multilin
 e = "NO", prefer_proj =[] 
  []
 
 [192] [193]
-Overfull \hbox (306.0pt too wide) in paragraph at lines 7056--7056
+Overfull \hbox (306.0pt too wide) in paragraph at lines 7065--7065
 []\EU1/lmtt/m/n/10 ## `summarise()` has grouped output by 'week', 'ctyu19nm', '
 as.character(cty19c)'. You can override using the `.groups` argument.[] 
  []
 
 [194]
-Overfull \hbox (3.25pt too wide) in paragraph at lines 7085--7085
+Overfull \hbox (3.25pt too wide) in paragraph at lines 7094--7094
 []\EU1/lmtt/m/n/10 ## Warning in pre_process_gt(x, interactive = interactive, o
 rig_crs =[] 
  []
 
 
-Overfull \hbox (66.25pt too wide) in paragraph at lines 7085--7085
+Overfull \hbox (66.25pt too wide) in paragraph at lines 7094--7094
 []\EU1/lmtt/m/n/10 ## gm$shape.orig_crs): legend.width controls the width of th
 e legend within a map.[] 
  []
 
 
-Overfull \hbox (34.75pt too wide) in paragraph at lines 7085--7085
+Overfull \hbox (34.75pt too wide) in paragraph at lines 7094--7094
 []\EU1/lmtt/m/n/10 ## Please use legend.outside.size to control the width of th
 e outside legend[] 
  []
@@ -4157,24 +4161,24 @@ pe QTm)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [204] [205] [206] [207] [208] [209]
-Underfull \hbox (badness 1043) in paragraph at lines 7487--7488
+Underfull \hbox (badness 1043) in paragraph at lines 7496--7497
 []\EU1/lmr/m/n/10 Challenge 2: Explore a model with only spatial components
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 7540--7540
+Overfull \hbox (33.0pt too wide) in paragraph at lines 7549--7549
 []\EU1/lmtt/m/n/10 ## glm(formula = eq1, family = poisson("log"), data = dplyr:
 :select(reg_df,[] 
  []
 
 [210] [211]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 7606--7606
+Overfull \hbox (59.25pt too wide) in paragraph at lines 7615--7615
 []\EU1/lmtt/m/n/10 ## glm(formula = eq1, family = quasipoisson("log"), data = d
 plyr::select(reg_df,[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 7606--7606
+Overfull \hbox (6.75pt too wide) in paragraph at lines 7615--7615
 []\EU1/lmtt/m/n/10 ## (Dispersion parameter for quasipoisson family taken to be
  2.213379)[] 
  []
@@ -4183,13 +4187,13 @@ Overfull \hbox (6.75pt too wide) in paragraph at lines 7606--7606
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [212]
-Overfull \hbox (36.5pt too wide) in paragraph at lines 7663--7663
+Overfull \hbox (36.5pt too wide) in paragraph at lines 7672--7672
 []\EU1/lmtt/m/n/10 ## (Dispersion parameter for Negative Binomial(1.4931) famil
 y taken to be 1)[] 
  []
 
 [213] [214]
-Overfull \hbox (36.5pt too wide) in paragraph at lines 7727--7727
+Overfull \hbox (36.5pt too wide) in paragraph at lines 7736--7736
 []\EU1/lmtt/m/n/10 ## (Dispersion parameter for Negative Binomial(1.5609) famil
 y taken to be 1)[] 
  []
@@ -4201,14 +4205,14 @@ pe QTm)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [216] [217]
-Overfull \hbox (596.5pt too wide) in paragraph at lines 7806--7806
+Overfull \hbox (596.5pt too wide) in paragraph at lines 7815--7815
 []\EU1/lmtt/m/n/10 ## Reading layer `covid19_eng' from data source `/Users/Fran
-ciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2
+ciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_2
 _covid/covid19_eng.gpkg' using driver `GPKG'[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 7806--7806
+Overfull \hbox (20.75pt too wide) in paragraph at lines 7815--7815
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 134112.4 ymin: 11429.67 xmax: 65565
 3.8 ymax: 657536[] 
  []
@@ -4216,14 +4220,14 @@ Overfull \hbox (20.75pt too wide) in paragraph at lines 7806--7806
 [218]
 Chapter 11.
 
-Overfull \hbox (591.25pt too wide) in paragraph at lines 7868--7868
+Overfull \hbox (591.25pt too wide) in paragraph at lines 7877--7877
 []\EU1/lmtt/m/n/10 ## Reading layer `madrid_abb' from data source `/Users/Franc
-iscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_
+iscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_1_
 madrid/madrid_abb.gpkg' using driver `GPKG'[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 7868--7868
+Overfull \hbox (20.75pt too wide) in paragraph at lines 7877--7877
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: -3.86391 ymin: 40.33243 xmax: -3.55
 6 ymax: 40.56274[] 
  []
@@ -4231,20 +4235,20 @@ Overfull \hbox (20.75pt too wide) in paragraph at lines 7868--7868
 [219
 
 ] [220]
-Overfull \hbox (596.5pt too wide) in paragraph at lines 7989--7989
+Overfull \hbox (596.5pt too wide) in paragraph at lines 7998--7998
 []\EU1/lmtt/m/n/10 ## Reading layer `covid19_eng' from data source `/Users/Fran
-ciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2
+ciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_2
 _covid/covid19_eng.gpkg' using driver `GPKG'[] 
  []
 
 
-Overfull \hbox (20.75pt too wide) in paragraph at lines 7989--7989
+Overfull \hbox (20.75pt too wide) in paragraph at lines 7998--7998
 []\EU1/lmtt/m/n/10 ## bbox:           xmin: 134112.4 ymin: 11429.67 xmax: 65565
 3.8 ymax: 657536[] 
  []
 
 [221] [222]
-Overfull \hbox (31.25pt too wide) in paragraph at lines 8085--8085
+Overfull \hbox (31.25pt too wide) in paragraph at lines 8094--8094
 []\EU1/lmtt/m/n/10 ##         AREA["UK - Britain and UKCS 49°46'N to 61°01'N, 7
 °33'W to 3°33'E"],[] 
  []
@@ -4252,16 +4256,16 @@ Overfull \hbox (31.25pt too wide) in paragraph at lines 8085--8085
 (./spatial_analysis_notes.bbl [223] [224
 
 ] [225] [226] [227])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 8089.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 8098.
 [228]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 8089.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 8098.
 (./spatial_analysis_notes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 8089.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 8089.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 8098.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 8098.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 8089.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 8098.
  ) 
 Here is how much of TeX's memory you used:
  30483 strings out of 493591

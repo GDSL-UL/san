@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
 
 
-<meta name="date" content="2021-04-06" />
+<meta name="date" content="2022-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -363,7 +363,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Loading required package: lme4</code></pre>
 <pre><code>## 
 ## arm (Version 1.11-2, built: 2020-7-27)</code></pre>
-<pre><code>## Working directory is /Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san</code></pre>
+<pre><code>## Working directory is /Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san</code></pre>
 <p>In this chapter we will show a slightly different way of managing spatial data in R. Although most of the functionality will be similar to that seen in previous chapters, we will not rely on the “<code>sf</code> stack” and we will instead show how to read and manipulate data using the more traditional <code>sp</code> stack. Although this approach is being slowly phased out, it is still important to be aware of its existence and its differences with more modern approaches.</p>
 <p>Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with <code>setwd()</code>. Please replace in the following line the path to the folder where you have placed this file -and where the <code>sf_bikes</code> folder with the data lives.</p>
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="flows.html#cb154-1"></a><span class="kw">setwd</span>(<span class="st">&#39;.&#39;</span>)</span></code></pre></div>
@@ -374,7 +374,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let us then directly load the file with all the information necessary:</p>
 <div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="flows.html#cb155-1"></a>db &lt;-<span class="st"> </span><span class="kw">readOGR</span>(<span class="st">&#39;./data/sf_bikes/flows.geojson&#39;</span>)</span></code></pre></div>
 <pre><code>## OGR data source with driver: GeoJSON 
-## Source: &quot;/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sf_bikes/flows.geojson&quot;, layer: &quot;flows&quot;
+## Source: &quot;/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/sf_bikes/flows.geojson&quot;, layer: &quot;flows&quot;
 ## with 1722 features
 ## It has 9 fields</code></pre>
 <div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="flows.html#cb157-1"></a><span class="kw">rownames</span>(db<span class="op">@</span>data) &lt;-<span class="st"> </span>db<span class="op">$</span>flow_id</span>
@@ -911,7 +911,7 @@ RMSE = \sqrt{ \sum_{ij} (\hat{T_{ij}} - T_{ij})^2}
 <!-- #endregion --></p>
 <div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="flows.html#cb206-1"></a>mad_abb &lt;-<span class="st"> </span><span class="kw">readOGR</span>(<span class="st">&#39;./data/assignment_1_madrid/madrid_abb.gpkg&#39;</span>)</span></code></pre></div>
 <pre><code>## OGR data source with driver: GPKG 
-## Source: &quot;/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg&quot;, layer: &quot;madrid_abb&quot;
+## Source: &quot;/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_1_madrid/madrid_abb.gpkg&quot;, layer: &quot;madrid_abb&quot;
 ## with 18399 features
 ## It has 16 fields
 ## Integer64 fields read as strings:  accommodates</code></pre>

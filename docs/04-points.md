@@ -67,7 +67,7 @@ db <- st_read("data/abb_sd/regression_db.geojson")
 ```
 
 ```
-## Reading layer `regression_db' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
+## Reading layer `regression_db' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -478,7 +478,8 @@ Let us say, a new house is going to be advertised on the coordinates `X = -117.0
 pt <- c(X = -117.02259063720702, Y = 32.76511965117273) %>%
   st_point() %>%
   st_sfc() %>%
-  st_sf(crs = "EPSG:4326")
+  st_sf(crs = "EPSG:4326") %>%
+  st_transform(st_crs(db))
 idw.one <- idw(price ~ 1, locations=db, newdata=pt)
 ```
 
@@ -524,7 +525,7 @@ mad_abb <- st_read("data/assignment_1_madrid/madrid_abb.gpkg")
 ```
 
 ```
-## Reading layer `madrid_abb' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Reading layer `madrid_abb' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
 ## Simple feature collection with 18399 features and 16 fields
 ## geometry type:  POINT
 ## dimension:      XY

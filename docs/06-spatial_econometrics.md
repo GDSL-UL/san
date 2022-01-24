@@ -35,6 +35,14 @@ library(dplyr)
 library(spdep)
 ```
 
+```
+## Warning: namespace 'terra' is not available and has been replaced
+## by .GlobalEnv when processing object '<unknown>'
+
+## Warning: namespace 'terra' is not available and has been replaced
+## by .GlobalEnv when processing object '<unknown>'
+```
+
 Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with `setwd()`. Please replace in the following line the path to the folder where you have placed this file -and where the `house_transactions` folder with the data lives.
 
 
@@ -54,7 +62,7 @@ db <- st_read('data/abb_sd/regression_db.geojson')
 ```
 
 ```
-## Reading layer `regression_db' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
+## Reading layer `regression_db' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/abb_sd/regression_db.geojson' using driver `GeoJSON'
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -779,7 +787,7 @@ $$
 \log(P_i) = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i+ \beta_5 Bath_{lag-i} + \epsilon_i
 $$
 
-Let us first compute the spatial lag of imd_score:
+Let us first compute the spatial lag of `bathrooms`:
 
 
 ```r
@@ -918,7 +926,7 @@ mad_abb <- st_read('./data/assignment_1_madrid/madrid_abb.gpkg')
 ```
 
 ```
-## Reading layer `madrid_abb' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
+## Reading layer `madrid_abb' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_1_madrid/madrid_abb.gpkg' using driver `GPKG'
 ## Simple feature collection with 18399 features and 16 fields
 ## geometry type:  POINT
 ## dimension:      XY

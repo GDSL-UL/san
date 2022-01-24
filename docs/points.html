@@ -24,7 +24,7 @@
 <meta name="author" content="Francisco Rowe and Dani Arribas-Bel" />
 
 
-<meta name="date" content="2021-04-06" />
+<meta name="date" content="2022-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -362,7 +362,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>For this session, we will use the set of Airbnb properties for San Diego (US), borrowed from the “Geographic Data Science with Python” book (see <a href="https://geographicdata.science/book/data/airbnb/regression_cleaning.html">here</a> for more info on the dataset source). This covers the point location of properties advertised on the Airbnb website in the San Diego region.</p>
 <p>Let us start by reading the data, which comes in a GeoJSON:</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="points.html#cb92-1"></a>db &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/abb_sd/regression_db.geojson&quot;</span>)</span></code></pre></div>
-<pre><code>## Reading layer `regression_db&#39; from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/abb_sd/regression_db.geojson&#39; using driver `GeoJSON&#39;
+<pre><code>## Reading layer `regression_db&#39; from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/abb_sd/regression_db.geojson&#39; using driver `GeoJSON&#39;
 ## Simple feature collection with 6110 features and 19 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -625,8 +625,9 @@ And we can “dress it up” a bit further:</p>
 <div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="points.html#cb131-1"></a>pt &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">X =</span> <span class="fl">-117.02259063720702</span>, <span class="dt">Y =</span> <span class="fl">32.76511965117273</span>) <span class="op">%&gt;%</span></span>
 <span id="cb131-2"><a href="points.html#cb131-2"></a><span class="st">  </span><span class="kw">st_point</span>() <span class="op">%&gt;%</span></span>
 <span id="cb131-3"><a href="points.html#cb131-3"></a><span class="st">  </span><span class="kw">st_sfc</span>() <span class="op">%&gt;%</span></span>
-<span id="cb131-4"><a href="points.html#cb131-4"></a><span class="st">  </span><span class="kw">st_sf</span>(<span class="dt">crs =</span> <span class="st">&quot;EPSG:4326&quot;</span>)</span>
-<span id="cb131-5"><a href="points.html#cb131-5"></a>idw.one &lt;-<span class="st"> </span><span class="kw">idw</span>(price <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">locations=</span>db, <span class="dt">newdata=</span>pt)</span></code></pre></div>
+<span id="cb131-4"><a href="points.html#cb131-4"></a><span class="st">  </span><span class="kw">st_sf</span>(<span class="dt">crs =</span> <span class="st">&quot;EPSG:4326&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb131-5"><a href="points.html#cb131-5"></a><span class="st">  </span><span class="kw">st_transform</span>(<span class="kw">st_crs</span>(db))</span>
+<span id="cb131-6"><a href="points.html#cb131-6"></a>idw.one &lt;-<span class="st"> </span><span class="kw">idw</span>(price <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">locations=</span>db, <span class="dt">newdata=</span>pt)</span></code></pre></div>
 <pre><code>## Warning in proj4string(d$data): CRS object has comment, which is lost in output</code></pre>
 <pre><code>## Warning in proj4string(newdata): CRS object has comment, which is lost in output</code></pre>
 <pre><code>## [inverse distance weighted interpolation]</code></pre>
@@ -646,7 +647,7 @@ And we can “dress it up” a bit further:</p>
 <h2><span class="header-section-number">4.6</span> Questions</h2>
 <p>We will be using the Madrid AirBnb dataset:</p>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="points.html#cb138-1"></a>mad_abb &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/assignment_1_madrid/madrid_abb.gpkg&quot;</span>)</span></code></pre></div>
-<pre><code>## Reading layer `madrid_abb&#39; from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_1_madrid/madrid_abb.gpkg&#39; using driver `GPKG&#39;
+<pre><code>## Reading layer `madrid_abb&#39; from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_1_madrid/madrid_abb.gpkg&#39; using driver `GPKG&#39;
 ## Simple feature collection with 18399 features and 16 fields
 ## geometry type:  POINT
 ## dimension:      XY

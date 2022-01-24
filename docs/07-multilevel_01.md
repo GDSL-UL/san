@@ -516,16 +516,16 @@ REsim(model3) %>% head(10)
 
 ```
 ##    groupFctr   groupID        term         mean       median         sd
-## 1    lsoa_cd E01006512 (Intercept) -0.016260057 -0.014619245 0.02133371
-## 2    lsoa_cd E01006513 (Intercept) -0.014475844 -0.014611412 0.01948930
-## 3    lsoa_cd E01006514 (Intercept) -0.020248100 -0.020504649 0.01962865
-## 4    lsoa_cd E01006515 (Intercept) -0.017004608 -0.017427169 0.01881207
-## 5    lsoa_cd E01006518 (Intercept) -0.020771868 -0.020696096 0.01903090
-## 6    lsoa_cd E01006519 (Intercept) -0.017252631 -0.017381454 0.00929290
-## 7    lsoa_cd E01006520 (Intercept) -0.023769348 -0.023063969 0.02089576
-## 8    lsoa_cd E01006521 (Intercept)  0.006479985  0.006165009 0.01900530
-## 9    lsoa_cd E01006522 (Intercept)  0.019187954  0.019435476 0.01862387
-## 10   lsoa_cd E01006523 (Intercept)  0.007822619  0.008991418 0.01724040
+## 1    lsoa_cd E01006512 (Intercept) -0.016808368 -0.016586015 0.01910002
+## 2    lsoa_cd E01006513 (Intercept) -0.014396074 -0.015400126 0.02086776
+## 3    lsoa_cd E01006514 (Intercept) -0.023241368 -0.024764365 0.01997250
+## 4    lsoa_cd E01006515 (Intercept) -0.017333953 -0.018493486 0.01960198
+## 5    lsoa_cd E01006518 (Intercept) -0.020870067 -0.021362085 0.02041669
+## 6    lsoa_cd E01006519 (Intercept) -0.016147959 -0.015723340 0.00981481
+## 7    lsoa_cd E01006520 (Intercept) -0.023261193 -0.022309617 0.01960936
+## 8    lsoa_cd E01006521 (Intercept)  0.007853325  0.008734329 0.02067830
+## 9    lsoa_cd E01006522 (Intercept)  0.018396413  0.020164614 0.01903097
+## 10   lsoa_cd E01006523 (Intercept)  0.002817545  0.001892493 0.02028716
 ```
 
 The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from `ranef` with some small differences due to rounding.
@@ -578,7 +578,7 @@ msoa_shp <- st_read("data/mlm/MSOA.shp")
 ```
 
 ```
-## Reading layer `MSOA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
+## Reading layer `MSOA' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/mlm/MSOA.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 61 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -597,9 +597,9 @@ str(re_msoa)
 ##  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
 ##  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
 ##  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
-##  $ mean     : num  -0.01233 -0.02339 -0.03184 0.00296 0.02396 ...
-##  $ median   : num  -0.0158 -0.0224 -0.0303 0.0041 0.0254 ...
-##  $ sd       : num  0.0329 0.0318 0.0312 0.0333 0.0164 ...
+##  $ mean     : num  -0.01021 -0.02301 -0.02982 0.00725 0.0216 ...
+##  $ median   : num  -0.00986 -0.0205 -0.03143 0.00847 0.02175 ...
+##  $ sd       : num  0.0334 0.031 0.0313 0.0321 0.0158 ...
 ```
 
 ```r
@@ -861,7 +861,7 @@ sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
 ```
 
 ```
-## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY

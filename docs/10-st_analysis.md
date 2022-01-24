@@ -122,7 +122,7 @@ utla_shp <- st_read("data/sta/ons_utla.shp")
 ```
 
 ```
-## Reading layer `ons_utla' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/sta/ons_utla.shp' using driver `ESRI Shapefile'
+## Reading layer `ons_utla' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/sta/ons_utla.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 150 features and 11 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
@@ -964,7 +964,7 @@ sdf <- st_read("data/assignment_2_covid/covid19_eng.gpkg")
 ```
 
 ```
-## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202021/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
+## Reading layer `covid19_eng' from data source `/Users/Franciscorowe 1/Dropbox/Francisco/uol/teaching/envs453/202122/san/data/assignment_2_covid/covid19_eng.gpkg' using driver `GPKG'
 ## Simple feature collection with 149 features and 507 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
