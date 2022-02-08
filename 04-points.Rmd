@@ -220,7 +220,7 @@ sd.grid
 
 Now, `sd.grid` only contain the location of points to which we wish to interpolate. That is, we now have our "target" geography for which we'd like to have AirBnb prices, but we don't have price estimates. For that, on to the IDW, which will generate estimates for locations in `sd.grid` based on the observed prices in `db`. Again, this is hugely simplified by `gstat`:
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 idw.hp <- idw(
   price ~ 1,         # Formula for IDW
   locations = db,    # Initial locations with values
