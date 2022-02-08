@@ -271,7 +271,7 @@ The last bit we will explore in this session relates to prediction for new value
 
 Let us say, a new house is going to be advertised on the coordinates `X = -117.02259063720702, Y = 32.76511965117273` as expressed in longitude and latitude. In that case, we can do as follows:
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 pt <- c(X = -117.02259063720702, Y = 32.76511965117273) %>%
   st_point() %>%
   st_sfc() %>%
