@@ -51,7 +51,7 @@ We can then examine the columns of the table with the `colnames` method:
 colnames(db)
 ```
 
-The rest of this session will focus on two main elements of the table: the spatial dimension (as stored in the point coordinates), and the nightly price values, expressedin USD and contained in the `price` column. To get a sense of what they look like first, let us plot both. We can get a quick look at the non-spatial distribution of house values with the following commands:
+The rest of this session will focus on two main elements of the table: the spatial dimension (as stored in the point coordinates), and the nightly price values, expressed in USD and contained in the `price` column. To get a sense of what they look like first, let us plot both. We can get a quick look at the non-spatial distribution of house values with the following commands:
 
 ```{r fig.margin=TRUE, fig.cap="Raw AirBnb prices in San Diego"}
 # Create the histogram
