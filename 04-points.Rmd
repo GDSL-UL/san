@@ -218,7 +218,7 @@ The object `sd.grid` is a regular grid with 10,000 ($100 \times 100$) equally sp
 sd.grid
 ```
 
-Now, `sd.grid` only contain the location of points to which we wish to interpolate. That is, we now our "target" geography for which we'd like to have AirBnb prices, but we don't have price estimates. For that, on to the IDW, which will generate estimates for locations in `sd.grid` based on the observed prices in `db`. Again, this is hugely simplified by `gstat`:
+Now, `sd.grid` only contain the location of points to which we wish to interpolate. That is, we now have our "target" geography for which we'd like to have AirBnb prices, but we don't have price estimates. For that, on to the IDW, which will generate estimates for locations in `sd.grid` based on the observed prices in `db`. Again, this is hugely simplified by `gstat`:
 
 ```{r}
 idw.hp <- idw(
