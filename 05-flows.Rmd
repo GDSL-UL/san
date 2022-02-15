@@ -12,7 +12,7 @@ Content is based on the following references, which are great follow-up's on the
 
 We will rely on the following libraries in this section, all of them included in the [book list](#Dependency-list):
 
-```{r results='hide'}
+```{r results='hide', message = FALSE, warning=FALSE}
 # Spatial Data management
 library(rgdal)
 # Pretty graphics
@@ -85,7 +85,7 @@ These however do not reveal a lot: there is no geographical context (*why are th
 
 The easiest way to bring in geographical context is by overlaying the routes on top of a background map of tiles downloaded from the internet. Let us download this using `ggmap`:
 
-```{r}
+```{r, message = FALSE, warning=FALSE}
 sf_bb <- c(
   left=db@bbox['x', 'min'],
   right=db@bbox['x', 'max'],
