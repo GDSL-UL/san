@@ -571,7 +571,7 @@ And compare this to that of the straight distances in the previous model:
 summary(m3)$coefficients['straight_dist', ]
 ```
 
-As we can see, the differences exist but ar not massive. Let's use this example to learn how to interpret coefficients in a Poisson model^[See section 6.2 of @gelman2006data for a similar treatment of these.]. Effectively, these estimates can be understood as multiplicative effects. Since our model fits
+As we can see, the differences exist but they are not massive. Let's use this example to learn how to interpret coefficients in a Poisson model^[See section 6.2 of @gelman2006data for a similar treatment of these.]. Effectively, these estimates can be understood as multiplicative effects. Since our model fits
 
 $$
 T_{ij} \sim Poisson (\exp^{X_{ij}\beta})
