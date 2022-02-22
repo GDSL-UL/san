@@ -34,7 +34,7 @@ library(dplyr)
 library(spdep)
 ```
 
-Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with `setwd()`. Please replace in the following line the path to the folder where you have placed this file -and where the `house_transactions` folder with the data lives.
+Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with `setwd()`. Please replace in the following line the path to the folder where you have placed this file and where the `house_transactions` folder with the data lives.
 
 ```{r}
 setwd('.')
@@ -44,7 +44,7 @@ setwd('.')
 
 To explore ideas in spatial regression, we will the set of Airbnb properties for San Diego (US), borrowed from the "Geographic Data Science with Python" book (see [here](https://geographicdata.science/book/data/airbnb/regression_cleaning.html) for more info on the dataset source). This covers the point location of properties advertised on the Airbnb website in the San Diego region.
 
-Let us load it up first of all:
+Let us load the data:
 
 ```{r}
 db <- st_read('data/abb_sd/regression_db.geojson')
@@ -81,7 +81,7 @@ where $P_i$ is the price of house $i$, $Acc_i$, $Bath_i$, $Bedr_i$ and $Beds_i$ 
 $$
 \log(P) = \alpha + \beta_1 Acc + \beta_2 Bath + \beta_3 Bedr + \beta_4 Beds + \epsilon
 $$
-where each term can be interpreted in terms of vectors instead of scalars (wit the exception of the parameters $(\alpha, \beta_{1, 2, 3, 4})$, which _are_ scalars). Note we are using the logarithm of the price, since this allows us to interpret the coefficients as roughly the percentual change induced by a unit increase in the explanatory variable of the estimate.
+where each term can be interpreted in terms of vectors instead of scalars (wit the exception of the parameters $(\alpha, \beta_{1, 2, 3, 4})$, which _are_ scalars). Note we are using the logarithm of the price, since this allows us to interpret the coefficients as roughly the percentage change induced by a unit increase in the explanatory variable of the estimate.
 
 Remember a regression can be seen as a multivariate extension of bivariate correlations. Indeed, one way to interpret the $\beta_k$ coefficients in the equation above is as the degree of correlation between the explanatory variable $k$ and the dependent variable, *keeping all the other explanatory variables constant*. When you calculate simple bivariate correlations, the coefficient of a variable is picking up the correlation between the variables, but it is also subsuming into it variation associated with other correlated variables --also called confounding factors^[**EXAMPLE** Assume that new houses tend to be built more often in areas with low deprivation. If that is the case, then $NEW$ and $IMD$ will be correlated with each other (as well as with the price of a house, as we are hypothesizing in this case). If we calculate a simple correlation between $P$ and $IMD$, the coefficient will represent the degree of association between both variables, but it will also include some of the association between $IMD$ and $NEW$. That is, part of the obtained correlation coefficient will be due not to the fact that higher prices tend to be found in areas with low IMD, but to the fact that new houses tend to be more expensive. This is because (in this example) new houses tend to be built in areas with low deprivation and simple bivariate correlation cannot account for that.]. Regression allows you to isolate the distinct effect that a single variable has on the dependent one, once we *control* for those other variables.
 
@@ -99,7 +99,7 @@ In order to inspect the results of the model, the quickest way is to call `summa
 summary(m1)
 ```
 
-A full detailed explanation of the output is beyond the scope of the chapter, but we will highlight the relevant bits for our main purpose. This is concentrated on the `Coefficients` section, which gives us the estimates for the $\beta_k$ coefficients in our model. These estimates are the raw equivalent of the correlation coefficient between each explanatory variable and the dependent one, once the "polluting" effect of the other variables included in the model has been accounted for^[Keep in mind that regression is no magic. We are only discounting the effect of other confounding factors that we include in the model, not of *all* potentially confounding factors.]. Results are as expected for the most part: houses tend to be significantly more expensive if they accommodate more people (an extra person increases the price by `r round(m1$coefficients[["accommodates"]], 3) * 100`%, approximately), have more bathrooms (`r round(m1$coefficients[["bathrooms"]], 3) * 100`%), or bedrooms (`r round(m1$coefficients[["bedrooms"]], 3) * 100`%). Perhaps counter intuitively, an extra bed available seems to decrease the price by about `r round(m1$coefficients[["beds"]], 3) * 100`%. However, keep in mind that this is the case, *everything else equal*. Hence, more beds per room and bathroom (ie. a more crowded house), is a bit cheaper.
+A full detailed explanation of the output is beyond the scope of the chapter, but we will highlight the relevant bits for our main purpose. This is concentrated on the `Coefficients` section, which gives us the estimates for the $\beta_k$ coefficients in our model. These estimates are the raw equivalent of the correlation coefficient between each explanatory variable and the dependent one, once the "polluting" effect of the other variables included in the model has been accounted for^[Keep in mind that regression is no magic. We are only discounting the effect of other confounding factors that we include in the model, not of *all* potentially confounding factors.]. Results are as expected for the most part: houses tend to be significantly more expensive if they accommodate more people (an extra person increases the price by `r round(m1$coefficients[["accommodates"]], 3) * 100`%, approximately), have more bathrooms (`r round(m1$coefficients[["bathrooms"]], 3) * 100`%), or bedrooms (`r round(m1$coefficients[["bedrooms"]], 3) * 100`%). Perhaps counter intuitively, an extra bed available seems to decrease the price by about `r round(m1$coefficients[["beds"]], 3) * 100`%. However, keep in mind that this is the case, *everything else equal*. Hence, more beds per room and bathroom (ie. a more crowded house) is a bit cheaper.
 
 ## Spatial regression: a (very) first dip
 
@@ -204,7 +204,7 @@ As we have just discussed, SH is about effects of phenomena that are *explicitly
 
 **Spatial Weights**
 
-There are several ways to introduce spatial dependence in an econometric framework, with varying degrees of econometric sophistication [see @anselin2003spatial for a good overview]. Common to all of them however is the way space is formally encapsulated: through *spatial weights matrices ($W$)*^[If you need to refresh your knowledge on spatial weight matrices, check [Block E](https://darribas.org/gds_course/content/bE/concepts_E.html) of @darribas_gds_course or [Chapter 4](https://geographicdata.science/book/notebooks/04_spatial_weights.html) of @reyABwolf.]. These are $NxN$ matrices with zero diagonals and every $w_{ij}$ cell with a value that represents the degree of spatial connectivity/interaction between observations $i$ and $j$. If they are not connected at all, $w_{ij}=0$, otherwise $w_{ij}>0$ and we call $i$ and $j$ neighbors. The exact value in the latter case depends on the criterium we use to define neighborhood relations. These matrices also tend to be row-standardized so the sum of each row equals to one.
+There are several ways to introduce spatial dependence in an econometric framework, with varying degrees of econometric sophistication [see @anselin2003spatial for a good overview]. Common to all of them however is the way space is formally encapsulated: through *spatial weights matrices ($W$)*^[If you need to refresh your knowledge on spatial weight matrices, check [Block E](https://darribas.org/gds_course/content/bE/concepts_E.html) of @darribas_gds_course; [Chapter 4](https://geographicdata.science/book/notebooks/04_spatial_weights.html) of @reyABwolf; or the [Spatial Weights Section] of @rowe_gds21.] These are $NxN$ matrices with zero diagonals and every $w_{ij}$ cell with a value that represents the degree of spatial connectivity/interaction between observations $i$ and $j$. If they are not connected at all, $w_{ij}=0$, otherwise $w_{ij}>0$ and we call $i$ and $j$ neighbors. The exact value in the latter case depends on the criterium we use to define neighborhood relations. These matrices also tend to be row-standardized so the sum of each row equals to one.
 
 A related concept to spatial weight matrices is that of *spatial lag*. This is an operator that multiplies a given variable $y$ by a spatial weight matrix:
 
