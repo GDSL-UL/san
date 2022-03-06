@@ -31,7 +31,7 @@ bookdown::render_book("index.Rmd", "bookdown::tufte_html_book")
 If you use the material, code or processed data, you can give appropriate attribution by using the following citation:
 
 ```
-@article{rowearribas-bel_smds21,
+@book{rowearribas-bel_smds21,
   author = {Rowe, Francisco and Arribas-Bel, Dani},
   title = {Spatial Modelling for Data Scientists},
   year = 2022,
