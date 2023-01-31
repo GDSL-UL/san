@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Spatial Modelling for Data Scientists - 10&nbsp; Spatio-Temporal Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./11-datasets.html" rel="next">
+<link href="./09-gwr.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatio-Temporal Analysis</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Spatial Modelling for Data Scientists</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/GDSL-UL/san" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Spatial-Modelling-for-Data-Scientists.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Spatial-Modelling-for-Data-Scientists.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-spatial_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-data-wrangling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-points.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Point Data Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-flows.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Interaction Modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-spatial-econometrics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spatial Econometrics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-multilevel-01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-multilevel-02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-gwr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Geographically Weighted Regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-st_analysis.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatio-Temporal Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-datasets.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data Sets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#dependencies" id="toc-dependencies" class="nav-link active" data-scroll-target="#dependencies"><span class="toc-section-number">10.1</span>  Dependencies</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="toc-section-number">10.2</span>  Data</a></li>
+  <li><a href="#why-spatio-temporal-analysis" id="toc-why-spatio-temporal-analysis" class="nav-link" data-scroll-target="#why-spatio-temporal-analysis"><span class="toc-section-number">10.3</span>  Why Spatio-Temporal Analysis?</a>
+  <ul class="collapse">
+  <li><a href="#spatio-temporal-data-structures" id="toc-spatio-temporal-data-structures" class="nav-link" data-scroll-target="#spatio-temporal-data-structures"><span class="toc-section-number">10.3.1</span>  Spatio-temporal Data Structures</a></li>
+  </ul></li>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling"><span class="toc-section-number">10.4</span>  Data Wrangling</a></li>
+  <li><a href="#exploring-spatio-temporal-data" id="toc-exploring-spatio-temporal-data" class="nav-link" data-scroll-target="#exploring-spatio-temporal-data"><span class="toc-section-number">10.5</span>  Exploring Spatio-Temporal Data</a>
+  <ul class="collapse">
+  <li><a href="#visualisation" id="toc-visualisation" class="nav-link" data-scroll-target="#visualisation"><span class="toc-section-number">10.5.1</span>  Visualisation</a></li>
+  <li><a href="#exploratory-analysis" id="toc-exploratory-analysis" class="nav-link" data-scroll-target="#exploratory-analysis"><span class="toc-section-number">10.5.2</span>  Exploratory Analysis</a></li>
+  </ul></li>
+  <li><a href="#spatio-temporal-data-modelling" id="toc-spatio-temporal-data-modelling" class="nav-link" data-scroll-target="#spatio-temporal-data-modelling"><span class="toc-section-number">10.6</span>  Spatio-Temporal Data Modelling</a>
+  <ul class="collapse">
+  <li><a href="#intuition" id="toc-intuition" class="nav-link" data-scroll-target="#intuition"><span class="toc-section-number">10.6.1</span>  Intuition</a></li>
+  <li><a href="#fitting-spatio-temporal-models" id="toc-fitting-spatio-temporal-models" class="nav-link" data-scroll-target="#fitting-spatio-temporal-models"><span class="toc-section-number">10.6.2</span>  Fitting Spatio-Temporal Models</a></li>
+  </ul></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="toc-section-number">10.7</span>  Questions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-chp10" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatio-Temporal Analysis</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This chapter provides an introduction to the complexities of spatio-temporal data and modelling. For modelling, we consider the Fixed Rank Kriging (FRK) framework developed by <span class="citation" data-cites="cressie2008fixed">Cressie and Johannesson (<a href="references.html#ref-cressie2008fixed" role="doc-biblioref">2008</a>)</span>. It enables constructing a spatial random effects model on a discretised spatial domain. Key advantages of this approach comprise the capacity to: (1) work with large data sets, (2) be scaled up; (3) generate predictions based on sparse linear algebraic techniques, and (4) produce fine-scale resolution uncertainty estimates.</p>
+<p>The content of this chapter is based on:</p>
+<ul>
+<li><p><span class="citation" data-cites="wikle2019spatio">Wikle, Zammit-Mangion, and Cressie (<a href="references.html#ref-wikle2019spatio" role="doc-biblioref">2019</a>)</span>, a recently published book which provides a good overview of existing statistical approaches to spatio-temporal modelling and R packages.</p></li>
+<li><p><span class="citation" data-cites="zammit2017frk">Zammit-Mangion and Cressie (<a href="references.html#ref-zammit2017frk" role="doc-biblioref">2017</a>)</span>, who introduce the statistical framework and R package for modelling spatio-temporal used in this Chapter.</p></li>
+</ul>
+<section id="dependencies" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="dependencies"><span class="header-section-number">10.1</span> Dependencies</h2>
+<p>This chapter uses the following libraries:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data manipulation, transformation and visualisation</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Nice tables</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple features (a standardised way to encode vector data ie. points, lines, polygons)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf) </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial objects conversion</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sp) </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Thematic maps</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap) </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Nice colour schemes</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis) </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtain correlation coefficients</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Highlight data on plots</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gghighlight)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Analysing spatio-temporal data</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#library(STRbook)</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spacetime)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Date parsing and manipulation</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Applied statistics</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Statistical tests for linear regression models</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit spatial random effects models</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FRK)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportable regression tables</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="data"><span class="header-section-number">10.2</span> Data</h2>
+<p>For this chapter, we will use data on:</p>
+<ul>
+<li><p>COVID-19 confirmed cases from 30th January, 2020 to 21st April, 2020 from Public Health England via the <a href="https://coronavirus.data.gov.uk">GOV.UK dashboard</a>;</p></li>
+<li><p>resident population characteristics from the 2011 census, available from the <a href="https://www.nomisweb.co.uk/home/census2001.asp">Office of National Statistics</a>; and,</p></li>
+<li><p>2019 Index of Multiple Deprivation (IMD) data from <a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019">GOV.UK</a> and published by the Ministry of Housing, Communities &amp; Local Government. The data are at the ONS Upper Tier Local Authority (UTLA) level - also known as <a href="https://geoportal.statistics.gov.uk">Counties and Unitary Authorities</a>.</p></li>
+</ul>
+<p>For a full list of the variables included in the data sets used in this chapter, see the readme file in the sta data folder.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Before we get our hands on the data, there are some important concepts that need to be introduced. They provide a useful framework to understand the complex structure of spatio-temporal data. Let’s start by first highlighling the importance of spatio-temporal analysis.</p>
+</section>
+<section id="why-spatio-temporal-analysis" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="why-spatio-temporal-analysis"><span class="header-section-number">10.3</span> Why Spatio-Temporal Analysis?</h2>
+<p>Investigating the spatial patterns of human processes as we have done so far in this book only offers a partial incomplete representation of these processes. It does not allow understanding of the temporal evolution of these processes. Human processes evolve in space and time. Human mobility is a inherent geographical process which changes over the course of the day, with peaks at rush hours and high concentration towards employment, education and retail centres. Exposure to air pollution changes with local climatic conditions, and emission and concentration of atmospheric pollutants which fluctuate over time. The rate of disease spread varies over space and may significantly change over time as we have seen during the current outbreak, with flattened or rapid declining trends in Australia, New Zealand and South Korea but fast proliferation in the United Kingdom and the United States. Only by considering time and space together we can address how geographic entities change over time and why they change. A large part of how and why of such change occurs is due to interactions across space and time, and multiple processes. It is essential to understand the past to inform our understanding of the present and make predictions about the future.</p>
+<section id="spatio-temporal-data-structures" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="spatio-temporal-data-structures"><span class="header-section-number">10.3.1</span> Spatio-temporal Data Structures</h3>
+<p>A first key element is to understand the structure of spatio-temporal data. Spatio-temporal data incorporate two dimensions. At one end, we have the temporal dimension. In quantitative analysis, time-series data are used to capture geographical processes at regular or irregular intervals; that is, in a continuous (daily) or discrete (only when a event occurs) temporal scale. At another end, we have the spatial dimension. We often use spatial data as temporal aggregations or temporally frozen states (or ‘snapshots’) of a geographical process - this is what we have done so far. Recall that spatial data can be capture in different geographical units, such as areal or lattice, points, flows or trajectories - refer to the introductory lecture in Week 1. Relatively few ways exist to formally integrate temporal and spatial data in consistent analytical framework. Two notable exceptions in R are the packages <code>TraMiner</code> <span class="citation" data-cites="gabadinho2009mining">(<a href="references.html#ref-gabadinho2009mining" role="doc-biblioref">Gabadinho et al. 2009</a>)</span> and <code>spacetime</code> <span class="citation" data-cites="pebesma2012spacetime">(<a href="references.html#ref-pebesma2012spacetime" role="doc-biblioref">Pebesma et al. 2012</a>)</span>. We use the class definitions defined in the R package <code>spacetime</code>. These classes extend those used for spatial data in <code>sp</code> and time-series data in <code>xts</code>. Next a brief introduction to concepts that facilitate thinking about spatio-temporal data structures.</p>
+<section id="type-of-table" class="level4" data-number="10.3.1.1">
+<h4 data-number="10.3.1.1" class="anchored" data-anchor-id="type-of-table"><span class="header-section-number">10.3.1.1</span> Type of Table</h4>
+<p>Spatio-temporal data can be conceptualised as three main different types of tables:</p>
+<ul>
+<li><p>time-wide: a table in which columns correspond to different time points</p></li>
+<li><p>space-wide: a table in which columns correspond to different spatial location</p></li>
+<li><p>long formats: a table in which each row-column pair corresponds to a specific time and spatial location (or space coordinate)</p></li>
+</ul>
+<blockquote class="blockquote">
+<p>Note that data in long format are space inefficient because spatial coordinates and time attributes are required for each data point. Yet, data in this format are relatively easy to manipulate via packages such as <code>dplyr</code> and <code>tidyr</code>, and visualise using <code>ggplot2</code>. These packages are designed to work with data in long format.</p>
+</blockquote>
+</section>
+<section id="type-of-spatio-temporal-object" class="level4" data-number="10.3.1.2">
+<h4 data-number="10.3.1.2" class="anchored" data-anchor-id="type-of-spatio-temporal-object"><span class="header-section-number">10.3.1.2</span> Type of Spatio-Temporal Object</h4>
+<p>To integrate spatio-temporal data, spatio-temporal objects are needed. We consider four different spatio-temporal frames (STFs) or objects which can be defined via the package <code>spacetime</code>:</p>
+<ul>
+<li><p>Full grid (STF): an object containing data on all possible locations in all time points in a sequence of data;</p></li>
+<li><p>Sparse grid (STS): an object similar to STF but only containing non-missing space-time data combinations;</p></li>
+<li><p>Irregular (STI): an object with an irregular space-time data structure, where each point is allocated a spatial coordinate and a time stamp;</p></li>
+<li><p>Simple Trajectories (STT): an object containig a sequence of space-time points that form trajectories.</p></li>
+</ul>
+<p>More details on these spatio-temporal structures, construction and manipulation, see <span class="citation" data-cites="pebesma2012spacetime">Pebesma et al. (<a href="references.html#ref-pebesma2012spacetime" role="doc-biblioref">2012</a>)</span>. Enough theory, let’s code!</p>
+</section>
+</section>
+</section>
+<section id="data-wrangling" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="data-wrangling"><span class="header-section-number">10.4</span> Data Wrangling</h2>
+<p>This section illustrates the complexities of handling spatio-temporal data. It discusses good practices in data manipulation and construction of a Space Time Irregular Data Frame (STIDF) object. Three key requirements to define a STFDF object are:</p>
+<ol type="1">
+<li><p>Have a data frame in long format i.e.&nbsp;a location-time pair data frame</p></li>
+<li><p>Define a time stamp</p></li>
+<li><p>Construct the spatio-temporal object of class STIDF by indicating the spatial and temporal coordinates</p></li>
+</ol>
+<p>Let’s now read all the required data. While we can have all data in a single data frame, you will find helpful to have separate data objects to identify:</p>
+<ul>
+<li><p>spatial locations</p></li>
+<li><p>temporal units</p></li>
+<li><p>data</p></li>
+</ul>
+<p>These data objects correspond to <code>locs</code>, <code>time</code>, and <code>covid19</code> and <code>censusimd</code> below. Throughout the chapter you will notice that we switch between the various data frames when convinient, depending on the operation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clear workspace</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># read ONS UTLA shapefile</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>utla_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/sta/ons_utla.shp"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `ons_utla' from data source 
+  `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202223/san/data/sta/ons_utla.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 150 features and 11 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 134112.4 ymin: 11429.67 xmax: 655653.8 ymax: 657536
+Projected CRS: Transverse_Mercator</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create table of locations</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>locs <span class="ot">&lt;-</span> utla_shp <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(objct, cty19c, ctyu19nm, long, lat, st_rs) </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># read time data frame</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/sta/reporting_dates.csv"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># read COVID-19 data in long format</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>covid19 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/sta/covid19_cases.csv"</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># read census and IMD data</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>censusimd <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/sta/2011census_2019imd_utla.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If we explore the structure of the data via <code>head</code> and <code>str</code>, we can see we have data on daily and cumulative new COVID-19 cases for 150 spatial units (i.e.&nbsp;UTLAs) over 71 time points from January 30th to April 21st. We also have census and IMD data for a range of attributes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(covid19, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 6
+  Area.name            Area.code Area.type            date       Daily…¹ Cumul…²
+  &lt;chr&gt;                &lt;chr&gt;     &lt;chr&gt;                &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;
+1 Barking and Dagenham E09000002 Upper tier local au… 2020-01-30       0       0
+2 Barnet               E09000003 Upper tier local au… 2020-01-30       0       0
+3 Barnsley             E08000016 Upper tier local au… 2020-01-30       0       0
+# … with abbreviated variable names ¹​Daily.lab.confirmed.cases,
+#   ²​Cumulative.lab.confirmed.cases</code></pre>
+</div>
+</div>
+<p>Once we have understood the structure of the data, we first need to confirm if the <code>covid19</code> data are in wide or long format. Luckily they are in long format; otherwise, we would have needed to transform the data from wide to long format. Useful functions to achieve this include <code>pivot_longer</code> (<code>pivot_longer</code>) which has superseded <code>gather</code> (<code>spread</code>) in the <code>tidyr</code> package. Note that the <code>covid19</code> data frame has 10,650 observations (i.e.&nbsp;rows); that is, 150 UTLAs * 71 daily observations.</p>
+<p>We then define a regular time stamp for our temporal data. We use the <code>lubridate</code> package to do this. A key advantage of <code>lubridate</code> is that it automatically recognises the common separators used when recording dates (“-”, “/”, “.”, and ““). As a result, you only need to focus on specifying the order of the date elements to determine the parsing function applied. Below we check the structure of our time data, define a time stamp and create separate variables for days, weeks, months and year.</p>
+<blockquote class="blockquote">
+<p>Note that working with dates can be a complex task. A good discussion of these complexities is provided <a href="http://uc-r.github.io/dates/#convert_date">here</a>.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check the time structure used for reporting covid cases</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(covid19<span class="sc">$</span>date, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2020-01-30" "2020-01-30" "2020-01-30" "2020-01-30" "2020-01-30"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># parsing data into a time stamp</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>covid19<span class="sc">$</span>date <span class="ot">&lt;-</span> <span class="fu">ymd</span>(covid19<span class="sc">$</span>date)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(covid19<span class="sc">$</span>date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Date"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># separate date variable into day,week, month and year variables</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>covid19<span class="sc">$</span>day <span class="ot">&lt;-</span> <span class="fu">day</span>(covid19<span class="sc">$</span>date)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>covid19<span class="sc">$</span>week <span class="ot">&lt;-</span> <span class="fu">week</span>(covid19<span class="sc">$</span>date) <span class="co"># week of the year</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>covid19<span class="sc">$</span>month <span class="ot">&lt;-</span> <span class="fu">month</span>(covid19<span class="sc">$</span>date)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>covid19<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">year</span>(covid19<span class="sc">$</span>date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once defined the time stamp, we need to add the spatial information contained in our shapefile to create a spatio-temporal data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># join dfs</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>covid19_spt <span class="ot">&lt;-</span> <span class="fu">left_join</span>(utla_shp, covid19, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"ctyu19nm"</span> <span class="ot">=</span> <span class="st">"Area.name"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We now have all the components to build a spatio-temporal object of class STIDF using <code>STIDF</code> from the <code>spacetime</code> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># identifying spatial fields</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>spat_part <span class="ot">&lt;-</span> <span class="fu">as</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(covid19_spt, <span class="sc">-</span><span class="fu">c</span>(bng_e, bng_n, Area.code, Area.type, Daily.lab.confirmed.cases, Cumulative.lab.confirmed.cases, date, day, week, month, year)), <span class="at">Class =</span> <span class="st">"Spatial"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># identifying temporal fields</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>temp_part <span class="ot">&lt;-</span> covid19_spt<span class="sc">$</span>date</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># identifying data</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>covid19_data <span class="ot">&lt;-</span> covid19_spt <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(Area.code, Area.type, date, Daily.lab.confirmed.cases, Cumulative.lab.confirmed.cases, day, week, month, year)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># construct STIDF object</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>covid19_stobj <span class="ot">&lt;-</span> <span class="fu">STIDF</span>(<span class="at">sp =</span> spat_part, <span class="co"># spatial fields</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">time =</span> temp_part, <span class="co"># time fields</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> covid19_data) <span class="co"># data</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(covid19_stobj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "STIDF"
+attr(,"package")
+[1] "spacetime"</code></pre>
+</div>
+</div>
+<p>We now add census and IMD variables. For the purposes of this Chapter, we only add total population and long-term sick or disabled population counts. You can add more variables by adding their names in the <code>select</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select pop data</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> censusimd <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="st">"UTLA19NM"</span>, <span class="st">"Residents"</span>, <span class="st">"Longterm_sick_or_disabled"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># join dfs</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>covid19_spt <span class="ot">&lt;-</span> <span class="fu">left_join</span>(covid19_spt, pop,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"ctyu19nm"</span> <span class="ot">=</span> <span class="st">"UTLA19NM"</span>))</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>covid19 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(covid19, pop, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"Area.name"</span> <span class="ot">=</span> <span class="st">"UTLA19NM"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exploring-spatio-temporal-data" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="exploring-spatio-temporal-data"><span class="header-section-number">10.5</span> Exploring Spatio-Temporal Data</h2>
+<p>We now have all the required data in place. In this section various methods of data visualisation are illustrated before key dimensions of the data are explored. Both of these types of exploration can be challenging as one or more dimensions in space and one in time need to be interrogated.</p>
+<section id="visualisation" class="level3" data-number="10.5.1">
+<h3 data-number="10.5.1" class="anchored" data-anchor-id="visualisation"><span class="header-section-number">10.5.1</span> Visualisation</h3>
+<p>In the context spatio-temporal data, a first challenge is data visualization. Visualising more than two dimensions of spatio-temporal data, so it is helpful to slice or aggregate the data over a dimension, use color, or build animations through time. Before exploring the data, we need to define our key variable of interest; that is, the number of confirmed COVID-19 cases per 100,000 people. We also compute the cumulative number of confirmed COVID-19 cases per 100,000 people as it may be handy in some analyses.</p>
+<p>Fisrt create variable to be analysed:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rate of new covid-19 infection</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>covid19_spt<span class="sc">$</span>n_covid19_r <span class="ot">&lt;-</span> <span class="fu">round</span>( (covid19_spt<span class="sc">$</span>Daily.lab.confirmed.cases <span class="sc">/</span> covid19_spt<span class="sc">$</span>Residents) <span class="sc">*</span> <span class="dv">100000</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>covid19<span class="sc">$</span>n_covid19_r <span class="ot">&lt;-</span> <span class="fu">round</span>( (covid19<span class="sc">$</span>Daily.lab.confirmed.cases <span class="sc">/</span> covid19<span class="sc">$</span>Residents) <span class="sc">*</span> <span class="dv">100000</span> )</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># risk of cumulative covid-19 infection</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>covid19_spt<span class="sc">$</span>c_covid19_r <span class="ot">&lt;-</span> <span class="fu">round</span>( (covid19_spt<span class="sc">$</span>Cumulative.lab.confirmed.cases <span class="sc">/</span> covid19_spt<span class="sc">$</span>Residents) <span class="sc">*</span> <span class="dv">100000</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>covid19<span class="sc">$</span>c_covid19_r <span class="ot">&lt;-</span> <span class="fu">round</span>( (covid19<span class="sc">$</span>Cumulative.lab.confirmed.cases <span class="sc">/</span> covid19<span class="sc">$</span>Residents) <span class="sc">*</span> <span class="dv">100000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="spatial-plots" class="level4" data-number="10.5.1.1">
+<h4 data-number="10.5.1.1" class="anchored" data-anchor-id="spatial-plots"><span class="header-section-number">10.5.1.1</span> Spatial Plots</h4>
+<p>One way to visualise the data is using spatial plots; that is, snapshots of a geographic process for a given time period. Data can be mapped in different ways using clorepleth, countour or surface plots. The key aim of these maps is to understand how the overall extent of spatial variation and local patterns of spatial concentration change over time. Below we visualise the weekly number of confirmed COVID-19 cases per 100,000 people.</p>
+<blockquote class="blockquote">
+<p>Note that Weeks range from 5 to 16 as they refer to calendar weeks. Calendar week 5 is when the first COVID-19 case in England was reported.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create data frame for new cases by week</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>daycases_week <span class="ot">&lt;-</span> covid19_spt <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(week, ctyu19nm, </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>           <span class="fu">as.character</span>(cty19c), </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>           Residents) <span class="sc">%&gt;%</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_daycases =</span> <span class="fu">sum</span>(Daily.lab.confirmed.cases)) </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># weekly rate of new covid-19 infection</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>daycases_week<span class="sc">$</span>wn_covid19_r <span class="ot">&lt;-</span> (daycases_week<span class="sc">$</span>n_daycases <span class="sc">/</span> daycases_week<span class="sc">$</span>Residents) <span class="sc">*</span> <span class="dv">100000</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># map</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">"Cumulative Cases per 100,000 Population"</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(daycases_week) <span class="sc">+</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"wn_covid19_r"</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>), <span class="at">style =</span><span class="st">"cont"</span>, <span class="at">legend.hist=</span><span class="cn">FALSE</span>, <span class="at">legend.is.portrait=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"week"</span>, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">1</span>)  <span class="sc">+</span> <span class="co"># add borders +</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">bg.color =</span> <span class="st">"white"</span>, <span class="co"># change background colour</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.outside =</span> <span class="cn">TRUE</span>, <span class="co"># legend outside</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.outside.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.stack =</span> <span class="st">"horizontal"</span>,</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.title.size =</span> <span class="dv">2</span>,</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.width =</span> <span class="dv">1</span>,</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.height =</span> <span class="dv">1</span>,</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>            <span class="at">panel.label.size =</span> <span class="dv">3</span>,</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>            <span class="at">main.title =</span> <span class="st">"New COVID-19 Cases by Calendar Week, UTLA, England"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in pre_process_gt(x, interactive = interactive, orig_crs =
+gm$shape.orig_crs): legend.width controls the width of the legend within a map.
+Please use legend.outside.size to control the width of the outside legend</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="10-st_analysis_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="1152"></p>
+</div>
+</div>
+<p>The series of maps reveal a stable pattern of low reported cases from calendar weeks 5 to 11. From week 12 a number of hot spots emerged, notably in London, Birmingham, Cumbria and subsequently around Liverpool. The intensity of new cases seem to have started to decline from week 15; yet, it is important to note that week 16 display reported cases for only two days.</p>
+</section>
+<section id="time-series-plots" class="level4" data-number="10.5.1.2">
+<h4 data-number="10.5.1.2" class="anchored" data-anchor-id="time-series-plots"><span class="header-section-number">10.5.1.2</span> Time-Series Plots</h4>
+<p>Time-series plots can be used to capture a different dimension of the process in analysis. They can be used to better understand changes in an observation location, an aggregation of observations, or multiple locations simultaneously over time. We plot the cumulative number of COVID-19 cases per 100,000 people for UTLAs reporting over 310 cases. The plots identify the UTLAs in London, Newcastle and Sheffield reporting the largest numbers of COVID-19 cases. The plots also reveal that there has been a steady increase in the number of cases, with some differences. While cases have steadily increase in Brent and Southwark since mid March, the rise has been more sudden in Sunderland. The plots also reveal a possible case of misreporting in Sutton towards the end of the series.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tsp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> covid19_spt,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> c_covid19_r,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">group =</span> ctyu19nm))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>tsp <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gghighlight</span>(<span class="fu">max</span>(c_covid19_r) <span class="sc">&gt;</span> <span class="dv">310</span>, <span class="at">use_direct_label =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title=</span> <span class="fu">paste</span>(<span class="st">" "</span>), <span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Cumulative Cases per 100,000"</span>) <span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>)) <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">16</span>)) <span class="sc">+</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>)) <span class="sc">+</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>)) <span class="sc">+</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.subtitle=</span><span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>)) <span class="sc">+</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>, <span class="at">face=</span><span class="st">"plain"</span>)) <span class="sc">+</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> ctyu19nm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="10-st_analysis_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="1152"></p>
+</div>
+</div>
+</section>
+<section id="hovmöller-plots" class="level4" data-number="10.5.1.3">
+<h4 data-number="10.5.1.3" class="anchored" data-anchor-id="hovmöller-plots"><span class="header-section-number">10.5.1.3</span> Hovmöller Plots</h4>
+<p>An alternative visualisation is a Hovmöller plot - sometimes known as heatmap. It is a two-dimensional space-time representation in which space is collapsed onto one dimension against time. Hovmöller plots can easily be generated if the data are arranged on a space-time grid; however, this is rarely the case. Luckily we have <code>ggplot</code>! which can do magic rearranging the data as needed. Below we produce a Hovmöller plot for UTLAs with resident populations over 260,000. The plot makes clear that the critical period of COVID-19 spread has been during April despite the implementation of a series of social distancing measures by the government.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(covid19_spt, Residents <span class="sc">&gt;</span> <span class="dv">260000</span>), </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span> date, <span class="at">y=</span> <span class="fu">reorder</span>(ctyu19nm, c_covid19_r), <span class="at">fill=</span> c_covid19_r)) <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">name=</span><span class="st">"New Cases per 100,000"</span>, <span class="at">option =</span><span class="st">"plasma"</span>, <span class="at">begin =</span> <span class="dv">0</span>, <span class="at">end =</span> <span class="dv">1</span>, <span class="at">direction =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="fu">paste</span>(<span class="st">" "</span>), <span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Upper Tier Authority Area"</span>) <span class="sc">+</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">15</span>)) <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">15</span>)) <span class="sc">+</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>, <span class="at">face=</span><span class="st">"plain"</span>)) <span class="sc">+</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.key.width =</span> <span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">"cm"</span>), <span class="at">legend.key.height =</span> <span class="fu">unit</span>(<span class="dv">2</span>, <span class="st">"cm"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="10-st_analysis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="1152"></p>
+</div>
+</div>
+</section>
+<section id="interactive-plots" class="level4" data-number="10.5.1.4">
+<h4 data-number="10.5.1.4" class="anchored" data-anchor-id="interactive-plots"><span class="header-section-number">10.5.1.4</span> Interactive Plots</h4>
+<p>Interactive visualisations comprise very effective ways to understand spatio-temporal data and they are now fairly accessible. Interactive visualisations allow for a more data-immersive experience, and enable exploration of the data without having to resort to scripting. Here is when the use of <code>tmap</code> shines as it does not only enables easily creating nice static maps but also interactive maps! Below an interactive map for a time snapshot of the data (i.e.&nbsp;<code>2020-04-14</code>) is produced, but with a bit of work layers can be added to display multiple temporal slices of the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># map</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">"Cumulative Cases per 100,000 Population"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>imap <span class="ot">=</span> <span class="fu">tm_shape</span>(dplyr<span class="sc">::</span><span class="fu">filter</span>(covid19_spt[,<span class="fu">c</span>(<span class="st">"ctyu19nm"</span>, <span class="st">"date"</span>, <span class="st">"c_covid19_r"</span>)], <span class="fu">as.character</span>(date) <span class="sc">==</span> <span class="st">"2020-04-14"</span>), <span class="at">labels =</span> <span class="st">"Area.name"</span>) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"c_covid19_r"</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>), <span class="at">style =</span><span class="st">"cont"</span>, <span class="at">legend.is.portrait=</span><span class="cn">FALSE</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#tm_text("ctyu19nm", size = .4) +</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">bg.color =</span> <span class="st">"white"</span>, <span class="co"># change background colour</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.outside =</span> <span class="cn">TRUE</span>, <span class="co"># legend outside</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.title.size =</span> <span class="dv">1</span>,</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.width =</span> <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To view the map on your local machines, execute the code chunk below removing the <code>#</code> sign.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#tmap_mode("view")</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#imap</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Alternative data visualisation tools are animations, telliscope and shiny. Animations can be constructed by plotting spatial data frame-by-frame, and then stringing them together in sequence. A useful R packages <code>gganimate</code> and <code>tmap</code>! See <span class="citation" data-cites="lovelace2019">Lovelace, Nowosad, and Muenchow (<a href="references.html#ref-lovelace2019" role="doc-biblioref">2019</a>)</span>. Note that the creation of animations may require external dependencies; hence, they have been included here. Both <code>telliscope</code> and <code>shiny</code> are useful ways for visualising large spatio-temporal data sets in an interactive ways. Some effort is required to deploy these tools.</p>
+</section>
+</section>
+<section id="exploratory-analysis" class="level3" data-number="10.5.2">
+<h3 data-number="10.5.2" class="anchored" data-anchor-id="exploratory-analysis"><span class="header-section-number">10.5.2</span> Exploratory Analysis</h3>
+<p>In addition to visualising data, we often want to obtain numerical summaries of the data. Again, innovative ways to reduce the inherent dimensionality of the data and examine dependence structures and potential relationships in time and space are needed. We consider visualisations of empirical spatial and temporal means, dependence structures and some basic time-series analysis.</p>
+<section id="means" class="level4" data-number="10.5.2.1">
+<h4 data-number="10.5.2.1" class="anchored" data-anchor-id="means"><span class="header-section-number">10.5.2.1</span> Means</h4>
+<p><strong>Empirical Spatial Mean</strong></p>
+<p>The empirical spatial mean for a data set can be obtained by averaging over time points for one location. In our case, we can compute the empirical spatial mean by averaging the daily rate of new COVID-19 cases for UTLAs between January 30th and April 21st. It reveals that Brent, Southwark and Sunderland report an average daily infection rate of over 5 new cases per 100,000 people, whereas Rutland and Isle of Wight display an average of less than 1.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute empirical spatial mean</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>sp_av <span class="ot">&lt;-</span> covid19_spt <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(ctyu19nm) <span class="sc">%&gt;%</span> <span class="co"># group by spatial unit</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sp_mu_emp =</span> <span class="fu">mean</span>(n_covid19_r))</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># plot empirical spatial mean</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>sp_av) <span class="sc">+</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>( <span class="fu">aes</span>( <span class="at">y =</span> <span class="fu">reorder</span>(ctyu19nm, sp_mu_emp), <span class="at">x =</span> sp_mu_emp) , <span class="at">fill =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="fu">paste</span>(<span class="st">" "</span>), <span class="at">x=</span><span class="st">"Average New Cases per 100,000"</span>, <span class="at">y=</span><span class="st">"Upper Tier Authority Area"</span>) <span class="sc">+</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">7</span>)) <span class="sc">+</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>)) <span class="sc">+</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>, <span class="at">face=</span><span class="st">"plain"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="10-st_analysis_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="1152"></p>
+</div>
+</div>
+<p><strong>Empirical Temporal Mean</strong></p>
+<p>The empirical temporal mean for a data set can be obtained by averaging across spatial locations for a time point. In our case, we can compute the empirical temporal mean by averaging the rate of new COVID-19 cases over UTLAs by day. The empirical temporal mean is plotted below revealing a peak of 8.32 number of new cases per 100,000 people the 7th of April, steadily decreasing to 0.35 for the last reporting observation in our data; that is, April 21st.</p>
+<blockquote class="blockquote">
+<p>Note the empirical temporal mean is smoothed via local polynomial regression fitting; hence below zero values are reported between February and March.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute temporal mean</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>tm_av <span class="ot">&lt;-</span> covid19 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(date) <span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">tm_mu_emp =</span> <span class="fu">mean</span>(n_covid19_r))</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># plot temporal mean + trends for all spatial units</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> covid19, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span>date, <span class="at">y =</span> n_covid19_r,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>                          <span class="at">group =</span> Area.name), <span class="at">color =</span> <span class="st">"gray80"</span>) <span class="sc">+</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> tm_av, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span>date, <span class="at">y =</span> tm_mu_emp), </span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title=</span> <span class="fu">paste</span>(<span class="st">" "</span>), <span class="at">x=</span><span class="st">"Date"</span>, <span class="at">y=</span><span class="st">"Cumulative Cases per 100,000"</span>) <span class="sc">+</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>)) <span class="sc">+</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>)) <span class="sc">+</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>)) <span class="sc">+</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>)) <span class="sc">+</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.subtitle=</span><span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>)) <span class="sc">+</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>, <span class="at">face=</span><span class="st">"plain"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="10-st_analysis_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="1152"></p>
+</div>
+</div>
+</section>
+<section id="dependence" class="level4" data-number="10.5.2.2">
+<h4 data-number="10.5.2.2" class="anchored" data-anchor-id="dependence"><span class="header-section-number">10.5.2.2</span> Dependence</h4>
+<p><strong>Spatial Dependence</strong></p>
+<p>As we know spatial dependence refers to the spatial relationship of a variable’s values for a pairs of locations at a certain distance apart, so that are more similar (or less similar) than expected for randomly associated pairs of observations. Patterns of spatial dependence may change over time. In the case of a disease outbreak patterns of spatial dependence can change very quickly as new cases emerge and social distancing measures are implemented. <a href="06-spatial-econometrics.html"><span>Chapter&nbsp;6</span></a> illustrates how to measure spatial dependence in the context of spatial data.</p>
+<blockquote class="blockquote">
+<p>Challenge 1: Measure how spatial dependence change over time. Hint: compute the Moran’s I on the rate of new COVID-19 cases (i.e.&nbsp;<code>n_covid19_r</code> in the <code>covid19</code> data frame) at multiple time points.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Note: recall that the problem of ignoring the dependence in the errors when doing OLS regression is that the resulting standard errors and prediction standard errors are inappropriate. In the case of positive dependence, which is the most common case in spatio-temporal data (recall Tobler’s law), the standard errors and prediction standard errors are underestimated. This is if dependence is ignored, resulting in a false sense of how good the estimates and predictions really are.</p>
+</blockquote>
+<p><strong>Temporal Dependence</strong></p>
+<p>As for spatial data, dependence can also exists in temporal data. Temporal dependence or temporal autocorrelation exists when a variable’s value at time <span class="math inline">\(t\)</span> is dependent on its value(s) at <span class="math inline">\(t-1\)</span>. More recent observations are often expected to have a greater influence on present observations. A key difference between temporal and spatial dependence is that temporal dependence is unidirectional (i.e.&nbsp;past observations can only affect present or future observations but not inversely), while spatial dependence is multidirectional (i.e.&nbsp;an observation in a spatial unit can influence and be influenced by observations in multiple spatial units).</p>
+<p>Before measuring the temporal dependence is our time-series, a time-series object needs to be created with a time stamp and given cycle frequency. A cycle frequency refers to when a seasonal pattern is repeated. We consider a time series of the total number of new COVID-19 cases per 100,000 (i.e.&nbsp;we sum cases over UTLAs by day) and the frequency set to 7 to reflect weekly cycles. So we end up with a data frame of length 71.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a time series object</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>total_cnt <span class="ot">&lt;-</span> covid19 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(date) <span class="sc">%&gt;%</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">new_cases =</span> <span class="fu">sum</span>(n_covid19_r)) </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>total_cases_ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(total_cnt<span class="sc">$</span>new_cases, </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">start =</span> <span class="dv">1</span>,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">frequency =</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>There are various ways to test for temporal autocorrelation. An easy way is to compute the correlation coefficient between a time series measured at time <span class="math inline">\(t\)</span> and its lag measured at time <span class="math inline">\(t-1\)</span>. Below we measure the temporal autocorrelation in the rate of new COVID-19 cases per 100,000 people. A correlation of 0.97 is returned indicating high positive autocorrelation; that is, high (low) past numbers of new COVID-19 cases per 100,000 people tend to correlate with higher (lower) present numbers of new COVID-19 cases. The Durbin-Watson test is often used to test for autocorrelation in regression models.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create lag term t-1</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>lag_new_cases <span class="ot">&lt;-</span> total_cnt<span class="sc">$</span>new_cases[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>total_cnt <span class="ot">&lt;-</span> <span class="fu">cbind</span>(total_cnt[<span class="dv">1</span><span class="sc">:</span><span class="dv">70</span>,], lag_new_cases)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(total_cnt[,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              new_cases lag_new_cases
+new_cases      1.000000      0.974284
+lag_new_cases  0.974284      1.000000</code></pre>
+</div>
+</div>
+<p><strong>Time Series Components</strong></p>
+<p>In addition to temporal autocorrelation, critical to the analysis of time-series are its constituent components. A time-series is generally defined by three key components:</p>
+<ul>
+<li><p>Trend: A trend exists when there is a long-term increase or decrease in the data.</p></li>
+<li><p>Seasonal: A seasonal pattern exists when a time series is affected by seasonal factors and is of a fixed and known frequency. Seasonal cycles can occur at various time intervals such as the time of the day or the time of the year.</p></li>
+<li><p>Cyclic (random): A cycle exists when the data exhibit rises and falls that are not of a fixed frequency.</p></li>
+</ul>
+<p>To understand and model a time series, these components need to be identified and appropriately incorporated into a regression model. We illustrate these components by decomposing our time series for total COVID-19 cases below. The top plot shows the observed data. Subsequent plots display the trend, seasonal and random components of the total number of COVID-19 cases on a weekly periodicity. They reveal a clear inverted U-shape trend and seasonal pattern. This idea that we can decompose data to extract information and understand temporal processes is key to understand the concept of basis functions to model spatio-temporal data, which will be introduced in the next section.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># decompose time series</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>dec_ts <span class="ot">&lt;-</span> <span class="fu">decompose</span>(total_cases_ts)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plot time series components</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dec_ts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="10-st_analysis_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>For a good introduction to time-series analysis in R, refer to <span class="citation" data-cites="hyndman2018forecasting">Hyndman and Athanasopoulos (<a href="references.html#ref-hyndman2018forecasting" role="doc-biblioref">2018</a>)</span> and <a href="https://www.datacamp.com/courses/forecasting-using-r">DataCamp</a>.</p>
+</section>
+</section>
+</section>
+<section id="spatio-temporal-data-modelling" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="spatio-temporal-data-modelling"><span class="header-section-number">10.6</span> Spatio-Temporal Data Modelling</h2>
+<p>Having some understanding of the spatio-temporal patterns of COVID-19 spread through data exploration, we are ready to start further examining structural relationships between the rate of new infections and local contextual factors via regression modelling across UTLAs. Specifically we consider the number of new cases per 100,000 people to capture the rate of new infections and only one contextual factor; that is, the share of population suffering from long-term sickness or disabled. We will consider some basic statistical models, of the form of linear regression and generalized linear models, to account for spatio-temporal dependencies in the data. Note that we do not consider more complex structures based on hierarchical models or spatio-temporal weighted regression models which would be the natural step moving forward.</p>
+<p>As any modelling approach, spatio-temporal statistical modelling has three principal goals:</p>
+<ol type="1">
+<li><p>predicting values of a given outcome variable at some location in space within the time span of the observations and offering information about the uncertainty of those predictions;</p></li>
+<li><p>performing statistical inference about the influence of predictors on an outcome variable in the presence of spatio-temporal dependence; and,</p></li>
+<li><p>forecasting future values of an outcome variable at some location, offering information about the uncertainty of the forecast.</p></li>
+</ol>
+<section id="intuition" class="level3" data-number="10.6.1">
+<h3 data-number="10.6.1" class="anchored" data-anchor-id="intuition"><span class="header-section-number">10.6.1</span> Intuition</h3>
+<p>The key idea on what follows is to use a basic statistical regression model to understand the relationship between the share of new COVID-19 infections and the share of population suffering from long-term illness, accounting for spatio-temporal dependencies. We will consider what is known as a trend-surface regression model which assumes that spatio-temporal dependencies can be accounted for by “trend” components and incorporate as predictors in the model. Formally we consider the regression model below which seeks to account for spatial and temporal trends.</p>
+<p><span class="math display">\[y(s_{i}, t_{j}) = \beta_{0} + \beta_{k}x(s_{i}, t_{j}) + e(s_{i}, t_{j})\]</span></p>
+<p>where <span class="math inline">\(\beta_{0}\)</span> is the intercept and <span class="math inline">\(\beta_{k}\)</span> represents a set of regression coefficients associated with <span class="math inline">\(x(s_{i}, t_{j})\)</span>; the <span class="math inline">\(k\)</span> indicates the number of covariates at spatial location <span class="math inline">\(s_{i}\)</span> and time <span class="math inline">\(t_{j}\)</span>; <span class="math inline">\(e\)</span> represents the regression errors which are assumed to follow a normal distribution. The key difference to aproaches considered in previous chapters is the incorporation of space and time together. As we learnt from the previous section, this has implications are we now have two sources of dependence: spatial and temporal autocorrelation, as well as seasonal and trend components. This has implications for modelling as we now need to account for all of these components if we are to establish any relationship between <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span>.</p>
+<p>A key implication is how we consider the set of covariates represented by <span class="math inline">\(x\)</span>. Three key types can be identified:</p>
+<ul>
+<li><p>spatial-variant, temporal-invariant covariates: these are attributes which may vary across space but be temporally invariant, such as geographical distances;</p></li>
+<li><p>spatial-invariant, temporal-variant covariates: these are attributes which do not vary across space but change over time; and,</p></li>
+<li><p>spatial-variant, temporal-variant covariates: these are attributes which vary over both space and time;</p></li>
+</ul>
+<blockquote class="blockquote">
+<p>Note that what is variant or invariant will depend on the spatial and temporal scale of the analysis.</p>
+</blockquote>
+<p>We can also consider spatio-temporal “basis functions”. Note that this is an important concept for the rest of the Chapter. What are basis functions then? If you think that spatio-temporal data represent a complex set of curves or surfaces in space, basis functions represent the components into which this set of curves can be decomposed. In this sense, basis functions operate in a similar fashion as the decomposition of time series considered above i.e.&nbsp;time series data can be decomposed into a trend, seasonal and random components and their sum can be used to represent the observed temporal trajectory. Basis functions offer an effective way to incorporate spatio-temporal dependencies. Thus, basis functions have the key goal of accounting for spatio-temporal dependencies as spatial weight matrices or temporal lags help accounting spatial autocorrelation in spatial models and temporal autocorrelation in time series analysis.</p>
+<p>As standard regression coefficients, basis functions are related to <span class="math inline">\(y\)</span> via coefficients (or weights). The difference is that we typically assume that basis functions are known while coefficients are random. Examples of basis functions include polynomials, splines, wavelets, sines and cosines so various linear combinations that can be used to infer potential spatio-temporal dependencies in the data. This is similar to deep learning models in which cases you provide, for example, an image and the model provides a classification of pixels. But you normally do not know what the classification represents (hence they are known as black boxes!) so further analysis on the classification is needed to understand what the model has attempted to capture. Basically basis functions are smoother functions to represent the observed data, and their objective to capture the spatial and temporal variability in the data as well as their dependence.</p>
+<p>For our application, we start by considering a basic OLS regression model with the following basis functions to account spatial-temporal structures:</p>
+<ul>
+<li>overall mean;</li>
+<li>linear in lon-coordinate;</li>
+<li>linear in lat-coordinate;</li>
+<li>linear time daily trend;</li>
+<li>additional spatio-temporal basis functions which are presented below; and,</li>
+</ul>
+<p>These basis functions are incorporated as independent variables in the regression model. Additionally, we also include the share of population suffering from long-term illness as we know it is highly correlated to the cumulative number of COVID-19 cases. The share of population suffering long-term illness is incorporated as a spatial-variant, temporal-invariant covariates given that rely in 2011 census data.</p>
+</section>
+<section id="fitting-spatio-temporal-models" class="level3" data-number="10.6.2">
+<h3 data-number="10.6.2" class="anchored" data-anchor-id="fitting-spatio-temporal-models"><span class="header-section-number">10.6.2</span> Fitting Spatio-Temporal Models</h3>
+<p>As indicated at the start of this Chapter, we use the FRK framework developed by <span class="citation" data-cites="cressie2008fixed">Cressie and Johannesson (<a href="references.html#ref-cressie2008fixed" role="doc-biblioref">2008</a>)</span>. It provides a scalable, relies on the use a spatial random effects model (with which we have some familiarity) and can be easily implemented in R by the use of the <code>FRK</code> package <span class="citation" data-cites="zammit2017frk">(<a href="references.html#ref-zammit2017frk" role="doc-biblioref">Zammit-Mangion and Cressie 2017</a>)</span>. In this framework, a spatially correlated errors can be decomposed using a linear combination of spatial basis functions, effectively addressing issues of spatial-temporal dependence and nonstationarity. The specification of spatio-temporal basis functions is a key component of the model and they can be generated automatically or by the user via the <code>FRK</code> package. We will use the automatically generated functions. While as we will notice they are difficult to interpret, user generated functions require greater understanding of the spatio-temporal structure of COVID-19 which is beyond the scope of this Chapter.</p>
+<p><strong>Prepare Data</strong></p>
+<p>The first step to create a data frame with the variables that we will consider for the analysis. We first remove the geometries to convert <code>covid19_spt</code> from a simple feature object to a data frame and then compute the share of long-term illness population.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove geometries</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">st_geometry</span>(covid19_spt) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># share of population in long-term illness </span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>covid19_spt <span class="ot">&lt;-</span> covid19_spt <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a> <span class="at">lt_illness =</span> Longterm_sick_or_disabled <span class="sc">/</span> Residents</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Construct Basis Functions</strong></p>
+<p>We now build the set of basis functions. The can be constructed by using the function <code>auto_basis</code> from the <code>FRK</code> package. The function takes as arguments: data, nres (which is the number of “resolutions” or aggregation to construct); and type of basis function to use. We consider a single resolution of the default Gaussian radial basis function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># build basis functions</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>G <span class="ot">&lt;-</span> <span class="fu">auto_basis</span>(<span class="at">data =</span> covid19_spt[,<span class="fu">c</span>(<span class="st">"long"</span>,<span class="st">"lat"</span>)] <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">SpatialPoints</span>(),           <span class="co"># To sp obj</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">nres =</span> <span class="dv">1</span>,                         <span class="co"># One resolution</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">type =</span> <span class="st">"Gaussian"</span>)                <span class="co"># Gaussian BFs</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># basis functions evaluated at data locations are then the covariates</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>S <span class="ot">&lt;-</span> <span class="fu">eval_basis</span>(<span class="at">basis =</span> G,                       <span class="co"># basis functions</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">s =</span> covid19_spt[,<span class="fu">c</span>(<span class="st">"long"</span>,<span class="st">"lat"</span>)] <span class="sc">%&gt;%</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">as.matrix</span>()) <span class="sc">%&gt;%</span>            <span class="co"># conv. to matrix</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>     <span class="fu">as.matrix</span>()                                 <span class="co"># conv. to matrix</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(S) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"B"</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(S)) <span class="co"># assign column names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Add Basis Functions to Data Frame</strong></p>
+<p>We then prepare a data frame for the regression model, adding the weights extracted from the basis functions. These weights enter as covariates in our model. Note that the resulting number of basis functions is nine. Explore by executing <code>colnames(S)</code>. Below we select only relevant variables for our model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting variables</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>reg_df <span class="ot">&lt;-</span> <span class="fu">cbind</span>(covid19_spt, S) <span class="sc">%&gt;%</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(ctyu19nm, n_covid19_r, long, lat, date, lt_illness, B1<span class="sc">:</span>B9)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Fit Linear Regression</strong></p>
+<p>We now fit a linear model using <code>lm</code> including as covariates longitude, latitude, day, share of long-term ill population and the nine basis functions.</p>
+<blockquote class="blockquote">
+<p>Recall that latitude refers to north/south from the equator and longitude refers to west/east from Greenwich. Further up north means a higher latitude score. Further west means higher longitude score. Scores for Liverpool (53.4084° N, 2.9916° W) are thus higher than for London (51.5074° N, 0.1278° W). This will be helpful for interpretation.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>eq1 <span class="ot">&lt;-</span> n_covid19_r <span class="sc">~</span> long <span class="sc">+</span> lat <span class="sc">+</span> date <span class="sc">+</span> lt_illness <span class="sc">+</span> .</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>lm_m <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> eq1, </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(reg_df, <span class="sc">-</span>ctyu19nm))</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>lm_m <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = eq1, data = dplyr::select(reg_df, -ctyu19nm))
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7.9726 -1.6679 -0.4867  1.1702 22.5346 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -2.082e+03  2.839e+01 -73.354  &lt; 2e-16 ***
+long        -1.932e+00  3.620e-01  -5.336  9.7e-08 ***
+lat          3.390e+00  3.266e-01  10.380  &lt; 2e-16 ***
+date         1.033e-01  1.245e-03  82.958  &lt; 2e-16 ***
+lt_illness   3.276e+01  3.541e+00   9.250  &lt; 2e-16 ***
+B1           7.556e+00  3.157e+00   2.393   0.0167 *  
+B2           1.898e+00  1.409e+00   1.347   0.1780    
+B3           1.750e+01  1.978e+00   8.847  &lt; 2e-16 ***
+B4          -2.022e+00  2.742e+00  -0.737   0.4609    
+B5           2.207e+00  2.233e+00   0.989   0.3229    
+B6          -9.814e-01  2.498e+00  -0.393   0.6945    
+B7          -2.031e-01  3.687e+00  -0.055   0.9561    
+B8          -2.234e+00  2.801e+00  -0.797   0.4252    
+B9           1.877e+00  2.543e+00   0.738   0.4604    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.842 on 10636 degrees of freedom
+Multiple R-squared:  0.4169,    Adjusted R-squared:  0.4162 
+F-statistic:   585 on 13 and 10636 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Coefficients for explicitly specified spatial and temporal variables and the share of long-term ill population are all statistically significant. The interpretation of the regression coefficients is as usual; that is, one unit increase in a covariate relates to one unit increase in the dependent variable. For instance, the coefficient for long-term illness population indicates that UTLAs with a larger share of long-term ill population in one percentage point tend to have 328 more new COVID-19 cases per 100,000 people! on average. The coefficient for date reveals a strong positive temporal dependence with an average increase in the number of new cases per 100,000 people over time. The coefficient for latitude indicates as we move north the number of new COVID-19 cases per 100,000 people tends to be higher but lower if we move west.</p>
+<p>While overall the model provides some understanding of the spatio-temporal structure of the spread of COVID-19, the overall fit of the model is relatively poor. The <span class="math inline">\(R^{2}\)</span> reveals that the model explains only 4.2% of the variability of the spread of COVID-19 cases, reflecting the complexity of modelling spatio-temporal processes. Also, except for two, the coefficients associated to the basis functions are statistically insignificant. A key issue that we have ignored so far is the fact that our dependent variable is a count and is highly skewed - refer back to Section [8.4 Exploratory Analysis].</p>
+<blockquote class="blockquote">
+<p>Challenge 2: Explore a model with only spatial components (i.e.&nbsp;<code>long</code> and <code>lat</code>) or only temporal components (<code>day</code>). What model returns the largest <span class="math inline">\(R^{2}\)</span>?</p>
+</blockquote>
+<p><strong>Poisson Regression</strong></p>
+<p>A Poisson regression model provides a more appropriate framework to address these issues. We do this fitting a general linear model (or GLM) specifying the family function to be a Poisson.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estimate a poisson model</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>poisson_m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(eq1,</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">poisson</span>(<span class="st">"log"</span>), <span class="co"># Poisson + log link</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(reg_df, <span class="sc">-</span>ctyu19nm))</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>poisson_m1 <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = eq1, family = poisson("log"), data = dplyr::select(reg_df, 
+    -ctyu19nm))
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-5.7454  -1.2043  -0.6993   0.3764   7.8981  
+
+Coefficients:
+              Estimate Std. Error  z value Pr(&gt;|z|)    
+(Intercept) -1.027e+03  8.168e+00 -125.699  &lt; 2e-16 ***
+long        -8.534e-01  9.080e-02   -9.399  &lt; 2e-16 ***
+lat          1.456e+00  7.617e-02   19.115  &lt; 2e-16 ***
+date         5.153e-02  3.871e-04  133.121  &lt; 2e-16 ***
+lt_illness   1.166e+01  7.701e-01   15.139  &lt; 2e-16 ***
+B1           3.418e+00  8.005e-01    4.270 1.96e-05 ***
+B2           4.414e-01  3.249e-01    1.359  0.17421    
+B3           8.531e+00  5.480e-01   15.568  &lt; 2e-16 ***
+B4          -7.129e-01  5.865e-01   -1.215  0.22418    
+B5           1.639e+00  5.048e-01    3.246  0.00117 ** 
+B6          -1.282e+00  5.618e-01   -2.283  0.02245 *  
+B7          -3.572e-01  8.411e-01   -0.425  0.67102    
+B8          -1.003e+00  6.262e-01   -1.602  0.10917    
+B9           1.655e+00  6.268e-01    2.640  0.00829 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 51245  on 10649  degrees of freedom
+Residual deviance: 24458  on 10636  degrees of freedom
+AIC: 42364
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+</div>
+<p>The Poisson model seems to provide a more appropriate functional forms to identify the strength of the relationship between new COVID-19 cases and spatio-temporal dependencies as captured by a greater number (relative to the linear model) of basis functions coefficients becoming statistically significant. Yet, the Poisson model assumes that the mean and variance of the COVID-19 cases is the same. But, given the distribution of our dependent variable, its variance is likely to be greater than the mean. That means the data exhibit “overdispersion”. How do we know this? An estimate of the dispersion is given by the ratio of the deviance to the total degrees of freedom (the number of data points minus the number of covariates). In this case the dispersion estimate is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>poisson_m1<span class="sc">$</span>deviance <span class="sc">/</span> poisson_m1<span class="sc">$</span>df.residual</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.29953</code></pre>
+</div>
+</div>
+<p>which is clearly greater than 1! i.e.&nbsp;the data are overdispersed.</p>
+<p><strong>Quasipoisson Regression</strong></p>
+<p>An approach to account for overdispersion is to use quasipoisson when calling <code>glm</code>. The quasi-Poisson model assumes that the variance is proportional to the mean, and that the constant of the proportionality is the over-dispersion parameter. This model corrects the standard error of the estimated coefficients. So only p-values and t values are affected. No changes are recorded in terms of residual deviance (24458) and median of deviance residuals (-0.6993), compared to the standard Poisson model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estimate a quasipoisson model</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>qpoisson_m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(eq1,</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">quasipoisson</span>(<span class="st">"log"</span>), <span class="co"># QuasiPoisson + log link</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(reg_df, <span class="sc">-</span>ctyu19nm))</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>qpoisson_m1 <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = eq1, family = quasipoisson("log"), data = dplyr::select(reg_df, 
+    -ctyu19nm))
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-5.7454  -1.2043  -0.6993   0.3764   7.8981  
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -1.027e+03  1.215e+01 -84.490  &lt; 2e-16 ***
+long        -8.534e-01  1.351e-01  -6.318 2.76e-10 ***
+lat          1.456e+00  1.133e-01  12.848  &lt; 2e-16 ***
+date         5.153e-02  5.759e-04  89.478  &lt; 2e-16 ***
+lt_illness   1.166e+01  1.146e+00  10.176  &lt; 2e-16 ***
+B1           3.418e+00  1.191e+00   2.870  0.00411 ** 
+B2           4.414e-01  4.833e-01   0.913  0.36109    
+B3           8.531e+00  8.153e-01  10.464  &lt; 2e-16 ***
+B4          -7.129e-01  8.726e-01  -0.817  0.41395    
+B5           1.639e+00  7.510e-01   2.182  0.02915 *  
+B6          -1.282e+00  8.358e-01  -1.534  0.12499    
+B7          -3.572e-01  1.251e+00  -0.286  0.77526    
+B8          -1.003e+00  9.316e-01  -1.077  0.28162    
+B9           1.655e+00  9.325e-01   1.774  0.07603 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for quasipoisson family taken to be 2.213379)
+
+    Null deviance: 51245  on 10649  degrees of freedom
+Residual deviance: 24458  on 10636  degrees of freedom
+AIC: NA
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+</div>
+<p><strong>Negative Binomial Regression</strong></p>
+<p>An alternative approach to deal with overdispersion is the Negative Binomial Model (NBM). This models relaxes the assumption of equality between the mean and variance. We estimate a NBM by using the function <code>glm.nb</code> from the <code>MASS</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estimate a negative binomial model</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>nb_m1 <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(eq1, </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(reg_df, <span class="sc">-</span>ctyu19nm))</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>nb_m1 <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm.nb(formula = eq1, data = dplyr::select(reg_df, -ctyu19nm), 
+    init.theta = 1.493089258, link = log)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-3.0655  -0.8110  -0.4119   0.1861   3.1676  
+
+Coefficients:
+              Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -1.540e+03  1.596e+01 -96.459  &lt; 2e-16 ***
+long        -8.402e-01  1.650e-01  -5.090 3.57e-07 ***
+lat          1.604e+00  1.456e-01  11.021  &lt; 2e-16 ***
+date         7.901e-02  7.522e-04 105.030  &lt; 2e-16 ***
+lt_illness   1.440e+01  1.534e+00   9.387  &lt; 2e-16 ***
+B1           5.121e+00  1.460e+00   3.508 0.000452 ***
+B2           1.622e-01  6.177e-01   0.263 0.792897    
+B3           9.502e+00  9.469e-01  10.035  &lt; 2e-16 ***
+B4          -2.054e+00  1.183e+00  -1.736 0.082590 .  
+B5           2.461e+00  9.802e-01   2.510 0.012059 *  
+B6          -1.095e+00  1.089e+00  -1.005 0.314895    
+B7           6.486e-01  1.642e+00   0.395 0.692877    
+B8          -1.143e+00  1.225e+00  -0.933 0.350789    
+B9           1.068e+00  1.169e+00   0.914 0.360917    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for Negative Binomial(1.4931) family taken to be 1)
+
+    Null deviance: 22092.1  on 10649  degrees of freedom
+Residual deviance:  8374.3  on 10636  degrees of freedom
+AIC: 34057
+
+Number of Fisher Scoring iterations: 1
+
+              Theta:  1.4931 
+          Std. Err.:  0.0361 
+
+ 2 x log-likelihood:  -34027.2980 </code></pre>
+</div>
+</div>
+<p>The NBM leads to a significant reduction in residual deviance from 24,458 returned by the Poisson model to only 8,374. It points to a major improvement in explaining the spatio-temporal variability in the spread of COVID-19</p>
+<p><strong>Including Interactions</strong></p>
+<p>Yet, we may further refine our model based on a different strategy. Let’s try running a NBM including interaction terms between spatial and temporal terms (i.e.&nbsp;longitude, latitude and date). We can do this by estimating the following model <code>c_covid19_r ~ (long + lat + date)^2 + lt_illness + .</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new model specification</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>eq2 <span class="ot">&lt;-</span> n_covid19_r <span class="sc">~</span> (long <span class="sc">+</span> lat <span class="sc">+</span> date)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> lt_illness <span class="sc">+</span> .</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co"># estimate a negative binomial model</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>nb_m2 <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(eq2, </span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(reg_df, <span class="sc">-</span>ctyu19nm))</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>nb_m2 <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm.nb(formula = eq2, data = dplyr::select(reg_df, -ctyu19nm), 
+    init.theta = 1.56089592, link = log)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-3.1506  -0.8099  -0.4039   0.2036   3.4084  
+
+Coefficients:
+              Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  4.797e+03  6.955e+02   6.897 5.32e-12 ***
+long        -4.509e+01  1.559e+01  -2.892  0.00382 ** 
+lat         -1.185e+02  1.342e+01  -8.827  &lt; 2e-16 ***
+date        -2.754e-01  3.788e-02  -7.270 3.61e-13 ***
+lt_illness   1.329e+01  1.522e+00   8.734  &lt; 2e-16 ***
+B1           1.155e+01  1.571e+00   7.354 1.92e-13 ***
+B2          -4.181e-01  6.212e-01  -0.673  0.50095    
+B3           2.062e+01  1.408e+00  14.644  &lt; 2e-16 ***
+B4          -6.669e+00  1.256e+00  -5.311 1.09e-07 ***
+B5           9.446e+00  1.170e+00   8.071 6.96e-16 ***
+B6          -1.050e+01  1.398e+00  -7.509 5.96e-14 ***
+B7           2.309e+01  2.626e+00   8.793  &lt; 2e-16 ***
+B8          -5.111e+00  1.279e+00  -3.995 6.48e-05 ***
+B9           1.139e+00  1.159e+00   0.983  0.32575    
+long:lat     1.574e+00  1.462e-01  10.763  &lt; 2e-16 ***
+long:date   -1.937e-03  7.525e-04  -2.574  0.01005 *  
+lat:date     6.713e-03  7.309e-04   9.185  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for Negative Binomial(1.5609) family taken to be 1)
+
+    Null deviance: 22557.0  on 10649  degrees of freedom
+Residual deviance:  8352.3  on 10633  degrees of freedom
+AIC: 33849
+
+Number of Fisher Scoring iterations: 1
+
+              Theta:  1.5609 
+          Std. Err.:  0.0383 
+
+ 2 x log-likelihood:  -33813.3960 </code></pre>
+</div>
+</div>
+<p>This model leads to a slightly better model by returning a small reduction in the residual deviance and AIC score. Interestingly it also returns highly statistically significant coefficients for all three interaction terms between longitude and latitude (<code>long:lat</code>), longitude and date (<code>long:date</code>), and latitude and date (<code>lat:date</code>). The first indicates that as we move one degree north and west, the number of new cases tend to increase in 2 cases. The second indicates that UTLAs located further north of England tend to record a smaller number of cases over time. The third indicates that UTLAs on the west of England tend to report a much higher number of cases as time passes.</p>
+<p>You can report the output for all models estimated above by executing (after removing <code>#</code>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># export_summs(lm_m, poisson_m, qpoisson_m1, nb_m1, nb_m2)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that you may need to install the <code>huxtable</code> package.</p>
+<section id="model-comparision" class="level4" data-number="10.6.2.1">
+<h4 data-number="10.6.2.1" class="anchored" data-anchor-id="model-comparision"><span class="header-section-number">10.6.2.1</span> Model Comparision</h4>
+<p>To compare regression models based on different specifications and assumptions, like those reported above, you may want to consider the cross-validation approach used in <a href="05-flows.html"><span>Chapter&nbsp;5</span></a>. An alternative approach if you would like to get a quick sense of model fit is to explore the correlation between observed and predicted values of the dependent variable. For our models, we can achieve this by executing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># computing predictions for all models</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>lm_cnt <span class="ot">&lt;-</span> <span class="fu">predict</span>(lm_m)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>poisson_cnt <span class="ot">&lt;-</span> <span class="fu">predict</span>(poisson_m1)</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>nb1_cnt <span class="ot">&lt;-</span> <span class="fu">predict</span>(nb_m1)</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>nb2_cnt <span class="ot">&lt;-</span> <span class="fu">predict</span>(nb_m2)</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>reg_df <span class="ot">&lt;-</span> <span class="fu">cbind</span>(reg_df, lm_cnt, poisson_cnt, nb1_cnt, nb2_cnt)</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co"># computing correlation coefficients</span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>cormat <span class="ot">&lt;-</span> <span class="fu">cor</span>(reg_df[, <span class="fu">c</span>(<span class="st">"n_covid19_r"</span>, <span class="st">"lm_cnt"</span>, <span class="st">"poisson_cnt"</span>, <span class="st">"nb1_cnt"</span>, <span class="st">"nb2_cnt"</span>)], </span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">use=</span><span class="st">"complete.obs"</span>, </span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">method=</span><span class="st">"pearson"</span>)</span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a><span class="co"># significance test</span></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>sig1 <span class="ot">&lt;-</span> corrplot<span class="sc">::</span><span class="fu">cor.mtest</span>(reg_df[, <span class="fu">c</span>(<span class="st">"n_covid19_r"</span>, <span class="st">"lm_cnt"</span>, <span class="st">"poisson_cnt"</span>, <span class="st">"nb1_cnt"</span>, <span class="st">"nb2_cnt"</span>)],</span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>                            <span class="at">conf.level =</span> .<span class="dv">95</span>)</span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a><span class="co"># create a correlogram</span></span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>corrplot<span class="sc">::</span><span class="fu">corrplot.mixed</span>(cormat,</span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>                         <span class="at">number.cex =</span> <span class="dv">1</span>,</span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>                         <span class="at">tl.pos =</span> <span class="st">"d"</span>,</span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a>                         <span class="at">tl.cex =</span> <span class="fl">0.9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="10-st_analysis_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>All the models do a relatively job at predicting the observed count of new COVID-19 cases. They display correlation coefficients of 0.64/5 and high degree of correlation between them. These models will provide a good starting point for the assignment. There are a potentially few easy ways to make some considerable improvement.</p>
+<ul>
+<li><em>Option 1</em> Remove all zeros from the dependent variable <code>n_covid19_r</code>. They are likely to be affecting the ability of the model to predict positive values which are of main interest if we want to understand the spatio-temporal patterns of the outbreak.</li>
+<li><em>Option 2</em> Remove all zeros from the dependent variable and additionally use its log for the regression model.</li>
+<li><em>Option 3</em> Include more explanatory variables. Look for factors which can explain the spatial-temporal variability of the current COVID-19 outbreak. Look for hypotheses / anecdotal evidence from the newspapers and social media.</li>
+<li><em>Option 4</em> Check for collinearity. Collinearity is likely to be an issue given the way basis functions are created. Checking for collinearity of course will not improve the fit of the existing model but it is important to remove collinear terms if statistical inference is a key goal - which in this case is. Over to you now!</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="questions" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="questions"><span class="header-section-number">10.7</span> Questions</h2>
+<p>We will continue to use the COVID-19 dataset. Please see <a href="11-datasets.html"><span>Chapter&nbsp;11</span></a> for details on the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/assignment_2_covid/covid19_eng.gpkg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `covid19_eng' from data source 
+  `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202223/san/data/assignment_2_covid/covid19_eng.gpkg' 
+  using driver `GPKG'
+Simple feature collection with 149 features and 507 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 134112.4 ymin: 11429.67 xmax: 655653.8 ymax: 657536
+Projected CRS: OSGB36 / British National Grid</code></pre>
+</div>
+</div>
+<p>Using these data, you are required to address the following challenges:</p>
+<ul>
+<li><p>Create a spatio-temporal visualisation.</p></li>
+<li><p>Fit a ST model to assess changes over space and time.</p></li>
+</ul>
+<p>Analyse and discuss:</p>
+<ol type="1">
+<li>Do the results for your GWR and ST results differ: How do regression coefficients vary across space? Is this variation statistically significant?</li>
+<li>Does the ST model indicate significant variations over time? How?</li>
+</ol>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-cressie2008fixed" class="csl-entry" role="doc-biblioentry">
+Cressie, Noel, and Gardar Johannesson. 2008. <span>“Fixed Rank Kriging for Very Large Spatial Data Sets.”</span> <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 70 (1): 209–26.
+</div>
+<div id="ref-gabadinho2009mining" class="csl-entry" role="doc-biblioentry">
+Gabadinho, Alexis, Gilbert Ritschard, Matthias Studer, and Nicolas S Müller. 2009. <span>“Mining Sequence Data in r with the TraMineR Package: A User’s Guide.”</span> <em>Geneva: Department of Econometrics and Laboratory of Demography, University of Geneva</em>.
+</div>
+<div id="ref-hyndman2018forecasting" class="csl-entry" role="doc-biblioentry">
+Hyndman, Rob J, and George Athanasopoulos. 2018. <em>Forecasting: Principles and Practice</em>. OTexts.
+</div>
+<div id="ref-lovelace2019" class="csl-entry" role="doc-biblioentry">
+Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2019. <em>Geocomputation with r</em>. Chapman; Hall/CRC. <a href="https://doi.org/10.1201/9780203730058">https://doi.org/10.1201/9780203730058</a>.
+</div>
+<div id="ref-pebesma2012spacetime" class="csl-entry" role="doc-biblioentry">
+Pebesma, Edzer et al. 2012. <span>“Spacetime: Spatio-Temporal Data in r.”</span> <em>Journal of Statistical Software</em> 51 (7): 1–30.
+</div>
+<div id="ref-wikle2019spatio" class="csl-entry" role="doc-biblioentry">
+Wikle, Christopher K, Andrew Zammit-Mangion, and Noel Cressie. 2019. <em>Spatio-Temporal Statistics with r</em>. CRC Press.
+</div>
+<div id="ref-zammit2017frk" class="csl-entry" role="doc-biblioentry">
+Zammit-Mangion, Andrew, and Noel Cressie. 2017. <span>“FRK: An r Package for Spatial and Spatio-Temporal Prediction with Large Datasets.”</span> <em>arXiv Preprint arXiv:1705.08105</em>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Read the file in R by executing <code>read_tsv("data/sta/readme.txt")</code>. Ensure the library readr is installed before running read_tsv.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./09-gwr.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Geographically Weighted Regression</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./11-datasets.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data Sets</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
