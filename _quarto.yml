@@ -8,6 +8,7 @@ book:
   search: true
   site-url: https://gdsl-ul.github.io/san/
   repo-url: https://github.com/GDSL-UL/san
+  repo-actions: [edit, issue]
   sidebar:
     style: docked
     background: light
@@ -32,8 +33,14 @@ bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    toc: true
+    theme: [default, theme.scss]
     css: style.css
+    code-copy: true
+    grid:
+      sidebar-width: 200px
+      body-width: 900px
+      margin-width: 300px
   pdf:
     documentclass: scrreprt
 
