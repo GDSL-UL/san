@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Spatial Modelling for Data Scientists - 9&nbsp; Geographically Weighted Regression</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./10-st_analysis.html" rel="next">
+<link href="./08-multilevel-02.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Geographically Weighted Regression</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Spatial Modelling for Data Scientists</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/GDSL-UL/san" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Spatial-Modelling-for-Data-Scientists.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Spatial-Modelling-for-Data-Scientists.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-spatial_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-data-wrangling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-points.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Point Data Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-flows.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Interaction Modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-spatial-econometrics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spatial Econometrics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-multilevel-01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-multilevel-02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-gwr.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Geographically Weighted Regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-st_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatio-Temporal Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-datasets.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data Sets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#dependencies" id="toc-dependencies" class="nav-link active" data-scroll-target="#dependencies"><span class="toc-section-number">9.1</span>  Dependencies</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="toc-section-number">9.2</span>  Data</a></li>
+  <li><a href="#recap-spatial-effects" id="toc-recap-spatial-effects" class="nav-link" data-scroll-target="#recap-spatial-effects"><span class="toc-section-number">9.3</span>  Recap: Spatial Effects</a></li>
+  <li><a href="#exploratory-analysis" id="toc-exploratory-analysis" class="nav-link" data-scroll-target="#exploratory-analysis"><span class="toc-section-number">9.4</span>  Exploratory Analysis</a></li>
+  <li><a href="#global-regression" id="toc-global-regression" class="nav-link" data-scroll-target="#global-regression"><span class="toc-section-number">9.5</span>  Global Regression</a>
+  <ul class="collapse">
+  <li><a href="#global-regression-results" id="toc-global-regression-results" class="nav-link" data-scroll-target="#global-regression-results"><span class="toc-section-number">9.5.1</span>  Global Regression Results</a></li>
+  </ul></li>
+  <li><a href="#fitting-a-geographically-weighted-regression" id="toc-fitting-a-geographically-weighted-regression" class="nav-link" data-scroll-target="#fitting-a-geographically-weighted-regression"><span class="toc-section-number">9.6</span>  Fitting a Geographically Weighted Regression</a>
+  <ul class="collapse">
+  <li><a href="#fixed-or-adaptive-kernel" id="toc-fixed-or-adaptive-kernel" class="nav-link" data-scroll-target="#fixed-or-adaptive-kernel"><span class="toc-section-number">9.6.1</span>  Fixed or Adaptive Kernel</a></li>
+  <li><a href="#optimal-bandwidth" id="toc-optimal-bandwidth" class="nav-link" data-scroll-target="#optimal-bandwidth"><span class="toc-section-number">9.6.2</span>  Optimal Bandwidth</a></li>
+  <li><a href="#shape-of-spatial-kernel" id="toc-shape-of-spatial-kernel" class="nav-link" data-scroll-target="#shape-of-spatial-kernel"><span class="toc-section-number">9.6.3</span>  Shape of Spatial Kernel</a></li>
+  <li><a href="#selecting-a-bandwidth" id="toc-selecting-a-bandwidth" class="nav-link" data-scroll-target="#selecting-a-bandwidth"><span class="toc-section-number">9.6.4</span>  Selecting a Bandwidth</a></li>
+  <li><a href="#model-fit" id="toc-model-fit" class="nav-link" data-scroll-target="#model-fit"><span class="toc-section-number">9.6.5</span>  Model fit</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="toc-section-number">9.6.6</span>  Interpretation</a></li>
+  <li><a href="#assessing-statistical-significance" id="toc-assessing-statistical-significance" class="nav-link" data-scroll-target="#assessing-statistical-significance"><span class="toc-section-number">9.6.7</span>  Assessing statistical significance</a></li>
+  <li><a href="#collinearity-in-gwr" id="toc-collinearity-in-gwr" class="nav-link" data-scroll-target="#collinearity-in-gwr"><span class="toc-section-number">9.6.8</span>  Collinearity in GWR</a></li>
+  </ul></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="toc-section-number">9.7</span>  Questions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-chp9" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Geographically Weighted Regression</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This chapter provides an introduction to geographically weighted regression models.</p>
+<p>The content of this chapter is based on:</p>
+<ul>
+<li><p><span class="citation" data-cites="Fotheringham_et_al_2002_book">Fotheringham, Brunsdon, and Charlton (<a href="references.html#ref-Fotheringham_et_al_2002_book" role="doc-biblioref">2002</a>)</span>, a must-go book if you are working or planning to start working on geographically weighted regression modelling.</p></li>
+<li><p><span class="citation" data-cites="comber2022">Comber et al. (<a href="references.html#ref-comber2022" role="doc-biblioref">2022</a>)</span> provide a roadmap to approach various practical issues in the application of GWR.</p></li>
+</ul>
+<section id="dependencies" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="dependencies"><span class="header-section-number">9.1</span> Dependencies</h2>
+<p>This chapter uses the following libraries:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data manipulation, transformation and visualisation</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Nice tables</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple features (a standardised way to encode vector data ie. points, lines, polygons)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf) </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial objects conversion</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sp) </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Thematic maps</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap) </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Colour palettes</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># More colour palettes</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis) <span class="co"># nice colour schemes</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting geographically weighted regression models</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spgwr)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtain correlation coefficients</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportable regression tables</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Assess multicollinearity</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="data"><span class="header-section-number">9.2</span> Data</h2>
+<p>For this chapter, we will use data on:</p>
+<ul>
+<li><p>cumulative COVID-19 confirmed cases from 1st January, 2020 to 14th April, 2020 from Public Health England via the <a href="https://coronavirus.data.gov.uk">GOV.UK dashboard</a>;</p></li>
+<li><p>resident population characteristics from the 2011 census, available from the <a href="https://www.nomisweb.co.uk/home/census2001.asp">Office of National Statistics</a>; and,</p></li>
+<li><p>2019 Index of Multiple Deprivation (IMD) data from <a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019">GOV.UK</a> and published by the Ministry of Housing, Communities &amp; Local Government.</p></li>
+</ul>
+<p>The data used for this Chapter are organised at the ONS Upper Tier Local Authority (UTLA) level - also known as <a href="https://geoportal.statistics.gov.uk">Counties and Unitary Authorities</a>. They are the geographical units used to report COVID-19 data.</p>
+<p>If you use the dataset utilised in this chapter, make sure cite this book. For a full list of the variables included in the data set used in this Chapter, see the readme file in the gwr data folder.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Let’s read the data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clean workspace</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>utla_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/gwr/Covid19_total_cases_geo.shp"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(objct, cty19c, ctyu19nm, long, lat, st_rs, st_ln, X2020.<span class="fl">04.14</span>, I.PL1, IMD20, IMD2., Rsdnt, Hshld, Dwlln, Hsh_S, E_16_, A_65_, Ag_85, Mixed, Indin, Pkstn, Bngld, Chins, Oth_A, Black, Othr_t, CB_U_, Crwd_, Lng__, Trn__, Adm__, Ac___, Pb___, Edctn, H____, geometry)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># replace nas with 0s</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>utla_shp[<span class="fu">is.na</span>(utla_shp)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># explore data</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(utla_shp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="recap-spatial-effects" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="recap-spatial-effects"><span class="header-section-number">9.3</span> Recap: Spatial Effects</h2>
+<p>To this point, we have implicitly discussed three distinctive spatial effects:</p>
+<ul>
+<li><p><em>Spatial heterogeneity</em> refers to the uneven distribution of a variable’s values across space</p></li>
+<li><p><em>Spatial dependence</em> refers to the spatial relationship of a variable’s values for a pair of locations at a certain distance apart, so that they are more similar (or less similar) than expected for randomly associated pairs of observations</p></li>
+<li><p><em>Spatial nonstationarity</em> refers to variations in the relationship between an outcome variable and a set of predictor variables across space</p></li>
+</ul>
+<p>In previous sessions, we considered multilevel models to deal with spatial nonstationarity, recognising that the strength and direction of the relationship between an outcome <span class="math inline">\(y\)</span> and a set of predictors <span class="math inline">\(x\)</span> may vary over space. Here we consider a different approach, namely geographically weighted regression (GWR).</p>
+</section>
+<section id="exploratory-analysis" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="exploratory-analysis"><span class="header-section-number">9.4</span> Exploratory Analysis</h2>
+<p>We will explore this technique through an empirical analysis considering the current global COVID-19 outbreak. Specifically we will seek to identify potential contextual factors that may be related to an increased risk of local infection. Population density, overcrowded housing, vulnerable individuals and critical workers have all been linked to a higher risk of COVID-19 infection.</p>
+<p>First, we will define and develop some basic understanding of our variable of interest. We define the risk of COVID-19 infection by the cumulative number of confirmed positive cases COVID-19 per 100,000 people:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># risk of covid-19 infection</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>utla_shp<span class="sc">$</span>covid19_r <span class="ot">&lt;-</span> (utla_shp<span class="sc">$</span>X2020.<span class="fl">04.14</span> <span class="sc">/</span> utla_shp<span class="sc">$</span>Rsdnt) <span class="sc">*</span> <span class="dv">100000</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># histogram</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> utla_shp) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.8</span>, <span class="at">colour=</span><span class="st">"black"</span>, <span class="at">fill=</span><span class="st">"lightblue"</span>, <span class="fu">aes</span>(<span class="at">x =</span> covid19_r)) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="09-gwr_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># distribution in numbers</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(utla_shp<span class="sc">$</span>covid19_r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  32.11   92.81  140.15  146.66  190.96  341.56 </code></pre>
+</div>
+</div>
+<p>The results indicate a wide variation in the risk of infection across UTLAs in England, ranging from 31 to 342 confirmed positive cases of COVID-19 per 100,000 people with a median of 147. We map the cases to understand their spatial structure.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read region boundaries for a better looking map</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>reg_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `Regions_December_2019_Boundaries_EN_BGC' from data source 
+  `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202223/san/data/gwr/Regions_December_2019_Boundaries_EN_BGC.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 9 features and 9 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 82672 ymin: 5342.7 xmax: 655653.8 ymax: 657536
+Projected CRS: OSGB36 / British National Grid</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ensure geometry is valid</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>utla_shp <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_make_valid</span>(utla_shp)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>reg_shp <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_make_valid</span>(reg_shp)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># map</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">"Cumulative cases per 100,000"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>map_utla <span class="ot">=</span> <span class="fu">tm_shape</span>(utla_shp) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"covid19_r"</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>), <span class="at">style =</span> <span class="st">"cont"</span>) <span class="sc">+</span> <span class="co"># add fill</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">1</span>)  <span class="sc">+</span> <span class="co"># add borders</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">"arrow"</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"top"</span>) , <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span> <span class="co"># add compass</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">text.size =</span> <span class="fl">0.7</span>, <span class="at">position =</span>  <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"bottom"</span>)) <span class="sc">+</span> <span class="co"># add scale bar</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">bg.color =</span> <span class="st">"white"</span>) <span class="co"># change background colour</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>map_utla <span class="sc">+</span> <span class="fu">tm_shape</span>(reg_shp) <span class="sc">+</span> <span class="co"># add region boundaries</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">5</span>) <span class="co"># add borders</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="09-gwr_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The map shows that concentrations of high incidence of infections in the metropolitan areas of London, Liverpool, Newcastle, Sheffield, Middlesbrough and Birmingham. Below we list the UTLAs in these areas in descending order.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>hotspots <span class="ot">&lt;-</span> utla_shp <span class="sc">%&gt;%</span> <span class="fu">select</span>(ctyu19nm, covid19_r) <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(covid19_r <span class="sc">&gt;</span> <span class="dv">190</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>hotspots[<span class="fu">order</span>(<span class="sc">-</span>hotspots<span class="sc">$</span>covid19_r),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 38 features and 2 fields
+Geometry type: GEOMETRY
+Dimension:     XY
+Bounding box:  xmin: 293941.4 ymin: 155850.8 xmax: 561956.7 ymax: 588517.4
+Projected CRS: Transverse_Mercator
+First 10 features:
+    ctyu19nm covid19_r                       geometry
+14     Brent  341.5645 POLYGON ((520113.1 190480.8...
+32 Southwark  337.1687 POLYGON ((532223 180545.4, ...
+27   Lambeth  305.5238 POLYGON ((531189.5 180531.3...
+22    Harrow  286.1254 POLYGON ((517363.8 194171.3...
+17   Croydon  276.8467 POLYGON ((531549.3 171045, ...
+12    Barnet  274.1410 POLYGON ((524645.2 198138.3...
+28  Lewisham  261.3408 POLYGON ((536691.6 178958.8...
+30    Newham  258.4550 POLYGON ((542600.7 186497.3...
+38   Cumbria  255.6726 MULTIPOLYGON (((321364.8 46...
+15   Bromley  253.7234 POLYGON ((542252.7 172828.7...</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Challenge 1: How does Liverpool ranked in this list?</p>
+</blockquote>
+</section>
+<section id="global-regression" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="global-regression"><span class="header-section-number">9.5</span> Global Regression</h2>
+<p>To provide an intuitive understanding of GWR, a useful start is to explore the data using an ordinary least squares (OLS) linear regression model. The key issue here is to understand if high incidence of COVID-19 is linked to structural differences across UTLAs in England. As indicated above, confirmed positive cases of COVID-19 have been associated with overcrowded housing, vulnerable populations - including people in elderly age groups, economically disadvantaged groups and those suffering from chronic health conditions - ethnic minorities, critical workers in the health &amp; social work, education, accommodation &amp; food, transport, and administrative &amp; support sectors. So, let’s create a set of variables to approximate these factors.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define predictors</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>utla_shp <span class="ot">&lt;-</span> utla_shp <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">crowded_hou =</span> Crwd_ <span class="sc">/</span> Hshld, <span class="co"># share of crowded housing</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">elderly =</span> (A_65_ <span class="sc">+</span> Ag_85) <span class="sc">/</span> Rsdnt, <span class="co"># share of population aged 65+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">lt_illness =</span> Lng__ <span class="sc">/</span> Rsdnt, <span class="co"># share of population in long-term illness</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">ethnic =</span> (Mixed <span class="sc">+</span> Indin <span class="sc">+</span> Pkstn <span class="sc">+</span> Bngld <span class="sc">+</span> Chins <span class="sc">+</span> Oth_A <span class="sc">+</span> Black <span class="sc">+</span> Othr_t) <span class="sc">/</span> Rsdnt, <span class="co"># share of nonwhite population</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">imd19_ext =</span> IMD20, <span class="co"># proportion of a larger area’s population living in the most deprived LSOAs in the country</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">hlthsoc_sec =</span> H____ <span class="sc">/</span> E_16_, <span class="co"># share of workforce in the human health &amp; social work sector</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">educ_sec =</span> Edctn <span class="sc">/</span> E_16_, <span class="co"># share of workforce in the education sector</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">trnsp_sec=</span> Trn__ <span class="sc">/</span> E_16_, <span class="co"># share of workforce in the Transport &amp; storage sector</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">accfood_sec =</span> Ac___ <span class="sc">/</span> E_16_, <span class="co"># share of workforce in the accommodation &amp; food service sector</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">admsupport_sec =</span> Adm__ <span class="sc">/</span>  E_16_, <span class="co"># share of workforce in the administrative &amp; support sector</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">pblic_sec =</span> Pb___ <span class="sc">/</span> E_16_ <span class="co"># share of workforce in the public administration &amp; defence sector</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s quickly examine how they correlate to our outcome variable i.e.&nbsp;incidence rate of COVID-19 using correlation coefficients and correlograms.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># obtain a matrix of Pearson correlation coefficients</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df_sel <span class="ot">&lt;-</span> <span class="fu">st_set_geometry</span>(utla_shp[,<span class="dv">37</span><span class="sc">:</span><span class="dv">48</span>], <span class="cn">NULL</span>) <span class="co"># temporary data set removing geometries</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>cormat <span class="ot">&lt;-</span> <span class="fu">cor</span>(df_sel, <span class="at">use=</span><span class="st">"complete.obs"</span>, <span class="at">method=</span><span class="st">"pearson"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># significance test</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>sig1 <span class="ot">&lt;-</span> corrplot<span class="sc">::</span><span class="fu">cor.mtest</span>(df_sel, <span class="at">conf.level =</span> .<span class="dv">95</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># creta a correlogram</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>corrplot<span class="sc">::</span><span class="fu">corrplot</span>(cormat, <span class="at">type=</span><span class="st">"lower"</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">method =</span> <span class="st">"circle"</span>, </span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">order =</span> <span class="st">"original"</span>, </span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">tl.cex =</span> <span class="fl">0.7</span>,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                   <span class="at">p.mat =</span> sig1<span class="sc">$</span>p, <span class="at">sig.level =</span> .<span class="dv">05</span>, </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>                   <span class="at">col =</span> viridis<span class="sc">::</span><span class="fu">viridis</span>(<span class="dv">100</span>, <span class="at">option =</span> <span class="st">"plasma"</span>),</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">diag =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="09-gwr_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The correlogram shows the strength and significance of the linear relationship between our set of variables. The size of the circle reflects the strength of the relationships as captured by the Pearson correlation coefficient, and crosses indicate statistically insignificant relationships at the 95% level of confidence. The colour indicate the direction of the relationship with dark (light) colours indicating a negative (positive) association.</p>
+<p>The results indicate that the incidence of COVID-19 is significantly and positively related to the share of overcrowded housing, nonwhite ethnic minorities and administrative &amp; support workers. Against expectations, the incidence of COVID-19 appears to be negatively correlated with the share of elderly population, of population suffering from long-term illness and of administrative &amp; support workers, and displays no significant association with the share of the population living in deprived areas as well as the share of public administration &amp; defence workers, and health &amp; social workers. The latter probably reflects the effectiveness of the protective measures undertaken to prevent infection among these population groups, but it may also reflect the partial coverage of COVID-19 testing and underreporting. It may also reveal the descriptive limitations of correlation coefficients as they show the relationship between a pairs of variables, not controlling for others. Correlation coefficients can thus produce spurious relationships resulting from confounded variables. We will return to this point below.</p>
+<p>The results also reveal high collinearity between particular pairs of variables, notably between the share of crowded housing and of nonwhite ethnic population, the share of crowded housing and of elderly population, the share of overcrowded housing and of administrative &amp; support workers, the share of elderly population and of population suffering from long-term illness. A more refined analysis of multicollinearity is needed. Various diagnostics for multicollinearity in a regression framework exist, including matrix condition numbers (CNs), predictor variance inflation factors (VIFs) and variance decomposition factors (VDPs). Rules of thumb (CNs &gt; 30, VIFs &gt; 10 and VDPs &gt; 0.5) to indicate worrying levels of collinearity can be found in <span class="citation" data-cites="belsley2005regression">Belsley, Kuh, and Welsch (<a href="references.html#ref-belsley2005regression" role="doc-biblioref">2005</a>)</span>. To avoid problems of multicollinearity, often a simple strategy is to remove highly correlated predictors. The difficultly is in deciding which predictor(s) to remove, especially when all are considered important. Keep this in mind when specifying your model.</p>
+<blockquote class="blockquote">
+<p>Challenge 2: Analyse the relationship of all the variables executing <code>pairs(df_sel)</code>. How accurate would a linear regression be in capturing the relationships for our set of variables?</p>
+</blockquote>
+<section id="global-regression-results" class="level3" data-number="9.5.1">
+<h3 data-number="9.5.1" class="anchored" data-anchor-id="global-regression-results"><span class="header-section-number">9.5.1</span> Global Regression Results</h3>
+<p>To gain a better understanding of these relationships, we can regress the incidence rate of COVID-19 on a series of factors capturing differences across areas. To focus on the description of GWR, we keep our analysis simple and study the incidence rate of COVID-19 as a function of the share of nonwhite ethnic population and of population suffering from long-term illness by estimating the following OLS linear regression model:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># attach data</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(utla_shp)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>eq1 <span class="ot">&lt;-</span> covid19_r <span class="sc">~</span> ethnic <span class="sc">+</span> lt_illness</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> eq1, <span class="at">data =</span> utla_shp)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = eq1, data = utla_shp)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-109.234  -38.386   -4.879   29.284  143.786 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    63.77      30.13   2.117    0.036 *  
+ethnic        271.10      30.65   8.845 2.64e-15 ***
+lt_illness    216.20     151.88   1.424    0.157    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 51 on 147 degrees of freedom
+Multiple R-squared:  0.3926,    Adjusted R-squared:  0.3844 
+F-statistic: 47.52 on 2 and 147 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>We also compute the VIFs for the variables in the model:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    ethnic lt_illness 
+   1.43015    1.43015 </code></pre>
+</div>
+</div>
+<p>The regression results indicate a positive relationship exists between the share of nonwhite population and an increased risk of COVID-19 infection. A one percentage point increase in the share of nonwhite population returns a 271 rise in the cumulative count of COVID-19 infection per 100,000 people, everything else constant. The results also reveal a positive (albeit statistically insignificant) relationship between the share of population suffering from long-term illness and an increased risk of COVID-19 infection, after controlling for the share of nonwhite population, thereby confirming our suspicion about the limitations of correlation coefficients; that is, once differences in the share of nonwhite population are taken into account, the association between the share of population suffering from long-term illness and an increased risk of COVID-19 infection becomes positive. We also test for multicollinearity. The VIFs are below 10 indicating that multicollinearity is not highly problematic.</p>
+<p>The <span class="math inline">\(R^{2}\)</span> value for the OLS regression is 0.393 indicating that our model explains only 39% of the variance in the rate of COVID-19 infection. This leaves 71% of the variance unexplained. Some of this unexplained variance can be because we have only included two explanatory variables in our model, but also because the OLS regression model assumes that the relationships in the model are constant over space; that is, it assumes a stationary process. Hence, an OLS regression model is considered to capture global relationships. However, relationships may vary over space. Suppose, for instance, that there are intrinsic behavioural variations across England and that people have adhered more strictly to self-isolation and social distancing measures in some areas than in others, or that ethnic minorities are less exposed to contracting COVID-19 in certain parts of England. If such variations in associations exist over space, our estimated OLS model will be a misspecification of reality because it assumes these relationships to be constant.</p>
+<p>To better understand this potential misspecification, we investigate the model residuals which show high variability (see below). The distribution is non-random displaying large positive residuals in the metropolitan areas of London, Liverpool, Newcastle (in light colours) and the Lake District and large negative residuals across much of England (in black). This conforms to the spatial pattern of confirmed COVID-19 cases with high concentration in a limited number of metropolitan areas (see above). While our residual map reveals that there is a problem with the OLS model, it does not indicate which, if any, of the parameters in the model might exhibit spatial nonstationarity. A simple way of examining if the relationships being modelled in our global OLS model are likely to be stationary over space would be to estimate separate OLS model for each UTLA in England. But this would require higher resolution i.e.&nbsp;data within UTLA, and we only have one data point per UTLA. -<span class="citation" data-cites="Fotheringham_et_al_2002_book">Fotheringham, Brunsdon, and Charlton (<a href="references.html#ref-Fotheringham_et_al_2002_book" role="doc-biblioref">2002</a>)</span> (2002, p.40-44) discuss alternative approaches and their limitations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>utla_shp<span class="sc">$</span>res_m1 <span class="ot">&lt;-</span> <span class="fu">residuals</span>(model1)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># map</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">"OLS residuals"</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>map_utla <span class="ot">=</span> <span class="fu">tm_shape</span>(utla_shp) <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"res_m1"</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>), <span class="at">style =</span> <span class="st">"cont"</span>) <span class="sc">+</span> <span class="co"># add fill</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">1</span>)  <span class="sc">+</span> <span class="co"># add borders</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">"arrow"</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"top"</span>) , <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span> <span class="co"># add compass</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">text.size =</span> <span class="fl">0.7</span>, <span class="at">position =</span>  <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"bottom"</span>)) <span class="sc">+</span> <span class="co"># add scale bar</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">bg.color =</span> <span class="st">"white"</span>) <span class="co"># change background colour</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>map_utla <span class="sc">+</span> <span class="fu">tm_shape</span>(reg_shp) <span class="sc">+</span> <span class="co"># add region boundaries</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">5</span>) <span class="co"># add borders</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="09-gwr_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="fitting-a-geographically-weighted-regression" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="fitting-a-geographically-weighted-regression"><span class="header-section-number">9.6</span> Fitting a Geographically Weighted Regression</h2>
+<p>GWR overcomes the limitation of the OLS regression model of generating a global set of estimates. The basic idea behind GWR is to examine the way in which the relationships between a dependent variable and a set of predictors might vary over space. GWR operates by moving a search window from one regression point to the next, working sequentially through all the existing regression points in the dataset. A set of regions is then defined around each regression point and within the search window. A regression model is then fitted to all data contained in each of the identified regions around a regression point, with data points closer to the sample point being weighted more heavily than are those farther away. This process is repeated for all samples points in the dataset. For a data set of 150 observations GWR will fit 150 weighted regression models. The resulting local estimates can then be mapped at the locations of the regression points to view possible variations in the relationships between variables.</p>
+<p>Graphically, GWR involves fitting a spatial kernel to the data as described in the Fig. 1. For a given regression point <span class="math inline">\(X\)</span>, the weight (<span class="math inline">\(W\)</span>) of a data point is at a maximum at the location of the regression point. The weight decreases gradually as the distance between two points increases. A regression model is thus calibrated locally by moving the regression point across the area under study. For each location, the data are weighted differently so that the resulting estimates are unique to a particular location.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/ch8/fixed_bandwidth.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fig. 1. GWR with fixed spatial kernel. Source: Fotheringham et al. <span class="citation" data-cites="Fotheringham_et_al_2002_book">(<a href="references.html#ref-Fotheringham_et_al_2002_book" role="doc-biblioref">2002, 45</a>)</span>.</figcaption><p></p>
+</figure>
+</div>
+<section id="fixed-or-adaptive-kernel" class="level3" data-number="9.6.1">
+<h3 data-number="9.6.1" class="anchored" data-anchor-id="fixed-or-adaptive-kernel"><span class="header-section-number">9.6.1</span> Fixed or Adaptive Kernel</h3>
+<p>A key issue is to decide between two options of spatial kernels: a fixed kernel or an adaptive kernel. Intuitively, a fixed kernel involves using a fixed bandwidth to define a region around all regression points as displayed in Fig. 1. The extent of the kernel is determined by the distance to a given regression point, with the kernel being identical at any point in space. An adaptive kernel involves using varying bandwidth to define a region around regression points as displayed in Fig. 2. The extent of the kernel is determined by the number of nearest neighbours from a given regression point. The kernels have larger bandwidths where the data are sparse.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/ch8/adaptive_bandwidth.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fig. 2. GWR with adaptive spatial kernel. Source: Fotheringham et al. <span class="citation" data-cites="Fotheringham_et_al_2002_book">(<a href="references.html#ref-Fotheringham_et_al_2002_book" role="doc-biblioref">2002, 47</a>)</span>.</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="optimal-bandwidth" class="level3" data-number="9.6.2">
+<h3 data-number="9.6.2" class="anchored" data-anchor-id="optimal-bandwidth"><span class="header-section-number">9.6.2</span> Optimal Bandwidth</h3>
+<p>A second issue is to define the extent of geographical area (i.e.&nbsp;<em>optimal bandwidth</em>) of the spatial kernel. The bandwidth is the distance beyond which a value of zero is assigned to weight observations. Larger bandwidths include a larger number of observations receiving a non-zero weight and more observations are used to fit a local regression.</p>
+<p>To determine the optimal bandwidth, a cross-validation approach is applied; that is, for a location, a local regression is fitted based on a given bandwidth and used to predict the value of the dependent variable. The resulting predicted value is used to compute the residuals of the model. Residuals are compared using a series of bandwidth and the bandwidth returning the smallest local residuals are selected.</p>
+<p><strong>Variance and Bias Trade off</strong></p>
+<p>Choosing an optimal bandwidth involves a compromise between bias and precision. For example, a larger bandwidth will involve using a larger number of observations to fit a local regression, and hence result in reduced variance (or increased precision) but high bias of estimates. On the other hand, too small bandwidth involves using a very small number of observations resulting in increased variance but small bias. An optimal bandwidth offers a compromise between bias and variance.</p>
+</section>
+<section id="shape-of-spatial-kernel" class="level3" data-number="9.6.3">
+<h3 data-number="9.6.3" class="anchored" data-anchor-id="shape-of-spatial-kernel"><span class="header-section-number">9.6.3</span> Shape of Spatial Kernel</h3>
+<p>Two general set of kernel functions can be distinguished: continuous kernels and kernels with compact support. Continuous kernels are used to weight all observations in the study area and includes uniform, Gaussian and Exponential kernel functions. Kernel with compact support are used to assign a nonzero weight to observations within a certain distance and a zero weight beyond it. The shape of the kernel has been reported to cause small changes to resulting estimates <span class="citation" data-cites="brunsdon1998geographically">(<a href="references.html#ref-brunsdon1998geographically" role="doc-biblioref">Brunsdon, Fotheringham, and Charlton 1998</a>)</span>.</p>
+</section>
+<section id="selecting-a-bandwidth" class="level3" data-number="9.6.4">
+<h3 data-number="9.6.4" class="anchored" data-anchor-id="selecting-a-bandwidth"><span class="header-section-number">9.6.4</span> Selecting a Bandwidth</h3>
+<p>Let’s now implement a GWR model. The first key step is to define the optimal bandwidth. We first illustrate the use of a fixed spatial kernel.</p>
+<section id="fixed-bandwidth" class="level4" data-number="9.6.4.1">
+<h4 data-number="9.6.4.1" class="anchored" data-anchor-id="fixed-bandwidth"><span class="header-section-number">9.6.4.1</span> Fixed Bandwidth</h4>
+<p>Cross-validation is used to search for the optimal bandwidth. Recall that this procedure compares the model residuals based on different bandwidths and chooses the optimal solution i.e.&nbsp;the bandwidth returning the smallest model residuals based on a given model specification. A key parameter here is the shape of the geographical weight function (<code>gweight</code>). We set it to be a Gaussian function which is the default. A bi-square function is recommended to reduce computational time. Since we have a simple model, a Gaussian function should not take that long. Note that we set the argument <code>longlat</code> to <code>TRUE</code> and use latitude and longitude for coordinates (<code>coords</code>). When <code>longlat</code> is set to <code>TRUE</code>, distances are measured in kilometres.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find optimal kernel bandwidth using cross validation</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>fbw <span class="ot">&lt;-</span> <span class="fu">gwr.sel</span>(eq1, </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> utla_shp, </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">coords=</span><span class="fu">cbind</span>( long, lat),</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">longlat =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">adapt=</span><span class="cn">FALSE</span>, </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">gweight =</span> gwr.Gauss, </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># view selected bandwidth</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>fbw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 29.30417</code></pre>
+</div>
+</div>
+<p>The result indicates that the optimal bandwidth is 39.79 kms. This means that neighbouring UTLAs within a fixed radius of 39.79 kms will be taken to estimate local regressions. To estimate a GWR, we execute the code below in which the optimal bandwidth above is used as an input in the argument <code>bandwidth</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit a gwr based on fixed bandwidth</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fb_gwr <span class="ot">&lt;-</span> <span class="fu">gwr</span>(eq1, </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> utla_shp,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">coords=</span><span class="fu">cbind</span>( long, lat),</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">longlat =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">bandwidth =</span> fbw, </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">gweight =</span> gwr.Gauss,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">hatmatrix=</span><span class="cn">TRUE</span>, </span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">se.fit=</span><span class="cn">TRUE</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>fb_gwr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+gwr(formula = eq1, data = utla_shp, coords = cbind(long, lat), 
+    bandwidth = fbw, gweight = gwr.Gauss, hatmatrix = TRUE, longlat = TRUE, 
+    se.fit = TRUE)
+Kernel function: gwr.Gauss 
+Fixed bandwidth: 29.30417 
+Summary of GWR coefficient estimates at data points:
+                  Min.   1st Qu.    Median   3rd Qu.      Max.  Global
+X.Intercept.  -187.913   -42.890    93.702   211.685   792.989  63.768
+ethnic        -785.938   104.813   194.609   254.717  1078.854 271.096
+lt_illness   -2599.119  -563.128   128.176   690.603  1507.024 216.198
+Number of data points: 150 
+Effective number of parameters (residual: 2traceS - traceS'S): 57.11019 
+Effective degrees of freedom (residual: 2traceS - traceS'S): 92.88981 
+Sigma (residual: 2traceS - traceS'S): 38.34777 
+Effective number of parameters (model: traceS): 44.65744 
+Effective degrees of freedom (model: traceS): 105.3426 
+Sigma (model: traceS): 36.00992 
+Sigma (ML): 30.17717 
+AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): 1580.349 
+AIC (GWR p. 96, eq. 4.22): 1492.465 
+Residual sum of squares: 136599.2 
+Quasi-global R2: 0.7830537 </code></pre>
+</div>
+</div>
+<p>We will skip the interpretation of the results for now and consider them in the next section. Now, we want to focus on the overall model fit and will map the results of the <span class="math inline">\(R^{2}\)</span> for the estimated local regressions. To do this, we extract the model results stored in a Spatial Data Frame (SDF) and add them to our spatial data frame <code>utla_shp</code>. Note that the Quasi-global <span class="math inline">\(R^{2}\)</span> is very high (0.77) indicating a high in-sample prediction accuracy.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># write gwr output into a data frame</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>fb_gwr_out <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(fb_gwr<span class="sc">$</span>SDF)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>utla_shp<span class="sc">$</span>fmb_localR2 <span class="ot">&lt;-</span> fb_gwr_out<span class="sc">$</span>localR2</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># map</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Local R2</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">"Fixed: Local R2"</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>map_fbgwr1 <span class="ot">=</span> <span class="fu">tm_shape</span>(utla_shp) <span class="sc">+</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"fmb_localR2"</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>), <span class="at">style =</span> <span class="st">"cont"</span>) <span class="sc">+</span> <span class="co"># add fill</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">1</span>)  <span class="sc">+</span> <span class="co"># add borders</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">"arrow"</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"top"</span>) , <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span> <span class="co"># add compass</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">text.size =</span> <span class="fl">0.7</span>, <span class="at">position =</span>  <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"bottom"</span>)) <span class="sc">+</span> <span class="co"># add scale bar</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">bg.color =</span> <span class="st">"white"</span>) <span class="co"># change background colour</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>map_fbgwr1 <span class="sc">+</span> <span class="fu">tm_shape</span>(reg_shp) <span class="sc">+</span> <span class="co"># add region boundaries</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">5</span>) <span class="co"># add borders</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="09-gwr_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The map shows very high in-sample model predictions of up to 80% in relatively large UTLAs (i.e.&nbsp;Cornwall, Devon and Cumbria) but poor predictions in Linconshire and small UTLAs in the North West and Yorkshire &amp; The Humber Regions and the Greater London. The spatial distribution of this pattern may reflect a potential problem that arise in the application of GWR with fixed spatial kernels. The use of fixed kernels implies that local regressions for small spatial units may be calibrated on a large number of dissimilar areas, while local regressions for large areas may be calibrated on very few data points, giving rise to estimates with large standard errors. In extreme cases, generating estimates might not be possible due to insufficient variation in small samples. In practice, this issue is relatively common if the number of geographical areas in the dataset is small.</p>
+</section>
+<section id="adaptive-bandwidth" class="level4" data-number="9.6.4.2">
+<h4 data-number="9.6.4.2" class="anchored" data-anchor-id="adaptive-bandwidth"><span class="header-section-number">9.6.4.2</span> Adaptive Bandwidth</h4>
+<p>To reduce these problems, adaptive spatial kernels can be used. These kernels adapt in size to variations in the density of the data so that the kernels have larger bandwidths where the data are sparse and have smaller bandwidths where the data are plentiful. As above, we first need to search for the optimal bandwidth before estimating a GWR.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find optimal kernel bandwidth using cross validation</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>abw <span class="ot">&lt;-</span> <span class="fu">gwr.sel</span>(eq1, </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> utla_shp, </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">coords=</span><span class="fu">cbind</span>( long, lat),</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">longlat =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">adapt =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">gweight =</span> gwr.Gauss, </span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># view selected bandwidth</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>abw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.03126972</code></pre>
+</div>
+</div>
+<p>The optimal bandwidth is 0.03 indicating the proportion of observations (or k-nearest neighbours) to be included in the weighting scheme. In this example, the optimal bandwidth indicates that for a given UTLA, 3% of its nearest neighbours should be used to calibrate the relevant local regression; that is about 5 UTLAs. The search window will thus be variable in size depending on the extent of UTLAs. Note that here the optimal bandwidth is defined based on a data point’s k-nearest neighbours. It can also be defined by geographical distance as done above for the fixed spatial kernel. We next fit a GWR based on an adaptive bandwidth.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit a gwr based on adaptive bandwidth</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>ab_gwr <span class="ot">&lt;-</span> <span class="fu">gwr</span>(eq1, </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> utla_shp,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">coords=</span><span class="fu">cbind</span>( long, lat),</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">longlat =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">adapt =</span> abw, </span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">gweight =</span> gwr.Gauss,</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">hatmatrix=</span><span class="cn">TRUE</span>, </span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">se.fit=</span><span class="cn">TRUE</span>)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>ab_gwr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+gwr(formula = eq1, data = utla_shp, coords = cbind(long, lat), 
+    gweight = gwr.Gauss, adapt = abw, hatmatrix = TRUE, longlat = TRUE, 
+    se.fit = TRUE)
+Kernel function: gwr.Gauss 
+Adaptive quantile: 0.03126972 (about 4 of 150 data points)
+Summary of GWR coefficient estimates at data points:
+                  Min.   1st Qu.    Median   3rd Qu.      Max.  Global
+X.Intercept.  -198.790   -28.398   113.961   226.437   346.510  63.768
+ethnic        -121.872   106.822   229.591   283.739  1162.123 271.096
+lt_illness   -1907.098  -746.468  -125.855   798.875  1496.549 216.198
+Number of data points: 150 
+Effective number of parameters (residual: 2traceS - traceS'S): 48.59361 
+Effective degrees of freedom (residual: 2traceS - traceS'S): 101.4064 
+Sigma (residual: 2traceS - traceS'S): 36.57493 
+Effective number of parameters (model: traceS): 36.04378 
+Effective degrees of freedom (model: traceS): 113.9562 
+Sigma (model: traceS): 34.50222 
+Sigma (ML): 30.07257 
+AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): 1546.029 
+AIC (GWR p. 96, eq. 4.22): 1482.809 
+Residual sum of squares: 135653.9 
+Quasi-global R2: 0.7845551 </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="model-fit" class="level3" data-number="9.6.5">
+<h3 data-number="9.6.5" class="anchored" data-anchor-id="model-fit"><span class="header-section-number">9.6.5</span> Model fit</h3>
+<p>Assessing the global fit of the model, marginal improvements are observed. The <span class="math inline">\(AIC\)</span> and <em>Residual sum of squares</em> experienced marginal reductions, while the <span class="math inline">\(R^{2}\)</span> increased compared to the GRW based on a fixed kernel. To gain a better understanding of these changes, as above, we map the <span class="math inline">\(R^{2}\)</span> values for the estimated local regressions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># write gwr output into a data frame</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>ab_gwr_out <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(ab_gwr<span class="sc">$</span>SDF)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>utla_shp<span class="sc">$</span>amb_ethnic <span class="ot">&lt;-</span> ab_gwr_out<span class="sc">$</span>ethnic</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>utla_shp<span class="sc">$</span>amb_lt_illness <span class="ot">&lt;-</span> ab_gwr_out<span class="sc">$</span>lt_illness</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>utla_shp<span class="sc">$</span>amb_localR2 <span class="ot">&lt;-</span> ab_gwr_out<span class="sc">$</span>localR2</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co"># map</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Local R2</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">"Adaptive: Local R2"</span>)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>map_abgwr1 <span class="ot">=</span> <span class="fu">tm_shape</span>(utla_shp) <span class="sc">+</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"amb_localR2"</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>), <span class="at">style =</span> <span class="st">"cont"</span>) <span class="sc">+</span> <span class="co"># add fill</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">1</span>)  <span class="sc">+</span> <span class="co"># add borders</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">"arrow"</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"top"</span>) , <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span> <span class="co"># add compass</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">text.size =</span> <span class="fl">0.7</span>, <span class="at">position =</span>  <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"bottom"</span>)) <span class="sc">+</span> <span class="co"># add scale bar</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">bg.color =</span> <span class="st">"white"</span>) <span class="co"># change background colour</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>map_abgwr1 <span class="sc">+</span> <span class="fu">tm_shape</span>(reg_shp) <span class="sc">+</span> <span class="co"># add region boundaries</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">5</span>) <span class="co"># add borders</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="09-gwr_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The map reveals notable improvements in local estimates for UTLAs within West and East Midlands, the South East, South West and East of England. Estimates are still poor in hot spot UTLAs concentrating confirmed cases of COVID-19, such as the Greater London, Liverpool and Newcastle areas.</p>
+</section>
+<section id="interpretation" class="level3" data-number="9.6.6">
+<h3 data-number="9.6.6" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">9.6.6</span> Interpretation</h3>
+<p>The key strength of GWR models is in identifying patterns of spatial variation in the associations between pairs of variables. The results reveal how these coefficients vary across the 150 UTLAs of England. To examine this variability, let’s first focus on the adaptive GWR output reported in Section 8.6.4.2. The output includes a summary of GWR coefficient estimates at various data points. The last column reports the global estimates which are the same as the coefficients from the OLS regression we fitted at the start of our analysis. For our variable nonwhite ethnic population, the GWR outputs reveals that local coefficients range from a minimum value of -148.41 to a maximum value of 1076.84, indicating that one percentage point increase in the share of nonwhite ethnic population is associated with a a reduction of 148.41 in the number of cumulative confirmed cases of COVID-19 per 100,000 people in some UTLAs and an increase of 1076.84 in others. For half of the UTLAs in the dataset, as the share of nonwhite ethnic population increases by one percentage point, the rate of COVID-19 will increase between 106.29 and 291.24 cases; that is, the inter-quartile range between the 1st Qu and the 3rd Qu. To analyse the spatial structure, we next map the estimated coefficients obtained from the adaptive kernel GWR.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ethnic</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">"Ethnic"</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>map_abgwr2 <span class="ot">=</span> <span class="fu">tm_shape</span>(utla_shp) <span class="sc">+</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"amb_ethnic"</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>), <span class="at">style =</span> <span class="st">"cont"</span>) <span class="sc">+</span> <span class="co"># add fill</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">1</span>)  <span class="sc">+</span> <span class="co"># add borders</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">"arrow"</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"top"</span>) , <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span> <span class="co"># add compass</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">text.size =</span> <span class="fl">0.7</span>, <span class="at">position =</span>  <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"bottom"</span>)) <span class="sc">+</span> <span class="co"># add scale bar</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">bg.color =</span> <span class="st">"white"</span>) <span class="co"># change background colour</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>map_abgwr2 <span class="ot">=</span> map_abgwr2 <span class="sc">+</span> <span class="fu">tm_shape</span>(reg_shp) <span class="sc">+</span> <span class="co"># add region boundaries</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">5</span>) <span class="co"># add borders</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Long-term Illness</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">"Long-term illness"</span>)</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>map_abgwr3 <span class="ot">=</span> <span class="fu">tm_shape</span>(utla_shp) <span class="sc">+</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"amb_lt_illness"</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>), <span class="at">style =</span> <span class="st">"cont"</span>) <span class="sc">+</span> <span class="co"># add fill</span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">1</span>)  <span class="sc">+</span> <span class="co"># add borders</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">text.size =</span> <span class="fl">0.7</span>, <span class="at">position =</span>  <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"bottom"</span>)) <span class="sc">+</span> <span class="co"># add scale bar</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">bg.color =</span> <span class="st">"white"</span>) <span class="co"># change background colour</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>map_abgwr3 <span class="ot">=</span> map_abgwr3 <span class="sc">+</span> <span class="fu">tm_shape</span>(reg_shp) <span class="sc">+</span> <span class="co"># add region boundaries</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">5</span>) <span class="co"># add borders</span></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_arrange</span>(map_abgwr2, map_abgwr3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="09-gwr_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Analysing the map for long-term illness, a clear North-South divide can be identified. In the North we observed the expected positive relationship between COVID-19 and long-term illness i.e.&nbsp;as the share of the local population suffering from long-term illness rises, the cumulative number of positive COVID-19 cases is expected to increase. In the South, we observe the inverse pattern i.e.&nbsp;as the share of local population suffering from long-term illness rises, the cumulative number of positive COVID-19 cases is expected to drop. This pattern is counterintuitive but may be explained by the wider socio-economic disadvantages between the North and the South of England. The North is usually characterised by a persistent concentration of more disadvantaged neighbourhoods than the South where affluent households have tended to cluster for the last 40 years <span class="citation" data-cites="patias2021">(<a href="references.html#ref-patias2021" role="doc-biblioref">Patias, Rowe, and Arribas-Bel 2021</a>)</span>.</p>
+</section>
+<section id="assessing-statistical-significance" class="level3" data-number="9.6.7">
+<h3 data-number="9.6.7" class="anchored" data-anchor-id="assessing-statistical-significance"><span class="header-section-number">9.6.7</span> Assessing statistical significance</h3>
+<p>While the maps above offer valuable insights to understand the spatial pattering of relationships, they do not identify whether these associations are statistically significant. They may not be. Roughly, if a coefficient estimate has an absolute value of t greater than 1.96 and the sample is sufficiently large, then it is statistically significant. Our sample has only 150 observations, so we are more conservative and considered a coefficient to be statistically significant if it has an absolute value of t larger than 2. Note also that p-values could be computed - see <span class="citation" data-cites="lu2014gwmodel">Lu et al. (<a href="references.html#ref-lu2014gwmodel" role="doc-biblioref">2014</a>)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute t statistic</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>utla_shp<span class="sc">$</span>t_ethnic <span class="ot">=</span> ab_gwr_out<span class="sc">$</span>ethnic <span class="sc">/</span> ab_gwr_out<span class="sc">$</span>ethnic_se</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># categorise t values</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>utla_shp<span class="sc">$</span>t_ethnic_cat <span class="ot">&lt;-</span> <span class="fu">cut</span>(utla_shp<span class="sc">$</span>t_ethnic,</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks=</span><span class="fu">c</span>(<span class="fu">min</span>(utla_shp<span class="sc">$</span>t_ethnic), <span class="sc">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="fu">max</span>(utla_shp<span class="sc">$</span>t_ethnic)),</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"sig"</span>,<span class="st">"nonsig"</span>, <span class="st">"sig"</span>))</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co"># map statistically significant coefs for ethnic</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">"Ethnic: significant"</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>map_sig <span class="ot">=</span> <span class="fu">tm_shape</span>(utla_shp) <span class="sc">+</span> </span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"t_ethnic_cat"</span>, <span class="at">title =</span> legend_title, <span class="at">legend.hist =</span> <span class="cn">TRUE</span>, <span class="at">midpoint =</span> <span class="cn">NA</span>, <span class="at">textNA =</span> <span class="st">""</span>, <span class="at">colorNA =</span> <span class="st">"white"</span>) <span class="sc">+</span>  <span class="co"># add fill</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">1</span>)  <span class="sc">+</span> <span class="co"># add borders</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">"arrow"</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"top"</span>) , <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span> <span class="co"># add compass</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">text.size =</span> <span class="fl">0.7</span>, <span class="at">position =</span>  <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"bottom"</span>)) <span class="sc">+</span> <span class="co"># add scale bar</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">bg.color =</span> <span class="st">"white"</span>, <span class="at">legend.outside =</span> <span class="cn">TRUE</span>) <span class="co"># change background colour &amp; place legend outside</span></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>map_sig <span class="sc">+</span> <span class="fu">tm_shape</span>(reg_shp) <span class="sc">+</span> <span class="co"># add region boundaries</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">5</span>) <span class="co"># add borders</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="09-gwr_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># utla count</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(utla_shp<span class="sc">$</span>t_ethnic_cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   sig nonsig 
+   105     45 </code></pre>
+</div>
+</div>
+<p>For the share of nonwhite population, 67% of all local coefficients are statistically significant and these are largely in the South of England. Coefficients in the North tend to be insignificant. Through outliers exist in both regions. In the South, nonsignificant coefficients are observed in the metropolitan areas of London, Birmingham and Nottingham, while significant coefficients exist in the areas of Newcastle and Middlesbrough in the North.</p>
+<blockquote class="blockquote">
+<p>Challenge 3 Compute the t values for the intercept and estimated coefficient for long-term illness and create maps of their statistical significance. How many UTLAs report statistically significant coefficients?</p>
+</blockquote>
+</section>
+<section id="collinearity-in-gwr" class="level3" data-number="9.6.8">
+<h3 data-number="9.6.8" class="anchored" data-anchor-id="collinearity-in-gwr"><span class="header-section-number">9.6.8</span> Collinearity in GWR</h3>
+<p>An important final note is: collinearity tends to be problematic in GWR models. It can be present in the data subsets to estimate local coefficients even when not observed globally <span class="citation" data-cites="wheeler2005multicollinearity">Wheeler and Tiefelsdorf (<a href="references.html#ref-wheeler2005multicollinearity" role="doc-biblioref">2005</a>)</span>. Collinearity can be highly problematic in the case of compositional, categorical and ordinal predictors, and may result in exact local collinearity making the search for an optimal bandwidth impossible. A recent paper suggests potential ways forward <span class="citation" data-cites="comber2022">(<a href="references.html#ref-comber2022" role="doc-biblioref">Comber et al. 2022</a>)</span>.</p>
+</section>
+</section>
+<section id="questions" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="questions"><span class="header-section-number">9.7</span> Questions</h2>
+<p>We will continue to use the COVID-19 dataset. Please see <a href="11-datasets.html"><span>Chapter&nbsp;11</span></a> for details on the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/assignment_2_covid/covid19_eng.gpkg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `covid19_eng' from data source 
+  `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202223/san/data/assignment_2_covid/covid19_eng.gpkg' 
+  using driver `GPKG'
+Simple feature collection with 149 features and 507 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 134112.4 ymin: 11429.67 xmax: 655653.8 ymax: 657536
+Projected CRS: OSGB36 / British National Grid</code></pre>
+</div>
+</div>
+<p>Using these data, you are required to address the following challenges:</p>
+<ul>
+<li><p>Fit a GWR model using a fixed and an adaptive bandwidth.</p></li>
+<li><p>Create a multiple map figure to analyse the spatial variation of coefficients.</p></li>
+</ul>
+<p>Analyse and discuss:</p>
+<ol type="1">
+<li>How regression coefficients vary across space. Do they vary in size and statistical significance?</li>
+<li>What is the appropriate bandwidth for your GWR? Why?</li>
+</ol>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-belsley2005regression" class="csl-entry" role="doc-biblioentry">
+Belsley, David A, Edwin Kuh, and Roy E Welsch. 2005. <em>Regression Diagnostics: Identifying Influential Data and Sources of Collinearity</em>. Vol. 571. John Wiley &amp; Sons.
+</div>
+<div id="ref-brunsdon1998geographically" class="csl-entry" role="doc-biblioentry">
+Brunsdon, Chris, Stewart Fotheringham, and Martin Charlton. 1998. <span>“Geographically Weighted Regression.”</span> <em>Journal of the Royal Statistical Society: Series D (The Statistician)</em> 47 (3): 431–43.
+</div>
+<div id="ref-comber2022" class="csl-entry" role="doc-biblioentry">
+Comber, Alexis, Christopher Brunsdon, Martin Charlton, Guanpeng Dong, Richard Harris, Binbin Lu, Yihe Lü, et al. 2022. <span>“A Route Map for Successful Applications of Geographically Weighted Regression.”</span> <em>Geographical Analysis</em> 55 (1): 155–78. <a href="https://doi.org/10.1111/gean.12316">https://doi.org/10.1111/gean.12316</a>.
+</div>
+<div id="ref-Fotheringham_et_al_2002_book" class="csl-entry" role="doc-biblioentry">
+Fotheringham, Stewart, Chris Brunsdon, and Martin Charlton. 2002. <em>Geographically Weighted Regression</em>. John Wiley &amp; Sons.
+</div>
+<div id="ref-lu2014gwmodel" class="csl-entry" role="doc-biblioentry">
+Lu, Binbin, Paul Harris, Martin Charlton, and Chris Brunsdon. 2014. <span>“The GWmodel r Package: Further Topics for Exploring Spatial Heterogeneity Using Geographically Weighted Models.”</span> <em>Geo-Spatial Information Science</em> 17 (2): 85–101.
+</div>
+<div id="ref-patias2021" class="csl-entry" role="doc-biblioentry">
+Patias, Nikos, Francisco Rowe, and Dani Arribas-Bel. 2021. <span>“Trajectories of Neighbourhood Inequality in Britain: Unpacking Inter<span>-</span>Regional Socioeconomic Imbalances, 1971<span>-</span>2011.”</span> <em>The Geographical Journal</em> 188 (2): 150–65. <a href="https://doi.org/10.1111/geoj.12420">https://doi.org/10.1111/geoj.12420</a>.
+</div>
+<div id="ref-wheeler2005multicollinearity" class="csl-entry" role="doc-biblioentry">
+Wheeler, David, and Michael Tiefelsdorf. 2005. <span>“Multicollinearity and Correlation Among Local Regression Coefficients in Geographically Weighted Regression.”</span> <em>Journal of Geographical Systems</em> 7 (2): 161–87.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Read the file in R by executing <code>read_tsv("data/gwr/readme.txt")</code>. Ensure the library readr is installed before running read_tsv.99079<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./08-multilevel-02.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 2</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./10-st_analysis.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatio-Temporal Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

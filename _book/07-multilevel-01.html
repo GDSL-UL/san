@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Spatial Modelling for Data Scientists - 7&nbsp; Multilevel Modelling - Part 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./08-multilevel-02.html" rel="next">
+<link href="./06-spatial-econometrics.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 1</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Spatial Modelling for Data Scientists</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/GDSL-UL/san" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Spatial-Modelling-for-Data-Scientists.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Spatial-Modelling-for-Data-Scientists.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-spatial_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-data-wrangling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-points.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Point Data Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-flows.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Interaction Modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-spatial-econometrics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spatial Econometrics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-multilevel-01.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-multilevel-02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-gwr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Geographically Weighted Regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-st_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatio-Temporal Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-datasets.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data Sets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#dependencies" id="toc-dependencies" class="nav-link active" data-scroll-target="#dependencies"><span class="toc-section-number">7.1</span>  Dependencies</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="toc-section-number">7.2</span>  Data</a></li>
+  <li><a href="#modelling" id="toc-modelling" class="nav-link" data-scroll-target="#modelling"><span class="toc-section-number">7.3</span>  Modelling</a>
+  <ul class="collapse">
+  <li><a href="#baseline-linear-regression-model" id="toc-baseline-linear-regression-model" class="nav-link" data-scroll-target="#baseline-linear-regression-model"><span class="toc-section-number">7.3.1</span>  Baseline Linear Regression Model</a></li>
+  </ul></li>
+  <li><a href="#multilevel-modelling-random-intercept-model" id="toc-multilevel-modelling-random-intercept-model" class="nav-link" data-scroll-target="#multilevel-modelling-random-intercept-model"><span class="toc-section-number">7.4</span>  Multilevel Modelling: Random Intercept Model</a>
+  <ul class="collapse">
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="toc-section-number">7.4.1</span>  Interpretation</a></li>
+  <li><a href="#variance-partition-coefficient-vpc" id="toc-variance-partition-coefficient-vpc" class="nav-link" data-scroll-target="#variance-partition-coefficient-vpc"><span class="toc-section-number">7.4.2</span>  Variance Partition Coefficient (VPC)</a></li>
+  <li><a href="#uncertainty-of-estimates" id="toc-uncertainty-of-estimates" class="nav-link" data-scroll-target="#uncertainty-of-estimates"><span class="toc-section-number">7.4.3</span>  Uncertainty of Estimates</a></li>
+  <li><a href="#assessing-group-level-variation" id="toc-assessing-group-level-variation" class="nav-link" data-scroll-target="#assessing-group-level-variation"><span class="toc-section-number">7.4.4</span>  Assessing Group-level Variation</a></li>
+  <li><a href="#sec-indlevel" id="toc-sec-indlevel" class="nav-link" data-scroll-target="#sec-indlevel"><span class="toc-section-number">7.4.5</span>  Adding Individual-level Predictors</a></li>
+  <li><a href="#sec-grouplevel" id="toc-sec-grouplevel" class="nav-link" data-scroll-target="#sec-grouplevel"><span class="toc-section-number">7.4.6</span>  Adding Group-level Predictors</a></li>
+  </ul></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="toc-section-number">7.5</span>  Questions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-chp7" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 1</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This chapter provides an introduction to multi-level data structures and multi-level modelling and draws on the following references:</p>
+<ul>
+<li><span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="references.html#ref-gelman2006data" role="doc-biblioref">2006</a>)</span> provides an excellent and intuitive explanation of multilevel modelling and data analysis in general. Read Part 2A for a really good explanation of multilevel models.</li>
+<li><span class="citation" data-cites="bristol2020">Multilevel Modelling (<a href="references.html#ref-bristol2020" role="doc-biblioref">n.d.</a>)</span> is an useful online resource on multilevel modelling and is free!</li>
+</ul>
+<section id="dependencies" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="dependencies"><span class="header-section-number">7.1</span> Dependencies</h2>
+<p>This chapter uses the following libraries which are listed in the [Dependency list] Section of Chapter 1:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data manipulation, transformation and visualisation</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Nice tables</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple features (a standardised way to encode vector data ie. points, lines, polygons)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf) </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial objects conversion</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sp) </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Thematic maps</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap) </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Colour palettes</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># More colour palettes</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis) <span class="co"># nice colour schemes</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting multilevel models</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Tools for extracting information generated by lme4</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(merTools)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportable regression tables</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="data"><span class="header-section-number">7.2</span> Data</h2>
+<p>For this chapter, we will data for Liverpool from England’s 2011 Census. The original source is the <a href="https://www.nomisweb.co.uk/home/census2001.asp">Office of National Statistics</a> and the dataset comprises a number of selected variables capturing demographic, health and socio-economic attributes of the local resident population at four geographic levels: Output Area (OA), Lower Super Output Area (LSOA), Middle Super Output Area (MSOA) and Local Authority District (LAD). The variables include population counts and percentages. For a description of the variables, see the readme file in the mlm data folder.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Let us read the data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clean workspace</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/mlm/OA.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can now attach and visualise the structure of the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># attach data frame</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(oa_shp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from package:viridis:
+
+    unemp</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort data by oa</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="ot">&lt;-</span> oa_shp[<span class="fu">order</span>(oa_cd),]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oa_shp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 6 features and 19 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 335056 ymin: 389163 xmax: 336155 ymax: 389642
+Projected CRS: Transverse_Mercator
+      oa_cd   lsoa_cd   msoa_cd    lad_cd      ward_nm  dstrt_nm    cnty_nm
+1 E00032987 E01006515 E02001383 E08000012    Riverside Liverpool Merseyside
+2 E00032988 E01006514 E02001383 E08000012 Princes Park Liverpool Merseyside
+3 E00032989 E01033768 E02001383 E08000012 Princes Park Liverpool Merseyside
+4 E00032990 E01033768 E02001383 E08000012 Princes Park Liverpool Merseyside
+5 E00032991 E01033768 E02001383 E08000012 Princes Park Liverpool Merseyside
+6 E00032992 E01033768 E02001383 E08000012 Princes Park Liverpool Merseyside
+  cntry_nm pop     age_60     unemp      lat      long    males   lt_ill
+1  England 198 0.11616162 0.1130435 53.39821 -2.976786 46.46465 19.19192
+2  England 348 0.16954023 0.1458333 53.39813 -2.969072 58.33333 33.62069
+3  England 333 0.09009009 0.1049724 53.39778 -2.965290 64.26426 23.72372
+4  England 330 0.15151515 0.1329787 53.39802 -2.963597 59.69697 23.03030
+5  England 320 0.04687500 0.1813725 53.39706 -2.968030 60.62500 25.00000
+6  England 240 0.05833333 0.2519685 53.39679 -2.966494 57.91667 28.33333
+    Bhealth VBhealth  no_qual   manprof                       geometry
+1  6.565657 1.515152 24.69136  7.643312 MULTIPOLYGON (((335187 3894...
+2 10.344828 1.436782 14.84848 13.375796 MULTIPOLYGON (((335834 3895...
+3  6.606607 2.102102 15.38462 10.204082 MULTIPOLYGON (((335975.2 38...
+4  5.151515 2.424242 17.91531 15.224913 MULTIPOLYGON (((336030.8 38...
+5  8.750000 2.187500 12.58278 11.333333 MULTIPOLYGON (((335804.9 38...
+6  6.666667 2.916667 27.47748  5.479452 MULTIPOLYGON (((335804.9 38...</code></pre>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/ch5/datastr.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fig. 1. Data Structure.</figcaption><p></p>
+</figure>
+</div>
+<p>The data are hierarchically structured: OAs nested within LSOAs; LSOAs nested within MSOAs; and, MSOAs nested within LADs. Observations nested within higher geographical units may be correlated.</p>
+<p>This is one type of hierarchical structure. There is a range of data structures:</p>
+<ul>
+<li><p>Strict nested data structures eg. an individual unit is nested within only one higher unit</p></li>
+<li><p>Repeated measures structures eg. various measurements for an individual unit</p></li>
+<li><p>Crossed classified structures eg. individuals may work and live in different neighbourhoods</p></li>
+<li><p>Multiple membership structure eg. individuals may have two different work places</p></li>
+</ul>
+<p><em>Why should we care about the structure of the data?</em></p>
+<ul>
+<li><p><em>Draw correct statistical inference</em>: Failing to recognise hierarchical structures will lead to underestimated standard errors of regression coefficients and an overstatement of statistical significance. Standard errors for the coefficients of higher-level predictor variables will be the most affected by ignoring grouping.</p></li>
+<li><p><em>Link context to individual units</em>: We can link and understand the extent of group effects on individual outcomes eg. how belonging to a certain socio-economic group influences on future career opportunities.</p></li>
+<li><p><em>Spatial dependency</em>: Recognising the hierarchical structure of data may help mitigate the effects of severe spatial autocorrelation.</p></li>
+</ul>
+<p>Quickly, let us get a better idea about the data and look at the number of OAs nested within LSOAs and MSOAs</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean of nested OAs within LSOAs and MSOAs</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>lsoa_cd <span class="sc">%&gt;%</span> <span class="fu">table</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>msoa_cd <span class="sc">%&gt;%</span> <span class="fu">table</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 26</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of OAs nested within LSOAs and MSOAs</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>lsoa_cd <span class="sc">%&gt;%</span> <span class="fu">table</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sort</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="07-multilevel-01_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>msoa_cd <span class="sc">%&gt;%</span> <span class="fu">table</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sort</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="07-multilevel-01_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="modelling" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="modelling"><span class="header-section-number">7.3</span> Modelling</h2>
+<p>We should now be persuaded that ignoring the hierarchical structure of data may be a major issue. Let us now use a simple example to understand the intuition of multilevel model using the census data. We will seek to understand the spatial distribution of the proportion of population in unemployment in Liverpool, particularly why and where concentrations in this proportion occur. To illustrate the advantages of taking a multilevel modelling approach, we will start by estimating a linear regression model and progressively building complexity. We will first estimate a model and then explain the intuition underpinning the process. We will seek to gain a general understanding of multilevel modelling. If you are interested in the statistical and mathemathical formalisation of the underpinning concepts, please refer to <span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="references.html#ref-gelman2006data" role="doc-biblioref">2006</a>)</span>.</p>
+<p>We first need to want to understand our dependent variable: its density ditribution;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> oa_shp) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.8</span>, <span class="at">colour=</span><span class="st">"black"</span>, <span class="at">fill=</span><span class="st">"lightblue"</span>, <span class="fu">aes</span>(<span class="at">x =</span> unemp)) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="07-multilevel-01_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(unemp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+0.00000 0.05797 0.10256 0.11581 0.16129 0.50000 </code></pre>
+</div>
+</div>
+<p>and, its spatial distribution:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ensure geometry is valid</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_make_valid</span>(oa_shp)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create a map</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">"% unemployment"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>map_oa <span class="ot">=</span> <span class="fu">tm_shape</span>(oa_shp) <span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"unemp"</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>, <span class="at">begin =</span> <span class="fl">0.25</span>, <span class="at">end =</span> <span class="dv">1</span>), <span class="at">style =</span> <span class="st">"cont"</span>) <span class="sc">+</span> </span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">01</span>)  <span class="sc">+</span> </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">"arrow"</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"top"</span>) , <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">text.size =</span> <span class="fl">0.5</span>, <span class="at">position =</span>  <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"bottom"</span>)) </span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>map_oa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="07-multilevel-01_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Let us look at those areas:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># high %s</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="sc">%&gt;%</span> <span class="fu">filter</span>(unemp <span class="sc">&gt;</span> <span class="fl">0.2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(oa_cd, pop, unemp) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 203 features and 3 fields
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 333993.8 ymin: 379748.5 xmax: 345600.2 ymax: 397681.5
+Projected CRS: Transverse_Mercator
+First 10 features:
+       oa_cd pop     unemp                       geometry
+1  E00032992 240 0.2519685 POLYGON ((335804.9 389421.6...
+2  E00033008 345 0.2636364 POLYGON ((335080 388528, 33...
+3  E00033074 299 0.2075472 POLYGON ((336947.3 387766.7...
+4  E00033075 254 0.2288136 POLYGON ((336753.6 387465.2...
+5  E00033080 197 0.2647059 POLYGON ((338196 387079, 33...
+6  E00033103 298 0.2148148 POLYGON ((340484 385429.6, ...
+7  E00033116 190 0.2156863 POLYGON ((341960.7 386422.1...
+8  E00033134 190 0.2674419 POLYGON ((337137 393089.6, ...
+9  E00033137 289 0.2661290 POLYGON ((337363.8 392122.4...
+10 E00033138 171 0.3561644 POLYGON ((337481.5 392166.2...</code></pre>
+</div>
+</div>
+<section id="baseline-linear-regression-model" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="baseline-linear-regression-model"><span class="header-section-number">7.3.1</span> Baseline Linear Regression Model</h3>
+<p>Now let us estimate a simple linear regression model with the intercept only:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>eq1 <span class="ot">&lt;-</span> unemp <span class="sc">~</span> <span class="dv">1</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> eq1, <span class="at">data =</span> oa_shp)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = eq1, data = oa_shp)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.11581 -0.05784 -0.01325  0.04548  0.38419 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 0.115812   0.001836   63.09   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.07306 on 1583 degrees of freedom</code></pre>
+</div>
+</div>
+<p>To understand the differences between the linear regression model and multilevel models, let us consider the model we have estimated:</p>
+<p><span class="math display">\[y_{i} = \beta_{0} + e_{i}\]</span> where <span class="math inline">\(y_{i}\)</span> represents the proportion of the unemployed resident population in the OA <span class="math inline">\(i\)</span>; <span class="math inline">\(\beta_{0}\)</span> is the regression intercept and measures the average proportion of the unemployed resident population across OAs; and, <span class="math inline">\(e_{i}\)</span> is the error term. But how do we deal with the hierarchical structure of the data?</p>
+<section id="limitations" class="level4" data-number="7.3.1.1">
+<h4 data-number="7.3.1.1" class="anchored" data-anchor-id="limitations"><span class="header-section-number">7.3.1.1</span> Limitations</h4>
+<p>Before looking at the answer, let’s first understand some of the key limitations of the linear regression model to handle the hierarchical structure of data. A key limitation of the linear regression model is that it only captures average relationships in the data. It does not capture variations in the relationship between variables across areas or groups. Another key limitation is that the linear regression model can capture associations at either macro or micro levels, but it does not simultaneously measure their interdependencies.</p>
+<p>To illustrate this, let us consider the regression intercept. It indicates that the average percentage of unemployed population at the OA level is 0.12 but this model ignores any spatial clustering ie. the percentage of unemployed population tends to be similar across OAs nested within a same LSOA or MSOA. A side effect of ignoring this is that our standard errors are biased, and thus claims about statistical significance based on them would be misleading. Additionally, this situation also means we cannot explore variations in the percentage of unemployed population across LSOAs or MSOAs ie. how the percentage of unemployed population may be dependent on various contextual factors at these geographical scales.</p>
+</section>
+<section id="fixed-effect-approach" class="level4" data-number="7.3.1.2">
+<h4 data-number="7.3.1.2" class="anchored" data-anchor-id="fixed-effect-approach"><span class="header-section-number">7.3.1.2</span> Fixed Effect Approach</h4>
+<p>An alternative approach is to adopt a fixed effects approach, or no-pooling model; that is, adding dummy variables indicating the group classification into the regression model eg. the way OAs is nested within LSOAs (or MSOAs). This approach has limitations. First, there is high risk of overfitting. The number of groups may be too large, relative to the number of observations. Second, the estimation of multiple parameters may be required so that measuring differences between groups may be challenging. Third, a fixed effects approach does not allow including group-level explanatory variables. You can try fitting a linear regression model extending our estimated model to include dummy variables for individual LSOAs (and/or MSOAs) so you can compare this to the multilevel model below.</p>
+<p>An alternative is fitting separate linear regression models for each group. This approach is not always possible if there are groups with small sizes.</p>
+</section>
+</section>
+</section>
+<section id="multilevel-modelling-random-intercept-model" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="multilevel-modelling-random-intercept-model"><span class="header-section-number">7.4</span> Multilevel Modelling: Random Intercept Model</h2>
+<p>We use multilevel modelling to account for the hierarchical nature of the data by explicitly recognising that OAs are nested within LSOAs and MSOAs. Multilevel models can easily be estimated using in R using the package <code>lme4</code>. We implement an two-level model to allow for variation across LSOAs. We estimate an only intercept model allowing for variation across LSOAs. In essence, we are estimating a model with varying intercept coefficient by LSOA. As you can see in the code chunk below, the equation has an additional component. This is the group component or LSOA effect. The <code>(1 | lsoa_cd)</code> means that we are allowing the intercept, represented by 1, to vary by LSOA.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>eq2 <span class="ot">&lt;-</span> unemp <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> lsoa_cd)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(eq2, <span class="at">data =</span> oa_shp)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: unemp ~ 1 + (1 | lsoa_cd)
+   Data: oa_shp
+
+REML criterion at convergence: -4382.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.8741 -0.5531 -0.1215  0.4055  5.8207 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ lsoa_cd  (Intercept) 0.002701 0.05197 
+ Residual             0.002575 0.05074 
+Number of obs: 1584, groups:  lsoa_cd, 298
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept) 0.114316   0.003277   34.89</code></pre>
+</div>
+</div>
+<p>We can estimate a three-level model by adding <code>(1 | msoa_cd)</code> to allow the intercept to also vary by MSOAs and account for the nesting structure of LSOAs within MSOAs.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>eq3 <span class="ot">&lt;-</span> unemp <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> lsoa_cd) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> msoa_cd)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(eq3, <span class="at">data =</span> oa_shp)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: unemp ~ 1 + (1 | lsoa_cd) + (1 | msoa_cd)
+   Data: oa_shp
+
+REML criterion at convergence: -4529.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.5624 -0.5728 -0.1029  0.4228  6.1363 
+
+Random effects:
+ Groups   Name        Variance  Std.Dev.
+ lsoa_cd  (Intercept) 0.0007603 0.02757 
+ msoa_cd  (Intercept) 0.0020735 0.04554 
+ Residual             0.0025723 0.05072 
+Number of obs: 1584, groups:  lsoa_cd, 298; msoa_cd, 61
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept) 0.115288   0.006187   18.64</code></pre>
+</div>
+</div>
+<p>We see two sets of coefficients: <em>fixed effects</em> and <em>random effects</em>. <em>Fixed effects</em> correspond to the standard linear regression coefficients. Their interpretation is as usual. <em>Random effects</em> are the novelty. It is a term in multilevel modelling and refers to varying coefficients i.e.&nbsp;the randomness in the probability of the model for the group-level coefficients. Specifically they relate to estimates of the average variance and standard deviation within groups (i.e.&nbsp;LSOAs or MSOAs). Intiutively, variance and standard deviation indicate the extent to which the intercept, on average, varies by LSOAs and MSOAs.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/ch5/nm_dist_obs.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fig. 2. Variation of observations around their level 1 group mean.</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/ch5/nm_dist_msoa.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fig. 3. Variation of level 1 group mean around their level 2 group mean.</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/ch5/nm_dist_grand.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fig. 4. Grand mean.</figcaption><p></p>
+</figure>
+</div>
+<p>More formally, we first estimated the simplest regression model which is an intercept-only model and equivalent to the sample mean (i.e.&nbsp;the <em>fixed</em> part of the model):</p>
+<p><span class="math display">\[y_{ijk} = \mu + e_{ijk}\]</span> and then we made the <em>random</em> part of the model (<span class="math inline">\(e_{ijk}\)</span>) more complex to account for the hierarchical structure of the data by estimating the following three-level regression model:</p>
+<p><span class="math display">\[y_{ijk} = \mu + u_{i..} + u_{ij.} + e_{ijk}\]</span></p>
+<p>where <span class="math inline">\(y_{ijk}\)</span> represents the proportion of unemployed population in OA <span class="math inline">\(i\)</span> nested within LSOA <span class="math inline">\(j\)</span> and MSOA <span class="math inline">\(k\)</span>; <span class="math inline">\(\mu\)</span> represents the sample mean and the <em>fixed</em> part of the model; <span class="math inline">\(e_{ijk}\)</span> is the deviation of an observation from its LSOA mean; <span class="math inline">\(u_{ij.}\)</span> is the deviation of the LSOA mean from its MSOA mean; <span class="math inline">\(u_{i..}\)</span> is the deviation of the MSOA mean from the fixed part of the model <span class="math inline">\(\mu\)</span>. Conceptually, this model is decomposing the variance of the model in terms of the hierarchical structure of the data. It is partitioning the observation’s residual into three parts or <em>variance components</em>. These components measure the relative extent of variation of each hierarchical level ie. LSOA, MSOA and grand means. To estimate the set of residuals, they are assumed to follow a normal distribution and are obtained after fitting the model and are based on the estimates of the model parameters (i.e.&nbsp;intercept and variances of the random parameters).</p>
+<p>Let’s now return to our three-level model (reported again below), we see that the intercept or fixed part of the model is the same as for the linear regression. The multilevel model reports greater standard errors. Multilevel models capture the hierarchical structure of the data and thus more precisely estimate the standard errors for our parameters.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># report model 3</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: unemp ~ 1 + (1 | lsoa_cd) + (1 | msoa_cd)
+   Data: oa_shp
+
+REML criterion at convergence: -4529.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.5624 -0.5728 -0.1029  0.4228  6.1363 
+
+Random effects:
+ Groups   Name        Variance  Std.Dev.
+ lsoa_cd  (Intercept) 0.0007603 0.02757 
+ msoa_cd  (Intercept) 0.0020735 0.04554 
+ Residual             0.0025723 0.05072 
+Number of obs: 1584, groups:  lsoa_cd, 298; msoa_cd, 61
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept) 0.115288   0.006187   18.64</code></pre>
+</div>
+</div>
+<section id="interpretation" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">7.4.1</span> Interpretation</h3>
+<blockquote class="blockquote">
+<p>Fixed effects</p>
+</blockquote>
+<p>We start by examining the fixed effects or estimated model averaging over LSOAs and MSOAs, <span class="math inline">\(y_{ijk} = 0.115288\)</span> which can also be called by executing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(model3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept) 
+  0.1152881 </code></pre>
+</div>
+</div>
+<p>Th estimated intercept indicates that the overall mean taken across LSOAs and MSOAs is estimated as <code>0.115288</code> and is statistically significant at <code>5%</code> significance.</p>
+<blockquote class="blockquote">
+<p>Random effects</p>
+</blockquote>
+<p>The set of random effects contains three estimates of variance and standard deviation and refer to the variance components discussed above. The <code>lsoa_cd</code>, <code>msoa_cd</code> and <code>Residual</code> estimates indicate that the extent of estimated LSOA-, MSOA- and individual-level variance is <code>0.0007603</code>, <code>0.0020735</code> and <code>0.0025723</code>, respectively.</p>
+</section>
+<section id="variance-partition-coefficient-vpc" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="variance-partition-coefficient-vpc"><span class="header-section-number">7.4.2</span> Variance Partition Coefficient (VPC)</h3>
+<p>The purpose of multilevel models is to partition variance in the outcome between the different groupings in the data. We thus often want to know the percentage of variation in the dependent variable accounted by differences across groups i.e.&nbsp;what proportion of the total variance is attributable to variation within-groups, or how much is found between-groups. The statistic to obtain this is termed the variance partition coefficient (VPC), or intraclass correlation.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> For our case, the VPC at the LSOA level indicates that 14% of the variation in percentage of unemployed resident population across OAs can be explained by differences across LSOAs. What is the VPC at the MSOA level?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>vpc_lsoa <span class="ot">&lt;-</span> <span class="fl">0.0007603</span> <span class="sc">/</span> (<span class="fl">0.0007603</span> <span class="sc">+</span> <span class="fl">0.0020735</span> <span class="sc">+</span> <span class="fl">0.0025723</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>vpc_lsoa <span class="sc">*</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 14.06374</code></pre>
+</div>
+</div>
+<p>You can also obtain the VPC by executing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summ</span>(model3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<tbody>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> Observations </td>
+   <td style="text-align:right;"> 1584 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> Dependent variable </td>
+   <td style="text-align:right;"> unemp </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> Type </td>
+   <td style="text-align:right;"> Mixed effects linear regression </td>
+  </tr>
+</tbody>
+</table> <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<tbody>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> AIC </td>
+   <td style="text-align:right;"> -4521.26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> BIC </td>
+   <td style="text-align:right;"> -4499.79 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> Pseudo-R² (fixed effects) </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> Pseudo-R² (total) </td>
+   <td style="text-align:right;"> 0.52 </td>
+  </tr>
+</tbody>
+</table> <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+ <thead>
+<tr><th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="6"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Fixed Effects</div></th></tr>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> Est. </th>
+   <th style="text-align:right;"> S.E. </th>
+   <th style="text-align:right;"> t val. </th>
+   <th style="text-align:right;"> d.f. </th>
+   <th style="text-align:right;"> p </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> (Intercept) </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 18.63 </td>
+   <td style="text-align:right;"> 59.98 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+</tbody>
+<tfoot><tr><td style="padding: 0; " colspan="100%">
+<sup></sup>  p values calculated using Kenward-Roger standard errors and d.f. </td></tr></tfoot>
+</table> <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+<tr><th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Random Effects</div></th></tr>
+  <tr>
+   <th> Group </th>
+   <th> Parameter </th>
+   <th> Std. Dev. </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td> lsoa_cd </td>
+   <td> (Intercept) </td>
+   <td> 0.03 </td>
+  </tr>
+  <tr>
+   <td> msoa_cd </td>
+   <td> (Intercept) </td>
+   <td> 0.05 </td>
+  </tr>
+  <tr>
+   <td> Residual </td>
+   <td>  </td>
+   <td> 0.05 </td>
+  </tr>
+</tbody>
+</table> <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+<tr><th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Grouping Variables</div></th></tr>
+  <tr>
+   <th> Group </th>
+   <th> # groups </th>
+   <th> ICC </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td> lsoa_cd </td>
+   <td> 298 </td>
+   <td> 0.14 </td>
+  </tr>
+  <tr>
+   <td> msoa_cd </td>
+   <td> 61 </td>
+   <td> 0.38 </td>
+  </tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="uncertainty-of-estimates" class="level3" data-number="7.4.3">
+<h3 data-number="7.4.3" class="anchored" data-anchor-id="uncertainty-of-estimates"><span class="header-section-number">7.4.3</span> Uncertainty of Estimates</h3>
+<p>You may have noticed that <code>lme4</code> does not provide p-values, because of <a href="https://stat.ethz.ch/pipermail/r-help/2006-May/094765.html">various reasons</a> as explained by Doug Bates, one of the author of <code>lme4</code>. These explanations mainly refer to the complexity of dealing with varying sample sizes at a given hierarchical level. The number of observations at each hierarchical level varies across individual groupings (i.e.&nbsp;LSOA or MSOA). It may even be one single observation. This has implications for the distributional assumptions, denominator degrees of freedom and how to approximate a “best” solution. Various approaches exist to compute the statistical significance of estimates. We use the <code>confint</code> function available within <code>lme4</code> to obtain confidence intervals.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(model3, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Computing profile confidence intervals ...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 2.5 %     97.5 %
+.sig01      0.02360251 0.03189046
+.sig02      0.03707708 0.05562307
+.sigma      0.04882281 0.05273830
+(Intercept) 0.10307341 0.12751103</code></pre>
+</div>
+</div>
+<p><code>.sig01</code> refers to the LSOA level; <code>.sig02</code> refers to the MSOA level; and, <code>.sigma</code> refers to the OA level.</p>
+</section>
+<section id="assessing-group-level-variation" class="level3" data-number="7.4.4">
+<h3 data-number="7.4.4" class="anchored" data-anchor-id="assessing-group-level-variation"><span class="header-section-number">7.4.4</span> Assessing Group-level Variation</h3>
+<p><em>Estimated regression coefficients</em></p>
+<p>In multilevel modelling, our primary interest is in knowing differences across groups. To visualise the estimated model within each group (ie. LSOA and MSOA), we type:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>coef_m3 <span class="ot">&lt;-</span> <span class="fu">coef</span>(model3)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coef_m3<span class="sc">$</span>lsoa_cd,<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          (Intercept)
+E01006512  0.09915456
+E01006513  0.09889615
+E01006514  0.09297051
+E01006515  0.09803754
+E01006518  0.09642939</code></pre>
+</div>
+</div>
+<p>The results indicate that the estimated regression line is <span class="math inline">\(y = 0.09915456\)</span> for LSOA <code>E01006512</code>; <span class="math inline">\(y = 0.09889615\)</span> for LSOA <code>E01006513</code> and so forth. Try getting the estimated model within each MSOA.</p>
+<p><em>Random effects</em></p>
+<p>We can look at the estimated group-level (or LSOA-level and MSOA-level) errors; that is, <em>random effects</em>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>ranef_m3 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model3)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ranef_m3<span class="sc">$</span>lsoa_cd, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          (Intercept)
+E01006512 -0.01613353
+E01006513 -0.01639194
+E01006514 -0.02231758
+E01006515 -0.01725055
+E01006518 -0.01885870</code></pre>
+</div>
+</div>
+<p>Group-level errors indicate how much the intercept is shifted up or down in particular groups (ie. LSOAs or MSOAs). Thus, for example, in LSOA <code>E01006512</code>, the estimated intercept is <code>-0.01613353</code> lower than average, so that the regression line is <code>(0.1152881 - 0.01613353)</code> <code>= 0.09915457</code> which is what we observed from the call to <code>coef()</code>.</p>
+<p>We can also obtain group-level errors (<em>random effects</em>) by using a simulation approach, labelled “Empirical Bayes” and discussed <a href="https://stat.ethz.ch/pipermail/r-sig-mixed-models/2009q4/002984.html">here</a>. To this end, we run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># obtain estimates</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>merTools<span class="sc">::</span><span class="fu">REsim</span>(model3) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   groupFctr   groupID        term         mean       median          sd
+1    lsoa_cd E01006512 (Intercept) -0.015433732 -0.015204504 0.020843071
+2    lsoa_cd E01006513 (Intercept) -0.014508524 -0.012045044 0.020486102
+3    lsoa_cd E01006514 (Intercept) -0.020742564 -0.020123183 0.019284376
+4    lsoa_cd E01006515 (Intercept) -0.017891239 -0.018326989 0.020457777
+5    lsoa_cd E01006518 (Intercept) -0.021308019 -0.020888821 0.017442673
+6    lsoa_cd E01006519 (Intercept) -0.015765161 -0.015377793 0.008595917
+7    lsoa_cd E01006520 (Intercept) -0.023268735 -0.023154020 0.019860786
+8    lsoa_cd E01006521 (Intercept)  0.007061705  0.007896032 0.019811281
+9    lsoa_cd E01006522 (Intercept)  0.019288344  0.019855854 0.019558801
+10   lsoa_cd E01006523 (Intercept)  0.004578654  0.004714565 0.020021743</code></pre>
+</div>
+</div>
+<p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g.&nbsp;LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
+<p>To gain an undertanding of the general pattern of the <em>random effects</em>, we can use caterpillar plots via <code>plotREsim</code> - reported below. The plot on the right shows the estimated random effects for each MSOA and their respective interval estimate. Note that random effects are on average zero, represented by the red horizontal line. Intervals that do not include zero are in bold. Also note that the width of the confidence interval depends on the standard error of the respective residual estimate, which is inversely related to the size of the sample. The residuals represent an observation departures from the grand mean, so an observation whose confidence interval does not overlap the line at zero (representing the mean proportion of unemployed population across all areas) is said to differ significantly from the average at the 5% level.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotREsim</span>(<span class="fu">REsim</span>(model3)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="07-multilevel-01_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Focusing on the plot on the right, we see MSOAs whose mean proportion of unemployed population, assuming no explanatory variables, is lower than average. On the right-hand side of the plot, you will see MSOAs whose mean proportion is higher than average. The MSOAs with the smallest residuals include the districts of Allerton and Hunt Cross, Church, Childwall, Wavertree and Woolton. What districts do we have at the other extreme?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>re <span class="ot">&lt;-</span> <span class="fu">REsim</span>(model3)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(msoa_cd, ward_nm, unemp) <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">as.character</span>(msoa_cd) <span class="sc">==</span> <span class="st">"E02001387"</span> <span class="sc">|</span> <span class="fu">as.character</span>(msoa_cd) <span class="sc">==</span> <span class="st">"E02001393"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 49 features and 3 fields
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 339178.6 ymin: 386244.2 xmax: 341959.9 ymax: 389646.7
+Projected CRS: Transverse_Mercator
+First 10 features:
+     msoa_cd                  ward_nm      unemp                       geometry
+1  E02001393 Allerton and Hunts Cross 0.03246753 POLYGON ((341333.6 387163.2...
+2  E02001393 Allerton and Hunts Cross 0.03684211 POLYGON ((340658.2 387205.6...
+3  E02001393                   Church 0.04098361 POLYGON ((339908.1 387222.3...
+4  E02001393 Allerton and Hunts Cross 0.05982906 POLYGON ((340306 386587, 34...
+5  E02001393                   Church 0.01212121 POLYGON ((339974.2 387118.5...
+6  E02001393                   Church 0.09219858 POLYGON ((340181.4 386957.8...
+7  E02001393                   Church 0.01986755 POLYGON ((340301.2 386582.2...
+8  E02001393                   Church 0.04615385 POLYGON ((340375.9 386918.6...
+9  E02001393 Allerton and Hunts Cross 0.04117647 POLYGON ((340435.3 386337.4...
+10 E02001393 Allerton and Hunts Cross 0.02272727 POLYGON ((340681.7 386614.4...</code></pre>
+</div>
+</div>
+<p>We can also map the MSOA-level <em>random effects</em>. To this end, we first need to read a shapefile containing data at the MSOA level and merge it with the <em>random effects</em> estimates.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/mlm/MSOA.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `MSOA' from data source 
+  `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202223/san/data/mlm/MSOA.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 61 features and 17 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 333086.1 ymin: 381426.3 xmax: 345636 ymax: 397980.1
+Projected CRS: Transverse_Mercator</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a dataframe for MSOA-level random effects</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>re_msoa <span class="ot">&lt;-</span> re <span class="sc">%&gt;%</span> <span class="fu">filter</span>(groupFctr <span class="sc">==</span> <span class="st">"msoa_cd"</span>)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(re_msoa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   61 obs. of  6 variables:
+ $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
+ $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
+ $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
+ $ mean     : num  -0.0155 -0.02629 -0.02934 0.00765 0.02201 ...
+ $ median   : num  -0.0162 -0.02771 -0.02899 0.00639 0.02262 ...
+ $ sd       : num  0.0351 0.0333 0.031 0.0321 0.0165 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># merge data</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> msoa_shp, <span class="at">y =</span> re_msoa, <span class="at">by.x =</span> <span class="st">"MSOA_CD"</span>, <span class="at">by.y =</span> <span class="st">"groupID"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we can create our map:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ensure geometry is valid</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_make_valid</span>(msoa_shp)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create a map</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">"MSOA-level residuals"</span>)</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>map_msoa <span class="ot">=</span> <span class="fu">tm_shape</span>(msoa_shp) <span class="sc">+</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"mean"</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>, <span class="at">begin =</span> <span class="dv">0</span>, <span class="at">end =</span> <span class="dv">1</span>), <span class="at">style =</span> <span class="st">"cont"</span>) <span class="sc">+</span> </span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">01</span>)  <span class="sc">+</span> </span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">"arrow"</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"top"</span>) , <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">text.size =</span> <span class="fl">0.5</span>, <span class="at">position =</span>  <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"bottom"</span>)) </span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>map_msoa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="07-multilevel-01_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="sec-indlevel" class="level3" data-number="7.4.5">
+<h3 data-number="7.4.5" class="anchored" data-anchor-id="sec-indlevel"><span class="header-section-number">7.4.5</span> Adding Individual-level Predictors</h3>
+<p>In this example, <span class="math inline">\(\mu\)</span> represents the sample mean but it could include a collection of independent variables or predictors. To explain the logic, we will assume that unemployment is strongly associated to long-term illness. We could expect that long-term illness (<code>lt_ill</code>) will reduce the chances of working and therefore being unemployed. Note that our focus is on the relationship, not on establishing causation. Specifically we want to estimate the relationship between unemployment and long-term illness and we are interested in variations in OA-level unemployment by MSOAs so we will estimate the following two-level model:</p>
+<p>OA-level:</p>
+<p><span class="math display">\[y_{ij} = \beta_{0j} + \beta_{1}x_{ij} + e_{ij}\]</span> MSOA-level:</p>
+<p><span class="math display">\[\beta_{0j} = \beta_{0} + u_{0j}\]</span> Replacing the first equation into the second, we have:</p>
+<p><span class="math display">\[y_{ij} = (\beta_{0} + u_{0j}) + \beta_{1}x_{ij} + e_{ij}\]</span> where <span class="math inline">\(y\)</span> the proportion of unemployed population in OA <span class="math inline">\(i\)</span> within MSOA <span class="math inline">\(j\)</span>; <span class="math inline">\(\beta_{0}\)</span> is the fixed intercept (averaging over all MSOAs); <span class="math inline">\(u_{0j}\)</span> represents the MSOA-level residuals or <em>random effects</em>; <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(u_{0j}\)</span> together represent the varying-intercept; <span class="math inline">\(\beta_{1}\)</span> is the slope coefficient; <span class="math inline">\(x_{ij}\)</span> represents the percentage of long-term illness population; and, <span class="math inline">\(e_{ij}\)</span> is the individual-level residuals.</p>
+<p>We estimate the model executing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change to proportion</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>oa_shp<span class="sc">$</span>lt_ill <span class="ot">&lt;-</span> lt_ill<span class="sc">/</span><span class="dv">100</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>eq4 <span class="ot">&lt;-</span> unemp <span class="sc">~</span> lt_ill <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> msoa_cd)</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>model4 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(eq4, <span class="at">data =</span> oa_shp)</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: unemp ~ lt_ill + (1 | msoa_cd)
+   Data: oa_shp
+
+REML criterion at convergence: -4711.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.1941 -0.5718 -0.0906  0.4507  5.9393 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ msoa_cd  (Intercept) 0.001421 0.03769 
+ Residual             0.002674 0.05171 
+Number of obs: 1584, groups:  msoa_cd, 61
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept)  0.04682    0.00625   7.492
+lt_ill       0.29588    0.01615  18.317
+
+Correlation of Fixed Effects:
+       (Intr)
+lt_ill -0.600</code></pre>
+</div>
+</div>
+<p><em>Fixed effects</em>: model averaging over MSOAs</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(model4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)      lt_ill 
+ 0.04681959  0.29588110 </code></pre>
+</div>
+</div>
+<p>yields an estimated regression line in an average McSOA: <span class="math inline">\(y = 0.04681959 + 0.29588110x\)</span></p>
+<p><em>Random effects</em>: MSOA-level errors</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>ranef_m4 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model4)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ranef_m4<span class="sc">$</span>msoa_cd, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           (Intercept)
+E02001347 -0.017474815
+E02001348 -0.021203807
+E02001349 -0.022469313
+E02001350 -0.003539869
+E02001351  0.008502813</code></pre>
+</div>
+</div>
+<p>yields an estimated intercept for MSOA <code>E02001347</code> which is <code>0.017474815</code> lower than the average with a regression line: <code>(0.04681959 - 0.017474815) + 0.29588110x</code> <code>=</code> <code>0.02934478 + 0.29588110x</code>. You can confirm this by looking at the estimated model within each MSOA by executing (remove the <code>#</code> sign):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">#coef(model4)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Fixed effect correlations</em></p>
+<p>In the bottom of the output, we have the correlations between the fixed-effects estimates. In our example, it refers to the correlation between <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{1}\)</span>. It is negative indicating that in MSOAs where the relationship between unemployment and long-term illness is greater, as measured by <span class="math inline">\(\beta_{1}\)</span>, the average proportion of unemployed people tends to be smaller, as captured by <span class="math inline">\(\beta_{0}\)</span>.</p>
+</section>
+<section id="sec-grouplevel" class="level3" data-number="7.4.6">
+<h3 data-number="7.4.6" class="anchored" data-anchor-id="sec-grouplevel"><span class="header-section-number">7.4.6</span> Adding Group-level Predictors</h3>
+<p>We can also add group-level predictors. We use the formulation:</p>
+<p>OA-level:</p>
+<p><span class="math display">\[y_{ij} = \beta_{0j} + \beta_{1}x_{ij} + e_{ij}\]</span></p>
+<p>MSOA-level:</p>
+<p><span class="math display">\[\beta_{0j} = \beta_{0} + \gamma_{1}m_{j} + u_{0j}\]</span></p>
+<p>where <span class="math inline">\(x_{ij}\)</span> is the OA-level proportion of population suffering long-term illness and <span class="math inline">\(m_{j}\)</span> is the MSOA-level proportion of male population. We first need to create this group-level predictor:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># detach OA shp and attach MSOA shp</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(oa_shp)</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(msoa_shp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from package:viridis:
+
+    unemp</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># group-level predictor</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>msoa_shp<span class="sc">$</span>pr_male <span class="ot">&lt;-</span> males<span class="sc">/</span>pop</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="co"># remove geometries</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>msoa_df <span class="ot">&lt;-</span> <span class="st">`</span><span class="at">st_geometry&lt;-</span><span class="st">`</span>(msoa_shp, <span class="cn">NULL</span>)</span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a><span class="co"># select variables</span></span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>msoa_df <span class="ot">&lt;-</span> msoa_df <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(MSOA_CD, pop, pr_male)</span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a><span class="co"># merge data sets</span></span>
+<span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x=</span>oa_shp, <span class="at">y=</span>msoa_df, <span class="at">by.x =</span> <span class="st">"msoa_cd"</span>, <span class="at">by.y=</span><span class="st">"MSOA_CD"</span>)</span>
+<span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-13"><a href="#cb59-13" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect data</span></span>
+<span id="cb59-14"><a href="#cb59-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oa_shp[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">c</span>(<span class="st">"msoa_cd"</span>, <span class="st">"oa_cd"</span>, <span class="st">"unemp"</span>, <span class="st">"pr_male"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 6 features and 4 fields
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 337693.5 ymin: 396068.2 xmax: 339430.9 ymax: 397790
+Projected CRS: Transverse_Mercator
+    msoa_cd     oa_cd      unemp   pr_male                       geometry
+1 E02001347 E00033730 0.10322581 0.4775905 POLYGON ((338376 397059, 33...
+2 E02001347 E00033722 0.06306306 0.4775905 POLYGON ((337929.4 397669.9...
+3 E02001347 E00033712 0.09090909 0.4775905 POLYGON ((338830 396068.2, ...
+4 E02001347 E00033739 0.09401709 0.4775905 POLYGON ((339140.3 397191, ...
+5 E02001347 E00033719 0.05855856 0.4775905 POLYGON ((338128.8 397658.6...
+6 E02001347 E00033711 0.12195122 0.4775905 POLYGON ((339163.2 396833.6...</code></pre>
+</div>
+</div>
+<p>We can now estimate our model:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(msoa_shp)</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(oa_shp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from package:viridis:
+
+    unemp</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>eq5 <span class="ot">&lt;-</span> unemp <span class="sc">~</span> lt_ill <span class="sc">+</span> pr_male <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> msoa_cd)</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>model5 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(eq5, <span class="at">data =</span> oa_shp)</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: unemp ~ lt_ill + pr_male + (1 | msoa_cd)
+   Data: oa_shp
+
+REML criterion at convergence: -4712.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.2162 -0.5696 -0.0929  0.4549  5.9370 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ msoa_cd  (Intercept) 0.001391 0.03729 
+ Residual             0.002674 0.05171 
+Number of obs: 1584, groups:  msoa_cd, 61
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept) -0.07746    0.08768  -0.883
+lt_ill       0.29781    0.01620  18.389
+pr_male      0.25059    0.17642   1.420
+
+Correlation of Fixed Effects:
+        (Intr) lt_ill
+lt_ill  -0.118       
+pr_male -0.997  0.075</code></pre>
+</div>
+</div>
+<p>This model includes the proportion of males and intercepts that vary by MSOA. The <code>lmer()</code> function only accepts predictors at the individual level, so we have included data on the proportion of male population at this level. Explore and interpret the model running the functions below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fixed effects</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(model5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)      lt_ill     pr_male 
+ -0.0774607   0.2978084   0.2505913 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># random effects</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>ranef_m5 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model5)</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ranef_m5<span class="sc">$</span>msoa_cd, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           (Intercept)
+E02001347 -0.013625261
+E02001348 -0.019757846
+E02001349 -0.023709992
+E02001350  0.003003861
+E02001351  0.003508477</code></pre>
+</div>
+</div>
+<p>Adding group-level predictors tends to improve inferences for group coefficients. Examine the confidence intervals, in order to evalute how the precision of our estimates of the MSOA intercepts have changed. <em>Have confidence intervals for the intercepts of Model 4 and 5 increased or reduced?</em> Hint: look at how to get the confidence intervals above.</p>
+</section>
+</section>
+<section id="questions" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="questions"><span class="header-section-number">7.5</span> Questions</h2>
+<p>For the second assignment, we will be using a different dataset comprising information on COVID-19 cases, census data and the Index of Multiple Deprivation (IMD) for England. The data set is similar in structured to that used in this chapter. It is hierarchically organised into 149 Upper Tier Local Authority Districts (UTLADs) within 9 Regions and has 508 variables - see Chapter @ref(datasets) for a more detailed description of the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/assignment_2_covid/covid19_eng.gpkg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `covid19_eng' from data source 
+  `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202223/san/data/assignment_2_covid/covid19_eng.gpkg' 
+  using driver `GPKG'
+Simple feature collection with 149 features and 507 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 134112.4 ymin: 11429.67 xmax: 655653.8 ymax: 657536
+Projected CRS: OSGB36 / British National Grid</code></pre>
+</div>
+</div>
+<p>Here we see a selection of 10 variables for 5 UTLADs.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sdf[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">381</span>,<span class="dv">385</span>,<span class="dv">386</span>,<span class="dv">387</span>,<span class="dv">403</span>,<span class="dv">406</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 5 features and 10 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 418871.2 ymin: 506329.3 xmax: 478441.5 ymax: 537152
+Projected CRS: OSGB36 / British National Grid
+             ctyua19nm     Region X2020.01.31 X2020.02.01 IMD...Average.score
+1           Hartlepool North East           0           0              35.037
+2        Middlesbrough North East           0           0              40.460
+3 Redcar and Cleveland North East           0           0              29.792
+4     Stockton-on-Tees North East           0           0              25.790
+5           Darlington North East           0           0              25.657
+  Residents Households Dwellings Age_85plus White_British_and_Irish
+1     92028      40434     42102       1856                   89117
+2    138412      57203     59956       2465                  119680
+3    135177      59605     61899       3113                  132343
+4    191610      79159     82237       3481                  179501
+5    105564      46670     48644       2550                   99226
+                            geom
+1 MULTIPOLYGON (((447097 5371...
+2 MULTIPOLYGON (((449862.8 52...
+3 MULTIPOLYGON (((455939.7 52...
+4 MULTIPOLYGON (((444126.1 52...
+5 MULTIPOLYGON (((423475.7 52...</code></pre>
+</div>
+</div>
+<ul>
+<li><code>ctyua19nm</code>: Upper Tier Local Authority District name</li>
+<li><code>Region</code>: Region name</li>
+<li><code>X2020.01.31</code>: COVID-19 cases on January 31st 2020</li>
+<li><code>X2020.02.01</code>: COVID-19 cases on February 1st 2020</li>
+<li><code>IMD...Average.score</code>: Average IMD score for UTLADs - see <a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019">File 11: upper-tier local authority summaries</a> for information on this and associated indicators.</li>
+<li><code>Residents</code>: Number of residents</li>
+<li><code>Households</code>: Number of households</li>
+<li><code>Dwellings</code>: Number of dwellings</li>
+<li><code>Age_85plus</code>: Number of people aged 85 and over</li>
+<li><code>White_British_and_Irish</code>: Number of white British and Irish people</li>
+</ul>
+<p>Note that variable names relating to the daily COVID-19 cases are organised in the following way: <code>X</code> stands for daily COVID-19 cases, followed by the year (i.e.&nbsp;2020, 2021); month (i.e.&nbsp;January to December); and day (i.e.&nbsp;01 to 31).</p>
+<p>Using these data, you are required to address the following challenges:</p>
+<ol type="1">
+<li><p>Fit a varying-intercept model with no explanatory variables. Let the intercept to vary by region.</p></li>
+<li><p>Fit a varying-intercept model with including at least three explanatory variables.</p></li>
+<li><p>Compute the Variance Partition Coefficient (VPC) for the models estimated according to points 1 and 2 above.</p></li>
+<li><p>Create caterpillar plots to visualise the varying intercepts.</p></li>
+</ol>
+<p>Analyse and discuss: 1. the extent of variation in the dependent variables at the two geographical scales (variation at which geographical scale explains most of variance in your dependent variable); 2. the varying intercept estimate(s) from your model(s) (what can they tell you about the difference between groups / areas? are they statistically significantly different?);</p>
+<p>Ensure you appropriately describe the structure of the data and identify the various geographical scales of analysis (i.e.&nbsp;level-1 and level-2 units)</p>
+<p>In addressing the challenges in this and following chapters, you have some flexibility to be creative. A set of key factors to consider:</p>
+<ol type="1">
+<li><em>Dependent Variable</em>: We will seek to explain daily COVID-19 cases, and you will need to make a decision as to:</li>
+</ol>
+<ul>
+<li><p><em>Daily vs cumulative COVID-19 cases</em>. Given that we will be focusing on cross-sectional models (i.e.&nbsp;models for one snapshot), you can focus on modelling daily cases at one specific date or cumulative daily cases over a period of time.</p></li>
+<li><p><em>Time period</em>. You can select the date or period of time that you will focus your analysis on.</p></li>
+<li><p><em>Use risk of COVID-19 infection</em>. The dependent variable should be the risk or rate of COVID-19 infection.</p></li>
+</ul>
+<p>For example, the risk of COVID-19 infection for the period (i.e.&nbsp;between Dec.&nbsp;1st, 2020 - January 29th, 2021) comprising the third wave of the pandemic in the United Kingdom can be computed as:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># computing cumulative COVID cases for  01/12/2020 - 29/01/2021</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>sdf[, <span class="dv">509</span>] <span class="ot">&lt;-</span> sdf <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="st">"X2020.12.01"</span><span class="sc">:</span><span class="st">"X2021.01.29"</span>) <span class="sc">%&gt;%</span> <span class="co"># select COVID cases 01/12/2020 - 29/01/2021</span></span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cum_covid =</span> <span class="fu">rowSums</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric)))) <span class="sc">%&gt;%</span> <span class="co"># sum daily cases</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(cum_covid) <span class="sc">%&gt;%</span> <span class="co"># select cumulative cases</span></span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">st_set_geometry</span>(., <span class="cn">NULL</span>) <span class="co"># set geometry to NULL</span></span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a><span class="co"># computing risk of infection</span></span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> sdf <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(</span>
+<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">covid19_r =</span> <span class="fu">round</span>((cum_covid <span class="sc">/</span> Residents ) <span class="sc">*</span> <span class="dv">1000</span>) </span>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li><em>Explanatory variables</em>:</li>
+</ol>
+<ul>
+<li><p><em>At least 3</em>. Use at least 3 explanatory variables. There is no maximum limit but consider your model to be parsimonious.</p></li>
+<li><p><em>Choice your set</em>. Select the set of variables you consider appropriate / interesting. Make sure you justify your choice based on evidence and/or theory.</p></li>
+<li><p><em>Percentages / Proportions</em>. Use percentages or proportions to capture the composition of places, rather than numbers of people, households or dwellings. For this, ensure you are using the appropriate denominator.</p></li>
+</ul>
+<p>For instance, if you want to capture the relationship between cumulative COVID-19 cases and overcrowding, share of elderly population and nonwhite minorities, use the following variables</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> sdf <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">crowded_hou =</span> Crowded_housing <span class="sc">/</span> Households, <span class="co"># share of crowded housing</span></span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">elderly =</span> (Age_85plus) <span class="sc">/</span> Residents, <span class="co"># share of population aged 65+</span></span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ethnic =</span> (Mixed <span class="sc">+</span> Indian <span class="sc">+</span> Pakistani <span class="sc">+</span> Bangladeshi <span class="sc">+</span> Chinese <span class="sc">+</span> Other_Asian <span class="sc">+</span> Black <span class="sc">+</span> Other_ethnicity) <span class="sc">/</span> Residents, <span class="co"># share of nonwhite population</span></span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>ADVICE</strong>: Create a new spatial data frame including only the variables you will analyse. For example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>nsdf <span class="ot">&lt;-</span> sdf  <span class="sc">%&gt;%</span>  dplyr<span class="sc">::</span><span class="fu">select</span>(objectid, </span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>                         ctyua19cd, </span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>                         ctyua19nm, </span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>                         Region, </span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>                         covid19_r, </span>
+<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>                         crowded_hou, </span>
+<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a>                         elderly, </span>
+<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a>                         ethnic, </span>
+<span id="cb75-9"><a href="#cb75-9" aria-hidden="true" tabindex="-1"></a>                         Residents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-gelman2006data" class="csl-entry" role="doc-biblioentry">
+Gelman, Andrew, and Jennifer Hill. 2006. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge University Press.
+</div>
+<div id="ref-bristol2020" class="csl-entry" role="doc-biblioentry">
+Multilevel Modelling, Centre for. n.d. <span>“Introduction to Multilevel Modelling.”</span> n.d. <a href="http://www.bristol.ac.uk/cmm/learning/online-course/course-topics.html#m04">http://www.bristol.ac.uk/cmm/learning/online-course/course-topics.html#m04</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Read the file in R by executing <code>read_tsv("data/mlm/readme.txt")</code> . Ensure the library <code>readr</code> is installed before running <code>read_tsv</code>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The VPC is equal to the intra-class correlation coefficient which is the correlation between the observations of the dependent variable selected randomly from the same group. For instance, if the VPC is 0.1, we would say that 10% of the variation is between groups and 90% within. The correlation between randomly chosen pairs of observations belonging to the same group is 0.1.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./06-spatial-econometrics.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spatial Econometrics</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./08-multilevel-02.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 2</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

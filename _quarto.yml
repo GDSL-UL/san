@@ -1,0 +1,40 @@
+project:
+  type: book
+
+book:
+  title: "Spatial Modelling for Data Scientists"
+  author: "Francisco Rowe, Dani Arribas-Bel"
+  search: true
+  site-url: https://gdsl-ul.github.io/san/
+  repo-url: https://github.com/GDSL-UL/san
+  sidebar:
+    style: docked
+    background: light
+  date: today
+  downloads: [pdf, epub]
+  chapters:
+    - index.qmd
+    - 01-overview.qmd
+    - 02-spatial_data.qmd
+    - 03-data-wrangling.qmd
+    - 04-points.qmd
+    - 05-flows.qmd
+    - 06-spatial-econometrics.qmd
+    - 07-multilevel-01.qmd
+    - 08-multilevel-02.qmd
+    - 09-gwr.qmd
+    - 10-st_analysis.qmd
+    - 11-datasets.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    css: style.css
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

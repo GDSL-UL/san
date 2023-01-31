@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Spatial Modelling for Data Scientists - 2&nbsp; Spatial Data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./03-data-wrangling.html" rel="next">
+<link href="./01-overview.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Data</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Spatial Modelling for Data Scientists</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/GDSL-UL/san" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Spatial-Modelling-for-Data-Scientists.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Spatial-Modelling-for-Data-Scientists.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-spatial_data.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-data-wrangling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-points.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Point Data Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-flows.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Interaction Modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-spatial-econometrics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spatial Econometrics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-multilevel-01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-multilevel-02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-gwr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Geographically Weighted Regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-st_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatio-Temporal Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-datasets.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data Sets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#spatial-data-types" id="toc-spatial-data-types" class="nav-link active" data-scroll-target="#spatial-data-types"><span class="toc-section-number">2.1</span>  Spatial Data types</a></li>
+  <li><a href="#hierarchical-structure-of-data" id="toc-hierarchical-structure-of-data" class="nav-link" data-scroll-target="#hierarchical-structure-of-data"><span class="toc-section-number">2.2</span>  Hierarchical Structure of Data</a></li>
+  <li><a href="#key-challenges" id="toc-key-challenges" class="nav-link" data-scroll-target="#key-challenges"><span class="toc-section-number">2.3</span>  Key Challenges</a>
+  <ul class="collapse">
+  <li><a href="#modifible-area-unit-problem-maup" id="toc-modifible-area-unit-problem-maup" class="nav-link" data-scroll-target="#modifible-area-unit-problem-maup"><span class="toc-section-number">2.3.1</span>  Modifible Area Unit Problem (MAUP)</a></li>
+  <li><a href="#ecological-fallacy" id="toc-ecological-fallacy" class="nav-link" data-scroll-target="#ecological-fallacy"><span class="toc-section-number">2.3.2</span>  Ecological Fallacy</a></li>
+  <li><a href="#spatial-dependence" id="toc-spatial-dependence" class="nav-link" data-scroll-target="#spatial-dependence"><span class="toc-section-number">2.3.3</span>  Spatial Dependence</a></li>
+  <li><a href="#spatial-heterogeneity" id="toc-spatial-heterogeneity" class="nav-link" data-scroll-target="#spatial-heterogeneity"><span class="toc-section-number">2.3.4</span>  Spatial Heterogeneity</a></li>
+  <li><a href="#spatial-nonstationarity" id="toc-spatial-nonstationarity" class="nav-link" data-scroll-target="#spatial-nonstationarity"><span class="toc-section-number">2.3.5</span>  Spatial nonstationarity</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="spatial_data" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Data</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This Chapter seeks to present and describe distinctive attributes of spatial data, and discuss some of the main challenges in analysing and modelling these data. Spatial data is a term used to describe any data associating a given variable attribute to a specific location on the Earth’s surface.</p>
+<section id="spatial-data-types" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="spatial-data-types"><span class="header-section-number">2.1</span> Spatial Data types</h2>
+<p>Different classifications of spatial data types exist. Knowing the structure of the data at hand is important as specific analytical methods would be more appropriate for particular data types. We will use a particular classification involving four data types: lattice/areal data, point data, flow data and trajectory data (Fig. 1). This is not a exhaustive list but it is helpful to motivate the analytical and modelling methods that we cover in this book.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/ch1/datatypes.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fig. 1. Data Types. Area / Lattice data source: <span class="citation" data-cites="onnerfors2019eurostat">Önnerfors et al. (<a href="references.html#ref-onnerfors2019eurostat" role="doc-biblioref">2019</a>)</span>. Point data source: <span class="citation" data-cites="tao2018">Tao et al. (<a href="references.html#ref-tao2018" role="doc-biblioref">2018</a>)</span>. Flow data source: <span class="citation" data-cites="rowe2020">Rowe and Patias (<a href="references.html#ref-rowe2020" role="doc-biblioref">2020</a>)</span>. Trajectory data source: <span class="citation" data-cites="kwan2004geovisualization">Kwan and Lee (<a href="references.html#ref-kwan2004geovisualization" role="doc-biblioref">2004</a>)</span>.</figcaption><p></p>
+</figure>
+</div>
+<p><em>Lattice/Areal Data</em>. These data correspond to records of attribute values (such as population counts) for a fixed geographical area. They may comprise regular shapes (such as grids or pixels) or irregular shapes (such as states, counties or travel-to-work areas). Raster data are a common source of regular lattice/areal area, while censuses are probably the most common form of irregular lattice/areal area. Point data within an area can be aggregated to produce lattice/areal data.</p>
+<p><em>Point Data</em>. These data refer to records of the geographic location of an discrete event, or the number of occurrences of geographical process at a given location. As displayed in Fig. 1, examples include the geographic location of bus stops in a city, or the number of boarding passengers at each bus stop.</p>
+<p><em>Flow Data</em>. These data refer to records of measurements for a pair of geographic point locations. or pair of areas. These data capture the linkage or spatial interaction between two locations. Migration flows between a place of origin and a place of destination is an example of this type of data.</p>
+<p><em>Trajectory Data</em>. These data record geographic locations of moving objects at various points in time. A trajectory is composed of a single string of data recording the geographic location of an object at various points in time and each record in the string contains a time stamp. These data are complex and can be classified into explicit trajectory data and implicit trajectory data. The former refer to well-structured data and record positions of objects continuously and intensively at uniform time intervals, such as GPS data. The latter is less structured and record data in relatively time point intervals, including sensor-based, network-based and signal-based data <span class="citation" data-cites="kong2018">(<a href="references.html#ref-kong2018" role="doc-biblioref">Kong et al. 2018</a>)</span>.</p>
+<p>In this course, we cover analytical and modelling approaches for point, lattice/areal and flow data. While we do not explicitly analyse trajectory data, various of the analytical approaches described in this book can be extended to incorporate time, and can be applied to model these types of data. In <a href="10-st_analysis.html"><span>Chapter&nbsp;10</span></a>, we describe approaches to analyse and model spatio-temporal data. These same methods can be applied to trajectory data.</p>
+</section>
+<section id="hierarchical-structure-of-data" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="hierarchical-structure-of-data"><span class="header-section-number">2.2</span> Hierarchical Structure of Data</h2>
+<p>The hierarchical organisation is a key feature of spatial data. Smaller geographical units are organised within larger geographical units. You can find the hierarchical representation of UK Statistical Geographies on the <a href="https://geoportal.statistics.gov.uk/search?collection=Document&amp;sort=name&amp;tags=all(DOC_HRSG%2CDEC_2020)">Office for National Statistics website</a>. In the bottom part of the output below, we can observe a spatial data frame for Liverpool displaying the hierarchical structure of census data (from the smallest to the largest): Output Areas (OAs), Lower Super Output Areas (LSOAs), Middle Super Output Areas (MSOAs) and Local Authority Districts (LADs). This hierarchical structure entails that units in smaller geographies are nested within units in larger geographies, and that smaller units can be aggregated to produce large units.</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 6 features and 4 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 335071.6 ymin: 389876.7 xmax: 339426.9 ymax: 394479
+Projected CRS: Transverse_Mercator
+      OA_CD   LSOA_CD   MSOA_CD    LAD_CD                       geometry
+1 E00176737 E01033761 E02006932 E08000012 MULTIPOLYGON (((335106.3 38...
+2 E00033515 E01006614 E02001358 E08000012 MULTIPOLYGON (((335810.5 39...
+3 E00033141 E01006546 E02001365 E08000012 MULTIPOLYGON (((336738 3931...
+4 E00176757 E01006646 E02001369 E08000012 MULTIPOLYGON (((335914.5 39...
+5 E00034050 E01006712 E02001375 E08000012 MULTIPOLYGON (((339325 3914...
+6 E00034280 E01006761 E02001366 E08000012 MULTIPOLYGON (((338198.1 39...</code></pre>
+</div>
+</div>
+<p>Next we quickly go through the components of the output above. The first line indicates the type of feature and the number of rows (features) and columns (fields) in the data frame, except for the geometry. The second and third lines identify the type of geometry and dimension. The fourth line <code>bbox</code> stands for bounding box and display the min and max coordinates containing the Liverpool area in the data frame. The fifth line <code>projected CRS</code> indicates the coordinate reference system projection. If you would like to learn more about the various components of spatial data frames, please see the <em>R</em> <code>sf</code> package vignette on <a href="https://r-spatial.github.io/sf/articles/sf1.html">Simple Features</a>.</p>
+</section>
+<section id="key-challenges" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="key-challenges"><span class="header-section-number">2.3</span> Key Challenges</h2>
+<p>Major challenges exist when working with spatial data. Below we explore some of the key longstanding problems data scientists often face when working with geographical data.</p>
+<section id="modifible-area-unit-problem-maup" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="modifible-area-unit-problem-maup"><span class="header-section-number">2.3.1</span> Modifible Area Unit Problem (MAUP)</h3>
+<p>The Modifible Area Unit Problem (MAUP) represents a challenge that has troubled geographers for decades <span class="citation" data-cites="openshaw1981modifiable">(<a href="references.html#ref-openshaw1981modifiable" role="doc-biblioref">Openshaw 1981</a>)</span>. Two aspects of the MAUP are normally recognised in empirical analysis relating to <em>scale</em> and <em>zonation</em>. Fig. 2 illustrates these issues</p>
+<ul>
+<li><p><em>Scale</em> refers to the idea that a geographical area can be divided into geographies with differing numbers of spatial units.</p></li>
+<li><p><em>Zonation</em> refers to the idea that a geographical area can be divided into the same number of units in a variety of ways.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/ch1/maup.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fig. 2. MAUP effect. (a) scale effect; and, (b) zonation effect. Source: <span class="citation" data-cites="loidl2016">Loidl et al. (<a href="references.html#ref-loidl2016" role="doc-biblioref">2016</a>)</span>.</figcaption><p></p>
+</figure>
+</div>
+<p>The MAUP is a critical issue as it can impact our analysis and thus any conclusions we can infer from our results <span class="citation" data-cites="fotheringham1991modifiable">(e.g. <a href="references.html#ref-fotheringham1991modifiable" role="doc-biblioref">Fotheringham and Wong 1991</a>)</span>. There is no agreed systematic approach on how to handle the effects of the MAUP. Some have suggested to perform analyses based on different existing geographical scales, and assess the consistency of the results and identify potential sources of change. The issue with such approach is that results from analysis at different scales are likely to differ because distinct dimensions of a geographic process may be captured at different scales. For example, in migration studies, smaller geographies may be more suitable to capture residential mobility over short distances, while large geographies may be more suitable to capture long-distance migration. And it is well documented that these types of moves are driven by different factors. While residential mobility tends to be driven by housing related reasons, long-distance migration is more closely related to employment-related motives <span class="citation" data-cites="niedomysl2011">(<a href="references.html#ref-niedomysl2011" role="doc-biblioref">Niedomysl 2011</a>)</span>.</p>
+<p>An alternative approach is to use the smallest geographical system available and create random aggregations at various geographical scales, to directly quantify the extent of scale and zonation. This approach has shown promising results in applications to study internal migration flows <span class="citation" data-cites="stillwell2018">(<a href="references.html#ref-stillwell2018" role="doc-biblioref">Stillwell, Daras, and Bell 2018</a>)</span>. Another approach involves the production of “meaningful” or functional geographies that can more appropriately capture the process of interest. There is an active area of work defining functional labour markets <span class="citation" data-cites="casado-díaz2017">(<a href="references.html#ref-casado-díaz2017" role="doc-biblioref">Casado-Díaz, Martínez-Bernabéu, and Rowe 2017</a>)</span>, urban areas <span class="citation" data-cites="arribas-bel2021">(<a href="references.html#ref-arribas-bel2021" role="doc-biblioref">Arribas-Bel, Garcia-López, and Viladecans-Marsal 2021</a>)</span> and various forms of geodemographic classifications <span class="citation" data-cites="singleton2013 patias2019">(<a href="references.html#ref-singleton2013" role="doc-biblioref">Singleton and Spielman 2013</a>; <a href="references.html#ref-patias2019" role="doc-biblioref">Patias, Rowe, and Cavazzi 2019</a>)</span> . However there is the recognition that none of the existing approaches resolve the effects of the MAUP and recently it has been suggested that the most plausible ‘solution’ would be to ignore the MAUP <span class="citation" data-cites="wolf2020">(<a href="references.html#ref-wolf2020" role="doc-biblioref">Wolf et al. 2020</a>)</span>.</p>
+</section>
+<section id="ecological-fallacy" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="ecological-fallacy"><span class="header-section-number">2.3.2</span> Ecological Fallacy</h3>
+<p>Ecological fallacy is an error in the interpretation of statistical data based on aggregate information. Specifically it refers to inferences made about the nature of specific individuals based solely on statistics aggregated for a given group. It is about thinking that relationships observed for groups necessarily hold for individuals. A key example is <span class="citation" data-cites="robinson1950ecological">Robinson (<a href="references.html#ref-robinson1950ecological" role="doc-biblioref">1950</a>)</span> who illustrates this problem exploring the difference between ecological correlations and individual correlations. He looked at the relationship between country of birth and literacy. <span class="citation" data-cites="robinson1950ecological">Robinson (<a href="references.html#ref-robinson1950ecological" role="doc-biblioref">1950</a>)</span> used the percent of foreign-born population and percent of literate population for the 48 states in the United States in 1930. The ecological correlation based on these data was <code>0.53</code>. This suggests a positive association between foreign birth and literacy, and could be interpreted as foreign born individuals being more likely to be literate than native-born individuals. Yet, the correlation based on individual data was negative <code>-0.11</code> which indicates the opposite. The main point emerging from this example is to carefully interpret analysis based on spatial data and avoid making inferences about individuals from these data.</p>
+</section>
+<section id="spatial-dependence" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="spatial-dependence"><span class="header-section-number">2.3.3</span> Spatial Dependence</h3>
+<p>Spatial dependence refers to the spatial relationship of a variable’s values for a pair of locations at a certain distance apart, so that these values are more similar (or less similar) than expected for randomly associated pairs of observations <span class="citation" data-cites="anselin1988spatial">(<a href="references.html#ref-anselin1988spatial" role="doc-biblioref">Anselin 1988</a>)</span>. For example, we could think of observed patterns of ethnic segregation in an area are a result of spillover effects of pre-existing patterns of ethnic segregation in neighbouring areas. <a href="05-flows.html"><span>Chapter&nbsp;5</span></a> will illustrate approach to explicitly incorporate spatial dependence in regression analysis.</p>
+</section>
+<section id="spatial-heterogeneity" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="spatial-heterogeneity"><span class="header-section-number">2.3.4</span> Spatial Heterogeneity</h3>
+<p>Spatial heterogeneity refers to the uneven distribution of a variable’s values across space. Concentration of deprivation or unemployment across an area are good examples of spatial heterogeneity. We illustrate various ways to visualise, explore and measure the spatial distribution of data in multiple chapters. We also discuss on potential modelling approaches to capture spatial heterogeneity in <a href="05-flows.html"><span>Chapter&nbsp;5</span></a>, <a href="07-multilevel-01.html"><span>Chapter&nbsp;7</span></a> and <a href="10-st_analysis.html"><span>Chapter&nbsp;10</span></a>.</p>
+</section>
+<section id="spatial-nonstationarity" class="level3" data-number="2.3.5">
+<h3 data-number="2.3.5" class="anchored" data-anchor-id="spatial-nonstationarity"><span class="header-section-number">2.3.5</span> Spatial nonstationarity</h3>
+<p>Spatial nonstationarity refers to variations in the relationship between an outcome variable and a set of predictor variables across space. In a modelling context, it relates to a situation in which a simple “global” model is inappropriate to explain the relationships between a set of variables. The geographical nature of the model must be modified to reflect local structural relationships within the data. For example, ethinic segregation has been positively associated with employment outcomes in some countries pointing to networks in pre-existing communities facilitating access to the local labour market. Inversely ethinic segregation has been negatively associated with employment outcomes pointing to lack of integration into the broader local community. We illustrate various modelling approaches to capture spatial nonstationarity in <a href="08-multilevel-02.html"><span>Chapter&nbsp;8</span></a> and <a href="09-gwr.html"><span>Chapter&nbsp;9</span></a>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-anselin1988spatial" class="csl-entry" role="doc-biblioentry">
+Anselin, Luc. 1988. <em>Spatial Econometrics: Methods and Models</em>. Vol. 4. Springer Science &amp; Business Media.
+</div>
+<div id="ref-arribas-bel2021" class="csl-entry" role="doc-biblioentry">
+Arribas-Bel, Daniel, M.-À. Garcia-López, and Elisabet Viladecans-Marsal. 2021. <span>“Building(s and) Cities: Delineating Urban Areas with a Machine Learning Algorithm.”</span> <em>Journal of Urban Economics</em> 125 (September): 103217. <a href="https://doi.org/10.1016/j.jue.2019.103217">https://doi.org/10.1016/j.jue.2019.103217</a>.
+</div>
+<div id="ref-casado-díaz2017" class="csl-entry" role="doc-biblioentry">
+Casado-Díaz, José Manuel, Lucas Martínez-Bernabéu, and Francisco Rowe. 2017. <span>“An Evolutionary Approach to the Delimitation of Labour Market Areas: An Empirical Application for Chile.”</span> <em>Spatial Economic Analysis</em> 12 (4): 379–403. <a href="https://doi.org/10.1080/17421772.2017.1273541">https://doi.org/10.1080/17421772.2017.1273541</a>.
+</div>
+<div id="ref-fotheringham1991modifiable" class="csl-entry" role="doc-biblioentry">
+Fotheringham, A Stewart, and David WS Wong. 1991. <span>“The Modifiable Areal Unit Problem in Multivariate Statistical Analysis.”</span> <em>Environment and Planning A</em> 23 (7): 1025–44.
+</div>
+<div id="ref-kong2018" class="csl-entry" role="doc-biblioentry">
+Kong, Xiangjie, Menglin Li, Kai Ma, Kaiqi Tian, Mengyuan Wang, Zhaolong Ning, and Feng Xia. 2018. <span>“Big Trajectory Data: A Survey of Applications and Services.”</span> <em>IEEE Access</em> 6: 58295–306. <a href="https://doi.org/10.1109/access.2018.2873779">https://doi.org/10.1109/access.2018.2873779</a>.
+</div>
+<div id="ref-kwan2004geovisualization" class="csl-entry" role="doc-biblioentry">
+Kwan, Mei-Po, and Jiyeong Lee. 2004. <span>“Geovisualization of Human Activity Patterns Using 3D GIS: A Time-Geographic Approach.”</span> <em>Spatially Integrated Social Science</em> 27: 721–44.
+</div>
+<div id="ref-loidl2016" class="csl-entry" role="doc-biblioentry">
+Loidl, Martin, Gudrun Wallentin, Robin Wendel, and Bernhard Zagel. 2016. <span>“Mapping Bicycle Crash Risk Patterns on the Local Scale.”</span> <em>Safety</em> 2 (3): 17. <a href="https://doi.org/10.3390/safety2030017">https://doi.org/10.3390/safety2030017</a>.
+</div>
+<div id="ref-niedomysl2011" class="csl-entry" role="doc-biblioentry">
+Niedomysl, Thomas. 2011. <span>“How Migration Motives Change over Migration Distance: Evidence on Variation Across Socio-Economic and Demographic Groups.”</span> <em>Regional Studies</em> 45 (6): 843–55. <a href="https://doi.org/10.1080/00343401003614266">https://doi.org/10.1080/00343401003614266</a>.
+</div>
+<div id="ref-onnerfors2019eurostat" class="csl-entry" role="doc-biblioentry">
+Önnerfors, Åsa, Mariana Kotzeva, Teodóra Brandmüller, et al. 2019. <span>“Eurostat Regional Yearbook 2019 Edition.”</span>
+</div>
+<div id="ref-openshaw1981modifiable" class="csl-entry" role="doc-biblioentry">
+Openshaw, Stan. 1981. <span>“The Modifiable Areal Unit Problem.”</span> <em>Quantitative Geography: A British View</em>, 60–69.
+</div>
+<div id="ref-patias2019" class="csl-entry" role="doc-biblioentry">
+Patias, Nikos, Francisco Rowe, and Stefano Cavazzi. 2019. <span>“A Scalable Analytical Framework for Spatio-Temporal Analysis of Neighborhood Change: A Sequence Analysis Approach.”</span> In, 223–41. Springer International Publishing. <a href="https://doi.org/10.1007/978-3-030-14745-7_13">https://doi.org/10.1007/978-3-030-14745-7_13</a>.
+</div>
+<div id="ref-robinson1950ecological" class="csl-entry" role="doc-biblioentry">
+Robinson, WS. 1950. <span>“Ecological Correlations and Individual Behavior.”</span> <em>American Sociological Review</em> 15 (195): 351–57.
+</div>
+<div id="ref-rowe2020" class="csl-entry" role="doc-biblioentry">
+Rowe, Francisco, and Nikos Patias. 2020. <span>“Mapping the Spatial Patterns of Internal Migration in Europe.”</span> <em>Regional Studies, Regional Science</em> 7 (1): 390–93. <a href="https://doi.org/10.1080/21681376.2020.1811139">https://doi.org/10.1080/21681376.2020.1811139</a>.
+</div>
+<div id="ref-singleton2013" class="csl-entry" role="doc-biblioentry">
+Singleton, Alexander D., and Seth E. Spielman. 2013. <span>“The Past, Present, and Future of Geodemographic Research in the United States and United Kingdom.”</span> <em>The Professional Geographer</em> 66 (4): 558–67. <a href="https://doi.org/10.1080/00330124.2013.848764">https://doi.org/10.1080/00330124.2013.848764</a>.
+</div>
+<div id="ref-stillwell2018" class="csl-entry" role="doc-biblioentry">
+Stillwell, John, Konstantinos Daras, and Martin Bell. 2018. <span>“Spatial Aggregation Methods for Investigating the MAUP Effects in Migration Analysis.”</span> <em>Applied Spatial Analysis and Policy</em> 11 (4): 693–711. <a href="https://doi.org/10.1007/s12061-018-9274-6">https://doi.org/10.1007/s12061-018-9274-6</a>.
+</div>
+<div id="ref-tao2018" class="csl-entry" role="doc-biblioentry">
+Tao, Sui, Jonathan Corcoran, Francisco Rowe, and Mark Hickman. 2018. <span>“To Travel or Not to Travel: <span>‘</span>Weather<span>’</span> Is the Question. Modelling the Effect of Local Weather Conditions on Bus Ridership.”</span> <em>Transportation Research Part C: Emerging Technologies</em> 86 (January): 147–67. <a href="https://doi.org/10.1016/j.trc.2017.11.005">https://doi.org/10.1016/j.trc.2017.11.005</a>.
+</div>
+<div id="ref-wolf2020" class="csl-entry" role="doc-biblioentry">
+Wolf, Levi John, Sean Fox, Rich Harris, Ron Johnston, Kelvyn Jones, David Manley, Emmanouil Tranos, and Wenfei Winnie Wang. 2020. <span>“Quantitative Geography III: Future Challenges and Challenging Futures.”</span> <em>Progress in Human Geography</em> 45 (3): 596–608. <a href="https://doi.org/10.1177/0309132520924722">https://doi.org/10.1177/0309132520924722</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./01-overview.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./03-data-wrangling.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

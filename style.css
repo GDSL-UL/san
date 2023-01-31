@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+
+body {
+  font-family: "IBM Plex Sans", "sans-serif";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1;
+}
+
 p.caption {
   color: #777;
   margin-top: 10px;
@@ -6,9 +20,59 @@ p code {
   white-space: inherit;
 }
 pre {
+  font-family: "IBM Plex Mono", mono;
   word-break: normal;
   word-wrap: normal;
 }
+
 pre code {
   white-space: inherit;
+}
+
+.inline-figure {
+border: none;
+}
+
+img.cover {
+float: right;
+margin: 0 0 2rem 2rem;
+box-shadow: none;
+}
+
+.sidebar li.book-part {
+margin-top: 1rem;
+text-transform: uppercase;
+font-weight: 700;
+} 
+
+.section a {
+  color: #2f2d2a;
+  text-decoration: underline;
+  -webkit-text-decoration: underline;
+  -moz-text-decoration: underline;
+  -ms-text-decoration: underline;
+  -o-text-decoration:underline;
+}
+
+.section a:hover {
+  color: #F8CE5D;
+  text-decoration: underline;
+  -webkit-text-decoration: underline;
+  -moz-text-decoration: underline;
+  -ms-text-decoration: underline;
+  -o-text-decoration:underline;
+  transition: 0.3s;
+}
+
+.figure {
+  border-top: none;
+  border-bottom: none;
+  margin: 0rem -0.5rem 1rem -0.5rem;
+}
+
+blockquote {
+    border-left: 0.5rem solid #eee;
+    padding-left: 1.5rem;
+    margin-left: -0.5rem;
+    font-style: italic;
 }

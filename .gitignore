@@ -5,3 +5,6 @@ libs/
 _bookdown_files/
 bookdown-demo.rds
 spatial_analysis_notes.rds
+.Rproj.user
+
+/.quarto/
