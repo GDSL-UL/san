@@ -856,17 +856,17 @@ E01006518 -0.01885870</code></pre>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># obtain estimates</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>merTools<span class="sc">::</span><span class="fu">REsim</span>(model3) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   groupFctr   groupID        term         mean       median         sd
-1    lsoa_cd E01006512 (Intercept) -0.015520026 -0.016713025 0.01940481
-2    lsoa_cd E01006513 (Intercept) -0.016677203 -0.016046324 0.02057476
-3    lsoa_cd E01006514 (Intercept) -0.022192008 -0.022692515 0.02008431
-4    lsoa_cd E01006515 (Intercept) -0.016777699 -0.018396129 0.02113611
-5    lsoa_cd E01006518 (Intercept) -0.017160465 -0.019020177 0.01856430
-6    lsoa_cd E01006519 (Intercept) -0.016301316 -0.015913051 0.01021440
-7    lsoa_cd E01006520 (Intercept) -0.023979610 -0.024702832 0.01884201
-8    lsoa_cd E01006521 (Intercept)  0.007942005  0.006969632 0.02007075
-9    lsoa_cd E01006522 (Intercept)  0.018456698  0.017948117 0.01957945
-10   lsoa_cd E01006523 (Intercept)  0.005007568  0.003443507 0.01902036</code></pre>
+<pre><code>   groupFctr   groupID        term         mean       median          sd
+1    lsoa_cd E01006512 (Intercept) -0.016768087 -0.017170116 0.019503311
+2    lsoa_cd E01006513 (Intercept) -0.019742345 -0.019689323 0.019689275
+3    lsoa_cd E01006514 (Intercept) -0.026497192 -0.026699783 0.018594589
+4    lsoa_cd E01006515 (Intercept) -0.019823005 -0.021644976 0.019045931
+5    lsoa_cd E01006518 (Intercept) -0.022286775 -0.020384404 0.020435889
+6    lsoa_cd E01006519 (Intercept) -0.015051393 -0.014934967 0.009283546
+7    lsoa_cd E01006520 (Intercept) -0.024982597 -0.025188368 0.019838010
+8    lsoa_cd E01006521 (Intercept)  0.004833197  0.005197572 0.018756088
+9    lsoa_cd E01006522 (Intercept)  0.018165777  0.019514580 0.018874066
+10   lsoa_cd E01006523 (Intercept)  0.002829493  0.001494781 0.019598617</code></pre>
 </div>
 </div>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g.&nbsp;LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
@@ -925,9 +925,9 @@ Projected CRS: Transverse_Mercator</code></pre>
  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
- $ mean     : num  -0.00774 -0.02324 -0.03754 0.00376 0.02236 ...
- $ median   : num  -0.00909 -0.02386 -0.03791 0.00468 0.0221 ...
- $ sd       : num  0.0301 0.0327 0.0327 0.0288 0.0159 ...</code></pre>
+ $ mean     : num  -0.01315 -0.02498 -0.02924 0.00489 0.02195 ...
+ $ median   : num  -0.0125 -0.02367 -0.02515 0.00553 0.02185 ...
+ $ sd       : num  0.0307 0.0304 0.0325 0.0326 0.0155 ...</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># merge data</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> msoa_shp, <span class="at">y =</span> re_msoa, <span class="at">by.x =</span> <span class="st">"MSOA_CD"</span>, <span class="at">by.y =</span> <span class="st">"groupID"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
