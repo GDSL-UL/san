@@ -31,10 +31,6 @@ library(plyr)
 
 Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with `setwd()`. Please replace in the following line the path to the folder where you have placed this file -and where the `house_transactions` folder with the data lives.
 
-```{r}
-setwd('.')
-```
-
 ## Data
 
 For this session, we will use the set of Airbnb properties for San Diego (US), borrowed from the "Geographic Data Science with Python" book (see [here](https://geographicdata.science/book/data/airbnb/regression_cleaning.html) for more info on the dataset source). This covers the point location of properties advertised on the Airbnb website in the San Diego region.
@@ -135,9 +131,9 @@ To create a spatial KDE in R, we can use general tooling for non-spatial points,
 ```{r fig.margin=TRUE, fig.cap="KDE of AirBnb properties in San Diego"}
 # Create the KDE surface
 kde <- ggplot(data = db) +
-  stat_density2d_filled(
+  stat_density2d_filled(alpha = 0.5,
     data = as.data.frame(st_coordinates(db)), 
-    aes(x = X, y = Y, alpha = ..level..),
+    aes(x = X, y = Y),
     n = 16
   ) +
   # Tweak the color gradient
@@ -163,9 +159,9 @@ qmplot(
   geom="blank"
 ) +
   # KDE
-  stat_density2d_filled(
+  stat_density2d_filled(alpha = 0.5,
     data = lon_lat, 
-    aes(x = X, y = Y, alpha = ..level..),
+    aes(x = X, y = Y),
     n = 16
   ) +
   # Tweak the color gradient
