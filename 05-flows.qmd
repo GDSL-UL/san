@@ -16,7 +16,6 @@ We will rely on the following libraries in this section, all of them included in
 ```{r results='hide', message = FALSE, warning=FALSE}
 # Spatial Data management
 library(sf)
-library(rgdal)
 # Pretty graphics
 library(ggplot2)
 # Thematic maps
@@ -42,9 +41,9 @@ In this note, we will use data from the city of San Francisco representing bike 
 Let us then directly load the file with all the information necessary:
 
 ```{r}
-db <- readOGR('./data/sf_bikes/flows.geojson')
-rownames(db@data) <- db$flow_id
-db@data$flow_id <- NULL
+db <- st_read('./data/sf_bikes/flows.geojson')
+#rownames(db@data) <- db$flow_id
+#db@data$flow_id <- NULL
 ```
 
 Note how the interface is slightly different since we are reading a `GeoJSON` file instead of a shapefile.
@@ -52,7 +51,7 @@ Note how the interface is slightly different since we are reading a `GeoJSON` fi
 The data contains the geometries of the flows, as calculated from the [Google Maps API](https://developers.google.com/maps/), as well as a series of columns with characteristics of each flow:
 
 ```{r}
-head(db@data)
+head(db)
 ```
 
 where `orig` and `dest` are the station IDs of the origin and destination, `street/straight_dist` is the distance in metres between stations measured along the street network or as-the-crow-flies, `total_down/up` is the total downhil and climb in the trip, and `tripsXX` contains the amount of trips undertaken in the years of study.
@@ -62,25 +61,27 @@ where `orig` and `dest` are the station IDs of the origin and destination, `stre
 The easiest way to get a quick preview of what the data looks like spatially is to make a simple plot:
 
 ```{r fig.margin=TRUE, fig.cap="Potential routes"}
-plot(db)
+plot(db$geometry)
 ```
 
 Equally, if we want to visualize a single route, we can simply subset the table. For example, to get the shape of the trip from station `39` to station `48`, we can:
 
 ```{r fig.margin=TRUE, fig.cap="Trip from station 39 to 48"}
-one39to48 <- db[ which(
-          db@data$orig == 39 & db@data$dest == 48
-          ) , ]
-plot(one39to48)
+db %>% 
+  dplyr::filter(orig == 39 & dest == 48) %>% 
+  ggplot(data = .) + 
+  geom_sf(color = "black", 
+          size = 0.1) +
+  theme_void()
+
+
 ```
 
 or, for the most popular route, we can:
 
 ```{r fig.margin=TRUE, fig.cap="Most popular trip"}
-most_pop <- db[ which(
-          db@data$trips15 == max(db@data$trips15)
-          ) , ]
-plot(most_pop)
+most_pop <- db %>% 
+  dplyr::filter(trips15 == max(trips15))
 ```
 
 These however do not reveal a lot: there is no geographical context (*why are there so many routes along the NE?*) and no sense of how volumes of bikers are allocated along different routes. Let us fix those two.
@@ -88,17 +89,15 @@ These however do not reveal a lot: there is no geographical context (*why are th
 The easiest way to bring in geographical context is by overlaying the routes on top of a background map of tiles downloaded from the internet. Let us download this using `ggmap`:
 
 ```{r, message = FALSE, warning=FALSE}
-sf_bb <- c(
-  left=db@bbox['x', 'min'],
-  right=db@bbox['x', 'max'],
-  bottom=db@bbox['y', 'min'],
-  top=db@bbox['y', 'max']
-  )
+bbox_db <- st_bbox(db)
+names(bbox_db) <- c("left", "bottom", "right", "top")
+
 SanFran <- get_stamenmap(
-  sf_bb, 
+  bbox_db, 
   zoom = 14, 
   maptype = "toner-lite"
   )
+
 ```
 
 and make sure it looks like we intend it to look:
@@ -110,7 +109,7 @@ ggmap(SanFran)
 Now to combine tiles and routes, we need to pull out the coordinates that make up each line. For the route example above, this would be:
 
 ```{r fig.margin=TRUE}
-xys1 <- as.data.frame(coordinates(most_pop))
+xys1 <- as.data.frame(st_coordinates(most_pop))
 ```
 
 Now we can plot the route[^05-flows-1] (note we also dim down the background to focus the attention on flows):
@@ -120,7 +119,7 @@ Now we can plot the route[^05-flows-1] (note we also dim down the background to 
 ```{r fig.margin=TRUE}
 ggmap(SanFran, darken=0.5) + 
   geom_path(
-    aes(x=X1, y=X2), 
+    aes(x=X, y=Y), 
     data=xys1,
     size=1,
     color=rgb(0.996078431372549, 0.7019607843137254, 0.03137254901960784),
@@ -143,10 +142,10 @@ for(x in 1:nrow(db)){
   # Pull out row
   r <- db[x, ]
   # Extract lon/lat coords
-  xys <- as.data.frame(coordinates(r))
+  xys <- as.data.frame(st_coordinates(r))
   names(xys) <- c('lon', 'lat')
   # Insert trips and id
-  xys['trips'] <- r@data$trips15
+  xys['trips'] <- r$trips15
   xys['id'] <- x
   # Append them to `lines`
   lines <- rbind(lines, xys)
@@ -198,13 +197,15 @@ Before we start running regressions, let us first standardize the predictors so 
 
 ```{r}
 # Scale all the table
-db_std <- as.data.frame(scale(db@data))
+db_std <- db %>% mutate(across(where(is.numeric), scale))
+
 # Reset trips as we want the original version
-db_std$trips15 <- db@data$trips15
-db_std$trips16 <- db@data$trips16
+db_std$trips15 <- db$trips15
+db_std$trips16 <- db$trips16
+
 # Reset origin and destination station and express them as factors
-db_std$orig <- as.factor(db@data$orig)
-db_std$dest <- as.factor(db@data$dest)
+db_std$orig <- as.factor(db$orig)
+db_std$dest <- as.factor(db$dest)
 ```
 
 **Baseline model**
