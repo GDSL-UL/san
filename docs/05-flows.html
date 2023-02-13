@@ -310,17 +310,19 @@ div.csl-indent {
 <h2 data-number="5.1" class="anchored" data-anchor-id="dependencies"><span class="header-section-number">5.1</span> Dependencies</h2>
 <p>We will rely on the following libraries in this section, all of them included in <a href="01-overview.html#sec-dependencies"><span>Section&nbsp;1.4.1</span></a>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial Data management</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgdal)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty graphics</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Thematic maps</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty maps</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmap)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulation methods</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data management</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial Data management</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sp)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty graphics</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Thematic maps</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty maps</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmap)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulation methods</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this chapter we will show a slightly different way of managing spatial data in R. Although most of the functionality will be similar to that seen in previous chapters, we will not rely on the “<code>sf</code> stack” and we will instead show how to read and manipulate data using the more traditional <code>sp</code> stack. Although this approach is being slowly phased out, it is still important to be aware of its existence and its differences with more modern approaches.</p>
 <p>Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with <code>setwd()</code>. Please replace in the following line the path to the folder where you have placed this file -and where the <code>sf_bikes</code> folder with the data lives.</p>
@@ -333,28 +335,44 @@ div.csl-indent {
 <p>In this note, we will use data from the city of San Francisco representing bike trips on their public bike share system. The original source is the SF Open Data portal (<a href="http://www.bayareabikeshare.com/open-data">link</a>) and the dataset comprises both the location of each station in the Bay Area as well as information on trips (station of origin to station of destination) undertaken in the system from September 2014 to August 2015 and the following year. Since this note is about modeling and not data preparation, a cleanly reshaped version of the data, together with some additional information, has been created and placed in the <code>sf_bikes</code> folder. The data file is named <code>flows.geojson</code> and, in case you are interested, the (Python) code required to created from the original files in the SF Data Portal is also available on the <code>flows_prep.ipynb</code> notebook <a href="https://github.com/darribas/spa_notes/blob/master/sf_bikes/flows_prep.ipynb">[url]</a>, also in the same folder.</p>
 <p>Let us then directly load the file with all the information necessary:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>db <span class="ot">&lt;-</span> <span class="fu">readOGR</span>(<span class="st">'./data/sf_bikes/flows.geojson'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>db <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">'./data/sf_bikes/flows.geojson'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>OGR data source with driver: GeoJSON 
-Source: "/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202223/san/data/sf_bikes/flows.geojson", layer: "flows"
-with 1722 features
-It has 9 fields</code></pre>
+<pre><code>Reading layer `flows' from data source 
+  `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202223/san/data/sf_bikes/flows.geojson' 
+  using driver `GeoJSON'
+Simple feature collection with 1722 features and 9 fields
+Geometry type: LINESTRING
+Dimension:     XY
+Bounding box:  xmin: -122.4237 ymin: 37.76914 xmax: -122.3875 ymax: 37.80737
+Geodetic CRS:  WGS 84</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(db<span class="sc">@</span>data) <span class="ot">&lt;-</span> db<span class="sc">$</span>flow_id</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>db<span class="sc">@</span>data<span class="sc">$</span>flow_id <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#rownames(db@data) &lt;- db$flow_id</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#db@data$flow_id &lt;- NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note how the interface is slightly different since we are reading a <code>GeoJSON</code> file instead of a shapefile.</p>
 <p>The data contains the geometries of the flows, as calculated from the <a href="https://developers.google.com/maps/">Google Maps API</a>, as well as a series of columns with characteristics of each flow:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(db<span class="sc">@</span>data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(db)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      dest orig straight_dist street_dist total_down total_up trips15 trips16
-39-41   41   39      1452.201   1804.1150  11.205753 4.698162      68      68
-39-42   42   39      1734.861   2069.1557  10.290236 2.897886      23      29
-39-45   45   39      1255.349   1747.9928  11.015596 4.593927      83      50
-39-46   46   39      1323.303   1490.8361   3.511543 5.038044     258     163
-39-47   47   39       715.689    769.9189   0.000000 3.282495     127      73
-39-48   48   39      1996.778   2740.1290  11.375186 3.841296      81      56</code></pre>
+<pre><code>Simple feature collection with 6 features and 9 fields
+Geometry type: LINESTRING
+Dimension:     XY
+Bounding box:  xmin: -122.4083 ymin: 37.7838 xmax: -122.3945 ymax: 37.80097
+Geodetic CRS:  WGS 84
+  flow_id dest orig straight_dist street_dist total_down total_up trips15
+1   39-41   41   39      1452.201   1804.1150  11.205753 4.698162      68
+2   39-42   42   39      1734.861   2069.1557  10.290236 2.897886      23
+3   39-45   45   39      1255.349   1747.9928  11.015596 4.593927      83
+4   39-46   46   39      1323.303   1490.8361   3.511543 5.038044     258
+5   39-47   47   39       715.689    769.9189   0.000000 3.282495     127
+6   39-48   48   39      1996.778   2740.1290  11.375186 3.841296      81
+  trips16                       geometry
+1      68 LINESTRING (-122.4083 37.78...
+2      29 LINESTRING (-122.4083 37.78...
+3      50 LINESTRING (-122.4083 37.78...
+4     163 LINESTRING (-122.4083 37.78...
+5      73 LINESTRING (-122.4083 37.78...
+6      56 LINESTRING (-122.4083 37.78...</code></pre>
 </div>
 </div>
 <p>where <code>orig</code> and <code>dest</code> are the station IDs of the origin and destination, <code>street/straight_dist</code> is the distance in metres between stations measured along the street network or as-the-crow-flies, <code>total_down/up</code> is the total downhil and climb in the trip, and <code>tripsXX</code> contains the amount of trips undertaken in the years of study.</p>
@@ -363,7 +381,7 @@ It has 9 fields</code></pre>
 <h2 data-number="5.3" class="anchored" data-anchor-id="seeing-flows"><span class="header-section-number">5.3</span> “<em>Seeing</em>” flows</h2>
 <p>The easiest way to get a quick preview of what the data looks like spatially is to make a simple plot:</p>
 <div class="cell" data-fig.margin="true">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(db)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(db<span class="sc">$</span>geometry)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -375,10 +393,12 @@ It has 9 fields</code></pre>
 </div>
 <p>Equally, if we want to visualize a single route, we can simply subset the table. For example, to get the shape of the trip from station <code>39</code> to station <code>48</code>, we can:</p>
 <div class="cell" data-fig.margin="true">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>one39to48 <span class="ot">&lt;-</span> db[ <span class="fu">which</span>(</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>          db<span class="sc">@</span>data<span class="sc">$</span>orig <span class="sc">==</span> <span class="dv">39</span> <span class="sc">&amp;</span> db<span class="sc">@</span>data<span class="sc">$</span>dest <span class="sc">==</span> <span class="dv">48</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>          ) , ]</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(one39to48)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>db <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(orig <span class="sc">==</span> <span class="dv">39</span> <span class="sc">&amp;</span> dest <span class="sc">==</span> <span class="dv">48</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> .) <span class="sc">+</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">size =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -390,33 +410,20 @@ It has 9 fields</code></pre>
 </div>
 <p>or, for the most popular route, we can:</p>
 <div class="cell" data-fig.margin="true">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>most_pop <span class="ot">&lt;-</span> db[ <span class="fu">which</span>(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>          db<span class="sc">@</span>data<span class="sc">$</span>trips15 <span class="sc">==</span> <span class="fu">max</span>(db<span class="sc">@</span>data<span class="sc">$</span>trips15)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>          ) , ]</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(most_pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="05-flows_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Most popular trip</figcaption><p></p>
-</figure>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>most_pop <span class="ot">&lt;-</span> db <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(trips15 <span class="sc">==</span> <span class="fu">max</span>(trips15))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>These however do not reveal a lot: there is no geographical context (<em>why are there so many routes along the NE?</em>) and no sense of how volumes of bikers are allocated along different routes. Let us fix those two.</p>
 <p>The easiest way to bring in geographical context is by overlaying the routes on top of a background map of tiles downloaded from the internet. Let us download this using <code>ggmap</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sf_bb <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">left=</span>db<span class="sc">@</span>bbox[<span class="st">'x'</span>, <span class="st">'min'</span>],</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">right=</span>db<span class="sc">@</span>bbox[<span class="st">'x'</span>, <span class="st">'max'</span>],</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">bottom=</span>db<span class="sc">@</span>bbox[<span class="st">'y'</span>, <span class="st">'min'</span>],</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">top=</span>db<span class="sc">@</span>bbox[<span class="st">'y'</span>, <span class="st">'max'</span>]</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>SanFran <span class="ot">&lt;-</span> <span class="fu">get_stamenmap</span>(</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  sf_bb, </span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">zoom =</span> <span class="dv">14</span>, </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">maptype =</span> <span class="st">"toner-lite"</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>bbox_db <span class="ot">&lt;-</span> <span class="fu">st_bbox</span>(db)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(bbox_db) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"left"</span>, <span class="st">"bottom"</span>, <span class="st">"right"</span>, <span class="st">"top"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>SanFran <span class="ot">&lt;-</span> <span class="fu">get_stamenmap</span>(</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  bbox_db, </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">zoom =</span> <span class="dv">14</span>, </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">maptype =</span> <span class="st">"toner-lite"</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and make sure it looks like we intend it to look:</p>
 <div class="cell" data-fig.margin="true">
@@ -427,13 +434,13 @@ It has 9 fields</code></pre>
 </div>
 <p>Now to combine tiles and routes, we need to pull out the coordinates that make up each line. For the route example above, this would be:</p>
 <div class="cell" data-fig.margin="true">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>xys1 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">coordinates</span>(most_pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>xys1 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">st_coordinates</span>(most_pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can plot the route<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> (note we also dim down the background to focus the attention on flows):</p>
 <div class="cell" data-fig.margin="true">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggmap</span>(SanFran, <span class="at">darken=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>X1, <span class="at">y=</span>X2), </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>X, <span class="at">y=</span>Y), </span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>xys1,</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">size=</span><span class="dv">1</span>,</span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="fu">rgb</span>(<span class="fl">0.996078431372549</span>, <span class="fl">0.7019607843137254</span>, <span class="fl">0.03137254901960784</span>),</span>
@@ -461,10 +468,10 @@ It has 9 fields</code></pre>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pull out row</span></span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> db[x, ]</span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extract lon/lat coords</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  xys <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">coordinates</span>(r))</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  xys <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">st_coordinates</span>(r))</span>
 <span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(xys) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'lon'</span>, <span class="st">'lat'</span>)</span>
 <span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Insert trips and id</span></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  xys[<span class="st">'trips'</span>] <span class="ot">&lt;-</span> r<span class="sc">@</span>data<span class="sc">$</span>trips15</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  xys[<span class="st">'trips'</span>] <span class="ot">&lt;-</span> r<span class="sc">$</span>trips15</span>
 <span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  xys[<span class="st">'id'</span>] <span class="ot">&lt;-</span> x</span>
 <span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Append them to `lines`</span></span>
 <span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>  lines <span class="ot">&lt;-</span> <span class="fu">rbind</span>(lines, xys)</span>
@@ -513,13 +520,15 @@ It has 9 fields</code></pre>
 <p>Before we start running regressions, let us first standardize the predictors so we can interpret the intercept as the average flow when all the predictors take the average value, and so we can interpret the model coefficients as changes in standard deviation units:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scale all the table</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>db_std <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">scale</span>(db<span class="sc">@</span>data))</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Reset trips as we want the original version</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>db_std<span class="sc">$</span>trips15 <span class="ot">&lt;-</span> db<span class="sc">@</span>data<span class="sc">$</span>trips15</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>db_std<span class="sc">$</span>trips16 <span class="ot">&lt;-</span> db<span class="sc">@</span>data<span class="sc">$</span>trips16</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Reset origin and destination station and express them as factors</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>db_std<span class="sc">$</span>orig <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(db<span class="sc">@</span>data<span class="sc">$</span>orig)</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>db_std<span class="sc">$</span>dest <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(db<span class="sc">@</span>data<span class="sc">$</span>dest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>db_std <span class="ot">&lt;-</span> db <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), scale))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Reset trips as we want the original version</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>db_std<span class="sc">$</span>trips15 <span class="ot">&lt;-</span> db<span class="sc">$</span>trips15</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>db_std<span class="sc">$</span>trips16 <span class="ot">&lt;-</span> db<span class="sc">$</span>trips16</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Reset origin and destination station and express them as factors</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>db_std<span class="sc">$</span>orig <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(db<span class="sc">$</span>orig)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>db_std<span class="sc">$</span>dest <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(db<span class="sc">$</span>dest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Baseline model</strong></p>
 <p>One of the simplest possible models we can fit in this context is a linear model that explains the number of trips as a function of the straight distance between the two stations and total amount of climb and downhill. We will take this as the baseline on which we can further build later:</p>
