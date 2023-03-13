@@ -10,7 +10,7 @@ The content of this chapter is based on:
 
 ## Dependencies
 
-This chapter uses the following libraries which are listed in the \[Dependency list\] Section of Chapter 1:
+This chapter uses the following libraries which are listed in the @sec-dependencies in Chapter 1:
 
 ```{r, message = FALSE}
 # Data manipulation, transformation and visualisation
