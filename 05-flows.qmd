@@ -13,7 +13,9 @@ Content is based on the following references, which are great follow-up's on the
 
 We will rely on the following libraries in this section, all of them included in @sec-dependencies:
 
-```{r results='hide', message = FALSE, warning=FALSE}
+```{r}
+#| message: false
+#| warning: false
 # Data management
 library(tidyverse)
 # Spatial Data management
@@ -23,19 +25,13 @@ library(sp)
 library(ggplot2)
 # Thematic maps
 library(tmap)
-# Pretty maps
-library(ggmap)
+# Add basemaps
+library(basemapR)
 # Simulation methods
 library(arm)
 ```
 
 In this chapter we will show a slightly different way of managing spatial data in R. Although most of the functionality will be similar to that seen in previous chapters, we will not rely on the "`sf` stack" and we will instead show how to read and manipulate data using the more traditional `sp` stack. Although this approach is being slowly phased out, it is still important to be aware of its existence and its differences with more modern approaches.
-
-Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with `setwd()`. Please replace in the following line the path to the folder where you have placed this file -and where the `sf_bikes` folder with the data lives.
-
-```{r}
-setwd('.')
-```
 
 ## Data
 
@@ -45,8 +41,6 @@ Let us then directly load the file with all the information necessary:
 
 ```{r}
 db <- st_read('./data/sf_bikes/flows.geojson')
-#rownames(db@data) <- db$flow_id
-#db@data$flow_id <- NULL
 ```
 
 Note how the interface is slightly different since we are reading a `GeoJSON` file instead of a shapefile.
@@ -63,13 +57,13 @@ where `orig` and `dest` are the station IDs of the origin and destination, `stre
 
 The easiest way to get a quick preview of what the data looks like spatially is to make a simple plot:
 
-```{r fig.margin=TRUE, fig.cap="Potential routes"}
+```{r}
 plot(db$geometry)
 ```
 
 Equally, if we want to visualize a single route, we can simply subset the table. For example, to get the shape of the trip from station `39` to station `48`, we can:
 
-```{r fig.margin=TRUE, fig.cap="Trip from station 39 to 48"}
+```{r}
 db %>% 
   dplyr::filter(orig == 39 & dest == 48) %>% 
   ggplot(data = .) + 
@@ -82,52 +76,52 @@ db %>%
 
 or, for the most popular route, we can:
 
-```{r fig.margin=TRUE, fig.cap="Most popular trip"}
+```{r}
 most_pop <- db %>% 
   dplyr::filter(trips15 == max(trips15))
 ```
 
 These however do not reveal a lot: there is no geographical context (*why are there so many routes along the NE?*) and no sense of how volumes of bikers are allocated along different routes. Let us fix those two.
 
-The easiest way to bring in geographical context is by overlaying the routes on top of a background map of tiles downloaded from the internet. Let us download this using `ggmap`:
+The easiest way to bring in geographical context is by overlaying the routes on top of a background map of tiles downloaded from the internet. Let us download this using `basemapR`:
 
-```{r, message = FALSE, warning=FALSE}
+```{r}
+# create a bounding box
 bbox_db <- st_bbox(db)
-names(bbox_db) <- c("left", "bottom", "right", "top")
+# download a basemap using ggplot and basemapR
+ggplot() +
+  base_map(bbox_db, increase_zoom = 2, basemap = "positron") +
+  geom_sf(data = db, fill = NA, colour = "transparent") 
 
-SanFran <- get_stamenmap(
-  bbox_db, 
-  zoom = 14, 
-  maptype = "toner-lite"
-  )
-
-```
-
-and make sure it looks like we intend it to look:
-
-```{r fig.margin=TRUE}
-ggmap(SanFran)
 ```
 
 Now to combine tiles and routes, we need to pull out the coordinates that make up each line. For the route example above, this would be:
 
-```{r fig.margin=TRUE}
+```{r}
 xys1 <- as.data.frame(st_coordinates(most_pop))
 ```
 
-Now we can plot the route[^05-flows-1] (note we also dim down the background to focus the attention on flows):
+Now we can plot the route (note we also dim down the background to focus the attention on flows):
 
-[^05-flows-1]: **EXERCISE**: *can you plot the route for the largest climb?*
+::: column-margin
+::: {.callout-tip appearance="simple" icon="false"}
+**Task**
 
-```{r fig.margin=TRUE}
-ggmap(SanFran, darken=0.5) + 
-  geom_path(
-    aes(x=X, y=Y), 
-    data=xys1,
-    size=1,
-    color=rgb(0.996078431372549, 0.7019607843137254, 0.03137254901960784),
-    lineend='round'
-    )
+Can you plot the route for the largest climb?
+:::
+:::
+
+```{r}
+#| warning: false
+ggplot() +
+  base_map(bbox_db, increase_zoom = 2, basemap = "dark") +
+    geom_sf( data = db, fill = NA, colour = "transparent") +
+  geom_path( data = xys1, 
+             aes( x = X, y = Y ), 
+             #size = 1,
+             color = "green",
+             lineend ='round'
+             )
 ```
 
 Now we can plot all of the lines by using a short `for` loop to build up the table:
@@ -157,44 +151,57 @@ for(x in 1:nrow(db)){
 
 Now we can go on and plot all of them:
 
-```{r fig.margin=TRUE}
-ggmap(SanFran, darken=0.75) + 
-  geom_path(
-    aes(x=lon, y=lat, group=id),
-    data=lines,
-    size=0.1,
-    color=rgb(0.996078431372549, 0.7019607843137254, 0.03137254901960784),
-    lineend='round'
-  )
+```{r}
+#| warning: false
+ggplot() +
+  # call basemap
+  base_map(bbox_db, increase_zoom = 2, basemap = "dark") +
+  geom_sf(data = db, fill = NA, colour = "transparent") +
+  # add data
+  geom_path( data = lines, 
+             aes(x=lon, y=lat, 
+                 group=id
+                 ), 
+             size = 1,
+             color = "green",
+             lineend = 'round')
+
 ```
 
 Finally, we can get a sense of the distribution of the flows by associating a color gradient to each flow based on its number of trips:
 
-```{r fig.fullwidth=TRUE}
-ggmap(SanFran, darken=0.75) + 
-  geom_path(
-    aes(x=lon, y=lat, group=id, colour=trips),
-    data=lines,
-    size=log1p(lines$trips / max(lines$trips)),
-    lineend='round'
-  ) +
+```{r}
+#| message: false
+#| warning: false
+ggplot() +
+  # call basemap
+  base_map(bbox_db, increase_zoom = 2, basemap = "dark") +
+  geom_sf(data = db, fill = NA, colour = "transparent") +
+  # add flow data
+  geom_path( data = lines, 
+             aes(x = lon, y = lat, group = id, colour = trips ), 
+             size=log1p(lines$trips / max(lines$trips)),
+             lineend = 'round'
+    ) +
+  # create a colour palette
   scale_colour_gradient(
-    low='grey', high='#07eda0'
+    low='#440154FF', high='#FDE725FF'
   ) +
   theme(
     axis.text.x = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks = element_blank()
   )
+
 ```
 
 Note how we transform the size so it's a proportion of the largest trip and then it is compressed with a logarithm.
 
 ## Modelling flows
 
-Now we have an idea of the spatial distribution of flows, we can begin to think about modeling them. The core idea in this section is to fit a model that can capture the particular characteristics of our variable of interest (the volume of trips) using a set of predictors that describe the nature of a given flow. We will start from the simplest model and then progressively build complexity until we get to a satisfying point. Along the way, we will be exploring each model using concepts from @gelman2006data such as predictive performance checks[^05-flows-2] (PPC)
+Now we have an idea of the spatial distribution of flows, we can begin to think about modeling them. The core idea in this section is to fit a model that can capture the particular characteristics of our variable of interest (the volume of trips) using a set of predictors that describe the nature of a given flow. We will start from the simplest model and then progressively build complexity until we get to a satisfying point. Along the way, we will be exploring each model using concepts from @gelman2006data such as predictive performance checks[^05-flows-1] (PPC)
 
-[^05-flows-2]: For a more elaborate introduction to PPC, have a look at Chapters 7 and 8.
+[^05-flows-1]: For a more elaborate introduction to PPC, have a look at Chapters 7 and 8.
 
 Before we start running regressions, let us first standardize the predictors so we can interpret the intercept as the average flow when all the predictors take the average value, and so we can interpret the model coefficients as changes in standard deviation units:
 
@@ -222,14 +229,14 @@ summary(m1)
 
 To explore how good this model is, we will be comparing the predictions the model makes about the number of trips each flow should have with the actual number of trips. A first approach is to simply plot the distribution of both variables:
 
-```{r fig.margin=TRUE}
+```{r}
 plot(
-  density(m1$fitted.values), 
-  xlim=c(-100, max(db_std$trips15)),
+  density( m1$fitted.values ), 
+  xlim = c(-100, max( db_std$trips15 )),
   main=''
 )
 lines(
-  density(db_std$trips15), 
+  density( db_std$trips15 ), 
   col='red',
   main=''
 )
@@ -240,6 +247,7 @@ legend(
   lwd=1
 )
 title(main="Predictive check, point estimates - Baseline model")
+
 ```
 
 The plot makes pretty obvious that our initial model captures very few aspects of the distribution we want to explain. However, we should not get too attached to this plot just yet. What it is showing is the distribution of predicted *point* estimates from our model. Since our model is not deterministic but inferential, there is a certain degree of uncertainty attached to its predictions, and that is completely absent from this plot.
@@ -257,62 +265,62 @@ Technically speaking, to do this, we need to build a mechanism to obtain a possi
 ```{r}
 generate_draw <- function(m){
   # Set up predictors matrix
-  x <- model.matrix(m)
+  x <- model.matrix( m )
   # Obtain draws of parameters (inferential uncertainty)
-  sim_bs <- sim(m, 1)
+  sim_bs <- sim( m, 1)
   # Predicted value
   mu <- x %*% sim_bs@coef[1, ]
   # Draw
-  n <- length(mu)
-  y_hat <- rnorm(n, mu, sim_bs@sigma[1])
+  n <- length( mu )
+  y_hat <- rnorm( n, mu, sim_bs@sigma[1])
   return(y_hat)
 }
 ```
 
 This function takes a model `m` and the set of covariates `x` used and returns a random realization of predictions from the model. To get a sense of how this works, we can get and plot a realization of the model, compared to the expected one and the actual values:
 
-```{r fig.margin=TRUE}
+```{r}
 new_y <- generate_draw(m1)
 
 plot(
-  density(m1$fitted.values), 
-  xlim=c(-100, max(db_std$trips15)),
-  ylim=c(0, max(c(
-                   max(density(m1$fitted.values)$y), 
-                   max(density(db_std$trips15)$y)
+  density( m1$fitted.values ), 
+  xlim = c(-100, max( db_std$trips15 )),
+  ylim = c(0, max(c(
+                   max( density( m1$fitted.values)$y ), 
+                   max( density( db_std$trips15)$y )
                    )
                 )
          ),
-  col='black',
-  main=''
+  col = 'black',
+  main = ''
 )
 lines(
-  density(db_std$trips15), 
-  col='red',
-  main=''
+  density( db_std$trips15 ), 
+  col = 'red',
+  main = ''
 )
 lines(
-  density(new_y), 
-  col='green',
-  main=''
+  density( new_y ), 
+  col = 'green',
+  main = ''
 )
 legend(
   'topright', 
   c('Predicted', 'Actual', 'Simulated'),
-  col=c('black', 'red', 'green'),
-  lwd=1
+  col = c( 'black', 'red', 'green' ),
+  lwd = 1
 )
 ```
 
 Once we have this "draw engine", we can set it to work as many times as we want using a simple `for` loop. In fact, we can directly plot these lines as compared to the expected one and the trip count:
 
-```{r fig.fullwidth=TRUE}
+```{r}
 plot(
-  density(m1$fitted.values), 
-  xlim=c(-100, max(db_std$trips15)),
-  ylim=c(0, max(c(
-               max(density(m1$fitted.values)$y), 
-               max(density(db_std$trips15)$y)
+  density( m1$fitted.values ), 
+  xlim = c(-100, max( db_std$trips15 )),
+  ylim = c(0, max(c(
+               max( density( m1$fitted.values)$y ), 
+               max( density( db_std$trips15)$y )
                )
             )
      ),
@@ -321,45 +329,45 @@ plot(
 )
 # Loop for realizations
 for(i in 1:250){
-  tmp_y <- generate_draw(m1)
-  lines(density(tmp_y),
-        col='grey',
-        lwd=0.1
+  tmp_y <- generate_draw( m1 )
+  lines( density( tmp_y ),
+        col = 'grey',
+        lwd = 0.1
         )
 }
 #
 lines(
-  density(m1$fitted.values), 
-  col='black',
-  main=''
+  density( m1$fitted.values ), 
+  col = 'black',
+  main = ''
 )
 lines(
-  density(db_std$trips15), 
-  col='red',
-  main=''
+  density( db_std$trips15 ), 
+  col = 'red',
+  main = ''
 )
 legend(
   'topright', 
   c('Actual', 'Predicted', 'Simulated (n=250)'),
-  col=c('red', 'black', 'grey'),
-  lwd=1
+  col = c('red', 'black', 'grey'),
+  lwd = 1
 )
 title(main="Predictive check - Baseline model")
 ```
 
-The plot shows there is a significant mismatch between the fitted values, which are much more concentrated around small positive values, and the realizations of our "inferential engine", which depict a much less concentrated distribution of values. This is likely due to the combination of two different reasons: on the one hand, the accuracy of our estimates may be poor, causing them to jump around a wide range of potential values and hence resulting in very diverse predictions (inferential uncertainty); on the other hand, it may be that the amount of variation we are not able to account for in the model[^05-flows-3] is so large that the degree of uncertainty contained in the error term of the model is very large, hence resulting in such a flat predictive distribution.
+The plot shows there is a significant mismatch between the fitted values, which are much more concentrated around small positive values, and the realizations of our "inferential engine", which depict a much less concentrated distribution of values. This is likely due to the combination of two different reasons: on the one hand, the accuracy of our estimates may be poor, causing them to jump around a wide range of potential values and hence resulting in very diverse predictions (inferential uncertainty); on the other hand, it may be that the amount of variation we are not able to account for in the model[^05-flows-2] is so large that the degree of uncertainty contained in the error term of the model is very large, hence resulting in such a flat predictive distribution.
 
-[^05-flows-3]: The $R^2$ of our model is around 2%
+[^05-flows-2]: The $R^2$ of our model is around 2%
 
-It is important to keep in mind that the issues discussed in the paragraph above relate only to the uncertainty behind our model, not to the point predictions derived from them, which are a mechanistic result of the minimization of the squared residuals and hence are not subject to probability or inference. That allows them in this case to provide a fitted distribution much more accurate apparently (black line above). However, the lesson to take from this model is that, even if the point predictions (fitted values) are artificially accurate[^05-flows-4], our capabilities to infer about the more general underlying process are fairly limited.
+It is important to keep in mind that the issues discussed in the paragraph above relate only to the uncertainty behind our model, not to the point predictions derived from them, which are a mechanistic result of the minimization of the squared residuals and hence are not subject to probability or inference. That allows them in this case to provide a fitted distribution much more accurate apparently (black line above). However, the lesson to take from this model is that, even if the point predictions (fitted values) are artificially accurate[^05-flows-3], our capabilities to infer about the more general underlying process are fairly limited.
 
-[^05-flows-4]: which they are not really, in light of the comparison between the black and red lines.
+[^05-flows-3]: which they are not really, in light of the comparison between the black and red lines.
 
 **Improving the model**
 
-The bad news from the previous section is that our initial model is not great at explaining bike trips. The good news is there are several ways in which we can improve this. In this section we will cover three main extensions that exemplify three different routes you can take when enriching and augmenting models in general, and spatial interaction ones in particular[^05-flows-5]. These three routes are aligned around the following principles:
+The bad news from the previous section is that our initial model is not great at explaining bike trips. The good news is there are several ways in which we can improve this. In this section we will cover three main extensions that exemplify three different routes you can take when enriching and augmenting models in general, and spatial interaction ones in particular[^05-flows-4]. These three routes are aligned around the following principles:
 
-[^05-flows-5]: These principles are general and can be applied to pretty much any modeling exercise you run into. The specific approaches we take in this note relate to spatial interaction models
+[^05-flows-4]: These principles are general and can be applied to pretty much any modeling exercise you run into. The specific approaches we take in this note relate to spatial interaction models
 
 1.  Use better approximations to model your dependent variable.
 2.  Recognize the structure of your data.
@@ -367,9 +375,9 @@ The bad news from the previous section is that our initial model is not great at
 
 -   **Use better approximations to model your dependent variable**
 
-Standard OLS regression assumes that the error term and, since the predictors are deterministic, the dependent variable are distributed following a normal (gaussian) distribution. This is usually a good approximation for several phenomena of interest, but maybe not the best one for trips along routes: for one, we know trips cannot be negative, which the normal distribution does not account for[^05-flows-6]; more subtly, their distribution is not really symmetric but skewed with a very long tail on the right. This is common in variables that represent counts and that is why usually it is more appropriate to fit a model that relies on a distribution different from the normal.
+Standard OLS regression assumes that the error term and, since the predictors are deterministic, the dependent variable are distributed following a normal (gaussian) distribution. This is usually a good approximation for several phenomena of interest, but maybe not the best one for trips along routes: for one, we know trips cannot be negative, which the normal distribution does not account for[^05-flows-5]; more subtly, their distribution is not really symmetric but skewed with a very long tail on the right. This is common in variables that represent counts and that is why usually it is more appropriate to fit a model that relies on a distribution different from the normal.
 
-[^05-flows-6]: For an illustration of this, consider the amount of probability mass to the left of zero in the predictive checks above.
+[^05-flows-5]: For an illustration of this, consider the amount of probability mass to the left of zero in the predictive checks above.
 
 One of the most common distributions for this cases is the Poisson, which can be incorporated through a general linear model (or GLM). The underlying assumption here is that instead of $T_{ij} \sim N(\mu_{ij}, \sigma)$, our model now follows:
 
@@ -389,31 +397,31 @@ m2 <- glm(
 
 Now let's see how much better, if any, this approach is. To get a quick overview, we can simply plot the point predictions:
 
-```{r fig.margin=TRUE}
+```{r}
 plot(
-  density(m2$fitted.values), 
-  xlim=c(-100, max(db_std$trips15)),
-  ylim=c(0, max(c(
-               max(density(m2$fitted.values)$y), 
-               max(density(db_std$trips15)$y)
+  density( m2$fitted.values ), 
+  xlim = c( -100, max( db_std$trips15 )),
+  ylim = c( 0, max(c(
+               max( density( m2$fitted.values)$y ), 
+               max( density(db_std$trips15)$y )
                )
             )
    ),
-  col='black',
-  main=''
+  col = 'black',
+  main = ''
 )
 lines(
-  density(db_std$trips15), 
-  col='red',
-  main=''
+  density( db_std$trips15 ), 
+  col = 'red',
+  main = ''
 )
 legend(
   'topright', 
   c('Predicted', 'Actual'),
-  col=c('black', 'red'),
-  lwd=1
+  col = c('black', 'red'),
+  lwd = 1
 )
-title(main="Predictive check, point estimates - Poisson model")
+title(main = "Predictive check, point estimates - Poisson model")
 ```
 
 To incorporate uncertainty to these predictions, we need to tweak our `generate_draw` function so it accommodates the fact that our model is not linear anymore.
@@ -421,16 +429,16 @@ To incorporate uncertainty to these predictions, we need to tweak our `generate_
 ```{r}
 generate_draw_poi <- function(m){
   # Set up predictors matrix
-  x <- model.matrix(m)
+  x <- model.matrix( m )
   # Obtain draws of parameters (inferential uncertainty)
-  sim_bs <- sim(m, 1)
+  sim_bs <- sim( m, 1 )
   # Predicted value
   xb <- x %*% sim_bs@coef[1, ]
   #xb <- x %*% m$coefficients
   # Transform using the link function
-  mu <- exp(xb)
+  mu <- exp( xb )
   # Obtain a random realization
-  y_hat <- rpois(n=length(mu), lambda=mu)
+  y_hat <- rpois( n = length( mu ), lambda = mu)
   return(y_hat)
 }
 ```
@@ -439,44 +447,44 @@ And then we can examine both point predictions an uncertainty around them:
 
 ```{r fig.fullwidth=TRUE}
 plot(
-  density(m2$fitted.values), 
-  xlim=c(-100, max(db_std$trips15)),
-  ylim=c(0, max(c(
-               max(density(m2$fitted.values)$y), 
-               max(density(db_std$trips15)$y)
+  density( m2$fitted.values ), 
+  xlim = c(-100, max( db_std$trips15 )),
+  ylim = c(0, max(c(
+               max( density( m2$fitted.values)$y ), 
+               max( density( db_std$trips15)$y )
                )
             )
    ),
-  col='white',
-  main=''
+  col = 'white',
+  main = ''
 )
 # Loop for realizations
 for(i in 1:250){
-  tmp_y <- generate_draw_poi(m2)
+  tmp_y <- generate_draw_poi( m2 )
   lines(
-    density(tmp_y),
-    col='grey',
-    lwd=0.1
+    density( tmp_y ),
+    col = 'grey',
+    lwd = 0.1
   )
 }
 #
 lines(
-  density(m2$fitted.values), 
-  col='black',
-  main=''
+  density( m2$fitted.values ), 
+  col = 'black',
+  main = ''
 )
 lines(
-  density(db_std$trips15), 
-  col='red',
-  main=''
+  density( db_std$trips15 ), 
+  col = 'red',
+  main = ''
 )
 legend(
   'topright', 
   c('Predicted', 'Actual', 'Simulated (n=250)'),
-  col=c('black', 'red', 'grey'),
-  lwd=1
+  col = c('black', 'red', 'grey'),
+  lwd = 1
 )
-title(main="Predictive check - Poisson model")
+title( main = "Predictive check - Poisson model")
 ```
 
 Voila! Although the curve is still a bit off, centered too much to the right of the actual data, our predictive simulation leaves the fitted values right in the middle. This speaks to a better fit of the model to the actual distribution othe original data follow.
@@ -491,47 +499,47 @@ $$
 T_{ij} = X_{ij}\beta + \delta_i + \delta_j + \epsilon_{ij}
 $$
 
-where $\delta_i$ and $\delta_j$ are origin and destination station fixed effects[^05-flows-7], and the rest is as above. This strategy accounts for all the unobserved heterogeneity associated with the location of the station. Technically speaking, we simply need to introduce `orig` and `dest` in the the model:
+where $\delta_i$ and $\delta_j$ are origin and destination station fixed effects[^05-flows-6], and the rest is as above. This strategy accounts for all the unobserved heterogeneity associated with the location of the station. Technically speaking, we simply need to introduce `orig` and `dest` in the the model:
 
-[^05-flows-7]: In this session, $\delta_i$ and $\delta_j$ are estimated as independent variables so their estimates are similar to interpret to those in $\beta$. An alternative approach could be to model them as random effects in a multilevel framework.
+[^05-flows-6]: In this session, $\delta_i$ and $\delta_j$ are estimated as independent variables so their estimates are similar to interpret to those in $\beta$. An alternative approach could be to model them as random effects in a multilevel framework.
 
 ```{r}
 m3 <- glm(
   'trips15 ~ straight_dist + total_up + total_down + orig + dest', 
-  data=db_std,
-  family=poisson
+  data = db_std,
+  family = poisson
 )
 ```
 
-And with our new model, we can have a look at how well it does at predicting the overall number of trips[^05-flows-8]:
+And with our new model, we can have a look at how well it does at predicting the overall number of trips[^05-flows-7]:
 
-[^05-flows-8]: Although, theoretically, we could also include simulations of the model in the plot to get a better sense of the uncertainty behind our model, in practice this seems troublesome. The problems most likely arise from the fact that many of the origin and destination binary variable coefficients are estimated with a great deal of uncertainty. This causes some of the simulation to generate extreme values that, when passed through the exponential term of the Poisson link function, cause problems. If anything, this is testimony of how a simple fixed effect model can sometimes lack accuracy and generate very uncertain estimates. A potential extension to work around these problems could be to fit a multilevel model with two specific levels beyond the trip-level: one for origin and another one for destination stations.
+[^05-flows-7]: Although, theoretically, we could also include simulations of the model in the plot to get a better sense of the uncertainty behind our model, in practice this seems troublesome. The problems most likely arise from the fact that many of the origin and destination binary variable coefficients are estimated with a great deal of uncertainty. This causes some of the simulation to generate extreme values that, when passed through the exponential term of the Poisson link function, cause problems. If anything, this is testimony of how a simple fixed effect model can sometimes lack accuracy and generate very uncertain estimates. A potential extension to work around these problems could be to fit a multilevel model with two specific levels beyond the trip-level: one for origin and another one for destination stations.
 
-```{r fig.fullwidth=TRUE}
+```{r}
 plot(
-  density(m3$fitted.values), 
-  xlim=c(-100, max(db_std$trips15)),
-  ylim=c(0, max(c(
-               max(density(m3$fitted.values)$y), 
-               max(density(db_std$trips15)$y)
+  density( m3$fitted.values ), 
+  xlim = c(-100, max( db_std$trips15 )),
+  ylim = c(0, max(c(
+               max( density(m3$fitted.values)$y ), 
+               max( density(db_std$trips15)$y )
                )
             )
    ),
-  col='black',
-  main=''
+  col = 'black',
+  main = ''
 )
 lines(
-  density(db_std$trips15), 
-  col='red',
-  main=''
+  density( db_std$trips15 ), 
+  col = 'red',
+  main = ''
 )
 legend(
   'topright', 
   c('Predicted', 'Actual'),
-  col=c('black', 'red'),
-  lwd=1
+  col = c('black', 'red'),
+  lwd = 1
 )
-title(main="Predictive check - Orig/dest FE Poisson model")
+title( main = "Predictive check - Orig/dest FE Poisson model")
 ```
 
 That looks significantly better, doesn't it? In fact, our model now better accounts for the long tail where a few routes take a lot of trips. This is likely because the distribution of trips is far from random across stations and our origin and destination fixed effects do a decent job at accounting for that structure. However our model is still notably underpredicting less popular routes and overpredicting routes with above average number of trips. Maybe we should think about moving beyond a simple linear model.
@@ -545,38 +553,38 @@ As an exampe of this approach, we can replace the straight distance measurements
 ```{r}
 m4 <- glm(
   'trips15 ~ street_dist + total_up + total_down + orig + dest', 
-  data=db_std,
-  family=poisson
+  data = db_std,
+  family = poisson
 )
 ```
 
 And we can similarly get a sense of our predictive fitting with:
 
-```{r fig.fullwidth=TRUE}
+```{r}
 plot(
-  density(m4$fitted.values), 
-  xlim=c(-100, max(db_std$trips15)),
-  ylim=c(0, max(c(
-               max(density(m4$fitted.values)$y), 
-               max(density(db_std$trips15)$y)
+  density( m4$fitted.values ), 
+  xlim = c(-100, max( db_std$trips15)),
+  ylim = c(0, max(c(
+               max( density(m4$fitted.values)$y ), 
+               max( density(db_std$trips15)$y )
                )
             )
    ),
-  col='black',
-  main=''
+  col = 'black',
+  main = ''
 )
 lines(
-  density(db_std$trips15), 
-  col='red',
-  main=''
+  density( db_std$trips15 ), 
+  col = 'red',
+  main = ''
 )
 legend(
   'topright', 
   c('Predicted', 'Actual'),
-  col=c('black', 'red'),
-  lwd=1
+  col = c('black', 'red'),
+  lwd = 1
 )
-title(main="Predictive check - Orig/dest FE Poisson model")
+title( main = "Predictive check - Orig/dest FE Poisson model")
 ```
 
 Hard to tell any noticeable difference, right? To see if there is any, we can have a look at the estimates obtained:
@@ -591,17 +599,17 @@ And compare this to that of the straight distances in the previous model:
 summary(m3)$coefficients['straight_dist', ]
 ```
 
-As we can see, the differences exist but they are not massive. Let's use this example to learn how to interpret coefficients in a Poisson model[^05-flows-9]. Effectively, these estimates can be understood as multiplicative effects. Since our model fits
+As we can see, the differences exist but they are not massive. Let's use this example to learn how to interpret coefficients in a Poisson model[^05-flows-8]. Effectively, these estimates can be understood as multiplicative effects. Since our model fits
 
-[^05-flows-9]: See section 6.2 of @gelman2006data for a similar treatment of these.
+[^05-flows-8]: See section 6.2 of @gelman2006data for a similar treatment of these.
 
 $$
 T_{ij} \sim Poisson (\exp^{X_{ij}\beta})
 $$
 
-we need to transform $\beta$ through an exponential in order to get a sense of the effect of distance on the number of trips. This means that for the street distance, our original estimate is $\beta_{street} = -0.0996$, but this needs to be translated through the exponential into $e^{-0.0996} = 0.906$. In other words, since distance is expressed in standard deviations[^05-flows-10], we can expect a 10% decrease in the number of trips for an increase of one standard deviation (about 1Km) in the distance between the stations. This can be compared with $e^{-0.0782} = 0.925$ for the straight distances, or a reduction of about 8% the number of trips for every increase of a standard deviation (about 720m).
+we need to transform $\beta$ through an exponential in order to get a sense of the effect of distance on the number of trips. This means that for the street distance, our original estimate is $\beta_{street} = -0.0996$, but this needs to be translated through the exponential into $e^{-0.0996} = 0.906$. In other words, since distance is expressed in standard deviations[^05-flows-9], we can expect a 10% decrease in the number of trips for an increase of one standard deviation (about 1Km) in the distance between the stations. This can be compared with $e^{-0.0782} = 0.925$ for the straight distances, or a reduction of about 8% the number of trips for every increase of a standard deviation (about 720m).
 
-[^05-flows-10]: Remember the transformation at the very beginning.
+[^05-flows-9]: Remember the transformation at the very beginning.
 
 ## Predicting flows
 
@@ -635,9 +643,15 @@ rmse_m4 <- rmse(db_std$trips16, m4$fitted.values)
 rmse_m4
 ```
 
-That means that, on average, predictions in our best model `m4` are 256 trips off. Is this good? Bad? Worse? It's hard to say but, being practical, what we can say is whether this better than our alternative. Let us have a look at the RMSE of the other models as well as that of simply plugging in last year's counts:[^05-flows-11]
+That means that, on average, predictions in our best model `m4` are 256 trips off. Is this good? Bad? Worse? It's hard to say but, being practical, what we can say is whether this better than our alternative. Let us have a look at the RMSE of the other models as well as that of simply plugging in last year's counts:\[\^05-flows-11\]
 
-[^05-flows-11]: **EXERCISE**: can you create a single plot that displays the distribution of the predicted values of the five different ways to predict trips in 2016 and the actual counts of trips?
+::: column-margin
+::: {.callout-tip appearance="simple" icon="false"}
+**Task**
+
+Can you create a single plot that displays the distribution of the predicted values of the five different ways to predict trips in 2016 and the actual counts of trips?
+:::
+:::
 
 ```{r}
 rmses <- data.frame(

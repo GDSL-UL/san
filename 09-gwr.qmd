@@ -33,8 +33,6 @@ library(spgwr)
 library(corrplot)
 # Exportable regression tables
 library(jtools)
-library(stargazer)
-library(sjPlot)
 # Assess multicollinearity
 library(car)
 ```

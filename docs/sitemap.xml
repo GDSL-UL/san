@@ -2,58 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gdsl-ul.github.io/san/index.html</loc>
-    <lastmod>2023-03-13T06:45:06.183Z</lastmod>
+    <lastmod>2024-01-24T22:34:54.101Z</lastmod>
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/san/01-overview.html</loc>
-    <lastmod>2023-03-13T06:45:06.186Z</lastmod>
+    <lastmod>2024-02-01T22:31:58.814Z</lastmod>
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/san/02-spatial_data.html</loc>
-    <lastmod>2023-03-13T06:45:06.193Z</lastmod>
+    <lastmod>2024-01-24T22:41:09.401Z</lastmod>
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/san/03-data-wrangling.html</loc>
-    <lastmod>2023-03-13T06:45:06.199Z</lastmod>
+    <lastmod>2024-02-01T07:08:56.743Z</lastmod>
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/san/04-points.html</loc>
-    <lastmod>2023-03-13T06:45:06.202Z</lastmod>
+    <lastmod>2024-02-01T10:12:22.000Z</lastmod>
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/san/05-flows.html</loc>
-    <lastmod>2023-03-13T06:45:06.212Z</lastmod>
+    <lastmod>2024-02-01T10:15:55.000Z</lastmod>
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/san/06-spatial-econometrics.html</loc>
-    <lastmod>2023-03-13T06:45:06.216Z</lastmod>
+    <lastmod>2024-02-01T10:38:38.000Z</lastmod>
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/san/07-multilevel-01.html</loc>
-    <lastmod>2023-03-13T06:45:06.223Z</lastmod>
+    <lastmod>2024-02-01T22:54:15.458Z</lastmod>
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/san/08-multilevel-02.html</loc>
-    <lastmod>2023-03-13T06:45:06.228Z</lastmod>
+    <lastmod>2024-02-01T23:19:14.256Z</lastmod>
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/san/09-gwr.html</loc>
-    <lastmod>2023-03-13T06:45:06.251Z</lastmod>
+    <lastmod>2024-02-01T23:30:49.517Z</lastmod>
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/san/10-st_analysis.html</loc>
-    <lastmod>2023-03-13T06:45:06.258Z</lastmod>
+    <lastmod>2024-01-23T11:03:53.000Z</lastmod>
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/san/11-datasets.html</loc>
-    <lastmod>2023-03-13T06:45:06.260Z</lastmod>
+    <lastmod>2024-01-23T11:03:53.000Z</lastmod>
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/san/references.html</loc>
-    <lastmod>2023-03-13T06:45:06.261Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gdsl-ul.github.io/san/Spatial-Modelling-for-Data-Scientists.pdf</loc>
-    <lastmod>2023-03-13T06:45:05.148Z</lastmod>
+    <lastmod>2024-01-23T11:03:53.000Z</lastmod>
   </url>
 </urlset>

@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
-
+<meta name="generator" content="quarto-1.4.549">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>Spatial Modelling for Data Scientists - 11&nbsp; Data Sets</title>
 <style>
 code{white-space: pre-wrap;}
@@ -17,11 +14,12 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -46,45 +44,14 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -103,14 +70,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -119,158 +91,169 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
-}</script>
-
-
-<link rel="stylesheet" href="style.css">
+}</script><style>html{ scroll-behavior: smooth; }</style>
 </head>
-
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data Sets</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-datasets.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data Sets</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Spatial Modelling for Data Scientists</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/GDSL-UL/san" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./Spatial-Modelling-for-Data-Scientists.pdf">
-            <i class="bi bi-bi-file-pdf pe-1"></i>
-          Download PDF
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./Spatial-Modelling-for-Data-Scientists.epub">
-            <i class="bi bi-bi-journal pe-1"></i>
-          Download ePub
-          </a>
-        </li>
-    </ul>
+    <a href="https://github.com/GDSL-UL/san" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+<li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Spatial-Modelling-for-Data-Scientists.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Spatial-Modelling-for-Data-Scientists.epub">
+              <i class="bi bi-bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+</div>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  <a href="./01-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-spatial_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Data</span></a>
+  <a href="./02-spatial_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spatial Data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-data-wrangling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a>
+  <a href="./03-data-wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-points.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Point Data Analysis</span></a>
+  <a href="./04-points.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Point Data Analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-flows.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Interaction Modelling</span></a>
+  <a href="./05-flows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Interaction Modelling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-spatial-econometrics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spatial Econometrics</span></a>
+  <a href="./06-spatial-econometrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spatial Econometrics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-multilevel-01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 1</span></a>
+  <a href="./07-multilevel-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 1</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-multilevel-02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 2</span></a>
+  <a href="./08-multilevel-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Multilevel Modelling - Part 2</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-gwr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Geographically Weighted Regression</span></a>
+  <a href="./09-gwr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Geographically Weighted Regression</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-st_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatio-Temporal Analysis</span></a>
+  <a href="./10-st_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatio-Temporal Analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-datasets.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data Sets</span></a>
+  <a href="./11-datasets.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data Sets</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#madrid-airbnb" id="toc-madrid-airbnb" class="nav-link active" data-scroll-target="#madrid-airbnb"><span class="toc-section-number">11.1</span>  Madrid AirBnb</a>
+<li>
+<a href="#madrid-airbnb" id="toc-madrid-airbnb" class="nav-link active" data-scroll-target="#madrid-airbnb"><span class="header-section-number">11.1</span> Madrid AirBnb</a>
   <ul class="collapse">
-  <li><a href="#availability" id="toc-availability" class="nav-link" data-scroll-target="#availability">Availability</a></li>
+<li><a href="#availability" id="toc-availability" class="nav-link" data-scroll-target="#availability">Availability</a></li>
   <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
   <li><a href="#projection" id="toc-projection" class="nav-link" data-scroll-target="#projection">Projection</a></li>
   <li><a href="#source-pre-processing" id="toc-source-pre-processing" class="nav-link" data-scroll-target="#source-pre-processing">Source &amp; Pre-processing</a></li>
-  </ul></li>
-  <li><a href="#england-covid-19" id="toc-england-covid-19" class="nav-link" data-scroll-target="#england-covid-19"><span class="toc-section-number">11.2</span>  England COVID-19</a>
+  </ul>
+</li>
+  <li>
+<a href="#england-covid-19" id="toc-england-covid-19" class="nav-link" data-scroll-target="#england-covid-19"><span class="header-section-number">11.2</span> England COVID-19</a>
   <ul class="collapse">
-  <li><a href="#availability-1" id="toc-availability-1" class="nav-link" data-scroll-target="#availability-1">Availability</a></li>
+<li><a href="#availability-1" id="toc-availability-1" class="nav-link" data-scroll-target="#availability-1">Availability</a></li>
   <li><a href="#variables-1" id="toc-variables-1" class="nav-link" data-scroll-target="#variables-1">Variables</a></li>
   <li><a href="#projection-1" id="toc-projection-1" class="nav-link" data-scroll-target="#projection-1">Projection</a></li>
-  </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/GDSL-UL/san/edit/main/11-datasets.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/GDSL-UL/san/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/GDSL-UL/san/edit/main/11-datasets.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/GDSL-UL/san/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span id="sec-chp11" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data Sets</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-chp11" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data Sets</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -283,25 +266,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header>
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</header><div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="madrid-airbnb" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="madrid-airbnb"><span class="header-section-number">11.1</span> Madrid AirBnb</h2>
+<section id="madrid-airbnb" class="level2" data-number="11.1"><h2 data-number="11.1" class="anchored" data-anchor-id="madrid-airbnb">
+<span class="header-section-number">11.1</span> Madrid AirBnb</h2>
 <p>This dataset contains a pre-processed set of properties advertised on the AirBnb website within the region of Madrid (Spain), together with house characteristics.</p>
-<section id="availability" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="availability">Availability</h3>
+<section id="availability" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="availability">Availability</h3>
 <p>The dataset is stored on a Geopackage that can be found, within the structure of this project, under:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"data/assignment_1_madrid/madrid_abb.gpkg"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">path</span> <span class="op">&lt;-</span> <span class="st">"data/assignment_1_madrid/madrid_abb.gpkg"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>db <span class="ot">&lt;-</span> <span class="fu">st_read</span>(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">db</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `madrid_abb' from data source 
-  `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202223/san/data/assignment_1_madrid/madrid_abb.gpkg' 
+  `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202324/san/data/assignment_1_madrid/madrid_abb.gpkg' 
   using driver `GPKG'
 Simple feature collection with 18399 features and 16 fields
 Geometry type: POINT
@@ -310,34 +291,45 @@ Bounding box:  xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274
 Geodetic CRS:  WGS 84</code></pre>
 </div>
 </div>
-</section>
-<section id="variables" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="variables">Variables</h3>
+</section><section id="variables" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="variables">Variables</h3>
 <p>For each of the 17 properties, the following characteristics are available:</p>
 <ul>
-<li><code>price</code>: [string] Price with currency</li>
-<li><code>price_usd</code>: [int] Price expressed in USD</li>
-<li><code>log1pm_price_usd</code>: [float] Log of the price</li>
-<li><code>accommodates</code>: [integer] Number of people the property accommodates</li>
-<li><code>bathrooms</code>: [integer] Number of bathrooms</li>
-<li><code>bedrooms</code>: [integer] Number of bedrooms</li>
-<li><code>beds</code>: [integer] Number of beds</li>
-<li><code>neighbourhood</code>: [string] Name of the neighbourhood the property is located in</li>
-<li><code>room_type</code>: [string] Type of room offered (shared, private, entire home, hotel room)</li>
-<li><code>property_type</code>: [string] Type of property advertised (apartment, house, hut, etc.)</li>
-<li><code>WiFi</code>: [binary] Takes <code>1</code> if the property has WiFi, <code>0</code> otherwise</li>
-<li><code>Coffee</code>: [binary] Takes <code>1</code> if the property has a coffee maker, <code>0</code> otherwise</li>
-<li><code>Gym</code>: [binary] Takes <code>1</code> if the property has access to a gym, <code>0</code> otherwise</li>
-<li><code>Parking</code>: [binary] Takes <code>1</code> if the property offers parking, <code>0</code> otherwise</li>
-<li><code>km_to_retiro</code>: [float] Euclidean distance from the property to the El Retiro park</li>
-<li><code>geom</code>: [geometry] Point geometry</li>
-</ul>
-</section>
-<section id="projection" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="projection">Projection</h3>
+<li>
+<code>price</code>: [string] Price with currency</li>
+<li>
+<code>price_usd</code>: [int] Price expressed in USD</li>
+<li>
+<code>log1pm_price_usd</code>: [float] Log of the price</li>
+<li>
+<code>accommodates</code>: [integer] Number of people the property accommodates</li>
+<li>
+<code>bathrooms</code>: [integer] Number of bathrooms</li>
+<li>
+<code>bedrooms</code>: [integer] Number of bedrooms</li>
+<li>
+<code>beds</code>: [integer] Number of beds</li>
+<li>
+<code>neighbourhood</code>: [string] Name of the neighbourhood the property is located in</li>
+<li>
+<code>room_type</code>: [string] Type of room offered (shared, private, entire home, hotel room)</li>
+<li>
+<code>property_type</code>: [string] Type of property advertised (apartment, house, hut, etc.)</li>
+<li>
+<code>WiFi</code>: [binary] Takes <code>1</code> if the property has WiFi, <code>0</code> otherwise</li>
+<li>
+<code>Coffee</code>: [binary] Takes <code>1</code> if the property has a coffee maker, <code>0</code> otherwise</li>
+<li>
+<code>Gym</code>: [binary] Takes <code>1</code> if the property has access to a gym, <code>0</code> otherwise</li>
+<li>
+<code>Parking</code>: [binary] Takes <code>1</code> if the property offers parking, <code>0</code> otherwise</li>
+<li>
+<code>km_to_retiro</code>: [float] Euclidean distance from the property to the El Retiro park</li>
+<li>
+<code>geom</code>: [geometry] Point geometry</li>
+</ul></section><section id="projection" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="projection">Projection</h3>
 <p>The location of each property is stored as point geometries and expressed in longitude and latitude coordinates:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(db)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="va">db</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Coordinate Reference System:
   User input: WGS 84 
@@ -370,14 +362,10 @@ GEOGCRS["WGS 84",
     ID["EPSG",4326]]</code></pre>
 </div>
 </div>
-</section>
-<section id="source-pre-processing" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="source-pre-processing">Source &amp; Pre-processing</h3>
+</section><section id="source-pre-processing" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="source-pre-processing">Source &amp; Pre-processing</h3>
 <p>The data are sourced from <a href="http://insideairbnb.com/">Inside Airbnb</a>. A Jupyter notebook in Python (available at <code>data/assignment_1_madrid/clean_data.ipynb</code>) details the process from the original file available from source to the data in <code>madrid_abb.gpkg</code>.</p>
-</section>
-</section>
-<section id="england-covid-19" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="england-covid-19"><span class="header-section-number">11.2</span> England COVID-19</h2>
+</section></section><section id="england-covid-19" class="level2" data-number="11.2"><h2 data-number="11.2" class="anchored" data-anchor-id="england-covid-19">
+<span class="header-section-number">11.2</span> England COVID-19</h2>
 <p>This dataset contains:</p>
 <ul>
 <li><p>daily COVID-19 confirmed cases from 1st January, 2020 to 2nd February, 2021 from the <a href="https://coronavirus.data.gov.uk">GOV.UK dashboard</a>;</p></li>
@@ -385,14 +373,13 @@ GEOGCRS["WGS 84",
 <li><p>2019 Index of Multiple Deprivation (IMD) data from <a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019">GOV.UK</a> and published by the Ministry of Housing, Communities &amp; Local Government.</p></li>
 </ul>
 <p>The data are at the Upper Tier Local Authority District (UTLAD) level - also known as <a href="https://geoportal.statistics.gov.uk">Counties and Unitary Authorities</a>.</p>
-<section id="availability-1" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="availability-1">Availability</h3>
+<section id="availability-1" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="availability-1">Availability</h3>
 <p>The dataset is stored on a Geopackage:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/assignment_2_covid/covid19_eng.gpkg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sdf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">"data/assignment_2_covid/covid19_eng.gpkg"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `covid19_eng' from data source 
-  `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202223/san/data/assignment_2_covid/covid19_eng.gpkg' 
+  `/Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202324/san/data/assignment_2_covid/covid19_eng.gpkg' 
   using driver `GPKG'
 Simple feature collection with 149 features and 507 fields
 Geometry type: MULTIPOLYGON
@@ -401,33 +388,44 @@ Bounding box:  xmin: 134112.4 ymin: 11429.67 xmax: 655653.8 ymax: 657536
 Projected CRS: OSGB36 / British National Grid</code></pre>
 </div>
 </div>
-</section>
-<section id="variables-1" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="variables-1">Variables</h3>
+</section><section id="variables-1" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="variables-1">Variables</h3>
 <p>The data set contains 508 variables:</p>
 <ul>
-<li><code>objectid</code>: [integer] unit identifier</li>
-<li><code>ctyua19cd</code>: [integer] Upper Tier Local Authority District (or Counties and Unitary Authorities) identifier</li>
-<li><code>ctyua19nm</code>: [character] Upper Tier Local Authority District (or Counties and Unitary Authorities) name</li>
-<li><code>Region</code>: [character] Region name</li>
-<li><code>long</code>: [numeric] longitude</li>
-<li><code>lat</code>: [numeric] latitude</li>
-<li><code>st_areasha</code>: [numeric] area in hectare</li>
-<li><code>X2020.01.31</code> to <code>X2021.02.05</code>: [numeric] Daily COVID-19 cases from 31st January, 2020 to 5th February, 2021</li>
-<li><code>IMD...Average.score</code> - <code>IMD.2019...Local.concentration</code>: [numeric] IMD indicators - for details see <a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019">File 11: upper-tier local authority summaries</a>.</li>
-<li><code>Residents</code>: [numeric] Total resident population</li>
-<li><code>Households</code>: [numeric] Total households</li>
-<li><code>Dwellings</code>: [numeric] Total dwellings</li>
-<li><code>Household_Spaces</code>: [numeric] Total household spaces</li>
-<li><code>Aged_16plus</code> to <code>Other_industry</code>: [numeric] comprise 114 variables relating to various population and household attributes of the resident population. A description of all these variables can be found <a href="data/assignment_2_covid/census_vars.csv">here</a></li>
-<li><code>geom</code>: [geometry] Point geometry</li>
-</ul>
-</section>
-<section id="projection-1" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="projection-1">Projection</h3>
+<li>
+<code>objectid</code>: [integer] unit identifier</li>
+<li>
+<code>ctyua19cd</code>: [integer] Upper Tier Local Authority District (or Counties and Unitary Authorities) identifier</li>
+<li>
+<code>ctyua19nm</code>: [character] Upper Tier Local Authority District (or Counties and Unitary Authorities) name</li>
+<li>
+<code>Region</code>: [character] Region name</li>
+<li>
+<code>long</code>: [numeric] longitude</li>
+<li>
+<code>lat</code>: [numeric] latitude</li>
+<li>
+<code>st_areasha</code>: [numeric] area in hectare</li>
+<li>
+<code>X2020.01.31</code> to <code>X2021.02.05</code>: [numeric] Daily COVID-19 cases from 31st January, 2020 to 5th February, 2021</li>
+<li>
+<code>IMD...Average.score</code> - <code>IMD.2019...Local.concentration</code>: [numeric] IMD indicators - for details see <a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019">File 11: upper-tier local authority summaries</a>.</li>
+<li>
+<code>Residents</code>: [numeric] Total resident population</li>
+<li>
+<code>Households</code>: [numeric] Total households</li>
+<li>
+<code>Dwellings</code>: [numeric] Total dwellings</li>
+<li>
+<code>Household_Spaces</code>: [numeric] Total household spaces</li>
+<li>
+<code>Aged_16plus</code> to <code>Other_industry</code>: [numeric] comprise 114 variables relating to various population and household attributes of the resident population. A description of all these variables can be found <a href="data/assignment_2_covid/census_vars.csv">here</a>
+</li>
+<li>
+<code>geom</code>: [geometry] Point geometry</li>
+</ul></section><section id="projection-1" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="projection-1">Projection</h3>
 <p>Details of the coordinate reference system:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(sdf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="va">sdf</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Coordinate Reference System:
   User input: OSGB36 / British National Grid 
@@ -474,11 +472,9 @@ PROJCRS["OSGB36 / British National Grid",
 </div>
 
 
-</section>
-</section>
+<!-- -->
 
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -505,9 +501,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -543,10 +553,60 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -556,8 +616,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -572,6 +641,238 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -610,21 +911,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./10-st_analysis.html" class="pagination-link">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./10-st_analysis.html" class="pagination-link  aria-label=" analysis="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatio-Temporal Analysis</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
+      <a href="./references.html" class="pagination-link" aria-label="References">
         <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb11" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Sets {#sec-chp11}</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## Madrid AirBnb</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>This dataset contains a pre-processed set of properties advertised on the AirBnb website within the region of Madrid (Spain), together with house characteristics.</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">### Availability {.unnumbered}</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>The dataset is stored on a Geopackage that can be found, within the structure of this project, under:</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"data/assignment_1_madrid/madrid_abb.gpkg"</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>db <span class="ot">&lt;-</span> <span class="fu">st_read</span>(path)</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### Variables {.unnumbered}</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>For each of the <span class="in">`r length(db)`</span> properties, the following characteristics are available:</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`price`</span>: <span class="sc">\[</span>string<span class="sc">\]</span> Price with currency</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`price_usd`</span>: <span class="sc">\[</span>int<span class="sc">\]</span> Price expressed in USD</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`log1pm_price_usd`</span>: <span class="sc">\[</span>float<span class="sc">\]</span> Log of the price</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`accommodates`</span>: <span class="sc">\[</span>integer<span class="sc">\]</span> Number of people the property accommodates</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`bathrooms`</span>: <span class="sc">\[</span>integer<span class="sc">\]</span> Number of bathrooms</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`bedrooms`</span>: <span class="sc">\[</span>integer<span class="sc">\]</span> Number of bedrooms</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`beds`</span>: <span class="sc">\[</span>integer<span class="sc">\]</span> Number of beds</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`neighbourhood`</span>: <span class="sc">\[</span>string<span class="sc">\]</span> Name of the neighbourhood the property is located in</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`room_type`</span>: <span class="sc">\[</span>string<span class="sc">\]</span> Type of room offered (shared, private, entire home, hotel room)</span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`property_type`</span>: <span class="sc">\[</span>string<span class="sc">\]</span> Type of property advertised (apartment, house, hut, etc.)</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`WiFi`</span>: <span class="sc">\[</span>binary<span class="sc">\]</span> Takes <span class="in">`1`</span> if the property has WiFi, <span class="in">`0`</span> otherwise</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Coffee`</span>: <span class="sc">\[</span>binary<span class="sc">\]</span> Takes <span class="in">`1`</span> if the property has a coffee maker, <span class="in">`0`</span> otherwise</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Gym`</span>: <span class="sc">\[</span>binary<span class="sc">\]</span> Takes <span class="in">`1`</span> if the property has access to a gym, <span class="in">`0`</span> otherwise</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Parking`</span>: <span class="sc">\[</span>binary<span class="sc">\]</span> Takes <span class="in">`1`</span> if the property offers parking, <span class="in">`0`</span> otherwise</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`km_to_retiro`</span>: <span class="sc">\[</span>float<span class="sc">\]</span> Euclidean distance from the property to the El Retiro park</span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`geom`</span>: <span class="sc">\[</span>geometry<span class="sc">\]</span> Point geometry</span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a><span class="fu">### Projection {.unnumbered}</span></span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>The location of each property is stored as point geometries and expressed in longitude and latitude coordinates:</span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(db)</span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a><span class="fu">### Source &amp; Pre-processing {.unnumbered}</span></span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a>The data are sourced from <span class="co">[</span><span class="ot">Inside Airbnb</span><span class="co">](http://insideairbnb.com/)</span>. A Jupyter notebook in Python (available at <span class="in">`data/assignment_1_madrid/clean_data.ipynb`</span>) details the process from the original file available from source to the data in <span class="in">`madrid_abb.gpkg`</span>.</span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## England COVID-19</span></span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a>This dataset contains:</span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>daily COVID-19 confirmed cases from 1st January, 2020 to 2nd February, 2021 from the <span class="co">[</span><span class="ot">GOV.UK dashboard</span><span class="co">](https://coronavirus.data.gov.uk)</span>;</span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>resident population characteristics from the 2011 census, available from the <span class="co">[</span><span class="ot">Office of National Statistics</span><span class="co">](https://www.nomisweb.co.uk/home/census2001.asp)</span>; and,</span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>2019 Index of Multiple Deprivation (IMD) data from <span class="co">[</span><span class="ot">GOV.UK</span><span class="co">](https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019)</span> and published by the Ministry of Housing, Communities &amp; Local Government.</span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a>The data are at the Upper Tier Local Authority District (UTLAD) level - also known as <span class="co">[</span><span class="ot">Counties and Unitary Authorities</span><span class="co">](https://geoportal.statistics.gov.uk)</span>.</span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a><span class="fu">### Availability {.unnumbered}</span></span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a>The dataset is stored on a Geopackage:</span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/assignment_2_covid/covid19_eng.gpkg"</span>)</span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a><span class="fu">### Variables {.unnumbered}</span></span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a>The data set contains 508 variables:</span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`objectid`</span>: <span class="sc">\[</span>integer<span class="sc">\]</span> unit identifier</span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`ctyua19cd`</span>: <span class="sc">\[</span>integer<span class="sc">\]</span> Upper Tier Local Authority District (or Counties and Unitary Authorities) identifier</span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`ctyua19nm`</span>: <span class="sc">\[</span>character<span class="sc">\]</span> Upper Tier Local Authority District (or Counties and Unitary Authorities) name</span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Region`</span>: <span class="sc">\[</span>character<span class="sc">\]</span> Region name</span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`long`</span>: <span class="sc">\[</span>numeric<span class="sc">\]</span> longitude</span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`lat`</span>: <span class="sc">\[</span>numeric<span class="sc">\]</span> latitude</span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`st_areasha`</span>: <span class="sc">\[</span>numeric<span class="sc">\]</span> area in hectare</span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`X2020.01.31`</span> to <span class="in">`X2021.02.05`</span>: <span class="sc">\[</span>numeric<span class="sc">\]</span> Daily COVID-19 cases from 31st January, 2020 to 5th February, 2021</span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`IMD...Average.score`</span> - <span class="in">`IMD.2019...Local.concentration`</span>: <span class="sc">\[</span>numeric<span class="sc">\]</span> IMD indicators - for details see <span class="co">[</span><span class="ot">File 11: upper-tier local authority summaries</span><span class="co">](https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019)</span>.</span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Residents`</span>: <span class="sc">\[</span>numeric<span class="sc">\]</span> Total resident population</span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Households`</span>: <span class="sc">\[</span>numeric<span class="sc">\]</span> Total households</span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Dwellings`</span>: <span class="sc">\[</span>numeric<span class="sc">\]</span> Total dwellings</span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Household_Spaces`</span>: <span class="sc">\[</span>numeric<span class="sc">\]</span> Total household spaces</span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Aged_16plus`</span> to <span class="in">`Other_industry`</span>: <span class="sc">\[</span>numeric<span class="sc">\]</span> comprise 114 variables relating to various population and household attributes of the resident population. A description of all these variables can be found <span class="co">[</span><span class="ot">here</span><span class="co">](data/assignment_2_covid/census_vars.csv)</span></span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`geom`</span>: <span class="sc">\[</span>geometry<span class="sc">\]</span> Point geometry</span>
+<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a><span class="fu">### Projection {.unnumbered}</span></span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a>Details of the coordinate reference system:</span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(sdf)</span>
+<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
 
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/GDSL-UL/san/edit/main/11-datasets.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/GDSL-UL/san/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

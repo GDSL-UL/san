@@ -40,9 +40,9 @@ By the end of the module, students should be able to:
 
 To reproduce the code in the book, you need the following software packages:
 
--   R-4.2.2
--   RStudio 2022.12.0-353
--   Quarto 1.2.280
+-   R-4.3.1
+-   RStudio 2023.09.0+463
+-   Quarto 1.3.450
 -   the list of libraries in the next section
 
 To check your version of:
@@ -64,6 +64,7 @@ The list of libraries used in this book is provided below:
 -   `arm`
 -   `car`
 -   `corrplot`
+-   `devtools`
 -   `FRK`
 -   `gghighlight`
 -   `ggplot2`
@@ -94,15 +95,19 @@ The list of libraries used in this book is provided below:
 -   `tmap`
 -   `tufte`
 -   `viridis`
+-   `basemapR`
 
 Copy, paste and run the code below in your console. Ensure all packages are installed on your computer.
 
 ```{r}
 #| eval: false
-deps <- list(
+
+# package names
+packages <- c(
     "arm",
     "car",
     "corrplot",
+    "devtools",
     "FRK",
     "gghighlight",
     "ggplot2",
@@ -120,7 +125,6 @@ deps <- list(
     "merTools",
     "plyr",
     "RColorBrewer",
-    "rgdal",
     "sf",
     "sjPlot",
     "sp",
@@ -133,13 +137,21 @@ deps <- list(
     "tufte",
     "viridis"
 )
+
+# install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# packages loading
+invisible(lapply(packages, library, character.only = TRUE))
 ```
 
-```{r}
-#| eval: false
-# we can load them all to make sure they are installed:
-for(lib in deps){library(lib, character.only = TRUE)}
-```
+::: column-margin ::: callout-note To install the library `basemapR`, you need to install from source by running:
+
+`library(devtools)`\
+`install_github('Chrisjb/basemapR')` ::: ::: column-margin
 
 ## Assessment
 

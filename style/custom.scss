@@ -1,0 +1,54 @@
+/*-- scss:defaults --*/
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Fira+Mono&display=swap");
+
+// add some spacing between references in biblio list
+div.csl-entry {
+        clear: both;
+        margin-bottom: 10px;
+}
+
+// fix footer.center height
+.nav-footer-center {
+        min-height: 0em !important;
+}
+
+// icons
+.bi-heart-fill {
+        color: darkred;
+}
+
+// sidebar
+.sidebar-navigation li a {
+        line-height: 1.75;
+        color: var(--bs-body-color);
+        font-size: 14px;
+}
+
+.aa-Autocomplete .aa-Form,
+.aa-DetachedFormContainer .aa-Form {
+        background-color: rgba(233, 236, 239, 0.65) !important;
+}
+
+// $code-block-bg: rgba(192, 192, 192, 0.2);
+// $code-block-border-left: rgb(199, 199, 199);
+$code-color: rgb(71.4,89.25,170.85);
+$link-color: blue;
+$code-bg: rgba(192, 192, 192, 0.2);
+$code-block-bg: rgba(192, 192, 192, 0.16);
+// $code-block-bg: #f8f8f8;
+
+
+pre code {
+  padding-left: 5%;
+}
+
+pre code.sourceCode {
+  padding-left: 0;
+}
+
+.downlit code a:any-link {
+  text-decoration: underline;
+  text-decoration-color: #ccc;
+}

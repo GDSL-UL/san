@@ -33,16 +33,28 @@ bibliography: references.bib
 
 format:
   html:
-    toc: true
-    theme: [default, theme.scss]
-    css: style.css
-    code-copy: true
+    theme:
+      light: [default, style/custom.scss]
+    fontsize: "16px"
+    linestretch: 1.6
+    mainfont: "Roboto"
+    monofont: "Fira Mono"
+    smooth-scroll: true
+    toc-depth: 3
     grid:
-      sidebar-width: 200px
+      sidebar-width: 300px
       body-width: 900px
       margin-width: 300px
-  pdf:
-    documentclass: scrreprt
+    code-link: true
+    code-tools:
+      toggle: true
+    code-fold: false
+    highlight-style: printing
+    code-block-bg: true
+    code-overflow: wrap
+    reference-location: margin
+    mermaid:
+      theme: neutral
 
 editor: visual
 

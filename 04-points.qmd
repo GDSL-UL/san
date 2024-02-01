@@ -10,23 +10,25 @@ This chapter is based on the following references, which are great follow-up's o
 
 We will rely on the following libraries in this section, all of them included in @sec-dependencies:
 
-```{r results='hide', , warning=FALSE, message=FALSE}
-# For pretty table
-library(knitr)
-# All things geodata
+```{r}
+#| include = FALSE
+source("./style/data-visualisation_theme.R")
+```
+
+```{r}
+#| warning = FALSE
+# data manipulation, transformation and visualisation
+library(tidyverse)
+# spatial data manipulation
 library(sf)
 library(sp)
-# Pretty graphics
-library(ggplot2)
+# data visualisation
 library(gridExtra)
-# Thematic maps
-library(tmap)
-# Pretty maps
-library(ggmap)
-# For all your interpolation needs
+# basemap
+library(basemapR)
+# interpolation
 library(gstat)
-# For data manipulation
-library(plyr)
+library(hexbin)
 ```
 
 Before we start any analysis, let us set the path to the directory where we are working. We can easily do that with `setwd()`. Please replace in the following line the path to the folder where you have placed this file -and where the `house_transactions` folder with the data lives.
@@ -51,21 +53,19 @@ The rest of this session will focus on two main elements of the table: the spati
 
 ```{r fig.margin=TRUE, fig.cap="Raw AirBnb prices in San Diego"}
 # Create the histogram
-hist <- qplot(data=db,x=price)
-hist
+qplot( data = db, x = price)
 ```
 
 This basically shows there is a lot of values concentrated around the lower end of the distribution but a few very large ones. A usual transformation to *shrink* these differences is to take logarithms. The original table already contains an additional column with the logarithm of each price (`log_price`).
 
-```{r fig.margin=TRUE, fig.cap="Log of AirBnb price in San Diego"}
+```{r}
 # Create the histogram
-hist <- qplot(data=db, x=log_price)
-hist
+qplot( data = db, x = log_price )
 ```
 
 To obtain the spatial distribution of these houses, we need to focus on the `geometry` column. The easiest, quickest (and also "dirtiest") way to get a sense of what the data look like over space is using `plot`:
 
-```{r fig.margin=TRUE, fig.cap="Spatial distribution of AirBnb in San Diego"}
+```{r}
 plot(st_geometry(db))
 ```
 
@@ -78,26 +78,29 @@ The two-dimensional sister of histograms are binning maps: we divide each of the
 ```{r}
       # Squared binning
 # Set up plot
-sqbin <- ggplot() + 
+sqbin <- ggplot( ) + 
 # Add 2D binning with the XY coordinates as
 # a dataframe
   geom_bin2d(
-    data=as.data.frame(st_coordinates(db)), 
-    aes(x=X, y=Y)
-  )
+    data = as.data.frame( st_coordinates( db ) ), 
+    aes( x = X, y = Y)
+  ) + 
+  # set theme 
+  theme_plot_tufte()
       # Hex binning
 # Set up plot
 hexbin <- ggplot() +
 # Add hex binning with the XY coordinates as
 # a dataframe 
   geom_hex(
-    data=as.data.frame(st_coordinates(db)),
-    aes(x=X, y=Y)
+    data = as.data.frame( st_coordinates( db ) ),
+    aes( x = X, y = Y)
   ) +
 # Use viridis for color encoding (recommended)
-  scale_fill_continuous(type = "viridis")
+  scale_fill_continuous( type = "viridis" ) +
+  theme_plot_tufte()
       # Bind in subplots
-grid.arrange(sqbin, hexbin, ncol=2)
+grid.arrange( sqbin, hexbin, ncol = 2 ) 
 ```
 
 ## KDE
@@ -108,7 +111,7 @@ Kernel Density Estimation (KDE) is a technique that creates a *continuous* repre
 
 KDE over a single dimension is essentially a contiguous version of a histogram. We can see that by overlaying a KDE on top of the histogram of logs that we have created before:
 
-```{r fig.fullwidth=TRUE, fig.cap="Histogram and KDE of the log of AirBnb prices in San Diego"}
+```{r}
 # Create the base
 base <- ggplot(db, aes(x=log_price))
 # Histogram
@@ -116,7 +119,8 @@ hist <- base +
   geom_histogram(bins=50, aes(y=..density..))
 # Overlay density plot
 kde <- hist + 
-  geom_density(fill="#FF6666", alpha=0.5, colour="#FF6666")
+  geom_density(fill="#FF6666", alpha=0.5, colour="#FF6666") +
+  theme_plot_tufte()
 kde
 ```
 
@@ -128,44 +132,35 @@ Geography, at the end of the day, is usually represented as a two-dimensional sp
 
 To create a spatial KDE in R, we can use general tooling for non-spatial points, such as the `stat_density2d_filled` method:
 
-```{r fig.margin=TRUE, fig.cap="KDE of AirBnb properties in San Diego"}
+```{r}
 # Create the KDE surface
 kde <- ggplot(data = db) +
-  stat_density2d_filled(alpha = 0.5,
+  stat_density2d_filled(alpha = 1,
     data = as.data.frame(st_coordinates(db)), 
     aes(x = X, y = Y),
-    n = 16
+    n = 100
   ) +
   # Tweak the color gradient
   scale_color_viridis_c() +
   # White theme
-  theme_bw()
-# Tip! Add invisible points to improve proportions
-kde + geom_sf(alpha=0)
+  theme_plot_tufte() 
+kde
 ```
 
-This approach generates a surface that represents the density of dots, that is an estimation of the probability of finding a house transaction at a given coordinate. However, without any further information, they are hard to interpret and link with previous knowledge of the area. To bring such context to the figure, we can plot an underlying basemap, using a cloud provider such as Google Maps or, as in this case, OpenStreetMap. To do it, we will leverage the library `ggmap`, which is designed to play nicely with the `ggplot2` family (hence the seemingly counterintuitive example above). Before we can plot them with the online map, we need to reproject them though.
+This approach generates a surface that represents the density of dots, that is an estimation of the probability of finding a house transaction at a given coordinate. However, without any further information, they are hard to interpret and link with previous knowledge of the area. To bring such context to the figure, we can plot an underlying basemap, using a cloud provider such as Google Maps or, as in this case, OpenStreetMap. To do it, we will leverage the library `basemapR`, which is designed to play nicely with the `ggplot2` family (hence the seemingly counterintuitive example above). Before we can plot them with the online map, we need to reproject them though.
 
-```{r fig.fullwidth=TRUE, fig.cap="KDE of AirBnb properties in San Diego", warning=FALSE, message=FALSE}
-# Reproject coordinates
-lon_lat <- st_transform(db, crs = 4326) %>%
-  st_coordinates() %>%
-  as.data.frame()
-# Basemap
-qmplot(
-  X, 
-  Y, 
-  data = lon_lat, 
-  geom="blank"
-) +
-  # KDE
-  stat_density2d_filled(alpha = 0.5,
-    data = lon_lat, 
+```{r}
+
+bbox_db <- st_bbox(db)
+ggplot() +
+  base_map(bbox_db, increase_zoom = 2, basemap = "positron") +
+  #geom_sf(data = db, fill = NA) +
+  stat_density2d_filled(alpha = 0.7,
+    data = as.data.frame(st_coordinates(db)), 
     aes(x = X, y = Y),
-    n = 16
-  ) +
-  # Tweak the color gradient
-  scale_color_viridis_c()
+    n = 100
+  )
+
 ```
 
 ## Spatial Interpolation

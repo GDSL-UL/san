@@ -1,10 +1,8 @@
 # Data Wrangling {#sec-chp3}
 
-This chapter[^03-data-wrangling-1] introduces computational notebooks, basic functions and data types. These are all important concepts that we will use during the module.
+In this chapter, we will cover the fundamentals of the concepts and functions that you will need to know to navigate this book. We will introduce key concepts and functions relating to what computational notebooks are and how they work. We will also cover basic R functions and data types, including the use of factors. Additionally, we will offer a basic understanding of the manipulation and mapping of spatial data frames using commonly used libraries such as `tidyverse`, `sf`, `ggplot` and `tmap`.
 
-[^03-data-wrangling-1]: This chapter is part of [Spatial Analysis Notes](index.html) <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"/></a><br />[Introduction -- R Notebooks + Basic Functions + Data Types]{xmlns:dct="http://purl.org/dc/terms/" property="dct:title"} by <a xmlns:cc="http://creativecommons.org/ns#" href="http://franciscorowe.com" property="cc:attributionName" rel="cc:attributionURL">Francisco Rowe</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
-
-If you are already familiar with R, R notebooks and data types, you may want to jump to Section [Read Data](#sec_readdata) and start from there. This section describes how to read and manipulate data using `sf` and `tidyverse` functions, including `mutate()`, `%>%` (known as pipe operator), `select()`, `filter()` and specific packages and functions how to manipulate spatial data.
+If you are already familiar with R, R computational notebooks and data types, you may want to jump to Section [Read Data](#sec_readdata) and start from there. This section describes how to read and manipulate data using `sf` and `tidyverse` functions, including `mutate()`, `%>%` (known as pipe operator), `select()`, `filter()` and specific packages and functions how to manipulate spatial data.
 
 The chapter is based on:
 
@@ -18,30 +16,33 @@ The chapter is based on:
 
 ## Dependencies
 
-This tutorial uses the libraries below. Ensure they are installed on your machine[^03-data-wrangling-2] before loading them executing the following code chunk:
+This chapter uses the libraries below. Ensure they are installed on your machine[^03-data-wrangling-1] before you progress.
 
-[^03-data-wrangling-2]: You can install package `mypackage` by running the command `install.packages("mypackage")` on the R prompt or through the `Tools --> Install Packages...` menu in RStudio.
+[^03-data-wrangling-1]: You can install package `mypackage` by running the command `install.packages("mypackage")` on the R prompt or through the `Tools --> Install Packages...` menu in RStudio.
 
-```{r, message = FALSE}
-# Data manipulation, transformation and visualisation
+```{r}
+#| include = FALSE
+rm(list=ls())
+```
+
+```{r}
+#| warning = FALSE
+# data manipulation, transformation and visualisation
 library(tidyverse)
-# Nice tables
+# nice tables
 library(kableExtra)
-# Simple features (a standardised way to encode vector data ie. points, lines, polygons)
+# spatial data manipulation
 library(sf) 
-# Spatial objects conversion
-library(sp) 
-# Thematic maps
+# thematic mapping
 library(tmap) 
-# Colour palettes
+# colour palettes
 library(RColorBrewer) 
-# More colour palettes
 library(viridis)
 ```
 
 ## Introducing R
 
-R is a freely available language and environment for statistical computing and graphics which provides a wide variety of statistical and graphical techniques. It has gained widespread use in academia and industry. R offers a wider array of functionality than a traditional statistics package, such as SPSS and is composed of core (base) functionality, and is expandable through libraries hosted on [CRAN](https://cran.r-project.org). CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R.
+R is a freely available language and environment for statistical computing and graphics which provides a wide variety of statistical and graphical techniques. It has gained widespread use in academia and industry. R offers a wider array of functionality than a traditional statistics package, such as SPSS and is composed of core (base) functionality, and is expandable through libraries hosted on [The Comprehensive R Archive Network (CRAN)](https://cran.r-project.org). CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R.
 
 Commands are sent to R using either the terminal / command line or the R Console which is installed with R on either Windows or OS X. On Linux, there is no equivalent of the console, however, third party solutions exist. On your own machine, R can be installed from [here](https://www.r-project.org/).
 
@@ -58,11 +59,16 @@ If you would like to know more about the various features of RStudio, watch this
 Before we start any analysis, ensure to set the path to the directory where we are working. We can easily do that with `setwd()`. Please replace in the following line the path to the folder where you have placed this file -and where the `data` folder lives.
 
 ```{r}
-#setwd('../data/sar.csv')
-#setwd('.')
+#| eval: false
+setwd('../data/sar.csv')
+setwd('.')
 ```
 
-Note: It is good practice to not include spaces when naming folders and files. Use *underscores* or *dots*.
+::: column-margin
+::: callout-note
+It is good practice to not include spaces when naming folders and files. Use *underscores* or *dots*.
+:::
+:::
 
 You can check your current working directory by typing:
 
@@ -73,6 +79,14 @@ getwd()
 ## R Scripts and Computational Notebooks
 
 An *R script* is a series of commands that you can execute at one time and help you save time. So you do not repeat the same steps every time you want to execute the same process with different datasets. An R script is just a plain text file with R commands in it.
+
+::: column-margin
+::: callout-note
+To get familiar with good practices in writing your code in R, we recommend the [Chapter Workflow: basics](https://r4ds.hadley.nz/workflow-basics.html) and [Workflow: scripts and projects](https://r4ds.hadley.nz/workflow-scripts) from the R in Data Science book by @wickham2023r.
+:::
+:::
+
+https://r4ds.hadley.nz/workflow-basics.html
 
 To create an R script in RStudio, you need to
 
@@ -88,7 +102,7 @@ mtcars
 
 -   Save the script: *File* \> *Save As*, select your required destination folder, and enter any filename that you like, provided that it ends with the file extension *.R*
 
-An *R Notebook* is an R Markdown document with descriptive text and code chunks that can be executed independently and interactively, with output visible immediately beneath a code chunk - see @Xie_et_al_2019_book.
+An *R Notebook* or a *Quarto Document* are a Markdown options with descriptive text and code chunks that can be executed independently and interactively, with output visible immediately beneath a code chunk - see @Xie_et_al_2019_book. A *Quarto Document* is an improved version of the original *R Notebook*. *Quarto Document* requires a package called [Quarto](https://quarto.org). Quarto does not have a dependency or requirement for R. Quarto is multilingual, beginning with R, Python, Javascript, and Julia. The concept is that Quarto will work even for languages that do not yet exist. This book was original written in *R Notebook* but later transitioned into *Quarto Documents*.
 
 To create an R Notebook, you need to:
 
@@ -102,7 +116,7 @@ To create an R Notebook, you need to:
 2)  use the keyboard shortcut *Ctrl + Alt + I* or *Cmd + Option + I* (Mac); or,
 3)  type the chunk delimiters ```` ```{r} ```` and ```` ``` ````
 
-In a chunk code you can produce text output, tables, graphics and write code! You can control these outputs via chunk options which are provided inside the curly brackets eg.
+In a chunk code you can produce text output, tables, graphics and write code! You can control these outputs via chunk options which are provided inside the curly brackets e.g.:
 
 ```{r, include=FALSE}
 hist(mtcars$mpg)
@@ -116,9 +130,7 @@ hist(mtcars$mpg)
 
 Rstudio also offers a *Preview* option on the toolbar which can be used to create pdf, html and word versions of the notebook. To do this, choose from the drop-down list menu `knit to ...`
 
-For this module, we will be using computational notebooks through [Quarto](https://quarto.org); that is, *Quarto Document*. *"Quarto is a multi-language, next generation version of R Markdown from RStudio, with many new new features and capabilities. Like R Markdown, Quarto uses Knitr to execute R code, and is therefore able to render most existing Rmd files without modification."*
-
-To create a Quarto Document, you need to:
+To create a *Quarto Document*, you need to:
 
 -   Open a new script file: *File* \> *New File* \> *Quarto Document*
 
@@ -128,13 +140,15 @@ Quarto Documents work in the same way as R Notebooks with small variations. You 
 
 You can use `help` or `?` to ask for details for a specific function:
 
-```{r, eval=FALSE}
-help(sqrt) #or ?sqrt
+```{r}
+#| eval: false
+help(sqrt) #or
+?sqrt
 ```
 
 And using `example` provides examples for said function:
 
-```{r, fig.margin = TRUE, fig.cap = 'Example sqrt'}
+```{r}
 example(sqrt)
 ```
 
@@ -236,7 +250,7 @@ In statistics, we differentiate between data to capture:
 
 In R these three types of random variables are represented by the following types of R data object:
 
-```{r, echo=FALSE, fig.fullwidth = FALSE, fig.margin = FALSE, fig.cap= 'Survey and R data types'}
+```{r, echo=FALSE}
 text_tbl <- data.frame(
   variables = c("nominal", "ordinal", "discrete", "continuous"),
   
@@ -252,9 +266,9 @@ We have already encountered the R data type *numeric*. The next section introduc
 
 **What is a factor?**
 
-A factor variable assigns a numeric code to each possible category (*level*) in a variable. Behind the scenes, R stores the variable using these numeric codes to save space and speed up computing. For example, compare the size of a list of `10,000` *males* and *females* to a list of `10,000` `1s` and `0s`. At the same time R also saves the category names associated with each numeric code (level). These are used for display purposes.
+A factor variable assigns a numeric code to each possible category (*level*) in a variable. Behind the scenes, R stores the variable using these numeric codes to save space and speed up computing. For example, compare the size of a list of 10,000 *males* and *females* to a list of 10,000 1s and 0s. At the same time R also saves the category names associated with each numeric code (level). These are used for display purposes.
 
-For example, the variable *gender*, converted to a factor, would be stored as a series of `1s` and `2s`, where `1 = female` and `2 = male`; but would be displayed in all outputs using their category labels of *female* and *male*.
+For example, the variable *gender*, converted to a factor, would be stored as a series of 1s and 2s, where 1 = female and 2 = male; but would be displayed in all outputs using their category labels of *female* and *male*.
 
 **Creating a factor**
 
@@ -268,13 +282,13 @@ class(gender)
 str(gender)
 ```
 
-Now *gender* is a factor and is stored as a series of `1s` and `2s`, with `1s` representing `females` and `2s` representing `males`. The function `levels( )` lists the levels (categories) associated with a given factor variable:
+Now *gender* is a factor and is stored as a series of 1s and 2s, with 1s representing females and 2s representing males. The function `levels( )` lists the levels (categories) associated with a given factor variable:
 
 ```{r}
 levels(gender)
 ```
 
-The categories are reported in the order that they have been numbered (starting from `1`). Hence from the output we can infer that `females` are coded as `1`, and `males` as `2`.
+The categories are reported in the order that they have been numbered (starting from 1). Hence from the output we can infer that females are coded as 1, and males as 2.
 
 ## Data Frames
 
@@ -309,13 +323,15 @@ str(df) # or use glimpse(data)
 
 ### Referencing Data Frames
 
-Throughout this module, you will need to refer to particular parts of a dataframe - perhaps a particular column (an area attribute); or a particular subset of respondents. Hence it is worth spending some time now mastering this particular skill.
+To refer to particular parts of a dataframe - say, a particular column (an area attribute), or a subset of respondents. Hence it is worth spending some time understanding how to reference dataframes.
 
 The relevant R function, `[ ]`, has the format `[row,col]` or, more generally, `[set of rows, set of cols]`.
 
 Run the following commands to get a feel of how to extract different slices of the data:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
+
 df # whole data.frame
 df[1, 1] # contents of first row and column
 df[2, 2:3] # contents of the second row, second and third columns
@@ -337,7 +353,8 @@ Run both of these fuctions on their own to get a better understanding of what th
 
 Three other methods for referencing the contents of a data.frame make direct use of the variable names within the data.frame, which tends to make for easier to read/understand code:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 df[,"pop"] # variable name in quotes inside the square brackets
 df$pop # variable name prefixed with $ and appended to the data.frame name
 # or you can use attach
@@ -359,6 +376,12 @@ Ensure your memory is clear
 rm(list=ls()) # rm for targeted deletion / ls for listing all existing objects
 ```
 
+::: column-margin
+::: callout-note
+When opening a file, ensure the correct directory set up pointing to your data. It may differ from your existing working directory.
+:::
+:::
+
 There are many commands to read / load data onto R. The command to use will depend upon the format they have been saved. Normally they are saved in *csv* format from Excel or other software packages. So we use either:
 
 -   `df <- read.table("path/file_name.csv", header = FALSE, sep =",")`
@@ -370,19 +393,16 @@ To read files in other formats, refer to this useful [DataCamp tutorial](https:/
 ```{r}
 census <- read.csv("data/census/census_data.csv")
 head(census)
-# NOTE: always ensure your are setting the correct directory leading to the data. 
-# It may differ from your existing working directory
+
 ```
 
 ### Quickly inspect the data
 
-1.  What class?
+Using the following questions to lead the inspection: What class? What R data types? What data types?
 
-2.  What R data types?
+```{r}
+#| eval: false
 
-3.  What data types?
-
-```{r, eval=FALSE}
 # 1
 class(census)
 # 2 & 3
@@ -406,7 +426,8 @@ or want to view the data:
 Usually you want to add / create new variables to your data frame using existing variables eg. computing percentages by dividing two variables. There are many ways in which you can do this i.e. referecing a data frame as we have done above, or using `$` (e.g. `census$pop`). For this module, we'll use `tidyverse`:
 
 ```{r}
-census <- census %>% mutate(per_ghealth = ghealth / pop)
+census <- census %>% 
+  mutate( per_ghealth = ghealth / pop )
 ```
 
 Note we used a *pipe operator* `%>%`, which helps make the code more efficient and readable - more details, see @grolemund_wickham_2019_book. When using the pipe operator, recall to first indicate the data frame before `%>%`.
@@ -418,7 +439,8 @@ Note also the use a variable name before the `=` sign in brackets to indicate th
 Usually you want to select a subset of variables for your analysis as storing to large data sets in your R memory can reduce the processing speed of your machine. A selection of data can be achieved by using the `select` function:
 
 ```{r}
-ndf <- census %>% select(ward, pop16_74, per_ghealth)
+ndf <- census %>% 
+  select( ward, pop16_74, per_ghealth )
 ```
 
 Again first indicate the data frame and then the variable you want to select to build a new data frame. Note the code chunk above has created a new data frame called `ndf`. Explore it.
@@ -428,14 +450,15 @@ Again first indicate the data frame and then the variable you want to select to 
 You may also want to filter values based on defined conditions. You may want to filter observations greater than a certain threshold or only areas within a certain region. For example, you may want to select areas with a percentage of good health population over 50%:
 
 ```{r}
-ndf2 <- census %>% filter(per_ghealth < 0.5)
+ndf2 <- census %>% 
+  filter( per_ghealth < 0.5 )
 ```
 
 You can use more than one variables to set conditions. Use "`,`" to add a condition.
 
 ### Joining Data Drames
 
-When working with spatial data, we often need to join data. To this end, you need a common unique `id variable`. Let's say, we want to add a data frame containing census data on households for Liverpool, and join the new attributes to one of the existing data frames in the workspace. First we will read the data frame we want to join (ie. `census_data2.csv`).
+When working with spatial data, we often need to join data. To this end, you need a common unique `id variable`. Let's say, we want to add a data frame containing census data on households for Liverpool, and join the new attributes to one of the existing data frames in the workspace. First we will read the data frame we want to join (i.e. `census_data2.csv`).
 
 ```{r}
 # read data
@@ -448,38 +471,48 @@ The variable `geo_code` in this data frame corresponds to the `code` in the exis
 
 ```{r}
 # join data frames
-join_dfs <- merge(census, census2, by.x="code", by.y="geo_code", all.x = TRUE)
+join_dfs <- merge( census, # df1
+                   census2, # df2
+                   by.x="code", by.y="geo_code", # common ids
+                   all.x = TRUE)
 # check data
 head(join_dfs)
 ```
 
 ### Saving Data
 
-It may also be convinient to save your R projects. They contains all the objects that you have created in your workspace by using the `save.image( )` function:
+It may also be convenient to save your R projects. They contains all the objects that you have created in your workspace by using the `save.image( )` function:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 save.image("week1_envs453.RData")
 ```
 
 This creates a file labelled "week1_envs453.RData" in your working directory. You can load this at a later stage using the `load( )` function.
 
-```{r,eval=FALSE}
+```{r}
+#| eval: false
 load("week1_envs453.RData")
 ```
 
 Alternatively you can save / export your data into a `csv` file. The first argument in the function is the object name, and the second: the name of the csv we want to create.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 write.csv(join_dfs, "join_censusdfs.csv")
 ```
 
 ## Using Spatial Data Frames
 
-A core area of this module is learning to work with spatial data in R. R has various purposedly designed **packages** for manipulation of spatial data and spatial analysis techniques. Various R packages exist in CRAN eg. `spatial`, `sgeostat`, `splancs`, `maptools`, `tmap`, `rgdal`, `spand` and more recent development of `sf` - see @lovelace2019 for a great description and historical context for some of these packages.
+A core area of the module is learning to work with spatial data in R. R has various purposedly designed `packages` for manipulation of spatial data and spatial analysis techniques. Various packages exist in CRAN, including `sf` [@sf2018; @R-sf], `stars` [@R-stars], `terra`, `s2` [@R-s2], `lwgeom` [@R-lwgeom], `gstat` [@pebesma2004; @R-gstat], `spdep` [@R-spdep], `spatialreg` [@R-spatialreg], `spatstat` [@baddeley2015spatial; @R-spatstat], `tmap` [@tmap2018; @R-tmap], `mapview` [@R-mapview] and more. A key package is this ecosystem is `sf` [@pebesma2023spatial]. R package `sf` provides a table format for simple features, where feature geometries are stored in a list-column. It appeared in 2016 and was developed to move spatial data analysis in R closer to standards-based approaches seen in the industry and open source projects, to build upon more modern versions of open source geospatial software stack and allow for integration of R spatial software with the `tidyverse` [@tidyverse2019], particularly `ggplot2`, `dplyr`, and `tidyr`. Hence, this book relies heavely on `sf` for the manipulation and analysis of the data.
 
-During this session, we will use `sf`.
+::: column-margin
+::: callout-note
+@lovelace2024 provide a helpful overview and evolution of R spatial package ecosystem.
+:::
+:::
 
-We first need to import our spatial data. We will use a shapefile containing data at Output Area (OA) level for Liverpool. These data illustrates the hierarchical structure of spatial data.
+To read our spatial data, we use the `st_read` function. We read a shapefile containing data at Output Area (OA) level for Liverpool. These data illustrates the hierarchical structure of spatial data.
 
 ### Read Spatial Data
 
@@ -489,7 +522,8 @@ oa_shp <- st_read("data/census/Liverpool_OA.shp")
 
 Examine the input data. A spatial data frame stores a range of attributes derived from a shapefile including the **geometry** of features (e.g. polygon shape and location), **attributes** for each feature (stored in the .dbf), [projection](https://en.wikipedia.org/wiki/Map_projection) and coordinates of the shapefile's bounding box - for details, execute:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 ?st_read
 ```
 
@@ -504,15 +538,19 @@ str(oa_shp)
 head(oa_shp)
 ```
 
-**TASK:**
+::: column-margin
+::: {.callout-tip appearance="simple" icon="false"}
+**Task**
 
--   What are the geographical hierarchy in these data?
--   What is the smallest geography?
--   What is the largest geography?
+-   What are the geographical hierarchy in these data?\
+-   What is the smallest geography?\
+-   What is the largest geography?\
+:::
+:::
 
 ### Basic Mapping
 
-Again, many functions exist in CRAN for creating maps:
+Many functions exist in CRAN for creating maps:
 
 -   `plot` to create static maps
 -   `tmap` to create static and interactive maps
@@ -521,28 +559,83 @@ Again, many functions exist in CRAN for creating maps:
 -   `ggplot2` to create data visualisations, including static maps
 -   `shiny` to create web applications, including maps
 
-Here this notebook demonstrates the use of `plot` and `tmap`. First `plot` is used to map the spatial distribution of non-British-born population in Liverpool. First we only map the geometries on the right,
+In this book, we will make use of `plot`, `tmap` and `ggplot`. Normally you use `plot` to get a quick inspection of the data and `tmap` and `ggplot` to get publication quality data visualisations. First `plot` is used to map the spatial distribution of non-British-born population in Liverpool. First we only map the geometries on the right.
 
-#### Using `plot`
+**Using `plot`**
 
-```{r, fig.margin = TRUE, fig.cap = 'OAs of Livepool'}
+We can use the base `plot` function to display the boundaries of OAs in Liverpool.
+
+```{r}
 # mapping geometry
 plot(st_geometry(oa_shp))
 ```
 
-and then:
+To visualise a column in the spatial data frame, we can run:
 
-```{r, fig.cap = 'Spatial distribution of ethnic groups, Liverpool'}
+```{r}
 # map attributes, adding intervals
-plot(oa_shp["Ethnic"], key.pos = 4, axes = TRUE, key.width = lcm(1.3), key.length = 1.,
-     breaks = "jenks", lwd = 0.1, border = 'grey') 
+plot(oa_shp["Ethnic"], # variable to visualise
+     key.pos = 4, 
+     axes = TRUE, 
+     key.width = lcm(1.3), 
+     key.length = 1.,
+     breaks = "jenks", # algorithm to categorise the data
+     lwd = 0.1, 
+     border = 'grey') # boundary colour
 ```
 
-**TASK:**
+::: column-margin
+::: {.callout-tip appearance="simple" icon="false"}
+**Task**
 
--   What is the key pattern emerging from this map?
+What is the key pattern emerging from this map?
+:::
+:::
 
-#### Using `tmap`
+Let us now explore `ggplot` or `tmap`.
+
+**Using `ggplot`**
+
+We can visualise spatial data frames using `ggplot` fairly easily. `ggplot` is a generic sets of functions which was not specifically designed for spatial mapping, but it is fairly flexible that allows producing great spatial data visualisations.
+
+Following the grammar of `ggplot`, we plot spatial data drawing layers. `ggplot` has a basic structure of three components:
+
+-   The data i.e. `ggplot( data = *data frame*)`.
+-   Geometries i.e. `geom_xxx( )`.
+-   Aesthetic mapping i.e. `aes(x=*variable*, y=*variable*)`
+
+We can put these three components together using `+`. This is similar to the ways we apply the pipe operator in for tidyverse. The latter component of aesthetic mapping can be added in both the `ggplot` and `geom_xxx` functions.
+
+To map our data, we can then run:
+
+```{r}
+ggplot(data = oa_shp, aes( fill = Ethnic) ) + # add data frame and variable to map
+  geom_sf(colour = "gray60",  # colour line
+          size = 0.1) # line size
+```
+
+We can change the colour palette by using a different colour palette. We can use the [viridis](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html) package. The power of `viridis` is that it uses color scales that visually pleasing, colorblind friendly, print well in gray scale, and can be used for both categorical and continuous data. For categorical data you can also use [ColourBrewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3).
+
+So let us (1) change the colour pallete to viridis, (2) remove the colour of the boundaries, and (3) replace the theme with the theme we will be using for the book. Let's read the theme first and then implement these changes.
+
+The `ggplot` themes for the book are in a file called `data-visualisation_theme.R` in the `style` folder. We read this file by running:
+
+```{r}
+source("./style/data-visualisation_theme.R")
+```
+
+We can now implement our changes:
+
+```{r}
+ggplot(data = oa_shp, aes( fill = Ethnic) ) + # add data frame and variable to map
+  geom_sf(colour = "transparent") + # colour line
+  scale_fill_viridis( option = "viridis" ) + # add viridis colour scheme
+  theme_map_tufte()
+```
+
+To master `ggplot`, see @wickham2009.
+
+**Using `tmap`**
 
 Similar to `ggplot2`, `tmap` is based on the idea of a 'grammar of graphics' which involves a separation between the input data and aesthetics (i.e. the way data are visualised). Each data set can be mapped in various different ways, including location as defined by its geometry, colour and other features. The basic building block is `tm_shape()` (which defines input data), followed by one or more layer elements such as `tm_fill()` and `tm_dots()`.
 
@@ -560,22 +653,34 @@ map_oa = tm_shape(oa_shp) +
 map_oa
 ```
 
-Note that the operation `+` is used to add new layers. You can set style themes by `tm_style`. To visualise the existing styles use `tmap_style_catalogue()`, and you can also evaluate the code chunk below if you would like to create an interactive map.
+Note that the operation `+`, as for `ggplot` is used to add new layers. You can set style themes by `tm_style`. To visualise the existing styles use `tmap_style_catalogue()`. An advantage of `tmap` is that you can easily create an interactive map by running `tmap_mode`.
 
-```{r, eval=FALSE}
+```{r}
 tmap_mode("view")
 map_oa
 ```
 
-**TASK:**
+::: column-margin
+::: {.callout-tip appearance="simple" icon="false"}
+**Task**
 
--   Try mapping other variables in the spatial data frame. Where do population aged 60 and over concentrate?
+Try mapping other variables in the spatial data frame. Where do population aged 60 and over concentrate?
+:::
+:::
 
 ### Comparing geographies
 
-If you recall, one of the key issues of working with spatial data is the modifiable area unit problem (MAUP) - see lecture notes. To get a sense of the effects of MAUP, we analyse differences in the spatial patterns of the ethnic population in Liverpool between Middle Layer Super Output Areas (MSOAs) and OAs. So we map these geographies together.
+If you recall, one of the key issues of working with spatial data is the modifiable area unit problem (MAUP) - see @spatial_data. To get a sense of the effects of MAUP, we analyse differences in the spatial patterns of the ethnic population in Liverpool between Middle Layer Super Output Areas (MSOAs) and OAs. So we map these geographies together.
+
+::: column-margin
+::: callout-note
+The first line of the chunk code include `tmap_mode("plot")` which tells R that we want a static map. `tmap_mode` works like a switch to interactive and non-interactive mapping.
+:::
+:::
 
 ```{r}
+tmap_mode("plot")
+
 # read data at the msoa level
 msoa_shp <- st_read("data/census/Liverpool_MSOA.shp")
 
@@ -593,23 +698,12 @@ map_msoa = tm_shape(msoa_shp) +
 tmap_arrange(map_msoa, map_oa) 
 ```
 
-**TASK:**
+::: column-margin
+::: {.callout-tip appearance="simple" icon="false"}
+**Task**
 
--   What differences do you see between OAs and MSOAs?
--   Can you identify areas of spatial clustering? Where are they?
+What differences do you see between OAs and MSOAs?
 
-## Useful Functions
-
-| Function                            | Description                                  |
-|--------------------------------|----------------------------------------|
-| read.csv()                          | read csv files into data frames              |
-| str()                               | inspect data structure                       |
-| mutate()                            | create a new variable                        |
-| filter()                            | filter observations based on variable values |
-| %\>%                                | pipe operator - chain operations             |
-| select()                            | select variables                             |
-| merge()                             | join dat frames                              |
-| st_read                             | read spatial data (ie. shapefiles)           |
-| plot()                              | create a map based a spatial data set        |
-| tm_shape(), tm_fill(), tm_borders() | create a map using tmap functions            |
-| tm_arrange                          | display multiple maps in a single "metaplot" |
+Can you identify areas of spatial clustering? Where are they?
+:::
+:::
