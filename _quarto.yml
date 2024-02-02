@@ -55,6 +55,8 @@ format:
     reference-location: margin
     mermaid:
       theme: neutral
+  pdf:
+    documentclass: scrreprt
 
 editor: visual
 

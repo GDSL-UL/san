@@ -306,16 +306,16 @@ window.Quarto = {
 <p>Content is based on the following references, which are great follow-up’s on the topic:</p>
 <ul>
 <li>
-<span class="citation" data-cites="fotheringham1989spatial">Fotheringham and O’Kelly (<a href="references.html#ref-fotheringham1989spatial" role="doc-biblioref">1989</a>)</span> offer a historical overview of spatial interaction models and illustration of use cases.</li>
+<span class="citation" data-cites="fotheringham1989spatial">Fotheringham and O’Kelly (<a href="#ref-fotheringham1989spatial" role="doc-biblioref">1989</a>)</span> offer a historical overview of spatial interaction models and illustration of use cases.</li>
 <li>
-<span class="citation" data-cites="rowe2022">Rowe, Lovelace, and Dennett (<a href="references.html#ref-rowe2022" role="doc-biblioref">2022</a>)</span> provide a good overview of the existing limitations and opportunities of spatial interaction modelling.</li>
+<span class="citation" data-cites="rowe2022">Rowe, Lovelace, and Dennett (<a href="#ref-rowe2022" role="doc-biblioref">2022</a>)</span> provide a good overview of the existing limitations and opportunities of spatial interaction modelling.</li>
 <li>
-<span class="citation" data-cites="gds_ua17">Singleton (<a href="references.html#ref-gds_ua17" role="doc-biblioref">2017</a>)</span>, an online short course on R for Geographic Data Science and Urban Analytics. In particular, the section on <a href="https://github.com/alexsingleton/GDS_UA_2017/tree/master/Mapping_Flows">mapping flows</a> is specially relevant here.</li>
-<li>The predictive checks section draws heavily from <span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="references.html#ref-gelman2006data" role="doc-biblioref">2006</a>)</span>, in particular Chapters 6 and 7.</li>
+<span class="citation" data-cites="gds_ua17">Singleton (<a href="#ref-gds_ua17" role="doc-biblioref">2017</a>)</span>, an online short course on R for Geographic Data Science and Urban Analytics. In particular, the section on <a href="https://github.com/alexsingleton/GDS_UA_2017/tree/master/Mapping_Flows">mapping flows</a> is specially relevant here.</li>
+<li>The predictive checks section draws heavily from <span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="#ref-gelman2006data" role="doc-biblioref">2006</a>)</span>, in particular Chapters 6 and 7.</li>
 </ul>
 <section id="dependencies" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="dependencies">
 <span class="header-section-number">5.1</span> Dependencies</h2>
-<p>We will rely on the following libraries in this section, all of them included in <a href="01-overview.html#sec-dependencies" class="quarto-xref"><span>Section 1.4.1</span></a>:</p>
+<p>We will rely on the following libraries in this section, all of them included in <a href="#sec-dependencies" class="quarto-xref"><span class="quarto-unresolved-ref">sec-dependencies</span></a>:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Data management</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
@@ -534,7 +534,7 @@ Geodetic CRS:  WGS 84
 <p>Note how we transform the size so it’s a proportion of the largest trip and then it is compressed with a logarithm.</p>
 </section><section id="modelling-flows" class="level2 page-columns page-full" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="modelling-flows">
 <span class="header-section-number">5.4</span> Modelling flows</h2>
-<p>Now we have an idea of the spatial distribution of flows, we can begin to think about modeling them. The core idea in this section is to fit a model that can capture the particular characteristics of our variable of interest (the volume of trips) using a set of predictors that describe the nature of a given flow. We will start from the simplest model and then progressively build complexity until we get to a satisfying point. Along the way, we will be exploring each model using concepts from <span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="references.html#ref-gelman2006data" role="doc-biblioref">2006</a>)</span> such as predictive performance checks<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> (PPC)</p>
+<p>Now we have an idea of the spatial distribution of flows, we can begin to think about modeling them. The core idea in this section is to fit a model that can capture the particular characteristics of our variable of interest (the volume of trips) using a set of predictors that describe the nature of a given flow. We will start from the simplest model and then progressively build complexity until we get to a satisfying point. Along the way, we will be exploring each model using concepts from <span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="#ref-gelman2006data" role="doc-biblioref">2006</a>)</span> such as predictive performance checks<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> (PPC)</p>
 <div class="no-row-height column-margin column-container"><p><sup>1</sup>&nbsp;For a more elaborate introduction to PPC, have a look at Chapters 7 and 8.</p></div><p>Before we start running regressions, let us first standardize the predictors so we can interpret the intercept as the average flow when all the predictors take the average value, and so we can interpret the model coefficients as changes in standard deviation units:</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Scale all the table</span></span>
@@ -946,7 +946,7 @@ T_{ij} = X_{ij}\beta + \delta_i + \delta_j + \epsilon_{ij}
 </div>
 </div>
 <p>As we can see, the differences exist but they are not massive. Let’s use this example to learn how to interpret coefficients in a Poisson model<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>. Effectively, these estimates can be understood as multiplicative effects. Since our model fits</p>
-<div class="no-row-height column-margin column-container"><p><sup>8</sup>&nbsp;See section 6.2 of <span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="references.html#ref-gelman2006data" role="doc-biblioref">2006</a>)</span> for a similar treatment of these.</p></div><p><span class="math display">\[
+<div class="no-row-height column-margin column-container"><p><sup>8</sup>&nbsp;See section 6.2 of <span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="#ref-gelman2006data" role="doc-biblioref">2006</a>)</span> for a similar treatment of these.</p></div><p><span class="math display">\[
 T_{ij} \sim Poisson (\exp^{X_{ij}\beta})
 \]</span></p>
 <p>we need to transform <span class="math inline">\(\beta\)</span> through an exponential in order to get a sense of the effect of distance on the number of trips. This means that for the street distance, our original estimate is <span class="math inline">\(\beta_{street} = -0.0996\)</span>, but this needs to be translated through the exponential into <span class="math inline">\(e^{-0.0996} = 0.906\)</span>. In other words, since distance is expressed in standard deviations<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>, we can expect a 10% decrease in the number of trips for an increase of one standard deviation (about 1Km) in the distance between the stations. This can be compared with <span class="math inline">\(e^{-0.0782} = 0.925\)</span> for the straight distances, or a reduction of about 8% the number of trips for every increase of a standard deviation (about 720m).</p>
@@ -1070,7 +1070,7 @@ P_i = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i 
 
 <!-- -->
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-fotheringham1989spatial" class="csl-entry" role="listitem">
 Fotheringham, A Stewart, and Morton E O’Kelly. 1989. <em>Spatial Interaction Models: Formulations and Applications</em>. Vol. 1. Kluwer Academic Publishers Dordrecht.
 </div>

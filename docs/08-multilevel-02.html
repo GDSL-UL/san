@@ -316,12 +316,12 @@ window.Quarto = {
 </header><p>This chapter explains varying slopes and draws on the following references:</p>
 <p>The content of this chapter is based on:</p>
 <ul>
-<li><p><span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="references.html#ref-gelman2006data" role="doc-biblioref">2006</a>)</span> provides an excellent and intuitive explanation of multilevel modelling and data analysis in general. Read Part 2A for a really good explanation of multilevel models.</p></li>
-<li><p><span class="citation" data-cites="bristol2020">Multilevel Modelling (<a href="references.html#ref-bristol2020" role="doc-biblioref">n.d.</a>)</span> is an useful online resource on multilevel modelling and is free!</p></li>
+<li><p><span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="#ref-gelman2006data" role="doc-biblioref">2006</a>)</span> provides an excellent and intuitive explanation of multilevel modelling and data analysis in general. Read Part 2A for a really good explanation of multilevel models.</p></li>
+<li><p><span class="citation" data-cites="bristol2020">Multilevel Modelling (<a href="#ref-bristol2020" role="doc-biblioref">n.d.</a>)</span> is an useful online resource on multilevel modelling and is free!</p></li>
 </ul>
 <section id="dependencies" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="dependencies">
 <span class="header-section-number">8.1</span> Dependencies</h2>
-<p>This chapter uses the following libraries which are listed in the <a href="01-overview.html#sec-dependencies" class="quarto-xref"><span>Section 1.4.1</span></a> in Chapter 1:</p>
+<p>This chapter uses the following libraries which are listed in the <a href="#sec-dependencies" class="quarto-xref"><span class="quarto-unresolved-ref">sec-dependencies</span></a> in Chapter 1:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Data manipulation, transformation and visualisation</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
@@ -357,7 +357,7 @@ window.Quarto = {
 <p>So far, we have estimated varying-intercept models; that is, when the intercept (<span class="math inline">\(\beta_{0}\)</span>) is allowed to vary by group (eg. geographical area) - as shown in Fig. 1(a). The strength of the relationship between <span class="math inline">\(y\)</span> (i.e.&nbsp;unemployment rate) and <span class="math inline">\(x\)</span> (long-term illness) has been assumed to be the same across groups (i.e.&nbsp;MSOAs), as captured by the regression slope (<span class="math inline">\(\beta_{1}\)</span>). Yet it can also vary by group as shown in Fig. 1(b), or we can observe group variability for both intercepts and slopes as represented in Fig. 1(c).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="figs/ch6/fig11.1_Gelman_Hill.png" class="img-fluid figure-img"></p>
-<figcaption>Fig. 1. Linear regression model with (a) varying intercepts, (b) varying slopes, and (c) both. Source: <span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="references.html#ref-gelman2006data" role="doc-biblioref">2006</a>)</span> p.238.</figcaption></figure>
+<figcaption>Fig. 1. Linear regression model with (a) varying intercepts, (b) varying slopes, and (c) both. Source: <span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="#ref-gelman2006data" role="doc-biblioref">2006</a>)</span> p.238.</figcaption></figure>
 </div>
 <section id="exploratory-analysis-varying-slopes" class="level3" data-number="8.3.1"><h3 data-number="8.3.1" class="anchored" data-anchor-id="exploratory-analysis-varying-slopes">
 <span class="header-section-number">8.3.1</span> Exploratory Analysis: Varying Slopes</h3>
@@ -530,9 +530,9 @@ Projected CRS: Transverse_Mercator</code></pre>
  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
  $ term     : chr  "lt_ill" "lt_ill" "lt_ill" "lt_ill" ...
- $ mean     : num  0.026 -0.1126 0.0516 -0.1393 -0.2795 ...
- $ median   : num  0.026 -0.1147 0.0587 -0.1422 -0.2815 ...
- $ sd       : num  0.0427 0.0746 0.0826 0.0356 0.0401 ...</code></pre>
+ $ mean     : num  0.0299 -0.1127 0.0514 -0.1407 -0.2808 ...
+ $ median   : num  0.0298 -0.1175 0.0525 -0.1394 -0.2807 ...
+ $ sd       : num  0.0499 0.0749 0.0846 0.0375 0.0377 ...</code></pre>
 </div>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># merge data</span></span>
 <span><span class="va">msoa_shp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sp/man/merge.html">merge</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">msoa_shp</span>, y <span class="op">=</span> <span class="va">re_msoa_m6</span>, by.x <span class="op">=</span> <span class="st">"MSOA_CD"</span>, by.y <span class="op">=</span> <span class="st">"groupID"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -591,10 +591,10 @@ First 10 features:
 10 MULTIPOLYGON (((337363.8 39...</code></pre>
 </div>
 </div>
-<p>Now try adding a group-level predictor and an individual-level predictor to the model. Unsure, look at <a href="07-multilevel-01.html#sec-indlevel" class="quarto-xref"><span>Section 7.4.5</span></a> and <a href="07-multilevel-01.html#sec-grouplevel" class="quarto-xref"><span>Section 7.4.6</span></a> in <a href="07-multilevel-01.html" class="quarto-xref"><span>Chapter 7</span></a>.</p>
+<p>Now try adding a group-level predictor and an individual-level predictor to the model. Unsure, look at <a href="#sec-indlevel" class="quarto-xref"><span class="quarto-unresolved-ref">sec-indlevel</span></a> and <a href="#sec-grouplevel" class="quarto-xref"><span class="quarto-unresolved-ref">sec-grouplevel</span></a> in <a href="#sec-chp7" class="quarto-xref"><span class="quarto-unresolved-ref">sec-chp7</span></a>.</p>
 </section><section id="interpreting-correlations-between-group-level-intercepts-and-slopes" class="level2" data-number="8.5"><h2 data-number="8.5" class="anchored" data-anchor-id="interpreting-correlations-between-group-level-intercepts-and-slopes">
 <span class="header-section-number">8.5</span> Interpreting Correlations Between Group-level Intercepts and Slopes</h2>
-<p>Correlations of random effects are confusing to interpret. Key for their appropriate interpretation is to recall they refer to group-level residuals i.e.&nbsp;deviation of intercepts and slopes from the average model intercept and slope. A strong <em>negative</em> correlation indicates that groups with high intercepts have relatively low slopes, and <em>vice versa</em>. A strong <em>positive</em> correlation indicates that groups with high intercepts have relatively high slopes, and <em>vice versa</em>. A correlation close to <em>zero</em> indicate little or no systematic between intercepts and slopes. Note that a high correlation between intercepts and slopes is not a problem, but it makes the interpretation of the estimated intercepts more challenging. For this reason, a suggestion is to center predictors (<span class="math inline">\(x's\)</span>); that is, substract their average value (<span class="math inline">\(z = x - \bar{x}\)</span>). For a more detailed discussion, see <span class="citation" data-cites="bristol2020">Multilevel Modelling (<a href="references.html#ref-bristol2020" role="doc-biblioref">n.d.</a>)</span>.</p>
+<p>Correlations of random effects are confusing to interpret. Key for their appropriate interpretation is to recall they refer to group-level residuals i.e.&nbsp;deviation of intercepts and slopes from the average model intercept and slope. A strong <em>negative</em> correlation indicates that groups with high intercepts have relatively low slopes, and <em>vice versa</em>. A strong <em>positive</em> correlation indicates that groups with high intercepts have relatively high slopes, and <em>vice versa</em>. A correlation close to <em>zero</em> indicate little or no systematic between intercepts and slopes. Note that a high correlation between intercepts and slopes is not a problem, but it makes the interpretation of the estimated intercepts more challenging. For this reason, a suggestion is to center predictors (<span class="math inline">\(x's\)</span>); that is, substract their average value (<span class="math inline">\(z = x - \bar{x}\)</span>). For a more detailed discussion, see <span class="citation" data-cites="bristol2020">Multilevel Modelling (<a href="#ref-bristol2020" role="doc-biblioref">n.d.</a>)</span>.</p>
 <p>To illustrate this, let’s reestimate our model adding an individual-level predictor: the share of population with no educational qualification.</p>
 <div class="cell">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># centering to the mean</span></span>
@@ -640,9 +640,9 @@ z_no_qual -0.015 -0.679</code></pre>
 <p>How do you interpret the random effect correlation?</p>
 </section><section id="model-building" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="model-building">
 <span class="header-section-number">8.6</span> Model building</h2>
-<p>Now we know how to estimate multilevel regression models in <em>R</em>. The question that remains is: <em>When does multilevel modeling make a difference?</em> The short answer is: when there is little group-level variation. When there is very little group-level variation, the multilevel modelling reduces to classical linear regression estimates <em>with no group indicators</em>. Inversely, when group-level coefficients vary greatly (compared to their standard errors of estimation), multilevel modelling reduces to classical regression <em>with group indicators</em> <span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="references.html#ref-gelman2006data" role="doc-biblioref">2006</a>)</span>.</p>
+<p>Now we know how to estimate multilevel regression models in <em>R</em>. The question that remains is: <em>When does multilevel modeling make a difference?</em> The short answer is: when there is little group-level variation. When there is very little group-level variation, the multilevel modelling reduces to classical linear regression estimates <em>with no group indicators</em>. Inversely, when group-level coefficients vary greatly (compared to their standard errors of estimation), multilevel modelling reduces to classical regression <em>with group indicators</em> <span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="#ref-gelman2006data" role="doc-biblioref">2006</a>)</span>.</p>
 <p><em>How do you go about building a model?</em></p>
-<p>We generally start simple by fitting simple linear regressions and then work our way up to a full multilevel model - see <span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="references.html#ref-gelman2006data" role="doc-biblioref">2006</a>)</span> p.&nbsp;270.</p>
+<p>We generally start simple by fitting simple linear regressions and then work our way up to a full multilevel model - see <span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="#ref-gelman2006data" role="doc-biblioref">2006</a>)</span> p.&nbsp;270.</p>
 <p><em>How many groups are needed?</em></p>
 <p>As an absolute minimum, more than two groups are required. With only one or two groups, a multilevel model reduces to a linear regression model.</p>
 <p><em>How many observations per group?</em></p>
@@ -669,7 +669,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </section></section><section id="questions" class="level2" data-number="8.7"><h2 data-number="8.7" class="anchored" data-anchor-id="questions">
 <span class="header-section-number">8.7</span> Questions</h2>
-<p>We will continue to use the COVID-19 dataset. Please see <a href="11-datasets.html" class="quarto-xref"><span>Chapter 11</span></a> for details on the data.</p>
+<p>We will continue to use the COVID-19 dataset. Please see <a href="#sec-chp11" class="quarto-xref"><span class="quarto-unresolved-ref">sec-chp11</span></a> for details on the data.</p>
 <div class="cell">
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sdf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">"data/assignment_2_covid/covid19_eng.gpkg"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -689,7 +689,7 @@ Projected CRS: OSGB36 / British National Grid</code></pre>
 <li><p>Fit a varying-intercept and varying-slope model.</p></li>
 <li><p>Compare the results for models fitted in 1 and 2. Which is better? Why?</p></li>
 </ol>
-<p>Use the same explanatory variables used for the <a href="07-multilevel-01.html" class="quarto-xref"><span>Chapter 7</span></a> challenge, so you can compare the model results from this chapter.</p>
+<p>Use the same explanatory variables used for the <a href="#sec-chp7" class="quarto-xref"><span class="quarto-unresolved-ref">sec-chp7</span></a> challenge, so you can compare the model results from this chapter.</p>
 <p>Analyse and discuss:</p>
 <ol type="1">
 <li>the varying slope estimate(s) from your model(s) (to what extent does the relationship between your dependent and independent variables vary across groups / areas? are they statistically significantly different?).</li>
@@ -699,7 +699,7 @@ Projected CRS: OSGB36 / British National Grid</code></pre>
 
 <!-- -->
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-gelman2006data" class="csl-entry" role="listitem">
 Gelman, Andrew, and Jennifer Hill. 2006. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge University Press.
 </div>
