@@ -13,7 +13,7 @@ book:
     style: docked
     background: light
   date: today
-  downloads: [pdf, epub]
+  downloads: [pdf]
   chapters:
     - index.qmd
     - 01-overview.qmd

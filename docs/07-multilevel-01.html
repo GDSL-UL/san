@@ -165,23 +165,7 @@ window.Quarto = {
       <a href="./">Spatial Modelling for Data Scientists</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/GDSL-UL/san" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-<li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Spatial-Modelling-for-Data-Scientists.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
-            Download PDF
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Spatial-Modelling-for-Data-Scientists.epub">
-              <i class="bi bi-bi-journal pe-1"></i>
-            Download ePub
-            </a>
-          </li>
-      </ul>
-</div>
+    <a href="./Spatial-Modelling-for-Data-Scientists.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -932,27 +916,27 @@ E01006518:E02001390 -0.01885870</code></pre>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         groupFctr             groupID        term         mean       median
-1  lsoa_cd:msoa_cd E01006512:E02001377 (Intercept) -0.016024900 -0.016182257
-2  lsoa_cd:msoa_cd E01006513:E02006932 (Intercept) -0.014365961 -0.014156835
-3  lsoa_cd:msoa_cd E01006514:E02001383 (Intercept) -0.023387805 -0.024070606
-4  lsoa_cd:msoa_cd E01006515:E02001383 (Intercept) -0.019307523 -0.019391931
-5  lsoa_cd:msoa_cd E01006518:E02001390 (Intercept) -0.019501402 -0.021985163
-6  lsoa_cd:msoa_cd E01006519:E02001402 (Intercept) -0.015718283 -0.015748927
-7  lsoa_cd:msoa_cd E01006520:E02001389 (Intercept) -0.024228037 -0.025435851
-8  lsoa_cd:msoa_cd E01006521:E02001398 (Intercept)  0.005786660  0.005448932
-9  lsoa_cd:msoa_cd E01006522:E02001394 (Intercept)  0.017665445  0.017510787
-10 lsoa_cd:msoa_cd E01006523:E02001398 (Intercept)  0.004597002  0.003980189
-           sd
-1  0.02181527
-2  0.02096828
-3  0.02074659
-4  0.01962778
-5  0.01952425
-6  0.01001290
-7  0.01998055
-8  0.01969677
-9  0.02127592
-10 0.01939081</code></pre>
+1  lsoa_cd:msoa_cd E01006512:E02001377 (Intercept) -0.015517531 -0.014486880
+2  lsoa_cd:msoa_cd E01006513:E02006932 (Intercept) -0.016811135 -0.017546167
+3  lsoa_cd:msoa_cd E01006514:E02001383 (Intercept) -0.021818145 -0.024092438
+4  lsoa_cd:msoa_cd E01006515:E02001383 (Intercept) -0.018097772 -0.017458932
+5  lsoa_cd:msoa_cd E01006518:E02001390 (Intercept) -0.017939320 -0.017949390
+6  lsoa_cd:msoa_cd E01006519:E02001402 (Intercept) -0.015206492 -0.015264256
+7  lsoa_cd:msoa_cd E01006520:E02001389 (Intercept) -0.024048878 -0.023262342
+8  lsoa_cd:msoa_cd E01006521:E02001398 (Intercept)  0.006892622  0.007299342
+9  lsoa_cd:msoa_cd E01006522:E02001394 (Intercept)  0.019082274  0.020449785
+10 lsoa_cd:msoa_cd E01006523:E02001398 (Intercept)  0.004270358  0.005194620
+            sd
+1  0.020824395
+2  0.019268301
+3  0.019622814
+4  0.018468456
+5  0.019955005
+6  0.008461949
+7  0.021041952
+8  0.018644138
+9  0.020438046
+10 0.018968348</code></pre>
 </div>
 </div>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g.&nbsp;LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
@@ -1026,9 +1010,9 @@ Projected CRS: Transverse_Mercator</code></pre>
  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
- $ mean     : num  -0.01325 -0.02661 -0.03065 0.00537 0.02327 ...
- $ median   : num  -0.01406 -0.02572 -0.02964 0.00511 0.02398 ...
- $ sd       : num  0.0305 0.0354 0.031 0.0349 0.0162 ...</code></pre>
+ $ mean     : num  -0.01287 -0.02288 -0.03004 0.00695 0.02319 ...
+ $ median   : num  -0.01269 -0.02376 -0.03138 0.00675 0.02437 ...
+ $ sd       : num  0.0345 0.0343 0.0329 0.0335 0.0157 ...</code></pre>
 </div>
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># merge data</span></span>
 <span><span class="va">msoa_shp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">msoa_shp</span>, y <span class="op">=</span> <span class="va">re_msoa</span>, by.x <span class="op">=</span> <span class="st">"MSOA_CD"</span>, by.y <span class="op">=</span> <span class="st">"groupID"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
