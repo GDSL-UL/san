@@ -148,10 +148,13 @@ if (any(installed_packages == FALSE)) {
 invisible(lapply(packages, library, character.only = TRUE))
 ```
 
-::: column-margin ::: callout-note To install the library `basemapR`, you need to install from source by running:
+::: column-margin 
+::: callout-note 
+To install the library `basemapR`, you need to install from source by running:
 
-`library(devtools)`\
-`install_github('Chrisjb/basemapR')` ::: ::: column-margin
+`library(devtools)`
+`install_github('Chrisjb/basemapR')` 
+::: ::: column-margin
 
 ## Assessment
 
