@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.9)  2 FEB 2024 07:40
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.9)  16 FEB 2024 06:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2155,36 +2155,33 @@ Overfull \hbox (69.20407pt too wide) in paragraph at lines 2593--2593
  []
 
 [51]
-Overfull \hbox (80.70157pt too wide) in paragraph at lines 2616--2616
-[][]\TU/lmtt/m/n/10.95 stat_bin()[] using []bins = 30[]. Pick better value with []binwidth[].[] 
- []
-
 File: 04-points_files/figure-pdf/unnamed-chunk-5-1.pdf Graphic file (type pdf)
 <use 04-points_files/figure-pdf/unnamed-chunk-5-1.pdf>
-[52]
-Overfull \hbox (80.70157pt too wide) in paragraph at lines 2643--2643
-[][]\TU/lmtt/m/n/10.95 stat_bin()[] using []bins = 30[]. Pick better value with []binwidth[].[] 
+
+Overfull \hbox (10.96516pt too wide) in paragraph at lines 2611--2612
+[][] 
  []
 
 File: 04-points_files/figure-pdf/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use 04-points_files/figure-pdf/unnamed-chunk-6-1.pdf>
 
-Overfull \hbox (10.96516pt too wide) in paragraph at lines 2646--2647
+Overfull \hbox (10.96516pt too wide) in paragraph at lines 2626--2627
 [][] 
  []
 
+[52]
 File: 04-points_files/figure-pdf/unnamed-chunk-7-1.pdf Graphic file (type pdf)
 <use 04-points_files/figure-pdf/unnamed-chunk-7-1.pdf>
 [53]
 File: 04-points_files/figure-pdf/unnamed-chunk-8-1.pdf Graphic file (type pdf)
 <use 04-points_files/figure-pdf/unnamed-chunk-8-1.pdf>
 
-Overfull \hbox (10.96082pt too wide) in paragraph at lines 2704--2705
+Overfull \hbox (10.96082pt too wide) in paragraph at lines 2684--2685
 [][] 
  []
 
 [54]
-Overfull \hbox (149.68655pt too wide) in paragraph at lines 2736--2736
+Overfull \hbox (149.68655pt too wide) in paragraph at lines 2716--2716
 []\TU/lmtt/m/n/10.95 Warning: The dot-dot notation ([]..density..[]) was deprecated in ggplot2 3.4.0.[] 
  []
 
@@ -2192,7 +2189,7 @@ Overfull \hbox (149.68655pt too wide) in paragraph at lines 2736--2736
 File: 04-points_files/figure-pdf/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use 04-points_files/figure-pdf/unnamed-chunk-9-1.pdf>
 
-Overfull \hbox (10.96008pt too wide) in paragraph at lines 2740--2741
+Overfull \hbox (10.96008pt too wide) in paragraph at lines 2720--2721
 [][] 
  []
 
@@ -2200,7 +2197,7 @@ Overfull \hbox (10.96008pt too wide) in paragraph at lines 2740--2741
 File: 04-points_files/figure-pdf/unnamed-chunk-10-1.pdf Graphic file (type pdf)
 <use 04-points_files/figure-pdf/unnamed-chunk-10-1.pdf>
 
-Overfull \hbox (10.96082pt too wide) in paragraph at lines 2780--2781
+Overfull \hbox (10.96082pt too wide) in paragraph at lines 2760--2761
 [][] 
  []
 
@@ -2208,27 +2205,27 @@ Overfull \hbox (10.96082pt too wide) in paragraph at lines 2780--2781
 File: 04-points_files/figure-pdf/unnamed-chunk-11-1.pdf Graphic file (type pdf)
 <use 04-points_files/figure-pdf/unnamed-chunk-11-1.pdf>
 
-Overfull \hbox (10.96082pt too wide) in paragraph at lines 2807--2808
+Overfull \hbox (10.96082pt too wide) in paragraph at lines 2787--2788
 [][] 
  []
 
 [58] [59] [60]
-Overfull \hbox (34.71158pt too wide) in paragraph at lines 2936--2936
+Overfull \hbox (34.71158pt too wide) in paragraph at lines 2916--2916
 []\TU/lmtt/m/n/10.95 Simple feature collection with 10000 features and 2 fields[] 
  []
 
 
-Overfull \hbox (138.18906pt too wide) in paragraph at lines 2939--2939
+Overfull \hbox (138.18906pt too wide) in paragraph at lines 2919--2919
 []\TU/lmtt/m/n/10.95 Bounding box:  xmin: -117.2795 ymin: 32.57604 xmax: -116.9569 ymax: 33.08056[] 
  []
 
 [61]
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 3007--3007
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 2987--2987
 []\TU/lmtt/m/n/10.95 Simple feature collection with 6 features and 2 fields[] 
  []
 
 
-Overfull \hbox (138.18906pt too wide) in paragraph at lines 3010--3010
+Overfull \hbox (138.18906pt too wide) in paragraph at lines 2990--2990
 []\TU/lmtt/m/n/10.95 Bounding box:  xmin: -117.2795 ymin: 32.57604 xmax: -117.2632 ymax: 32.57604[] 
  []
 
@@ -2236,7 +2233,7 @@ Overfull \hbox (138.18906pt too wide) in paragraph at lines 3010--3010
 File: 04-points_files/figure-pdf/unnamed-chunk-17-1.pdf Graphic file (type pdf)
 <use 04-points_files/figure-pdf/unnamed-chunk-17-1.pdf>
 
-Overfull \hbox (10.96082pt too wide) in paragraph at lines 3051--3052
+Overfull \hbox (10.96082pt too wide) in paragraph at lines 3031--3032
 [][] 
  []
 
@@ -2244,127 +2241,127 @@ Overfull \hbox (10.96082pt too wide) in paragraph at lines 3051--3052
 File: 04-points_files/figure-pdf/unnamed-chunk-18-1.pdf Graphic file (type pdf)
 <use 04-points_files/figure-pdf/unnamed-chunk-18-1.pdf>
 LaTeX Font Info:    Font shape `TU/lmss/bx/it' in size <12> not available
-(Font)              Font shape `TU/lmss/bx/sl' tried instead on input line 3079.
+(Font)              Font shape `TU/lmss/bx/sl' tried instead on input line 3059.
 [64]
-Underfull \hbox (badness 2932) in paragraph at lines 3090--3093
+Underfull \hbox (badness 2932) in paragraph at lines 3070--3073
 \TU/lmr/m/n/10.95 nates \TU/lmtt/m/n/10.95 X = -117.02259063720702, Y = 32.76511965117273
  []
 
 
-Overfull \hbox (5.96783pt too wide) in paragraph at lines 3116--3116
+Overfull \hbox (5.96783pt too wide) in paragraph at lines 3096--3096
 []\TU/lmtt/m/n/10.95 Simple feature collection with 1 feature and 2 fields[] 
  []
 
 
-Overfull \hbox (138.18906pt too wide) in paragraph at lines 3119--3119
+Overfull \hbox (138.18906pt too wide) in paragraph at lines 3099--3099
 []\TU/lmtt/m/n/10.95 Bounding box:  xmin: -117.0226 ymin: 32.76512 xmax: -117.0226 ymax: 32.76512[] 
  []
 
 [65]
-Overfull \hbox (362.39023pt too wide) in paragraph at lines 3142--3142
+Overfull \hbox (362.39023pt too wide) in paragraph at lines 3122--3122
 []  []\TU/lmtt/m/n/10.95 /Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202324/san/data/assignment_1_madrid/madrid_abb.gpkg[][] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 3144--3144
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 3124--3124
 []\TU/lmtt/m/n/10.95 Simple feature collection with 18399 features and 16 fields[] 
  []
 
 
-Overfull \hbox (115.19406pt too wide) in paragraph at lines 3147--3147
+Overfull \hbox (115.19406pt too wide) in paragraph at lines 3127--3127
 []\TU/lmtt/m/n/10.95 Bounding box:  xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274[] 
  []
 
 
-Overfull \hbox (120.94281pt too wide) in paragraph at lines 3162--3162
+Overfull \hbox (120.94281pt too wide) in paragraph at lines 3142--3142
 [] \TU/lmtt/m/n/10.95 [1] "price"           "price_usd"       "log1p_price_usd" "accommodates"[] 
  []
 
 
-Overfull \hbox (74.95282pt too wide) in paragraph at lines 3163--3163
+Overfull \hbox (74.95282pt too wide) in paragraph at lines 3143--3143
 [] \TU/lmtt/m/n/10.95 [5] "bathrooms_text"  "bathrooms"       "bedrooms"        "beds"[] 
  []
 
 
-Overfull \hbox (74.95282pt too wide) in paragraph at lines 3164--3164
+Overfull \hbox (74.95282pt too wide) in paragraph at lines 3144--3144
 [] \TU/lmtt/m/n/10.95 [9] "neighbourhood"   "room_type"       "property_type"   "WiFi"[] 
  []
 
 
-Overfull \hbox (120.94281pt too wide) in paragraph at lines 3165--3165
+Overfull \hbox (120.94281pt too wide) in paragraph at lines 3145--3145
 []\TU/lmtt/m/n/10.95 [13] "Coffee"          "Gym"             "Parking"         "km_to_retiro"[] 
  []
 
 [66]
 chapter 5.
 
-LaTeX Warning: Reference `sec-dependencies' on page 67 undefined on input line 3226.
+LaTeX Warning: Reference `sec-dependencies' on page 67 undefined on input line 3206.
 
 [67
 
 ] [68]
-Overfull \hbox (287.65646pt too wide) in paragraph at lines 3283--3283
+Overfull \hbox (287.65646pt too wide) in paragraph at lines 3262--3262
 []  []\TU/lmtt/m/n/10.95 /Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202324/san/data/sf_bikes/flows.geojson[][] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 3285--3285
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 3264--3264
 []\TU/lmtt/m/n/10.95 Simple feature collection with 1722 features and 9 fields[] 
  []
 
 
-Overfull \hbox (138.18906pt too wide) in paragraph at lines 3288--3288
+Overfull \hbox (138.18906pt too wide) in paragraph at lines 3267--3267
 []\TU/lmtt/m/n/10.95 Bounding box:  xmin: -122.4237 ymin: 37.76914 xmax: -122.3875 ymax: 37.80737[] 
  []
 
 
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 3306--3306
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 3285--3285
 []\TU/lmtt/m/n/10.95 Simple feature collection with 6 features and 9 fields[] 
  []
 
 
-Overfull \hbox (132.4403pt too wide) in paragraph at lines 3309--3309
+Overfull \hbox (132.4403pt too wide) in paragraph at lines 3288--3288
 []\TU/lmtt/m/n/10.95 Bounding box:  xmin: -122.4083 ymin: 37.7838 xmax: -122.3945 ymax: 37.80097[] 
  []
 
 
-Overfull \hbox (120.94281pt too wide) in paragraph at lines 3311--3311
+Overfull \hbox (120.94281pt too wide) in paragraph at lines 3290--3290
 []  \TU/lmtt/m/n/10.95 flow_id dest orig straight_dist street_dist total_down total_up trips15[] 
  []
 
 
-Overfull \hbox (120.94281pt too wide) in paragraph at lines 3312--3312
+Overfull \hbox (120.94281pt too wide) in paragraph at lines 3291--3291
 []\TU/lmtt/m/n/10.95 1   39-41   41   39      1452.201   1804.1150  11.205753 4.698162      68[] 
  []
 
 
-Overfull \hbox (120.94281pt too wide) in paragraph at lines 3313--3313
+Overfull \hbox (120.94281pt too wide) in paragraph at lines 3292--3292
 []\TU/lmtt/m/n/10.95 2   39-42   42   39      1734.861   2069.1557  10.290236 2.897886      23[] 
  []
 
 
-Overfull \hbox (120.94281pt too wide) in paragraph at lines 3314--3314
+Overfull \hbox (120.94281pt too wide) in paragraph at lines 3293--3293
 []\TU/lmtt/m/n/10.95 3   39-45   45   39      1255.349   1747.9928  11.015596 4.593927      83[] 
  []
 
 
-Overfull \hbox (120.94281pt too wide) in paragraph at lines 3315--3315
+Overfull \hbox (120.94281pt too wide) in paragraph at lines 3294--3294
 []\TU/lmtt/m/n/10.95 4   39-46   46   39      1323.303   1490.8361   3.511543 5.038044     258[] 
  []
 
 
-Overfull \hbox (120.94281pt too wide) in paragraph at lines 3316--3316
+Overfull \hbox (120.94281pt too wide) in paragraph at lines 3295--3295
 []\TU/lmtt/m/n/10.95 5   39-47   47   39       715.689    769.9189   0.000000 3.282495     127[] 
  []
 
 
-Overfull \hbox (120.94281pt too wide) in paragraph at lines 3317--3317
+Overfull \hbox (120.94281pt too wide) in paragraph at lines 3296--3296
 []\TU/lmtt/m/n/10.95 6   39-48   48   39      1996.778   2740.1290  11.375186 3.841296      81[] 
  []
 
 [69]
 LaTeX Font Info:    Font shape `TU/lmss/bx/it' in size <14.4> not available
-(Font)              Font shape `TU/lmss/bx/sl' tried instead on input line 3335.
+(Font)              Font shape `TU/lmss/bx/sl' tried instead on input line 3314.
 File: 05-flows_files/figure-pdf/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use 05-flows_files/figure-pdf/unnamed-chunk-4-1.pdf>
 File: 05-flows_files/figure-pdf/unnamed-chunk-5-1.pdf Graphic file (type pdf)
@@ -2373,8 +2370,8 @@ File: 05-flows_files/figure-pdf/unnamed-chunk-5-1.pdf Graphic file (type pdf)
 File: 05-flows_files/figure-pdf/unnamed-chunk-7-1.pdf Graphic file (type pdf)
 <use 05-flows_files/figure-pdf/unnamed-chunk-7-1.pdf>
 [71]
-Package marginnote Info: right page because not two side mode on input line 3419.
-Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 3419.
+Package marginnote Info: right page because not two side mode on input line 3398.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 3398.
 File: 05-flows_files/figure-pdf/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use 05-flows_files/figure-pdf/unnamed-chunk-9-1.pdf>
 [72] [73]
@@ -2384,47 +2381,47 @@ File: 05-flows_files/figure-pdf/unnamed-chunk-11-1.pdf Graphic file (type pdf)
 File: 05-flows_files/figure-pdf/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 <use 05-flows_files/figure-pdf/unnamed-chunk-12-1.pdf>
 [75] [76]
-Overfull \hbox (63.45532pt too wide) in paragraph at lines 3568--3568
+Overfull \hbox (63.45532pt too wide) in paragraph at lines 3547--3547
 []\TU/lmtt/m/n/10.95 lm(formula = "trips15 ~ straight_dist + total_up + total_down",[] 
  []
 
 
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 3577--3577
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 3556--3556
 []\TU/lmtt/m/n/10.95 (Intercept)    182.070      8.110  22.451  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (0.21909pt too wide) in paragraph at lines 3578--3578
+Overfull \hbox (0.21909pt too wide) in paragraph at lines 3557--3557
 []\TU/lmtt/m/n/10.95 straight_dist   17.906      9.108   1.966   0.0495 *[] 
  []
 
 
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 3579--3579
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 3558--3558
 []\TU/lmtt/m/n/10.95 total_up       -44.100      9.353  -4.715 2.61e-06 ***[] 
  []
 
 
-Overfull \hbox (0.21909pt too wide) in paragraph at lines 3580--3580
+Overfull \hbox (0.21909pt too wide) in paragraph at lines 3559--3559
 []\TU/lmtt/m/n/10.95 total_down     -20.241      9.229  -2.193   0.0284 *[] 
  []
 
 
-Overfull \hbox (57.70657pt too wide) in paragraph at lines 3582--3582
+Overfull \hbox (57.70657pt too wide) in paragraph at lines 3561--3561
 []\TU/lmtt/m/n/10.95 Signif. codes:  0 []***[] 0.001 []**[] 0.01 []*[] 0.05 [].[] 0.1 [] [] 1[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 3584--3584
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 3563--3563
 []\TU/lmtt/m/n/10.95 Residual standard error: 336.5 on 1718 degrees of freedom[] 
  []
 
 
-Overfull \hbox (46.20908pt too wide) in paragraph at lines 3585--3585
+Overfull \hbox (46.20908pt too wide) in paragraph at lines 3564--3564
 []\TU/lmtt/m/n/10.95 Multiple R-squared:  0.02196,   Adjusted R-squared:  0.02025[] 
  []
 
 
-Overfull \hbox (23.21408pt too wide) in paragraph at lines 3586--3586
+Overfull \hbox (23.21408pt too wide) in paragraph at lines 3565--3565
 []\TU/lmtt/m/n/10.95 F-statistic: 12.86 on 3 and 1718 DF,  p-value: 2.625e-08[] 
  []
 
@@ -2432,7 +2429,7 @@ Overfull \hbox (23.21408pt too wide) in paragraph at lines 3586--3586
 File: 05-flows_files/figure-pdf/unnamed-chunk-15-1.pdf Graphic file (type pdf)
 <use 05-flows_files/figure-pdf/unnamed-chunk-15-1.pdf>
 
-Overfull \hbox (10.95753pt too wide) in paragraph at lines 3616--3617
+Overfull \hbox (10.95753pt too wide) in paragraph at lines 3595--3596
 [][] 
  []
 
@@ -2440,7 +2437,7 @@ Overfull \hbox (10.95753pt too wide) in paragraph at lines 3616--3617
 File: 05-flows_files/figure-pdf/unnamed-chunk-17-1.pdf Graphic file (type pdf)
 <use 05-flows_files/figure-pdf/unnamed-chunk-17-1.pdf>
 
-Overfull \hbox (10.96225pt too wide) in paragraph at lines 3722--3723
+Overfull \hbox (10.96225pt too wide) in paragraph at lines 3701--3702
 [][] 
  []
 
@@ -2448,7 +2445,7 @@ Overfull \hbox (10.96225pt too wide) in paragraph at lines 3722--3723
 File: 05-flows_files/figure-pdf/unnamed-chunk-18-1.pdf Graphic file (type pdf)
 <use 05-flows_files/figure-pdf/unnamed-chunk-18-1.pdf>
 
-Overfull \hbox (10.96225pt too wide) in paragraph at lines 3771--3772
+Overfull \hbox (10.96225pt too wide) in paragraph at lines 3750--3751
 [][] 
  []
 
@@ -2456,7 +2453,7 @@ Overfull \hbox (10.96225pt too wide) in paragraph at lines 3771--3772
 File: 05-flows_files/figure-pdf/unnamed-chunk-20-1.pdf Graphic file (type pdf)
 <use 05-flows_files/figure-pdf/unnamed-chunk-20-1.pdf>
 
-Overfull \hbox (10.94914pt too wide) in paragraph at lines 3893--3894
+Overfull \hbox (10.94914pt too wide) in paragraph at lines 3872--3873
 [][] 
  []
 
@@ -2464,7 +2461,7 @@ Overfull \hbox (10.94914pt too wide) in paragraph at lines 3893--3894
 File: 05-flows_files/figure-pdf/unnamed-chunk-22-1.pdf Graphic file (type pdf)
 <use 05-flows_files/figure-pdf/unnamed-chunk-22-1.pdf>
 
-Overfull \hbox (10.96225pt too wide) in paragraph at lines 3965--3966
+Overfull \hbox (10.96225pt too wide) in paragraph at lines 3944--3945
 [][] 
  []
 
@@ -2472,7 +2469,7 @@ Overfull \hbox (10.96225pt too wide) in paragraph at lines 3965--3966
 File: 05-flows_files/figure-pdf/unnamed-chunk-24-1.pdf Graphic file (type pdf)
 <use 05-flows_files/figure-pdf/unnamed-chunk-24-1.pdf>
 
-Overfull \hbox (10.96567pt too wide) in paragraph at lines 4063--4064
+Overfull \hbox (10.96567pt too wide) in paragraph at lines 4042--4043
 [][] 
  []
 
@@ -2480,152 +2477,152 @@ Overfull \hbox (10.96567pt too wide) in paragraph at lines 4063--4064
 File: 05-flows_files/figure-pdf/unnamed-chunk-26-1.pdf Graphic file (type pdf)
 <use 05-flows_files/figure-pdf/unnamed-chunk-26-1.pdf>
 
-Overfull \hbox (10.96567pt too wide) in paragraph at lines 4139--4140
+Overfull \hbox (10.96567pt too wide) in paragraph at lines 4118--4119
 [][] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 4151--4151
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 4130--4130
 []      \TU/lmtt/m/n/10.95 Estimate     Std. Error        z value       Pr(>|z|)[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 4152--4152
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 4131--4131
 [] \TU/lmtt/m/n/10.95 -9.961619e-02   2.688731e-03  -3.704952e+01  1.828096e-300[] 
  []
 
 [91]
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 4165--4165
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 4144--4144
 []      \TU/lmtt/m/n/10.95 Estimate     Std. Error        z value       Pr(>|z|)[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 4166--4166
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 4145--4145
 [] \TU/lmtt/m/n/10.95 -7.820014e-02   2.683052e-03  -2.914596e+01  9.399407e-187[] 
  []
 
 [92] [93]
-Package marginnote Info: right page because not two side mode on input line 4288.
-Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 4288.
+Package marginnote Info: right page because not two side mode on input line 4267.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 4267.
 [94] [95]
-Overfull \hbox (362.39023pt too wide) in paragraph at lines 4358--4358
+Overfull \hbox (362.39023pt too wide) in paragraph at lines 4337--4337
 []  []\TU/lmtt/m/n/10.95 /Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202324/san/data/assignment_1_madrid/madrid_abb.gpkg[][] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 4360--4360
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 4339--4339
 []\TU/lmtt/m/n/10.95 Simple feature collection with 18399 features and 16 fields[] 
  []
 
 
-Overfull \hbox (115.19406pt too wide) in paragraph at lines 4363--4363
+Overfull \hbox (115.19406pt too wide) in paragraph at lines 4342--4342
 []\TU/lmtt/m/n/10.95 Bounding box:  xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274[] 
  []
 
 [96] [97]
 chapter 6.
 
-LaTeX Warning: Reference `sec-dependencies' on page 98 undefined on input line 4448.
+LaTeX Warning: Reference `sec-dependencies' on page 98 undefined on input line 4427.
 
 [98
 
 ]
-Overfull \hbox (322.14896pt too wide) in paragraph at lines 4482--4482
+Overfull \hbox (322.14896pt too wide) in paragraph at lines 4461--4461
 []  []\TU/lmtt/m/n/10.95 /Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202324/san/data/abb_sd/regression_db.geojson[][] 
  []
 
 
-Overfull \hbox (34.71158pt too wide) in paragraph at lines 4484--4484
+Overfull \hbox (34.71158pt too wide) in paragraph at lines 4463--4463
 []\TU/lmtt/m/n/10.95 Simple feature collection with 6110 features and 19 fields[] 
  []
 
 
-Overfull \hbox (138.18906pt too wide) in paragraph at lines 4487--4487
+Overfull \hbox (138.18906pt too wide) in paragraph at lines 4466--4466
 []\TU/lmtt/m/n/10.95 Bounding box:  xmin: -117.2812 ymin: 32.57349 xmax: -116.9553 ymax: 33.08311[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 4500--4500
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 4479--4479
 [] \TU/lmtt/m/n/10.95 [1] "accommodates"       "bathrooms"          "bedrooms"[] 
  []
 
 
-Overfull \hbox (5.96783pt too wide) in paragraph at lines 4501--4501
+Overfull \hbox (5.96783pt too wide) in paragraph at lines 4480--4480
 [] \TU/lmtt/m/n/10.95 [4] "beds"               "neighborhood"       "pool"[] 
  []
 
 
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 4502--4502
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 4481--4481
 [] \TU/lmtt/m/n/10.95 [7] "d2balboa"           "coastal"            "price"[] 
  []
 
 
-Overfull \hbox (51.95782pt too wide) in paragraph at lines 4503--4503
+Overfull \hbox (51.95782pt too wide) in paragraph at lines 4482--4482
 []\TU/lmtt/m/n/10.95 [10] "log_price"          "id"                 "pg_Apartment"[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 4504--4504
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 4483--4483
 []\TU/lmtt/m/n/10.95 [13] "pg_Condominium"     "pg_House"           "pg_Other"[] 
  []
 
 
-Overfull \hbox (69.20407pt too wide) in paragraph at lines 4505--4505
+Overfull \hbox (69.20407pt too wide) in paragraph at lines 4484--4484
 []\TU/lmtt/m/n/10.95 [16] "pg_Townhouse"       "rt_Entire_home.apt" "rt_Private_room"[] 
  []
 
 File: 06-spatial-econometrics_files/figure-pdf/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use 06-spatial-econometrics_files/figure-pdf/unnamed-chunk-4-1.pdf>
 [99] [100]
-Package marginnote Info: right page because not two side mode on input line 4603.
-Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 4603.
+Package marginnote Info: right page because not two side mode on input line 4582.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 4582.
 [101]
-Overfull \hbox (103.69656pt too wide) in paragraph at lines 4636--4636
+Overfull \hbox (103.69656pt too wide) in paragraph at lines 4615--4615
 []\TU/lmtt/m/n/10.95 lm(formula = "log_price ~ accommodates + bathrooms + bedrooms + beds",[] 
  []
 
 
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 4645--4645
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 4624--4624
 []\TU/lmtt/m/n/10.95 (Intercept)   4.018133   0.013947  288.10   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 4646--4646
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 4625--4625
 []\TU/lmtt/m/n/10.95 accommodates  0.176851   0.005323   33.23   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 4647--4647
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 4626--4626
 []\TU/lmtt/m/n/10.95 bathrooms     0.150981   0.012526   12.05   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 4648--4648
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 4627--4627
 []\TU/lmtt/m/n/10.95 bedrooms      0.111700   0.012537    8.91   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 4649--4649
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 4628--4628
 []\TU/lmtt/m/n/10.95 beds         -0.076974   0.007927   -9.71   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (57.70657pt too wide) in paragraph at lines 4651--4651
+Overfull \hbox (57.70657pt too wide) in paragraph at lines 4630--4630
 []\TU/lmtt/m/n/10.95 Signif. codes:  0 []***[] 0.001 []**[] 0.01 []*[] 0.05 [].[] 0.1 [] [] 1[] 
  []
 
 
-Overfull \hbox (34.71158pt too wide) in paragraph at lines 4653--4653
+Overfull \hbox (34.71158pt too wide) in paragraph at lines 4632--4632
 []\TU/lmtt/m/n/10.95 Residual standard error: 0.5366 on 6105 degrees of freedom[] 
  []
 
 
-Overfull \hbox (34.71158pt too wide) in paragraph at lines 4654--4654
+Overfull \hbox (34.71158pt too wide) in paragraph at lines 4633--4633
 []\TU/lmtt/m/n/10.95 Multiple R-squared:  0.5583,    Adjusted R-squared:  0.558[] 
  []
 
 
-Overfull \hbox (23.21408pt too wide) in paragraph at lines 4655--4655
+Overfull \hbox (23.21408pt too wide) in paragraph at lines 4634--4634
 []\TU/lmtt/m/n/10.95 F-statistic:  1929 on 4 and 6105 DF,  p-value: < 2.2e-16[] 
  []
 
@@ -2633,282 +2630,282 @@ Overfull \hbox (23.21408pt too wide) in paragraph at lines 4655--4655
 File: 06-spatial-econometrics_files/figure-pdf/unnamed-chunk-7-1.pdf Graphic file (type pdf)
 <use 06-spatial-econometrics_files/figure-pdf/unnamed-chunk-7-1.pdf>
 
-Overfull \hbox (10.96254pt too wide) in paragraph at lines 4741--4742
+Overfull \hbox (10.96254pt too wide) in paragraph at lines 4720--4721
 [][] 
  []
 
 [104]
-Overfull \hbox (212.92279pt too wide) in paragraph at lines 4768--4768
+Overfull \hbox (212.92279pt too wide) in paragraph at lines 4747--4747
 []\TU/lmtt/m/n/10.95 lm(formula = "log_price ~ neighborhood + accommodates + bathrooms + bedrooms + beds - 1",[] 
  []
 
 
-Overfull \hbox (120.94281pt too wide) in paragraph at lines 4776--4776
+Overfull \hbox (120.94281pt too wide) in paragraph at lines 4755--4755
 []                                     \TU/lmtt/m/n/10.95 Estimate Std. Error t value Pr(>|t|)[] 
  []
 
 [105]
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4777--4777
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4756--4756
 []\TU/lmtt/m/n/10.95 neighborhoodBalboa Park              3.994775   0.036539  109.33   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4778--4778
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4757--4757
 []\TU/lmtt/m/n/10.95 neighborhoodBay Ho                   3.780025   0.086081   43.91   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4758--4758
 []\TU/lmtt/m/n/10.95 neighborhoodBay Park                 3.941847   0.055788   70.66   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4780--4780
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4759--4759
 []\TU/lmtt/m/n/10.95 neighborhoodCarmel Valley            4.034052   0.062811   64.23   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4781--4781
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4760--4760
 []\TU/lmtt/m/n/10.95 neighborhoodCity Heights West        3.698788   0.065502   56.47   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4782--4782
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4761--4761
 []\TU/lmtt/m/n/10.95 neighborhoodClairemont Mesa          3.658339   0.051438   71.12   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4783--4783
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4762--4762
 []\TU/lmtt/m/n/10.95 neighborhoodCollege Area             3.649859   0.064979   56.17   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4784--4784
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4763--4763
 []\TU/lmtt/m/n/10.95 neighborhoodCore                     4.433447   0.058864   75.32   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4785--4785
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4764--4764
 []\TU/lmtt/m/n/10.95 neighborhoodCortez Hill              4.294790   0.057648   74.50   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4786--4786
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4765--4765
 []\TU/lmtt/m/n/10.95 neighborhoodDel Mar Heights          4.300659   0.060912   70.61   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4787--4787
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4766--4766
 []\TU/lmtt/m/n/10.95 neighborhoodEast Village             4.241146   0.032019  132.46   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4788--4788
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4767--4767
 []\TU/lmtt/m/n/10.95 neighborhoodGaslamp Quarter          4.473863   0.052493   85.23   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4789--4789
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4768--4768
 []\TU/lmtt/m/n/10.95 neighborhoodGrant Hill               4.001481   0.058825   68.02   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4790--4790
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4769--4769
 []\TU/lmtt/m/n/10.95 neighborhoodGrantville               3.664989   0.080168   45.72   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4791--4791
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4770--4770
 []\TU/lmtt/m/n/10.95 neighborhoodKensington               4.073520   0.087322   46.65   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4792--4792
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4771--4771
 []\TU/lmtt/m/n/10.95 neighborhoodLa Jolla                 4.400145   0.026772  164.36   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4793--4793
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4772--4772
 []\TU/lmtt/m/n/10.95 neighborhoodLa Jolla Village         4.066151   0.087263   46.60   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4794--4794
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4773--4773
 []\TU/lmtt/m/n/10.95 neighborhoodLinda Vista              3.817940   0.063128   60.48   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4795--4795
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4774--4774
 []\TU/lmtt/m/n/10.95 neighborhoodLittle Italy             4.390651   0.052433   83.74   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4796--4796
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4775--4775
 []\TU/lmtt/m/n/10.95 neighborhoodLoma Portal              4.034473   0.036173  111.53   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4797--4797
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4776--4776
 []\TU/lmtt/m/n/10.95 neighborhoodMarina                   4.046133   0.052178   77.55   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4798--4798
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4777--4777
 []\TU/lmtt/m/n/10.95 neighborhoodMidtown                  4.032038   0.030280  133.16   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4799--4799
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4778--4778
 []\TU/lmtt/m/n/10.95 neighborhoodMidtown District         4.356943   0.071756   60.72   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4800--4800
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4779--4779
 []\TU/lmtt/m/n/10.95 neighborhoodMira Mesa                3.570523   0.061543   58.02   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4801--4801
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4780--4780
 []\TU/lmtt/m/n/10.95 neighborhoodMission Bay              4.251309   0.023318  182.32   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4802--4802
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4781--4781
 []\TU/lmtt/m/n/10.95 neighborhoodMission Valley           4.012410   0.083766   47.90   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4803--4803
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4782--4782
 []\TU/lmtt/m/n/10.95 neighborhoodMoreno Mission           4.028288   0.063342   63.59   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4804--4804
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4783--4783
 []\TU/lmtt/m/n/10.95 neighborhoodNormal Heights           3.791895   0.054730   69.28   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4805--4805
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4784--4784
 []\TU/lmtt/m/n/10.95 neighborhoodNorth Clairemont         3.498107   0.076432   45.77   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4806--4806
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4785--4785
 []\TU/lmtt/m/n/10.95 neighborhoodNorth Hills              3.959403   0.026823  147.61   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4807--4807
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4786--4786
 []\TU/lmtt/m/n/10.95 neighborhoodNorthwest                3.810201   0.078158   48.75   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4808--4808
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4787--4787
 []\TU/lmtt/m/n/10.95 neighborhoodOcean Beach              4.152695   0.032352  128.36   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4809--4809
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4788--4788
 []\TU/lmtt/m/n/10.95 neighborhoodOld Town                 4.127737   0.046523   88.72   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4810--4810
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4789--4789
 []\TU/lmtt/m/n/10.95 neighborhoodOtay Ranch               3.722902   0.091633   40.63   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4811--4811
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4790--4790
 []\TU/lmtt/m/n/10.95 neighborhoodPacific Beach            4.116749   0.022711  181.27   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4812--4812
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4791--4791
 []\TU/lmtt/m/n/10.95 neighborhoodPark West                4.216829   0.050370   83.72   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4813--4813
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4792--4792
 []\TU/lmtt/m/n/10.95 neighborhoodRancho Bernadino         3.873962   0.080780   47.96   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4814--4814
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4793--4793
 []\TU/lmtt/m/n/10.95 neighborhoodRancho Penasquitos       3.772037   0.068808   54.82   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4815--4815
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4794--4794
 []\TU/lmtt/m/n/10.95 neighborhoodRoseville                4.070468   0.065299   62.34   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4816--4816
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4795--4795
 []\TU/lmtt/m/n/10.95 neighborhoodSan Carlos               3.935042   0.093205   42.22   <2e-16 ***[] 
  []
 
 [106]
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4817--4817
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4796--4796
 []\TU/lmtt/m/n/10.95 neighborhoodScripps Ranch            3.641239   0.085190   42.74   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4818--4818
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4797--4797
 []\TU/lmtt/m/n/10.95 neighborhoodSerra Mesa               3.912127   0.066630   58.71   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4819--4819
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4798--4798
 []\TU/lmtt/m/n/10.95 neighborhoodSouth Park               3.987019   0.060141   66.30   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4820--4820
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4799--4799
 []\TU/lmtt/m/n/10.95 neighborhoodUniversity City          3.772504   0.039638   95.17   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4821--4821
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4800--4800
 []\TU/lmtt/m/n/10.95 neighborhoodWest University Heights  4.043161   0.048238   83.82   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4822--4822
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4801--4801
 []\TU/lmtt/m/n/10.95 accommodates                         0.150283   0.005086   29.55   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4823--4823
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4802--4802
 []\TU/lmtt/m/n/10.95 bathrooms                            0.132287   0.011886   11.13   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4824--4824
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4803--4803
 []\TU/lmtt/m/n/10.95 bedrooms                             0.147631   0.011960   12.34   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4825--4825
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4804--4804
 []\TU/lmtt/m/n/10.95 beds                                -0.074622   0.007405  -10.08   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (57.70657pt too wide) in paragraph at lines 4827--4827
+Overfull \hbox (57.70657pt too wide) in paragraph at lines 4806--4806
 []\TU/lmtt/m/n/10.95 Signif. codes:  0 []***[] 0.001 []**[] 0.01 []*[] 0.05 [].[] 0.1 [] [] 1[] 
  []
 
 
-Overfull \hbox (34.71158pt too wide) in paragraph at lines 4829--4829
+Overfull \hbox (34.71158pt too wide) in paragraph at lines 4808--4808
 []\TU/lmtt/m/n/10.95 Residual standard error: 0.4971 on 6061 degrees of freedom[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 4830--4830
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 4809--4809
 []\TU/lmtt/m/n/10.95 Multiple R-squared:  0.9904,    Adjusted R-squared:  0.9904[] 
  []
 
 
-Overfull \hbox (46.20908pt too wide) in paragraph at lines 4831--4831
+Overfull \hbox (46.20908pt too wide) in paragraph at lines 4810--4810
 []\TU/lmtt/m/n/10.95 F-statistic: 1.28e+04 on 49 and 6061 DF,  p-value: < 2.2e-16[] 
  []
 
@@ -2916,2407 +2913,2407 @@ Overfull \hbox (46.20908pt too wide) in paragraph at lines 4831--4831
 File: 06-spatial-econometrics_files/figure-pdf/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use 06-spatial-econometrics_files/figure-pdf/unnamed-chunk-9-1.pdf>
 [108]
-Overfull \hbox (235.91779pt too wide) in paragraph at lines 4934--4934
+Overfull \hbox (235.91779pt too wide) in paragraph at lines 4913--4913
 []\TU/lmtt/m/n/10.95 lm(formula = "log_price ~ (one + accommodates + bathrooms + bedrooms + beds):(neighborhood)",[] 
  []
 
 [109]
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 4941--4941
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 4920--4920
 []\TU/lmtt/m/n/10.95 Coefficients: (1 not defined because of singularities)[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4942--4942
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4921--4921
 []                                                  \TU/lmtt/m/n/10.95 Estimate Std. Error t value[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4943--4943
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4922--4922
 []\TU/lmtt/m/n/10.95 (Intercept)                                       4.012160   0.122261  32.816[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4944--4944
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4923--4923
 []\TU/lmtt/m/n/10.95 one:neighborhoodBalboa Park                       0.128350   0.145826   0.880[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4945--4945
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4924--4924
 []\TU/lmtt/m/n/10.95 one:neighborhoodBay Ho                           -0.202575   0.254393  -0.796[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4946--4946
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4925--4925
 []\TU/lmtt/m/n/10.95 one:neighborhoodBay Park                         -0.272843   0.174512  -1.563[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4947--4947
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4926--4926
 []\TU/lmtt/m/n/10.95 one:neighborhoodCarmel Valley                    -0.063356   0.164404  -0.385[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4948--4948
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4927--4927
 []\TU/lmtt/m/n/10.95 one:neighborhoodCity Heights West                -0.096400   0.205758  -0.469[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4949--4949
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4928--4928
 []\TU/lmtt/m/n/10.95 one:neighborhoodClairemont Mesa                  -0.639595   0.183891  -3.478[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4950--4950
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4929--4929
 []\TU/lmtt/m/n/10.95 one:neighborhoodCollege Area                     -0.185039   0.207335  -0.892[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4951--4951
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4930--4930
 []\TU/lmtt/m/n/10.95 one:neighborhoodCore                              0.416563   0.223962   1.860[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4952--4952
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4931--4931
 []\TU/lmtt/m/n/10.95 one:neighborhoodCortez Hill                       0.309752   0.193169   1.604[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4953--4953
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4932--4932
 []\TU/lmtt/m/n/10.95 one:neighborhoodDel Mar Heights                   0.259677   0.182046   1.426[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4954--4954
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4933--4933
 []\TU/lmtt/m/n/10.95 one:neighborhoodEast Village                      0.205331   0.147158   1.395[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4955--4955
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4934--4934
 []\TU/lmtt/m/n/10.95 one:neighborhoodGaslamp Quarter                  -1.156797   0.282853  -4.090[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4956--4956
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4935--4935
 []\TU/lmtt/m/n/10.95 one:neighborhoodGrant Hill                       -0.077324   0.200580  -0.386[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4957--4957
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4936--4936
 []\TU/lmtt/m/n/10.95 one:neighborhoodGrantville                       -0.355260   0.278718  -1.275[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4958--4958
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4937--4937
 []\TU/lmtt/m/n/10.95 one:neighborhoodKensington                       -0.252743   0.248147  -1.019[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4959--4959
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4938--4938
 []\TU/lmtt/m/n/10.95 one:neighborhoodLa Jolla                          0.380059   0.128014   2.969[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4960--4960
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4939--4939
 []\TU/lmtt/m/n/10.95 one:neighborhoodLa Jolla Village                  0.027119   0.291318   0.093[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4961--4961
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4940--4940
 []\TU/lmtt/m/n/10.95 one:neighborhoodLinda Vista                      -0.448116   0.202151  -2.217[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4962--4962
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4941--4941
 []\TU/lmtt/m/n/10.95 one:neighborhoodLittle Italy                      0.384100   0.188630   2.036[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4963--4963
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4942--4942
 []\TU/lmtt/m/n/10.95 one:neighborhoodLoma Portal                       0.014552   0.148157   0.098[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4964--4964
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4943--4943
 []\TU/lmtt/m/n/10.95 one:neighborhoodMarina                           -0.549055   0.198350  -2.768[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4965--4965
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4944--4944
 []\TU/lmtt/m/n/10.95 one:neighborhoodMidtown                           0.071392   0.134620   0.530[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4966--4966
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4945--4945
 []\TU/lmtt/m/n/10.95 one:neighborhoodMidtown District                 -0.180003   0.219627  -0.820[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4967--4967
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4946--4946
 []\TU/lmtt/m/n/10.95 one:neighborhoodMira Mesa                        -0.596573   0.205262  -2.906[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4968--4968
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4947--4947
 []\TU/lmtt/m/n/10.95 one:neighborhoodMission Bay                       0.399054   0.128693   3.101[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4969--4969
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4948--4948
 []\TU/lmtt/m/n/10.95 one:neighborhoodMission Valley                   -0.249279   0.288450  -0.864[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4970--4970
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4949--4949
 []\TU/lmtt/m/n/10.95 one:neighborhoodMoreno Mission                    0.268901   0.222999   1.206[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4971--4971
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4950--4950
 []\TU/lmtt/m/n/10.95 one:neighborhoodNormal Heights                   -0.253917   0.210697  -1.205[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4972--4972
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4951--4951
 []\TU/lmtt/m/n/10.95 one:neighborhoodNorth Clairemont                 -0.404436   0.221559  -1.825[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4973--4973
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4952--4952
 []\TU/lmtt/m/n/10.95 one:neighborhoodNorth Hills                      -0.103473   0.136994  -0.755[] 
  []
 
 [110]
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4974--4974
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4953--4953
 []\TU/lmtt/m/n/10.95 one:neighborhoodNorthwest                         0.198074   0.284402   0.696[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4975--4975
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4954--4954
 []\TU/lmtt/m/n/10.95 one:neighborhoodOcean Beach                       0.192554   0.136493   1.411[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4976--4976
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4955--4955
 []\TU/lmtt/m/n/10.95 one:neighborhoodOld Town                         -0.062746   0.157153  -0.399[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4977--4977
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4956--4956
 []\TU/lmtt/m/n/10.95 one:neighborhoodOtay Ranch                       -0.358005   0.232826  -1.538[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4978--4978
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4957--4957
 []\TU/lmtt/m/n/10.95 one:neighborhoodPacific Beach                     0.113854   0.129413   0.880[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4979--4979
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4958--4958
 []\TU/lmtt/m/n/10.95 one:neighborhoodPark West                         0.154992   0.170398   0.910[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4980--4980
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4959--4959
 []\TU/lmtt/m/n/10.95 one:neighborhoodRancho Bernadino                 -0.019347   0.194468  -0.099[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4981--4981
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4960--4960
 []\TU/lmtt/m/n/10.95 one:neighborhoodRancho Penasquitos               -0.401257   0.163315  -2.457[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4982--4982
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4961--4961
 []\TU/lmtt/m/n/10.95 one:neighborhoodRoseville                         0.120010   0.182676   0.657[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4983--4983
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4962--4962
 []\TU/lmtt/m/n/10.95 one:neighborhoodSan Carlos                       -0.589123   0.284463  -2.071[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4984--4984
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4963--4963
 []\TU/lmtt/m/n/10.95 one:neighborhoodScripps Ranch                    -0.026842   0.215965  -0.124[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4985--4985
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4964--4964
 []\TU/lmtt/m/n/10.95 one:neighborhoodSerra Mesa                       -0.283949   0.207741  -1.367[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4986--4986
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4965--4965
 []\TU/lmtt/m/n/10.95 one:neighborhoodSouth Park                       -0.181786   0.226828  -0.801[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4987--4987
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4966--4966
 []\TU/lmtt/m/n/10.95 one:neighborhoodUniversity City                  -0.298526   0.161655  -1.847[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 4988--4988
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4967--4967
 []\TU/lmtt/m/n/10.95 one:neighborhoodWest University Heights                 NA         NA      NA[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4989--4989
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4968--4968
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodBalboa Park              0.097052   0.024632   3.940[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4990--4990
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4969--4969
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodBay Ho                  -0.017961   0.089598  -0.200[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4991--4991
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4970--4970
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodBay Park                 0.155715   0.063773   2.442[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4992--4992
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4971--4971
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodCarmel Valley            0.151990   0.049440   3.074[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4993--4993
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4972--4972
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodCity Heights West        0.060303   0.063416   0.951[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4994--4994
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4973--4973
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodClairemont Mesa          0.260414   0.050425   5.164[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4995--4995
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4974--4974
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodCollege Area             0.084693   0.053125   1.594[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4996--4996
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4975--4975
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodCore                     0.106661   0.039204   2.721[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4997--4997
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4976--4976
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodCortez Hill              0.217358   0.037615   5.779[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4998--4998
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4977--4977
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodDel Mar Heights          0.075776   0.061335   1.235[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 4999--4999
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4978--4978
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodEast Village             0.162155   0.020465   7.924[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5000--5000
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4979--4979
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodGaslamp Quarter          0.307007   0.053766   5.710[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5001--5001
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4980--4980
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodGrant Hill               0.278114   0.056238   4.945[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5002--5002
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4981--4981
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodGrantville               0.124025   0.075028   1.653[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5003--5003
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4982--4982
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodKensington               0.063298   0.123887   0.511[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5004--5004
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4983--4983
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodLa Jolla                 0.119142   0.015162   7.858[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5005--5005
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4984--4984
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodLa Jolla Village         0.207085   0.111627   1.855[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5006--5006
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4985--4985
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodLinda Vista              0.172101   0.076208   2.258[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5007--5007
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4986--4986
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodLittle Italy             0.230108   0.034432   6.683[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5008--5008
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4987--4987
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodLoma Portal              0.090991   0.034762   2.618[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5009--5009
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4988--4988
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodMarina                   0.552162   0.045914  12.026[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5010--5010
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4989--4989
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodMidtown                  0.227617   0.023854   9.542[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5011--5011
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4990--4990
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodMidtown District         0.179989   0.052007   3.461[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5012--5012
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4991--4991
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodMira Mesa                0.157603   0.082351   1.914[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5013--5013
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4992--4992
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodMission Bay              0.085754   0.013455   6.373[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5014--5014
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4993--4993
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodMission Valley           0.099273   0.134176   0.740[] 
  []
 
 [111]
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5015--5015
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4994--4994
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodMoreno Mission           0.145824   0.060631   2.405[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5016--5016
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4995--4995
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodNormal Heights           0.237177   0.053060   4.470[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5017--5017
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4996--4996
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodNorth Clairemont         0.188941   0.084060   2.248[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5018--5018
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4997--4997
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodNorth Hills              0.143390   0.022069   6.497[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5019--5019
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 4998--4998
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodNorthwest                0.022166   0.069235   0.320[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5020--5020
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 4999--4999
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodOcean Beach              0.113995   0.022845   4.990[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5021--5021
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5000--5000
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodOld Town                 0.239088   0.042208   5.665[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5022--5022
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5001--5001
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodOtay Ranch              -0.021530   0.083481  -0.258[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5023--5023
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5002--5002
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodPacific Beach            0.153379   0.015339   9.999[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5024--5024
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5003--5003
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodPark West                0.224593   0.045581   4.927[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5025--5025
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5004--5004
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodRancho Bernadino         0.004730   0.067968   0.070[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5026--5026
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5005--5005
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodRancho Penasquitos       0.070627   0.060353   1.170[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5027--5027
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5006--5006
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodRoseville                0.112686   0.060090   1.875[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5028--5028
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5007--5007
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodSan Carlos              -0.140714   0.087777  -1.603[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5029--5029
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5008--5008
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodScripps Ranch            0.087078   0.035562   2.449[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5030--5030
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5009--5009
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodSerra Mesa               0.190589   0.075803   2.514[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5031--5031
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5010--5010
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodSouth Park               0.206833   0.068093   3.038[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5032--5032
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5011--5011
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodUniversity City          0.067637   0.030097   2.247[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5033--5033
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5012--5012
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodWest University Heights  0.124850   0.056034   2.228[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5034--5034
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5013--5013
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodBalboa Park                 0.014875   0.073585   0.202[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5035--5035
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5014--5014
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodBay Ho                      0.305028   0.225044   1.355[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5036--5036
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5015--5015
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodBay Park                    0.065043   0.120545   0.540[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5037--5037
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5016--5016
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodCarmel Valley               0.205847   0.065237   3.155[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5038--5038
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5017--5017
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodCity Heights West          -0.129465   0.183389  -0.706[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5039--5039
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5018--5018
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodClairemont Mesa             0.418033   0.176111   2.374[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5040--5040
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5019--5019
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodCollege Area               -0.012095   0.183917  -0.066[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5041--5041
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5020--5020
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodCore                        0.464974   0.186634   2.491[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5042--5042
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5021--5021
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodCortez Hill                -0.206708   0.101521  -2.036[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5043--5043
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5022--5022
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodDel Mar Heights             0.319046   0.096172   3.317[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5044--5044
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5023--5023
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodEast Village                0.312707   0.067204   4.653[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5045--5045
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5024--5024
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodGaslamp Quarter             1.459299   0.207669   7.027[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5046--5046
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5025--5025
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodGrant Hill                  0.040405   0.155867   0.259[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5047--5047
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5026--5026
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodGrantville                  0.028466   0.234973   0.121[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5048--5048
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5027--5027
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodKensington                  0.146585   0.188987   0.776[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5049--5049
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5028--5028
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodLa Jolla                    0.242760   0.026778   9.066[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5050--5050
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5029--5029
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodLa Jolla Village           -0.296748   0.326257  -0.910[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5051--5051
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5030--5030
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodLinda Vista                 0.170333   0.143441   1.187[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5052--5052
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5031--5031
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodLittle Italy                0.035532   0.111044   0.320[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5053--5053
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5032--5032
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodLoma Portal                 0.188467   0.082511   2.284[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5054--5054
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5033--5033
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodMarina                      0.316509   0.219948   1.439[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5055--5055
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5034--5034
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodMidtown                    -0.037771   0.032333  -1.168[] 
  []
 
 [112]
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5056--5056
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5035--5035
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodMidtown District            0.623515   0.197674   3.154[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5057--5057
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5036--5036
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodMira Mesa                   0.215939   0.185982   1.161[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5058--5058
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5037--5037
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodMission Bay                 0.176976   0.035418   4.997[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5059--5059
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5038--5038
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodMission Valley             -0.009144   0.405637  -0.023[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5060--5060
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5039--5039
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodMoreno Mission             -0.208248   0.210241  -0.991[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5061--5061
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5040--5040
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodNormal Heights              0.017303   0.201580   0.086[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5062--5062
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5041--5041
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodNorth Clairemont           -0.102553   0.212254  -0.483[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5063--5063
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5042--5042
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodNorth Hills                 0.098449   0.064065   1.537[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5064--5064
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5043--5043
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodNorthwest                  -0.503592   0.255300  -1.973[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5065--5065
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5044--5044
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodOcean Beach                 0.082659   0.059578   1.387[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5066--5066
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5045--5045
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodOld Town                    0.087046   0.096513   0.902[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5067--5067
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5046--5046
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodOtay Ranch                 -0.219480   0.341525  -0.643[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5068--5068
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5047--5047
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodPacific Beach               0.116105   0.041006   2.831[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5069--5069
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5048--5048
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodPark West                   0.198550   0.107749   1.843[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5070--5070
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5049--5049
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodRancho Bernadino            0.365674   0.147799   2.474[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5071--5071
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5050--5050
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodRancho Penasquitos          0.320715   0.110007   2.915[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5072--5072
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5051--5051
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodRoseville                  -0.053420   0.102487  -0.521[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5073--5073
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5052--5052
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodSan Carlos                  0.267797   0.214540   1.248[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5074--5074
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5053--5053
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodScripps Ranch              -0.132692   0.169684  -0.782[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5075--5075
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5054--5054
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodSerra Mesa                  0.381620   0.197305   1.934[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5076--5076
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5055--5055
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodSouth Park                  0.087490   0.196486   0.445[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5077--5077
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5056--5056
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodUniversity City             0.138271   0.125198   1.104[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5078--5078
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5057--5057
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodWest University Heights     0.042035   0.122097   0.344[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5079--5079
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5058--5058
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodBalboa Park                  0.183347   0.065309   2.807[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5080--5080
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5059--5059
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodBay Ho                       0.241200   0.170471   1.415[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5081--5081
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5060--5060
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodBay Park                     0.214111   0.117198   1.827[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5082--5082
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5061--5061
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodCarmel Valley               -0.073928   0.127976  -0.578[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5083--5083
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5062--5062
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodCity Heights West            0.272272   0.176859   1.539[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5084--5084
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5063--5063
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodClairemont Mesa             -0.046650   0.122263  -0.382[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5085--5085
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5064--5064
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodCollege Area                -0.055707   0.108958  -0.511[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5086--5086
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5065--5065
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodCore                        -0.069929   0.108896  -0.642[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5087--5087
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5066--5066
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodCortez Hill                  0.313288   0.101770   3.078[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5088--5088
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5067--5067
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodDel Mar Heights              0.111554   0.097639   1.143[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5089--5089
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5068--5068
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodEast Village                 0.088071   0.056654   1.555[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5090--5090
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5069--5069
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodGaslamp Quarter             -0.297570   0.090336  -3.294[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5091--5091
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5070--5070
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodGrant Hill                   0.091300   0.114501   0.797[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5092--5092
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5071--5071
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodGrantville                   0.221461   0.208950   1.060[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5093--5093
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5072--5072
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodKensington                   0.450822   0.269641   1.672[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5094--5094
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5073--5073
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodLa Jolla                     0.166725   0.035423   4.707[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5095--5095
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5074--5074
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodLa Jolla Village             0.845318   0.545842   1.549[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5096--5096
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5075--5075
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodLinda Vista                  0.096413   0.171751   0.561[] 
  []
 
 [113]
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5097--5097
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5076--5076
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodLittle Italy                 0.126794   0.080939   1.567[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5098--5098
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5077--5077
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodLoma Portal                  0.172480   0.067268   2.564[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5099--5099
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5078--5078
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodMarina                      -0.323085   0.137046  -2.357[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5100--5100
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5079--5079
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodMidtown                      0.172711   0.044927   3.844[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5101--5101
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5080--5080
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodMidtown District             0.088181   0.134514   0.656[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5102--5102
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5081--5081
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodMira Mesa                   -0.029149   0.206406  -0.141[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5103--5103
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5082--5082
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodMission Bay                  0.197484   0.032472   6.082[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5104--5104
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5083--5083
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodMission Valley               0.393256   0.342308   1.149[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5105--5105
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5084--5084
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodMoreno Mission              -0.081003   0.158933  -0.510[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5106--5106
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5085--5085
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodNormal Heights               0.199088   0.104514   1.905[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5107--5107
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5086--5086
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodNorth Clairemont             0.176509   0.183702   0.961[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5108--5108
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5087--5087
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodNorth Hills                  0.283826   0.047159   6.018[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5109--5109
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5088--5088
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodNorthwest                    0.411641   0.160558   2.564[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5110--5110
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5089--5089
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodOcean Beach                  0.220345   0.055039   4.003[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5111--5111
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5090--5090
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodOld Town                     0.209031   0.099966   2.091[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5112--5112
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5091--5091
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodOtay Ranch                   0.772212   0.354230   2.180[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5113--5113
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5092--5092
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodPacific Beach                0.077503   0.036735   2.110[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5114--5114
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5093--5093
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodPark West                   -0.127891   0.110497  -1.157[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5115--5115
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5094--5094
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodRancho Bernadino            -0.209594   0.160210  -1.308[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5116--5116
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5095--5095
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodRancho Penasquitos           0.107599   0.138183   0.779[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5117--5117
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5096--5096
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodRoseville                    0.395961   0.157406   2.516[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5118--5118
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5097--5097
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodSan Carlos                   0.239713   0.150420   1.594[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5119--5119
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5098--5098
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodScripps Ranch               -0.045580   0.102624  -0.444[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5120--5120
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5099--5099
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodSerra Mesa                   0.202756   0.163958   1.237[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5121--5121
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5100--5100
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodSouth Park                   0.080548   0.112861   0.714[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5122--5122
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5101--5101
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodUniversity City              0.124090   0.120386   1.031[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5123--5123
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5102--5102
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodWest University Heights      0.011105   0.095137   0.117[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5124--5124
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5103--5103
 []\TU/lmtt/m/n/10.95 beds:neighborhoodBalboa Park                      0.013322   0.045740   0.291[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5125--5125
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5104--5104
 []\TU/lmtt/m/n/10.95 beds:neighborhoodBay Ho                           0.037070   0.133299   0.278[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5126--5126
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5105--5105
 []\TU/lmtt/m/n/10.95 beds:neighborhoodBay Park                         0.011091   0.108863   0.102[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5127--5127
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5106--5106
 []\TU/lmtt/m/n/10.95 beds:neighborhoodCarmel Valley                    0.086393   0.076151   1.135[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5128--5128
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5107--5107
 []\TU/lmtt/m/n/10.95 beds:neighborhoodCity Heights West                0.076520   0.132072   0.579[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5129--5129
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5108--5108
 []\TU/lmtt/m/n/10.95 beds:neighborhoodClairemont Mesa                 -0.163512   0.090244  -1.812[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5130--5130
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5109--5109
 []\TU/lmtt/m/n/10.95 beds:neighborhoodCollege Area                     0.228165   0.084147   2.712[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5131--5131
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5110--5110
 []\TU/lmtt/m/n/10.95 beds:neighborhoodCore                            -0.080211   0.078673  -1.020[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5132--5132
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5111--5111
 []\TU/lmtt/m/n/10.95 beds:neighborhoodCortez Hill                     -0.039031   0.042752  -0.913[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5133--5133
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5112--5112
 []\TU/lmtt/m/n/10.95 beds:neighborhoodDel Mar Heights                 -0.021375   0.071330  -0.300[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5134--5134
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5113--5113
 []\TU/lmtt/m/n/10.95 beds:neighborhoodEast Village                    -0.174883   0.040811  -4.285[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5135--5135
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5114--5114
 []\TU/lmtt/m/n/10.95 beds:neighborhoodGaslamp Quarter                 -0.064063   0.088752  -0.722[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5136--5136
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5115--5115
 []\TU/lmtt/m/n/10.95 beds:neighborhoodGrant Hill                      -0.178920   0.067398  -2.655[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5137--5137
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5116--5116
 []\TU/lmtt/m/n/10.95 beds:neighborhoodGrantville                      -0.003795   0.126551  -0.030[] 
  []
 
 [114]
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5138--5138
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5117--5117
 []\TU/lmtt/m/n/10.95 beds:neighborhoodKensington                      -0.005431   0.175724  -0.031[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5139--5139
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5118--5118
 []\TU/lmtt/m/n/10.95 beds:neighborhoodLa Jolla                        -0.104906   0.022470  -4.669[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5140--5140
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5119--5119
 []\TU/lmtt/m/n/10.95 beds:neighborhoodLa Jolla Village                -0.385895   0.315094  -1.225[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5141--5141
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5120--5120
 []\TU/lmtt/m/n/10.95 beds:neighborhoodLinda Vista                      0.032215   0.073896   0.436[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5142--5142
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5121--5121
 []\TU/lmtt/m/n/10.95 beds:neighborhoodLittle Italy                    -0.145613   0.029817  -4.884[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5143--5143
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5122--5122
 []\TU/lmtt/m/n/10.95 beds:neighborhoodLoma Portal                     -0.013033   0.059097  -0.221[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5144--5144
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5123--5123
 []\TU/lmtt/m/n/10.95 beds:neighborhoodMarina                          -0.210771   0.113913  -1.850[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5145--5145
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5124--5124
 []\TU/lmtt/m/n/10.95 beds:neighborhoodMidtown                         -0.143254   0.036531  -3.921[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5146--5146
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5125--5125
 []\TU/lmtt/m/n/10.95 beds:neighborhoodMidtown District                -0.132655   0.090595  -1.464[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5147--5147
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5126--5126
 []\TU/lmtt/m/n/10.95 beds:neighborhoodMira Mesa                        0.097629   0.113225   0.862[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5148--5148
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5127--5127
 []\TU/lmtt/m/n/10.95 beds:neighborhoodMission Bay                     -0.061315   0.017727  -3.459[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5149--5149
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5128--5128
 []\TU/lmtt/m/n/10.95 beds:neighborhoodMission Valley                   0.073187   0.235760   0.310[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5150--5150
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5129--5129
 []\TU/lmtt/m/n/10.95 beds:neighborhoodMoreno Mission                   0.195918   0.116748   1.678[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5151--5151
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5130--5130
 []\TU/lmtt/m/n/10.95 beds:neighborhoodNormal Heights                  -0.185827   0.062062  -2.994[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5152--5152
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5131--5131
 []\TU/lmtt/m/n/10.95 beds:neighborhoodNorth Clairemont                -0.060468   0.188694  -0.320[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5153--5153
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5132--5132
 []\TU/lmtt/m/n/10.95 beds:neighborhoodNorth Hills                     -0.113150   0.032768  -3.453[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5154--5154
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5133--5133
 []\TU/lmtt/m/n/10.95 beds:neighborhoodNorthwest                        0.116746   0.131088   0.891[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5155--5155
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5134--5134
 []\TU/lmtt/m/n/10.95 beds:neighborhoodOcean Beach                     -0.048848   0.037433  -1.305[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5156--5156
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5135--5135
 []\TU/lmtt/m/n/10.95 beds:neighborhoodOld Town                        -0.158066   0.077352  -2.043[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5157--5157
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5136--5136
 []\TU/lmtt/m/n/10.95 beds:neighborhoodOtay Ranch                       0.071485   0.259986   0.275[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5158--5158
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5137--5137
 []\TU/lmtt/m/n/10.95 beds:neighborhoodPacific Beach                   -0.025064   0.023165  -1.082[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5159--5159
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5138--5138
 []\TU/lmtt/m/n/10.95 beds:neighborhoodPark West                       -0.049627   0.063967  -0.776[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5160--5160
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5139--5139
 []\TU/lmtt/m/n/10.95 beds:neighborhoodRancho Bernadino                 0.270293   0.092164   2.933[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5161--5161
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5140--5140
 []\TU/lmtt/m/n/10.95 beds:neighborhoodRancho Penasquitos               0.011344   0.091156   0.124[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5162--5162
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5141--5141
 []\TU/lmtt/m/n/10.95 beds:neighborhoodRoseville                       -0.085205   0.087365  -0.975[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5163--5163
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5142--5142
 []\TU/lmtt/m/n/10.95 beds:neighborhoodSan Carlos                       0.550169   0.167389   3.287[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5164--5164
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5143--5143
 []\TU/lmtt/m/n/10.95 beds:neighborhoodScripps Ranch                    0.219496   0.122439   1.793[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5165--5165
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5144--5144
 []\TU/lmtt/m/n/10.95 beds:neighborhoodSerra Mesa                      -0.293629   0.189261  -1.551[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5166--5166
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5145--5145
 []\TU/lmtt/m/n/10.95 beds:neighborhoodSouth Park                      -0.020083   0.109799  -0.183[] 
  []
 
 
-Overfull \hbox (143.93779pt too wide) in paragraph at lines 5167--5167
+Overfull \hbox (143.93779pt too wide) in paragraph at lines 5146--5146
 []\TU/lmtt/m/n/10.95 beds:neighborhoodUniversity City                  0.124224   0.062916   1.974[] 
  []
 
 
-Overfull \hbox (143.9378pt too wide) in paragraph at lines 5168--5168
+Overfull \hbox (143.9378pt too wide) in paragraph at lines 5147--5147
 []\TU/lmtt/m/n/10.95 beds:neighborhoodWest University Heights          0.143248   0.096150   1.490[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5169--5169
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5148--5148
 []                                                 \TU/lmtt/m/n/10.95 Pr(>|t|)[] 
  []
 
 
-Overfull \hbox (51.95782pt too wide) in paragraph at lines 5170--5170
+Overfull \hbox (51.95782pt too wide) in paragraph at lines 5149--5149
 []\TU/lmtt/m/n/10.95 (Intercept)                                       < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5171--5171
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5150--5150
 []\TU/lmtt/m/n/10.95 one:neighborhoodBalboa Park                      0.378810[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5172--5172
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5151--5151
 []\TU/lmtt/m/n/10.95 one:neighborhoodBay Ho                           0.425887[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5173--5173
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5152--5152
 []\TU/lmtt/m/n/10.95 one:neighborhoodBay Park                         0.117997[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5174--5174
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5153--5153
 []\TU/lmtt/m/n/10.95 one:neighborhoodCarmel Valley                    0.699978[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5175--5175
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5154--5154
 []\TU/lmtt/m/n/10.95 one:neighborhoodCity Heights West                0.639437[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5176--5176
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5155--5155
 []\TU/lmtt/m/n/10.95 one:neighborhoodClairemont Mesa                  0.000509 ***[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5177--5177
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5156--5156
 []\TU/lmtt/m/n/10.95 one:neighborhoodCollege Area                     0.372180[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 5178--5178
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 5157--5157
 []\TU/lmtt/m/n/10.95 one:neighborhoodCore                             0.062939 .[] 
  []
 
 [115]
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5179--5179
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5158--5158
 []\TU/lmtt/m/n/10.95 one:neighborhoodCortez Hill                      0.108871[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5180--5180
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5159--5159
 []\TU/lmtt/m/n/10.95 one:neighborhoodDel Mar Heights                  0.153795[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5181--5181
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5160--5160
 []\TU/lmtt/m/n/10.95 one:neighborhoodEast Village                     0.162975[] 
  []
 
 
-Overfull \hbox (51.95782pt too wide) in paragraph at lines 5182--5182
+Overfull \hbox (51.95782pt too wide) in paragraph at lines 5161--5161
 []\TU/lmtt/m/n/10.95 one:neighborhoodGaslamp Quarter                  4.38e-05 ***[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5183--5183
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5162--5162
 []\TU/lmtt/m/n/10.95 one:neighborhoodGrant Hill                       0.699880[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5184--5184
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5163--5163
 []\TU/lmtt/m/n/10.95 one:neighborhoodGrantville                       0.202493[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5185--5185
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5164--5164
 []\TU/lmtt/m/n/10.95 one:neighborhoodKensington                       0.308471[] 
  []
 
 
-Overfull \hbox (46.20908pt too wide) in paragraph at lines 5186--5186
+Overfull \hbox (46.20908pt too wide) in paragraph at lines 5165--5165
 []\TU/lmtt/m/n/10.95 one:neighborhoodLa Jolla                         0.003001 **[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5187--5187
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5166--5166
 []\TU/lmtt/m/n/10.95 one:neighborhoodLa Jolla Village                 0.925835[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 5188--5188
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 5167--5167
 []\TU/lmtt/m/n/10.95 one:neighborhoodLinda Vista                      0.026679 *[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5189--5189
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5168--5168
 []\TU/lmtt/m/n/10.95 one:neighborhoodLittle Italy                     0.041769 *[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5190--5190
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5169--5169
 []\TU/lmtt/m/n/10.95 one:neighborhoodLoma Portal                      0.921764[] 
  []
 
 
-Overfull \hbox (46.20906pt too wide) in paragraph at lines 5191--5191
+Overfull \hbox (46.20906pt too wide) in paragraph at lines 5170--5170
 []\TU/lmtt/m/n/10.95 one:neighborhoodMarina                           0.005656 **[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5192--5192
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5171--5171
 []\TU/lmtt/m/n/10.95 one:neighborhoodMidtown                          0.595908[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5193--5193
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5172--5172
 []\TU/lmtt/m/n/10.95 one:neighborhoodMidtown District                 0.412485[] 
  []
 
 
-Overfull \hbox (46.20908pt too wide) in paragraph at lines 5194--5194
+Overfull \hbox (46.20908pt too wide) in paragraph at lines 5173--5173
 []\TU/lmtt/m/n/10.95 one:neighborhoodMira Mesa                        0.003670 **[] 
  []
 
 
-Overfull \hbox (46.20908pt too wide) in paragraph at lines 5195--5195
+Overfull \hbox (46.20908pt too wide) in paragraph at lines 5174--5174
 []\TU/lmtt/m/n/10.95 one:neighborhoodMission Bay                      0.001939 **[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5196--5196
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5175--5175
 []\TU/lmtt/m/n/10.95 one:neighborhoodMission Valley                   0.387513[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5197--5197
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5176--5176
 []\TU/lmtt/m/n/10.95 one:neighborhoodMoreno Mission                   0.227928[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5198--5198
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5177--5177
 []\TU/lmtt/m/n/10.95 one:neighborhoodNormal Heights                   0.228202[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 5199--5199
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 5178--5178
 []\TU/lmtt/m/n/10.95 one:neighborhoodNorth Clairemont                 0.067990 .[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5200--5200
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5179--5179
 []\TU/lmtt/m/n/10.95 one:neighborhoodNorth Hills                      0.450091[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5201--5201
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5180--5180
 []\TU/lmtt/m/n/10.95 one:neighborhoodNorthwest                        0.486169[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5202--5202
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5181--5181
 []\TU/lmtt/m/n/10.95 one:neighborhoodOcean Beach                      0.158381[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5203--5203
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5182--5182
 []\TU/lmtt/m/n/10.95 one:neighborhoodOld Town                         0.689710[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5204--5204
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5183--5183
 []\TU/lmtt/m/n/10.95 one:neighborhoodOtay Ranch                       0.124188[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5205--5205
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5184--5184
 []\TU/lmtt/m/n/10.95 one:neighborhoodPacific Beach                    0.379016[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5206--5206
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5185--5185
 []\TU/lmtt/m/n/10.95 one:neighborhoodPark West                        0.363079[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5207--5207
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5186--5186
 []\TU/lmtt/m/n/10.95 one:neighborhoodRancho Bernadino                 0.920756[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5208--5208
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5187--5187
 []\TU/lmtt/m/n/10.95 one:neighborhoodRancho Penasquitos               0.014041 *[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5209--5209
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5188--5188
 []\TU/lmtt/m/n/10.95 one:neighborhoodRoseville                        0.511237[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 5210--5210
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 5189--5189
 []\TU/lmtt/m/n/10.95 one:neighborhoodSan Carlos                       0.038402 *[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5211--5211
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5190--5190
 []\TU/lmtt/m/n/10.95 one:neighborhoodScripps Ranch                    0.901090[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5212--5212
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5191--5191
 []\TU/lmtt/m/n/10.95 one:neighborhoodSerra Mesa                       0.171727[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5213--5213
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5192--5192
 []\TU/lmtt/m/n/10.95 one:neighborhoodSouth Park                       0.422917[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5214--5214
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5193--5193
 []\TU/lmtt/m/n/10.95 one:neighborhoodUniversity City                  0.064843 .[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5215--5215
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5194--5194
 []\TU/lmtt/m/n/10.95 one:neighborhoodWest University Heights                NA[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5216--5216
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5195--5195
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodBalboa Park             8.24e-05 ***[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5217--5217
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5196--5196
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodBay Ho                  0.841129[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5218--5218
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5197--5197
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodBay Park                0.014647 *[] 
  []
 
 
-Overfull \hbox (46.20906pt too wide) in paragraph at lines 5219--5219
+Overfull \hbox (46.20906pt too wide) in paragraph at lines 5198--5198
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodCarmel Valley           0.002120 **[] 
  []
 
 [116]
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5220--5220
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5199--5199
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodCity Heights West       0.341685[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5221--5221
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5200--5200
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodClairemont Mesa         2.49e-07 ***[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5222--5222
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5201--5201
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodCollege Area            0.110943[] 
  []
 
 
-Overfull \hbox (46.20906pt too wide) in paragraph at lines 5223--5223
+Overfull \hbox (46.20906pt too wide) in paragraph at lines 5202--5202
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodCore                    0.006535 **[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5224--5224
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5203--5203
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodCortez Hill             7.92e-09 ***[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5225--5225
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5204--5204
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodDel Mar Heights         0.216716[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5226--5226
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5205--5205
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodEast Village            2.74e-15 ***[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5227--5227
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5206--5206
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodGaslamp Quarter         1.18e-08 ***[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5228--5228
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5207--5207
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodGrant Hill              7.81e-07 ***[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5229--5229
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5208--5208
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodGrantville              0.098376 .[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5230--5230
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5209--5209
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodKensington              0.609420[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5231--5231
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5210--5210
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodLa Jolla                4.61e-15 ***[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5232--5232
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5211--5211
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodLa Jolla Village        0.063624 .[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5233--5233
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5212--5212
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodLinda Vista             0.023963 *[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5234--5234
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5213--5213
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodLittle Italy            2.56e-11 ***[] 
  []
 
 
-Overfull \hbox (46.20906pt too wide) in paragraph at lines 5235--5235
+Overfull \hbox (46.20906pt too wide) in paragraph at lines 5214--5214
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodLoma Portal             0.008879 **[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5236--5236
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5215--5215
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodMarina                   < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5237--5237
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5216--5216
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodMidtown                  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5238--5238
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5217--5217
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodMidtown District        0.000542 ***[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5239--5239
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5218--5218
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodMira Mesa               0.055697 .[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5240--5240
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5219--5219
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodMission Bay             1.99e-10 ***[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5241--5241
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5220--5220
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodMission Valley          0.459407[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5242--5242
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5221--5221
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodMoreno Mission          0.016199 *[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5243--5243
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5222--5222
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodNormal Heights          7.97e-06 ***[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5244--5244
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5223--5223
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodNorth Clairemont        0.024632 *[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5245--5245
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5224--5224
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodNorth Hills             8.84e-11 ***[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5246--5246
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5225--5225
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodNorthwest               0.748867[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5247--5247
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5226--5226
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodOcean Beach             6.21e-07 ***[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5248--5248
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5227--5227
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodOld Town                1.54e-08 ***[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5249--5249
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5228--5228
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodOtay Ranch              0.796490[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5250--5250
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5229--5229
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodPacific Beach            < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5251--5251
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5230--5230
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodPark West               8.56e-07 ***[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5252--5252
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5231--5231
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodRancho Bernadino        0.944521[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5253--5253
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5232--5232
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodRancho Penasquitos      0.241960[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 5254--5254
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 5233--5233
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodRoseville               0.060803 .[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5255--5255
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5234--5234
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodSan Carlos              0.108968[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5256--5256
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5235--5235
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodScripps Ranch           0.014369 *[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5257--5257
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5236--5236
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodSerra Mesa              0.011955 *[] 
  []
 
 
-Overfull \hbox (46.20906pt too wide) in paragraph at lines 5258--5258
+Overfull \hbox (46.20906pt too wide) in paragraph at lines 5237--5237
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodSouth Park              0.002396 **[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5259--5259
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5238--5238
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodUniversity City         0.024659 *[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5260--5260
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5239--5239
 []\TU/lmtt/m/n/10.95 accommodates:neighborhoodWest University Heights 0.025910 *[] 
  []
 
 [117]
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5261--5261
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5240--5240
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodBalboa Park                0.839806[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5262--5262
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5241--5241
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodBay Ho                     0.175338[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5263--5263
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5242--5242
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodBay Park                   0.589509[] 
  []
 
 
-Overfull \hbox (46.20906pt too wide) in paragraph at lines 5264--5264
+Overfull \hbox (46.20906pt too wide) in paragraph at lines 5243--5243
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodCarmel Valley              0.001611 **[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5265--5265
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5244--5244
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodCity Heights West          0.480243[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5266--5266
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5245--5245
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodClairemont Mesa            0.017643 *[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5267--5267
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5246--5246
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodCollege Area               0.947567[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5268--5268
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5247--5247
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodCore                       0.012753 *[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5269--5269
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5248--5248
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodCortez Hill                0.041784 *[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5270--5270
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5249--5249
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodDel Mar Heights            0.000914 ***[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5271--5271
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5250--5250
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodEast Village               3.34e-06 ***[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5272--5272
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5251--5251
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodGaslamp Quarter            2.35e-12 ***[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5273--5273
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5252--5252
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodGrant Hill                 0.795468[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5274--5274
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5253--5253
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodGrantville                 0.903578[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5275--5275
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5254--5254
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodKensington                 0.437993[] 
  []
 
 
-Overfull \hbox (51.95782pt too wide) in paragraph at lines 5276--5276
+Overfull \hbox (51.95782pt too wide) in paragraph at lines 5255--5255
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodLa Jolla                    < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5277--5277
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5256--5256
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodLa Jolla Village           0.363095[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5278--5278
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5257--5257
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodLinda Vista                0.235088[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5279--5279
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5258--5258
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodLittle Italy               0.748992[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5280--5280
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5259--5259
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodLoma Portal                0.022399 *[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5281--5281
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5260--5260
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodMarina                     0.150200[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5282--5282
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5261--5261
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodMidtown                    0.242779[] 
  []
 
 
-Overfull \hbox (46.20906pt too wide) in paragraph at lines 5283--5283
+Overfull \hbox (46.20906pt too wide) in paragraph at lines 5262--5262
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodMidtown District           0.001617 **[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5284--5284
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5263--5263
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodMira Mesa                  0.245659[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5285--5285
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5264--5264
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodMission Bay                6.00e-07 ***[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5286--5286
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5265--5265
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodMission Valley             0.982016[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5287--5287
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5266--5266
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodMoreno Mission             0.321960[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5288--5288
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5267--5267
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodNormal Heights             0.931598[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5289--5289
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5268--5268
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodNorth Clairemont           0.628997[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5290--5290
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5269--5269
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodNorth Hills                0.124417[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5291--5291
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5270--5270
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodNorthwest                  0.048594 *[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5292--5292
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5271--5271
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodOcean Beach                0.165371[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5293--5293
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5272--5272
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodOld Town                   0.367140[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5294--5294
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5273--5273
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodOtay Ranch                 0.520477[] 
  []
 
 
-Overfull \hbox (46.20906pt too wide) in paragraph at lines 5295--5295
+Overfull \hbox (46.20906pt too wide) in paragraph at lines 5274--5274
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodPacific Beach              0.004650 **[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5296--5296
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5275--5275
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodPark West                  0.065420 .[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5297--5297
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5276--5276
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodRancho Bernadino           0.013384 *[] 
  []
 
 
-Overfull \hbox (46.20906pt too wide) in paragraph at lines 5298--5298
+Overfull \hbox (46.20906pt too wide) in paragraph at lines 5277--5277
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodRancho Penasquitos         0.003566 **[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5299--5299
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5278--5278
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodRoseville                  0.602221[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5300--5300
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5279--5279
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodSan Carlos                 0.211993[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5301--5301
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5280--5280
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodScripps Ranch              0.434248[] 
  []
 
 [118]
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5302--5302
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5281--5281
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodSerra Mesa                 0.053141 .[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5303--5303
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5282--5282
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodSouth Park                 0.656138[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5304--5304
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5283--5283
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodUniversity City            0.269455[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5305--5305
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5284--5284
 []\TU/lmtt/m/n/10.95 bathrooms:neighborhoodWest University Heights    0.730652[] 
  []
 
 
-Overfull \hbox (46.20906pt too wide) in paragraph at lines 5306--5306
+Overfull \hbox (46.20906pt too wide) in paragraph at lines 5285--5285
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodBalboa Park                 0.005011 **[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5307--5307
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5286--5286
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodBay Ho                      0.157151[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 5308--5308
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 5287--5287
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodBay Park                    0.067764 .[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5309--5309
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5288--5288
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodCarmel Valley               0.563507[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5310--5310
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5289--5289
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodCity Heights West           0.123740[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5311--5311
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5290--5290
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodClairemont Mesa             0.702806[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5312--5312
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5291--5291
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodCollege Area                0.609182[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5313--5313
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5292--5292
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodCore                        0.520791[] 
  []
 
 
-Overfull \hbox (46.20906pt too wide) in paragraph at lines 5314--5314
+Overfull \hbox (46.20906pt too wide) in paragraph at lines 5293--5293
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodCortez Hill                 0.002091 **[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5315--5315
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5294--5294
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodDel Mar Heights             0.253288[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5316--5316
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5295--5295
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodEast Village                0.120105[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5317--5317
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5296--5296
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodGaslamp Quarter             0.000993 ***[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5318--5318
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5297--5297
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodGrant Hill                  0.425266[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5319--5319
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5298--5298
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodGrantville                  0.289243[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5320--5320
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5299--5299
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodKensington                  0.094590 .[] 
  []
 
 
-Overfull \hbox (51.95782pt too wide) in paragraph at lines 5321--5321
+Overfull \hbox (51.95782pt too wide) in paragraph at lines 5300--5300
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodLa Jolla                    2.58e-06 ***[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5322--5322
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5301--5301
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodLa Jolla Village            0.121520[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5323--5323
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5302--5302
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodLinda Vista                 0.574579[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5324--5324
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5303--5303
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodLittle Italy                0.117274[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5325--5325
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5304--5304
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodLoma Portal                 0.010370 *[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5326--5326
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5305--5305
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodMarina                      0.018431 *[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5327--5327
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5306--5306
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodMidtown                     0.000122 ***[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5328--5328
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5307--5307
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodMidtown District            0.512137[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5329--5329
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5308--5308
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodMira Mesa                   0.887701[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5330--5330
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5309--5309
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodMission Bay                 1.26e-09 ***[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5331--5331
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5310--5310
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodMission Valley              0.250670[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5332--5332
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5311--5311
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodMoreno Mission              0.610302[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5333--5333
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5312--5312
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodNormal Heights              0.056842 .[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5334--5334
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5313--5313
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodNorth Clairemont            0.336669[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5335--5335
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5314--5314
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodNorth Hills                 1.87e-09 ***[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5336--5336
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5315--5315
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodNorthwest                   0.010377 *[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5337--5337
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5316--5316
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodOcean Beach                 6.32e-05 ***[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 5338--5338
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 5317--5317
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodOld Town                    0.036570 *[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5339--5339
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5318--5318
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodOtay Ranch                  0.029299 *[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5340--5340
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5319--5319
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodPacific Beach               0.034919 *[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5341--5341
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5320--5320
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodPark West                   0.247150[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5342--5342
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5321--5321
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodRancho Bernadino            0.190841[] 
  []
 
 [119]
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5343--5343
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodRancho Penasquitos          0.436205[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5344--5344
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5323--5323
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodRoseville                   0.011911 *[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5345--5345
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5324--5324
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodSan Carlos                  0.111073[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5346--5346
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5325--5325
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodScripps Ranch               0.656951[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5347--5347
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5326--5326
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodSerra Mesa                  0.216272[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5348--5348
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5327--5327
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodSouth Park                  0.475443[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5349--5349
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5328--5328
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodUniversity City             0.302694[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5350--5350
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5329--5329
 []\TU/lmtt/m/n/10.95 bedrooms:neighborhoodWest University Heights     0.907079[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5351--5351
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5330--5330
 []\TU/lmtt/m/n/10.95 beds:neighborhoodBalboa Park                     0.770871[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5352--5352
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5331--5331
 []\TU/lmtt/m/n/10.95 beds:neighborhoodBay Ho                          0.780950[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5353--5353
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5332--5332
 []\TU/lmtt/m/n/10.95 beds:neighborhoodBay Park                        0.918856[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5354--5354
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5333--5333
 []\TU/lmtt/m/n/10.95 beds:neighborhoodCarmel Valley                   0.256631[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5355--5355
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5334--5334
 []\TU/lmtt/m/n/10.95 beds:neighborhoodCity Heights West               0.562357[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5356--5356
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5335--5335
 []\TU/lmtt/m/n/10.95 beds:neighborhoodClairemont Mesa                 0.070055 .[] 
  []
 
 
-Overfull \hbox (46.20908pt too wide) in paragraph at lines 5357--5357
+Overfull \hbox (46.20908pt too wide) in paragraph at lines 5336--5336
 []\TU/lmtt/m/n/10.95 beds:neighborhoodCollege Area                    0.006717 **[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5358--5358
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5337--5337
 []\TU/lmtt/m/n/10.95 beds:neighborhoodCore                            0.307987[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5359--5359
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5338--5338
 []\TU/lmtt/m/n/10.95 beds:neighborhoodCortez Hill                     0.361302[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5360--5360
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5339--5339
 []\TU/lmtt/m/n/10.95 beds:neighborhoodDel Mar Heights                 0.764449[] 
  []
 
 
-Overfull \hbox (51.95782pt too wide) in paragraph at lines 5361--5361
+Overfull \hbox (51.95782pt too wide) in paragraph at lines 5340--5340
 []\TU/lmtt/m/n/10.95 beds:neighborhoodEast Village                    1.86e-05 ***[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5362--5362
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5341--5341
 []\TU/lmtt/m/n/10.95 beds:neighborhoodGaslamp Quarter                 0.470435[] 
  []
 
 
-Overfull \hbox (46.20906pt too wide) in paragraph at lines 5363--5363
+Overfull \hbox (46.20906pt too wide) in paragraph at lines 5342--5342
 []\TU/lmtt/m/n/10.95 beds:neighborhoodGrant Hill                      0.007960 **[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5364--5364
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5343--5343
 []\TU/lmtt/m/n/10.95 beds:neighborhoodGrantville                      0.976078[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5365--5365
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5344--5344
 []\TU/lmtt/m/n/10.95 beds:neighborhoodKensington                      0.975344[] 
  []
 
 
-Overfull \hbox (51.95782pt too wide) in paragraph at lines 5366--5366
+Overfull \hbox (51.95782pt too wide) in paragraph at lines 5345--5345
 []\TU/lmtt/m/n/10.95 beds:neighborhoodLa Jolla                        3.10e-06 ***[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5367--5367
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5346--5346
 []\TU/lmtt/m/n/10.95 beds:neighborhoodLa Jolla Village                0.220739[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5368--5368
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5347--5347
 []\TU/lmtt/m/n/10.95 beds:neighborhoodLinda Vista                     0.662889[] 
  []
 
 
-Overfull \hbox (51.95782pt too wide) in paragraph at lines 5369--5369
+Overfull \hbox (51.95782pt too wide) in paragraph at lines 5348--5348
 []\TU/lmtt/m/n/10.95 beds:neighborhoodLittle Italy                    1.07e-06 ***[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5370--5370
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5349--5349
 []\TU/lmtt/m/n/10.95 beds:neighborhoodLoma Portal                     0.825463[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 5371--5371
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 5350--5350
 []\TU/lmtt/m/n/10.95 beds:neighborhoodMarina                          0.064324 .[] 
  []
 
 
-Overfull \hbox (51.95782pt too wide) in paragraph at lines 5372--5372
+Overfull \hbox (51.95782pt too wide) in paragraph at lines 5351--5351
 []\TU/lmtt/m/n/10.95 beds:neighborhoodMidtown                         8.90e-05 ***[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5373--5373
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5352--5352
 []\TU/lmtt/m/n/10.95 beds:neighborhoodMidtown District                0.143173[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5374--5374
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5353--5353
 []\TU/lmtt/m/n/10.95 beds:neighborhoodMira Mesa                       0.388579[] 
  []
 
 
-Overfull \hbox (51.95782pt too wide) in paragraph at lines 5375--5375
+Overfull \hbox (51.95782pt too wide) in paragraph at lines 5354--5354
 []\TU/lmtt/m/n/10.95 beds:neighborhoodMission Bay                     0.000546 ***[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5376--5376
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5355--5355
 []\TU/lmtt/m/n/10.95 beds:neighborhoodMission Valley                  0.756247[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 5377--5377
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 5356--5356
 []\TU/lmtt/m/n/10.95 beds:neighborhoodMoreno Mission                  0.093375 .[] 
  []
 
 
-Overfull \hbox (46.20908pt too wide) in paragraph at lines 5378--5378
+Overfull \hbox (46.20908pt too wide) in paragraph at lines 5357--5357
 []\TU/lmtt/m/n/10.95 beds:neighborhoodNormal Heights                  0.002763 **[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5379--5379
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5358--5358
 []\TU/lmtt/m/n/10.95 beds:neighborhoodNorth Clairemont                0.748634[] 
  []
 
 
-Overfull \hbox (51.95781pt too wide) in paragraph at lines 5380--5380
+Overfull \hbox (51.95781pt too wide) in paragraph at lines 5359--5359
 []\TU/lmtt/m/n/10.95 beds:neighborhoodNorth Hills                     0.000558 ***[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5381--5381
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5360--5360
 []\TU/lmtt/m/n/10.95 beds:neighborhoodNorthwest                       0.373186[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5382--5382
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5361--5361
 []\TU/lmtt/m/n/10.95 beds:neighborhoodOcean Beach                     0.191957[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 5383--5383
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 5362--5362
 []\TU/lmtt/m/n/10.95 beds:neighborhoodOld Town                        0.041051 *[] 
  []
 
 [120]
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5384--5384
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5363--5363
 []\TU/lmtt/m/n/10.95 beds:neighborhoodOtay Ranch                      0.783359[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5385--5385
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5364--5364
 []\TU/lmtt/m/n/10.95 beds:neighborhoodPacific Beach                   0.279326[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5386--5386
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5365--5365
 []\TU/lmtt/m/n/10.95 beds:neighborhoodPark West                       0.437885[] 
  []
 
 
-Overfull \hbox (46.20908pt too wide) in paragraph at lines 5387--5387
+Overfull \hbox (46.20908pt too wide) in paragraph at lines 5366--5366
 []\TU/lmtt/m/n/10.95 beds:neighborhoodRancho Bernadino                0.003373 **[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5388--5388
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5367--5367
 []\TU/lmtt/m/n/10.95 beds:neighborhoodRancho Penasquitos              0.900966[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5389--5389
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5368--5368
 []\TU/lmtt/m/n/10.95 beds:neighborhoodRoseville                       0.329465[] 
  []
 
 
-Overfull \hbox (46.20908pt too wide) in paragraph at lines 5390--5390
+Overfull \hbox (46.20908pt too wide) in paragraph at lines 5369--5369
 []\TU/lmtt/m/n/10.95 beds:neighborhoodSan Carlos                      0.001019 **[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 5391--5391
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 5370--5370
 []\TU/lmtt/m/n/10.95 beds:neighborhoodScripps Ranch                   0.073072 .[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5392--5392
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5371--5371
 []\TU/lmtt/m/n/10.95 beds:neighborhoodSerra Mesa                      0.120848[] 
  []
 
 
-Overfull \hbox (28.96281pt too wide) in paragraph at lines 5393--5393
+Overfull \hbox (28.96281pt too wide) in paragraph at lines 5372--5372
 []\TU/lmtt/m/n/10.95 beds:neighborhoodSouth Park                      0.854878[] 
  []
 
 
-Overfull \hbox (40.46031pt too wide) in paragraph at lines 5394--5394
+Overfull \hbox (40.46031pt too wide) in paragraph at lines 5373--5373
 []\TU/lmtt/m/n/10.95 beds:neighborhoodUniversity City                 0.048378 *[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5395--5395
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5374--5374
 []\TU/lmtt/m/n/10.95 beds:neighborhoodWest University Heights         0.136320[] 
  []
 
 
-Overfull \hbox (57.70657pt too wide) in paragraph at lines 5397--5397
+Overfull \hbox (57.70657pt too wide) in paragraph at lines 5376--5376
 []\TU/lmtt/m/n/10.95 Signif. codes:  0 []***[] 0.001 []**[] 0.01 []*[] 0.05 [].[] 0.1 [] [] 1[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 5399--5399
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 5378--5378
 []\TU/lmtt/m/n/10.95 Residual standard error: 0.478 on 5885 degrees of freedom[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 5400--5400
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 5379--5379
 []\TU/lmtt/m/n/10.95 Multiple R-squared:  0.6622,    Adjusted R-squared:  0.6494[] 
  []
 
 
-Overfull \hbox (34.71158pt too wide) in paragraph at lines 5401--5401
+Overfull \hbox (34.71158pt too wide) in paragraph at lines 5380--5380
 []\TU/lmtt/m/n/10.95 F-statistic: 51.51 on 224 and 5885 DF,  p-value: < 2.2e-16[] 
  []
 
 [121] [122] [123]
-Overfull \hbox (22.8828pt too wide) detected at line 5537
+Overfull \hbox (22.8828pt too wide) detected at line 5516
 [][][][][] [] [] [] [][][][][][] [] [][][][][][][] [] [][][][][][][] [] [][][][][][][] [] [][][][][][][] [] [][]
  []
 
 
-Overfull \hbox (184.17905pt too wide) in paragraph at lines 5564--5564
+Overfull \hbox (184.17905pt too wide) in paragraph at lines 5543--5543
 []\TU/lmtt/m/n/10.95 lm(formula = "log_price ~ accommodates + bedrooms + beds + bathrooms + w_bathrooms",[] 
  []
 
 [124]
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 5573--5573
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 5552--5552
 []\TU/lmtt/m/n/10.95 (Intercept)   3.579448   0.032337 110.692   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 5574--5574
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 5553--5553
 []\TU/lmtt/m/n/10.95 accommodates  0.173226   0.005233  33.100   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 5575--5575
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 5554--5554
 []\TU/lmtt/m/n/10.95 bedrooms      0.103116   0.012327   8.365   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 5576--5576
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 5555--5555
 []\TU/lmtt/m/n/10.95 beds         -0.075071   0.007787  -9.641   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 5577--5577
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 5556--5556
 []\TU/lmtt/m/n/10.95 bathrooms     0.117268   0.012507   9.376   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (11.71658pt too wide) in paragraph at lines 5578--5578
+Overfull \hbox (11.71658pt too wide) in paragraph at lines 5557--5557
 []\TU/lmtt/m/n/10.95 w_bathrooms   0.353021   0.023572  14.976   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (57.70657pt too wide) in paragraph at lines 5580--5580
+Overfull \hbox (57.70657pt too wide) in paragraph at lines 5559--5559
 []\TU/lmtt/m/n/10.95 Signif. codes:  0 []***[] 0.001 []**[] 0.01 []*[] 0.05 [].[] 0.1 [] [] 1[] 
  []
 
 
-Overfull \hbox (34.71158pt too wide) in paragraph at lines 5582--5582
+Overfull \hbox (34.71158pt too wide) in paragraph at lines 5561--5561
 []\TU/lmtt/m/n/10.95 Residual standard error: 0.5271 on 6104 degrees of freedom[] 
  []
 
 
-Overfull \hbox (17.46533pt too wide) in paragraph at lines 5583--5583
+Overfull \hbox (17.46533pt too wide) in paragraph at lines 5562--5562
 []\TU/lmtt/m/n/10.95 Multiple R-squared:  0.574, Adjusted R-squared:  0.5736[] 
  []
 
 
-Overfull \hbox (23.21408pt too wide) in paragraph at lines 5584--5584
+Overfull \hbox (23.21408pt too wide) in paragraph at lines 5563--5563
 []\TU/lmtt/m/n/10.95 F-statistic:  1645 on 5 and 6104 DF,  p-value: < 2.2e-16[] 
  []
 
 [125]
-Overfull \hbox (6.55222pt too wide) detected at line 5621
+Overfull \hbox (6.55222pt too wide) detected at line 5600
 [][][][][] [] [] [] [] [][][][][] [] [][][][][][] [] [][][][][][][] [] [][][][][][][] [] [][][][][][][] [] [][]
  []
 
 [126] [127]
-Underfull \hbox (badness 4886) in paragraph at lines 5724--5725
+Underfull \hbox (badness 4886) in paragraph at lines 5703--5704
 []\TU/lmr/m/n/10.95 According to our model, the house would be worth
  []
 
 
-Overfull \hbox (362.39023pt too wide) in paragraph at lines 5738--5738
+Overfull \hbox (362.39023pt too wide) in paragraph at lines 5717--5717
 []  []\TU/lmtt/m/n/10.95 /Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202324/san/data/assignment_1_madrid/madrid_abb.gpkg[][] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 5740--5740
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 5719--5719
 []\TU/lmtt/m/n/10.95 Simple feature collection with 18399 features and 16 fields[] 
  []
 
 
-Overfull \hbox (115.19406pt too wide) in paragraph at lines 5743--5743
+Overfull \hbox (115.19406pt too wide) in paragraph at lines 5722--5722
 []\TU/lmtt/m/n/10.95 Bounding box:  xmin: -3.86391 ymin: 40.33243 xmax: -3.556 ymax: 40.56274[] 
  []
 
 [128]
-Overfull \hbox (120.94281pt too wide) in paragraph at lines 5754--5754
+Overfull \hbox (120.94281pt too wide) in paragraph at lines 5733--5733
 [] \TU/lmtt/m/n/10.95 [1] "price"           "price_usd"       "log1p_price_usd" "accommodates"[] 
  []
 
 
-Overfull \hbox (74.95282pt too wide) in paragraph at lines 5755--5755
+Overfull \hbox (74.95282pt too wide) in paragraph at lines 5734--5734
 [] \TU/lmtt/m/n/10.95 [5] "bathrooms_text"  "bathrooms"       "bedrooms"        "beds"[] 
  []
 
 
-Overfull \hbox (74.95282pt too wide) in paragraph at lines 5756--5756
+Overfull \hbox (74.95282pt too wide) in paragraph at lines 5735--5735
 [] \TU/lmtt/m/n/10.95 [9] "neighbourhood"   "room_type"       "property_type"   "WiFi"[] 
  []
 
 
-Overfull \hbox (120.94281pt too wide) in paragraph at lines 5757--5757
+Overfull \hbox (120.94281pt too wide) in paragraph at lines 5736--5736
 []\TU/lmtt/m/n/10.95 [13] "Coffee"          "Gym"             "Parking"         "km_to_retiro"[] 
  []
 
@@ -5325,132 +5322,132 @@ chapter 7.
 [130
 
 ]
-Overfull \hbox (218.67151pt too wide) in paragraph at lines 5893--5893
+Overfull \hbox (218.67151pt too wide) in paragraph at lines 5872--5872
 []  []\TU/lmtt/m/n/10.95 /Users/franciscorowe/Dropbox/Francisco/uol/teaching/envs453/202324/san/data/mlm/OA.shp[][] 
  []
 
 
-Overfull \hbox (34.71158pt too wide) in paragraph at lines 5895--5895
+Overfull \hbox (34.71158pt too wide) in paragraph at lines 5874--5874
 []\TU/lmtt/m/n/10.95 Simple feature collection with 1584 features and 19 fields[] 
  []
 
 
-Overfull \hbox (115.19406pt too wide) in paragraph at lines 5898--5898
+Overfull \hbox (115.19406pt too wide) in paragraph at lines 5877--5877
 []\TU/lmtt/m/n/10.95 Bounding box:  xmin: 332390.2 ymin: 379748.5 xmax: 345636 ymax: 397980.1[] 
  []
 
 
-Overfull \hbox (17.46533pt too wide) in paragraph at lines 5916--5916
+Overfull \hbox (17.46533pt too wide) in paragraph at lines 5895--5895
 []\TU/lmtt/m/n/10.95 Simple feature collection with 6 features and 19 fields[] 
  []
 
 
-Overfull \hbox (80.70157pt too wide) in paragraph at lines 5919--5919
+Overfull \hbox (80.70157pt too wide) in paragraph at lines 5898--5898
 []\TU/lmtt/m/n/10.95 Bounding box:  xmin: 335056 ymin: 389163 xmax: 336155 ymax: 389642[] 
  []
 
 [131]
-Overfull \hbox (132.4403pt too wide) in paragraph at lines 5921--5921
+Overfull \hbox (132.4403pt too wide) in paragraph at lines 5900--5900
 []      \TU/lmtt/m/n/10.95 oa_cd   lsoa_cd   msoa_cd    lad_cd      ward_nm  dstrt_nm    cnty_nm[] 
  []
 
 
-Overfull \hbox (132.4403pt too wide) in paragraph at lines 5922--5922
+Overfull \hbox (132.4403pt too wide) in paragraph at lines 5901--5901
 []\TU/lmtt/m/n/10.95 1 E00032987 E01006515 E02001383 E08000012    Riverside Liverpool Merseyside[] 
  []
 
 
-Overfull \hbox (132.4403pt too wide) in paragraph at lines 5923--5923
+Overfull \hbox (132.4403pt too wide) in paragraph at lines 5902--5902
 []\TU/lmtt/m/n/10.95 2 E00032988 E01006514 E02001383 E08000012 Princes Park Liverpool Merseyside[] 
  []
 
 
-Overfull \hbox (132.4403pt too wide) in paragraph at lines 5924--5924
+Overfull \hbox (132.4403pt too wide) in paragraph at lines 5903--5903
 []\TU/lmtt/m/n/10.95 3 E00032989 E01033768 E02001383 E08000012 Princes Park Liverpool Merseyside[] 
  []
 
 
-Overfull \hbox (132.4403pt too wide) in paragraph at lines 5925--5925
+Overfull \hbox (132.4403pt too wide) in paragraph at lines 5904--5904
 []\TU/lmtt/m/n/10.95 4 E00032990 E01033768 E02001383 E08000012 Princes Park Liverpool Merseyside[] 
  []
 
 
-Overfull \hbox (132.4403pt too wide) in paragraph at lines 5926--5926
+Overfull \hbox (132.4403pt too wide) in paragraph at lines 5905--5905
 []\TU/lmtt/m/n/10.95 5 E00032991 E01033768 E02001383 E08000012 Princes Park Liverpool Merseyside[] 
  []
 
 
-Overfull \hbox (132.4403pt too wide) in paragraph at lines 5927--5927
+Overfull \hbox (132.4403pt too wide) in paragraph at lines 5906--5906
 []\TU/lmtt/m/n/10.95 6 E00032992 E01033768 E02001383 E08000012 Princes Park Liverpool Merseyside[] 
  []
 
 
-Overfull \hbox (115.19406pt too wide) in paragraph at lines 5928--5928
+Overfull \hbox (115.19406pt too wide) in paragraph at lines 5907--5907
 []  \TU/lmtt/m/n/10.95 cntry_nm pop     age_60     unemp      lat      long    males   lt_ill[] 
  []
 
 
-Overfull \hbox (115.19406pt too wide) in paragraph at lines 5929--5929
+Overfull \hbox (115.19406pt too wide) in paragraph at lines 5908--5908
 []\TU/lmtt/m/n/10.95 1  England 198 0.11616162 0.1130435 53.39821 -2.976786 46.46465 19.19192[] 
  []
 
 
-Overfull \hbox (115.19406pt too wide) in paragraph at lines 5930--5930
+Overfull \hbox (115.19406pt too wide) in paragraph at lines 5909--5909
 []\TU/lmtt/m/n/10.95 2  England 348 0.16954023 0.1458333 53.39813 -2.969072 58.33333 33.62069[] 
  []
 
 
-Overfull \hbox (115.19406pt too wide) in paragraph at lines 5931--5931
+Overfull \hbox (115.19406pt too wide) in paragraph at lines 5910--5910
 []\TU/lmtt/m/n/10.95 3  England 333 0.09009009 0.1049724 53.39778 -2.965290 64.26426 23.72372[] 
  []
 
 
-Overfull \hbox (115.19406pt too wide) in paragraph at lines 5932--5932
+Overfull \hbox (115.19406pt too wide) in paragraph at lines 5911--5911
 []\TU/lmtt/m/n/10.95 4  England 330 0.15151515 0.1329787 53.39802 -2.963597 59.69697 23.03030[] 
  []
 
 
-Overfull \hbox (115.19406pt too wide) in paragraph at lines 5933--5933
+Overfull \hbox (115.19406pt too wide) in paragraph at lines 5912--5912
 []\TU/lmtt/m/n/10.95 5  England 320 0.04687500 0.1813725 53.39706 -2.968030 60.62500 25.00000[] 
  []
 
 
-Overfull \hbox (115.19406pt too wide) in paragraph at lines 5934--5934
+Overfull \hbox (115.19406pt too wide) in paragraph at lines 5913--5913
 []\TU/lmtt/m/n/10.95 6  England 240 0.05833333 0.2519685 53.39679 -2.966494 57.91667 28.33333[] 
  []
 
 
-Overfull \hbox (103.69656pt too wide) in paragraph at lines 5935--5935
+Overfull \hbox (103.69656pt too wide) in paragraph at lines 5914--5914
 []    \TU/lmtt/m/n/10.95 Bhealth VBhealth  no_qual   manprof                       geometry[] 
  []
 
 
-Overfull \hbox (103.69656pt too wide) in paragraph at lines 5936--5936
+Overfull \hbox (103.69656pt too wide) in paragraph at lines 5915--5915
 []\TU/lmtt/m/n/10.95 1  6.565657 1.515152 24.69136  7.643312 MULTIPOLYGON (((335187 3894...[] 
  []
 
 
-Overfull \hbox (103.69656pt too wide) in paragraph at lines 5937--5937
+Overfull \hbox (103.69656pt too wide) in paragraph at lines 5916--5916
 []\TU/lmtt/m/n/10.95 2 10.344828 1.436782 14.84848 13.375796 MULTIPOLYGON (((335834 3895...[] 
  []
 
 
-Overfull \hbox (103.69656pt too wide) in paragraph at lines 5938--5938
+Overfull \hbox (103.69656pt too wide) in paragraph at lines 5917--5917
 []\TU/lmtt/m/n/10.95 3  6.606607 2.102102 15.38462 10.204082 MULTIPOLYGON (((335975.2 38...[] 
  []
 
 
-Overfull \hbox (103.69656pt too wide) in paragraph at lines 5939--5939
+Overfull \hbox (103.69656pt too wide) in paragraph at lines 5918--5918
 []\TU/lmtt/m/n/10.95 4  5.151515 2.424242 17.91531 15.224913 MULTIPOLYGON (((336030.8 38...[] 
  []
 
 
-Overfull \hbox (103.69656pt too wide) in paragraph at lines 5940--5940
+Overfull \hbox (103.69656pt too wide) in paragraph at lines 5919--5919
 []\TU/lmtt/m/n/10.95 5  8.750000 2.187500 12.58278 11.333333 MULTIPOLYGON (((335804.9 38...[] 
  []
 
 
-Overfull \hbox (103.69656pt too wide) in paragraph at lines 5941--5941
+Overfull \hbox (103.69656pt too wide) in paragraph at lines 5920--5920
 []\TU/lmtt/m/n/10.95 6  6.666667 2.916667 27.47748  5.479452 MULTIPOLYGON (((335804.9 38...[] 
  []
 
@@ -5460,14 +5457,14 @@ File: figs/ch5/datastr.png Graphic file (type bmp)
 File: 07-multilevel-01_files/figure-pdf/unnamed-chunk-5-1.pdf Graphic file (type pdf)
 <use 07-multilevel-01_files/figure-pdf/unnamed-chunk-5-1.pdf>
 
-Overfull \hbox (10.9551pt too wide) in paragraph at lines 6032--6033
+Overfull \hbox (10.9551pt too wide) in paragraph at lines 6011--6012
 [][] 
  []
 
 File: 07-multilevel-01_files/figure-pdf/unnamed-chunk-5-2.pdf Graphic file (type pdf)
 <use 07-multilevel-01_files/figure-pdf/unnamed-chunk-5-2.pdf>
 
-Overfull \hbox (10.9551pt too wide) in paragraph at lines 6042--6043
+Overfull \hbox (10.9551pt too wide) in paragraph at lines 6021--6022
 [][] 
  []
 
@@ -5475,7 +5472,7 @@ Overfull \hbox (10.9551pt too wide) in paragraph at lines 6042--6043
 File: 07-multilevel-01_files/figure-pdf/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use 07-multilevel-01_files/figure-pdf/unnamed-chunk-6-1.pdf>
 
-Overfull \hbox (10.95753pt too wide) in paragraph at lines 6071--6072
+Overfull \hbox (10.95753pt too wide) in paragraph at lines 6050--6051
 [][] 
  []
 
@@ -5483,92 +5480,92 @@ Overfull \hbox (10.95753pt too wide) in paragraph at lines 6071--6072
 File: 07-multilevel-01_files/figure-pdf/unnamed-chunk-8-1.pdf Graphic file (type pdf)
 <use 07-multilevel-01_files/figure-pdf/unnamed-chunk-8-1.pdf>
 [136]
-Overfull \hbox (23.21408pt too wide) in paragraph at lines 6115--6115
+Overfull \hbox (23.21408pt too wide) in paragraph at lines 6094--6094
 []\TU/lmtt/m/n/10.95 Simple feature collection with 203 features and 3 fields[] 
  []
 
 
-Overfull \hbox (126.69156pt too wide) in paragraph at lines 6118--6118
+Overfull \hbox (126.69156pt too wide) in paragraph at lines 6097--6097
 []\TU/lmtt/m/n/10.95 Bounding box:  xmin: 333993.8 ymin: 379748.5 xmax: 345600.2 ymax: 397681.5[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 6121--6121
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 6100--6100
 []       \TU/lmtt/m/n/10.95 oa_cd pop     unemp                       geometry[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 6122--6122
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 6101--6101
 []\TU/lmtt/m/n/10.95 1  E00032992 240 0.2519685 POLYGON ((335804.9 389421.6...[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 6123--6123
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 6102--6102
 []\TU/lmtt/m/n/10.95 2  E00033008 345 0.2636364 POLYGON ((335080 388528, 33...[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 6124--6124
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 6103--6103
 []\TU/lmtt/m/n/10.95 3  E00033074 299 0.2075472 POLYGON ((336947.3 387766.7...[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 6125--6125
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 6104--6104
 []\TU/lmtt/m/n/10.95 4  E00033075 254 0.2288136 POLYGON ((336753.6 387465.2...[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 6126--6126
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 6105--6105
 []\TU/lmtt/m/n/10.95 5  E00033080 197 0.2647059 POLYGON ((338196 387079, 33...[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 6127--6127
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 6106--6106
 []\TU/lmtt/m/n/10.95 6  E00033103 298 0.2148148 POLYGON ((340484 385429.6, ...[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 6128--6128
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 6107--6107
 []\TU/lmtt/m/n/10.95 7  E00033116 190 0.2156863 POLYGON ((341960.7 386422.1...[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 6129--6129
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 6108--6108
 []\TU/lmtt/m/n/10.95 8  E00033134 190 0.2674419 POLYGON ((337137 393089.6, ...[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 6130--6130
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 6109--6109
 []\TU/lmtt/m/n/10.95 9  E00033137 289 0.2661290 POLYGON ((337363.8 392122.4...[] 
  []
 
 
-Overfull \hbox (28.96283pt too wide) in paragraph at lines 6131--6131
+Overfull \hbox (28.96283pt too wide) in paragraph at lines 6110--6110
 []\TU/lmtt/m/n/10.95 10 E00033138 171 0.3561644 POLYGON ((337481.5 392166.2...[] 
  []
 
 [137]
-Overfull \hbox (0.21909pt too wide) in paragraph at lines 6162--6162
+Overfull \hbox (0.21909pt too wide) in paragraph at lines 6141--6141
 []\TU/lmtt/m/n/10.95 (Intercept) 0.115812   0.001836   63.09   <2e-16 ***[] 
  []
 
 
-Overfull \hbox (57.70657pt too wide) in paragraph at lines 6164--6164
+Overfull \hbox (57.70657pt too wide) in paragraph at lines 6143--6143
 []\TU/lmtt/m/n/10.95 Signif. codes:  0 []***[] 0.001 []**[] 0.01 []*[] 0.05 [].[] 0.1 [] [] 1[] 
  []
 
 
-Overfull \hbox (40.46033pt too wide) in paragraph at lines 6166--6166
+Overfull \hbox (40.46033pt too wide) in paragraph at lines 6145--6145
 []\TU/lmtt/m/n/10.95 Residual standard error: 0.07306 on 1583 degrees of freedom[] 
  []
 
 [138] [139]
-Underfull \hbox (badness 1603) in paragraph at lines 6267--6274
+Underfull \hbox (badness 1603) in paragraph at lines 6246--6253
 []\TU/lmr/m/n/10.95 We can estimate a three-level model by replacing \TU/lmtt/m/n/10.95 (1 |
  []
 
 [140]
-Overfull \hbox (63.45532pt too wide) in paragraph at lines 6309--6309
+Overfull \hbox (63.45532pt too wide) in paragraph at lines 6288--6288
 []\TU/lmtt/m/n/10.95 Number of obs: 1584, groups:  lsoa_cd:msoa_cd, 298; msoa_cd, 61[] 
  []
 
@@ -5580,18 +5577,18 @@ File: figs/ch5/nm_dist_msoa.png Graphic file (type bmp)
 File: figs/ch5/nm_dist_grand.png Graphic file (type bmp)
 <figs/ch5/nm_dist_grand.png>
 [142] [143]
-Overfull \hbox (63.45532pt too wide) in paragraph at lines 6413--6413
+Overfull \hbox (63.45532pt too wide) in paragraph at lines 6392--6392
 []\TU/lmtt/m/n/10.95 Number of obs: 1584, groups:  lsoa_cd:msoa_cd, 298; msoa_cd, 61[] 
  []
 
 [144]
-Package marginnote Info: right page because not two side mode on input line 6484.
-Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 6484.
+Package marginnote Info: right page because not two side mode on input line 6463.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 6463.
 [145]
 ! Undefined control sequence.
 <recently read> \cellcolor 
                            
-l.6508 \cellcolor
+l.6487 \cellcolor
                  {gray!10}{Observations} & \cellcolor{gray!10}{1584}\\ 
 Here is how much of TeX's memory you used:
  40216 strings out of 478667

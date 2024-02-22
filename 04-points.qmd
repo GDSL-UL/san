@@ -51,7 +51,8 @@ colnames(db)
 
 The rest of this session will focus on two main elements of the table: the spatial dimension (as stored in the point coordinates), and the nightly price values, expressed in USD and contained in the `price` column. To get a sense of what they look like first, let us plot both. We can get a quick look at the non-spatial distribution of house values with the following commands:
 
-```{r fig.margin=TRUE, fig.cap="Raw AirBnb prices in San Diego"}
+```{r}
+#| warning: false
 # Create the histogram
 qplot( data = db, x = price)
 ```
@@ -59,6 +60,7 @@ qplot( data = db, x = price)
 This basically shows there is a lot of values concentrated around the lower end of the distribution but a few very large ones. A usual transformation to *shrink* these differences is to take logarithms. The original table already contains an additional column with the logarithm of each price (`log_price`).
 
 ```{r}
+#| warning: false
 # Create the histogram
 qplot( data = db, x = log_price )
 ```

@@ -165,7 +165,6 @@ window.Quarto = {
       <a href="./">Spatial Modelling for Data Scientists</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/GDSL-UL/san" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./Spatial-Modelling-for-Data-Scientists.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -303,9 +302,9 @@ window.Quarto = {
 </header><p>This chapter provides an introduction to multi-level data structures and multi-level modelling and draws on the following references:</p>
 <ul>
 <li>
-<span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="#ref-gelman2006data" role="doc-biblioref">2006</a>)</span> provides an excellent and intuitive explanation of multilevel modelling and data analysis in general. Read Part 2A for a really good explanation of multilevel models.</li>
+<span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="references.html#ref-gelman2006data" role="doc-biblioref">2006</a>)</span> provides an excellent and intuitive explanation of multilevel modelling and data analysis in general. Read Part 2A for a really good explanation of multilevel models.</li>
 <li>
-<span class="citation" data-cites="bristol2020">Multilevel Modelling (<a href="#ref-bristol2020" role="doc-biblioref">n.d.</a>)</span> is an useful online resource on multilevel modelling and is free!</li>
+<span class="citation" data-cites="bristol2020">Multilevel Modelling (<a href="references.html#ref-bristol2020" role="doc-biblioref">n.d.</a>)</span> is an useful online resource on multilevel modelling and is free!</li>
 </ul>
 <section id="dependencies" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="dependencies">
 <span class="header-section-number">7.1</span> Dependencies</h2>
@@ -438,7 +437,7 @@ Projected CRS: Transverse_Mercator
 </div>
 </section><section id="modelling" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="modelling">
 <span class="header-section-number">7.3</span> Modelling</h2>
-<p>We should now be persuaded that ignoring the hierarchical structure of data may be a major issue. Let us now use a simple example to understand the intuition of multilevel model using the census data. We will seek to understand the spatial distribution of the proportion of population in unemployment in Liverpool, particularly why and where concentrations in this proportion occur. To illustrate the advantages of taking a multilevel modelling approach, we will start by estimating a linear regression model and progressively building complexity. We will first estimate a model and then explain the intuition underpinning the process. We will seek to gain a general understanding of multilevel modelling. If you are interested in the statistical and mathemathical formalisation of the underpinning concepts, please refer to <span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="#ref-gelman2006data" role="doc-biblioref">2006</a>)</span>.</p>
+<p>We should now be persuaded that ignoring the hierarchical structure of data may be a major issue. Let us now use a simple example to understand the intuition of multilevel model using the census data. We will seek to understand the spatial distribution of the proportion of population in unemployment in Liverpool, particularly why and where concentrations in this proportion occur. To illustrate the advantages of taking a multilevel modelling approach, we will start by estimating a linear regression model and progressively building complexity. We will first estimate a model and then explain the intuition underpinning the process. We will seek to gain a general understanding of multilevel modelling. If you are interested in the statistical and mathemathical formalisation of the underpinning concepts, please refer to <span class="citation" data-cites="gelman2006data">Gelman and Hill (<a href="references.html#ref-gelman2006data" role="doc-biblioref">2006</a>)</span>.</p>
 <p>We first need to want to understand our dependent variable: its density ditribution;</p>
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">oa_shp</span><span class="op">)</span> <span class="op">+</span></span>
@@ -916,27 +915,27 @@ E01006518:E02001390 -0.01885870</code></pre>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         groupFctr             groupID        term         mean       median
-1  lsoa_cd:msoa_cd E01006512:E02001377 (Intercept) -0.015517531 -0.014486880
-2  lsoa_cd:msoa_cd E01006513:E02006932 (Intercept) -0.016811135 -0.017546167
-3  lsoa_cd:msoa_cd E01006514:E02001383 (Intercept) -0.021818145 -0.024092438
-4  lsoa_cd:msoa_cd E01006515:E02001383 (Intercept) -0.018097772 -0.017458932
-5  lsoa_cd:msoa_cd E01006518:E02001390 (Intercept) -0.017939320 -0.017949390
-6  lsoa_cd:msoa_cd E01006519:E02001402 (Intercept) -0.015206492 -0.015264256
-7  lsoa_cd:msoa_cd E01006520:E02001389 (Intercept) -0.024048878 -0.023262342
-8  lsoa_cd:msoa_cd E01006521:E02001398 (Intercept)  0.006892622  0.007299342
-9  lsoa_cd:msoa_cd E01006522:E02001394 (Intercept)  0.019082274  0.020449785
-10 lsoa_cd:msoa_cd E01006523:E02001398 (Intercept)  0.004270358  0.005194620
+1  lsoa_cd:msoa_cd E01006512:E02001377 (Intercept) -0.016750074 -0.016974644
+2  lsoa_cd:msoa_cd E01006513:E02006932 (Intercept) -0.016985050 -0.015851627
+3  lsoa_cd:msoa_cd E01006514:E02001383 (Intercept) -0.019717446 -0.018885616
+4  lsoa_cd:msoa_cd E01006515:E02001383 (Intercept) -0.014932030 -0.016818498
+5  lsoa_cd:msoa_cd E01006518:E02001390 (Intercept) -0.019077813 -0.018799761
+6  lsoa_cd:msoa_cd E01006519:E02001402 (Intercept) -0.015795825 -0.015550835
+7  lsoa_cd:msoa_cd E01006520:E02001389 (Intercept) -0.025289464 -0.024460855
+8  lsoa_cd:msoa_cd E01006521:E02001398 (Intercept)  0.004727472  0.005030506
+9  lsoa_cd:msoa_cd E01006522:E02001394 (Intercept)  0.019116330  0.019146406
+10 lsoa_cd:msoa_cd E01006523:E02001398 (Intercept)  0.003182825  0.002890660
             sd
-1  0.020824395
-2  0.019268301
-3  0.019622814
-4  0.018468456
-5  0.019955005
-6  0.008461949
-7  0.021041952
-8  0.018644138
-9  0.020438046
-10 0.018968348</code></pre>
+1  0.018218673
+2  0.019760651
+3  0.018909129
+4  0.018781160
+5  0.019617365
+6  0.009553315
+7  0.018801694
+8  0.020192525
+9  0.018851941
+10 0.020034567</code></pre>
 </div>
 </div>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g.&nbsp;LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
@@ -1010,9 +1009,9 @@ Projected CRS: Transverse_Mercator</code></pre>
  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
- $ mean     : num  -0.01287 -0.02288 -0.03004 0.00695 0.02319 ...
- $ median   : num  -0.01269 -0.02376 -0.03138 0.00675 0.02437 ...
- $ sd       : num  0.0345 0.0343 0.0329 0.0335 0.0157 ...</code></pre>
+ $ mean     : num  -0.01256 -0.02679 -0.03173 0.00477 0.02249 ...
+ $ median   : num  -0.01239 -0.02967 -0.03086 0.00561 0.02157 ...
+ $ sd       : num  0.0311 0.0338 0.0312 0.0335 0.0168 ...</code></pre>
 </div>
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># merge data</span></span>
 <span><span class="va">msoa_shp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">msoa_shp</span>, y <span class="op">=</span> <span class="va">re_msoa</span>, by.x <span class="op">=</span> <span class="st">"MSOA_CD"</span>, by.y <span class="op">=</span> <span class="st">"groupID"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1413,7 +1412,7 @@ Projected CRS: OSGB36 / British National Grid
 
 <!-- -->
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-gelman2006data" class="csl-entry" role="listitem">
 Gelman, Andrew, and Jennifer Hill. 2006. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>. Cambridge University Press.
 </div>

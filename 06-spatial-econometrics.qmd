@@ -26,7 +26,7 @@ library(spdep)
 
 ## Data
 
-To explore ideas in spatial regression, we will the set of Airbnb properties for San Diego (US), borrowed from the "Geographic Data Science with Python" book (see [here](https://geographicdata.science/book/data/airbnb/regression_cleaning.html) for more info on the dataset source). This covers the point location of properties advertised on the Airbnb website in the San Diego region.
+To explore ideas in spatial regression, we will use a set of Airbnb properties for San Diego (US) from @reyABwolf. The dataset provides point location data of properties advertised on the Airbnb website in the San Diego region.
 
 Let us load the data:
 
@@ -34,13 +34,13 @@ Let us load the data:
 db <- st_read('data/abb_sd/regression_db.geojson')
 ```
 
-The table contains the followig variables:
+The table contains the following variables:
 
 ```{r}
 names(db)
 ```
 
-For most of this chapter, we will be exploring determinants and strategies for modelling the price of a property advertised in AirBnb. To get a first taste of what this means, we can create a plot of prices within the area of San Diego:
+We will be exploring determinants and strategies for modelling the price of a property advertised in AirBnb. To get a first taste of what this means, we can create a plot of prices within the area of San Diego:
 
 ```{r}
 db %>%
@@ -50,11 +50,9 @@ db %>%
   theme_void()
 ```
 
-## Non-spatial regression, a refresh
+## Non-spatial regression
 
-Before we discuss how to explicitly include space into the linear regression framework, let us show how basic regression can be carried out in R, and how you can interpret the results. By no means is this a formal and complete introduction to regression so, if that is what you are looking for, the first part of @gelman2006data, in particular chapters 3 and 4, are excellent places to check out.
-
-The core idea of linear regression is to explain the variation in a given (*dependent*) variable as a linear function of a series of other (*explanatory*) variables. For example, in our case, we may want to express/explain the price of a property advertised on AirBnb as a function of some of its characteristics, such as the number of people it accommodates, and how many bathrooms, bedrooms and beds it features. At the individual level, we can express this as:
+Before we discuss how to explicitly include space into the linear regression framework, let us fit a linear regression model and interpret the results. We may want to explain the price of a property advertised on AirBnb as a function of some of its characteristics, such as the number of people it accommodates, and how many bathrooms, bedrooms and beds it features. At the individual level, we can express this as:
 
 $$
 \log(P_i) = \alpha + \beta_1 Acc_i + \beta_2 Bath_i + \beta_3 Bedr_i + \beta_4 Beds_i + \epsilon_i
@@ -66,17 +64,11 @@ $$
 \log(P) = \alpha + \beta_1 Acc + \beta_2 Bath + \beta_3 Bedr + \beta_4 Beds + \epsilon
 $$ where each term can be interpreted in terms of vectors instead of scalars (wit the exception of the parameters $(\alpha, \beta_{1, 2, 3, 4})$, which *are* scalars). Note we are using the logarithm of the price, since this allows us to interpret the coefficients as roughly the percentage change induced by a unit increase in the explanatory variable of the estimate.
 
-Remember a regression can be seen as a multivariate extension of bivariate correlations. Indeed, one way to interpret the $\beta_k$ coefficients in the equation above is as the degree of correlation between the explanatory variable $k$ and the dependent variable, *keeping all the other explanatory variables constant*. When you calculate simple bivariate correlations, the coefficient of a variable is picking up the correlation between the variables, but it is also subsuming into it variation associated with other correlated variables --also called confounding factors\[\^06-spatial-econometrics-1\]. Regression allows you to isolate the distinct effect that a single variable has on the dependent one, once we *control* for those other variables.
-
-::: column-margin
-::: {.callout-tip appearance="simple" icon="false"}
-**Task**
+Remember a regression can be seen as a multivariate extension of bivariate correlations. Indeed, one way to interpret the $\beta_k$ coefficients in the equation above is as the degree of correlation between the explanatory variable $k$ and the dependent variable, *keeping all the other explanatory variables constant*. When you calculate simple bivariate correlations, the coefficient of a variable is picking up the correlation between the variables, but it is also subsuming into it variation associated with other correlated variables --also called confounding factors. Regression allows you to isolate the distinct effect that a single variable has on the dependent one, once we *control* for those other variables.
 
 Assume that new houses tend to be built more often in areas with low deprivation. If that is the case, then $NEW$ and $IMD$ will be correlated with each other (as well as with the price of a house, as we are hypothesizing in this case). If we calculate a simple correlation between $P$ and $IMD$, the coefficient will represent the degree of association between both variables, but it will also include some of the association between $IMD$ and $NEW$. That is, part of the obtained correlation coefficient will be due not to the fact that higher prices tend to be found in areas with low IMD, but to the fact that new houses tend to be more expensive. This is because (in this example) new houses tend to be built in areas with low deprivation and simple bivariate correlation cannot account for that.
-:::
-:::
 
-Practically speaking, running linear regressions in `R` is straightforward. For example, to fit the model specified in the equation above, we only need one line of code:
+We first fit the model specified in the equation above by running:
 
 ```{r}
 m1 <- lm('log_price ~ accommodates + bathrooms + bedrooms + beds', db)
@@ -94,11 +86,11 @@ A full detailed explanation of the output is beyond the scope of the chapter, bu
 
 [^06-spatial-econometrics-1]: Keep in mind that regression is no magic. We are only discounting the effect of other confounding factors that we include in the model, not of *all* potentially confounding factors.
 
-## Spatial regression: a (very) first dip
+## Spatial regression
 
 Spatial regression is about *explicitly* introducing space or geographical context into the statistical framework of a regression. Conceptually, we want to introduce space into our model whenever we think it plays an important role in the process we are interested in, or when space can act as a reasonable proxy for other factors we cannot but should include in our model. As an example of the former, we can imagine how houses at the seafront are probably more expensive than those in the second row, given their better views. To illustrate the latter, we can think of how the character of a neighborhood is important in determining the price of a house; however, it is very hard to identify and quantify "character" per se, although it might be easier to get at its spatial variation, hence a case of space as a proxy.
 
-Spatial regression is a large field of development in the econometrics and statistics literature. In this brief introduction, we will consider two related but very different processes that give rise to spatial effects: spatial heterogeneity and spatial dependence. For more rigorous treatments of the topics introduced here, the reader is referred to @anselin2003spatial, @anselin2014modern, and @gibbons2014spatial.
+Spatial regression is a large field of development in the econometrics and statistics literature. In this brief introduction, we will consider two related but very different processes that give rise to spatial effects: *spatial heterogeneity* and *spatial dependence*. For more rigorous treatments of the topics introduced here, the reader is referred to @anselin2003spatial and @anselin2014modern.
 
 ## Spatial heterogeneity
 
@@ -160,9 +152,9 @@ nei.fes %>%
   theme_void()
 ```
 
-We can see how neighborhoods in the left (west) tend to have higher prices. What we can't see, but it is represented there if you are familiar with the geography of San Diego, is that the city is bounded by the Pacific ocean on the left, suggesting neighbourhoods by the beach tend to be more expensive.
+We can see how neighborhoods in the left (west) tend to have higher prices. What we cannot see, but it is represented there if you are familiar with the geography of San Diego, is that the city is bounded by the Pacific ocean on the left, suggesting neighbourhoods by the beach tend to be more expensive.
 
-Remember that the interpretation of a $\beta_k$ coefficient is the effect of variable $k$, *given all the other explanatory variables included remain constant*. By including a single variable for each area, we are effectively forcing the model to compare as equal only house prices that share the same value for each variable; in other words, only houses located within the same area. Introducing FE affords you a higher degree of isolation of the effects of the variables you introduce in your model because you can control for unobserved effects that align spatially with the distribution of the FE you introduce (by neighbourhood, in our case).
+Remember that the interpretation of a $\beta_k$ coefficient is the effect of variable $k$, *given all the other explanatory variables included remained constant*. By including a single variable for each area, we are effectively forcing the model to compare as equal only house prices that share the same value for each variable; that is, only houses located within the same area. Introducing FE affords you a higher degree of isolation of the effects of the variables you introduce in your model because you can control for unobserved effects that align spatially with the distribution of the FE you introduce (by neighbourhood, in our case).
 
 **Spatial regimes**
 
@@ -187,7 +179,7 @@ m3 <- lm(
 summary(m3)
 ```
 
-This allows us to get a separate constant term and estimate of the impact of each variable *for every neighborhood*
+This allows us to get a separate constant term and estimate of the impact of each variable *for every neighborhood*. Note that to obtain a neighbourhood-specific constant, you will need to add the regression constant and the estimate for the interaction between one and a specific neighbourhood estimate.
 
 ## Spatial dependence
 
@@ -195,9 +187,9 @@ As we have just discussed, SH is about effects of phenomena that are *explicitly
 
 **Spatial Weights**
 
-There are several ways to introduce spatial dependence in an econometric framework, with varying degrees of econometric sophistication [see @anselin2003spatial for a good overview]. Common to all of them however is the way space is formally encapsulated: through *spatial weights matrices (*$W$)[^06-spatial-econometrics-2] These are $NxN$ matrices with zero diagonals and every $w_{ij}$ cell with a value that represents the degree of spatial connectivity/interaction between observations $i$ and $j$. If they are not connected at all, $w_{ij}=0$, otherwise $w_{ij}>0$ and we call $i$ and $j$ neighbors. The exact value in the latter case depends on the criterium we use to define neighborhood relations. These matrices also tend to be row-standardized so the sum of each row equals to one.
+There are several ways to introduce spatial dependence in an econometric framework, with varying degrees of econometric sophistication [see @anselin2003spatial for a good overview]. Common to all of them however is the way space is formally encapsulated: through *spatial weights matrices (*$W$)[^06-spatial-econometrics-2] These are $NxN$ matrices with zero diagonals and every $w_{ij}$ cell with a value that represents the degree of spatial connectivity/interaction between observations $i$ and $j$. If they are not connected at all, $w_{ij}=0$, otherwise $w_{ij}>0$ and we call $i$ and $j$ neighbors. The exact value in the latter case depends on the criterium we use to define neighborhood relations. These matrices also tend to be row-standardized so the sum of each row equals to one. 
 
-[^06-spatial-econometrics-2]: If you need to refresh your knowledge on spatial weight matrices, check [Block E](https://darribas.org/gds_course/content/bE/concepts_E.html) of @darribas_gds_course; [Chapter 4](https://geographicdata.science/book/notebooks/04_spatial_weights.html) of @reyABwolf; or the [Spatial Weights](https://fcorowe.github.io/intro-gds/03-spatial_weights.html) Section of @rowe2022a.
+[^06-spatial-econometrics-2]: If you need to refresh your knowledge on spatial weight matrices. [Block E](https://darribas.org/gds_course/content/bE/concepts_E.html) of @darribas_gds_course [Chapter 4](https://geographicdata.science/book/notebooks/04_spatial_weights.html) of @reyABwolf provide a good explanation of theory around spatial weights and the [Spatial Weights](https://fcorowe.github.io/intro-gds/03-spatial_weights.html) Section of @rowe2022a illustrates the use of R to compute different types of spatial weight matrices.
 
 A related concept to spatial weight matrices is that of *spatial lag*. This is an operator that multiplies a given variable $y$ by a spatial weight matrix:
 
@@ -235,7 +227,7 @@ hknn
 
 **Exogenous spatial effects**
 
-Let us come back to the house price example we have been working with. So far, we have hypothesized that the price of an AirBnb property in San Diego can be explained using information about its own characteristics, and the neighbourhood it belongs to. However, we can hypothesise that the price of a house is also affected by the characteristics of the houses surrounding it. Considering it as a proxy for larger and more luxurious houses, we will use the number of bathrooms of neighboring houses as an additional explanatory variable. This represents the most straightforward way to introduce spatial dependence in a regression, by considering not only a given explanatory variable, but also its spatial lag.
+Let us come back to the house price example we have been working with. So far, we have hypothesised that the price of an AirBnb property in San Diego can be explained using information about its own characteristics, and the neighbourhood it belongs to. However, we can hypothesise that the price of a house is also affected by the characteristics of the houses surrounding it. Considering it as a proxy for larger and more luxurious houses, we will use the number of bathrooms of neighboring houses as an additional explanatory variable. This represents the most straightforward way to introduce spatial dependence in a regression, by considering not only a given explanatory variable, but also its spatial lag.
 
 In our example case, in addition to including the number of bathrooms of the property, we will include its spatial lag. In other words, we will be saying that it is not only the number of bathrooms in a house but also that of the surrounding properties that helps explain the final price at which a house is advertised for. Mathematically, this implies estimating the following model:
 
@@ -298,8 +290,7 @@ Conceptually, predicting in linear regression models involves using the estimate
 
 $$
 \log(\bar{P_i}) = \bar{\alpha} + \bar{\beta_1} Acc_i^* + \bar{\beta_2} Bath_i^* + \bar{\beta_3} Bedr_i^* + \bar{\beta_4} Beds_i^*
-$$ 
-where $\log(\bar{P_i})$ is our predicted value, and we include the bar sign to note that it is our estimate obtained from fitting the model. We use the $^*$ sign to note that those can be new values for the explanatory variables, not necessarily those used to fit the model.
+$$ where $\log(\bar{P_i})$ is our predicted value, and we include the bar sign to note that it is our estimate obtained from fitting the model. We use the $^*$ sign to note that those can be new values for the explanatory variables, not necessarily those used to fit the model.
 
 Technically speaking, prediction in linear models is relatively streamlined in R. Suppose we are given data for a new house which is to be put on the AirBnb platform. We know it accommodates four people, and has two bedrooms, three beds, and one bathroom. We also know that the surrounding properties have, on average, 1.5 bathrooms. Let us record the data first:
 

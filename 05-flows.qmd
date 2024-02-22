@@ -35,7 +35,7 @@ In this chapter we will show a slightly different way of managing spatial data i
 
 ## Data
 
-In this note, we will use data from the city of San Francisco representing bike trips on their public bike share system. The original source is the SF Open Data portal ([link](http://www.bayareabikeshare.com/open-data)) and the dataset comprises both the location of each station in the Bay Area as well as information on trips (station of origin to station of destination) undertaken in the system from September 2014 to August 2015 and the following year. Since this note is about modeling and not data preparation, a cleanly reshaped version of the data, together with some additional information, has been created and placed in the `sf_bikes` folder. The data file is named `flows.geojson` and, in case you are interested, the (Python) code required to created from the original files in the SF Data Portal is also available on the `flows_prep.ipynb` notebook [\[url\]](https://github.com/darribas/spa_notes/blob/master/sf_bikes/flows_prep.ipynb), also in the same folder.
+In this note, we will use data from the city of San Francisco representing bike trips on their public bike share system. The original source is the [SF Open Data portal](https://datasf.org/opendata/) and the dataset comprises both the location of each station in the Bay Area as well as information on trips (station of origin to station of destination) undertaken in the system from September 2014 to August 2015 and the following year. Since this note is about modeling and not data preparation, a cleanly reshaped version of the data, together with some additional information, has been created and placed in the `sf_bikes` folder. The data file is named `flows.geojson` and, in case you are interested, the (Python) code required to created from the original files in the SF Data Portal is also available on the `flows_prep.ipynb` [notebook](https://github.com/darribas/spa_notes/blob/master/sf_bikes/flows_prep.ipynb), also in the same folder.
 
 Let us then directly load the file with all the information necessary:
 
@@ -277,7 +277,7 @@ generate_draw <- function(m){
 }
 ```
 
-This function takes a model `m` and the set of covariates `x` used and returns a random realization of predictions from the model. To get a sense of how this works, we can get and plot a realization of the model, compared to the expected one and the actual values:
+This function takes a model `m` and the set of covariates `x` used and returns a random realisation of predictions from the model. To get a sense of how this works, we can get and plot a realisation of the model, compared to the expected one and the actual values:
 
 ```{r}
 new_y <- generate_draw(m1)
@@ -355,11 +355,11 @@ legend(
 title(main="Predictive check - Baseline model")
 ```
 
-The plot shows there is a significant mismatch between the fitted values, which are much more concentrated around small positive values, and the realizations of our "inferential engine", which depict a much less concentrated distribution of values. This is likely due to the combination of two different reasons: on the one hand, the accuracy of our estimates may be poor, causing them to jump around a wide range of potential values and hence resulting in very diverse predictions (inferential uncertainty); on the other hand, it may be that the amount of variation we are not able to account for in the model[^05-flows-2] is so large that the degree of uncertainty contained in the error term of the model is very large, hence resulting in such a flat predictive distribution.
+The plot shows there is a significant mismatch between the fitted values, which are much more concentrated around small positive values, and the realisations of our "inferential engine", which depict a much less concentrated distribution of values. This is likely due to the combination of two different reasons: on the one hand, the accuracy of our estimates may be poor, causing them to jump around a wide range of potential values and hence resulting in very diverse predictions (inferential uncertainty); on the other hand, it may be that the amount of variation we are not able to account for in the model[^05-flows-2] is so large that the degree of uncertainty contained in the error term of the model is very large, hence resulting in such a flat predictive distribution.
 
 [^05-flows-2]: The $R^2$ of our model is around 2%
 
-It is important to keep in mind that the issues discussed in the paragraph above relate only to the uncertainty behind our model, not to the point predictions derived from them, which are a mechanistic result of the minimization of the squared residuals and hence are not subject to probability or inference. That allows them in this case to provide a fitted distribution much more accurate apparently (black line above). However, the lesson to take from this model is that, even if the point predictions (fitted values) are artificially accurate[^05-flows-3], our capabilities to infer about the more general underlying process are fairly limited.
+Keep in mind that the issues discussed in the paragraph above relate to the uncertainty behind our model. This is not to the point predictions derived from them, which are a mechanistic result of the minimisation of the squared residuals and hence are not subject to probability or inference. That allows the model in this case to provide a fitted distribution much more accurate apparently (black line above). However, the lesson to take from the model is that, even if the point predictions (fitted values) are artificially accurate[^05-flows-3], our capabilities to infer about the more general underlying process are fairly limited.
 
 [^05-flows-3]: which they are not really, in light of the comparison between the black and red lines.
 

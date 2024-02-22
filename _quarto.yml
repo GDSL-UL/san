@@ -13,7 +13,7 @@ book:
     style: docked
     background: light
   date: today
-  downloads: [pdf]
+  #downloads: [pdf]
   chapters:
     - index.qmd
     - 01-overview.qmd
@@ -28,8 +28,8 @@ book:
     - 10-st_analysis.qmd
     - 11-datasets.qmd
     - references.qmd
-
 bibliography: references.bib
+editor: visual
 
 format:
   html:
@@ -55,8 +55,6 @@ format:
     reference-location: margin
     mermaid:
       theme: neutral
-  pdf:
-    documentclass: scrreprt
-
-editor: visual
+#  pdf:
+#    documentclass: scrreprt
 
