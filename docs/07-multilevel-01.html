@@ -915,27 +915,27 @@ E01006518:E02001390 -0.01885870</code></pre>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         groupFctr             groupID        term         mean       median
-1  lsoa_cd:msoa_cd E01006512:E02001377 (Intercept) -0.015081714 -0.016104561
-2  lsoa_cd:msoa_cd E01006513:E02006932 (Intercept) -0.018509169 -0.018837238
-3  lsoa_cd:msoa_cd E01006514:E02001383 (Intercept) -0.021414352 -0.021638964
-4  lsoa_cd:msoa_cd E01006515:E02001383 (Intercept) -0.019405726 -0.020418908
-5  lsoa_cd:msoa_cd E01006518:E02001390 (Intercept) -0.016291590 -0.017026864
-6  lsoa_cd:msoa_cd E01006519:E02001402 (Intercept) -0.015274075 -0.015047501
-7  lsoa_cd:msoa_cd E01006520:E02001389 (Intercept) -0.021349416 -0.022839020
-8  lsoa_cd:msoa_cd E01006521:E02001398 (Intercept)  0.006256878  0.008382039
-9  lsoa_cd:msoa_cd E01006522:E02001394 (Intercept)  0.018705749  0.020251657
-10 lsoa_cd:msoa_cd E01006523:E02001398 (Intercept)  0.003301707  0.002395617
-           sd
-1  0.01898623
-2  0.01996967
-3  0.01986592
-4  0.01974002
-5  0.02149855
-6  0.01011427
-7  0.01860648
-8  0.02014752
-9  0.01810913
-10 0.01918916</code></pre>
+1  lsoa_cd:msoa_cd E01006512:E02001377 (Intercept) -0.017672467 -0.015806783
+2  lsoa_cd:msoa_cd E01006513:E02006932 (Intercept) -0.016100308 -0.017000565
+3  lsoa_cd:msoa_cd E01006514:E02001383 (Intercept) -0.025442989 -0.026267409
+4  lsoa_cd:msoa_cd E01006515:E02001383 (Intercept) -0.018891281 -0.019143435
+5  lsoa_cd:msoa_cd E01006518:E02001390 (Intercept) -0.019148563 -0.018554435
+6  lsoa_cd:msoa_cd E01006519:E02001402 (Intercept) -0.015492272 -0.015722844
+7  lsoa_cd:msoa_cd E01006520:E02001389 (Intercept) -0.025259003 -0.025007573
+8  lsoa_cd:msoa_cd E01006521:E02001398 (Intercept)  0.007955532  0.007993531
+9  lsoa_cd:msoa_cd E01006522:E02001394 (Intercept)  0.017985515  0.019536137
+10 lsoa_cd:msoa_cd E01006523:E02001398 (Intercept)  0.005355117  0.005633975
+            sd
+1  0.018391211
+2  0.019652099
+3  0.019058745
+4  0.020226381
+5  0.019389638
+6  0.009645985
+7  0.019125663
+8  0.020530033
+9  0.018747930
+10 0.018392227</code></pre>
 </div>
 </div>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g.&nbsp;LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
@@ -1009,9 +1009,9 @@ Projected CRS: Transverse_Mercator</code></pre>
  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
- $ mean     : num  -0.01015 -0.02574 -0.03053 0.00527 0.02168 ...
- $ median   : num  -0.01187 -0.02646 -0.03328 0.00648 0.02084 ...
- $ sd       : num  0.0317 0.0285 0.032 0.0299 0.0153 ...</code></pre>
+ $ mean     : num  -0.0145 -0.01995 -0.03009 0.00967 0.02172 ...
+ $ median   : num  -0.01712 -0.01983 -0.03441 0.00521 0.02216 ...
+ $ sd       : num  0.031 0.0347 0.0324 0.0304 0.0158 ...</code></pre>
 </div>
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># merge data</span></span>
 <span><span class="va">msoa_shp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">msoa_shp</span>, y <span class="op">=</span> <span class="va">re_msoa</span>, by.x <span class="op">=</span> <span class="st">"MSOA_CD"</span>, by.y <span class="op">=</span> <span class="st">"groupID"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
