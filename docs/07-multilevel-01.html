@@ -915,27 +915,27 @@ E01006518:E02001390 -0.01885870</code></pre>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         groupFctr             groupID        term         mean       median
-1  lsoa_cd:msoa_cd E01006512:E02001377 (Intercept) -0.016750074 -0.016974644
-2  lsoa_cd:msoa_cd E01006513:E02006932 (Intercept) -0.016985050 -0.015851627
-3  lsoa_cd:msoa_cd E01006514:E02001383 (Intercept) -0.019717446 -0.018885616
-4  lsoa_cd:msoa_cd E01006515:E02001383 (Intercept) -0.014932030 -0.016818498
-5  lsoa_cd:msoa_cd E01006518:E02001390 (Intercept) -0.019077813 -0.018799761
-6  lsoa_cd:msoa_cd E01006519:E02001402 (Intercept) -0.015795825 -0.015550835
-7  lsoa_cd:msoa_cd E01006520:E02001389 (Intercept) -0.025289464 -0.024460855
-8  lsoa_cd:msoa_cd E01006521:E02001398 (Intercept)  0.004727472  0.005030506
-9  lsoa_cd:msoa_cd E01006522:E02001394 (Intercept)  0.019116330  0.019146406
-10 lsoa_cd:msoa_cd E01006523:E02001398 (Intercept)  0.003182825  0.002890660
-            sd
-1  0.018218673
-2  0.019760651
-3  0.018909129
-4  0.018781160
-5  0.019617365
-6  0.009553315
-7  0.018801694
-8  0.020192525
-9  0.018851941
-10 0.020034567</code></pre>
+1  lsoa_cd:msoa_cd E01006512:E02001377 (Intercept) -0.015081714 -0.016104561
+2  lsoa_cd:msoa_cd E01006513:E02006932 (Intercept) -0.018509169 -0.018837238
+3  lsoa_cd:msoa_cd E01006514:E02001383 (Intercept) -0.021414352 -0.021638964
+4  lsoa_cd:msoa_cd E01006515:E02001383 (Intercept) -0.019405726 -0.020418908
+5  lsoa_cd:msoa_cd E01006518:E02001390 (Intercept) -0.016291590 -0.017026864
+6  lsoa_cd:msoa_cd E01006519:E02001402 (Intercept) -0.015274075 -0.015047501
+7  lsoa_cd:msoa_cd E01006520:E02001389 (Intercept) -0.021349416 -0.022839020
+8  lsoa_cd:msoa_cd E01006521:E02001398 (Intercept)  0.006256878  0.008382039
+9  lsoa_cd:msoa_cd E01006522:E02001394 (Intercept)  0.018705749  0.020251657
+10 lsoa_cd:msoa_cd E01006523:E02001398 (Intercept)  0.003301707  0.002395617
+           sd
+1  0.01898623
+2  0.01996967
+3  0.01986592
+4  0.01974002
+5  0.02149855
+6  0.01011427
+7  0.01860648
+8  0.02014752
+9  0.01810913
+10 0.01918916</code></pre>
 </div>
 </div>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g.&nbsp;LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
@@ -1009,9 +1009,9 @@ Projected CRS: Transverse_Mercator</code></pre>
  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
- $ mean     : num  -0.01256 -0.02679 -0.03173 0.00477 0.02249 ...
- $ median   : num  -0.01239 -0.02967 -0.03086 0.00561 0.02157 ...
- $ sd       : num  0.0311 0.0338 0.0312 0.0335 0.0168 ...</code></pre>
+ $ mean     : num  -0.01015 -0.02574 -0.03053 0.00527 0.02168 ...
+ $ median   : num  -0.01187 -0.02646 -0.03328 0.00648 0.02084 ...
+ $ sd       : num  0.0317 0.0285 0.032 0.0299 0.0153 ...</code></pre>
 </div>
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># merge data</span></span>
 <span><span class="va">msoa_shp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">msoa_shp</span>, y <span class="op">=</span> <span class="va">re_msoa</span>, by.x <span class="op">=</span> <span class="st">"MSOA_CD"</span>, by.y <span class="op">=</span> <span class="st">"groupID"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
