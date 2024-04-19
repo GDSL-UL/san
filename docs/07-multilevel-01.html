@@ -573,10 +573,23 @@ Fixed effects:
 </div>
 </div>
 <p>We can estimate a three-level model by replacing <code>(1 | lsoa_cd)</code> for <code>(1 | msoa_cd/lsoa_cd)</code> to allow the intercept to also vary by MSOAs and account for the nesting structure of LSOAs within MSOAs. In multilevel modelling, these types of models are formally known as <em>nested random effects</em> and they differ from a different set of models known as <em>crossed random effects</em>.</p>
-<p>::: column-margin ::: callout-note A crossed random effect model in our example would be expressed as follows:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A crossed random effect model in our example would be expressed as follows:</p>
 <p><code>unemp ~ 1 + (1 | lsoa_cd) + (1 | msoa_cd)</code></p>
-<p>::: ::: column-margin</p>
-<div class="cell">
+</div>
+</div>
+</div></div><div class="cell">
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># specify a model equation</span></span>
 <span><span class="va">eq3</span> <span class="op">&lt;-</span> <span class="va">unemp</span> <span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">msoa_cd</span><span class="op">/</span><span class="va">lsoa_cd</span><span class="op">)</span></span>
 <span><span class="va">model3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmer.html">lmer</a></span><span class="op">(</span><span class="va">eq3</span>, data <span class="op">=</span> <span class="va">oa_shp</span><span class="op">)</span></span>
@@ -915,27 +928,27 @@ E01006518:E02001390 -0.01885870</code></pre>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         groupFctr             groupID        term         mean       median
-1  lsoa_cd:msoa_cd E01006512:E02001377 (Intercept) -0.017672467 -0.015806783
-2  lsoa_cd:msoa_cd E01006513:E02006932 (Intercept) -0.016100308 -0.017000565
-3  lsoa_cd:msoa_cd E01006514:E02001383 (Intercept) -0.025442989 -0.026267409
-4  lsoa_cd:msoa_cd E01006515:E02001383 (Intercept) -0.018891281 -0.019143435
-5  lsoa_cd:msoa_cd E01006518:E02001390 (Intercept) -0.019148563 -0.018554435
-6  lsoa_cd:msoa_cd E01006519:E02001402 (Intercept) -0.015492272 -0.015722844
-7  lsoa_cd:msoa_cd E01006520:E02001389 (Intercept) -0.025259003 -0.025007573
-8  lsoa_cd:msoa_cd E01006521:E02001398 (Intercept)  0.007955532  0.007993531
-9  lsoa_cd:msoa_cd E01006522:E02001394 (Intercept)  0.017985515  0.019536137
-10 lsoa_cd:msoa_cd E01006523:E02001398 (Intercept)  0.005355117  0.005633975
+1  lsoa_cd:msoa_cd E01006512:E02001377 (Intercept) -0.015092529 -0.014902075
+2  lsoa_cd:msoa_cd E01006513:E02006932 (Intercept) -0.016101212 -0.016591258
+3  lsoa_cd:msoa_cd E01006514:E02001383 (Intercept) -0.020891023 -0.021263912
+4  lsoa_cd:msoa_cd E01006515:E02001383 (Intercept) -0.017737374 -0.016957346
+5  lsoa_cd:msoa_cd E01006518:E02001390 (Intercept) -0.017067745 -0.017800740
+6  lsoa_cd:msoa_cd E01006519:E02001402 (Intercept) -0.016093128 -0.016164830
+7  lsoa_cd:msoa_cd E01006520:E02001389 (Intercept) -0.025426935 -0.024699490
+8  lsoa_cd:msoa_cd E01006521:E02001398 (Intercept)  0.007949327  0.006303954
+9  lsoa_cd:msoa_cd E01006522:E02001394 (Intercept)  0.016189273  0.019278068
+10 lsoa_cd:msoa_cd E01006523:E02001398 (Intercept)  0.005237111  0.005577490
             sd
-1  0.018391211
-2  0.019652099
-3  0.019058745
-4  0.020226381
-5  0.019389638
-6  0.009645985
-7  0.019125663
-8  0.020530033
-9  0.018747930
-10 0.018392227</code></pre>
+1  0.020947293
+2  0.020195213
+3  0.019819756
+4  0.019592878
+5  0.020139535
+6  0.009777769
+7  0.020565164
+8  0.018767802
+9  0.019473789
+10 0.016524449</code></pre>
 </div>
 </div>
 <p>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g.&nbsp;LSOA). The mean estimates are similar to those obtained from <code>ranef</code> with some small differences due to rounding.</p>
@@ -1009,9 +1022,9 @@ Projected CRS: Transverse_Mercator</code></pre>
  $ groupFctr: chr  "msoa_cd" "msoa_cd" "msoa_cd" "msoa_cd" ...
  $ groupID  : chr  "E02001347" "E02001348" "E02001349" "E02001350" ...
  $ term     : chr  "(Intercept)" "(Intercept)" "(Intercept)" "(Intercept)" ...
- $ mean     : num  -0.0145 -0.01995 -0.03009 0.00967 0.02172 ...
- $ median   : num  -0.01712 -0.01983 -0.03441 0.00521 0.02216 ...
- $ sd       : num  0.031 0.0347 0.0324 0.0304 0.0158 ...</code></pre>
+ $ mean     : num  -0.01349 -0.02449 -0.02914 0.00308 0.02351 ...
+ $ median   : num  -0.01453 -0.02289 -0.03164 0.00258 0.02464 ...
+ $ sd       : num  0.0323 0.0332 0.0316 0.0323 0.0161 ...</code></pre>
 </div>
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># merge data</span></span>
 <span><span class="va">msoa_shp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">msoa_shp</span>, y <span class="op">=</span> <span class="va">re_msoa</span>, by.x <span class="op">=</span> <span class="st">"MSOA_CD"</span>, by.y <span class="op">=</span> <span class="st">"groupID"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2058,399 +2071,401 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb72-210"><a href="#cb72-210" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-211"><a href="#cb72-211" aria-hidden="true" tabindex="-1"></a>We can estimate a three-level model by replacing <span class="in">`(1 | lsoa_cd)`</span> for <span class="in">`(1 | msoa_cd/lsoa_cd)`</span> to allow the intercept to also vary by MSOAs and account for the nesting structure of LSOAs within MSOAs. In multilevel modelling, these types of models are formally known as *nested random effects* and they differ from a different set of models known as *crossed random effects*.</span>
 <span id="cb72-212"><a href="#cb72-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-213"><a href="#cb72-213" aria-hidden="true" tabindex="-1"></a>::: column-margin ::: callout-note A crossed random effect model in our example would be expressed as follows:</span>
-<span id="cb72-214"><a href="#cb72-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-215"><a href="#cb72-215" aria-hidden="true" tabindex="-1"></a><span class="in">`unemp ~ 1 + (1 | lsoa_cd) + (1 | msoa_cd)`</span></span>
+<span id="cb72-213"><a href="#cb72-213" aria-hidden="true" tabindex="-1"></a>::: column-margin </span>
+<span id="cb72-214"><a href="#cb72-214" aria-hidden="true" tabindex="-1"></a>::: callout-note </span>
+<span id="cb72-215"><a href="#cb72-215" aria-hidden="true" tabindex="-1"></a>A crossed random effect model in our example would be expressed as follows:</span>
 <span id="cb72-216"><a href="#cb72-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-217"><a href="#cb72-217" aria-hidden="true" tabindex="-1"></a>::: ::: column-margin</span>
-<span id="cb72-218"><a href="#cb72-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-221"><a href="#cb72-221" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-222"><a href="#cb72-222" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
-<span id="cb72-223"><a href="#cb72-223" aria-hidden="true" tabindex="-1"></a>eq3 <span class="ot">&lt;-</span> unemp <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> msoa_cd<span class="sc">/</span>lsoa_cd)</span>
-<span id="cb72-224"><a href="#cb72-224" aria-hidden="true" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(eq3, <span class="at">data =</span> oa_shp)</span>
-<span id="cb72-225"><a href="#cb72-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-226"><a href="#cb72-226" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
-<span id="cb72-227"><a href="#cb72-227" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model3)</span>
-<span id="cb72-228"><a href="#cb72-228" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-229"><a href="#cb72-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-230"><a href="#cb72-230" aria-hidden="true" tabindex="-1"></a>We see two sets of coefficients: *fixed effects* and *random effects*. *Fixed effects* correspond to the standard linear regression coefficients. Their interpretation is as usual. *Random effects* are the novelty. It is a term in multilevel modelling and refers to varying coefficients i.e. the randomness in the probability of the model for the group-level coefficients. Specifically they relate to estimates of the average variance and standard deviation within groups (i.e. LSOAs or MSOAs). Intiutively, variance and standard deviation indicate the extent to which the intercept, on average, varies by LSOAs and MSOAs.</span>
+<span id="cb72-217"><a href="#cb72-217" aria-hidden="true" tabindex="-1"></a><span class="in">`unemp ~ 1 + (1 | lsoa_cd) + (1 | msoa_cd)`</span></span>
+<span id="cb72-218"><a href="#cb72-218" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb72-219"><a href="#cb72-219" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb72-220"><a href="#cb72-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-223"><a href="#cb72-223" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-224"><a href="#cb72-224" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
+<span id="cb72-225"><a href="#cb72-225" aria-hidden="true" tabindex="-1"></a>eq3 <span class="ot">&lt;-</span> unemp <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> msoa_cd<span class="sc">/</span>lsoa_cd)</span>
+<span id="cb72-226"><a href="#cb72-226" aria-hidden="true" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(eq3, <span class="at">data =</span> oa_shp)</span>
+<span id="cb72-227"><a href="#cb72-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-228"><a href="#cb72-228" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
+<span id="cb72-229"><a href="#cb72-229" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model3)</span>
+<span id="cb72-230"><a href="#cb72-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-231"><a href="#cb72-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-232"><a href="#cb72-232" aria-hidden="true" tabindex="-1"></a><span class="al">![Fig. 2. Variation of observations around their level 1 group mean.](figs/ch5/nm_dist_obs.png)</span></span>
+<span id="cb72-232"><a href="#cb72-232" aria-hidden="true" tabindex="-1"></a>We see two sets of coefficients: *fixed effects* and *random effects*. *Fixed effects* correspond to the standard linear regression coefficients. Their interpretation is as usual. *Random effects* are the novelty. It is a term in multilevel modelling and refers to varying coefficients i.e. the randomness in the probability of the model for the group-level coefficients. Specifically they relate to estimates of the average variance and standard deviation within groups (i.e. LSOAs or MSOAs). Intiutively, variance and standard deviation indicate the extent to which the intercept, on average, varies by LSOAs and MSOAs.</span>
 <span id="cb72-233"><a href="#cb72-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-234"><a href="#cb72-234" aria-hidden="true" tabindex="-1"></a><span class="al">![Fig. 3. Variation of level 1 group mean around their level 2 group mean.](figs/ch5/nm_dist_msoa.png)</span></span>
+<span id="cb72-234"><a href="#cb72-234" aria-hidden="true" tabindex="-1"></a><span class="al">![Fig. 2. Variation of observations around their level 1 group mean.](figs/ch5/nm_dist_obs.png)</span></span>
 <span id="cb72-235"><a href="#cb72-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-236"><a href="#cb72-236" aria-hidden="true" tabindex="-1"></a><span class="al">![Fig. 4. Grand mean.](figs/ch5/nm_dist_grand.png)</span></span>
+<span id="cb72-236"><a href="#cb72-236" aria-hidden="true" tabindex="-1"></a><span class="al">![Fig. 3. Variation of level 1 group mean around their level 2 group mean.](figs/ch5/nm_dist_msoa.png)</span></span>
 <span id="cb72-237"><a href="#cb72-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-238"><a href="#cb72-238" aria-hidden="true" tabindex="-1"></a>More formally, we first estimated the simplest regression model which is an intercept-only model and equivalent to the sample mean (i.e. the *fixed* part of the model):</span>
+<span id="cb72-238"><a href="#cb72-238" aria-hidden="true" tabindex="-1"></a><span class="al">![Fig. 4. Grand mean.](figs/ch5/nm_dist_grand.png)</span></span>
 <span id="cb72-239"><a href="#cb72-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-240"><a href="#cb72-240" aria-hidden="true" tabindex="-1"></a>$$y_{ijk} = \mu + e_{ijk}$$ and then we made the *random* part of the model ($e_{ijk}$) more complex to account for the hierarchical structure of the data by estimating the following three-level regression model:</span>
+<span id="cb72-240"><a href="#cb72-240" aria-hidden="true" tabindex="-1"></a>More formally, we first estimated the simplest regression model which is an intercept-only model and equivalent to the sample mean (i.e. the *fixed* part of the model):</span>
 <span id="cb72-241"><a href="#cb72-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-242"><a href="#cb72-242" aria-hidden="true" tabindex="-1"></a>$$y_{ijk} = \mu + u_{i..} + u_{ij.} + e_{ijk}$$</span>
+<span id="cb72-242"><a href="#cb72-242" aria-hidden="true" tabindex="-1"></a>$$y_{ijk} = \mu + e_{ijk}$$ and then we made the *random* part of the model ($e_{ijk}$) more complex to account for the hierarchical structure of the data by estimating the following three-level regression model:</span>
 <span id="cb72-243"><a href="#cb72-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-244"><a href="#cb72-244" aria-hidden="true" tabindex="-1"></a>where $y_{ijk}$ represents the proportion of unemployed population in OA $i$ nested within LSOA $j$ and MSOA $k$; $\mu$ represents the sample mean and the *fixed* part of the model; $e_{ijk}$ is the deviation of an observation from its LSOA mean; $u_{ij.}$ is the deviation of the LSOA mean from its MSOA mean; $u_{i..}$ is the deviation of the MSOA mean from the fixed part of the model $\mu$. Conceptually, this model is decomposing the variance of the model in terms of the hierarchical structure of the data. It is partitioning the observation's residual into three parts or *variance components*. These components measure the relative extent of variation of each hierarchical level ie. LSOA, MSOA and grand means. To estimate the set of residuals, they are assumed to follow a normal distribution and are obtained after fitting the model and are based on the estimates of the model parameters (i.e. intercept and variances of the random parameters).</span>
+<span id="cb72-244"><a href="#cb72-244" aria-hidden="true" tabindex="-1"></a>$$y_{ijk} = \mu + u_{i..} + u_{ij.} + e_{ijk}$$</span>
 <span id="cb72-245"><a href="#cb72-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-246"><a href="#cb72-246" aria-hidden="true" tabindex="-1"></a>Let's now return to our three-level model (reported again below), we see that the intercept or fixed part of the model is the same as for the linear regression. The multilevel model reports greater standard errors. Multilevel models capture the hierarchical structure of the data and thus more precisely estimate the standard errors for our parameters.</span>
+<span id="cb72-246"><a href="#cb72-246" aria-hidden="true" tabindex="-1"></a>where $y_{ijk}$ represents the proportion of unemployed population in OA $i$ nested within LSOA $j$ and MSOA $k$; $\mu$ represents the sample mean and the *fixed* part of the model; $e_{ijk}$ is the deviation of an observation from its LSOA mean; $u_{ij.}$ is the deviation of the LSOA mean from its MSOA mean; $u_{i..}$ is the deviation of the MSOA mean from the fixed part of the model $\mu$. Conceptually, this model is decomposing the variance of the model in terms of the hierarchical structure of the data. It is partitioning the observation's residual into three parts or *variance components*. These components measure the relative extent of variation of each hierarchical level ie. LSOA, MSOA and grand means. To estimate the set of residuals, they are assumed to follow a normal distribution and are obtained after fitting the model and are based on the estimates of the model parameters (i.e. intercept and variances of the random parameters).</span>
 <span id="cb72-247"><a href="#cb72-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-250"><a href="#cb72-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-251"><a href="#cb72-251" aria-hidden="true" tabindex="-1"></a><span class="co"># report model 3</span></span>
-<span id="cb72-252"><a href="#cb72-252" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model3)</span>
-<span id="cb72-253"><a href="#cb72-253" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-254"><a href="#cb72-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-255"><a href="#cb72-255" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interpretation</span></span>
+<span id="cb72-248"><a href="#cb72-248" aria-hidden="true" tabindex="-1"></a>Let's now return to our three-level model (reported again below), we see that the intercept or fixed part of the model is the same as for the linear regression. The multilevel model reports greater standard errors. Multilevel models capture the hierarchical structure of the data and thus more precisely estimate the standard errors for our parameters.</span>
+<span id="cb72-249"><a href="#cb72-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-252"><a href="#cb72-252" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-253"><a href="#cb72-253" aria-hidden="true" tabindex="-1"></a><span class="co"># report model 3</span></span>
+<span id="cb72-254"><a href="#cb72-254" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model3)</span>
+<span id="cb72-255"><a href="#cb72-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-256"><a href="#cb72-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-257"><a href="#cb72-257" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Fixed effects</span></span>
+<span id="cb72-257"><a href="#cb72-257" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interpretation</span></span>
 <span id="cb72-258"><a href="#cb72-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-259"><a href="#cb72-259" aria-hidden="true" tabindex="-1"></a>We start by examining the fixed effects or estimated model averaging over LSOAs and MSOAs, $y_{ijk} = 0.115288$ which can also be called by executing:</span>
+<span id="cb72-259"><a href="#cb72-259" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Fixed effects</span></span>
 <span id="cb72-260"><a href="#cb72-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-263"><a href="#cb72-263" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-264"><a href="#cb72-264" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(model3)</span>
-<span id="cb72-265"><a href="#cb72-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-266"><a href="#cb72-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-267"><a href="#cb72-267" aria-hidden="true" tabindex="-1"></a>Th estimated intercept indicates that the overall mean taken across LSOAs and MSOAs is estimated as <span class="in">`0.1152881`</span>.</span>
+<span id="cb72-261"><a href="#cb72-261" aria-hidden="true" tabindex="-1"></a>We start by examining the fixed effects or estimated model averaging over LSOAs and MSOAs, $y_{ijk} = 0.115288$ which can also be called by executing:</span>
+<span id="cb72-262"><a href="#cb72-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-265"><a href="#cb72-265" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-266"><a href="#cb72-266" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(model3)</span>
+<span id="cb72-267"><a href="#cb72-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-268"><a href="#cb72-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-269"><a href="#cb72-269" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Random effects</span></span>
+<span id="cb72-269"><a href="#cb72-269" aria-hidden="true" tabindex="-1"></a>Th estimated intercept indicates that the overall mean taken across LSOAs and MSOAs is estimated as <span class="in">`0.1152881`</span>.</span>
 <span id="cb72-270"><a href="#cb72-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-271"><a href="#cb72-271" aria-hidden="true" tabindex="-1"></a>The set of random effects contains three estimates of variance and standard deviation and refer to the variance components discussed above. The <span class="in">`lsoa_cd:msoa_cd`</span>, <span class="in">`msoa_cd`</span> and <span class="in">`Residual`</span> estimates indicate that the extent of estimated LSOA-, MSOA- and individual-level variance is <span class="in">`0.0007603`</span>, <span class="in">`0.0020735`</span> and <span class="in">`0.0025723`</span>, respectively.</span>
+<span id="cb72-271"><a href="#cb72-271" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Random effects</span></span>
 <span id="cb72-272"><a href="#cb72-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-273"><a href="#cb72-273" aria-hidden="true" tabindex="-1"></a><span class="fu">### Variance Partition Coefficient (VPC)</span></span>
+<span id="cb72-273"><a href="#cb72-273" aria-hidden="true" tabindex="-1"></a>The set of random effects contains three estimates of variance and standard deviation and refer to the variance components discussed above. The <span class="in">`lsoa_cd:msoa_cd`</span>, <span class="in">`msoa_cd`</span> and <span class="in">`Residual`</span> estimates indicate that the extent of estimated LSOA-, MSOA- and individual-level variance is <span class="in">`0.0007603`</span>, <span class="in">`0.0020735`</span> and <span class="in">`0.0025723`</span>, respectively.</span>
 <span id="cb72-274"><a href="#cb72-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-275"><a href="#cb72-275" aria-hidden="true" tabindex="-1"></a>The purpose of multilevel models is to partition variance in the outcome between the different groupings in the data. We thus often want to know the percentage of variation in the dependent variable accounted by differences across groups i.e. what proportion of the total variance is attributable to variation within-groups, or how much is found between-groups. The statistic to obtain this is termed the variance partition coefficient (VPC), or intraclass correlation.<span class="ot">[^07-multilevel-01-2]</span> For our case, the VPC at the MSOA level indicates that 38% of the variation in percentage of unemployed resident population across OAs can be explained by differences across MSOAs.</span>
+<span id="cb72-275"><a href="#cb72-275" aria-hidden="true" tabindex="-1"></a><span class="fu">### Variance Partition Coefficient (VPC)</span></span>
 <span id="cb72-276"><a href="#cb72-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-277"><a href="#cb72-277" aria-hidden="true" tabindex="-1"></a><span class="ot">[^07-multilevel-01-2]: </span>The VPC is equal to the intra-class correlation coefficient which is the correlation between the observations of the dependent variable selected randomly from the same group. For instance, if the VPC is 0.1, we would say that 10% of the variation is between groups and 90% within. The correlation between randomly chosen pairs of observations belonging to the same group is 0.1.</span>
+<span id="cb72-277"><a href="#cb72-277" aria-hidden="true" tabindex="-1"></a>The purpose of multilevel models is to partition variance in the outcome between the different groupings in the data. We thus often want to know the percentage of variation in the dependent variable accounted by differences across groups i.e. what proportion of the total variance is attributable to variation within-groups, or how much is found between-groups. The statistic to obtain this is termed the variance partition coefficient (VPC), or intraclass correlation.<span class="ot">[^07-multilevel-01-2]</span> For our case, the VPC at the MSOA level indicates that 38% of the variation in percentage of unemployed resident population across OAs can be explained by differences across MSOAs.</span>
 <span id="cb72-278"><a href="#cb72-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-279"><a href="#cb72-279" aria-hidden="true" tabindex="-1"></a>::: column-margin</span>
-<span id="cb72-280"><a href="#cb72-280" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip appearance="simple" icon="false"}</span>
-<span id="cb72-281"><a href="#cb72-281" aria-hidden="true" tabindex="-1"></a>**Task** What is the VPC at the LSOA level?</span>
-<span id="cb72-282"><a href="#cb72-282" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb72-283"><a href="#cb72-283" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb72-284"><a href="#cb72-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-287"><a href="#cb72-287" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-288"><a href="#cb72-288" aria-hidden="true" tabindex="-1"></a>vpc_msoa <span class="ot">&lt;-</span> <span class="fl">0.0020735</span> <span class="sc">/</span> (<span class="fl">0.0007603</span> <span class="sc">+</span> <span class="fl">0.0020735</span> <span class="sc">+</span> <span class="fl">0.0025723</span>)</span>
-<span id="cb72-289"><a href="#cb72-289" aria-hidden="true" tabindex="-1"></a>vpc_msoa <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb72-290"><a href="#cb72-290" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-291"><a href="#cb72-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-292"><a href="#cb72-292" aria-hidden="true" tabindex="-1"></a>You can also obtain the VPC by executing:</span>
+<span id="cb72-279"><a href="#cb72-279" aria-hidden="true" tabindex="-1"></a><span class="ot">[^07-multilevel-01-2]: </span>The VPC is equal to the intra-class correlation coefficient which is the correlation between the observations of the dependent variable selected randomly from the same group. For instance, if the VPC is 0.1, we would say that 10% of the variation is between groups and 90% within. The correlation between randomly chosen pairs of observations belonging to the same group is 0.1.</span>
+<span id="cb72-280"><a href="#cb72-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-281"><a href="#cb72-281" aria-hidden="true" tabindex="-1"></a>::: column-margin</span>
+<span id="cb72-282"><a href="#cb72-282" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip appearance="simple" icon="false"}</span>
+<span id="cb72-283"><a href="#cb72-283" aria-hidden="true" tabindex="-1"></a>**Task** What is the VPC at the LSOA level?</span>
+<span id="cb72-284"><a href="#cb72-284" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb72-285"><a href="#cb72-285" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb72-286"><a href="#cb72-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-289"><a href="#cb72-289" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-290"><a href="#cb72-290" aria-hidden="true" tabindex="-1"></a>vpc_msoa <span class="ot">&lt;-</span> <span class="fl">0.0020735</span> <span class="sc">/</span> (<span class="fl">0.0007603</span> <span class="sc">+</span> <span class="fl">0.0020735</span> <span class="sc">+</span> <span class="fl">0.0025723</span>)</span>
+<span id="cb72-291"><a href="#cb72-291" aria-hidden="true" tabindex="-1"></a>vpc_msoa <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb72-292"><a href="#cb72-292" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-293"><a href="#cb72-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-296"><a href="#cb72-296" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-297"><a href="#cb72-297" aria-hidden="true" tabindex="-1"></a><span class="fu">summ</span>(model3)</span>
-<span id="cb72-298"><a href="#cb72-298" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-299"><a href="#cb72-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-300"><a href="#cb72-300" aria-hidden="true" tabindex="-1"></a><span class="fu">### Uncertainty of Estimates</span></span>
+<span id="cb72-294"><a href="#cb72-294" aria-hidden="true" tabindex="-1"></a>You can also obtain the VPC by executing:</span>
+<span id="cb72-295"><a href="#cb72-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-298"><a href="#cb72-298" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-299"><a href="#cb72-299" aria-hidden="true" tabindex="-1"></a><span class="fu">summ</span>(model3)</span>
+<span id="cb72-300"><a href="#cb72-300" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-301"><a href="#cb72-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-302"><a href="#cb72-302" aria-hidden="true" tabindex="-1"></a>You may have noticed that <span class="in">`lme4`</span> does not provide p-values, because of <span class="co">[</span><span class="ot">various reasons</span><span class="co">](https://stat.ethz.ch/pipermail/r-help/2006-May/094765.html)</span> as explained by Doug Bates, one of the author of <span class="in">`lme4`</span>. These explanations mainly refer to the complexity of dealing with varying sample sizes at a given hierarchical level. The number of observations at each hierarchical level varies across individual groupings (i.e. LSOA or MSOA). It may even be one single observation. This has implications for the distributional assumptions, denominator degrees of freedom and how to approximate a "best" solution. Various approaches exist to compute the statistical significance of estimates. We use the <span class="in">`confint`</span> function available within <span class="in">`lme4`</span> to obtain confidence intervals.</span>
+<span id="cb72-302"><a href="#cb72-302" aria-hidden="true" tabindex="-1"></a><span class="fu">### Uncertainty of Estimates</span></span>
 <span id="cb72-303"><a href="#cb72-303" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-306"><a href="#cb72-306" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-307"><a href="#cb72-307" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(model3, <span class="at">level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb72-308"><a href="#cb72-308" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-309"><a href="#cb72-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-310"><a href="#cb72-310" aria-hidden="true" tabindex="-1"></a><span class="in">`.sig01`</span> refers to the LSOA level; <span class="in">`.sig02`</span> refers to the MSOA level; and, <span class="in">`.sigma`</span> refers to the OA level.</span>
+<span id="cb72-304"><a href="#cb72-304" aria-hidden="true" tabindex="-1"></a>You may have noticed that <span class="in">`lme4`</span> does not provide p-values, because of <span class="co">[</span><span class="ot">various reasons</span><span class="co">](https://stat.ethz.ch/pipermail/r-help/2006-May/094765.html)</span> as explained by Doug Bates, one of the author of <span class="in">`lme4`</span>. These explanations mainly refer to the complexity of dealing with varying sample sizes at a given hierarchical level. The number of observations at each hierarchical level varies across individual groupings (i.e. LSOA or MSOA). It may even be one single observation. This has implications for the distributional assumptions, denominator degrees of freedom and how to approximate a "best" solution. Various approaches exist to compute the statistical significance of estimates. We use the <span class="in">`confint`</span> function available within <span class="in">`lme4`</span> to obtain confidence intervals.</span>
+<span id="cb72-305"><a href="#cb72-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-308"><a href="#cb72-308" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-309"><a href="#cb72-309" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(model3, <span class="at">level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb72-310"><a href="#cb72-310" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-311"><a href="#cb72-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-312"><a href="#cb72-312" aria-hidden="true" tabindex="-1"></a><span class="fu">### Assessing Group-level Variation</span></span>
+<span id="cb72-312"><a href="#cb72-312" aria-hidden="true" tabindex="-1"></a><span class="in">`.sig01`</span> refers to the LSOA level; <span class="in">`.sig02`</span> refers to the MSOA level; and, <span class="in">`.sigma`</span> refers to the OA level.</span>
 <span id="cb72-313"><a href="#cb72-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-314"><a href="#cb72-314" aria-hidden="true" tabindex="-1"></a>*Estimated regression coefficients*</span>
+<span id="cb72-314"><a href="#cb72-314" aria-hidden="true" tabindex="-1"></a><span class="fu">### Assessing Group-level Variation</span></span>
 <span id="cb72-315"><a href="#cb72-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-316"><a href="#cb72-316" aria-hidden="true" tabindex="-1"></a>In multilevel modelling, our primary interest is in knowing differences across groups. To visualise the estimated model within each group (ie. LSOA and MSOA), we type:</span>
+<span id="cb72-316"><a href="#cb72-316" aria-hidden="true" tabindex="-1"></a>*Estimated regression coefficients*</span>
 <span id="cb72-317"><a href="#cb72-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-320"><a href="#cb72-320" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-321"><a href="#cb72-321" aria-hidden="true" tabindex="-1"></a>coef_m3 <span class="ot">&lt;-</span> <span class="fu">coef</span>(model3)</span>
-<span id="cb72-322"><a href="#cb72-322" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coef_m3<span class="sc">$</span>lsoa_cd,<span class="dv">5</span>)</span>
-<span id="cb72-323"><a href="#cb72-323" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-324"><a href="#cb72-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-325"><a href="#cb72-325" aria-hidden="true" tabindex="-1"></a>The results indicate that the estimated regression line is $y = 0.09915456$ for LSOA <span class="in">`E01006512`</span> within MSOA <span class="in">`E02001377`</span>; $y = 0.09889615$ for LSOA <span class="in">`E01006513`</span> within MSOA <span class="in">`E02006932`</span> and so forth.</span>
+<span id="cb72-318"><a href="#cb72-318" aria-hidden="true" tabindex="-1"></a>In multilevel modelling, our primary interest is in knowing differences across groups. To visualise the estimated model within each group (ie. LSOA and MSOA), we type:</span>
+<span id="cb72-319"><a href="#cb72-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-322"><a href="#cb72-322" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-323"><a href="#cb72-323" aria-hidden="true" tabindex="-1"></a>coef_m3 <span class="ot">&lt;-</span> <span class="fu">coef</span>(model3)</span>
+<span id="cb72-324"><a href="#cb72-324" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coef_m3<span class="sc">$</span>lsoa_cd,<span class="dv">5</span>)</span>
+<span id="cb72-325"><a href="#cb72-325" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-326"><a href="#cb72-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-327"><a href="#cb72-327" aria-hidden="true" tabindex="-1"></a>::: column-margin</span>
-<span id="cb72-328"><a href="#cb72-328" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip appearance="simple" icon="false"}</span>
-<span id="cb72-329"><a href="#cb72-329" aria-hidden="true" tabindex="-1"></a>**Task** Try getting the estimated model within each MSOA.</span>
-<span id="cb72-330"><a href="#cb72-330" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb72-331"><a href="#cb72-331" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb72-332"><a href="#cb72-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-333"><a href="#cb72-333" aria-hidden="true" tabindex="-1"></a>*Random effects*</span>
+<span id="cb72-327"><a href="#cb72-327" aria-hidden="true" tabindex="-1"></a>The results indicate that the estimated regression line is $y = 0.09915456$ for LSOA <span class="in">`E01006512`</span> within MSOA <span class="in">`E02001377`</span>; $y = 0.09889615$ for LSOA <span class="in">`E01006513`</span> within MSOA <span class="in">`E02006932`</span> and so forth.</span>
+<span id="cb72-328"><a href="#cb72-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-329"><a href="#cb72-329" aria-hidden="true" tabindex="-1"></a>::: column-margin</span>
+<span id="cb72-330"><a href="#cb72-330" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip appearance="simple" icon="false"}</span>
+<span id="cb72-331"><a href="#cb72-331" aria-hidden="true" tabindex="-1"></a>**Task** Try getting the estimated model within each MSOA.</span>
+<span id="cb72-332"><a href="#cb72-332" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb72-333"><a href="#cb72-333" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb72-334"><a href="#cb72-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-335"><a href="#cb72-335" aria-hidden="true" tabindex="-1"></a>We can look at the estimated group-level (or LSOA-level and MSOA-level) errors; that is, *random effects*:</span>
+<span id="cb72-335"><a href="#cb72-335" aria-hidden="true" tabindex="-1"></a>*Random effects*</span>
 <span id="cb72-336"><a href="#cb72-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-339"><a href="#cb72-339" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-340"><a href="#cb72-340" aria-hidden="true" tabindex="-1"></a>ranef_m3 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model3)</span>
-<span id="cb72-341"><a href="#cb72-341" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ranef_m3<span class="sc">$</span>lsoa_cd, <span class="dv">5</span>)</span>
-<span id="cb72-342"><a href="#cb72-342" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-343"><a href="#cb72-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-344"><a href="#cb72-344" aria-hidden="true" tabindex="-1"></a>Group-level errors indicate how much the intercept is shifted up or down in particular groups (ie. LSOAs or MSOAs). Thus, for example, in LSOA <span class="in">`E01006512`</span>, the estimated intercept is <span class="in">`-0.01613353`</span> lower than average, so that the regression line is <span class="in">`(0.1152881 - 0.01613353)`</span> <span class="in">`= 0.09915457`</span> which is what we observed from the call to <span class="in">`coef()`</span>.</span>
+<span id="cb72-337"><a href="#cb72-337" aria-hidden="true" tabindex="-1"></a>We can look at the estimated group-level (or LSOA-level and MSOA-level) errors; that is, *random effects*:</span>
+<span id="cb72-338"><a href="#cb72-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-341"><a href="#cb72-341" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-342"><a href="#cb72-342" aria-hidden="true" tabindex="-1"></a>ranef_m3 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model3)</span>
+<span id="cb72-343"><a href="#cb72-343" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ranef_m3<span class="sc">$</span>lsoa_cd, <span class="dv">5</span>)</span>
+<span id="cb72-344"><a href="#cb72-344" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-345"><a href="#cb72-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-346"><a href="#cb72-346" aria-hidden="true" tabindex="-1"></a>We can also obtain group-level errors (*random effects*) by using a simulation approach, labelled "Empirical Bayes" and discussed <span class="co">[</span><span class="ot">here</span><span class="co">](https://stat.ethz.ch/pipermail/r-sig-mixed-models/2009q4/002984.html)</span>. To this end, we run:</span>
+<span id="cb72-346"><a href="#cb72-346" aria-hidden="true" tabindex="-1"></a>Group-level errors indicate how much the intercept is shifted up or down in particular groups (ie. LSOAs or MSOAs). Thus, for example, in LSOA <span class="in">`E01006512`</span>, the estimated intercept is <span class="in">`-0.01613353`</span> lower than average, so that the regression line is <span class="in">`(0.1152881 - 0.01613353)`</span> <span class="in">`= 0.09915457`</span> which is what we observed from the call to <span class="in">`coef()`</span>.</span>
 <span id="cb72-347"><a href="#cb72-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-350"><a href="#cb72-350" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-351"><a href="#cb72-351" aria-hidden="true" tabindex="-1"></a><span class="co"># obtain estimates</span></span>
-<span id="cb72-352"><a href="#cb72-352" aria-hidden="true" tabindex="-1"></a>merTools<span class="sc">::</span><span class="fu">REsim</span>(model3) <span class="sc">%&gt;%</span> </span>
-<span id="cb72-353"><a href="#cb72-353" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
-<span id="cb72-354"><a href="#cb72-354" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-355"><a href="#cb72-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-356"><a href="#cb72-356" aria-hidden="true" tabindex="-1"></a>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from <span class="in">`ranef`</span> with some small differences due to rounding.</span>
+<span id="cb72-348"><a href="#cb72-348" aria-hidden="true" tabindex="-1"></a>We can also obtain group-level errors (*random effects*) by using a simulation approach, labelled "Empirical Bayes" and discussed <span class="co">[</span><span class="ot">here</span><span class="co">](https://stat.ethz.ch/pipermail/r-sig-mixed-models/2009q4/002984.html)</span>. To this end, we run:</span>
+<span id="cb72-349"><a href="#cb72-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-352"><a href="#cb72-352" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-353"><a href="#cb72-353" aria-hidden="true" tabindex="-1"></a><span class="co"># obtain estimates</span></span>
+<span id="cb72-354"><a href="#cb72-354" aria-hidden="true" tabindex="-1"></a>merTools<span class="sc">::</span><span class="fu">REsim</span>(model3) <span class="sc">%&gt;%</span> </span>
+<span id="cb72-355"><a href="#cb72-355" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb72-356"><a href="#cb72-356" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-357"><a href="#cb72-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-358"><a href="#cb72-358" aria-hidden="true" tabindex="-1"></a>To gain an undertanding of the general pattern of the *random effects*, we can use caterpillar plots via <span class="in">`plotREsim`</span> - reported below. The plot on the right shows the estimated random effects for each MSOA and their respective interval estimate. Note that random effects are on average zero, represented by the red horizontal line. Intervals that do not include zero are in bold. Also note that the width of the confidence interval depends on the standard error of the respective residual estimate, which is inversely related to the size of the sample. The residuals represent an observation departures from the grand mean, so an observation whose confidence interval does not overlap the line at zero (representing the mean proportion of unemployed population across all areas) is said to differ significantly from the average at the 5% level.</span>
+<span id="cb72-358"><a href="#cb72-358" aria-hidden="true" tabindex="-1"></a>The results contain the estimated mean, median and standard deviation for the intercept within each group (e.g. LSOA). The mean estimates are similar to those obtained from <span class="in">`ranef`</span> with some small differences due to rounding.</span>
 <span id="cb72-359"><a href="#cb72-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-362"><a href="#cb72-362" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-363"><a href="#cb72-363" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
-<span id="cb72-364"><a href="#cb72-364" aria-hidden="true" tabindex="-1"></a><span class="fu">plotREsim</span>(<span class="fu">REsim</span>(model3)) </span>
-<span id="cb72-365"><a href="#cb72-365" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-366"><a href="#cb72-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-367"><a href="#cb72-367" aria-hidden="true" tabindex="-1"></a>Focusing on the plot on the right, we see MSOAs whose mean proportion of unemployed population, assuming no explanatory variables, is lower than average. These are the dots below the horizontal red line. On the right-hand side of the plot, you will see MSOAs whose mean proportion is higher than average. The MSOAs with the smallest residuals include the districts of Allerton and Hunt Cross, Church, Childwall, Wavertree and Woolton.</span>
+<span id="cb72-360"><a href="#cb72-360" aria-hidden="true" tabindex="-1"></a>To gain an undertanding of the general pattern of the *random effects*, we can use caterpillar plots via <span class="in">`plotREsim`</span> - reported below. The plot on the right shows the estimated random effects for each MSOA and their respective interval estimate. Note that random effects are on average zero, represented by the red horizontal line. Intervals that do not include zero are in bold. Also note that the width of the confidence interval depends on the standard error of the respective residual estimate, which is inversely related to the size of the sample. The residuals represent an observation departures from the grand mean, so an observation whose confidence interval does not overlap the line at zero (representing the mean proportion of unemployed population across all areas) is said to differ significantly from the average at the 5% level.</span>
+<span id="cb72-361"><a href="#cb72-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-364"><a href="#cb72-364" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-365"><a href="#cb72-365" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb72-366"><a href="#cb72-366" aria-hidden="true" tabindex="-1"></a><span class="fu">plotREsim</span>(<span class="fu">REsim</span>(model3)) </span>
+<span id="cb72-367"><a href="#cb72-367" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-368"><a href="#cb72-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-369"><a href="#cb72-369" aria-hidden="true" tabindex="-1"></a>::: column-margin</span>
-<span id="cb72-370"><a href="#cb72-370" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip appearance="simple" icon="false"}</span>
-<span id="cb72-371"><a href="#cb72-371" aria-hidden="true" tabindex="-1"></a>**Task** What districts do we have at the other extreme? Have a go at identifying them.</span>
-<span id="cb72-372"><a href="#cb72-372" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb72-373"><a href="#cb72-373" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb72-374"><a href="#cb72-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-377"><a href="#cb72-377" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-378"><a href="#cb72-378" aria-hidden="true" tabindex="-1"></a>re <span class="ot">&lt;-</span> <span class="fu">REsim</span>(model3)</span>
-<span id="cb72-379"><a href="#cb72-379" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(msoa_cd, ward_nm, unemp) <span class="sc">%&gt;%</span></span>
-<span id="cb72-380"><a href="#cb72-380" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">as.character</span>(msoa_cd) <span class="sc">==</span> <span class="st">"E02001387"</span> <span class="sc">|</span> <span class="fu">as.character</span>(msoa_cd) <span class="sc">==</span> <span class="st">"E02001393"</span>)</span>
-<span id="cb72-381"><a href="#cb72-381" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-382"><a href="#cb72-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-383"><a href="#cb72-383" aria-hidden="true" tabindex="-1"></a>We can also map the MSOA-level *random effects*. To this end, we first need to read a shapefile containing data at the MSOA level and merge it with the *random effects* estimates.</span>
+<span id="cb72-369"><a href="#cb72-369" aria-hidden="true" tabindex="-1"></a>Focusing on the plot on the right, we see MSOAs whose mean proportion of unemployed population, assuming no explanatory variables, is lower than average. These are the dots below the horizontal red line. On the right-hand side of the plot, you will see MSOAs whose mean proportion is higher than average. The MSOAs with the smallest residuals include the districts of Allerton and Hunt Cross, Church, Childwall, Wavertree and Woolton.</span>
+<span id="cb72-370"><a href="#cb72-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-371"><a href="#cb72-371" aria-hidden="true" tabindex="-1"></a>::: column-margin</span>
+<span id="cb72-372"><a href="#cb72-372" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip appearance="simple" icon="false"}</span>
+<span id="cb72-373"><a href="#cb72-373" aria-hidden="true" tabindex="-1"></a>**Task** What districts do we have at the other extreme? Have a go at identifying them.</span>
+<span id="cb72-374"><a href="#cb72-374" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb72-375"><a href="#cb72-375" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb72-376"><a href="#cb72-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-379"><a href="#cb72-379" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-380"><a href="#cb72-380" aria-hidden="true" tabindex="-1"></a>re <span class="ot">&lt;-</span> <span class="fu">REsim</span>(model3)</span>
+<span id="cb72-381"><a href="#cb72-381" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(msoa_cd, ward_nm, unemp) <span class="sc">%&gt;%</span></span>
+<span id="cb72-382"><a href="#cb72-382" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">as.character</span>(msoa_cd) <span class="sc">==</span> <span class="st">"E02001387"</span> <span class="sc">|</span> <span class="fu">as.character</span>(msoa_cd) <span class="sc">==</span> <span class="st">"E02001393"</span>)</span>
+<span id="cb72-383"><a href="#cb72-383" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-384"><a href="#cb72-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-387"><a href="#cb72-387" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-388"><a href="#cb72-388" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
-<span id="cb72-389"><a href="#cb72-389" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/mlm/MSOA.shp"</span>)</span>
-<span id="cb72-390"><a href="#cb72-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-391"><a href="#cb72-391" aria-hidden="true" tabindex="-1"></a><span class="co"># create a dataframe for MSOA-level random effects</span></span>
-<span id="cb72-392"><a href="#cb72-392" aria-hidden="true" tabindex="-1"></a>re_msoa <span class="ot">&lt;-</span> re <span class="sc">%&gt;%</span> <span class="fu">filter</span>(groupFctr <span class="sc">==</span> <span class="st">"msoa_cd"</span>)</span>
-<span id="cb72-393"><a href="#cb72-393" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(re_msoa)</span>
-<span id="cb72-394"><a href="#cb72-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-395"><a href="#cb72-395" aria-hidden="true" tabindex="-1"></a><span class="co"># merge data</span></span>
-<span id="cb72-396"><a href="#cb72-396" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> msoa_shp, <span class="at">y =</span> re_msoa, <span class="at">by.x =</span> <span class="st">"MSOA_CD"</span>, <span class="at">by.y =</span> <span class="st">"groupID"</span>)</span>
-<span id="cb72-397"><a href="#cb72-397" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-398"><a href="#cb72-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-399"><a href="#cb72-399" aria-hidden="true" tabindex="-1"></a>Now we can create our map:</span>
+<span id="cb72-385"><a href="#cb72-385" aria-hidden="true" tabindex="-1"></a>We can also map the MSOA-level *random effects*. To this end, we first need to read a shapefile containing data at the MSOA level and merge it with the *random effects* estimates.</span>
+<span id="cb72-386"><a href="#cb72-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-389"><a href="#cb72-389" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-390"><a href="#cb72-390" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
+<span id="cb72-391"><a href="#cb72-391" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/mlm/MSOA.shp"</span>)</span>
+<span id="cb72-392"><a href="#cb72-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-393"><a href="#cb72-393" aria-hidden="true" tabindex="-1"></a><span class="co"># create a dataframe for MSOA-level random effects</span></span>
+<span id="cb72-394"><a href="#cb72-394" aria-hidden="true" tabindex="-1"></a>re_msoa <span class="ot">&lt;-</span> re <span class="sc">%&gt;%</span> <span class="fu">filter</span>(groupFctr <span class="sc">==</span> <span class="st">"msoa_cd"</span>)</span>
+<span id="cb72-395"><a href="#cb72-395" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(re_msoa)</span>
+<span id="cb72-396"><a href="#cb72-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-397"><a href="#cb72-397" aria-hidden="true" tabindex="-1"></a><span class="co"># merge data</span></span>
+<span id="cb72-398"><a href="#cb72-398" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> msoa_shp, <span class="at">y =</span> re_msoa, <span class="at">by.x =</span> <span class="st">"MSOA_CD"</span>, <span class="at">by.y =</span> <span class="st">"groupID"</span>)</span>
+<span id="cb72-399"><a href="#cb72-399" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-400"><a href="#cb72-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-403"><a href="#cb72-403" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-404"><a href="#cb72-404" aria-hidden="true" tabindex="-1"></a><span class="co"># ensure geometry is valid</span></span>
-<span id="cb72-405"><a href="#cb72-405" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_make_valid</span>(msoa_shp)</span>
-<span id="cb72-406"><a href="#cb72-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-407"><a href="#cb72-407" aria-hidden="true" tabindex="-1"></a><span class="co"># create a map</span></span>
-<span id="cb72-408"><a href="#cb72-408" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">"MSOA-level residuals"</span>)</span>
-<span id="cb72-409"><a href="#cb72-409" aria-hidden="true" tabindex="-1"></a>map_msoa <span class="ot">=</span> <span class="fu">tm_shape</span>(msoa_shp) <span class="sc">+</span></span>
-<span id="cb72-410"><a href="#cb72-410" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"mean"</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>, <span class="at">begin =</span> <span class="dv">0</span>, <span class="at">end =</span> <span class="dv">1</span>), <span class="at">style =</span> <span class="st">"cont"</span>) <span class="sc">+</span> </span>
-<span id="cb72-411"><a href="#cb72-411" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">01</span>)  <span class="sc">+</span> </span>
-<span id="cb72-412"><a href="#cb72-412" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">"arrow"</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"top"</span>) , <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
-<span id="cb72-413"><a href="#cb72-413" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">text.size =</span> <span class="fl">0.5</span>, <span class="at">position =</span>  <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"bottom"</span>)) </span>
-<span id="cb72-414"><a href="#cb72-414" aria-hidden="true" tabindex="-1"></a>map_msoa</span>
-<span id="cb72-415"><a href="#cb72-415" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-416"><a href="#cb72-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-417"><a href="#cb72-417" aria-hidden="true" tabindex="-1"></a><span class="fu">### Adding Individual-level Predictors {#sec-indlevel}</span></span>
+<span id="cb72-401"><a href="#cb72-401" aria-hidden="true" tabindex="-1"></a>Now we can create our map:</span>
+<span id="cb72-402"><a href="#cb72-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-405"><a href="#cb72-405" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-406"><a href="#cb72-406" aria-hidden="true" tabindex="-1"></a><span class="co"># ensure geometry is valid</span></span>
+<span id="cb72-407"><a href="#cb72-407" aria-hidden="true" tabindex="-1"></a>msoa_shp <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_make_valid</span>(msoa_shp)</span>
+<span id="cb72-408"><a href="#cb72-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-409"><a href="#cb72-409" aria-hidden="true" tabindex="-1"></a><span class="co"># create a map</span></span>
+<span id="cb72-410"><a href="#cb72-410" aria-hidden="true" tabindex="-1"></a>legend_title <span class="ot">=</span> <span class="fu">expression</span>(<span class="st">"MSOA-level residuals"</span>)</span>
+<span id="cb72-411"><a href="#cb72-411" aria-hidden="true" tabindex="-1"></a>map_msoa <span class="ot">=</span> <span class="fu">tm_shape</span>(msoa_shp) <span class="sc">+</span></span>
+<span id="cb72-412"><a href="#cb72-412" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"mean"</span>, <span class="at">title =</span> legend_title, <span class="at">palette =</span> <span class="fu">magma</span>(<span class="dv">256</span>, <span class="at">begin =</span> <span class="dv">0</span>, <span class="at">end =</span> <span class="dv">1</span>), <span class="at">style =</span> <span class="st">"cont"</span>) <span class="sc">+</span> </span>
+<span id="cb72-413"><a href="#cb72-413" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> .<span class="dv">01</span>)  <span class="sc">+</span> </span>
+<span id="cb72-414"><a href="#cb72-414" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">"arrow"</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"top"</span>) , <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb72-415"><a href="#cb72-415" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_scale_bar</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">text.size =</span> <span class="fl">0.5</span>, <span class="at">position =</span>  <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"bottom"</span>)) </span>
+<span id="cb72-416"><a href="#cb72-416" aria-hidden="true" tabindex="-1"></a>map_msoa</span>
+<span id="cb72-417"><a href="#cb72-417" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-418"><a href="#cb72-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-419"><a href="#cb72-419" aria-hidden="true" tabindex="-1"></a>In this example, $\mu$ represents the sample mean but it could include a collection of independent variables or predictors. To explain the logic, we will assume that unemployment is strongly associated to long-term illness. We could expect that long-term illness (<span class="in">`lt_ill`</span>) will reduce the chances of working and therefore being unemployed. Note that our focus is on the relationship, not on establishing causation. Specifically we want to estimate the relationship between unemployment and long-term illness and we are interested in variations in OA-level unemployment by MSOAs so we will estimate the following two-level model:</span>
+<span id="cb72-419"><a href="#cb72-419" aria-hidden="true" tabindex="-1"></a><span class="fu">### Adding Individual-level Predictors {#sec-indlevel}</span></span>
 <span id="cb72-420"><a href="#cb72-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-421"><a href="#cb72-421" aria-hidden="true" tabindex="-1"></a>OA-level:</span>
+<span id="cb72-421"><a href="#cb72-421" aria-hidden="true" tabindex="-1"></a>In this example, $\mu$ represents the sample mean but it could include a collection of independent variables or predictors. To explain the logic, we will assume that unemployment is strongly associated to long-term illness. We could expect that long-term illness (<span class="in">`lt_ill`</span>) will reduce the chances of working and therefore being unemployed. Note that our focus is on the relationship, not on establishing causation. Specifically we want to estimate the relationship between unemployment and long-term illness and we are interested in variations in OA-level unemployment by MSOAs so we will estimate the following two-level model:</span>
 <span id="cb72-422"><a href="#cb72-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-423"><a href="#cb72-423" aria-hidden="true" tabindex="-1"></a>$$y_{ij} = \beta_{0j} + \beta_{1}x_{ij} + e_{ij}$$ MSOA-level:</span>
+<span id="cb72-423"><a href="#cb72-423" aria-hidden="true" tabindex="-1"></a>OA-level:</span>
 <span id="cb72-424"><a href="#cb72-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-425"><a href="#cb72-425" aria-hidden="true" tabindex="-1"></a>$$\beta_{0j} = \beta_{0} + u_{0j}$$ Replacing the first equation into the second, we have:</span>
+<span id="cb72-425"><a href="#cb72-425" aria-hidden="true" tabindex="-1"></a>$$y_{ij} = \beta_{0j} + \beta_{1}x_{ij} + e_{ij}$$ MSOA-level:</span>
 <span id="cb72-426"><a href="#cb72-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-427"><a href="#cb72-427" aria-hidden="true" tabindex="-1"></a>$$y_{ij} = (\beta_{0} + u_{0j}) + \beta_{1}x_{ij} + e_{ij}$$ where $y$ the proportion of unemployed population in OA $i$ within MSOA $j$; $\beta_{0}$ is the fixed intercept (averaging over all MSOAs); $u_{0j}$ represents the MSOA-level residuals or *random effects*; $\beta_{0}$ and $u_{0j}$ together represent the varying-intercept; $\beta_{1}$ is the slope coefficient; $x_{ij}$ represents the percentage of long-term illness population; and, $e_{ij}$ is the individual-level residuals.</span>
+<span id="cb72-427"><a href="#cb72-427" aria-hidden="true" tabindex="-1"></a>$$\beta_{0j} = \beta_{0} + u_{0j}$$ Replacing the first equation into the second, we have:</span>
 <span id="cb72-428"><a href="#cb72-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-429"><a href="#cb72-429" aria-hidden="true" tabindex="-1"></a>We estimate the model executing:</span>
+<span id="cb72-429"><a href="#cb72-429" aria-hidden="true" tabindex="-1"></a>$$y_{ij} = (\beta_{0} + u_{0j}) + \beta_{1}x_{ij} + e_{ij}$$ where $y$ the proportion of unemployed population in OA $i$ within MSOA $j$; $\beta_{0}$ is the fixed intercept (averaging over all MSOAs); $u_{0j}$ represents the MSOA-level residuals or *random effects*; $\beta_{0}$ and $u_{0j}$ together represent the varying-intercept; $\beta_{1}$ is the slope coefficient; $x_{ij}$ represents the percentage of long-term illness population; and, $e_{ij}$ is the individual-level residuals.</span>
 <span id="cb72-430"><a href="#cb72-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-433"><a href="#cb72-433" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-434"><a href="#cb72-434" aria-hidden="true" tabindex="-1"></a><span class="co"># change to proportion</span></span>
-<span id="cb72-435"><a href="#cb72-435" aria-hidden="true" tabindex="-1"></a>oa_shp<span class="sc">$</span>lt_ill <span class="ot">&lt;-</span> lt_ill<span class="sc">/</span><span class="dv">100</span></span>
-<span id="cb72-436"><a href="#cb72-436" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-437"><a href="#cb72-437" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
-<span id="cb72-438"><a href="#cb72-438" aria-hidden="true" tabindex="-1"></a>eq4 <span class="ot">&lt;-</span> unemp <span class="sc">~</span> lt_ill <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> msoa_cd)</span>
-<span id="cb72-439"><a href="#cb72-439" aria-hidden="true" tabindex="-1"></a>model4 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(eq4, <span class="at">data =</span> oa_shp)</span>
-<span id="cb72-440"><a href="#cb72-440" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-441"><a href="#cb72-441" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
-<span id="cb72-442"><a href="#cb72-442" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model4)</span>
-<span id="cb72-443"><a href="#cb72-443" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-444"><a href="#cb72-444" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-445"><a href="#cb72-445" aria-hidden="true" tabindex="-1"></a>*Fixed effects*: model averaging over MSOAs</span>
+<span id="cb72-431"><a href="#cb72-431" aria-hidden="true" tabindex="-1"></a>We estimate the model executing:</span>
+<span id="cb72-432"><a href="#cb72-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-435"><a href="#cb72-435" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-436"><a href="#cb72-436" aria-hidden="true" tabindex="-1"></a><span class="co"># change to proportion</span></span>
+<span id="cb72-437"><a href="#cb72-437" aria-hidden="true" tabindex="-1"></a>oa_shp<span class="sc">$</span>lt_ill <span class="ot">&lt;-</span> lt_ill<span class="sc">/</span><span class="dv">100</span></span>
+<span id="cb72-438"><a href="#cb72-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-439"><a href="#cb72-439" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
+<span id="cb72-440"><a href="#cb72-440" aria-hidden="true" tabindex="-1"></a>eq4 <span class="ot">&lt;-</span> unemp <span class="sc">~</span> lt_ill <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> msoa_cd)</span>
+<span id="cb72-441"><a href="#cb72-441" aria-hidden="true" tabindex="-1"></a>model4 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(eq4, <span class="at">data =</span> oa_shp)</span>
+<span id="cb72-442"><a href="#cb72-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-443"><a href="#cb72-443" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
+<span id="cb72-444"><a href="#cb72-444" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model4)</span>
+<span id="cb72-445"><a href="#cb72-445" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-446"><a href="#cb72-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-449"><a href="#cb72-449" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-450"><a href="#cb72-450" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(model4)</span>
-<span id="cb72-451"><a href="#cb72-451" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-452"><a href="#cb72-452" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-453"><a href="#cb72-453" aria-hidden="true" tabindex="-1"></a>yields an estimated regression line in an average McSOA: $y = 0.04681959 + 0.29588110x$</span>
+<span id="cb72-447"><a href="#cb72-447" aria-hidden="true" tabindex="-1"></a>*Fixed effects*: model averaging over MSOAs</span>
+<span id="cb72-448"><a href="#cb72-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-451"><a href="#cb72-451" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-452"><a href="#cb72-452" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(model4)</span>
+<span id="cb72-453"><a href="#cb72-453" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-454"><a href="#cb72-454" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-455"><a href="#cb72-455" aria-hidden="true" tabindex="-1"></a>*Random effects*: MSOA-level errors</span>
+<span id="cb72-455"><a href="#cb72-455" aria-hidden="true" tabindex="-1"></a>yields an estimated regression line in an average McSOA: $y = 0.04681959 + 0.29588110x$</span>
 <span id="cb72-456"><a href="#cb72-456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-459"><a href="#cb72-459" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-460"><a href="#cb72-460" aria-hidden="true" tabindex="-1"></a>ranef_m4 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model4)</span>
-<span id="cb72-461"><a href="#cb72-461" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ranef_m4<span class="sc">$</span>msoa_cd, <span class="dv">5</span>)</span>
-<span id="cb72-462"><a href="#cb72-462" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-463"><a href="#cb72-463" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-464"><a href="#cb72-464" aria-hidden="true" tabindex="-1"></a>yields an estimated intercept for MSOA <span class="in">`E02001347`</span> which is <span class="in">`0.017474815`</span> lower than the average with a regression line: <span class="in">`(0.04681959 - 0.017474815) + 0.29588110x`</span> <span class="in">`=`</span> <span class="in">`0.02934478 + 0.29588110x`</span>. You can confirm this by looking at the estimated model within each MSOA by executing on the first row:</span>
+<span id="cb72-457"><a href="#cb72-457" aria-hidden="true" tabindex="-1"></a>*Random effects*: MSOA-level errors</span>
+<span id="cb72-458"><a href="#cb72-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-461"><a href="#cb72-461" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-462"><a href="#cb72-462" aria-hidden="true" tabindex="-1"></a>ranef_m4 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model4)</span>
+<span id="cb72-463"><a href="#cb72-463" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ranef_m4<span class="sc">$</span>msoa_cd, <span class="dv">5</span>)</span>
+<span id="cb72-464"><a href="#cb72-464" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-465"><a href="#cb72-465" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-468"><a href="#cb72-468" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-469"><a href="#cb72-469" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(model4) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">5</span> )</span>
-<span id="cb72-470"><a href="#cb72-470" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-471"><a href="#cb72-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-472"><a href="#cb72-472" aria-hidden="true" tabindex="-1"></a>*Fixed effect correlations*</span>
+<span id="cb72-466"><a href="#cb72-466" aria-hidden="true" tabindex="-1"></a>yields an estimated intercept for MSOA <span class="in">`E02001347`</span> which is <span class="in">`0.017474815`</span> lower than the average with a regression line: <span class="in">`(0.04681959 - 0.017474815) + 0.29588110x`</span> <span class="in">`=`</span> <span class="in">`0.02934478 + 0.29588110x`</span>. You can confirm this by looking at the estimated model within each MSOA by executing on the first row:</span>
+<span id="cb72-467"><a href="#cb72-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-470"><a href="#cb72-470" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-471"><a href="#cb72-471" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(model4) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">5</span> )</span>
+<span id="cb72-472"><a href="#cb72-472" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-473"><a href="#cb72-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-474"><a href="#cb72-474" aria-hidden="true" tabindex="-1"></a>In the bottom of the output, we have the correlations between the fixed-effects estimates. In our example, it refers to the correlation between $\beta_{0}$ and $\beta_{1}$. It is negative indicating that in MSOAs where the relationship between unemployment and long-term illness is greater, as measured by $\beta_{1}$, the average proportion of unemployed people tends to be smaller, as captured by $\beta_{0}$.</span>
+<span id="cb72-474"><a href="#cb72-474" aria-hidden="true" tabindex="-1"></a>*Fixed effect correlations*</span>
 <span id="cb72-475"><a href="#cb72-475" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-476"><a href="#cb72-476" aria-hidden="true" tabindex="-1"></a><span class="fu">### Adding Group-level Predictors {#sec-grouplevel}</span></span>
+<span id="cb72-476"><a href="#cb72-476" aria-hidden="true" tabindex="-1"></a>In the bottom of the output, we have the correlations between the fixed-effects estimates. In our example, it refers to the correlation between $\beta_{0}$ and $\beta_{1}$. It is negative indicating that in MSOAs where the relationship between unemployment and long-term illness is greater, as measured by $\beta_{1}$, the average proportion of unemployed people tends to be smaller, as captured by $\beta_{0}$.</span>
 <span id="cb72-477"><a href="#cb72-477" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-478"><a href="#cb72-478" aria-hidden="true" tabindex="-1"></a>We can also add group-level predictors. We use the formulation:</span>
+<span id="cb72-478"><a href="#cb72-478" aria-hidden="true" tabindex="-1"></a><span class="fu">### Adding Group-level Predictors {#sec-grouplevel}</span></span>
 <span id="cb72-479"><a href="#cb72-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-480"><a href="#cb72-480" aria-hidden="true" tabindex="-1"></a>OA-level:</span>
+<span id="cb72-480"><a href="#cb72-480" aria-hidden="true" tabindex="-1"></a>We can also add group-level predictors. We use the formulation:</span>
 <span id="cb72-481"><a href="#cb72-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-482"><a href="#cb72-482" aria-hidden="true" tabindex="-1"></a>$$y_{ij} = \beta_{0j} + \beta_{1}x_{ij} + e_{ij}$$</span>
+<span id="cb72-482"><a href="#cb72-482" aria-hidden="true" tabindex="-1"></a>OA-level:</span>
 <span id="cb72-483"><a href="#cb72-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-484"><a href="#cb72-484" aria-hidden="true" tabindex="-1"></a>MSOA-level:</span>
+<span id="cb72-484"><a href="#cb72-484" aria-hidden="true" tabindex="-1"></a>$$y_{ij} = \beta_{0j} + \beta_{1}x_{ij} + e_{ij}$$</span>
 <span id="cb72-485"><a href="#cb72-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-486"><a href="#cb72-486" aria-hidden="true" tabindex="-1"></a>$$\beta_{0j} = \beta_{0} + \gamma_{1}m_{j} + u_{0j}$$</span>
+<span id="cb72-486"><a href="#cb72-486" aria-hidden="true" tabindex="-1"></a>MSOA-level:</span>
 <span id="cb72-487"><a href="#cb72-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-488"><a href="#cb72-488" aria-hidden="true" tabindex="-1"></a>where $x_{ij}$ is the OA-level proportion of population suffering long-term illness and $m_{j}$ is the MSOA-level proportion of male population. We first need to create this group-level predictor:</span>
+<span id="cb72-488"><a href="#cb72-488" aria-hidden="true" tabindex="-1"></a>$$\beta_{0j} = \beta_{0} + \gamma_{1}m_{j} + u_{0j}$$</span>
 <span id="cb72-489"><a href="#cb72-489" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-492"><a href="#cb72-492" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-493"><a href="#cb72-493" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb72-494"><a href="#cb72-494" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb72-495"><a href="#cb72-495" aria-hidden="true" tabindex="-1"></a><span class="co"># detach OA shp and attach MSOA shp</span></span>
-<span id="cb72-496"><a href="#cb72-496" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(oa_shp)</span>
-<span id="cb72-497"><a href="#cb72-497" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(msoa_shp)</span>
-<span id="cb72-498"><a href="#cb72-498" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-499"><a href="#cb72-499" aria-hidden="true" tabindex="-1"></a><span class="co"># group-level predictor</span></span>
-<span id="cb72-500"><a href="#cb72-500" aria-hidden="true" tabindex="-1"></a>msoa_shp<span class="sc">$</span>pr_male <span class="ot">&lt;-</span> males<span class="sc">/</span>pop</span>
-<span id="cb72-501"><a href="#cb72-501" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-502"><a href="#cb72-502" aria-hidden="true" tabindex="-1"></a><span class="co"># remove geometries</span></span>
-<span id="cb72-503"><a href="#cb72-503" aria-hidden="true" tabindex="-1"></a>msoa_df <span class="ot">&lt;-</span> <span class="st">`</span><span class="at">st_geometry&lt;-</span><span class="st">`</span>(msoa_shp, <span class="cn">NULL</span>)</span>
-<span id="cb72-504"><a href="#cb72-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-505"><a href="#cb72-505" aria-hidden="true" tabindex="-1"></a><span class="co"># select variables</span></span>
-<span id="cb72-506"><a href="#cb72-506" aria-hidden="true" tabindex="-1"></a>msoa_df <span class="ot">&lt;-</span> msoa_df <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(MSOA_CD, pop, pr_male)</span>
-<span id="cb72-507"><a href="#cb72-507" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-508"><a href="#cb72-508" aria-hidden="true" tabindex="-1"></a><span class="co"># merge data sets</span></span>
-<span id="cb72-509"><a href="#cb72-509" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x=</span>oa_shp, <span class="at">y=</span>msoa_df, <span class="at">by.x =</span> <span class="st">"msoa_cd"</span>, <span class="at">by.y=</span><span class="st">"MSOA_CD"</span>)</span>
-<span id="cb72-510"><a href="#cb72-510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-511"><a href="#cb72-511" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect data</span></span>
-<span id="cb72-512"><a href="#cb72-512" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oa_shp[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">c</span>(<span class="st">"msoa_cd"</span>, <span class="st">"oa_cd"</span>, <span class="st">"unemp"</span>, <span class="st">"pr_male"</span>)])</span>
-<span id="cb72-513"><a href="#cb72-513" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-514"><a href="#cb72-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-515"><a href="#cb72-515" aria-hidden="true" tabindex="-1"></a>We can now estimate our model:</span>
+<span id="cb72-490"><a href="#cb72-490" aria-hidden="true" tabindex="-1"></a>where $x_{ij}$ is the OA-level proportion of population suffering long-term illness and $m_{j}$ is the MSOA-level proportion of male population. We first need to create this group-level predictor:</span>
+<span id="cb72-491"><a href="#cb72-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-494"><a href="#cb72-494" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-495"><a href="#cb72-495" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb72-496"><a href="#cb72-496" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb72-497"><a href="#cb72-497" aria-hidden="true" tabindex="-1"></a><span class="co"># detach OA shp and attach MSOA shp</span></span>
+<span id="cb72-498"><a href="#cb72-498" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(oa_shp)</span>
+<span id="cb72-499"><a href="#cb72-499" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(msoa_shp)</span>
+<span id="cb72-500"><a href="#cb72-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-501"><a href="#cb72-501" aria-hidden="true" tabindex="-1"></a><span class="co"># group-level predictor</span></span>
+<span id="cb72-502"><a href="#cb72-502" aria-hidden="true" tabindex="-1"></a>msoa_shp<span class="sc">$</span>pr_male <span class="ot">&lt;-</span> males<span class="sc">/</span>pop</span>
+<span id="cb72-503"><a href="#cb72-503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-504"><a href="#cb72-504" aria-hidden="true" tabindex="-1"></a><span class="co"># remove geometries</span></span>
+<span id="cb72-505"><a href="#cb72-505" aria-hidden="true" tabindex="-1"></a>msoa_df <span class="ot">&lt;-</span> <span class="st">`</span><span class="at">st_geometry&lt;-</span><span class="st">`</span>(msoa_shp, <span class="cn">NULL</span>)</span>
+<span id="cb72-506"><a href="#cb72-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-507"><a href="#cb72-507" aria-hidden="true" tabindex="-1"></a><span class="co"># select variables</span></span>
+<span id="cb72-508"><a href="#cb72-508" aria-hidden="true" tabindex="-1"></a>msoa_df <span class="ot">&lt;-</span> msoa_df <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(MSOA_CD, pop, pr_male)</span>
+<span id="cb72-509"><a href="#cb72-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-510"><a href="#cb72-510" aria-hidden="true" tabindex="-1"></a><span class="co"># merge data sets</span></span>
+<span id="cb72-511"><a href="#cb72-511" aria-hidden="true" tabindex="-1"></a>oa_shp <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x=</span>oa_shp, <span class="at">y=</span>msoa_df, <span class="at">by.x =</span> <span class="st">"msoa_cd"</span>, <span class="at">by.y=</span><span class="st">"MSOA_CD"</span>)</span>
+<span id="cb72-512"><a href="#cb72-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-513"><a href="#cb72-513" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect data</span></span>
+<span id="cb72-514"><a href="#cb72-514" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oa_shp[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">c</span>(<span class="st">"msoa_cd"</span>, <span class="st">"oa_cd"</span>, <span class="st">"unemp"</span>, <span class="st">"pr_male"</span>)])</span>
+<span id="cb72-515"><a href="#cb72-515" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-516"><a href="#cb72-516" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-519"><a href="#cb72-519" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-520"><a href="#cb72-520" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb72-521"><a href="#cb72-521" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(msoa_shp)</span>
-<span id="cb72-522"><a href="#cb72-522" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(oa_shp)</span>
-<span id="cb72-523"><a href="#cb72-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-524"><a href="#cb72-524" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
-<span id="cb72-525"><a href="#cb72-525" aria-hidden="true" tabindex="-1"></a>eq5 <span class="ot">&lt;-</span> unemp <span class="sc">~</span> lt_ill <span class="sc">+</span> pr_male <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> msoa_cd)</span>
-<span id="cb72-526"><a href="#cb72-526" aria-hidden="true" tabindex="-1"></a>model5 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(eq5, <span class="at">data =</span> oa_shp)</span>
-<span id="cb72-527"><a href="#cb72-527" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-528"><a href="#cb72-528" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
-<span id="cb72-529"><a href="#cb72-529" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model5)</span>
-<span id="cb72-530"><a href="#cb72-530" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-531"><a href="#cb72-531" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-532"><a href="#cb72-532" aria-hidden="true" tabindex="-1"></a>This model includes the proportion of males and intercepts that vary by MSOA. The <span class="in">`lmer()`</span> function only accepts predictors at the individual level, so we have included data on the proportion of male population at this level. Explore and interpret the model running the functions below:</span>
+<span id="cb72-517"><a href="#cb72-517" aria-hidden="true" tabindex="-1"></a>We can now estimate our model:</span>
+<span id="cb72-518"><a href="#cb72-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-521"><a href="#cb72-521" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-522"><a href="#cb72-522" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb72-523"><a href="#cb72-523" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(msoa_shp)</span>
+<span id="cb72-524"><a href="#cb72-524" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(oa_shp)</span>
+<span id="cb72-525"><a href="#cb72-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-526"><a href="#cb72-526" aria-hidden="true" tabindex="-1"></a><span class="co"># specify a model equation</span></span>
+<span id="cb72-527"><a href="#cb72-527" aria-hidden="true" tabindex="-1"></a>eq5 <span class="ot">&lt;-</span> unemp <span class="sc">~</span> lt_ill <span class="sc">+</span> pr_male <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> msoa_cd)</span>
+<span id="cb72-528"><a href="#cb72-528" aria-hidden="true" tabindex="-1"></a>model5 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(eq5, <span class="at">data =</span> oa_shp)</span>
+<span id="cb72-529"><a href="#cb72-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-530"><a href="#cb72-530" aria-hidden="true" tabindex="-1"></a><span class="co"># estimates</span></span>
+<span id="cb72-531"><a href="#cb72-531" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model5)</span>
+<span id="cb72-532"><a href="#cb72-532" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-533"><a href="#cb72-533" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-536"><a href="#cb72-536" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-537"><a href="#cb72-537" aria-hidden="true" tabindex="-1"></a><span class="co"># fixed effects</span></span>
-<span id="cb72-538"><a href="#cb72-538" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(model5)</span>
-<span id="cb72-539"><a href="#cb72-539" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-540"><a href="#cb72-540" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-543"><a href="#cb72-543" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-544"><a href="#cb72-544" aria-hidden="true" tabindex="-1"></a><span class="co"># random effects</span></span>
-<span id="cb72-545"><a href="#cb72-545" aria-hidden="true" tabindex="-1"></a>ranef_m5 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model5)</span>
-<span id="cb72-546"><a href="#cb72-546" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ranef_m5<span class="sc">$</span>msoa_cd, <span class="dv">5</span>)</span>
-<span id="cb72-547"><a href="#cb72-547" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-548"><a href="#cb72-548" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-549"><a href="#cb72-549" aria-hidden="true" tabindex="-1"></a>Adding group-level predictors tends to improve inferences for group coefficients. Examine the confidence intervals, in order to evalute how the precision of our estimates of the MSOA intercepts have changed. *Have confidence intervals for the intercepts of Model 4 and 5 increased or reduced?* Hint: look at how to get the confidence intervals above.</span>
+<span id="cb72-534"><a href="#cb72-534" aria-hidden="true" tabindex="-1"></a>This model includes the proportion of males and intercepts that vary by MSOA. The <span class="in">`lmer()`</span> function only accepts predictors at the individual level, so we have included data on the proportion of male population at this level. Explore and interpret the model running the functions below:</span>
+<span id="cb72-535"><a href="#cb72-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-538"><a href="#cb72-538" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-539"><a href="#cb72-539" aria-hidden="true" tabindex="-1"></a><span class="co"># fixed effects</span></span>
+<span id="cb72-540"><a href="#cb72-540" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(model5)</span>
+<span id="cb72-541"><a href="#cb72-541" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb72-542"><a href="#cb72-542" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-545"><a href="#cb72-545" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-546"><a href="#cb72-546" aria-hidden="true" tabindex="-1"></a><span class="co"># random effects</span></span>
+<span id="cb72-547"><a href="#cb72-547" aria-hidden="true" tabindex="-1"></a>ranef_m5 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model5)</span>
+<span id="cb72-548"><a href="#cb72-548" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ranef_m5<span class="sc">$</span>msoa_cd, <span class="dv">5</span>)</span>
+<span id="cb72-549"><a href="#cb72-549" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-550"><a href="#cb72-550" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-551"><a href="#cb72-551" aria-hidden="true" tabindex="-1"></a><span class="fu">## Questions</span></span>
+<span id="cb72-551"><a href="#cb72-551" aria-hidden="true" tabindex="-1"></a>Adding group-level predictors tends to improve inferences for group coefficients. Examine the confidence intervals, in order to evalute how the precision of our estimates of the MSOA intercepts have changed. *Have confidence intervals for the intercepts of Model 4 and 5 increased or reduced?* Hint: look at how to get the confidence intervals above.</span>
 <span id="cb72-552"><a href="#cb72-552" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-553"><a href="#cb72-553" aria-hidden="true" tabindex="-1"></a>For the second assignment, we will be using a different dataset comprising information on COVID-19 cases, census data and the Index of Multiple Deprivation (IMD) for England. The data set is similar in structured to that used in this chapter. It is hierarchically organised into 149 Upper Tier Local Authority Districts (UTLADs) within 9 Regions and has 508 variables - see Chapter \@ref(datasets) for a more detailed description of the data.</span>
+<span id="cb72-553"><a href="#cb72-553" aria-hidden="true" tabindex="-1"></a><span class="fu">## Questions</span></span>
 <span id="cb72-554"><a href="#cb72-554" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-557"><a href="#cb72-557" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-558"><a href="#cb72-558" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/assignment_2_covid/covid19_eng.gpkg"</span>)</span>
-<span id="cb72-559"><a href="#cb72-559" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-560"><a href="#cb72-560" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-561"><a href="#cb72-561" aria-hidden="true" tabindex="-1"></a>Here we see a selection of 10 variables for 5 UTLADs.</span>
+<span id="cb72-555"><a href="#cb72-555" aria-hidden="true" tabindex="-1"></a>For the second assignment, we will be using a different dataset comprising information on COVID-19 cases, census data and the Index of Multiple Deprivation (IMD) for England. The data set is similar in structured to that used in this chapter. It is hierarchically organised into 149 Upper Tier Local Authority Districts (UTLADs) within 9 Regions and has 508 variables - see Chapter \@ref(datasets) for a more detailed description of the data.</span>
+<span id="cb72-556"><a href="#cb72-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-559"><a href="#cb72-559" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-560"><a href="#cb72-560" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/assignment_2_covid/covid19_eng.gpkg"</span>)</span>
+<span id="cb72-561"><a href="#cb72-561" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-562"><a href="#cb72-562" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-565"><a href="#cb72-565" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-566"><a href="#cb72-566" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sdf[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">381</span>,<span class="dv">385</span>,<span class="dv">386</span>,<span class="dv">387</span>,<span class="dv">403</span>,<span class="dv">406</span>)])</span>
-<span id="cb72-567"><a href="#cb72-567" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-568"><a href="#cb72-568" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-569"><a href="#cb72-569" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`ctyua19nm`</span>: Upper Tier Local Authority District name</span>
-<span id="cb72-570"><a href="#cb72-570" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Region`</span>: Region name</span>
-<span id="cb72-571"><a href="#cb72-571" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`X2020.01.31`</span>: COVID-19 cases on January 31st 2020</span>
-<span id="cb72-572"><a href="#cb72-572" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`X2020.02.01`</span>: COVID-19 cases on February 1st 2020</span>
-<span id="cb72-573"><a href="#cb72-573" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`IMD...Average.score`</span>: Average IMD score for UTLADs - see <span class="co">[</span><span class="ot">File 11: upper-tier local authority summaries</span><span class="co">](https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019)</span> for information on this and associated indicators.</span>
-<span id="cb72-574"><a href="#cb72-574" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Residents`</span>: Number of residents</span>
-<span id="cb72-575"><a href="#cb72-575" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Households`</span>: Number of households</span>
-<span id="cb72-576"><a href="#cb72-576" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Dwellings`</span>: Number of dwellings</span>
-<span id="cb72-577"><a href="#cb72-577" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Age_85plus`</span>: Number of people aged 85 and over</span>
-<span id="cb72-578"><a href="#cb72-578" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`White_British_and_Irish`</span>: Number of white British and Irish people</span>
-<span id="cb72-579"><a href="#cb72-579" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-580"><a href="#cb72-580" aria-hidden="true" tabindex="-1"></a>Note that variable names relating to the daily COVID-19 cases are organised in the following way: <span class="in">`X`</span> stands for daily COVID-19 cases, followed by the year (i.e. 2020, 2021); month (i.e. January to December); and day (i.e. 01 to 31).</span>
+<span id="cb72-563"><a href="#cb72-563" aria-hidden="true" tabindex="-1"></a>Here we see a selection of 10 variables for 5 UTLADs.</span>
+<span id="cb72-564"><a href="#cb72-564" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-567"><a href="#cb72-567" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-568"><a href="#cb72-568" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sdf[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">381</span>,<span class="dv">385</span>,<span class="dv">386</span>,<span class="dv">387</span>,<span class="dv">403</span>,<span class="dv">406</span>)])</span>
+<span id="cb72-569"><a href="#cb72-569" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb72-570"><a href="#cb72-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-571"><a href="#cb72-571" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`ctyua19nm`</span>: Upper Tier Local Authority District name</span>
+<span id="cb72-572"><a href="#cb72-572" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Region`</span>: Region name</span>
+<span id="cb72-573"><a href="#cb72-573" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`X2020.01.31`</span>: COVID-19 cases on January 31st 2020</span>
+<span id="cb72-574"><a href="#cb72-574" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`X2020.02.01`</span>: COVID-19 cases on February 1st 2020</span>
+<span id="cb72-575"><a href="#cb72-575" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`IMD...Average.score`</span>: Average IMD score for UTLADs - see <span class="co">[</span><span class="ot">File 11: upper-tier local authority summaries</span><span class="co">](https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019)</span> for information on this and associated indicators.</span>
+<span id="cb72-576"><a href="#cb72-576" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Residents`</span>: Number of residents</span>
+<span id="cb72-577"><a href="#cb72-577" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Households`</span>: Number of households</span>
+<span id="cb72-578"><a href="#cb72-578" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Dwellings`</span>: Number of dwellings</span>
+<span id="cb72-579"><a href="#cb72-579" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`Age_85plus`</span>: Number of people aged 85 and over</span>
+<span id="cb72-580"><a href="#cb72-580" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`White_British_and_Irish`</span>: Number of white British and Irish people</span>
 <span id="cb72-581"><a href="#cb72-581" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-582"><a href="#cb72-582" aria-hidden="true" tabindex="-1"></a>Using these data, you are required to address the following challenges:</span>
+<span id="cb72-582"><a href="#cb72-582" aria-hidden="true" tabindex="-1"></a>Note that variable names relating to the daily COVID-19 cases are organised in the following way: <span class="in">`X`</span> stands for daily COVID-19 cases, followed by the year (i.e. 2020, 2021); month (i.e. January to December); and day (i.e. 01 to 31).</span>
 <span id="cb72-583"><a href="#cb72-583" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-584"><a href="#cb72-584" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Fit a varying-intercept model with no explanatory variables. Let the intercept to vary by region.</span>
+<span id="cb72-584"><a href="#cb72-584" aria-hidden="true" tabindex="-1"></a>Using these data, you are required to address the following challenges:</span>
 <span id="cb72-585"><a href="#cb72-585" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-586"><a href="#cb72-586" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Fit a varying-intercept model with including at least three explanatory variables.</span>
+<span id="cb72-586"><a href="#cb72-586" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Fit a varying-intercept model with no explanatory variables. Let the intercept to vary by region.</span>
 <span id="cb72-587"><a href="#cb72-587" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-588"><a href="#cb72-588" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Compute the Variance Partition Coefficient (VPC) for the models estimated according to points 1 and 2 above.</span>
+<span id="cb72-588"><a href="#cb72-588" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Fit a varying-intercept model with including at least three explanatory variables.</span>
 <span id="cb72-589"><a href="#cb72-589" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-590"><a href="#cb72-590" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Create caterpillar plots to visualise the varying intercepts.</span>
+<span id="cb72-590"><a href="#cb72-590" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Compute the Variance Partition Coefficient (VPC) for the models estimated according to points 1 and 2 above.</span>
 <span id="cb72-591"><a href="#cb72-591" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-592"><a href="#cb72-592" aria-hidden="true" tabindex="-1"></a>Analyse and discuss: 1. the extent of variation in the dependent variables at the two geographical scales (variation at which geographical scale explains most of variance in your dependent variable); 2. the varying intercept estimate(s) from your model(s) (what can they tell you about the difference between groups / areas? are they statistically significantly different?);</span>
+<span id="cb72-592"><a href="#cb72-592" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Create caterpillar plots to visualise the varying intercepts.</span>
 <span id="cb72-593"><a href="#cb72-593" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-594"><a href="#cb72-594" aria-hidden="true" tabindex="-1"></a>Ensure you appropriately describe the structure of the data and identify the various geographical scales of analysis (i.e. level-1 and level-2 units)</span>
+<span id="cb72-594"><a href="#cb72-594" aria-hidden="true" tabindex="-1"></a>Analyse and discuss: 1. the extent of variation in the dependent variables at the two geographical scales (variation at which geographical scale explains most of variance in your dependent variable); 2. the varying intercept estimate(s) from your model(s) (what can they tell you about the difference between groups / areas? are they statistically significantly different?);</span>
 <span id="cb72-595"><a href="#cb72-595" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-596"><a href="#cb72-596" aria-hidden="true" tabindex="-1"></a>In addressing the challenges in this and following chapters, you have some flexibility to be creative. A set of key factors to consider:</span>
+<span id="cb72-596"><a href="#cb72-596" aria-hidden="true" tabindex="-1"></a>Ensure you appropriately describe the structure of the data and identify the various geographical scales of analysis (i.e. level-1 and level-2 units)</span>
 <span id="cb72-597"><a href="#cb72-597" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-598"><a href="#cb72-598" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>*Dependent Variable*: We will seek to explain daily COVID-19 cases, and you will need to make a decision as to:</span>
+<span id="cb72-598"><a href="#cb72-598" aria-hidden="true" tabindex="-1"></a>In addressing the challenges in this and following chapters, you have some flexibility to be creative. A set of key factors to consider:</span>
 <span id="cb72-599"><a href="#cb72-599" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-600"><a href="#cb72-600" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*Daily vs cumulative COVID-19 cases*. Given that we will be focusing on cross-sectional models (i.e. models for one snapshot), you can focus on modelling daily cases at one specific date or cumulative daily cases over a period of time.</span>
+<span id="cb72-600"><a href="#cb72-600" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>*Dependent Variable*: We will seek to explain daily COVID-19 cases, and you will need to make a decision as to:</span>
 <span id="cb72-601"><a href="#cb72-601" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-602"><a href="#cb72-602" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*Time period*. You can select the date or period of time that you will focus your analysis on.</span>
+<span id="cb72-602"><a href="#cb72-602" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*Daily vs cumulative COVID-19 cases*. Given that we will be focusing on cross-sectional models (i.e. models for one snapshot), you can focus on modelling daily cases at one specific date or cumulative daily cases over a period of time.</span>
 <span id="cb72-603"><a href="#cb72-603" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-604"><a href="#cb72-604" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*Use risk of COVID-19 infection*. The dependent variable should be the risk or rate of COVID-19 infection.</span>
+<span id="cb72-604"><a href="#cb72-604" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*Time period*. You can select the date or period of time that you will focus your analysis on.</span>
 <span id="cb72-605"><a href="#cb72-605" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-606"><a href="#cb72-606" aria-hidden="true" tabindex="-1"></a>For example, the risk of COVID-19 infection for the period (i.e. between Dec. 1st, 2020 - January 29th, 2021) comprising the third wave of the pandemic in the United Kingdom can be computed as:</span>
+<span id="cb72-606"><a href="#cb72-606" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*Use risk of COVID-19 infection*. The dependent variable should be the risk or rate of COVID-19 infection.</span>
 <span id="cb72-607"><a href="#cb72-607" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-610"><a href="#cb72-610" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-611"><a href="#cb72-611" aria-hidden="true" tabindex="-1"></a><span class="co"># computing cumulative COVID cases for  01/12/2020 - 29/01/2021</span></span>
-<span id="cb72-612"><a href="#cb72-612" aria-hidden="true" tabindex="-1"></a>sdf[, <span class="dv">509</span>] <span class="ot">&lt;-</span> sdf <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="st">"X2020.12.01"</span><span class="sc">:</span><span class="st">"X2021.01.29"</span>) <span class="sc">%&gt;%</span> <span class="co"># select COVID cases 01/12/2020 - 29/01/2021</span></span>
-<span id="cb72-613"><a href="#cb72-613" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cum_covid =</span> <span class="fu">rowSums</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric)))) <span class="sc">%&gt;%</span> <span class="co"># sum daily cases</span></span>
-<span id="cb72-614"><a href="#cb72-614" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(cum_covid) <span class="sc">%&gt;%</span> <span class="co"># select cumulative cases</span></span>
-<span id="cb72-615"><a href="#cb72-615" aria-hidden="true" tabindex="-1"></a>   <span class="fu">st_set_geometry</span>(., <span class="cn">NULL</span>) <span class="co"># set geometry to NULL</span></span>
-<span id="cb72-616"><a href="#cb72-616" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-617"><a href="#cb72-617" aria-hidden="true" tabindex="-1"></a><span class="co"># computing risk of infection</span></span>
-<span id="cb72-618"><a href="#cb72-618" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> sdf <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(</span>
-<span id="cb72-619"><a href="#cb72-619" aria-hidden="true" tabindex="-1"></a>  <span class="at">covid19_r =</span> <span class="fu">round</span>((cum_covid <span class="sc">/</span> Residents ) <span class="sc">*</span> <span class="dv">1000</span>) </span>
-<span id="cb72-620"><a href="#cb72-620" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb72-621"><a href="#cb72-621" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-622"><a href="#cb72-622" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-623"><a href="#cb72-623" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>*Explanatory variables*:</span>
+<span id="cb72-608"><a href="#cb72-608" aria-hidden="true" tabindex="-1"></a>For example, the risk of COVID-19 infection for the period (i.e. between Dec. 1st, 2020 - January 29th, 2021) comprising the third wave of the pandemic in the United Kingdom can be computed as:</span>
+<span id="cb72-609"><a href="#cb72-609" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-612"><a href="#cb72-612" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-613"><a href="#cb72-613" aria-hidden="true" tabindex="-1"></a><span class="co"># computing cumulative COVID cases for  01/12/2020 - 29/01/2021</span></span>
+<span id="cb72-614"><a href="#cb72-614" aria-hidden="true" tabindex="-1"></a>sdf[, <span class="dv">509</span>] <span class="ot">&lt;-</span> sdf <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="st">"X2020.12.01"</span><span class="sc">:</span><span class="st">"X2021.01.29"</span>) <span class="sc">%&gt;%</span> <span class="co"># select COVID cases 01/12/2020 - 29/01/2021</span></span>
+<span id="cb72-615"><a href="#cb72-615" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cum_covid =</span> <span class="fu">rowSums</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric)))) <span class="sc">%&gt;%</span> <span class="co"># sum daily cases</span></span>
+<span id="cb72-616"><a href="#cb72-616" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(cum_covid) <span class="sc">%&gt;%</span> <span class="co"># select cumulative cases</span></span>
+<span id="cb72-617"><a href="#cb72-617" aria-hidden="true" tabindex="-1"></a>   <span class="fu">st_set_geometry</span>(., <span class="cn">NULL</span>) <span class="co"># set geometry to NULL</span></span>
+<span id="cb72-618"><a href="#cb72-618" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-619"><a href="#cb72-619" aria-hidden="true" tabindex="-1"></a><span class="co"># computing risk of infection</span></span>
+<span id="cb72-620"><a href="#cb72-620" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> sdf <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(</span>
+<span id="cb72-621"><a href="#cb72-621" aria-hidden="true" tabindex="-1"></a>  <span class="at">covid19_r =</span> <span class="fu">round</span>((cum_covid <span class="sc">/</span> Residents ) <span class="sc">*</span> <span class="dv">1000</span>) </span>
+<span id="cb72-622"><a href="#cb72-622" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb72-623"><a href="#cb72-623" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-624"><a href="#cb72-624" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-625"><a href="#cb72-625" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*At least 3*. Use at least 3 explanatory variables. There is no maximum limit but consider your model to be parsimonious.</span>
+<span id="cb72-625"><a href="#cb72-625" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>*Explanatory variables*:</span>
 <span id="cb72-626"><a href="#cb72-626" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-627"><a href="#cb72-627" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*Choice your set*. Select the set of variables you consider appropriate / interesting. Make sure you justify your choice based on evidence and/or theory.</span>
+<span id="cb72-627"><a href="#cb72-627" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*At least 3*. Use at least 3 explanatory variables. There is no maximum limit but consider your model to be parsimonious.</span>
 <span id="cb72-628"><a href="#cb72-628" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-629"><a href="#cb72-629" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*Percentages / Proportions*. Use percentages or proportions to capture the composition of places, rather than numbers of people, households or dwellings. For this, ensure you are using the appropriate denominator.</span>
+<span id="cb72-629"><a href="#cb72-629" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*Choice your set*. Select the set of variables you consider appropriate / interesting. Make sure you justify your choice based on evidence and/or theory.</span>
 <span id="cb72-630"><a href="#cb72-630" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-631"><a href="#cb72-631" aria-hidden="true" tabindex="-1"></a>For instance, if you want to capture the relationship between cumulative COVID-19 cases and overcrowding, share of elderly population and nonwhite minorities, use the following variables</span>
+<span id="cb72-631"><a href="#cb72-631" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*Percentages / Proportions*. Use percentages or proportions to capture the composition of places, rather than numbers of people, households or dwellings. For this, ensure you are using the appropriate denominator.</span>
 <span id="cb72-632"><a href="#cb72-632" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-635"><a href="#cb72-635" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-636"><a href="#cb72-636" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> sdf <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
-<span id="cb72-637"><a href="#cb72-637" aria-hidden="true" tabindex="-1"></a>  <span class="at">crowded_hou =</span> Crowded_housing <span class="sc">/</span> Households, <span class="co"># share of crowded housing</span></span>
-<span id="cb72-638"><a href="#cb72-638" aria-hidden="true" tabindex="-1"></a>  <span class="at">elderly =</span> (Age_85plus) <span class="sc">/</span> Residents, <span class="co"># share of population aged 65+</span></span>
-<span id="cb72-639"><a href="#cb72-639" aria-hidden="true" tabindex="-1"></a>  <span class="at">ethnic =</span> (Mixed <span class="sc">+</span> Indian <span class="sc">+</span> Pakistani <span class="sc">+</span> Bangladeshi <span class="sc">+</span> Chinese <span class="sc">+</span> Other_Asian <span class="sc">+</span> Black <span class="sc">+</span> Other_ethnicity) <span class="sc">/</span> Residents, <span class="co"># share of nonwhite population</span></span>
-<span id="cb72-640"><a href="#cb72-640" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb72-641"><a href="#cb72-641" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-642"><a href="#cb72-642" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-643"><a href="#cb72-643" aria-hidden="true" tabindex="-1"></a>**ADVICE**: Create a new spatial data frame including only the variables you will analyse. For example:</span>
+<span id="cb72-633"><a href="#cb72-633" aria-hidden="true" tabindex="-1"></a>For instance, if you want to capture the relationship between cumulative COVID-19 cases and overcrowding, share of elderly population and nonwhite minorities, use the following variables</span>
+<span id="cb72-634"><a href="#cb72-634" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-637"><a href="#cb72-637" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-638"><a href="#cb72-638" aria-hidden="true" tabindex="-1"></a>sdf <span class="ot">&lt;-</span> sdf <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb72-639"><a href="#cb72-639" aria-hidden="true" tabindex="-1"></a>  <span class="at">crowded_hou =</span> Crowded_housing <span class="sc">/</span> Households, <span class="co"># share of crowded housing</span></span>
+<span id="cb72-640"><a href="#cb72-640" aria-hidden="true" tabindex="-1"></a>  <span class="at">elderly =</span> (Age_85plus) <span class="sc">/</span> Residents, <span class="co"># share of population aged 65+</span></span>
+<span id="cb72-641"><a href="#cb72-641" aria-hidden="true" tabindex="-1"></a>  <span class="at">ethnic =</span> (Mixed <span class="sc">+</span> Indian <span class="sc">+</span> Pakistani <span class="sc">+</span> Bangladeshi <span class="sc">+</span> Chinese <span class="sc">+</span> Other_Asian <span class="sc">+</span> Black <span class="sc">+</span> Other_ethnicity) <span class="sc">/</span> Residents, <span class="co"># share of nonwhite population</span></span>
+<span id="cb72-642"><a href="#cb72-642" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb72-643"><a href="#cb72-643" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb72-644"><a href="#cb72-644" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-647"><a href="#cb72-647" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-648"><a href="#cb72-648" aria-hidden="true" tabindex="-1"></a>nsdf <span class="ot">&lt;-</span> sdf  <span class="sc">%&gt;%</span>  dplyr<span class="sc">::</span><span class="fu">select</span>(objectid, </span>
-<span id="cb72-649"><a href="#cb72-649" aria-hidden="true" tabindex="-1"></a>                         ctyua19cd, </span>
-<span id="cb72-650"><a href="#cb72-650" aria-hidden="true" tabindex="-1"></a>                         ctyua19nm, </span>
-<span id="cb72-651"><a href="#cb72-651" aria-hidden="true" tabindex="-1"></a>                         Region, </span>
-<span id="cb72-652"><a href="#cb72-652" aria-hidden="true" tabindex="-1"></a>                         covid19_r, </span>
-<span id="cb72-653"><a href="#cb72-653" aria-hidden="true" tabindex="-1"></a>                         crowded_hou, </span>
-<span id="cb72-654"><a href="#cb72-654" aria-hidden="true" tabindex="-1"></a>                         elderly, </span>
-<span id="cb72-655"><a href="#cb72-655" aria-hidden="true" tabindex="-1"></a>                         ethnic, </span>
-<span id="cb72-656"><a href="#cb72-656" aria-hidden="true" tabindex="-1"></a>                         Residents)</span>
-<span id="cb72-657"><a href="#cb72-657" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb72-645"><a href="#cb72-645" aria-hidden="true" tabindex="-1"></a>**ADVICE**: Create a new spatial data frame including only the variables you will analyse. For example:</span>
+<span id="cb72-646"><a href="#cb72-646" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-649"><a href="#cb72-649" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb72-650"><a href="#cb72-650" aria-hidden="true" tabindex="-1"></a>nsdf <span class="ot">&lt;-</span> sdf  <span class="sc">%&gt;%</span>  dplyr<span class="sc">::</span><span class="fu">select</span>(objectid, </span>
+<span id="cb72-651"><a href="#cb72-651" aria-hidden="true" tabindex="-1"></a>                         ctyua19cd, </span>
+<span id="cb72-652"><a href="#cb72-652" aria-hidden="true" tabindex="-1"></a>                         ctyua19nm, </span>
+<span id="cb72-653"><a href="#cb72-653" aria-hidden="true" tabindex="-1"></a>                         Region, </span>
+<span id="cb72-654"><a href="#cb72-654" aria-hidden="true" tabindex="-1"></a>                         covid19_r, </span>
+<span id="cb72-655"><a href="#cb72-655" aria-hidden="true" tabindex="-1"></a>                         crowded_hou, </span>
+<span id="cb72-656"><a href="#cb72-656" aria-hidden="true" tabindex="-1"></a>                         elderly, </span>
+<span id="cb72-657"><a href="#cb72-657" aria-hidden="true" tabindex="-1"></a>                         ethnic, </span>
+<span id="cb72-658"><a href="#cb72-658" aria-hidden="true" tabindex="-1"></a>                         Residents)</span>
+<span id="cb72-659"><a href="#cb72-659" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

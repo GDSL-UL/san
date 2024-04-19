@@ -188,11 +188,13 @@ summary(model2)
 
 We can estimate a three-level model by replacing `(1 | lsoa_cd)` for `(1 | msoa_cd/lsoa_cd)` to allow the intercept to also vary by MSOAs and account for the nesting structure of LSOAs within MSOAs. In multilevel modelling, these types of models are formally known as *nested random effects* and they differ from a different set of models known as *crossed random effects*.
 
-::: column-margin ::: callout-note A crossed random effect model in our example would be expressed as follows:
+::: column-margin 
+::: callout-note 
+A crossed random effect model in our example would be expressed as follows:
 
 `unemp ~ 1 + (1 | lsoa_cd) + (1 | msoa_cd)`
-
-::: ::: column-margin
+::: 
+:::
 
 ```{r}
 # specify a model equation
