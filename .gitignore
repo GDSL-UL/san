@@ -8,3 +8,5 @@ spatial_analysis_notes.rds
 .Rproj.user
 
 /.quarto/
+
+**/*.quarto_ipynb

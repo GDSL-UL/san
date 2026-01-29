@@ -1,4 +1,4 @@
-# Data Wrangling {#sec-chp3}
+# Spatial Data Wrangling {#sec-chp3}
 
 In this chapter, we will cover the fundamentals of the concepts and functions that you will need to know to navigate this book. We will introduce key concepts and functions relating to what computational notebooks are and how they work. We will also cover basic R functions and data types, including the use of factors. Additionally, we will offer a basic understanding of the manipulation and mapping of spatial data frames using commonly used libraries such as `tidyverse`, `sf`, `ggplot` and `tmap`.
 
@@ -64,11 +64,11 @@ setwd('../data/sar.csv')
 setwd('.')
 ```
 
-::: column-margin
+:::: column-margin
 ::: callout-note
 It is good practice to not include spaces when naming folders and files. Use *underscores* or *dots*.
 :::
-:::
+::::
 
 You can check your current working directory by typing:
 
@@ -80,11 +80,11 @@ getwd()
 
 An *R script* is a series of commands that you can execute at one time and help you save time. So you do not repeat the same steps every time you want to execute the same process with different datasets. An R script is just a plain text file with R commands in it.
 
-::: column-margin
+:::: column-margin
 ::: callout-note
 To get familiar with good practices in writing your code in R, we recommend the [Chapter Workflow: basics](https://r4ds.hadley.nz/workflow-basics.html) and [Workflow: scripts and projects](https://r4ds.hadley.nz/workflow-scripts) from the R in Data Science book by @wickham2023r.
 :::
-:::
+::::
 
 https://r4ds.hadley.nz/workflow-basics.html
 
@@ -376,11 +376,11 @@ Ensure your memory is clear
 rm(list=ls()) # rm for targeted deletion / ls for listing all existing objects
 ```
 
-::: column-margin
+:::: column-margin
 ::: callout-note
 When opening a file, ensure the correct directory set up pointing to your data. It may differ from your existing working directory.
 :::
-:::
+::::
 
 There are many commands to read / load data onto R. The command to use will depend upon the format they have been saved. Normally they are saved in *csv* format from Excel or other software packages. So we use either:
 
@@ -506,11 +506,11 @@ write.csv(join_dfs, "join_censusdfs.csv")
 
 A core area of the module is learning to work with spatial data in R. R has various purposedly designed `packages` for manipulation of spatial data and spatial analysis techniques. Various packages exist in CRAN, including `sf` [@sf2018; @R-sf], `stars` [@R-stars], `terra`, `s2` [@R-s2], `lwgeom` [@R-lwgeom], `gstat` [@pebesma2004; @R-gstat], `spdep` [@R-spdep], `spatialreg` [@R-spatialreg], `spatstat` [@baddeley2015spatial; @R-spatstat], `tmap` [@tmap2018; @R-tmap], `mapview` [@R-mapview] and more. A key package is this ecosystem is `sf` [@pebesma2023spatial]. R package `sf` provides a table format for simple features, where feature geometries are stored in a list-column. It appeared in 2016 and was developed to move spatial data analysis in R closer to standards-based approaches seen in the industry and open source projects, to build upon more modern versions of open source geospatial software stack and allow for integration of R spatial software with the `tidyverse` [@tidyverse2019], particularly `ggplot2`, `dplyr`, and `tidyr`. Hence, this book relies heavely on `sf` for the manipulation and analysis of the data.
 
-::: column-margin
+:::: column-margin
 ::: callout-note
 @lovelace2024 provide a helpful overview and evolution of R spatial package ecosystem.
 :::
-:::
+::::
 
 To read our spatial data, we use the `st_read` function. We read a shapefile containing data at Output Area (OA) level for Liverpool. These data illustrates the hierarchical structure of spatial data.
 
@@ -538,7 +538,7 @@ str(oa_shp)
 head(oa_shp)
 ```
 
-::: column-margin
+:::: column-margin
 ::: {.callout-tip appearance="simple" icon="false"}
 **Task**
 
@@ -546,7 +546,7 @@ head(oa_shp)
 -   What is the smallest geography?\
 -   What is the largest geography?\
 :::
-:::
+::::
 
 ### Basic Mapping
 
@@ -584,13 +584,13 @@ plot(oa_shp["Ethnic"], # variable to visualise
      border = 'grey') # boundary colour
 ```
 
-::: column-margin
+:::: column-margin
 ::: {.callout-tip appearance="simple" icon="false"}
 **Task**
 
 What is the key pattern emerging from this map?
 :::
-:::
+::::
 
 Let us now explore `ggplot` or `tmap`.
 
@@ -660,23 +660,23 @@ tmap_mode("view")
 map_oa
 ```
 
-::: column-margin
+:::: column-margin
 ::: {.callout-tip appearance="simple" icon="false"}
 **Task**
 
 Try mapping other variables in the spatial data frame. Where do population aged 60 and over concentrate?
 :::
-:::
+::::
 
 ### Comparing geographies
 
 If you recall, one of the key issues of working with spatial data is the modifiable area unit problem (MAUP) - see @spatial_data. To get a sense of the effects of MAUP, we analyse differences in the spatial patterns of the ethnic population in Liverpool between Middle Layer Super Output Areas (MSOAs) and OAs. So we map these geographies together.
 
-::: column-margin
+:::: column-margin
 ::: callout-note
 The first line of the chunk code include `tmap_mode("plot")` which tells R that we want a static map. `tmap_mode` works like a switch to interactive and non-interactive mapping.
 :::
-:::
+::::
 
 ```{r}
 tmap_mode("plot")
@@ -698,7 +698,7 @@ map_msoa = tm_shape(msoa_shp) +
 tmap_arrange(map_msoa, map_oa) 
 ```
 
-::: column-margin
+:::: column-margin
 ::: {.callout-tip appearance="simple" icon="false"}
 **Task**
 
@@ -706,4 +706,4 @@ What differences do you see between OAs and MSOAs?
 
 Can you identify areas of spatial clustering? Where are they?
 :::
-:::
+::::
